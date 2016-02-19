@@ -1,0 +1,4 @@
+You/PRP could/MD do/VB something/NN basic/JJ like/IN this/DT :/: $/$ safe_variable/JJ =/JJ mysql_real_escape_string/NN -LRB-/-LRB- $/$ _/CD POST/NN -LSB-/-LRB- ``/`` user-input/JJ ''/'' -RSB-/-RRB- -RRB-/-RRB- ;/: mysql_query/NN -LRB-/-LRB- ``/`` INSERT/NNP INTO/NNP table/NN -LRB-/-LRB- column/NN -RRB-/-RRB- VALUES/NNS -LRB-/-LRB- '/'' ''/'' ./.
+$/$ safe_variable/JJ ./. ''/'' '/'' -RRB-/-RRB- ''/'' -RRB-/-RRB-
+;/: This/NNP wo/MD n't/RB solve/VB every/DT problem/NN ,/, but/CC it/PRP 's/VBZ a/DT very/RB good/JJ stepping/JJ stone/NN ./.
+I/PRP left/VBD out/RP obvious/JJ items/NNS such/JJ as/IN checking/VBG the/DT variable/NN 's/POS existence/NN ,/, format/NN -LRB-/-LRB- numbers/NNS ,/, letters/NNS ,/, etc./FW -RRB-/-RRB- ./.

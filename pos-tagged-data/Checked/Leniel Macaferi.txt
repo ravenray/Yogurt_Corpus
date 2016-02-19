@@ -1,0 +1,11 @@
+I/PRP was/VBD getting/VBG this/DT error/NN too/RB ./.
+In/IN my/PRP$ case/NN ,/, a/DT user/NN entered/VBD an/DT accented/JJ character/NN á/FW in/IN a/DT Role/NN Name/NN -LRB-/-LRB- regarding/VBG the/DT ASP.NET/ACR membership/NN provider/NN -RRB-/-RRB- ./.
+I/PRP pass/VBP the/DT role/NN name/NN to/TO a/DT method/NN to/TO grant/VB Users/NNS to/TO that/DT role/NN and/CC the/DT $/COB ./COB
+ajax/COB post/COB request/COB was/VBD failing/VBG miserably/RB .../: I/PRP did/VBD this/DT to/TO solve/VB the/DT problem/NN :/: Instead/RB of/IN data/NNS :/: -LCB-/COB roleName/COB :/COB '/COB @Model/COB ./COB
+RoleName/COB '/COB ,/COB users/COB :/COB users/COB -RCB-/COB Do/VBP this/DT data/NNS :/: -LCB-/COB roleName/COB :/COB '/COB @Html/COB ./COB
+Raw/COB -LRB-/COB @Model/COB ./COB
+RoleName/COB -RRB-/COB '/COB ,/COB users/COB :/COB users/COB -RCB-/COB @Html/COB ./COB
+Raw/NN did/VBD the/DT trick/NN ./.
+I/PRP was/VBD getting/VBG the/DT Role/NN name/NN as/IN HTML/ACR value/NN roleName/COB =/COB ``/COB Cadastro/COB bás/COB ''/COB ./COB
+This/DT value/NN with/IN HTML/ACR entity/NN á/FW was/VBD being/VBG blocked/VBN by/IN ASP.NET/ACR MVC/ACR ./.
+Now/RB I/PRP get/VBP the/DT roleName/COS parameter/NN value/NN the/DT way/NN it/PRP should/MD be/VB :/: roleName/COB =/COB ``/COB Cadastro/COB Básico/COB ''/COB and/CC ASP.NET/ACR MVC/ACR engine/NN wo/MD n't/RB block/VB the/DT request/NN anymore/RB ./.

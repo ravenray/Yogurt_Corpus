@@ -1,0 +1,20 @@
+@Nikhil/ATS :/: Stored/JJ procedures/NNS themselves/PRP do/VBP little/JJ to/TO protect/VB against/IN SQL/ACR injection/NN ./.
+Unless/IN you/PRP use/VBP parametrized/JJ queries/NNS to/TO run/VB the/DT stored/VBN procedure/NN ,/, an/DT attacker/NN can/MD still/RB inject/VB malicious/JJ SQL/ACR into/IN a/DT query/NN ./.
+The/DT only/JJ real/JJ benefit/NN that/IN you/PRP 've/VBP cited/VBN is/VBZ that/IN it/PRP hides/VBZ the/DT database/NN structure/NN ,/, but/CC that/DT does/VBZ n't/RB mean/VB that/IN attacks/NNS are/VBP very/RB much/RB more/RBR difficult/JJ ./.
+The/DT rest/NN of/IN the/DT benefits/NNS you/PRP claim/VBP are/VBP just/RB so/RB much/JJ nonsense/NN ./.
+@Nikhil/ATS :/: Then/RB I/PRP apologize/VBP for/IN not/RB being/VBG clearer/JJR :/: Stored/JJ procedures/NNS are/VBP still/RB vulnerable/JJ to/TO the/DT same/JJ kinds/NNS of/IN injection/NN by/IN a/DT knowledgable/JJ attacker/NN that/IN a/DT plain/JJ query/NN is/VBZ ./.
+Types/NNS be/VB damned/RB if/IN you/PRP 're/VBP concatenating/VBG strings/NNS to/TO make/VB the/DT query/NN ./.
+The/DT only/RB sure/JJ protection/NN is/VBZ a/DT parametrized/JJ call/NN to/TO the/DT SP/ACR -LRB-/-LRB- by/IN which/WDT it/PRP is/VBZ technically/RB infeasible/JJ to/TO inject/VB SQL/ACR -RRB-/-RRB- ,/, negating/VBG the/DT whole/JJ argument/NN completely/RB ./.
+I/PRP contend/VBP that/IN it/PRP is/VBZ still/RB possible/JJ for/IN an/DT attacker/NN to/TO pass/VB dummy/NN arguments/NNS to/TO the/DT SP/ACR if/IN you/PRP do/VBP n't/RB use/VB a/DT parametrized/JJ call/NN ,/, and/CC in/IN doing/VBG so/RB gain/VB an/DT injection/NN vector/NN ./.
+SPs/ACR themselves/PRP do/VBP not/RB protect/VB you/PRP ./.
+@Nikhil/ATS :/: When/WRB you/PRP use/VBP prepared/JJ queries/NNS from/IN ,/, e.g./FW ,/, PHP/ACR ,/, you/PRP often/RB have/VBP the/DT opportunity/NN to/TO pass/VB parameters/NNS to/TO the/DT prepared/JJ query/NN when/WRB you/PRP execute/VBP it/PRP ./.
+For/IN example/NN ,/, call/NN mysqli_prepare/COS -LRB-/COS $/COS query/COS -RRB-/COS where/WRB $/COS query/COS contains/VBZ one/CD or/CC more/JJR ?/.
+in/IN place/NN of/IN parameters/NNS ,/, then/RB call/VB mysqli_execute/COS -LRB-/COS -RRB-/COS with/IN an/DT array/NN containing/VBG the/DT values/NNS and/CC variables/NNS to/TO be/VB passed/VBN to/TO the/DT query/NN ./.
+Because/IN the/DT query/NN is/VBZ compiled/VBN by/IN the/DT DB/ACR driver/NN ,/, and/CC the/DT driver/NN reads/VBZ the/DT data/NNS directly/RB from/IN the/DT passed/VBN values/NNS ,/, there/EX 's/VBZ never/RB any/DT opportunity/NN for/IN an/DT SQL/ACR injection/NN to/TO take/VB place/NN ./.
+This/DT assumes/VBZ that/IN no/DT portion/NN of/IN $/COS query/COS comes/VBZ from/IN users/NNS ./.
+@Nikhil/ATS :/: To/TO be/VB clear/JJ ,/, I/PRP have/VBP not/RB once/RB been/VBN talking/VBG about/IN what/WP goes/VBZ on/IN inside/IN the/DT SP/ACR ,/, as/IN it/PRP 's/VBZ quite/RB irrelevant/JJ to/TO SQL/ACR injection/NN concerns/NNS -LRB-/-LRB- unless/IN ,/, as/IN you/PRP point/VBP out/RP ,/, it/PRP builds/VBZ a/DT dynamic/JJ query/NN from/IN input/NN -RRB-/-RRB- ./.
+I/PRP 've/VBP only/RB been/VBN speaking/VBG off/RP the/DT call/NN site/NN ,/, where/WRB the/DT query/NN is/VBZ initiated/VBN from/IN PHP/ACR ./.
+@Nikhil/ATS :/: Yes/UH ,/, that/DT 's/VBZ what/WP I/PRP was/VBD trying/VBG to/TO say/VB :/: That/IN the/DT SP/ACR should/MD be/VB called/VBN with/IN a/DT prepared/JJ query/NN ./.
+But/CC your/PRP$ point/NN about/IN disabling/VBG access/NN is/VBZ a/DT complete/JJ non-issue/NN as/RB far/RB as/IN prepared/JJ statements/NNS are/VBP concerned/VBN ./.
+Again/RB ,/, it/PRP is/VBZ impossible/JJ to/TO inject/VB SQL/ACR into/IN a/DT parametric/JJ query/NN ,/, completely/RB obviating/VBG the/DT need/NN to/TO set/VB up/RP distinct/JJ permissions/NNS ./.
+Parametric/NN queries/NNS eliminate/VBP concerns/NNS about/IN injection/NN ;/: it/PRP 's/VBZ not/RB merely/RB protection/NN ./.

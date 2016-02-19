@@ -1,0 +1,32 @@
+There/EX are/VBP three/CD factors/NNS of/IN authentication/NN :/: A/DT user/NN knows/VBZ something/NN -LRB-/-LRB- ie/FW ,/, a/DT password/NN -RRB-/-RRB- A/DT user/NN has/VBZ something/NN -LRB-/-LRB- ie/FW ,/, a/DT key/JJ fob/NN -RRB-/-RRB- A/DT user/NN is/VBZ something/NN -LRB-/-LRB- ie/FW ,/, retina/NN scan/VBP -RRB-/-RRB- Usually/RB ,/, websites/NNS only/RB enforce/VBP policy/NN #/# 1/CD ./.
+Even/RB most/JJS banks/NNS only/RB enforce/VBP policy/NN 1/CD ./.
+They/PRP instead/RB rely/VBP on/IN a/DT ``/`` knows/VBZ something/NN else/JJ ''/'' approach/NN to/TO two-factor/JJ authentication/NN ./.
+-LRB-/-LRB- IE/FW :/: A/DT user/NN knows/VBZ their/PRP$ password/NN and/CC their/PRP$ mother/NN 's/POS maiden/JJ name/NN ./. -RRB-/-RRB-
+If/IN you/PRP are/VBP able/JJ ,/, a/DT way/NN to/TO add/VB in/IN a/DT second/JJ factor/NN of/IN authentication/NN is/VBZ not/RB too/RB difficult/JJ ./.
+If/IN you/PRP can/MD generate/VB around/IN 256/CD characters/NNS of/IN randomness/NN ,/, you/PRP could/MD structure/VB that/IN in/IN a/DT 16/CD ×/NN 16/CD table/NN ,/, and/CC then/RB ask/VB the/DT user/NN to/TO give/VB you/PRP the/DT value/NN in/IN the/DT table/NN of/IN cell/NN A-14/NN ,/, for/IN example/NN ./.
+When/WRB a/DT user/NN signs/VBZ up/RP or/CC changes/NNS their/PRP$ password/NN ,/, give/VB them/PRP the/DT table/NN and/CC tell/VB them/PRP to/TO print/VB it/PRP off/RP and/CC save/VB it/PRP ./.
+The/DT difficulty/NN with/IN that/DT approach/NN is/VBZ that/IN when/WRB a/DT user/NN forgets/VBZ their/PRP$ password/NN ,/, as/IN they/PRP will/MD ,/, you/PRP ca/MD n't/RB just/RB offer/VB the/DT standard/NN ``/`` answer/VB this/DT question/NN and/CC put/VBD in/RP a/DT new/JJ password/NN ''/'' ,/, since/IN that/DT 's/VBZ vulnerable/JJ to/TO brute-force/NN as/RB well/RB ./.
+Also/RB ,/, you/PRP ca/MD n't/RB reset/VB it/PRP and/CC email/VB them/PRP a/DT new/JJ one/CD ,/, since/IN their/PRP$ email/NN could/MD be/VB compromised/VBN as/RB well/RB ./.
+-LRB-/-LRB- See/VB :/: Makeuseof.com/URL and/CC their/PRP$ stolen/JJ domain/NN ./. -RRB-/-RRB-
+Another/DT idea/NN -LRB-/-LRB- which/WDT involves/VBZ kittens/NNS -RRB-/-RRB- ,/, is/VBZ what/WDT BOA/ACR calls/VBZ SiteKey/COS -LRB-/-LRB- I/PRP believe/VBP they/PRP trademarked/VBD the/DT name/NN -RRB-/-RRB- ./.
+Briefly/RB ,/, you/PRP have/VBP the/DT user/NN upload/NN an/DT image/NN when/WRB they/PRP register/VBP ,/, and/CC when/WRB they/PRP attempt/VBP to/TO login/VB ,/, ask/VB them/PRP to/TO pick/VB their/PRP$ image/NN out/IN of/IN 8/CD or/CC 15/CD -LRB-/-LRB- or/CC more/JJR -RRB-/-RRB- random/JJ ones/NNS ./.
+So/RB ,/, if/IN a/DT user/NN uploads/VBZ a/DT picture/NN of/IN their/PRP$ kitten/NN ,/, theoretically/RB only/RB they/PRP know/VBP exactly/RB which/WDT picture/NN is/VBZ theirs/JJ out/IN of/IN all/PDT the/DT other/JJ kittens/NNS -LRB-/-LRB- or/CC flowers/NNS or/CC whatever/WDT -RRB-/-RRB- ./.
+The/DT only/JJ real/JJ vunerability/NN this/DT approach/NN has/VBZ is/VBZ the/DT man-in-the-middle/JJ attack/NN ./.
+One/CD more/JJR idea/NN -LRB-/-LRB- no/DT kittens/NNS though/IN -RRB-/-RRB- ,/, is/VBZ to/TO track/VB IPs/ACR that/IN users/NNS access/VBP the/DT system/NN with/IN ,/, and/CC require/VB them/PRP to/TO perform/VB additional/JJ authentication/NN -LRB-/-LRB- captcha/ACR ,/, pick/VBP a/DT kitty/NN ,/, pick/VBP a/DT key/NN from/IN this/DT table/NN -RRB-/-RRB- when/WRB they/PRP log/VBP in/IN from/IN an/DT address/NN they/PRP have/VBP n't/RB before/RB ./.
+Also/RB ,/, similar/JJ to/TO GMail/NNP ,/, allow/VBP the/DT user/NN to/TO view/VB where/WRB they/PRP have/VBP logged/VBN in/RP from/IN recently/RB ./.
+Edit/COS ,/, New/JJ Idea/NN :/: Another/DT way/NN of/IN validating/VBG login/NN attempts/NNS is/VBZ to/TO check/VB whether/IN or/CC not/RB the/DT user/NN has/VBZ come/VBN from/IN your/PRP$ login/NN page/NN ./.
+You/PRP ca/MD n't/RB check/VB referrers/NNS ,/, since/IN they/PRP can/MD be/VB easily/RB faked/VBN ./.
+What/WP you/PRP need/VBP is/VBZ to/TO set/VB a/DT key/NN in/IN the/DT _/COS SESSION/COS var/COS when/WRB the/DT user/NN views/VBZ the/DT login/NN page/NN ,/, and/CC then/RB check/VB to/TO make/VB sure/JJ that/IN key/NN exists/VBZ when/WRB they/PRP submit/VBP their/PRP$ login/NN information/NN ./.
+If/IN bot/NN does/VBZ not/RB submit/VB from/IN the/DT login/NN page/NN ,/, it/PRP will/MD not/RB be/VB able/JJ to/TO login/VB ./.
+You/PRP can/MD also/RB facilitate/VB this/DT by/IN involving/VBG javascript/NN in/IN the/DT process/NN ,/, either/CC by/IN using/VBG it/PRP to/TO set/VB a/DT cookie/NN ,/, or/CC adding/VBG some/DT information/NN to/TO the/DT form/NN after/IN it/PRP has/VBZ loaded/VBN ./.
+Or/CC ,/, you/PRP can/MD split/VB the/DT form/NN up/RP into/IN two/CD different/JJ submits/VBZ -LRB-/-LRB- ie/FW ,/, the/DT user/NN enters/VBZ their/PRP$ username/NN ,/, submits/VBZ ,/, then/RB on/IN a/DT new/JJ page/NN enters/VBZ their/PRP$ password/NN and/CC submit/VB again/RB ./. -RRB-/-RRB-
+The/DT key/NN ,/, in/IN this/DT case/NN ,/, is/VBZ the/DT most/RBS important/JJ aspect/NN ./.
+A/DT common/JJ method/NN of/IN generating/VBG them/PRP is/VBZ some/DT combination/NN of/IN the/DT user/NN 's/POS data/NNS ,/, their/PRP$ IP/ACR ,/, and/CC the/DT time/NN it/PRP was/VBD submitted/VBN ./.
+Yeah/UH ,/, I/PRP thought/VBD of/IN the/DT point/NN you/PRP brought/VBD up/RP last/JJ night/NN after/IN I/PRP had/VBD gone/VBN home/NN ./.
+I/PRP think/VBP the/DT way/NN to/TO fix/VB that/DT is/VBZ :/: When/WRB a/DT user/NN logs/NNS in/IN and/CC provides/VBZ a/DT correct/JJ password/NN ,/, display/VBP their/PRP$ image/NN and/CC some/DT number/NN of/IN other/JJ random/JJ ones/NNS ./.
+When/WRB they/PRP do/VBP not/RB provide/VB the/DT correct/JJ password/NN ,/, show/VBP some/DT number/NN of/IN random/JJ That/IN ``/`` could/MD ''/'' work/NN ,/, but/CC I/PRP see/VBP a/DT couple/NN problems/NNS ./.
+What/WP happens/VBZ if/IN the/DT photo/NN owner/NN removes/VBZ the/DT image/NN ?/.
+How/WRB can/MD you/PRP be/VB sure/JJ that/IN images/NNS returned/VBD wo/MD n't/RB be/VB offensive/JJ to/TO your/PRP$ user/NN ?/.
+How/WRB does/VBZ a/DT user/NN remember/VB where/WRB they/PRP clicked/VBD ?/.
+-LRB-/-LRB- It/PRP seems/VBZ difficult/JJ to/TO forget/VB -RRB-/-RRB- It/PRP 's/VBZ an/DT interesting/JJ idea/NN ,/, to/TO be/VB sure/JJ ./.
+I/PRP do/VBP think/VB Flickr/NNP has/VBZ content/NN ratings/NNS ,/, so/IN it/PRP would/MD be/VB mostly/RB safe/JJ on/IN that/DT front/NN ./.

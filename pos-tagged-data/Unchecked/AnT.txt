@@ -1,0 +1,5 @@
+It/PRP is/VBZ not/RB possible/JJ to/TO write/VB exception-safe/JJ code/NN under/IN the/DT assumption/NN that/IN ``/`` any/DT line/NN can/MD throw/VB ''/'' ./.
+The/DT design/NN of/IN exception-safe/JJ code/NN relies/VBZ critically/RB on/IN certain/JJ contracts/guarantees/NNS that/IN you/PRP are/VBP supposed/VBN to/TO expect/VB ,/, observe/VB ,/, follow/VB and/CC implement/VB in/IN your/PRP$ code/NN ./.
+It/PRP is/VBZ absolutely/RB necessary/JJ to/TO have/VB code/NN that/WDT is/VBZ guaranteed/VBN to/TO never/RB throw/VB ./.
+There/EX are/VBP other/JJ kinds/NNS of/IN exception/NN guarantees/NNS out/RB there/RB ./.
+In/IN other/JJ words/NNS ,/, creating/VBG exception-safe/JJ code/NN is/VBZ to/TO a/DT large/JJ degree/NN a/DT matter/NN of/IN program/NN design/NN not/RB just/RB a/DT matter/NN of/IN plain/JJ coding/NN ./.

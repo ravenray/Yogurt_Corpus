@@ -1,0 +1,16 @@
+The/DT first/JJ answer/NN I/PRP 've/VBP usually/RB heard/VBN when/WRB asking/VBG this/DT question/NN is/VBZ to/TO change/VB ports/NNS ,/, but/CC forget/VBP about/IN that/DT and/CC just/RB disable/VB IPv4/NN ./.
+If/IN you/PRP only/RB allow/VBP clients/NNS from/IN IPv6/NN networks/NNS you/PRP '/POS r/NN no/RB longer/RB pray/VB for/IN simple/JJ network/NN scanning/NN and/CC attackers/NNS will/MD resort/VB to/TO DNS/NNP lookups/NNS ./.
+Do/VBP n't/RB run/VB on/IN the/DT same/JJ address/NN as/IN your/PRP$ Apache/NNP -LRB-/COB AAAA/COB -RRB-/COB //COB Sendmail/COB -LRB-/COB MX/COB -/COB >/COB AAAA/COB -RRB-/COB //COB what/WP have/VBP you/PRP given/VBN out/RP to/TO everybody/NN -LRB-/COB AAAA/COB -RRB-/COB ./COB
+Make/VBP sure/RB your/PRP$ zone/NN ca/MD n't/RB be/VB xferd/COS ,/, wait/VB you/PRP 'r/VBP allowing/VBG your/PRP$ zone/NN to/TO be/VB downloaded/VBN by/IN anybody/NN ?/.
+If/IN the/DT bots/NNS find/VB your/PRP$ server/NN setup/NN new/JJ hostnames/NNS ,/, just/RB prepend/VB some/DT gibberish/NN to/TO your/PRP$ hostnames/NNS ,/, and/CC change/VB your/PRP$ address/NN ./.
+Leave/VB the/DT old/JJ names/NNS and/CC even/RB setup/NN **/SYM honeypot/NN names/NNS for/IN the/DT bot/NN net/NN to/TO timeout/VB on/IN ./.
+**/SYM Test/NNP your/PRP$ reverse/NN -LRB-/-LRB- PTR/ACR -RRB-/-RRB- records/NNS -LRB-/-LRB- under/IN ip6.arpa/COS ./. -RRB-/-RRB-
+to/TO see/VB if/IN they/PRP can/MD be/VB used/VBN to/TO zero/VB in/RP on/IN //: 4/CD 's/POS that/WDT have/VBP records/NNS VS/IN //: 4s/CD that/WDT do/VBP n't/RB ./.
+I.E./FW Typically/RB ip6.arpa/COS would/MD have/VB ~/SYM 32/CD ''/'' ./.
+``/`` s/NN in/IN an/DT address/NN but/CC trying/VBG with/IN the/DT last/JJ few/JJ missing/VBG might/MD elude/VB the/DT network/NN blocks/NNS that/WDT have/VBP records/NNS VS/IN others/NNS that/WDT do/VBP n't/RB ./.
+If/IN you/PRP take/VBP that/IN further/RB it/PRP becomes/VBZ possible/JJ to/TO skip/VB large/JJ portions/NNS of/IN the/DT address/NN space/NN ./.
+In/IN the/DT worst/JJS case/NN users/NNS will/MD have/VB to/TO setup/NN an/DT IPv6/COS tunnel/NN ,/, it/PRP 's/VBZ not/RB like/IN they/PRP 'd/MD have/VB to/TO go/VB as/RB far/RB as/IN VPNing/ACR into/IN a/DT DMZ/ACR .../: Though/IN one/PRP wonders/VBZ why/WRB that/DT 's/VBZ not/RB the/DT first/JJ option/NN ./.
+Also/RB Kerberos/NNP is/VBZ cool/JJ ,/, but/CC IMHO/ACR LDAP/ACR blows/NNS -LRB-/-LRB- What/WP 's/VBZ technically/RB wrong/JJ with/IN NISPlus/ACR ?/.
+I/PRP 've/VBP read/VBN that/IN Sun/NNP decided/VBD that/IN users/NNS wanted/VBD LDAP/COS and/CC because/IN of/IN this/DT they/PRP dropped/VBD NIS/ACR +/CC -RRB-/-RRB- ./.
+Kerberos/NNP does/VBZ work/NN fine/VB without/IN LDAP/ACR or/CC NIS/ACR ,/, just/RB have/VBP to/TO manage/VB users/NNS on/IN a/DT host/NN by/IN host/NN basis/NN ./.
+Using/VBG Kerberos/NNP gives/VBZ you/PRP an/DT easy/JJ to/TO use/VB ,/, if/IN not/RB automated/VBN ,/, PKI/ACR ./.

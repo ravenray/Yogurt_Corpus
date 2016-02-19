@@ -1,0 +1,10 @@
+Do/VBP you/PRP really/RB write/VB exception/NN safe/JJ code/NN ?/.
+-LSB-/-LRB- There/EX 's/VBZ no/DT such/JJ thing/NN ./.
+Exceptions/NNS are/VBP a/DT paper/NN shield/NN to/TO errors/NNS unless/IN you/PRP have/VBP a/DT managed/VBN environment/NN ./.
+This/DT applies/VBZ to/TO first/RB three/CD questions/NNS ./. -RSB-/-RRB-
+Do/VBP you/PRP know/VB and/or/CC actually/RB use/VBP alternatives/NNS that/IN work/NN ?/.
+-LSB-/-LRB- Alternative/NNP to/TO what/WP ?/.
+The/DT problem/NN here/RB is/VBZ people/NNS do/VBP n't/RB separate/VB actual/JJ errors/NNS from/IN normal/JJ program/NN operation/NN ./.
+If/IN it/PRP 's/VBZ normal/JJ program/NN operation/NN -LRB-/-LRB- ie/NN a/DT file/NN not/RB found/VBN -RRB-/-RRB- ,/, it/PRP 's/VBZ not/RB really/RB error/NN handling/NN ./.
+If/IN it/PRP 's/VBZ an/DT actual/JJ error/NN ,/, there/EX is/VBZ no/DT way/NN to/TO `/`` handle/VB '/'' it/PRP or/CC it/PRP 's/VBZ not/RB an/DT actual/JJ error/NN ./.
+Your/PRP$ goal/NN here/RB is/VBZ to/TO find/VB out/RP what/WP went/VBD wrong/JJ and/CC either/RB stop/VB the/DT spreadsheet/NN and/CC log/VB an/DT error/NN ,/, restart/VB the/DT driver/NN to/TO your/PRP$ toaster/NN ,/, or/CC just/RB pray/VB that/IN the/DT jetfighter/NN can/MD continue/VB flying/VBG even/RB when/WRB it/PRP 's/VBZ software/NN is/VBZ buggy/NN and/CC hope/NN for/IN the/DT best/JJS ./. -RSB-/-RRB-

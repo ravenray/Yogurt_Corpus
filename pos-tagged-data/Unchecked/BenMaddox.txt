@@ -1,0 +1,4 @@
+You/PRP can/MD catch/VB that/DT error/NN in/IN Global.asax/NN ./.
+I/PRP still/RB want/VBP to/TO validate/VB ,/, but/CC show/VBP an/DT appropriate/JJ message/NN ./.
+On/IN the/DT blog/NN listed/VBN below/IN ,/, a/DT sample/NN like/IN this/DT was/VBD available/JJ ./.
+void/JJ Application_Error/NN -LRB-/-LRB- object/NN sender/NN ,/, EventArgs/NNP e/LS -RRB-/-RRB- -LCB-/-LRB- Exception/NN ex/FW =/JJ Server.GetLastError/NN -LRB-/-LRB- -RRB-/-RRB- ;/: if/IN -LRB-/-LRB- ex/FW is/VBZ HttpRequestValidationException/NNP -RRB-/-RRB- -LCB-/-LRB- Response.Clear/NN -LRB-/-LRB- -RRB-/-RRB- ;/: Response.StatusCode/NN =/JJ 200/CD ;/: Response.Write/NN -LRB-/-LRB- @/SYM ''/'' -LSB-/-LRB- html/NN -RSB-/-RRB- ''/'' -RRB-/-RRB- ;/: Response.End/NN -LRB-/-LRB- -RRB-/-RRB- ;/: -RCB-/-RRB- -RCB-/-RRB- Redirecting/VBG to/TO another/DT page/NN also/RB seems/VBZ like/IN a/DT reasonable/JJ response/NN to/TO the/DT exception/NN ./.

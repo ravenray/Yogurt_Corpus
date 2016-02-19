@@ -1,0 +1,22 @@
+Update/VB :/: Times/NNS have/VBP changed/VBN ,/, we/PRP have/VBP a/DT SHA3/ACR winner/NN ./.
+I/PRP would/MD recommend/VB using/VBG keccak/NN -LRB-/-LRB- aka/ACR SHA3/ACR -RRB-/-RRB- winner/NN of/IN the/DT SHA3/ACR contest/NN ./.
+Original/JJ Answer/NN :/: In/IN order/NN of/IN weakest/JJS to/TO strongest/JJS I/PRP would/MD say/VB :/: RIPEMD/COS BROKEN/COS ,/, Should/MD never/RB be/VB used/VBN as/IN can/MD be/VB seen/VBN in/IN this/DT pdf/ACR MD-5/ACR BROKEN/COS ,/, Should/MD never/RB be/VB used/VBN ,/, can/MD be/VB broken/VBN in/IN 2/CD minutes/NNS with/IN a/DT laptop/JJ SHA-1/ACR BROKEN/COS ,/, Should/MD never/RB be/VB used/VBN ,/, is/VBZ broken/VBN in/IN principal/NN ,/, attacks/NNS are/VBP getting/VBG better/RBR by/IN the/DT week/NN SHA-2/ACR WEAK/COS ,/, Will/MD probably/RB be/VB broken/VBN in/IN the/DT next/JJ few/JJ years/NNS ./.
+A/DT few/JJ weaknesses/NNS have/VBP been/VBN found/VBN ./.
+Note/VB that/IN generally/RB the/DT higher/JJR key/JJ size/NN ,/, the/DT harder/JJR the/DT hash/JJ function/NN is/VBZ to/TO break/VB ./.
+While/IN key/JJ size/NN =/SYM strength/NN is/VBZ not/RB always/RB true/JJ ,/, it/PRP is/VBZ mostly/RB true/JJ ./.
+So/IN SHA-256/ACR is/VBZ probably/RB weaker/JJR than/IN SHA-512/ACR ./.
+Skein/NNP NO/DT KNOWN/VBN WEAKNESSES/NNS ,/, is/VBZ a/DT candidate/NN for/IN SHA-3/ACR ./.
+It/PRP is/VBZ fairly/RB new/JJ and/CC thus/RB untested/JJ ./.
+It/PRP has/VBZ been/VBN implemented/VBN in/IN a/DT bunch/NN of/IN languages/NNS ./.
+MD6/ACR NO/DT KNOWN/VBN WEAKNESSES/NNS ,/, is/VBZ another/DT a/DT candidate/NN for/IN SHA-3/ACR ./.
+Probably/RB stronger/JJR than/IN Skien/NNP ,/, but/CC slower/JJR on/IN single/JJ core/NN machines/NNS ./.
+Like/IN Skien/NNP it/PRP is/VBZ untested/JJ ./.
+Some/DT security/NN minded/VBD developers/NNS are/VBP using/VBG it/PRP ,/, in/IN mission/NN critical/JJ roles/NNS ./.
+Personally/RB I/PRP 'd/MD use/VB MD6/ACR ,/, because/IN one/PRP can/MD never/RB been/VBN too/RB paranoid/JJ ./.
+If/IN speed/NN is/VBZ a/DT real/JJ concern/NN I/PRP 'd/MD look/VB at/IN Skein/NNP ,/, or/CC SHA-256/ACR ./.
+I/PRP agree/VBP with/IN your/PRP$ sentiments/NNS ,/, but/CC I/PRP think/VBP the/DT community/NN is/VBZ in/IN a/DT strange/JJ position/NN ./.
+All/PDT the/DT hash/JJ functions/NNS in/IN use/NN are/VBP dangerously/RB close/JJ to/TO being/VBG broken/VBN -LRB-/-LRB- maybe/RB ,/, maybe/RB ,/, not/RB SHA2/ACR 256-512/CD -RRB-/-RRB- and/CC yet/RB we/PRP have/VBP to/TO wait/VB to/TO 2012/CD to/TO choose/VB a/DT replacement/NN ./.
+choose/VB your/PRP$ poison/NN :/: weak/broken/JJ or/CC untested/JJ -LRB-/-LRB- most/JJS NIST/ACR candidates/NNS have/VBP not/RB been/VBN public/JJ for/IN more/JJR than/IN 6/CD months/NNS -RRB-/-RRB- ?/.
+Tough/JJ choice/NN ./.
+@Cocowalla/ATS I/PRP do/VBP n't/RB think/VB we/PRP are/VBP likely/JJ to/TO see/VB full/JJ support/NN any/DT contestants/NNS ,/, until/IN one/CD of/IN them/PRP is/VBZ announced/VBN the/DT winner/NN ./.
+hash/VB functions/NNS typically/RB do/VBP n't/RB use/VB keys/NNS

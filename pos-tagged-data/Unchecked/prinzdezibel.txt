@@ -1,0 +1,4 @@
+Agree/VB except/IN #/# 4/CD -/: Let/VB me/PRP borrow/VB a/DT response/NN to/TO `/`` Why/WRB I/PRP hate/VBP DISTINCT/NNP '/POS :/: Developers/NNS have/VBP be/VB so/RB ass/RB whipped/VBN by/IN management/NN and/CC sales/NNS people/NNS deciding/VBG on/IN how/WRB the/DT code/NN should/MD be/VB written/VBN and/CC how/WRB long/RB it/PRP should/MD take/VB to/TO write/VB ,/, a/DT `/`` distinct/JJ '/'' can/MD be/VB a/DT great/JJ friend/NN ./.
+A/DT developer/NN does/VBZ n't/RB care/VB that/IN some/DT over/RB paid/VBN marketing/NN head/NN bought/VBD a/DT junk/NN list/NN of/IN data/NNS with/IN tons/NNS of/IN dupes/NNS ./.
+He/PRP just/RB wants/VBZ to/TO load/VB it/PRP and/CC get/VB on/RP with/IN his/PRP$ life/NN ./.
+Developers/NNS are/VBP just/RB trying/VBG to/TO keep/VB their/PRP$ hours/NNS under/IN 60/CD a/DT week/NN and/CC occasionally/RB see/VB sunlight/NN

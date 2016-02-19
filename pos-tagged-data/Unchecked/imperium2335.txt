@@ -1,0 +1,2 @@
+@Quentin/NN Is/VBZ there/EX a/DT difference/NN in/IN using/VBG $/$ r/SYM -/: >/JJR execute/VB -LRB-/-LRB- array/NN -LRB-/-LRB- $/$ param1/CD ,/, $/$ param2/CD -RRB-/-RRB- -RRB-/-RRB- to/TO binding/VBG each/DT variable/NN separately/RB ?/.
+i.e./FW bind_param/FW

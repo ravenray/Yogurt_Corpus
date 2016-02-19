@@ -1,0 +1,13 @@
+I/PRP 'd/MD give/VB you/PRP a/DT 1000/CD upvotes/NNS if/IN I/PRP could/MD for/IN that/DT first/JJ point/NN especially/RB Hey/UH writing/VBG ETL/ACR processes/NNS is/VBZ FUN/NN !/.
+-LRB-/-LRB- Ok/UH so/IN I/PRP 'm/VBP a/DT bit/RB wierd/JJ but/CC I/PRP do/VBP this/DT for/IN a/DT living/NN ./. -RRB-/-RRB-
+I/PRP 'd/MD like/VB to/TO add/VB :/: Favoring/VBG ``/`` Elegant/JJ ''/'' code/NN over/IN highly/RB performing/VBG code/NN ./.
+The/DT code/NN that/WDT works/VBZ best/JJS against/IN databases/NNS is/VBZ often/RB ugly/JJ to/TO the/DT application/NN developer/NN 's/POS eye/NN ./.
+Believing/VBG that/DT nonsense/NN about/IN premature/JJ optimization/NN ./.
+Databases/NNS must/MD consider/VB performance/NN in/IN the/DT original/JJ design/NN and/CC in/IN any/DT subsequent/JJ development/NN ./.
+Performance/NN is/VBZ 50/CD %/SYM of/IN database/NN design/NN -LRB-/-LRB- 40/CD %/SYM is/VBZ data/NN integrity/NN and/CC the/DT last/JJ 10/CD %/SYM is/VBZ security/NN -RRB-/-RRB- in/IN my/PRP$ opinion/NN ./.
+Databases/NNS which/WDT are/VBP not/RB built/VBN from/IN the/DT bottom/NN up/RP to/TO perform/VB will/MD perform/VB badly/RB once/RB real/JJ users/NNS and/CC real/JJ traffic/NN are/VBP placed/VBN against/IN the/DT database/NN ./.
+Premature/JJ optimization/NN does/VBZ n't/RB mean/VB no/DT optimization/NN !/.
+It/PRP does/VBZ n't/RB mean/VB you/PRP should/MD write/VB code/NN that/WDT will/MD almost/RB always/RB perform/VB badly/RB because/IN you/PRP find/VBP it/PRP easier/JJR -LRB-/-LRB- cursors/NNS for/IN example/NN which/WDT should/MD never/RB be/VB allowed/VBN in/IN a/DT production/NN database/NN unless/IN all/DT else/RB has/VBZ failed/VBN -RRB-/-RRB- ./.
+It/PRP means/VBZ you/PRP do/VBP n't/RB need/VB to/TO look/VB at/IN squeezing/VBG out/RP that/IN last/JJ little/JJ bit/NN of/IN performance/NN until/IN you/PRP need/VBP to/TO ./.
+A/DT lot/NN is/VBZ known/VBN about/IN what/WP will/MD perform/VB better/RBR on/IN databases/NNS ,/, to/TO ignore/VB this/DT in/IN design/NN and/CC development/NN is/VBZ short-sighted/JJ at/IN best/JJS ./.
+If/IN you/PRP set/VBP them/PRP up/RP correctly/RB they/PRP wo/MD n't/RB but/CC this/DT involves/VBZ the/DT use/NN of/IN triggers/NNS which/WDT many/JJ people/NNS are/VBP allergic/JJ to/TO ./.

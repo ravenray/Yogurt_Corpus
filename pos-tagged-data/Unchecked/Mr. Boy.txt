@@ -1,0 +1,3 @@
+EH/NN is/VBZ good/JJ ,/, generally/RB ./.
+But/CC C++/NNP 's/POS implementation/NN is/VBZ not/RB very/RB friendly/JJ as/IN it/PRP 's/VBZ really/RB hard/JJ to/TO tell/VB how/WRB good/JJ your/PRP$ exception/NN catching/VBG coverage/NN is/VBZ ./.
+Java/NNP for/IN instance/NN makes/VBZ this/DT easy/JJ ,/, the/DT compiler/NN will/MD tend/VB to/TO fail/VB if/IN you/PRP do/VBP n't/RB handle/VB possible/JJ exceptions/NNS ./.

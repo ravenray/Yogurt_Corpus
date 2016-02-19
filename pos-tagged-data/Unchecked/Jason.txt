@@ -1,0 +1,2 @@
+I/PRP am/VBP finding/VBG that/IN the/DT simple/JJ fix/NN PDO/NNP :/: :/: ATTR_EMULATE_PREPARES/NN =/JJ false/JJ can/NN cause/NN dropped/VBD DB/NN connections/NNS when/WRB preparing/VBG some/DT SQL/NN statements/NNS ./.
+I/PRP 've/VBP not/RB identified/VBN the/DT exact/JJ circumstances/NNS yet/RB -LRB-/-LRB- it/PRP happens/VBZ to/TO me/PRP when/WRB using/VBG lots/NNS of/IN joins/VBZ and/CC selecting/VBG from/IN a/DT custom/NN DB/NN function/NN -RRB-/-RRB- but/CC it/PRP is/VBZ something/NN to/TO be/VB aware/JJ of/IN when/WRB using/VBG this/DT option/NN ./.

@@ -1,0 +1,5 @@
+Some/DT of/IN us/PRP have/VBP been/VBN using/VBG exception/NN for/IN over/IN 20/CD years/NNS ./.
+PL/I/NN has/VBZ them/PRP ,/, for/IN example/NN ./.
+The/DT premise/NN that/IN they/PRP are/VBP a/DT new/JJ and/CC dangerous/JJ technology/NN seems/VBZ questionable/JJ to/TO me/PRP ./.
+If/IN you/PRP do/VBP n't/RB like/VB it/PRP ,/, do/VBP n't/RB use/VB it/PRP ./.
+Put/VB try/NN blocks/NNS around/IN things/NNS you/PRP need/VBP to/TO call/VB that/DT can/MD throw/VB ,/, and/CC reinvent/VB ye-olde-error-code/JJ ,/, and/CC suffer/VBP with/IN the/DT problems/NNS it/PRP has/VBZ ,/, which/WDT in/IN some/DT cases/NNS are/VBP tolerable/JJ ./.

@@ -1,0 +1,3 @@
+even/RB a/DT simple/JJ string/NN comparison/NN can/MD be/VB an/DT issue/NN ./.
+If/IN an/DT application/NN makes/VBZ a/DT trust/NN decision/NN based/VBN on/IN the/DT results/NNS of/IN this/DT String.Compare/NN operation/NN ,/, the/DT result/NN of/IN that/DT decision/NN could/MD be/VB subverted/VBN by/IN changing/VBG the/DT CurrentCulture/NNP Take/VB a/DT look/NN at/IN the/DT example/NN ./.
+Fairly/RB easy/JJ to/TO miss/VB

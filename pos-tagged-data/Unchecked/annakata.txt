@@ -1,0 +1,2 @@
+A/DT little/JJ black/JJ and/CC white/JJ but/CC +1/CD for/IN informative/JJ Further/JJ to/TO this/DT ,/, if/IN the/DT data/NNS or/CC required/VBN security/NN of/IN the/DT data/NN has/VBZ a/DT lifespan/NN shorter/JJR than/IN the/DT crack/NN period/NN -LRB-/-LRB- a/DT few/JJ minutes/NNS these/DT days/NNS iirc/NN -RRB-/-RRB- MD5/NN is/VBZ absolutely/RB fine/JJ ./.
+Situationally/RB useful/JJ but/CC still/RB useful/JJ is/VBZ the/DT point/NN ./.

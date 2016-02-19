@@ -1,0 +1,52 @@
+As/IN you/PRP can/MD see/VB ,/, people/NNS suggest/VBP you/PRP to/TO use/VB prepared/JJ statements/NNS at/IN the/DT most/JJS ./.
+It/PRP 's/VBZ not/RB wrong/JJ ,/, but/CC when/WRB your/PRP$ query/NN is/VBZ executed/VBN just/RB once/RB per/IN process/NN ,/, there/EX would/MD be/VB a/DT slightly/RB performance/NN penalty/NN ./.
+I/PRP was/VBD facing/VBG this/DT issue/NN ,/, but/CC I/PRP think/VBP I/PRP solved/VBD it/PRP in/IN very/RB sophisticated/JJ way/NN -/: the/DT way/NN hackers/NNS use/VBP to/TO avoid/VB using/VBG quotes/NNS ./.
+I/PRP used/VBD this/DT in/IN conjuction/NN with/IN emulated/VBN prepared/JJ statements/NNS ./.
+I/PRP use/VBP it/PRP to/TO prevent/VB all/DT kinds/NNS of/IN possible/JJ SQL/ARC injection/NN attacks/NNS ./.
+My/PRP$ approach/NN :/: If/IN you/PRP expect/VBP input/NN to/TO be/VB integer/NN make/VBP sure/JJ it/PRP 's/VBZ really/RB integer/NN ./.
+In/IN a/DT variable-type/JJ language/NN like/IN PHP/ACR it/PRP is/VBZ this/DT very/RB important/JJ ./.
+You/PRP can/MD use/VB for/IN example/NN this/DT very/RB simple/JJ but/CC powerful/JJ solution/NN :/: sprintf/COB -LRB-/COB ``/COB SELECT/COB 1,2,3/COB FROM/COB table/COB WHERE/COB 4/COB =/COB %/COB u/COB ''/COB ,/COB $/COB input/COB -RRB-/COB ;/COB If/IN you/PRP expect/VBP anything/NN else/RB from/IN integer/NN hex/NN it/PRP ./.
+If/IN you/PRP hex/VBP it/PRP ,/, you/PRP will/MD perfectly/RB escape/VB all/DT input/NN ./.
+In/IN C++/ACR there/EX 's/VBZ a/DT function/NN called/VBN mysql_hex_string/COS -LRB-/COS -RRB-/COS ,/, in/IN PHP/ACR you/PRP can/MD use/VB bin2hex/COS -LRB-/COS -RRB-/COS ./.
+Do/VBP n't/RB worry/VB about/IN that/IN the/DT escaped/VBN string/NN will/MD have/VB 2x/JJ size/NN of/IN its/PRP$ original/JJ length/NN because/IN even/RB if/IN you/PRP use/VBP mysql_real_escape_string/COS ,/, PHP/ACR has/VBZ to/TO allocate/VB same/JJ capacity/NN -LRB-/COB -LRB-/COB 2/COB */COB input_length/COB -RRB-/COB +1/COB -RRB-/COB ,/, which/WDT is/VBZ the/DT same/JJ ./.
+This/DT hex/NN method/NN is/VBZ often/RB used/VBN when/WRB you/PRP transfer/VBP binary/JJ data/NNS ,/, but/CC I/PRP see/VBP no/DT reason/NN why/WRB not/RB use/VB it/PRP on/IN all/DT data/NNS to/TO prevent/VB SQL/ACR injection/NN attacks/NNS ./.
+Note/VB that/IN you/PRP have/VBP to/TO prepend/VB data/NNS with/IN 0x/COS or/CC use/VB the/DT MySQL/ACR function/NN UNHEX/COS instead/RB ./.
+So/RB for/IN example/NN the/DT query/NN :/: SELECT/COB password/COB FROM/COB users/COB WHERE/COB name/COB =/COB `/COB root/COB '/COB Will/MD become/VB :/: SELECT/COB password/COB FROM/COB users/COB WHERE/COB name/COB =/COB 0x726f6f74/COB or/COB SELECT/COB password/COB FROM/COB users/COB WHERE/COB name/COB =/COB UNHEX/COB -LRB-/COB '/COB 726f6f74/COB '/COB -RRB-/COB Hex/NN is/VBZ the/DT perfect/JJ escape/NN ./.
+No/DT way/NN to/TO inject/VB ./.
+Difference/NN between/IN UNHEX/COS function/NN and/CC 0x/COS prefix/NN There/EX was/VBD some/DT discussion/NN in/IN comments/NNS ,/, so/IN I/PRP finally/RB want/VBP to/TO make/VB it/PRP clear/JJ ./.
+These/DT two/CD approaches/NNS are/VBP very/RB similar/JJ ,/, but/CC they/PRP are/VBP a/DT little/RB different/JJ in/IN some/DT ways/NNS :/: 0x/COS prefix/NN can/MD only/RB be/VB used/VBN on/IN data/NNS columns/NNS such/JJ as/IN char/COS ,/, varchar/COS ,/, text/COS ,/, block/COS ,/, binary/COS ,/, etc./FW ./.
+Also/RB its/PRP$ use/NN is/VBZ a/DT little/RB complicated/JJ if/IN you/PRP are/VBP about/IN to/TO insert/VB an/DT empty/JJ string/NN ./.
+You/PRP 'll/MD have/VB to/TO entirely/RB replace/VB it/PRP with/IN ''/'' ,/, or/CC you/PRP 'll/MD get/VB an/DT error/NN ./.
+UNHEX/COS -LRB-/COS -RRB-/COS works/VBZ on/IN any/DT column/NN ;/: you/PRP do/VBP not/RB have/VB to/TO worry/VB about/IN the/DT empty/JJ string/NN ./.
+Hex/NN methods/NNS are/VBP often/RB used/VBN as/IN attacks/NNS Note/VBP that/IN this/DT hex/NN method/NN is/VBZ often/RB used/VBN as/IN an/DT SQL/ACR injection/NN attack/NN where/WRB integers/NNS are/VBP just/RB like/IN strings/NNS and/CC escaped/VBD just/RB with/IN mysql_real_escape_string/COS ./.
+Then/RB you/PRP can/MD avoid/VB use/NN of/IN quotes/NNS ./.
+For/IN example/NN ,/, if/IN you/PRP just/RB do/VBP something/NN like/IN this/DT :/: ``/COB SELECT/COB title/COB FROM/COB article/COB WHERE/COB id/COB =/COB ''/COB ./COB
+mysql_real_escape_string/COB -LRB-/COB $/COB _/COB GET/COB -LSB-/COB ``/COB id/COB ''/COB -RSB-/COB -RRB-/COB an/DT attack/NN can/MD inject/VB you/PRP very/RB easily/RB ./.
+Consider/VB the/DT following/VBG injected/VBN COBe/COS returned/VBD from/IN your/PRP$ script/NN :/: SELECT/COB .../COB WHERE/COB id/COB =/COB -1/COB union/COB all/COB select/COB table_name/COB from/COB information_schema/COB ./COB
+tables/NNS and/CC now/RB just/RB extract/NN table/NN structure/NN :/: SELECT/COB .../COB WHERE/COB id/COB =/COB -1/COB union/COB all/COB select/COB column_name/COB from/COB information_schema/COB ./COB
+column/COB where/COB table_name/COB =/COB 0x61727469636c65/COB And/CC then/RB just/RB select/JJ whatever/WDT data/NNS ones/PRP want/VBP ./.
+Cool/JJ is/VBZ n't/RB it/PRP ?/.
+But/CC if/IN the/DT COBer/COS of/IN injectable/JJ site/NN would/MD hex/VB it/PRP ,/, no/DT injection/NN would/MD be/VB possible/JJ because/IN the/DT query/NN would/MD look/VB like/IN this/DT :/: SELECT/COB .../COB WHERE/COB id/COB =/COB UNHEX/COB -LRB-/COB '/COB 2d312075/COB .../COB 3635/COB '/COB -RRB-/COB @dadinck/ATS If/IN it/PRP is/VBZ numeric/JJ ,/, you/PRP dont/VBP need/VB to/TO hex/VB it/PRP ./.
+@YourCommonSense/ATS You/PRP are/VBP wrong/JJ !/.
+Number/NN 42/CD are/VBP two/CD bytes/NNS 4/CD and/CC 2/CD so/IN the/DT result/NN will/MD be/VB 0x3432/COS ./.
+Also/RB be/VB aware/JJ of/IN using/VBG it/PRP like/IN that/DT because/IN if/IN id/COS does/VBZ nt/RB contain/VBP anything/NN you/PRP will/MD get/VB id/COS =/COS 0x/COS and/CC end/VB up/RP with/IN an/DT error/NN ./.
+@asim/ATS -/ATS ishaq/ATS No/UH ./.
+Hex/NN is/VBZ deCOBed/COS by/IN mysql/ACR ./.
+Its/PRP$ just/RB transfer-enCOBing/JJ ./.
+Data/NN representation/NN is/VBZ the/DT same/JJ ./.
+You/PRP can/MD try/VB it/PRP yourself/PRP :-RRB-/EMO @SumitGupta/ATS Yea/UH ,/, you/PRP did/VBD ./.
+MySQL/ACR does/VBZ nt/RB concatenate/NN with/IN +/COS but/CC with/IN CONCAT/COS ./.
+And/CC to/TO the/DT performance/NN :/: I/PRP dont/VBP think/VB it/PRP affects/VBZ performance/NN because/IN mysql/ACR has/VBZ to/TO parse/VB data/NNS and/CC it/PRP does/VBZ nt/RB matter/NN if/IN origin/NN is/VBZ string/NN or/CC hex/NN @YourCommonSense/ATS What/WDT errors/NNS do/VBP you/PRP encounter/VB ?/.
+Be/VB specific/JJ ./.
+@YourCommonSense/ATS Your/PRP$ 0x/COB ./.
+$/COB _/COB GET/COB -LSB-/COB ``/COB id/COB ''/COB -RSB-/COB for/COB id/COB 42/COB will/MD result/VB in/IN byte/NN with/IN ascii/ACR COBe/COS 42/CD ./.
+Try/VB SELECT/COS 0x42/COS and/CC you/PRP 'll/MD see/VB what/WP you/PRP are/VBP at/IN ./.
+@YourCommonSense/ATS You/PRP do/VBP nt/RB understand/VBP the/DT concept/NN .../: If/IN you/PRP want/VBP to/TO have/VB string/NN in/IN mysql/ARC you/PRP quote/VBP it/PRP like/IN this/DT `/`` root/NN '/'' or/CC you/PRP can/MD hex/VB it/PRP 0x726f6f74/COS BUT/CC if/IN you/PRP want/VBP a/DT number/NN and/CC send/VB it/PRP as/IN string/NN you/PRP will/MD probably/RB write/VB '/'' 42/CD '/'' not/RB CHAR/COB -LRB-/COB 42/COB -RRB-/COB .../COB '/COB 42/COB '/COB in/IN hex/NN would/MD be/VB 0x3432/COS not/RB 0x42/COS @YourCommonSense/ATS I/PRP have/VBP nothing/NN to/TO say/VB .../: just/RB lol/ARC .../: if/IN you/PRP still/RB want/VBP to/TO try/VB hex/NN on/IN numeric/JJ fields/NNS ,/, see/VBP second/JJ comment/NN ./.
+I/PRP bet/VBP with/IN you/PRP that/IN it/PRP 'll/MD work/VB ./.
+@YourCommonSense/ATS you/PRP still/RB do/VB nt/RB understand/VB ?/.
+You/PRP can/MD not/RB use/VB 0x/COS and/CC concat/COS because/IN if/IN the/DT string/NN is/VBZ empty/JJ you/PRP will/MD end/VB with/IN an/DT error/NN ./.
+If/IN you/PRP want/VBP simple/JJ alternative/NN to/TO your/PRP$ query/NN try/VB this/DT one/CD SELECT/COB title/COB FROM/COB article/COB WHERE/COB id/COB =/COB UNHEX/COB -LRB-/COB '/COB ./COB
+bin2hex/COB -LRB-/COB $/COB _/COB GET/COB -LSB-/COB ``/COB id/COB ''/COB -RSB-/COB -RRB-/COB ./COB '/COB-RRB-/COB
+@YourCommonSense/ATS If/IN you/PRP do/VBP nt/RB want/VB to/TO do/VB that/IN you/PRP do/VBP nt/RB have/VB to/TO do/VB that/DT ./.
+I/PRP 'm/VBP not/RB forcing/VBG you/PRP :-RRB-/EMO @Cypher/ATS You/PRP will/MD have/VB to/TO check/VB for/IN your/PRP$ provider/NN 's/POS documentation/NN ./.
+It/PRP 's/VBZ usually/RB linked/VBN with/IN raw/JJ binary/JJ data/NNS ./.

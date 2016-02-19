@@ -1,0 +1,2 @@
+If/IN you/PRP are/VBP doing/VBG NodeJS/NN ,/, there/EX is/VBZ no/DT way/NN I/PRP would/MD load/VB up/RP jQuery/NN just/RB to/TO parse/VB a/DT jsonString/NN into/IN a/DT JSON/NNP object/NN ./.
+So/RB upvote/VB Jonathan/NNP 's/POS answer/NN

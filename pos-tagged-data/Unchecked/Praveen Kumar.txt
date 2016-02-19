@@ -1,0 +1,1 @@
+If/IN we/PRP are/VBP using/VBG mysql/FW _/FW */NN functions/NNS ,/, say/VBP for/IN a/DT huge/JJ application/NN ,/, is/VBZ mysql_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- good/JJ to/TO this/DT extent/NN ?/.

@@ -1,0 +1,2 @@
+@Andrey/NNP Tarantsov/NNP ,/, I/PRP think/VBP you/PRP are/VBP right/JJ but/CC you/PRP are/VBP also/RB underestimating/VBG the/DT speed/NN crypto/NN science/NN and/CC most/JJS of/IN all/DT computer/NN science/NN is/VBZ progressing/VBG at/IN ./.
+Probably/RB in/IN no/DT more/JJR than/IN 1/CD or/CC 2/CD years/NNS SHA-1/NN will/MD be/VB broken/VBN -LRB-/-LRB- SHA-256/NN will/MD probably/RB stay/VB secure/JJ for/IN another/DT 5/CD or/CC 6/CD years/NNS -RRB-/-RRB- But/CC it/PRP 's/VBZ still/RB safer/JJR to/TO keep/VB to/TO the/DT secure/JJ standards/NNS ./.

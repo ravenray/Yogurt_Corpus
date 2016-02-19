@@ -1,0 +1,2 @@
+JSON.parse/NN -LRB-/-LRB- jsonString/NN -RRB-/-RRB- ;/: Is/VBZ a/DT pure/JJ JavaScript/NNP approach/NN so/RB long/RB as/IN you/PRP can/MD require/VB a/DT reasonably/RB modern/JJ browser/NN ./.
+See/VB also/RB https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse/NN

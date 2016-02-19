@@ -1,0 +1,5 @@
+@Tom/NN :/: Concerning/VBG security/NN through/IN obscurity/NN :/: No/UH ,/, it/PRP 's/VBZ not/RB ./.
+Security/NN Through/IN Obscurity/NN is/VBZ using/VBG a/DT weak/JJ method/NN and/CC assuming/VBG you/PRP can/MD prevent/VB people/NNS from/IN learning/VBG what/WP that/DT method/NN is/VBZ ./.
+The/DT point/NN of/IN salt/NN is/VBZ to/TO drive/VB the/DT mean/NN cost/NN -LRB-/-LRB- in/IN time/NN ,/, processing/VBG power/NN ,/, disk/NN space/NN ,/, electric/JJ bills/NNS ,/, whatever/WDT -RRB-/-RRB- of/IN the/DT attack/NN higher/JJR than/IN the/DT expected/VBN value/NN to/TO be/VB gained/VBN by/IN success/NN or/CC to/TO push/VB the/DT expected/VBN time/NN to/TO success/NN far/RB enough/RB into/IN the/DT future/NN that/IN it/PRP does/VBZ not/RB matter/VB -LRB-/-LRB- say/VB ,/, beyond/IN the/DT next/JJ mandatory/JJ password/NN change/NN -RRB-/-RRB- ./.
+``/`` Avoid/VB asking/VBG questions/NNS that/WDT -LSB-/-LRB- .../: -RSB-/-RRB- require/VBP extended/JJ discussion/NN ./. ''/''
+--/: The/DT FAQ/NN

@@ -1,0 +1,16 @@
+With/IN oracle/NNP -LRB-/-LRB- 10.2/CD -RRB-/-RRB- it/PRP can/MD be/VB better/JJR to/TO actually/RB not/RB use/VB a/DT prepared/JJ statement/NN for/IN some/DT queries/NNS ./.
+Consider/VB hardcoding/VBG the/DT argument/NN values/NNS if/IN the/DT query/NN is/VBZ heavy/JJ -LRB-/-LRB- over/IN a/DT minute/JJ execution/NN time/NN -RRB-/-RRB- and/CC realtively/RB rare/JJ -LRB-/-LRB- once/RB a/DT day/NN -RRB-/-RRB- ./.
+1/LS -/: Unnecessarily/RB using/VBG a/DT function/NN on/IN a/DT value/NN in/IN a/DT where/WRB clause/NN with/IN the/DT result/NN of/IN that/DT index/NN not/RB being/VBG used/VBN ./.
+Example/NN :/: where/COB to_char/COB -LRB-/COB someDate/COB ,/COB `/COB YYYYMMDD/COB '/COB -RRB-/COB between/COB :/COB fromDate/COB and/COB :/COB toDate/COB instead/COB of/COB where/COB someDate/COB >/COB =/COB to_date/COB -LRB-/COB :/COB fromDate/COB ,/COB `/COB YYYYMMDD/COB '/COB -RRB-/COB and/COB someDate/COB </COB to_date/COB -LRB-/COB :/COB toDate/COB ,/COB `/COB YYYYMMDD/COB '/COB -RRB-/COB +1/COB And/CC to/TO a/DT lesser/JJR extent/NN :/: Not/RB adding/VBG functional/JJ indexes/NNS to/TO those/DT values/NNS that/WDT need/VBP them/PRP .../: 2/LS -/: Not/RB adding/VBG check/NN constraints/NNS to/TO ensure/VB the/DT validity/NN of/IN the/DT data/NNS ./.
+Constraints/NNS can/MD be/VB used/VBN by/IN the/DT query/JJ optimizer/NN ,/, and/CC they/PRP REALLY/RB help/NN to/TO ensure/VB that/IN you/PRP can/MD trust/VB your/PRP$ invariants/NNS ./.
+There/EX 's/VBZ just/RB no/DT reason/NN not/RB to/TO use/VB them/PRP ./.
+3/LS -/: Adding/VBG unnormalized/JJ columns/NNS to/TO tables/NNS out/IN of/IN pure/JJ laziness/NN or/CC time/NN pressure/NN ./.
+Things/NNS are/VBP usually/RB not/RB designed/VBN this/DT way/NN ,/, but/CC evolve/VBP into/IN this/DT ./.
+The/DT end/NN result/NN ,/, without/IN fail/VBP ,/, is/VBZ a/DT ton/NN of/IN work/NN trying/VBG to/TO clean/VB up/RP the/DT mess/NN when/WRB you/PRP 're/VBP bitten/VBN by/IN the/DT lost/VBN data/NN integrity/NN in/IN future/JJ evolutions/NNS ./.
+Think/VB of/IN this/DT ,/, a/DT table/NN without/IN data/NNS is/VBZ very/RB cheap/JJ to/TO redesign/NN ./.
+A/DT table/NN with/IN a/DT couple/NN of/IN millions/NNS records/NNS with/IN no/DT integrity/NN .../: not/RB so/RB cheap/JJ to/TO redesign/NN ./.
+Thus/RB ,/, doing/VBG the/DT correct/JJ design/NN when/WRB creating/VBG the/DT column/NN or/CC table/NN is/VBZ amortized/VBN in/IN spades/NNS ./.
+4/LS -/: not/RB so/RB much/JJ about/IN the/DT database/NN per/FW se/FW but/CC indeed/RB annoying/JJ ./.
+Not/RB caring/VBG about/IN the/DT code/NN quality/NN of/IN SQL/ACR ./.
+The/DT fact/NN that/IN your/PRP$ SQL/ACR is/VBZ expressed/VBN in/IN text/NN does/VBZ not/RB make/VB it/PRP OK/UH to/TO hide/VB the/DT logic/NN in/IN heaps/NNS of/IN string/NN manipulation/NN algorithms/NNS ./.
+It/PRP is/VBZ perfectly/RB possible/JJ to/TO write/VB SQL/ACR in/IN text/NN in/IN a/DT manner/NN that/WDT is/VBZ actually/RB readable/JJ by/IN your/PRP$ fellow/NN programmer/NN ./.

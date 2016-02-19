@@ -1,0 +1,4 @@
+@Tom/NN -/: in/IN your/PRP$ example/NN attack/NN ./.
+If/IN there/EX is/VBZ n't/RB salt/NN ,/, then/RB the/DT attacker/NN can/MD do/VB ``/`` for/IN each/DT common/JJ password/NN ,/, hash/VBP the/DT password/NN ./.
+Does/VBZ this/DT match/NN one/CD or/CC more/JJR users/NNS ?/.
+Yes/UH ,/, I/PRP have/VBP their/PRP$ password/NN ''/'' -/: the/DT attacker/NN is/VBZ able/JJ to/TO attack/VB all/DT passwords/NNS ``/`` in/IN parallel/NN ''/'' ,/, at/IN no/DT extra/JJ cost/NN ./.

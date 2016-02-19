@@ -1,0 +1,1 @@
+I/PRP 'm/VBP pretty/RB sure/JJ that/IN prepared/JJ statements/NNS are/VBP cached/VBN since/IN MySQL/FW 5.1.17/FW ./.

@@ -1,0 +1,2 @@
+I/PRP really/RB like/IN working/VBG with/IN Eclipse/NNP and/CC Java/NNP though/IN -LRB-/-LRB- new/JJ to/TO Java/NNP -RRB-/-RRB- ,/, because/IN it/PRP throws/VBZ errors/NNS in/IN the/DT editor/NN if/IN you/PRP are/VBP missing/VBG an/DT EH/NN handler/NN ./.
+That/DT makes/VBZ things/NNS a/DT LOT/NN harder/JJR to/TO forget/VB to/TO handle/VB an/DT exception/NN .../: Plus/NNP ,/, with/IN the/DT IDE/NN tools/NNS ,/, it/PRP adds/VBZ the/DT try/NN //: catch/NN block/NN or/CC another/DT catch/NN block/NN automatically/RB ./.

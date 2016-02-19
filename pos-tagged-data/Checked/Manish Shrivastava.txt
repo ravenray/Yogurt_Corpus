@@ -1,0 +1,15 @@
+There/EX are/VBP many/JJ ways/NNS of/IN preventing/VBG SQL/ACR injections/NNS and/CC other/JJ SQL/ACR hacks/NNS ./.
+You/PRP can/MD easily/RB find/VB it/PRP on/IN the/DT Internet/NN -LRB-/-LRB- Google/NNP Search/VB -RRB-/-RRB- ./.
+Of/IN course/NN PDO/ACR is/VBZ one/CD of/IN the/DT good/JJ solution/NN ./.
+But/CC I/PRP would/MD like/VB to/TO suggest/VB you/PRP some/DT good/JJ links/NNS prevention/NN from/IN SQL/ACR Injection/NN ./.
+What/WP is/VBZ SQL/ACR injection/NN and/CC how/WRB to/TO prevent/VB PHP/ACR manual/NN for/IN SQL/ACR injection/NN Microsoft/NNP explanation/NN of/IN SQL/ACR injection/NN and/CC prevention/NN in/IN PHP/ACR and/CC some/DT other/JJ like/IN Preventing/VBG SQL/ACR injection/NN with/IN MySQL/ACR and/CC PHP/ACR Now/RB ,/, why/WRB you/PRP do/VBP you/PRP need/VB to/TO prevent/VB your/PRP$ query/NN from/IN SQL/ACR injection/NN ?/.
+I/PRP would/MD like/VB to/TO let/VB you/PRP know/VB :/: Why/WRB do/VBP we/PRP try/VB for/IN preventing/VBG SQL/ACR injection/NN with/IN a/DT short/JJ example/NN below/IN :/: Query/COB for/COB login/COB authentication/COB match/COB :/COB $/COB query/COB =/COB ``/COB select/COB */COB from/COB users/COB where/COB email/COB =/COB '/COB ''/COB ./COB
+$/COB _/COB POST/COB -LSB-/COB 'em/COB ail/COB '/COB -RSB-/COB ./COB ''/COB '/COB
+and/COB password/COB =/COB '/COB ''/COB ./COB
+$/COB _/COB POST/COB -LSB-/COB `/COB password/COB '/COB -RSB-/COB ./COB ''/COB '/COB ''/COB
+;/COB Now/RB ,/, if/IN someone/NN -LRB-/-LRB- a/DT hacker/NN -RRB-/-RRB- puts/VBZ $/COS _/COS POST/COS -LSB-/COS 'em/PRP ail/VB '/'' -RSB-/COS =/COS admin@emali.com'/COS OR/COS '/COS 1/COS =/COS 1/COS and/COS password/COS anything/NN .../: The/DT query/NN will/MD be/VB parsed/VBN in/IN the/DT system/NN only/JJ upto/NN :/: $/COS query/COS =/COS ``/COS select/COS */COS from/COS users/COS where/COS email='admin@emali.com'/COS OR/COS '/COS 1/COS =/COS 1/COS '/COS ;/COS The/DT other/JJ part/NN will/MD be/VB discarded/VBN ./.
+So/RB ,/, what/WP will/MD happen/VB ?/.
+A/DT non-authorized/JJ user/NN -LRB-/-LRB- hacker/NN -RRB-/-RRB- will/MD be/VB able/JJ to/TO login/VB as/IN admin/NN without/IN having/VBG his/PRP$ password/NN ./.
+Now/RB ,/, he/PRP can/MD do/VB anything/NN what/WP admin/email/NN person/NN can/MD do/VB ./.
+See/VBP ,/, it/PRP 's/VBZ very/RB dangerous/JJ if/IN SQL/ACR injection/NN is/VBZ not/RB prevented/VBN ./.
+I/PRP think/VBP ,/, its/PRP$ best/JJS described/VBN here/RB :-RRB-/EMO

@@ -1,0 +1,2 @@
+No/RB ,/, that/DT 's/VBZ not/RB a/DT fact/NN ;/: 31kb/JJ is/VBZ not/RB added/VBN to/TO your/PRP$ project/NN just/RB by/IN calling/VBG parseJson/NN ./.
+If/IN you/PRP 're/VBP using/VBG jQuery/NN you/PRP already/RB have/VBP that/IN extra/JJ weight/NN ./.

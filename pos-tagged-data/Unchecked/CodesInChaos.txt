@@ -1,0 +1,9 @@
+If/IN performance/NN is/VBZ important/JJ ,/, using/VBG third/JJ party/NN libraries/NNS can/MD be/VB a/DT good/JJ idea/NN ./.
+For/IN example/NN when/WRB hashing/VBG short/JJ messages/NNS ,/, OpenSSL/NN is/VBZ about/RB 10/CD times/NNS as/RB fast/RB as/IN ./.
+net/NN 's/POS build/VB in/IN MD5/NN ./.
+I/PRP do/VBP n't/RB think/VB ./.
+net/NN has/VBZ a/DT RIPEMD/NN implementation/NN ,/, I/PRP can/MD only/RB find/VB a/DT RIPEMD-160/NN implementation/NN ./.
+RIPEMD/NN is/VBZ broken/JJ ,/, RIPEMD-160/NN is/VBZ not/RB ./.
+@mafu/VB A/DT pre-image/JJ attack/NN costs/NNS 2/CD ^/CD 127/CD hash/JJ invocations/NNS for/IN a/DT 128/CD bit/NN hash/NN ./.
+This/DT is/VBZ far/RB from/IN feasible/JJ ./.
+2/CD ^/CD 80/CD invocations/NNS is/VBZ feasible/JJ but/CC already/RB very/RB expensive/JJ ./.

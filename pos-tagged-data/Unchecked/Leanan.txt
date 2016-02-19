@@ -1,0 +1,2 @@
+If/IN you/PRP 're/VBP using/VBG jQuery/NN ,/, you/PRP can/MD also/RB just/RB do/VB $/$ ./.
+getJSON/NN -LRB-/-LRB- url/NN ,/, function/NN -LRB-/-LRB- data/NNS -RRB-/-RRB- -LCB-/-LRB- -RCB-/-RRB- -RRB-/-RRB- ;/: Then/RB you/PRP can/MD do/VB things/NNS like/IN data.key1.something/NN ,/, data.key1.something/NN _/NN else/RB ,/, etc./NN ./.

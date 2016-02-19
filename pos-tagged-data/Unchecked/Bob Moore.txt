@@ -1,0 +1,3 @@
+Number/NN one/CD problem/NN ?/.
+They/PRP only/RB test/VBP on/IN toy/NN databases/NNS ./.
+So/RB they/PRP have/VBP no/DT idea/NN that/IN their/PRP$ SQL/NNP will/MD crawl/VB when/WRB the/DT database/NN gets/VBZ big/JJ ,/, and/CC someone/NN has/VBZ to/TO come/VB along/RB and/CC fix/VB it/PRP later/RB -LRB-/-LRB- that/DT sound/NN you/PRP can/MD hear/VB is/VBZ my/PRP$ teeth/NNS grinding/VBG -RRB-/-RRB- ./.

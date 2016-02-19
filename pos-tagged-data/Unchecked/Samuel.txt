@@ -1,0 +1,4 @@
+Looks/NNS like/IN works/NNS only/RB when/WRB 2.0/CD framework/NN is/VBZ installed/VBN on/IN the/DT machine/NN ./.
+What/WP if/IN 2.0/CD framework/NN is/VBZ not/RB installed/VBN at/IN all/DT but/CC only/RB 4.0/CD framework/NN is/VBZ installed/VBN ?/.
+Looks/NNS like/IN works/NNS only/RB when/WRB 2.0/CD framework/NN is/VBZ installed/VBN on/IN the/DT machine/NN ./.
+What/WP if/IN 2.0/CD framework/NN is/VBZ not/RB installed/VBN at/IN all/DT but/CC only/RB 4.0/CD framework/NN is/VBZ installed/VBN ?/.

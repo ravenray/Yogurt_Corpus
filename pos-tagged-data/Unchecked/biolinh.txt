@@ -1,0 +1,4 @@
+I/PRP have/VBP used/VBN Xcode/NNP plugin/NN to/TO build/VB iOS/NNP app/NN ./.
+In/IN configuration/NN of/IN a/DT project/NN ./.
+choose/VB Add/VB build/VB step/NN >/JJR Xcode/NNP >/JJR code/NN signing/NN &/CC OS/NN X/NN keychain/NN options/NNS ./.
+tick/VB Unlock/NNP keychain/NN box/NN and/CC add/VB as/IN follow/VB -LRB-/-LRB- for/IN examples/NNS -RRB-/-RRB- enter/VBP image/NN description/NN here/RB somtimes/VBZ ,/, if/IN I/PRP get/VBP the/DT error/NN Code/NNP Sign/NNP error/NN :/: .../: I/PRP will/MD reopen/VB Jenkins/NNP and/CC enter/VB password/NN again/RB to/TO unlock/VB

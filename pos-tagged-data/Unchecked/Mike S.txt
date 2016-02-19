@@ -1,0 +1,3 @@
+This/DT might/MD solve/VB the/DT issues/NNS I/PRP 've/VBP been/VBN getting/VBG ./.
+The/DT problem/NN is/VBZ I/PRP have/VBP an/DT existing/JJ Jenkins/NNP installation/NN -LRB-/-LRB- done/VBN the/DT other/JJ way/NN -RRB-/-RRB- and/CC I/PRP do/VBP n't/RB want/VB to/TO lose/VB all/DT my/PRP$ builds/NNS -/: etc./NN ./.
+What/WP will/MD happen/VB in/IN my/PRP$ casE/NN ?/.

@@ -1,0 +1,3 @@
+I/PRP agree/VBP with/IN the/DT general/JJ sentiment/NN of/IN other/JJ posters/NNS :/: Regardless/RB of/IN whether/IN deprecation/NN of/IN the/DT function/NN is/VBZ an/DT issue/NN ,/, the/DT principle/NN of/IN relying/VBG on/IN the/DT infallibility/NN of/IN escaping/VBG characters/NNS is/VBZ a/DT bad/JJ one/CD ./.
+Much/RB better/JJR to/TO use/VB the/DT database/NN 's/POS own/JJ parametrised/JJ methodologies/NNS -LRB-/-LRB- such/JJ as/IN :/: var/NN -RRB-/-RRB- to/TO attach/VB your/PRP$ variables/NNS ./.
+It/PRP means/VBZ that/IN you/PRP 're/VBP not/RB relying/VBG on/IN a/DT third/JJ party/NN -LRB-/-LRB- i.e./FW the/DT people/NNS who/WP created/VBD the/DT PHP/NNP code/NN -RRB-/-RRB- to/TO secure/VB your/PRP$ database/NN problems/NNS ./.

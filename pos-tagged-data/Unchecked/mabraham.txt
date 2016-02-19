@@ -1,0 +1,2 @@
+Why/WRB do/VBP you/PRP refer/VB to/TO std/NN :/: :/: sprintf/NN -LRB-/-LRB- et/FW al/FW -RRB-/-RRB- in/IN your/PRP$ set/NN of/IN rules/NNS for/IN exception/NN safety/NN ?/.
+These/DT do/VBP not/RB document/VB that/IN they/PRP throw/VBP any/DT exceptions/NNS ,/, e.g./FW en.cppreference.com/w/cpp/io/c/fprintf/FW

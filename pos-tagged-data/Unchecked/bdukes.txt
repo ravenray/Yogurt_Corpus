@@ -1,0 +1,3 @@
+I/PRP 'm/VBP not/RB aware/JJ of/IN any/DT security/NN issues/NNS that/WDT have/VBP been/VBN announced/VBN with/IN the/DT current/JJ version/NN of/IN DotNetNuke/NNP -LRB-/-LRB- 4.9.0/CD -RRB-/-RRB- ./.
+The/DT security/NN policy/NN of/IN DotNetNuke/NNP is/VBZ to/TO address/VB any/DT known/JJ security/NN issues/NNS as/RB soon/RB as/IN they/PRP are/VBP discovered/VBN ./.
+They/PRP wo/MD n't/RB release/VB a/DT version/NN with/IN a/DT known/JJ security/NN issue/NN ./.

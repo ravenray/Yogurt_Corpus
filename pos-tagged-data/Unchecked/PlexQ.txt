@@ -1,0 +1,11 @@
+As/IN a/DT later/JJ answer/NN indicates/VBZ ,/, prepared/JJ statements/NNS only/RB solve/VBP the/DT problem/NN for/IN parameters/NNS ./.
+I/PRP 've/VBP too/RB often/RB see/VBP things/NNS akin/JJ to/TO :/: $/$ query/NN =/JJ ``/`` select/JJ */NN from/IN ''/'' ./.
+$/$ _/CD GET/VB -LSB-/-LRB- `/`` table/NN '/'' -RSB-/-RRB- ./. ''/''
+where/WRB ''/'' ./.
+$/$ _/CD GET/VB -LSB-/-LRB- `/`` condition_column/NN '/'' -RSB-/-RRB- ./. ''/''
+=/JJ '/'' ''/'' ./.
+$/$ _/CD GET/VB -LSB-/-LRB- `/`` condition_value/NN '/'' -RSB-/-RRB- ./. ''/'' '/'' ''/''
+@frunsi/NN :/: Thanks/NNS for/IN the/DT comment/NN ./.
+The/DT try/catch/NN block/NN already/RB separate/VBP the/DT normal/JJ code/NN and/CC the/DT error/NN handling/NN code/NN ,/, but/CC I/PRP do/VBP n't/RB believe/VB it/PRP should/MD be/VB more/RBR separated/JJ :/: error/NN handling/NN code/NN must/MD sometimes/RB access/VB normal/JJ code/NN -LRB-/-LRB- i.e./FW local/JJ variables/NNS -RRB-/-RRB- to/TO retrieve/VB useful/JJ data/NNS -LRB-/-LRB- perhaps/RB to/TO try/VB again/RB the/DT processing/NN ,/, or/CC try/VB it/PRP differently/RB ,/, etc./NN -RRB-/-RRB- ./.
+Now/RB ,/, of/IN course/NN you/PRP 're/VBP right/JJ :/: When/WRB I/PRP wrote/VBD ``/`` it/PRP 's/VBZ the/DT only/RB viable/JJ for/IN C++/NNP ''/'' ,/, it/PRP 's/VBZ because/IN it/PRP is/VBZ the/DT only/RB viable/JJ for/IN current/JJ C++/NNP language/NN specification/NN ./.
+Research/NNP could/MD well/RB lead/VB to/TO other/JJ error/NN handling/NN means/VBZ ./.

@@ -1,0 +1,5 @@
+Things/NNS like/IN connection/NN strings/NNS that/WDT have/VBP a/DT username/NN and/CC password/NN for/IN SQL/NNP are/VBP a/DT bit/RB dodgy/JJ ,/, when/WRB you/PRP use/VBP static/JJ strings/NNS they/PRP are/VBP typically/RB found/VBN in/IN decompilers/NNS ,/, so/RB its/PRP$ always/RB best/RB not/RB to/TO use/VB them/PRP if/IN they/PRP contain/VBP private/JJ information/NN ./.
+Using/VBG any/DT type/NN of/IN unsafe/JJ code/NN can/MD cause/VB problems/NNS such/JJ as/IN pointers/NNS ./.
+Microsoft/NNP provided/VBD a/DT good/JJ article/NN about/IN unsafe/JJ code/NN here/RB :/: http://msdn.microsoft.com/en-us/library/aa288474/NN -LRB-/-LRB- VS./NN 71/CD -RRB-/-RRB- ./.
+aspx/IN They/PRP are/VBP unsafe/JJ ,/, pretty/RB obvious/JJ if/IN used/VBN incorrectly/RB they/PRP can/MD be/VB exploited/VBN hence/RB they/PRP can/MD be/VB a/DT problem/NN ,/, doesnt/JJ take/NN einstein/NN to/TO figure/VB that/DT one/NN out/RB does/VBZ it/PRP ?/.
+Which/WDT is/VBZ exactly/RB why/WRB I/PRP said/VBD ``/`` can/MD cause/VB ''/'' in/IN my/PRP$ post/NN .../: I/PRP didnt/VBP say/VB ``/`` will/MD cause/VB ''/'' ./.

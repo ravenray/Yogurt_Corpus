@@ -1,0 +1,7 @@
+Writing/VBG exception-safe/JJ code/NN in/IN C++/NNP is/VBZ not/RB so/RB much/JJ about/IN using/VBG lots/NNS of/IN try/NN -LCB-/-LRB- -RCB-/-RRB- catch/NN -LCB-/-LRB- -RCB-/-RRB- blocks/NNS ./.
+It/PRP 's/VBZ about/IN documenting/VBG what/WP kind/NN of/IN guarantees/NNS your/PRP$ code/NN provides/VBZ ./.
+I/PRP recommend/VBP reading/VBG Herb/NNP Sutter/NNP 's/POS Guru/NN Of/IN The/DT Week/NNP series/NN ,/, in/IN particular/JJ installments/NNS 59/CD ,/, 60/CD and/CC 61/CD ./.
+To/TO summarize/VB ,/, there/EX are/VBP three/CD levels/NNS of/IN exception/NN safety/NN you/PRP can/MD provide/VB :/: Basic/JJ :/: When/WRB your/PRP$ code/NN throws/VBZ an/DT exception/NN ,/, your/PRP$ code/NN does/VBZ not/RB leak/NN resources/NNS ,/, and/CC objects/NNS remain/VBP destructible/JJ ./.
+Strong/JJ :/: When/WRB your/PRP$ code/NN throws/VBZ an/DT exception/NN ,/, it/PRP leaves/VBZ the/DT state/NN of/IN the/DT application/NN unchanged/JJ ./.
+No/DT throw/VBP :/: Your/PRP$ code/NN never/RB throws/VBZ exceptions/NNS ./.
+Personally/RB ,/, I/PRP discovered/VBD these/DT articles/NNS quite/RB late/RB ,/, so/RB much/JJ of/IN my/PRP$ C++/NNP code/NN is/VBZ definitely/RB not/RB exception-safe/JJ ./.

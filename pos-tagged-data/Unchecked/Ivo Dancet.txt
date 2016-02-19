@@ -1,0 +1,5 @@
+To/TO change/VB the/DT password/NN you/PRP can/MD use/VB sudo/FW passwd/FW jenkins/FW <new-pw>/FW ./.
+However/RB I/PRP think/VBP it/PRP would/MD be/VB better/JJR to/TO use/VB the/DT dscl/JJ command/NN to/TO change/VB the/DT password/NN ./.
+In/IN my/PRP$ install/VB jenkins/NNS -LRB-/-LRB- official/JJ installer/NN -RRB-/-RRB- had/VBD a/DT user/NN shell/NN //: usr/bin/false/NN ./.
+Changing/VBG it/PRP to/TO bash/NN solved/VBD the/DT problem/NN of/IN not/RB being/VBG able/JJ to/TO login/VB :/: sudo/FW dscl/FW ./.
+-/: change/NN //: Users/jenkins/NNP UserShell/NNP //: usr/bin/false/NN //: bin/bash/JJ You/PRP should/MD now/RB be/VB able/JJ to/TO login/VB with/IN su/NN jenkins/NNS ./.

@@ -1,0 +1,1 @@
+if/IN you/PRP copy/VBP the/DT login.keychain/NN to/TO your/PRP$ jenkins/NNS Keychain/NNP library/NN you/PRP will/MD need/VB to/TO chown/VB it/PRP so/IN the/DT jenkins/NNS user/NN can/MD security/NN unlock/VB it/PRP

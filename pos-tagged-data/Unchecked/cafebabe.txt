@@ -1,0 +1,4 @@
+``/`` 13/CD ./.
+Using/VBG OR/NN conditions/NNS in/IN queries/NNS ''/'' .../: with/IN Oracle/NNP ,/, you/PRP better/JJR use/NN boolean/NN -LRB-/-LRB- ORed/JJ //: ANDed/JJ -RRB-/-RRB- concatination/NN when/WRB you/PRP dont/VBP have/VB a/DT subquery/NN ./.
+Otherwise/RB ,/, you/PRP end/VBP up/RP with/IN high/JJ CPU/NNP utilization/NN and/CC slow/JJ performance/NN ./.
+So/RB using/VBG the/DT rule/NN for/IN the/DT IN-Statement/NN does/VBZ not/RB apply/VB everytime/NN ./.

@@ -1,0 +1,12 @@
+Anything/NN that/WDT uses/VBZ regular/JJ expressions/NNS -LRB-/-LRB- particularly/RB the/DT RegularExpressionValidator/COS -RRB-/-RRB- ./.
+To/TO see/VB this/DT ,/, run/VBP a/DT RegularExpressionValidator/COS with/IN the/DT regex/COB ^/COB -LRB-/COB \/COB d/COB +/COB -RRB-/COB +/COB $/COB and/CC give/VB it/PRP 30/CD digits/NNS and/CC an/DT alpha/NN character/NN to/TO validate/VB against/IN ./.
+Some/DT posts/NNS :/: http://msdn.microsoft.com/en-us/magazine/ff646973.aspx/URL http://www.abemiester.com/abemiester/post/RegEx-DOS-attack-Regular-Expressions-Now-you-have-3-problems.aspx/URL -LRB-/-LRB- this/DT is/VBZ a/DT blog/NN post/NN from/IN my/PRP$ own/JJ blog/NN going/VBG into/IN more/JJR detail/NN about/IN the/DT MSDN/ACR article/NN -RRB-/-RRB- ./.
+This/DT is/VBZ called/VBN a/DT Regular/JJ Expression/NN Denial/NN of/IN Service/NN attack/NN and/CC it/PRP can/MD bring/VB a/DT website/NN to/TO its/PRP$ knees/NNS ./.
+I/PRP 'm/VBP aware/JJ of/IN that/DT ./.
+Did/VBD you/PRP look/VBP at/IN either/DT of/IN the/DT links/NNS I/PRP posted/VBD ?/.
+Regex/COS can/MD be/VB done/VBN safely/RB with/IN out/RP that/DT ./.
+You/PRP just/RB need/VBP to/TO write/VB it/PRP in/IN a/DT safe/JJ way/NN ./.
+No/DT its/PRP$ not/RB specific/JJ to/TO ./.
+NET/ACR regex/COS ./.
+Try/VB adding/VBG a/DT ``/`` z/COS ''/'' to/TO the/DT end/NN of/IN your/PRP$ string/NN of/IN numbers/NNS ./.
+Only/RB languages/NNS that/WDT use/VBP an/DT NFA/ACR regex/COS engine/NN are/VBP vulnerable/JJ ./.

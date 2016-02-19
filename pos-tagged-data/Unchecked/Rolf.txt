@@ -1,0 +1,4 @@
+My/PRP$ int/NN very/RB seldom/RB go/VB beyond/IN 100/CD ./.
+It/PRP 's/VBZ usually/RB an/DT automatically/RB iterated/JJ id/NN ,/, and/CC in/IN some/DT cases/NNS something/NN else/RB but/CC never/RB huge/JJ numbers/NNS ,/, as/IN I/PRP do/VBP n't/RB write/VB scientific/JJ or/CC financial/JJ software/NN ./.
+If/IN I/PRP did/VBD ,/, then/RB it/PRP would/MD be/VB a/DT concern/NN ./.
+I/PRP think/VBP this/DT applies/VBZ to/TO most/JJS PHP/NNP developers/NNS ./.

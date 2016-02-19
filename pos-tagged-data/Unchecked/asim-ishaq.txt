@@ -1,0 +1,6 @@
+Apart/RB from/IN the/DT security/NN ./.
+One/CD thing/NN I/PRP am/VBP not/RB clear/JJ about/IN ./.
+Are/VBP we/PRP storing/VBG HEX/NNP codes/NNS in/IN database/NN instead/RB of/IN strings/NNS and/CC numbers/NNS ./.
+if/IN that/DT is/VBZ the/DT case/NN then/RB its/PRP$ not/RB the/DT right/JJ approach/NN ,/, at-least/JJ for/IN me/PRP because/IN I/PRP have/VBP to/TO write/VB a/DT lot/NN of/IN complex/JJ queries/NNS ,/, procedures/NNS and/CC function/NN on/IN the/DT database/NN side/NN to/TO format/NN ,/, extract/NN and/CC present/JJ data/NNS ./.
+For/IN big/JJ systems/NNS it/PRP will/MD increase/VB the/DT development/NN costs/NNS ./.
+I/PRP would/MD prefer/VB the/DT previous/JJ approach/NN that/WDT is/VBZ using/VBG prepared/JJ statements/NNS ./.

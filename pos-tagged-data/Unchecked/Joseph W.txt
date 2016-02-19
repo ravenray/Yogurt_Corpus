@@ -1,0 +1,3 @@
+You/PRP could/MD also/RB throttle/VB based/VBN on/IN the/DT strength/NN of/IN a/DT users/NNS password/NN ./.
+When/WRB a/DT user/NN registers/VBZ or/CC changes/VBZ their/PRP$ password/NN you/PRP calculate/VBP a/DT strength/NN rating/NN for/IN their/PRP$ password/NN ,/, say/VBP between/IN 1/CD and/CC 10/CD ./.
+Something/NN like/IN ``/`` password/NN ''/'' scores/NNS a/DT 1/CD whereas/IN ``/`` c6eqapRepe7et*Awr@ch/NN ''/'' might/MD score/VB a/DT 9/CD or/CC 10/CD and/CC the/DT higher/JJR the/DT score/NN the/DT longer/JJR it/PRP takes/VBZ for/IN throttling/VBG to/TO kick/VB in/RP ./.

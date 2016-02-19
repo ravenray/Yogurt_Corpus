@@ -1,0 +1,1 @@
+up/IN vote/NN 3/CD Please/UH make/VB an/DT effort/NN to/TO quote/VB links/NNS in/IN English/NNP -LRB-/-LRB- for/IN our/PRP$ international/JJ audience/NN -RRB-/-RRB- .../: like/IN msdn.microsoft.com/en-us/en-uk/library/ie/…/NN

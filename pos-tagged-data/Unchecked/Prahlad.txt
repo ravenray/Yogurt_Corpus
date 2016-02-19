@@ -1,0 +1,3 @@
+$/$ ./.
+ajax/NN -LRB-/-LRB- -LCB-/-LRB- url/NN :/: url/NN ,/, dataType/NN :/: `/`` json/NN '/'' ,/, data/NNS :/: data/NNS ,/, success/NN :/: callback/NN -RCB-/-RRB- -RRB-/-RRB- ;/: The/DT callback/NN is/VBZ passed/VBN the/DT returned/VBN data/NNS ,/, which/WDT will/MD be/VB a/DT JavaScript/NNP object/NN or/CC array/NN as/IN defined/VBN by/IN the/DT JSON/NN structure/NN and/CC parsed/VBN using/VBG the/DT $/$ ./.
+parseJSON/NN -LRB-/-LRB- -RRB-/-RRB- method/NN ./.

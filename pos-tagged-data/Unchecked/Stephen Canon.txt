@@ -1,0 +1,5 @@
+Since/IN the/DT question/NN is/VBZ tagged/VBN iOS/NNP ,/, it/PRP 's/VBZ worth/JJ noting/VBG that/IN Apple/NNP 's/POS compilers/NNS -LRB-/-LRB- both/CC clang/NN and/CC Apple/NNP 's/POS gcc/NN builds/NNS -RRB-/-RRB- have/VBP always/RB used/VBN FLT_EVAL_METHOD/NN =/JJ 0/CD ,/, and/CC attempt/NN to/TO be/VB completely/RB strict/JJ about/IN not/RB carrying/VBG excess/JJ precision/NN ./.
+If/IN you/PRP find/VBP any/DT violations/NNS of/IN that/DT ,/, please/VB file/NN bug/NN reports/NNS ./.
+@R/NN ./. ./.
+:/: Apple/NNP never/RB shipped/VBD an/DT x86/NN processor/NN without/IN SSE2/NN ./.
+All/DT arithmetic/NN other/JJ than/IN long/JJ double/JJ is/VBZ done/VBN on/IN SSE/NN ,/, even/RB on/IN 32-bit/JJ ./.

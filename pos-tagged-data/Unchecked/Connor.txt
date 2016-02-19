@@ -1,0 +1,2 @@
+@vsync/VB you/PRP do/VBP realise/VB that/IN this/DT is/VBZ the/DT ONLY/NNP Pure/NNP Javascript/NNP Answer/NNP .../: if/IN you/PRP read/VBP the/DT description/NN for/IN the/DT javascript/NN tag/NN you/PRP will/MD see/VB this/DT .../: ``/`` Unless/IN a/DT tag/NN for/IN a/DT framework/library/NN is/VBZ also/RB included/VBN ,/, a/DT pure/JJ JavaScript/NNP answer/NN is/VBZ expected/VBN ./. ''/'' ./. ./.
+I/PRP give/VBP this/DT a/DT +1/NN for/IN being/VBG the/DT only/JJ javascript/NN answer/NN .../:

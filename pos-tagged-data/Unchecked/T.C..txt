@@ -1,0 +1,5 @@
+@ShafikYaghmour/VB The/DT function/NN calls/NNS are/VBP indeterminately/RB sequenced/VBN with/IN respect/NN to/TO each/DT other/JJ and/CC everything/NN else/RB ,/, with/IN the/DT exception/NN of/IN the/DT sequenced-before/NN relationships/NNS you/PRP noted/VBD ./.
+However/RB ,/, evaluation/NN of/IN 1/CD ,/, 2/CD ,/, 3/CD ,/, 5/CD ,/, 6/CD ,/, 8/CD ,/, 9/CD ,/, ``/`` even/RB ''/'' ,/, ``/`` do/VBP n't/RB ''/'' and/CC the/DT several/JJ instances/NNS of/IN s/NN are/VBP unsequenced/JJ relative/JJ to/TO each/DT other/JJ ./.
+@MattMcNabb/NN Ah/NN ,/, right/NN ,/, I/PRP misread/VBD ./.
+You/PRP are/VBP talking/VBG about/IN the/DT postfix-expression/NN itself/PRP rather/RB than/IN the/DT call/NN ./.
+Yes/UH ,/, that/DT 's/VBZ right/JJ ,/, they/PRP are/VBP unsequenced/JJ -LRB-/-LRB- unless/IN some/DT other/JJ rule/NN apply/VB ,/, of/IN course/NN -RRB-/-RRB- ./.

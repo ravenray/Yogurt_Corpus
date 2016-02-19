@@ -1,0 +1,10 @@
+I/PRP could/MD not/RB possibly/RB disagree/VB more/JJR with/IN point/NN one/CD ./.
+Databases/NNS are/VBP for/IN persistence/NN ,/, they/PRP are/VBP not/RB for/IN inter-process/JJ communication/NN ./.
+There/EX are/VBP almost/RB always/RB better/JJR solutions/NNS to/TO that/DT problem/NN ./.
+Unless/IN there/EX is/VBZ an/DT explicit/JJ requirement/NN for/IN it/PRP ,/, you/PRP absolutely/RB SHOULD/MD treat/VB the/DT database/NN as/IN if/IN nobody/NN except/IN for/IN your/PRP$ application/NN will/MD ever/RB use/VB it/PRP ./.
+Even/RB if/IN there/EX IS/VBZ an/DT explicit/JJ requirement/NN ,/, do/VBP some/DT user/NN story/NN and/CC root/NN cause/NN analysis/NN on/IN it/PRP and/CC you/PRP will/MD quite/RB often/RB discover/VBP a/DT much/RB better/JJR way/NN of/IN filling/VBG the/DT requestor/NN 's/POS intent/NN ./.
+Then/RB again/RB ,/, I/PRP do/VBP work/NN at/IN a/DT company/NN where/WRB the/DT phrase/NN CQRS/ACR is/VBZ somewhat/RB common/JJ Wow/UH ,/, really/RB ?/.
+Let/VBP 's/PRP be/VB even/RB snippier/JJR next/JJ time/NN !/.
+Sounds/VBZ like/IN you/PRP already/RB have/VB a/DT requirement/NN to/TO your/PRP$ vendors/NNS that/IN their/PRP$ systems/NNS be/VB accessible/JJ for/IN bulk/JJ import/NN operations/NNS ,/, would/MD n't/RB it/PRP be/VB better/JJR if/IN this/DT was/VBD stated/VBN explicitly/RB than/IN just/RB by/IN happenstance/NN ?/.
+90/CD %/SYM of/IN the/DT time/NN if/IN the/DT two/CD of/IN you/PRP analyze/VBP this/DT requirement/NN ,/, you/PRP will/MD realize/VB that/IN there/EX are/VBP a/DT variety/NN of/IN ways/NNS they/PRP can/MD deliver/VB a/DT product/NN that/WDT achieves/VBZ your/PRP$ goals/NNS ./.
+As/IN for/IN audit/NN trails/VBZ -/: that/IN along/IN with/IN data/NNS mining/NN are/VBP one/CD of/IN the/DT origins/NNS of/IN the/DT discipline/NN of/IN cqrs/ACR ,/, in/IN its/PRP$ event/NN sourcing/VBG incarnation/NN it/PRP leaves/VBZ perfect/JJ audit/NN trails/VBZ ./.

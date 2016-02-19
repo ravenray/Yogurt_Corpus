@@ -1,0 +1,3 @@
+The/DT fact/NN that/IN you/PRP mention/VBP md5/NN fits/VBZ in/IN the/DT GUID/NN -LRB-/-LRB- 16/CD byte/NN -RRB-/-RRB- format/NN suggests/VBZ a/DT fundamental/JJ misunderstanding/NN ./.
+A/DT hash/NN is/VBZ not/RB guaranteed/VBN to/TO be/VB unique/JJ ,/, but/CC is/VBZ rare/JJ -LRB-/-LRB- and/CC hard/JJ to/TO fake/NN if/IN used/VBN in/IN a/DT cryptographic/JJ sense/NN -RRB-/-RRB- and/CC derived/VBN from/IN the/DT thing/NN of/IN which/WDT it/PRP is/VBZ a/DT hash/NN while/IN a/DT GUID/NN is/VBZ ,/, well/RB ,/, unique/JJ but/CC unrelated/JJ to/TO the/DT content/NN of/IN the/DT thing/NN it/PRP identifies/VBZ ./.
+They/PRP are/VBP used/VBN for/IN very/RB different/JJ purposes/NNS ./.

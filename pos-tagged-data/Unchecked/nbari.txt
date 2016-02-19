@@ -1,0 +1,5 @@
+If/IN you/PRP want/VBP to/TO take/VB advantage/NN of/IN cache/NN engines/NNS ,/, like/IN Redis/NNP or/CC Memcached/NNP ,/, maybe/RB DALMP/NNP could/MD be/VB a/DT choice/NN ./.
+It/PRP uses/VBZ pure/JJ MySQLi/NN ./.
+Check/VB this/DT :/: DALMP/NNP Database/NNP Abstraction/NNP Layer/NNP for/IN MySQL/NNP using/VBG PHP/NNP ./.
+Also/RB you/PRP can/MD `/`` prepare/VB '/'' your/PRP$ arguments/NNS before/IN preparing/VBG your/PRP$ query/NN so/IN that/IN you/PRP can/MD build/VB dynamic/JJ queries/NNS and/CC at/IN the/DT end/NN have/VBP a/DT full/JJ prepared/JJ statements/NNS query/NN ./.
+DALMP/NNP Database/NNP Abstraction/NNP Layer/NNP for/IN MySQL/NNP using/VBG PHP/NNP ./.

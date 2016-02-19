@@ -1,0 +1,2 @@
+``/`` This/DT way/NN the/DT script/NN will/MD not/RB stop/VB with/IN a/DT Fatal/JJ Error/NN when/WRB something/NN goes/VBZ wrong/JJ ''/'' is/VBZ the/DT exact/JJ oposite/NN of/IN the/DT intended/JJ meaning/NN ./.
+My/PRP$ edit/NN was/VBD rejected/VBN ./.

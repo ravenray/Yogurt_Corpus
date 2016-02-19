@@ -1,0 +1,18 @@
+In/IN PHP/ACR ,/, you/PRP can/MD use/VB the/DT mcrypt/COS or/CC bcrypt/COS libraries/NNS for/IN better/JJR encryption/NN than/IN md5/ACR or/CC sha1/ACR ./.
+If/IN you/PRP 're/VBP stuck/VBN with/IN md5/ACR or/CC sha1/ACR you/PRP should/MD to/TO `/`` stretching/VBG '/'' ,/, where/WRB you/PRP hash/VBP the/DT password/NN 1000/CD 's/POS of/IN times/NNS before/IN you/PRP arrive/VBP at/IN whatever/WDT is/VBZ stored/VBN in/IN the/DT database/NN ./.
+This/DT keeps/VBZ the/DT entropy/NN the/DT same/JJ ,/, but/CC increases/VBZ the/DT time/NN to/TO compute/VB the/DT hash/NN ./.
+@Tom/ATS Gullen/ATS ,/, what/WDT articles/NNS are/VBP you/PRP reading/VBG ?/.
+Self-professed/JJ experts/NNS or/CC peer/VB reviewed/VBN articles/NNS in/IN a/DT scientific/JJ journal/NN ?/.
+And/CC it/PRP 's/VBZ your/PRP$ average/JJ Joe/NNP developer/NN making/VBG those/DT blog/help/JJ posts/NNS on/IN how/WRB to/TO write/VB a/DT ``/`` secure/JJ ''/'' system/NN ./.
+Security/NN is/VBZ n't/RB something/NN you/PRP can/MD pick/VB up/RP on/IN the/DT side/NN ,/, it/PRP requires/VBZ extensive/JJ knowledge/NN ./.
+Is/VBZ it/PRP unfair/JJ ?/.
+Probably/RB ./.
+Is/VBZ it/PRP safe/JJ ?/.
+To/TO a/DT degree/NN ./.
+There/EX are/VBP reasons/NNS there/EX are/VBP security/NN experts/NNS ./.
+But/CC then/RB again/RB ,/, not/RB everything/NN has/VBZ to/TO be/VB as/RB secure/JJ as/IN Fort/NNP Knox/NNP ./.
+The/DT best/JJS policy/NN here/RB is/VBZ to/TO use/VB a/DT prebuilt/NN system/NN designed/VBN by/IN those/DT experts/NNS ,/, and/CC modify/VB it/PRP to/TO meet/VB your/PRP$ needs/NNS ./.
+I/PRP was/VBD the/DT downvoter/NN ,/, I/PRP misread/VBD it/PRP though/IN so/IN I/PRP removed/VBD my/PRP$ downvote/NN ./.
+However/RB ,/, I/PRP would/MD like/VB to/TO point/VB out/RP that/IN if/IN they/PRP user/NN has/VBZ access/NN to/TO the/DT database/NN storing/VBG the/DT password/NN -LRB-/-LRB- as/IN you/PRP seem/VBP to/TO assume/VB -RRB-/-RRB- ,/, the/DT salt/NN is/VBZ probably/RB known/VBN -LRB-/-LRB- they/PRP are/VBP typically/RB stored/VBN in/IN plaintext/NN alongside/IN the/DT hashed/VBN password/NN -RRB-/-RRB- ./.
+If/IN they/PRP are/VBP attacking/VBG it/PRP from/IN the/DT front-end/NN ,/, bruteforce/NN or/CC dictionary/NN attacks/NNS will/MD not/RB be/VB affected/VBN by/IN the/DT presence/NN of/IN the/DT salt/NN -LRB-/-LRB- unless/IN the/DT salt/NN is/VBZ computationally/RB expensive/JJ -RRB-/-RRB- ./.
+The/DT goal/NN on/IN the/DT front/JJ end/NN should/MD be/VB delay/VB and/or/CC prevent/VB blind/JJ guessing/VBG ,/, and/CC the/DT backend/NN to/TO salt/NN securely/RB ./.

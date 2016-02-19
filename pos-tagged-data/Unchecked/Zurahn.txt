@@ -1,0 +1,2 @@
+On/IN the/DT MySQL/NN statements/NNS about/IN foreign/JJ keys/NNS ,/, you/PRP 're/VBP right/JJ that/IN MyISAM/NN does/VBZ n't/RB support/VB them/PRP ,/, but/CC you/PRP imply/VBP that/IN merely/RB using/VBG MyISAM/NN is/VBZ bad/JJ design/NN ./.
+A/DT reason/NN I/PRP 've/VBP used/VBN MyISAM/NN is/VBZ that/IN InnoDB/NN does/VBZ n't/RB support/VB FullText/NNP searches/NNS ,/, and/CC I/PRP do/VBP n't/RB think/VB that/DT 's/VBZ unreasonable/JJ ./.

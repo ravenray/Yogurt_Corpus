@@ -1,0 +1,2 @@
+@KarolyHorvath/NN Note/NN that/WDT cout/VBD <</CD a/DT <</NN b/NN <</CD c/NN ?/.
+operator/NN <</NN -LRB-/-LRB- operator/NN <</NN -LRB-/-LRB- operator/NN <</NN -LRB-/-LRB- cout/NN ,/, a/DT -RRB-/-RRB- ,/, b/NN -RRB-/-RRB- ,/, c/NN -RRB-/-RRB- is/VBZ only/RB marginally/RB less/RBR ugly/JJ ./.

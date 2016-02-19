@@ -1,0 +1,3 @@
+I/PRP am/VBP not/RB an/DT expert/NN at/IN this/DT sort/NN of/IN thing/NN ,/, but/CC I/PRP keep/VBP up/RP with/IN the/DT security/NN community/NN and/CC a/DT lot/NN of/IN people/NNS there/RB consider/VBP the/DT md5/FW hash/FW broken/VBN ./.
+I/PRP would/MD say/VB that/IN which/WDT one/CD to/TO use/VB depends/VBZ on/IN how/WRB sensitive/JJ the/DT data/NN is/VBZ and/CC the/DT specific/JJ application/NN ./.
+You/PRP might/MD be/VB able/JJ to/TO get/VB away/RP with/IN a/DT slightly/RB less/RBR secure/JJ hash/VBP as/RB long/RB as/IN the/DT key/NN is/VBZ good/JJ and/CC strong/JJ ./.

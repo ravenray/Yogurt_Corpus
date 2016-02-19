@@ -1,0 +1,3 @@
+Process.Start/NN is/VBZ the/DT first/JJ one/CD to/TO come/VB to/TO mind/VB ./.
+I/PRP am/VBP sure/JJ that/IN WindowsIdentity/NN and/CC much/JJ of/IN System.Security/NN can/MD also/RB be/VB used/VBN for/IN evil/NN ./.
+Of/IN course/NN ,/, there/EX are/VBP SQL/NN injection/NN attacks/NNS ,/, but/CC I/PRP do/VBP n't/RB think/VB that/DT 's/VBZ what/WP you/PRP mean/VBP -LRB-/-LRB- though/IN remote/JJ execution/NN can/MD occur/VB through/IN SQL/NN Server/NN -RRB-/-RRB- ./.

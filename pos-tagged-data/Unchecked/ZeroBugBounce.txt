@@ -1,0 +1,2 @@
+I/PRP do/VBP n't/RB understand/VB the/DT reason/NN for/IN this/DT -/: can/MD you/PRP cite/VB some/DT article/NN or/CC explain/VB why/WRB ?/.
+@Vimvq1987/NN Ah/NN okay/JJ ,/, I/PRP was/VBD imagining/VBG this/DT inside/IN an/DT app/NN ,/, not/RB the/DT case/NN of/IN sitting/VBG in/IN front/NN of/IN a/DT database/NN tool/NN ./.

@@ -1,0 +1,47 @@
+@Tom/ATS Gullen/ATS -/: you/PRP only/RB have/VBP half/PDT the/DT picture/NN ./.
+Without/IN salt/NNP ,/, an/DT attacker/NN would/MD n't/RB use/VB the/DT method/NN you/PRP demonstrate/VBP in/IN ``/`` Update/VB 2/CD ''/'' ./.
+He/PRP 'd/MD simply/RB do/VB a/DT lookup/NN in/IN a/DT table/NN and/CC get/VB the/DT password/NN in/IN O/NN -LRB-/-LRB- 1/CD -RRB-/-RRB- or/CC O/NN -LRB-/-LRB- log/NN n/NN -RRB-/-RRB- time/NN -LRB-/-LRB- n/NN being/VBG the/DT number/NN of/IN candidate/NN passwords/NNS -RRB-/-RRB- ./.
+Salt/NNP is/VBZ what/WP prevents/VBZ that/IN and/CC forces/VBZ him/PRP to/TO use/VB the/DT O/NN -LRB-/-LRB- n/NN -RRB-/-RRB- approach/NN you/PRP demonstrate/VBP ./.
+Another/DT technique/NN -LRB-/-LRB- key-strengthening/NN -RRB-/-RRB- can/MD cause/VB each/DT attempt/NN in/IN your/PRP$ loop/NN to/TO take/VB a/DT full/JJ second/NN ,/, meaning/VBG that/IN it/PRP will/MD take/VB 3/CD years/NNS to/TO perform/VB those/DT tests/NNS .../: and/CC with/IN only/JJ 10k/CD passwords/NNS ,/, you/PRP 're/VBP likely/JJ to/TO crack/VB zero/NN passwords/NNS in/IN that/DT time/NN ./.
+@Tom/ATS Gullen/ATS -/: I/PRP mean/VBP re-hashing/VBG the/DT result/NN say/VBP 2000/CD times/NNS -LRB-/-LRB- you/PRP have/VBP to/TO consider/VB that/IN an/DT attacker/NN is/VBZ going/VBG to/TO use/VB something/NN fast/RB ,/, not/RB PHP/NN -RRB-/-RRB- ,/, so/IN that/IN it/PRP takes/VBZ a/DT good/JJ fraction/NN of/IN a/DT second/NN to/TO compute/VB the/DT hash/NN for/IN a/DT single/JJ password/NN ./.
+This/DT is/VBZ found/VBN in/IN the/DT standard/JJ key/JJ derivation/NN algorithms/NNS PBKDF1/COS and/CC PBKDF2/COS ,/, from/IN PKCS/ACR #/# 5/CD ,/, which/WDT make/VBP great/JJ password/NN obfuscation/NN algorithms/NNS -LRB-/-LRB- the/DT ``/`` derived/VBN key/NN ''/'' is/VBZ the/DT ``/`` hash/NN ''/'' -RRB-/-RRB- ./.
+A/DT lot/NN of/IN users/NNS on/IN SO/NN refer/VBP to/TO this/DT article/NN because/IN it/PRP was/VBD a/DT response/NN to/TO Jeff/NNP Atwood/NNP ./.
+BTW/ACR ,/, of/IN course/NN you/PRP assume/VBP the/DT attacker/NN has/VBZ everything/NN ./.
+Assume/VB the/DT attacker/NN is/VBZ a/DT corrupt/JJ hosting/VBG company/NN employee/NN who/WP dumped/VBD the/DT user/NN table/NN on/IN your/PRP$ myprettypony.com/URL fansite/NN so/IN that/IN he/PRP can/MD recover/VB passwords/NNS and/CC see/VB if/IN they/PRP work/VBP on/IN people/NNS 's/POS citibank.com/URL accounts/NNS ./.
+With/IN a/DT well-designed/JJ password/NN scheme/NN ,/, it/PRP will/MD be/VB impossible/JJ for/IN this/DT guy/NN to/TO recover/VB any/DT passwords/NNS ./.
+@Tom/ATS Gullen/ATS -/: With/IN proper/JJ password/NN choice/NN policies/NNS -LRB-/-LRB- at/IN least/JJS nine/CD characters/NNS ,/, including/VBG numbers/NNS ,/, mixed/JJ case/NN ,/, and/CC symbols/NNS -RRB-/-RRB- ,/, you/PRP wo/MD n't/RB crack/VB many/JJ accounts/NNS by/IN trying/VBG a/DT few/JJ thousand/CD passwords/NNS ./.
+@Tom/ATS Gullen/ATS -/: even/RB with/IN reasonable/JJ strong/JJ password/NN policies/NNS ,/, a/DT dictionary/NN of/IN hundreds/NNS of/IN millions/NNS or/CC a/DT few/JJ billion/CD candidates/NNS is/VBZ likely/JJ to/TO get/VB some/DT hits/NNS ,/, because/IN all/DT passwords/NNS are/VBP not/RB equally/RB likely/JJ -LRB-/-LRB- because/IN people/NNS use/VBP mnemonics/NNS ,/, rather/RB than/IN RNGs/ACR ,/, to/TO choose/VB them/PRP -RRB-/-RRB- ./.
+A/DT dictionary/NN of/IN that/DT size/NN is/VBZ precomputable/JJ on/IN commodity/NN systems/NNS if/IN salt/NNP is/VBZ not/RB used/VBN ./.
+If/IN salt/NNP is/VBZ used/VBN ,/, the/DT attacker/NN has/VBZ to/TO recompute/VB hashes/NNS every/DT time/NN ,/, and/CC if/IN enough/JJ iterations/NNS of/IN the/DT hash/NN are/VBP performed/VBN ,/, the/DT attacker/NN 's/POS rate/NN of/IN attack/NN can/MD be/VB slowed/VBN to/TO a/DT few/JJ attempts/NNS per/IN second/NN ./.
+A/DT dictionary/NN is/VBZ a/DT structure/NN where/WRB values/NNS are/VBP indexed/VBN by/IN keys/NNS ./.
+In/IN the/DT case/NN of/IN a/DT pre-computed/JJ dictionary/NN attack/NN ,/, each/DT key/NN is/VBZ a/DT hash/NN ,/, and/CC the/DT corresponding/JJ value/NN is/VBZ a/DT password/NN that/WDT results/VBZ in/IN the/DT hash/NN ./.
+With/IN a/DT pre-computed/JJ dictionary/NN in/IN hand/NN ,/, an/DT attacker/NN can/MD ``/`` instantly/RB ''/'' lookup/VB a/DT password/NN that/WDT will/MD produce/VB the/DT necessary/JJ hash/NN to/TO log/VB in/IN ./.
+With/IN salt/NN ,/, the/DT space/NN required/VBN to/TO store/VB the/DT dictionary/NN grows/VBZ rapidly/RB .../: so/RB rapidly/RB ,/, that/IN trying/VBG to/TO pre-compute/VB a/DT password/NN dictionary/NN soon/RB becomes/VBZ pointless/JJ ./.
+The/DT best/JJS salts/NNS are/VBP randomly/RB chosen/VBN from/IN a/DT cryptographic/JJ random/JJ number/NN generator/NN ./.
+Eight/CD bytes/NNS is/VBZ a/DT practical/JJ size/NN ,/, and/CC more/JJR than/IN 16/CD bytes/NNS serves/VBZ no/DT purpose/NN ./.
+Salt/NNP does/VBZ much/RB more/JJR than/IN just/RB ``/`` make/VB an/DT attacker/NN 's/POS job/NN more/RBR irritating/JJ ./. ''/''
+It/PRP eliminates/VBZ an/DT entire/JJ class/NN of/IN attack/NN --/: the/DT use/NN of/IN precomputed/JJ dictionaries/NNS ./.
+Another/DT element/NN is/VBZ necessary/JJ to/TO completely/RB secure/VB passwords/NNS ,/, and/CC that/DT is/VBZ ``/`` key-strengthening/JJ ./. ''/''
+One/CD round/NN of/IN SHA-1/ACR is/VBZ not/RB good/JJ enough/RB :/: a/DT safe/JJ password/NN hashing/VBG algorithm/NN should/MD be/VB very/RB slow/JJ computationally/RB ./.
+Many/JJ people/NNS use/VBP PBKDF2/ACR ,/, a/DT key/JJ derivation/NN function/NN ,/, that/WDT feeds/VBZ back/JJ results/NNS to/TO the/DT hash/JJ function/NN thousands/NNS of/IN times/NNS ./.
+The/DT ``/`` bcrypt/JJ ''/'' algorithm/NN is/VBZ similar/JJ ,/, using/VBG an/DT iterative/JJ key/JJ derivation/NN that/WDT is/VBZ slow/JJ ./.
+When/WRB the/DT hashing/VBG operation/NN is/VBZ very/RB slow/JJ ,/, a/DT precomputed/JJ table/NN becomes/VBZ more/RBR and/CC more/RBR desirable/JJ to/TO an/DT attacker/NN ./.
+But/CC proper/JJ salt/NNP defeats/VBZ that/IN approach/NN ./.
+Comments/NNS Below/IN are/VBP the/DT comments/NNS I/PRP made/VBD on/IN the/DT question/NN ./.
+Without/IN salt/NNP ,/, an/DT attacker/NN would/MD n't/RB use/VB the/DT method/NN demonstrated/VBD in/IN ``/`` Update/VB 2/CD ''/'' ./.
+He/PRP 'd/MD simply/RB do/VB a/DT lookup/NN in/IN a/DT pre-computed/JJ table/NN and/CC get/VB the/DT password/NN in/IN O/NN -LRB-/-LRB- 1/CD -RRB-/-RRB- or/CC O/NN -LRB-/-LRB- log/NN n/NN -RRB-/-RRB- time/NN -LRB-/-LRB- n/NN being/VBG the/DT number/NN of/IN candidate/NN passwords/NNS -RRB-/-RRB- ./.
+Salt/NNP is/VBZ what/WP prevents/VBZ that/IN and/CC forces/VBZ him/PRP to/TO use/VB the/DT O/NN -LRB-/-LRB- n/NN -RRB-/-RRB- approach/NN shown/VBN in/IN ``/`` Update/VB 2/CD ''/'' ./.
+Once/RB reduced/VBN to/TO an/DT O/NN -LRB-/-LRB- n/NN -RRB-/-RRB- attack/NN ,/, we/PRP have/VBP to/TO consider/VB how/WRB long/JJ each/DT attempt/NN takes/VBZ ./.
+Key-strengthening/NN can/MD cause/VB each/DT attempt/NN in/IN the/DT loop/NN to/TO take/VB a/DT full/JJ second/NN ,/, meaning/VBG that/IN the/DT time/NN needed/VBN to/TO test/VB 10k/CD passwords/NNS on/IN 10k/CD users/NNS will/MD stretch/VB from/IN 3/CD days/NNS to/TO 3/CD years/NNS .../: and/CC with/IN only/JJ 10k/CD passwords/NNS ,/, you/PRP 're/VBP likely/JJ to/TO crack/VB zero/NN passwords/NNS in/IN that/DT time/NN ./.
+You/PRP have/VBP to/TO consider/VB that/IN an/DT attacker/NN is/VBZ going/VBG to/TO use/VB the/DT fastest/JJS tools/NNS he/PRP can/MD ,/, not/RB PHP/ACR ,/, so/IN thousands/NNS of/IN iterations/NNS ,/, rather/RB than/IN 100/CD ,/, would/MD be/VB a/DT good/JJ parameter/NN for/IN key-strengthening/NN ./.
+It/PRP should/MD take/VB a/DT large/JJ fraction/NN of/IN a/DT second/NN to/TO compute/VB the/DT hash/NN for/IN a/DT single/JJ password/NN ./.
+Key-strengthening/NN is/VBZ part/NN of/IN the/DT standard/JJ key/JJ derivation/NN algorithms/NNS PBKDF1/ACR and/CC PBKDF2/ACR ,/, from/IN PKCS/ACR #/# 5/CD ,/, which/WDT make/VBP great/JJ password/NN obfuscation/NN algorithms/NNS -LRB-/-LRB- the/DT ``/`` derived/VBN key/NN ''/'' is/VBZ the/DT ``/`` hash/NN ''/'' -RRB-/-RRB- ./.
+A/DT lot/NN of/IN users/NNS on/IN StackOverflow/NNP refer/VBP to/TO this/DT article/NN because/IN it/PRP was/VBD a/DT response/NN to/TO Jeff/NNP Atwood/NNP 's/POS post/NN about/IN the/DT dangers/NNS of/IN rainbow/NN tables/NNS ./.
+It/PRP 's/VBZ not/RB my/PRP$ favorite/JJ article/NN ,/, but/CC it/PRP does/VBZ discuss/VB these/DT concepts/NNS in/IN more/JJR detail/NN ./.
+Of/IN course/NN you/PRP assume/VBP the/DT attacker/NN has/VBZ everything/NN :/: salt/NNP ,/, hash/NN ,/, user/NN name/NN ./.
+Assume/VB the/DT attacker/NN is/VBZ a/DT corrupt/JJ hosting/VBG company/NN employee/NN who/WP dumped/VBD the/DT user/NN table/NN on/IN your/PRP$ myprettypony.com/URL fansite/NN ./.
+He/PRP 's/VBZ trying/VBG recover/VB these/DT passwords/NNS because/IN he/PRP 's/VBZ going/VBG to/TO turn/VB around/RP and/CC see/VB if/IN your/PRP$ pony/NN fans/NNS used/VBD the/DT same/JJ password/NN on/IN their/PRP$ citibank.com/URL accounts/NNS ./.
+With/IN a/DT well-designed/JJ password/NN scheme/NN ,/, it/PRP will/MD be/VB impossible/JJ for/IN this/DT guy/NN to/TO recover/VB any/DT passwords/NNS ./.
+Salt/NNP stops/VBZ pre-computed/JJ dictionary/NN attacks/NNS ./.
+Key-strengthening/NN stops/VBZ dictionary/NN attacks/NNS ./.
+Both/DT must/MD be/VB used/VBN together/RB for/IN secure/JJ password/NN authentication/NN ./.

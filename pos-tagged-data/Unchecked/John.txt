@@ -1,0 +1,12 @@
+Edit/NNP :/: This/DT answer/NN is/VBZ outdated/VBN and/CC Jonathan/NNP 's/POS answer/NN above/IN -LRB-/-LRB- JSON.parse/NN -LRB-/-LRB- jsonString/NN -RRB-/-RRB- -RRB-/-RRB- is/VBZ now/RB the/DT best/JJS answer/NN ./.
+JSON.org/NN has/VBZ JSON/NN parsers/NNS for/IN many/JJ languages/NNS including/VBG 4/CD different/JJ ones/NNS for/IN Javascript/NNP ./.
+I/PRP believe/VBP most/JJS people/NNS would/MD consider/VB json2.js/NNS their/PRP$ goto/NN implementation/NN ./.
+I/PRP wish/VBP people/NNS would/MD stop/VB down-voting/VBG this/DT answer/NN ./.
+It/PRP was/VBD accurate/JJ when/WRB it/PRP was/VBD posted/VBN in/IN 2008/CD ./.
+Just/RB upvote/VB the/DT new/JJ one/CD ./.
+Edit/NNP :/: This/DT answer/NN is/VBZ outdated/VBN and/CC Jonathan/NNP 's/POS answer/NN above/IN -LRB-/-LRB- JSON.parse/NN -LRB-/-LRB- jsonString/NN -RRB-/-RRB- -RRB-/-RRB- is/VBZ now/RB the/DT best/JJS answer/NN ./.
+JSON.org/NN has/VBZ JSON/NN parsers/NNS for/IN many/JJ languages/NNS including/VBG 4/CD different/JJ ones/NNS for/IN Javascript/NNP ./.
+I/PRP believe/VBP most/JJS people/NNS would/MD consider/VB json2.js/NNS their/PRP$ goto/NN implementation/NN ./.
+I/PRP wish/VBP people/NNS would/MD stop/VB down-voting/VBG this/DT answer/NN ./.
+It/PRP was/VBD accurate/JJ when/WRB it/PRP was/VBD posted/VBN in/IN 2008/CD ./.
+Just/RB upvote/VB the/DT new/JJ one/CD ./.

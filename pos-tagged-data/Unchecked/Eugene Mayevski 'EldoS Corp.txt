@@ -1,0 +1,5 @@
+The/DT idea/NN behind/IN dictionary/NN attack/NN is/VBZ that/IN you/PRP take/VBP a/DT hash/NN and/CC find/VB the/DT password/NN ,/, from/IN which/WDT this/DT hash/NN was/VBD calculated/VBN ,/, without/IN hash/JJ calculation/NN ./.
+Now/RB do/VBP the/DT same/JJ with/IN salted/JJ password/NN -/: you/PRP ca/MD n't/RB ./.
+Not/RB using/VBG a/DT salt/NN makes/VBZ password/NN search/NN as/RB easy/JJ as/IN lookup/NN in/IN the/DT database/NN ./.
+Adding/VBG a/DT salt/NN make/NN attacker/NN perform/VB hash/JJ calculation/NN of/IN all/DT possible/JJ passwords/NNS -LRB-/-LRB- even/RB for/IN dictionary/NN attach/VBP this/DT significantly/RB increases/VBZ time/NN of/IN attack/NN -RRB-/-RRB- ./.
+See/VB my/PRP$ updated/VBN answer/NN ./.

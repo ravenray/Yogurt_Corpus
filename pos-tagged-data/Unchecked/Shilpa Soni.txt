@@ -1,0 +1,4 @@
+There/EX should/MD be/VB big/JJ brackets/NNS instead/RB of/IN small/JJ brackets/NNS ./.
+Like/IN `/`` if/IN -LRB-/-LRB- tbs/NNS -LSB-/-LRB- i/LS -RSB-/-RRB- ./.
+type/NN ==/CD `/`` text/NN '/'' -RRB-/-RRB- -LCB-/-LRB- `/`` in/IN place/NN of/IN `/`` if/IN -LRB-/-LRB- tbs/NNS -LRB-/-LRB- i/LS -RRB-/-RRB- ./.
+type/NN ==/CD `/`` text/NN '/'' -RRB-/-RRB- -LCB-/-LRB- `/``

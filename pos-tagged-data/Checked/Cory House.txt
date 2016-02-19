@@ -1,0 +1,9 @@
+Salt/NN makes/VBZ Rainbow/NN table/NN attacks/NNS much/RB more/RBR difficult/JJ since/IN it/PRP makes/VBZ a/DT single/JJ password/NN hash/VBP much/RB harder/JJR to/TO crack/VB ./.
+Imagine/VB you/PRP have/VBP a/DT horrid/JJ password/NN of/IN just/RB the/DT number/NN 1/CD ./.
+A/DT rainbow/NN table/NN attack/NN would/MD crack/VB this/DT immediately/RB ./.
+Now/RB imagine/VB each/DT password/NN in/IN the/DT db/NN is/VBZ salted/VBN with/IN a/DT long/JJ random/JJ value/NN of/IN many/JJ random/JJ characters/NNS ./.
+Now/RB your/PRP$ lousy/JJ password/NN of/IN ``/`` 1/CD ''/'' is/VBZ stored/VBN in/IN the/DT db/ACR as/IN a/DT hash/NN of/IN 1/CD plus/CC a/DT bunch/NN of/IN random/JJ characters/NNS -LRB-/-LRB- the/DT salt/NN -RRB-/-RRB- ,/, so/RB in/IN this/DT example/NN the/DT rainbow/NN table/NN needs/VBZ to/TO have/VB the/DT hash/NN for/IN something/NN like/IN :/: 1/CD ./.
+So/RB assuming/VBG your/PRP$ salt/NN is/VBZ something/NN secure/JJ and/CC random/JJ ,/, say/VB -LRB-/COB -RRB-/COB %/COB ISLDGHASKLU/COB -LRB-/COB %/COB #/COB %/COB #/COB ,/, the/DT hacker/NN 's/POS rainbow/NN table/NN would/MD need/VB to/TO have/VB an/DT entry/NN for/IN 1/CD */COB -LRB-/COB -RRB-/COB %/COB ISLDGHASKLU/COB -LRB-/COB */COB %/COB #/COB %/COB #/COB ./.
+Now/RB using/VBG a/DT rainbow/NN table/NN on/IN even/RB this/DT simple/JJ password/NN is/VBZ no/RB longer/RB practical/JJ ./.
+Sure/RB Tom/NNP ,/, I/PRP agree/VBP ,/, but/CC the/DT point/NN is/VBZ the/DT hacker/NN has/VBZ to/TO do/VB that/DT ugly/JJ time-consuming/JJ process/NN once/RB for/IN each/DT password/NN if/IN salt/NN is/VBZ used/VBN ./.
+Thus/RB ,/, salt/NN does/VBZ make/VB using/VBG a/DT rainbow/NN table/NN harder/RBR ./.

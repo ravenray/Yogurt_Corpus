@@ -1,0 +1,1 @@
+For/IN more/RBR general/JJ knowledge/NN ,/, check/NN OWASP/NNP Website/NNP :/: owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet/NN

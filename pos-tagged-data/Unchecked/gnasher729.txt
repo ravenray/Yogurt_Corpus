@@ -1,0 +1,4 @@
+Since/IN the/DT time/NN that/IN Intel/NNP processors/NNS have/VBP SSE2/NN and/CC better/JJR ,/, compilers/NNS tend/VBP to/TO do/VB double/JJ precision/NN floating-point/JJ arithmetic/NN using/VBG the/DT SSE/NN 64/CD bit/NN floating/JJ point/NN registers/VBZ ,/, and/CC not/RB the/DT slower/JJR 80/CD bit/NN floating-point/JJ check/NN ./.
+That/DT would/MD only/RB be/VB used/VBN if/IN you/PRP use/VBP ``/`` long/RB double/JJ ''/'' instead/RB of/IN double/JJ ./.
+The/DT requirement/NN was/VBD always/RB that/IN storing/VBG a/DT value/NN into/IN a/DT double/JJ lvalue/NN ,/, or/CC an/DT explicit/JJ cast/NN to/TO double/VB ,/, should/MD reduce/VB the/DT precision/NN ,/, but/CC gcc/NN tended/VBD to/TO be/VB not/RB very/RB good/JJ at/IN it/PRP ./.
+For/IN example/NN ,/, the/DT compiler/NN treated/VBD a/DT cast/NN of/IN a/DT double/JJ value/NN to/TO double/VB as/IN a/DT no-op/NN which/WDT is/VBZ wrong/JJ when/WRB the/DT value/NN is/VBZ actually/RB 80/CD bit/NN ./.

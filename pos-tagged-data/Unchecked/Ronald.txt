@@ -1,0 +1,2 @@
+Use/NN simple/JJ code/NN represented/VBN in/IN the/DT following/VBG link/NN on/IN MSDN/NNP ./.
+var/NN jsontext/NN =/JJ '/'' -LCB-/-LRB- ``/`` firstname/NN ''/'' :/: ``/`` Jesper/NNP ''/'' ,/, ``/`` surname/NN ''/'' :/: ``/`` Aaberg/NNP ''/'' ,/, ``/`` phone/NN ''/'' :[/NN ``/`` 555-0100/CD ''/'' ,/, ``/`` 555-0120/CD ''/'' -RSB-/-RRB- -RCB-/-RRB- '/'' ;/: var/NN contact/NN =/JJ JSON.parse/NN -LRB-/-LRB- jsontext/NN -RRB-/-RRB- ;/: and/CC reverse/JJ var/NN str/NN =/JJ JSON.stringify/NN -LRB-/-LRB- arr/NN -RRB-/-RRB- ;/:

@@ -1,0 +1,12 @@
+Newton/NNP 's/POS laws/NNS are/VBP applicable/JJ today/NN for/IN most/JJS things/NNS ./.
+The/DT fact/NN that/IN they/PRP have/VBP predicted/VBN a/DT very/RB wide/JJ range/NN of/IN phenomena/NNS for/IN centuries/NNS is/VBZ significant/JJ ./.
+@frunsi/NN :/: Sounds/VBZ like/IN a/DT good/JJ learning/NN exercise/NN ,/, but/CC not/RB practical/JJ in/IN general/JJ ./.
+Once/RB you/PRP 've/VBP learned/VBN exception/NN safety/NN -LRB-/-LRB- and/CC the/DT above/JJ is/VBZ a/DT very/RB good/JJ answer/NN -RRB-/-RRB- ,/, you/PRP start/VBP seeing/VBG safe/JJ and/CC unsafe/JJ constructs/NNS for/IN yourself/PRP ./.
+It/PRP 's/VBZ my/PRP$ experience/NN that/IN writing/VBG exception-safe/JJ code/NN in/IN C++/NNP is/VBZ not/RB that/IN hard/JJ ,/, and/CC that/IN it/PRP tends/VBZ to/TO lead/VB to/TO cleaner/NN code/NN in/IN general/JJ ./.
+Of/IN course/NN ,/, you/PRP do/VBP have/VB to/TO learn/VB to/TO do/VB it/PRP ./.
+Nothing/NN like/IN the/DT birthday/NN paradox/NN ./.
+In/IN a/DT large/JJ group/NN ,/, many/JJ will/MD use/VB insecure/JJ passwords/NNS ,/, and/CC one/CD is/VBZ likely/JJ to/TO use/VB any/DT given/VBN popular/JJ one/CD ./.
+There/EX will/MD also/RB be/VB a/DT fair/JJ number/NN of/IN people/NNS like/IN me/PRP who/WP are/VBP n't/RB going/VBG to/TO be/VB caught/VBN by/IN such/JJ an/DT attack/NN ./.
+The/DT kittens/NNS idea/NN is/VBZ flawed/VBN :/: any/DT multiple/JJ choice/NN test/NN -LRB-/-LRB- pick/NN one/CD of/IN N/NN -RRB-/-RRB- can/MD only/RB slow/VB a/DT brute/JJ force/NN attack/NN down/RB by/IN a/DT factor/NN of/IN N./NNP For/IN reasonable/JJ N/NN ,/, that/DT 's/VBZ not/RB necessarily/RB good/JJ enough/RB ./.
+For/IN brute-force/JJ password/NN attacks/NNS on/IN multiple/JJ users/NNS ,/, it/PRP really/RB does/VBZ n't/RB matter/VB all/DT that/RB much/JJ if/IN the/DT password/NN changes/VBZ mid-attempt/JJ ./.
+Besides/IN ,/, the/DT average/JJ time-to-guess/NN may/MD be/VB sufficiently/RB short/JJ that/IN users/NNS will/MD either/RB refuse/VB to/TO change/VB passwords/NNS or/CC wo/MD n't/RB be/VB online/JJ often/RB enough/RB ./.

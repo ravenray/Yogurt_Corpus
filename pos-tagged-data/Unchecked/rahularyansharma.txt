@@ -1,0 +1,9 @@
+Injection/NN prevention/NN -/: mysql_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- PHP/NNP has/VBZ a/DT specially-made/JJ function/NN to/TO prevent/VB these/DT attacks/NNS ./.
+All/DT you/PRP need/VBP to/TO do/VB is/VBZ use/VB the/DT mouthful/NN of/IN a/DT function/NN ,/, mysql_real_escape_string/NN ./.
+mysql_real_escape_string/NN takes/VBZ a/DT string/NN that/WDT is/VBZ going/VBG to/TO be/VB used/VBN in/IN a/DT MySQL/NN query/NN and/CC return/VB the/DT same/JJ string/NN with/IN all/DT SQL/NNP injection/NN attempts/NNS safely/RB escaped/VBD ./.
+Basically/RB ,/, it/PRP will/MD replace/VB those/DT troublesome/JJ quotes/NNS -LRB-/-LRB- '/'' -RRB-/-RRB- a/DT user/NN might/MD enter/VB with/IN a/DT MySQL-safe/JJ substitute/NN ,/, an/DT escaped/VBN quote/NN \/NN '/'' ./.
+NOTE/VB :/: you/PRP must/MD be/VB connected/VBN to/TO the/DT database/NN to/TO use/VB this/DT function/NN !/.
+//: //: Connect/VB to/TO MySQL/VB $/$ name_bad/NN =/JJ ''/'' '/POS OR/NN 1/CD '/'' ''/'' ;/: $/$ name_bad/NN =/JJ mysql_real_escape_string/NN -LRB-/-LRB- $/$ name_bad/CD -RRB-/-RRB- ;/: $/$ query_bad/NN =/JJ ``/`` SELECT/VB */SYM FROM/NN customers/NNS WHERE/VBP username/RB =/JJ '/'' $/$ name_bad/NN '/'' ''/'' ;/: echo/VB ``/`` Escaped/VBN Bad/JJ Injection/NN :/: ''/'' ./.
+$/$ query_bad/NN ./. ''/'' ''/''
+;/: $/$ name_evil/NN =/JJ ''/'' '/'' ;/: DELETE/NNP FROM/NNP customers/NNS WHERE/NN 1/CD or/CC username/NN =/JJ '/'' ''/'' ;/: $/$ name_evil/NN =/JJ mysql_real_escape_string/NN -LRB-/-LRB- $/$ name_evil/NN -RRB-/-RRB- ;/: $/$ query_evil/NN =/JJ ``/`` SELECT/VB */SYM FROM/NN customers/NNS WHERE/VBP username/RB =/JJ '/'' $/$ name_evil/NN '/'' ''/'' ;/: echo/VB ``/`` Escaped/VBN Evil/NN Injection/NN :/: ''/'' ./.
+$/$ query_evil/NN ;/: You/PRP can/MD find/VB more/JJR details/NNS in/IN MySQL/NN -/: SQL/NN Injection/NN Prevention/NNP ./.

@@ -1,0 +1,2 @@
+I/PRP disagree/VBP on/IN exclusive/JJ arcs/NNS being/VBG hard/JJ to/TO maintain/VB ./.
+If/IN I/PRP have/VBP three/CD foreign/JJ keys/NNS in/IN the/DT arc/NN ,/, I/PRP can/MD do/VB -LRB-/-LRB- in/IN postgres/NNS -RRB-/-RRB- :/: check/NN -LRB-/-LRB- -LRB-/-LRB- table1_id/NN is/VBZ not/RB null/JJ -RRB-/-RRB- :/: :/: integer/NN +/CC -LRB-/-LRB- table2_id/NN is/VBZ not/RB null/JJ -RRB-/-RRB- :/: :/: integer/NN +/CC -LRB-/-LRB- table3_id/NN is/VBZ not/RB null/JJ -RRB-/-RRB- :/: :/: integer/NN =/JJ 1/CD -RRB-/-RRB-

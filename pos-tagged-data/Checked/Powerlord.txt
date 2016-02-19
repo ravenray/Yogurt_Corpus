@@ -1,0 +1,15 @@
+It/PRP does/VBZ n't/RB stop/VB dictionary/NN attacks/NNS ./.
+What/WP it/PRP does/VBZ is/VBZ stop/VB someone/NN who/WP manages/VBZ to/TO get/VB a/DT copy/NN of/IN your/PRP$ password/NN file/NN from/IN using/VBG a/DT rainbow/NN table/NN to/TO figure/VB out/RP what/WP the/DT passwords/NNS are/VBP from/IN the/DT hashes/NNS ./.
+Eventually/RB ,/, it/PRP can/MD be/VB brute-forced/JJ ,/, though/RB ./.
+The/DT answer/NN to/TO that/DT part/NN is/VBZ to/TO force/VB your/PRP$ users/NNS to/TO not/RB use/VB dictionary/NN words/NNS as/IN passwords/NNS -LRB-/-LRB- minimum/NN requirements/NNS of/IN at/IN least/JJS one/CD number/NN or/CC special/JJ character/NN ,/, for/IN example/NN -RRB-/-RRB- ./.
+Update/VB :/: I/PRP should/MD have/VB mentioned/VBN this/DT earlier/JJR ,/, but/CC some/DT -LRB-/-LRB- most/JJS ?/. -RRB-/-RRB-
+password/NN systems/NNS use/VBP a/DT different/JJ salt/NN for/IN each/DT password/NN ,/, likely/RB stored/VBN with/IN the/DT password/NN itself/PRP ./.
+This/DT makes/VBZ a/DT single/JJ rainbow/NN table/NN useless/JJ ./.
+This/DT is/VBZ how/WRB the/DT UNIX/NNP crypt/NN library/NN works/VBZ ,/, and/CC modern/JJ UNIX-like/JJ OSes/ACR have/VBP extended/VBN this/DT library/NN with/IN new/JJ hash/JJ algorithms/NNS ./.
+I/PRP know/VBP for/IN a/DT fact/NN that/IN support/NN for/IN SHA-256/ACR and/CC SHA-512/ACR were/VBD added/VBN in/IN newer/JJR versions/NNS of/IN GNU/ACR crypt/NN ./.
+@rmeador/ATS :/: This/DT is/VBZ why/WRB GNU/ACR crypt/NN makes/VBZ multiple/JJ passes/NNS with/IN it/PRP ./.
+I/PRP know/VBP it/PRP was/VBD 1000/CD for/IN MD5/ACR ,/, I/PRP 'm/VBP not/RB sure/JJ how/WRB many/JJ it/PRP is/VBZ for/IN newer/JJR algorithms/NNS ./.
+@Joe/ATS :/: rainbow/NN tables/NNS are/VBP precompiled/JJ tables/NNS ./.
+If/IN you/PRP use/VBP a/DT salt/NN ,/, generally/RB there/EX wo/MD n't/RB be/VB a/DT rainbow/NN table/NN with/IN that/DT particular/JJ salt/NN value/NN ./.
+@Joe/ATS :/: Because/IN a/DT salt/NN can/MD be/VB practically/RB anything/NN ./.
+Jeff/NNP Atwood/NNP talks/NNS about/IN it/PRP a/DT bit/NN on/IN his/PRP$ blog/NN :/: codinghorror.com/blog/2007/09/rainbow-hash-cracking.html/URL

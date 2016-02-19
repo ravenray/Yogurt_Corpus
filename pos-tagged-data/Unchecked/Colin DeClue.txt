@@ -1,0 +1,4 @@
+@Joe/NN :/: With/IN large/JJ enough/JJ salts/NNS ,/, the/DT size/NN of/IN the/DT rainbow/NN tables/NNS makes/VBZ it/PRP infeasible/JJ to/TO use/VB them/PRP for/IN current/JJ or/CC future/JJ hardware/NN ./.
+@Michael/NN :/: With/IN a/DT longer/JJR salt/NN ,/, you/PRP need/VBP to/TO precompute/VB all/DT possible/JJ salt/NN values/NNS ,/, for/IN it/PRP to/TO show/VB up/RP in/IN the/DT rainbow/NN table/NN ./.
+The/DT point/NN is/VBZ you/PRP do/VBP n't/RB keep/VB the/DT same/JJ salt/NN for/IN all/DT passwords/NNS ,/, you/PRP choose/VBP it/PRP randomly/RB for/IN each/DT password/NN ,/, and/CC store/VB it/PRP in/IN the/DT database/NN next/JJ to/TO the/DT stored/VBN hashed-salted/JJ password/NN ./.
+So/RB ,/, a/DT hacker/NN would/MD need/VB an/DT entry/NN in/IN the/DT rainbow/NN table/NN for/IN each/DT possible/JJ large-valued/JJ salt/NN ,/, causing/VBG the/DT table/NN to/TO be/VB too/RB large/JJ to/TO be/VB feasible/JJ ,/, which/WDT is/VBZ the/DT point/NN ./.

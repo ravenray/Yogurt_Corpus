@@ -1,0 +1,6 @@
+Here/RB are/VBP my/PRP$ suggestions/NNS for/IN you/PRP :/: You/PRP should/MD probably/RB forget/VB MD5/NN if/IN you/PRP anticipate/VBP attacks/NNS ./.
+There/EX are/VBP many/JJ rainbow/NN tables/NNS for/IN them/PRP online/NN ,/, and/CC corporations/NNS like/IN the/DT RIAA/NNP have/VBP been/VBN known/VBN to/TO be/VB able/JJ to/TO produce/VB sequences/NNS with/IN equivalent/JJ hashes/NNS ./.
+Use/VB a/DT salt/NN if/IN you/PRP can/MD ./.
+Including/VBG the/DT message/NN length/NN in/IN the/DT message/NN can/MD make/VB it/PRP very/RB difficult/JJ to/TO make/VB a/DT useful/JJ hash/NN collision/NN ./.
+As/IN a/DT general/JJ rule/NN of/IN thumb/NN ,/, more/JJR bits/NNS means/VBZ less/JJR collisions/NNS -LRB-/-LRB- by/IN pigeonhole/NN principle/NN -RRB-/-RRB- and/CC slower/JJR ,/, and/CC maybe/RB more/RBR secure/JJ -LRB-/-LRB- unless/IN you/PRP are/VBP a/DT math/NN genius/NN who/WP can/MD find/VB vulnerabilities/NNS -RRB-/-RRB- ./.
+See/VB here/RB for/IN a/DT paper/NN detailing/VBG an/DT algorithm/NN to/TO create/VB md5/NN collisions/NNS in/IN 31/CD seconds/NNS with/IN a/DT desktop/NN Intel/NNP P4/NN computer/NN ./.

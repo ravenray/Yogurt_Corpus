@@ -1,0 +1,10 @@
+Ah/NN ,/, yes/UH ./.
+But/CC what/WP about/IN third/JJ order/NN injection/NN ./.
+Have/VBP to/TO be/VB aware/JJ of/IN those/DT ./.
+Yes/RB ,/, it/PRP is/VBZ sufficient/JJ ./.
+The/DT way/NN injection/NN type/NN attacks/NNS work/VBP ,/, is/VBZ by/IN somehow/RB getting/VBG an/DT interpreter/NN -LRB-/-LRB- The/DT database/NN -RRB-/-RRB- to/TO evaluate/VB something/NN ,/, that/WDT should/MD have/VB been/VBN data/NNS ,/, as/IN if/IN it/PRP was/VBD code/NN ./.
+This/DT is/VBZ only/RB possible/JJ if/IN you/PRP mix/VBP code/NN and/CC data/NNS in/IN the/DT same/JJ medium/NN -LRB-/-LRB- Eg/NN ./.
+when/WRB you/PRP construct/VBP a/DT query/NN as/IN a/DT string/NN -RRB-/-RRB- ./.
+Parameterised/NNP queries/VBZ work/NN by/IN sending/VBG the/DT code/NN and/CC the/DT data/NNS separately/RB ,/, so/IN it/PRP would/MD never/RB be/VB possible/JJ to/TO find/VB a/DT hole/NN in/IN that/DT ./.
+You/PRP can/MD still/RB be/VB vulnerable/JJ to/TO other/JJ injection-type/JJ attacks/NNS though/IN ./.
+For/IN example/NN ,/, if/IN you/PRP use/VBP the/DT data/NNS in/IN a/DT HTML-page/NN ,/, you/PRP could/MD be/VB subject/JJ to/TO XSS/NN type/NN attacks/NNS ./.

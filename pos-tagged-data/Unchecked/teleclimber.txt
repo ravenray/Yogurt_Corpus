@@ -1,0 +1,2 @@
+I/PRP have/VBP successfully/RB been/VBN using/VBG json_sans_eval/NN for/IN a/DT while/NN now/RB ./.
+According/VBG to/TO its/PRP$ author/NN ,/, it/PRP is/VBZ more/RBR secure/JJ than/IN json2.js/NNS ./.

@@ -1,0 +1,6 @@
+Sadly/RB this/DT wo/MD n't/RB work/VB with/IN ASP.net/NN 2.0/CD as/IN is/VBZ ./.
+Remove/VB the/DT httpRuntime/NN line/NN and/CC it/PRP will/MD work/VB ./.
+Yeah/UH but/CC what/WP if/IN you/PRP 're/VBP using/VBG ./.
+Net/NN 2/CD ?/.
+Some/DT of/IN us/PRP have/VBP no/DT choice/NN This/NNP is/VBZ a/DT good/JJ solution/NN ./.
+It/PRP 's/VBZ a/DT proper/JJ manual/JJ way/NN to/TO control/VB it/PRP yourself/PRP and/CC not/RB invalidate/VB the/DT entire/JJ website/NN or/CC page/NN

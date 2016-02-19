@@ -1,0 +1,2 @@
+For/IN me/FW i/FW use/NN filter_input/NN functions/NNS and/CC it/PRP 's/VBZ works/VBZ fine/NN here/RB is/VBZ an/DT example/NN :/: if/IN -LRB-/-LRB- !/.
+filter_input/NN -LRB-/-LRB- INPUT_POST/NN ,/, 'em/PRP ail/VBD '/'' ,/, FILTER_VALIDATE_EMAIL/NN -RRB-/-RRB- -RRB-/-RRB- -LCB-/-LRB- echo/VB ``/`` E-Mail/NN is/VBZ not/RB valid/JJ ''/'' ;/: -RCB-/-RRB- else/RB -LCB-/-LRB- echo/VB ``/`` E-Mail/NN is/VBZ valid/JJ ''/'' ;/: -RCB-/-RRB-

@@ -1,0 +1,1 @@
+The/DT alternative/JJ solution/NN is/VBZ :/: jQuery.parseJSON/NN -LRB-/-LRB- jsonString/NN -RRB-/-RRB- ;/:

@@ -1,0 +1,10 @@
+``/`` Never/NNP ''/'' is/VBZ way/NN overstating/VBG it/PRP ,/, to/TO the/DT point/NN of/IN being/VBG misleading/JJ ./.
+If/IN you/PRP are/VBP using/VBG prepared/JJ statements/NNS incorrectly/RB ,/, it/PRP 's/VBZ not/RB much/RB better/JJR than/IN not/RB using/VBG them/PRP at/IN all/DT ./.
+-LRB-/-LRB- Of/IN course/NN ,/, a/DT ``/`` prepared/JJ statement/NN ''/'' that/WDT has/VBZ had/VBN user/NN input/NN injected/VBD into/IN it/PRP defeats/VBZ the/DT purpose/NN .../: but/CC i/LS 've/VBP actually/RB seen/VBN it/PRP done/VBN ./.
+And/CC prepared/JJ statements/NNS ca/MD n't/RB handle/VB identifiers/NNS -LRB-/-LRB- table/NN names/NNS etc/NN -RRB-/-RRB- as/IN parameters/NNS ./. -RRB-/-RRB-
+Add/VB to/TO that/DT ,/, some/DT of/IN the/DT PDO/NNP drivers/NNS emulate/VBP prepared/JJ statements/NNS ,/, and/CC there/EX 's/VBZ room/NN for/IN them/PRP to/TO do/VB so/RB incorrectly/RB -LRB-/-LRB- for/IN instance/NN ,/, by/IN half-assedly/RB parsing/VBG the/DT SQL/NN -RRB-/-RRB- ./.
+Short/JJ version/NN :/: never/RB assume/VB it/PRP is/VBZ that/IN easy/JJ ./.
+You/PRP could/MD have/VB </JJR ?/.
+=/JJ $/$ GLOBALS/NNS -LSB-/-LRB- `/`` my_bank_account_number/NN '/'' -RSB-/-RRB- ?/.
+>/JJR in/IN there/RB ,/, and/CC it/PRP would/MD n't/RB matter/VB ./.
+By/IN the/DT time/NN PHP/NN code/NN from/IN the/DT DB/NN is/VBZ spit/VBN out/RP into/IN a/DT page/NN ,/, the/DT parser/NN 's/POS already/RB done/VBN --/: so/IN PHP/NNP wo/MD n't/RB even/RB see/VB it/PRP ,/, let/VB alone/RB run/VB it/PRP ,/, without/IN you/PRP making/VBG it/PRP do/VB so/RB -LRB-/-LRB- eg/FW :/: by/IN writing/VBG the/DT code/NN to/TO a/DT file/NN and/CC including/VBG it/PRP ,/, or/CC passing/VBG it/PRP to/TO a/DT function/NN like/IN eval/NN ,/, or/CC what/WP have/VBP you/PRP -RRB-/-RRB- ./.

@@ -1,0 +1,3 @@
+Use/NNP parametrized/VBD queries/NNS ;/: but/CC that/DT does/VBZ n't/RB mean/VB you/PRP can/MD let/VB user/NN inputs/NNS go/VBP in/RP without/IN some/DT basic/JJ sanitizing/NN ./.
+You/PRP may/MD find/VB -LSB-/-LRB- PHP/NN filter_var/NN -RSB-/-RRB- -LSB-/-LRB- 1/CD -RSB-/-RRB- useful/JJ in/IN many/JJ places/NNS apart/RB from/IN preventing/VBG SQL/NN injection/NN ./.
+-LSB-/-LRB- 1/CD -RSB-/-RRB- :/: php.net/manual/en/filter.filters.sanitize.php/NN ``/`` filter_var/NN ''/''

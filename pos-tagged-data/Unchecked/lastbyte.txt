@@ -1,0 +1,4 @@
+Using/VBG PDO/NN is/VBZ right/JJ ./.
+But/CC sometimes/RB necessary/JJ prepare/VB variable/JJ before/RB send/VB into/IN sql/NN ./.
+You/PRP can/MD use/VB filter_var/NN ./.
+Example/NN :/: $/$ data/NN =/JJ $/$ _/CD GET/VB -LSB-/-LRB- `/`` data/NNS '/'' -RSB-/-RRB- ;/: $/$ data/NN =/JJ filter_var/NN -LRB-/-LRB- $/$ data/NNS ,/, FILTER_SANITIZE_STRING/NN -RRB-/-RRB- ;/: $/$ data/NN =/JJ filter_var/NN -LRB-/-LRB- $/$ data/NNS ,/, FILTER_SANITIZE_MAGIC_QUOTES/NN -RRB-/-RRB- ;/: This/DT example/NN sanitize/VBP string/NN and/CC prevent/VB sql/NN injection/NN ./.

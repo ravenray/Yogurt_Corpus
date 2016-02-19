@@ -1,0 +1,5 @@
+Looks/NNS like/IN you/PRP are/VBP trying/VBG to/TO defend/VB against/IN slow/JJ distributed/VBN brute/JJ force/NN ./.
+Not/RB that/IN much/RB you/PRP can/MD do/VB about/IN it/PRP ./.
+We/PRP are/VBP using/VBG a/DT PKI/NN and/CC no/DT password/NN logins/NNS ./.
+It/PRP helps/VBZ ,/, but/CC if/IN your/PRP$ clients/NNS chance/VBP workstations/NNS every/DT once/RB in/IN a/DT while/NN ,/, this/DT is/VBZ not/RB very/RB applicable/JJ ./.
+Well/RB fast/RB brute/JJ force/NN from/IN a/DT single/JJ host/NN use/NN iptables/NNS or/CC whatever/WDT firewall/NN u/NN use/NN ./.

@@ -1,0 +1,5 @@
+31kb/JJ added/VBN to/TO your/PRP$ project/NN also/RB ./.
+@Panique/NN -/: Those/DT developers/NNS are/VBP worth/JJ nothing/NN if/IN they/PRP cant/VBP program/NN in/IN pure/JJ js/NNS ./.
+also/RB ,/, when/WRB you/PRP will/MD get/VB to/TO manage/VB high/JJ volume/NN sites/NNS ,/, that/DT 31k/NN will/MD matter/VB a/DT lot/NN ./.
+also/RB ,/, i/LS just/RB commented/VBD that/IN for/IN a/DT simple/JJ json/NN parsing/NN ,/, you/PRP do/VBP not/RB need/VB JQuery/NN ./.
+@Panique/NN -/: what/WP i/LS am/RB trying/VBG to/TO say/VB -LRB-/-LRB- and/CC you/PRP dont/VBP get/VB -RRB-/-RRB- ,/, is/VBZ if/IN the/DT code/NN is/VBZ 1kb/JJ -LRB-/-LRB- since/IN that/DT is/VBZ all/DT that/WDT is/VBZ needed/VBN -RRB-/-RRB- ,/, why/WRB bloat/VB it/PRP with/IN JQuery/NN ?/.

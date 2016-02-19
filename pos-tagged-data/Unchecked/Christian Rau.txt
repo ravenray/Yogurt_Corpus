@@ -1,0 +1,4 @@
+``/`` First/JJ of/IN all/DT ,/, floating/VBG point/NN values/NNS are/VBP not/RB ``/`` random/JJ ''/'' in/IN their/PRP$ behavior/NN ./.
+Exact/JJ comparison/NN can/MD and/CC does/VBZ make/VB sense/NN in/IN plenty/NN of/IN real-world/JJ usages/NNS ./. ''/''
+-/: Just/RB two/CD sentences/NNS and/CC already/RB earned/VBD a/DT +1/NN !/.
+That/DT 's/VBZ one/CD of/IN the/DT most/RBS disturbing/JJ misassumptions/NNS people/NNS make/VBP when/WRB working/VBG with/IN floating/VBG points/NNS ./.

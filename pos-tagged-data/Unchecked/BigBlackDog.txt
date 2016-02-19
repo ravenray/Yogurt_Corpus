@@ -1,0 +1,2 @@
+I/PRP 've/VBP seen/VBN code/NN where/WRB the/DT user/NN could/MD set/VB the/DT name/NN and/CC parameters/NNS for/IN a/DT function/NN call/NN in/IN a/DT database/NN ./.
+The/DT system/NN would/MD then/RB execute/VB the/DT named/VBN function/NN through/IN Reflection/NN without/IN checking/VBG anything/NN .../:

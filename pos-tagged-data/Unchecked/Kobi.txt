@@ -1,0 +1,12 @@
+``/`` It/PRP 's/VBZ clear/JJ that/IN prepared/JJ statement/NN also/RB escaping/VBG the/DT data/NNS ,/, nothing/NN else/RB ''/'' -/: not/RB really/RB ./.
+What/WP about/IN formatting/NN for/IN different/JJ types/NNS ?/.
+How/WRB do/VBP you/PRP write/VB a/DT date/NN ,/, or/CC a/DT boolean/NN ?/.
+Even/RB if/IN SQL/NN injection/NN was/VBD n't/RB an/DT issue/NN ,/, I/PRP 'd/MD still/RB use/VB parameterized/JJ queries/NNS ./.
+I/PRP got/VBD it/PRP ./.
+But/CC :/: you/PRP said/VBD ``/`` beginners/NNS ,/, if/IN they/PRP ca/MD n't/RB quickly/RB implement/VB -LSB-/-LRB- .../: -RSB-/-RRB- prepared/JJ statement/NN ''/'' ./.
+I/PRP 'm/VBP arguing/VBG that/IN Brad/NNP is/VBZ right/JJ in/IN his/PRP$ -LRB-/-LRB- little/JJ rude/JJ -RRB-/-RRB- comment/NN -/: SQL/NN parameters/NNS are/VBP much/RB easier/JJR than/IN building/VBG an/DT SQL/NN string/NN -/: even/RB ignoring/VBG security/NN ./.
+Another/DT benefit/NN is/VBZ that/IN the/DT query/NN can/MD easily/RB be/VB configured/VBN ,/, or/CC a/DT const/NN somewhere/RB ./.
+What/WP exactly/RB do/VBP you/PRP expect/VB here/RB ?/.
+A/DT huge/JJ list/NN of/IN functions/NNS ?/.
+I/PRP 'm/VBP not/RB sure/JJ how/WRB that/DT is/VBZ useful/JJ .../: Also/RB ,/, to/TO be/VB pedant/JJ ,/, you/PRP are/VBP talking/VBG about/IN the/DT ./.
+Net/NNP Base/NNP Class/NNP Library/NNP ,/, or/CC maybe/RB Asp.Net/NN ,/, not/RB C#/NN functions/NNS -LRB-/-LRB- I/PRP 'm/VBP not/RB sure/JJ there/EX are/VBP ``/`` C#/NN functions/NNS ''/'' -RRB-/-RRB- ./.

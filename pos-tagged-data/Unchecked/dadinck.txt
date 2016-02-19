@@ -1,0 +1,1 @@
+For/IN a/DT numeric/JJ -LRB-/-LRB- decimal/JJ -RRB-/-RRB- argument/NN ,/, do/VBP n't/RB add/VB '/POS 0x/NN '/'' to/TO the/DT beginning/NN and/CC use/NN unhex/NN -LRB-/-LRB- '/'' $/$ coded/VBN '/'' -RRB-/-RRB- ./.

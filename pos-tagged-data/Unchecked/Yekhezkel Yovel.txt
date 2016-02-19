@@ -1,0 +1,2 @@
+How/WRB about/IN combining/VBG prepared/JJ statements/NNS with/IN the/DT filter_input/NN function/NN ?/.
+uk3.php.net/NN //: manual/en/function/NN ./.

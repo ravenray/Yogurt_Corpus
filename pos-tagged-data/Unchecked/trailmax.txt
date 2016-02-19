@@ -1,0 +1,3 @@
+The/DT only/JJ correct/JJ answer/NN !/.
+disabling/VBG validation/NN on/IN controller/NN action/NN is/VBZ hacky/JJ ./.
+And/CC for/IN disabling/VBG validation/NN on/IN application/NN level/NN ,/, devs/NNS must/MD be/VB hanged/VBN !/.

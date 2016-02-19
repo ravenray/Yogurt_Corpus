@@ -1,0 +1,2 @@
+In/IN practice/NN find/VBP that/IN it/PRP is/VBZ easier/JJR to/TO just/RB never/RB throw/VB exceptions/NNS from/IN constructors/NNS and/CC assignment/NN operators/NNS on/IN your/PRP$ code/NN ./.
+Memory/NN allocation/NN only/RB starts/VBZ failing/VBG once/RB the/DT whole/JJ OS/NN is/VBZ already/RB thrashing/VBG and/CC does/VBZ not/RB seem/VB to/TO be/VB something/NN to/TO worry/VB about/IN in/IN most/JJS cases/NNS ./.

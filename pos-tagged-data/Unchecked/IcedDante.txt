@@ -1,0 +1,2 @@
+Not/RB to/TO mention/VB you/PRP can/MD reference/VB JQuery/NN from/IN a/DT Google/NNP hosted/VBN site/NN ,/, so/IN chances/NNS are/VBP most/JJS people/NNS needing/VBG it/PRP will/MD already/RB have/VB it/PRP in/IN their/PRP$ browser/NN cache/NN ./.
+the/DT 31k/NN argument/NN is/VBZ pretty/RB silly/JJ

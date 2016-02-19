@@ -1,0 +1,2 @@
+Not/RB paying/VBG enough/JJ attention/NN towards/IN managing/VBG database/NN connections/NNS in/IN your/PRP$ application/NN ./.
+Then/RB you/PRP find/VBP out/RP the/DT application/NN ,/, the/DT computer/NN ,/, the/DT server/NN ,/, and/CC the/DT network/NN is/VBZ clogged/VBN ./.

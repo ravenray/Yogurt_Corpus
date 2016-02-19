@@ -1,0 +1,17 @@
+-1/CD escaping/VBG parameters/NNS is/VBZ a/DT form/NN of/IN blacklisting/NN :/: any/DT failure/NN results/VBZ in/IN a/DT vulnerability/NN ./.
+As/IN @polynomial/JJ stated/VBN ,/, this/DT is/VBZ a/DT bad/JJ idea/NN ./.
+Ideally/RB ,/, mysql_real_escape_string/NN and/CC its/PRP$ ilk/NN would/MD be/VB removed/VBN from/IN PHP/NNP -LRB-/-LRB- given/VBN their/PRP$ track/NN record/NN ,/, I/PRP wo/MD n't/RB hold/VB my/PRP$ breath/NN -RRB-/-RRB- ,/, so/RB as/IN to/TO prevent/VB that/IN false/JJ sense/NN of/IN security/NN ./.
+Parameterize/NN or/CC be/VB pnwed/VBN ./.
+@doliver/NN -/: It/PRP does/VBZ n't/RB matter/VB how/WRB many/JJ ways/NNS one/CD tries/VBZ to/TO wriggle/VB out/IN of/IN the/DT fact/NN ;/: concatenation-style/JJ query/NN building/NN using/VBG user-supplied/JJ values/NNS results/VBZ in/IN vulnerable/JJ code/NN ./.
+select/JJ */NN from/IN foo/NN where/WRB bar/NN =/JJ ``/`` $/$ var/JJ ''/'' ;/: then/RB $/$ var/NN =/JJ ``/`` 1/CD \/NN ''/'' OR/NN \/CD ``/`` 2/CD \/NN ''/'' =/JJ \/CD ``/`` 2/CD ''/'' =/JJ >/JJR select/JJ */NN from/IN foo/NN where/WRB bar/NN =/JJ ``/`` 1/CD ''/'' or/CC ``/`` 2/CD ''/'' =/JJ ``/`` 2/CD ''/'' ;/: Game/NNP over/IN ./.
+If/IN you/PRP 're/VBP still/RB trying/VBG to/TO figure/VB out/RP the/DT magic/JJ function/NN to/TO escape/VB everything/NN ,/, you/PRP 've/VBP already/RB lost/VBN ./.
+@doliver/NN no/RB worries/VBZ -/: the/DT point/NN is/VBZ that/IN it/PRP is/VBZ possible/JJ to/TO ``/`` break/VB out/RP ''/'' of/IN the/DT quotes/NNS and/CC make/VB the/DT condition/NN evaluate/VB to/TO true/JJ -LRB-/-LRB- or/CC false/JJ ,/, as/IN needed/VBN -RRB-/-RRB- ./.
+If/IN $/$ var/NN =/JJ ``/`` 1/CD '/'' OR/NN '/'' 2/CD '/POS =/JJ '/'' 2/CD ''/'' ;/: ,/, then/RB when/WRB it/PRP is/VBZ concatenated/VBN in/IN to/TO ``/`` select/JJ */NN from/IN foo/NN where/WRB bar/NN =/JJ '/'' ''/'' ./.
+$/$ var/JJ ./. ''/'' '/''
+;/: ''/'' the/DT result/NN will/MD be/VB select/JJ */NN from/IN foo/NN where/WRB bar/NN =/JJ '/'' 1/CD '/POS OR/NN '/'' 2/CD '/POS =/JJ '/'' 2/CD '/'' ;/: which/WDT will/MD always/RB succeed/VB since/IN '/'' 2/CD '/POS =/JJ '/'' 2/CD '/'' ./.
+This/DT is/VBZ why/WRB DB/NN nerds/NNS laugh/NN at/IN Bobby/NNP Tables/NNP ;-RRB-/FW @doliver/FW -/: I/PRP created/VBD a/DT fiddle/NN to/TO show/VB this/DT :/: sqlfiddle.com/#!2/870826/7/NN The/DT first/JJ query/NN returns/NNS nothing/NN -LRB-/-LRB- no/DT score/NN matches/VBZ -RRB-/-RRB- ;/: the/DT second/JJ query/NN returns/NNS everything/NN ,/, even/RB though/IN the/DT `/`` score/NN '/'' value/NN is/VBZ the/DT same/JJ ./.
+@Mathieu/NN `/`` OtaK/NN `/`` Amiot/NNP Honestly/NNP ,/, if/IN you/PRP are/VBP going/VBG to/TO waste/VB your/PRP$ time/NN twisting/VBG yourself/PRP into/IN contortions/NNS in/IN order/NN to/TO avoid/VB parameterized/JJ queries/NNS ,/, then/RB you/PRP 're/VBP better/JJR off/IN just/RB admitting/VBG that/IN you/PRP 're/VBP willing/JJ to/TO accept/VB the/DT risk/NN that/IN your/PRP$ code/NN is/VBZ going/VBG to/TO be/VB insecure/JJ and/CC go/VB with/IN that/DT ./.
+Why/WRB spend/VBP a/DT lot/NN of/IN time/NN on/IN ineffective/JJ workarounds/NNS just/RB to/TO give/VB yourself/PRP a/DT false/JJ sense/NN of/IN security/NN ?/.
+I/PRP also/RB found/VBD a/DT great/JJ answer/NN on/IN security/NN SE/NN ./.
+As/IN of/IN PHP/NNP 5.4/CD ,/, the/DT abomination/NN known/VBN as/IN `/`` magic/JJ quotes/NNS '/POS has/VBZ been/VBN killed/VBN dead/JJ ./.
+And/CC good/JJ riddance/NN to/TO bad/JJ rubbish/JJ ./.

@@ -1,0 +1,3 @@
+@Blaisorblade/NNP This/NNP requires/VBZ the/DT attacker/NN to/TO have/VB access/NN to/TO your/PRP$ configuration/NN or/CC source/NN code/NN -LRB-/-LRB- or/CC that/IN you/PRP have/VBP n't/RB defined/VBN character/NN set/VBN on/IN your/PRP$ table/NN right/NN -RRB-/-RRB- ./.
+Likelihood/NN is/VBZ if/IN he/PRP has/VBZ that/IN ,/, he/PRP 's/VBZ got/VBD your/PRP$ database/NN anyway/RB ./.
+A/DT similar/JJ bug/NN existed/VBN with/IN PDO/NN a/DT while/NN back/RB ./.

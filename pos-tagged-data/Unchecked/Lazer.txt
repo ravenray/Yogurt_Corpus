@@ -1,0 +1,1 @@
+@cletus/NN :/: Awesome/JJ answer/NN ,/, one/CD question/NN though/RB ,/, how/WRB do/VBP prepared/JJ statements/NNS protect/VBP against/IN SQL/NN injection/NN attacks/NNS ?/.

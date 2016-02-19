@@ -1,0 +1,2 @@
+Ok/NNP ,/, now/RB it/PRP is/VBZ 2014/CD and/CC you/PRP should/MD never/RB use/VB eval/NN in/IN order/NN to/TO parse/VB a/DT JSON/NNP string/NN because/IN you/PRP would/MD be/VB exposing/VBG your/PRP$ code/NN to/TO ``/`` code/VB injection/NN ''/'' ./.
+Use/NN JSON.parse/NN -LRB-/-LRB- yourString/NN -RRB-/-RRB- instead/RB ./.

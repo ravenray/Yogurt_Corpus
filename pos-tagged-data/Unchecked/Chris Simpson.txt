@@ -1,0 +1,2 @@
+One/CD might/NN argue/VBP that/IN transactions/NNS should/MD be/VB done/VBN in/IN transactional/JJ database/NN and/CC reporting/NN and/CC MIS/NN should/MD be/VB done/VBN in/IN a/DT separate/JJ analysis/NN database/NN ./.
+Therefore/RB you/PRP get/VBP the/DT best/JJS of/IN both/DT worlds/NNS and/CC everyone/NN is/VBZ happy/JJ -LRB-/-LRB- except/IN for/IN the/DT poor/JJ mug/NN who/WP has/VBZ to/TO write/VB the/DT data/NNS transformation/NN script/NN to/TO build/VB the/DT latter/JJ out/IN of/IN the/DT former/JJ -RRB-/-RRB- ./.

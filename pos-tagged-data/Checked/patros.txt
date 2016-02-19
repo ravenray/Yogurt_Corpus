@@ -1,0 +1,13 @@
+A/DT few/JJ simple/JJ steps/NNS :/: Blacklist/NN certain/JJ common/JJ usernames/NNS ,/, and/CC use/VB them/PRP as/IN a/DT honeypot/NN ./.
+Admin/NN ,/, guest/NN ,/, etc./FW ./. ./.
+Do/VBP n't/RB let/VB anyone/NN create/VB accounts/NNS with/IN these/DT names/NNS ,/, so/RB if/IN someone/NN does/VBZ try/VB to/TO log/VB them/PRP in/IN you/PRP know/VBP it/PRP 's/VBZ someone/NN doing/VBG something/NN they/PRP should/MD n't/RB ./.
+Make/VB sure/JJ anyone/NN who/WP has/VBZ real/JJ power/NN on/IN the/DT site/NN has/VBZ a/DT secure/JJ password/NN ./.
+Require/NN admins/NNS //: moderators/NNS to/TO have/VB longer/JJR passwords/NNS with/IN a/DT mix/NN of/IN letters/NNS ,/, numbers/NNS and/CC symbols/NNS ./.
+Reject/VB trivially/RB simple/JJ passwords/NNS from/IN regular/JJ users/NNS with/IN an/DT explanation/NN ./.
+One/CD of/IN the/DT simplest/JJS things/NNS you/PRP can/MD do/VB is/VBZ tell/VB people/NNS when/WRB someone/NN tried/VBD to/TO log/VB into/IN their/PRP$ account/NN ,/, and/CC give/VB them/PRP a/DT link/NN to/TO report/VB the/DT incident/NN if/IN it/PRP was/VBD n't/RB them/PRP ./.
+A/DT simple/JJ message/NN when/WRB they/PRP log/VBP in/IN like/JJ ``/`` Someone/NN tried/VBD to/TO log/VB into/IN your/PRP$ account/NN at/IN 4:20/CD AM/ACR Wednesday/NNP blah/UH blah/UH ./.
+Click/VB here/RB if/IN this/DT was/VBD n't/RB you/PRP ./. ''/''
+It/PRP lets/VBZ you/PRP keep/VB some/DT statistics/NNS on/IN attacks/NNS ./.
+You/PRP can/MD step/VB up/RP monitoring/NN and/CC security/NN measures/NNS if/IN you/PRP see/VBP that/IN there/EX 's/VBZ a/DT sudden/JJ increase/NN in/IN fraudulent/JJ accesses/NNS ./.
+Yup/UH ,/, the/DT honeypot/NN and/CC user/NN reporting/NN are/VBP more/RBR about/IN information/NN gathering/NN ./.
+They/PRP may/MD provide/VB some/DT valuable/JJ metrics/NNS to/TO let/VB you/PRP know/VB if/when/NN a/DT slow/JJ brute/JJ force/NN attack/NN is/VBZ happening/VBG ./.

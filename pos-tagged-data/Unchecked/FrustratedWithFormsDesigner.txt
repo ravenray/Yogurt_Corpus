@@ -1,0 +1,5 @@
+@T/NN ./.
+E.D./NNP :/: I/PRP rather/RB like/IN salted/JJ crackers/NNS ./.
+Salted/JJ slugs/NNS ,/, not/RB so/RB much/JJ ./.
+In/IN the/DT OP/NN 's/POS scenario/NN ,/, the/DT attacker/NN has/VBZ the/DT salts/NNS from/IN the/DT database/NN ,/, and/CC will/MD have/VB to/TO try/VB every/DT salt/NN with/IN every/DT entry/NN in/IN the/DT ``/`` dictionary/NN ''/'' ./.
+.../: I/PRP think/VBP ./.

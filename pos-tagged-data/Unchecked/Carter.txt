@@ -1,0 +1,5 @@
+For/IN ASP.Net/NN 4.0/CD ,/, You/PRP can/MD allow/VB markup/NN as/IN input/NN for/IN specific/JJ pages/NNS instead/RB of/IN the/DT whole/JJ site/NN by/IN putting/VBG it/PRP all/DT in/IN a/DT <location>/NN element/NN ./.
+This/DT will/MD make/VB sure/JJ all/DT your/PRP$ other/JJ pages/NNS are/VBP safe/JJ ./.
+You/PRP do/VBP NOT/RB need/VB to/TO put/VB ValidateRequest/NN =/JJ ``/`` false/JJ ''/'' in/IN your/PRP$ aspx/NN page/NN ./.
+.../: <system.web>/FW <pages validateRequest="false" />/FW <httpRuntime requestValidationMode="2.0" />/NN </system.web>/NN .../: It/PRP is/VBZ safer/JJR to/TO control/VB this/DT inside/IN your/PRP$ web.config/NN ,/, because/IN you/PRP can/MD see/VB at/IN a/DT site/NN level/NN which/WDT pages/NNS allow/VBP markup/NN as/IN input/NN ./.
+The/DT ``/`` pages/NNS ''/'' section/NN must/MD be/VB within/IN the/DT ``/`` system.web/NN ''/'' section/NN ./.

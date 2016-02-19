@@ -1,0 +1,4 @@
+@AbtinForouzandeh/NN ,/, I/PRP agree/VBP with/IN Jens/NNS on/IN requiring/VBG strong/JJ passwords/NNS -LRB-/-LRB- you/PRP can/MD use/VB a/DT shannon/NN entropy/NN calculator/NN -RRB-/-RRB- ./.
+Besides/IN after/IN the/DT password/NN is/VBZ set/VBN you/PRP should/MD n't/RB be/VB storing/VBG the/DT password/NN anyway/RB ,/, only/RB a/DT salted/JJ hash/NN of/IN the/DT password/NN ./.
+I/PRP am/VBP also/RB curious/JJ on/IN whether/IN the/DT library/NN is/VBZ published/VBN ./.
+It/PRP seems/VBZ like/IN there/EX should/MD be/VB a/DT very/RB common/JJ ``/`` best/JJS practices/NNS ''/'' auth/perm/NN library/NN with/IN pluggable/JJ interface/NN and/CC backend/JJ components/NNS ./.

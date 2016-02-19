@@ -1,0 +1,19 @@
+No/UH ,/, they/PRP are/VBP not/RB always/RB ./.
+It/PRP depends/VBZ on/IN whether/IN you/PRP allow/VBP user/NN input/NN to/TO be/VB placed/VBN within/IN the/DT query/NN itself/PRP ./.
+For/IN example/NN :/: $/COB dbh/COB =/COB new/COB PDO/COB -LRB-/COB ``/COB blahblah/COB ''/COB -RRB-/COB ;/COB $/COB tableToUse/COB =/COB $/COB _/COB GET/COB -LSB-/COB `/COB userTable/COB '/COB -RSB-/COB ;/COB $/COB stmt/COB =/COB $/COB dbh/COB -/COB >/COB prepare/COB -LRB-/COB `/COB SELECT/COB */COB FROM/COB '/COB ./COB
+$/COB tableToUse/COB ./COB '/COB
+where/COB username/COB =/COB :/COB username/COB '/COB -RRB-/COB ;/COB $/COB stmt/COB -/COB >/COB execute/COB -LRB-/COB array/COB -LRB-/COB '/COB :/COB username/COB '/COB =/COB >/COB $/COB _/COB REQUEST/COB -LSB-/COB `/COB username/COB '/COB -RSB-/COB -RRB-/COB -RRB-/COB ;/COB would/MD be/VB vulnerable/JJ to/TO SQL/ACR injections/NNS and/CC using/VBG prepared/JJ statements/NNS in/IN this/DT example/NN wo/MD n't/RB work/VB ,/, because/IN the/DT user/NN input/NN is/VBZ used/VBN as/IN an/DT identifier/NN ,/, not/RB as/IN data/NNS ./.
+The/DT right/JJ answer/NN here/RB would/MD be/VB to/TO use/VB some/DT sort/NN of/IN filtering/validation/NN like/IN :/: $/COB dbh/COB =/COB new/COB PDO/COB -LRB-/COB ``/COB blahblah/COB ''/COB -RRB-/COB ;/COB $/COB tableToUse/COB =/COB $/COB _/COB GET/COB -LSB-/COB `/COB userTable/COB '/COB -RSB-/COB ;/COB $/COB allowedTables/COB =/COB array/COB -LRB-/COB `/COB users/COB '/COB ,/COB `/COB admins/COB '/COB ,/COB `/COB moderators/COB '/COB -RRB-/COB ;/COB if/COB -LRB-/COB !/COB
+in_array/COB -LRB-/COB $/COB tableToUse/COB ,/COB $/COB allowedTables/COB -RRB-/COB -RRB-/COB $/COB tableToUse/COB =/COB `/COB users/COB '/COB ;/COB $/COB stmt/COB =/COB $/COB dbh/COB -/COB >/COB prepare/COB -LRB-/COB `/COB SELECT/COB */COB FROM/COB '/COB ./COB
+$/COB tableToUse/COB ./COB '/COB
+where/COB username/COB =/COB :/COB username/COB '/COB -RRB-/COB ;/COB $/COB stmt/COB -/COB >/COB execute/COB -LRB-/COB array/COB -LRB-/COB '/COB :/COB username/COB '/COB =/COB >/COB $/COB _/COB REQUEST/COB -LSB-/COB `/COB username/COB '/COB -RSB-/COB -RRB-/COB -RRB-/COB ;/COB Note/NN :/: you/PRP ca/MD n't/RB use/VB PDO/ACR to/TO bind/VB data/NNS that/WDT goes/VBZ outside/JJ of/IN DDL/ACR -LRB-/-LRB- Data/NN Definition/NN Language/NN -RRB-/-RRB- ,/, i.e./FW this/DT does/VBZ not/RB work/VB :/: $/COB stmt/COB =/COB $/COB dbh/COB -/COB >/COB prepare/COB -LRB-/COB `/COB SELECT/COB */COB FROM/COB foo/COB ORDER/COB BY/COB :/COB userSuppliedData/COB '/COB -RRB-/COB ;/: The/DT reason/NN why/WRB the/DT above/JJ does/VBZ not/RB work/VB is/VBZ because/IN DESC/COS and/CC ASC/ACR are/VBP not/RB data/NNS ./.
+PDO/ACR can/MD only/RB escape/VB for/IN data/NNS ./.
+Secondly/RB ,/, you/PRP ca/MD n't/RB even/RB put/VB '/POS quotes/NNS around/IN it/PRP ./.
+The/DT only/JJ way/NN to/TO allow/VB user/NN chosen/JJ sorting/NN is/VBZ to/TO manually/RB filter/NN and/CC check/NN that/IN it/PRP 's/VBZ either/CC DESC/COS or/CC ASC/ACR ./.
+@RobForrest/ATS yes/RB you/PRP are/VBP missing/VBG :-RRB-/EMO ./.
+The/DT data/NNS you/PRP bind/VBP only/RB works/VBZ for/IN DDL/ACR -LRB-/-LRB- Data/NN Definition/NN Language/NN -RRB-/-RRB- ./.
+You/PRP need/VBP those/DT quotes/NNS and/CC proper/JJ escaping/VBG ./.
+Placing/VBG quotes/NNS for/IN other/JJ parts/NNS of/IN the/DT query/NN breaks/VBZ it/PRP with/IN a/DT high/JJ probability/NN ./.
+For/IN example/NN ,/, SELECT/COS */COS FROM/COS `/COS table/COS '/COS can/MD be/VB wrong/JJ as/IN it/PRP should/MD be/VB SELECT/COS */COS FROM/COS `/COS table/COS `/COS or/CC without/IN any/DT backsticks/NNS ./.
+Then/RB some/DT things/NNS like/IN ORDER/COS BY/COS DESC/COS where/WRB DESC/COS comes/VBZ from/IN the/DT user/NN ca/MD n't/RB be/VB simply/RB escaped/VBN ./.
+So/RB ,/, practical/JJ scenarios/NNS are/VBP rather/RB unlimited/JJ ./.

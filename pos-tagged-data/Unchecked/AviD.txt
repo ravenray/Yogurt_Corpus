@@ -1,0 +1,9 @@
+Anyone/NN familiar/JJ with/IN specific/JJ security/NN issues/NNS in/IN the/DT current/JJ version/NN of/IN DotNetNuke/NNP ?/.
+-LRB-/-LRB- I/PRP 've/VBP already/RB checked/VBN out/RP their/PRP$ site/NN ,/, securityfocus/NN ,/, etc./FW ./. ./. -RRB-/-RRB-
+I/PRP 've/VBP reopened/VBN the/DT question/NN ,/, since/IN my/PRP$ client/NN developed/VBD their/PRP$ system/NN using/VBG DotNetNuke/NNP -/: hence/RB it/PRP is/VBZ a/DT programming/NN question/NN ./.
+I/PRP just/RB need/VBP to/TO know/VB some/DT issues/NNS regarding/VBG this/DT platform/NN ./.
+Not/RB that/IN familiar/JJ with/IN it/PRP ,/, but/CC isnt/VBD DotNetNuke/NNP also/RB a/DT dev/NN platform/NN ?/.
+Thanks/NNS ,/, this/DT was/VBD a/DT great/JJ help/NN !/.
+Not/RB just/RB the/DT vulnerabilities/NNS ,/, but/CC especially/RB the/DT security/NN guides/NNS and/CC such/JJ ./.
+Exactly/RB what/WP I/PRP was/VBD looking/VBG for/IN ./.
+Thanks/NNS ,/, this/DT is/VBZ good/JJ to/TO know/VB ./.

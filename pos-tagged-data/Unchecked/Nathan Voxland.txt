@@ -1,0 +1,9 @@
+Using/VBG Access/NN instead/RB of/IN a/DT ``/`` real/JJ ''/'' database/NN ./.
+There/EX are/VBP plenty/NN of/IN great/JJ small/JJ and/CC even/RB free/JJ databases/NNS like/IN SQL/NNP Express/NNP ,/, MySQL/NNP ,/, and/CC SQLite/NN that/WDT will/MD work/VB and/CC scale/VB much/RB better/RBR ./.
+Apps/NNS often/RB need/VBP to/TO scale/VB in/IN unexpected/JJ ways/NNS ./.
+Not/RB doing/VBG the/DT correct/JJ level/NN of/IN normalization/NN ./.
+You/PRP want/VBP to/TO make/VB sure/JJ that/IN data/NNS is/VBZ not/RB duplicated/JJ ,/, and/CC that/IN you/PRP are/VBP splitting/JJ data/NNS into/IN different/JJ as/IN needed/VBN ./.
+You/PRP also/RB need/VBP to/TO make/VB sure/JJ you/PRP are/VBP not/RB following/VBG normalization/NN too/RB far/RB as/IN that/DT will/MD hurt/VB performance/NN ./.
+Normalization/NNP is/VBZ a/DT balance/NN of/IN removing/VBG redundant/JJ data/NNS and/CC increasing/VBG flexibility/NN vs/CC decreased/VBN performance/NN and/CC increased/VBN complexity/NN ./.
+Finding/VBG the/DT correct/JJ balance/NN takes/VBZ experience/NN and/CC it/PRP changes/VBZ over/IN time/NN ./.
+See/VB en.wikipedia.org/wiki/Database_normalization/NN for/IN information/NN on/IN when/WRB to/TO denormalize/VB

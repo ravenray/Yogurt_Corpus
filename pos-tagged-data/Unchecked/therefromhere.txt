@@ -1,0 +1,2 @@
+@nico/NN yes/UH ,/, you/PRP 'll/MD be/VB safe/JJ from/IN SQL/NN injection/NN ,/, but/CC do/VBP n't/RB forget/VB about/IN other/JJ threats/NNS such/JJ as/IN XSS/NNP ,/, CRSF/NNP ./.
+see/VB stackoverflow.com/questions/2119083/…/NN

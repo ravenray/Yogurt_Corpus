@@ -1,0 +1,13 @@
+This/DT has/VBZ been/VBN said/VBN before/RB ,/, but/CC :/: indexes/NNS ,/, indexes/NNS ,/, indexes/NNS ./.
+I/PRP 've/VBP seen/VBN so/IN many/JJ cases/NNS of/IN poorly/RB performing/VBG enterprise/NN web/NN apps/NNC that/WDT were/VBD fixed/VBN by/IN simply/RB doing/VBG a/DT little/JJ profiling/NN -LRB-/-LRB- to/TO see/VB which/WDT tables/NNS were/VBD being/VBG hit/VBN a/DT lot/NN -RRB-/-RRB- ,/, and/CC then/RB adding/VBG an/DT index/NN on/IN those/DT tables/NNS ./.
+This/DT does/VBZ n't/RB even/RB require/VB much/RB in/IN the/DT way/NN of/IN SQL/ACR writing/NN knowledge/NN ,/, and/CC the/DT payoff/NN is/VBZ huge/JJ ./.
+Avoid/VB data/NNS duplication/NN like/IN the/DT plague/NN ./.
+Some/DT people/NNS advocate/VBP that/IN a/DT little/JJ duplication/NN wo/MD n't/RB hurt/VB ,/, and/CC will/MD improve/VB performance/NN ./.
+Hey/UH ,/, I/PRP 'm/VBP not/RB saying/VBG that/IN you/PRP have/VBP to/TO torture/VB your/PRP$ schema/NN into/IN Third/JJ Normal/JJ Form/NN ,/, until/IN it/PRP 's/VBZ so/RB abstract/JJ that/IN not/RB even/RB the/DT DBA/ACR 's/POS know/VBP what/WP 's/VBZ going/VBG on/RP ./.
+Just/RB understand/VB that/IN whenever/WRB you/PRP duplicate/VBP a/DT set/NN of/IN names/NNS ,/, or/CC zipcodes/NNS ,/, or/CC shipping/NN codes/NNS ,/, the/DT copies/NNS WILL/MD fall/VB out/IN of/IN synch/NN with/IN each/DT other/JJ eventually/RB ./.
+It/PRP WILL/MD happen/VB ./.
+And/CC then/RB you/PRP 'll/MD be/VB kicking/VBG yourself/PRP as/IN you/PRP run/VBP the/DT weekly/JJ maintenance/NN script/NN ./.
+And/CC lastly/RB :/: use/VB a/DT clear/JJ ,/, consistent/JJ ,/, intuitive/JJ naming/NN convention/NN ./.
+In/IN the/DT same/JJ way/NN that/IN a/DT well/RB written/VBN piece/NN of/IN code/NN should/MD be/VB readable/JJ ,/, a/DT good/JJ SQL/ACR schema/NN or/CC query/NN should/MD be/VB readable/JJ and/CC practically/RB tell/VB you/PRP what/WP it/PRP 's/VBZ doing/VBG ,/, even/RB without/IN comments/NNS ./.
+You/PRP 'll/MD thank/VB yourself/PRP in/IN six/CD months/NNS ,/, when/WRB you/PRP have/VBP to/TO to/TO maintenance/NN on/IN the/DT tables/NNS ./.
+``/COB SELECT/COB account_number/COB ,/COB billing_date/COB FROM/COB national_accounts/COB ''/COB is/VBZ infinitely/RB easier/JJR to/TO work/VB with/IN than/IN ``/COB SELECT/COB ACCNTNBR/COB ,/COB BILLDAT/COB FROM/COB NTNLACCTS/COB ''/COB ./COB

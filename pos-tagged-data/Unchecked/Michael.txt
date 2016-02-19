@@ -1,0 +1,8 @@
+The/DT correct/JJ question/NN :/: how/WRB does/VBZ one/CD compare/VB points/NNS in/IN Cocoa/NNP Touch/NNP ?/.
+The/DT correct/JJ answer/NN :/: CGPointEqualToPoint/NN -LRB-/-LRB- -RRB-/-RRB- ./.
+A/DT different/JJ question/NN :/: Are/VBP two/CD calculated/JJ values/NNS are/VBP the/DT same/JJ ?/.
+The/DT answer/NN posted/VBD here/RB :/: They/PRP are/VBP not/RB ./.
+How/WRB to/TO check/VB if/IN they/PRP are/VBP close/JJ ?/.
+If/IN you/PRP want/VBP to/TO check/VB if/IN they/PRP are/VBP close/JJ ,/, then/RB do/VBP n't/RB use/VB CGPointEqualToPoint/NN -LRB-/-LRB- -RRB-/-RRB- ./.
+But/CC ,/, do/VBP n't/RB check/VB to/TO see/VB if/IN they/PRP are/VBP close/JJ ./.
+Do/VBP something/NN that/WDT makes/VBZ sense/NN in/IN the/DT real/JJ world/NN ,/, like/IN checking/NN to/TO see/VB if/IN a/DT point/NN is/VBZ beyond/IN a/DT line/NN or/CC if/IN a/DT point/NN is/VBZ inside/IN a/DT sphere/NN ./.

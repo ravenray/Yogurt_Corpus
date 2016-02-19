@@ -1,0 +1,4 @@
+I/PRP guess/VBP you/PRP could/MD do/VB it/PRP in/IN a/DT module/NN ;/: but/CC that/IN leaves/NNS open/VBP some/DT questions/NNS ;/: what/WP if/IN you/PRP want/VBP to/TO save/VB the/DT input/NN to/TO a/DT database/NN ?/.
+Suddenly/RB because/IN you/PRP 're/VBP saving/VBG encoded/VBN data/NNS to/TO the/DT database/NN you/PRP end/VBP up/RP trusting/VBG input/NN from/IN it/PRP which/WDT is/VBZ probably/RB a/DT bad/JJ idea/NN ,/, ideally/RB you/PRP store/VBP raw/JJ unencoded/JJ data/NNS in/IN the/DT database/NN and/CC the/DT encode/VBP every/DT time/NN ./.
+Disabling/VBG the/DT protection/NN on/IN a/DT per/IN page/NN level/NN and/CC then/RB encoding/VBG each/DT time/NN is/VBZ a/DT better/JJR option/NN ./.
+Rather/RB than/IN using/VBG Server.HtmlEncode/NN you/PRP should/MD look/VB at/IN the/DT newer/JJR ,/, more/RBR complete/JJ Anti-XSS/JJ library/NN from/IN the/DT Microsoft/NNP ACE/NN team/NN ./.

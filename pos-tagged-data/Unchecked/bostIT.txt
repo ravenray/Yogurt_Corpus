@@ -1,0 +1,1 @@
+I/PRP just/RB want/VBP to/TO point/VB out/RP that/IN dynamic/JJ SQL/NN running/VBG on/IN SQL/NN Server/NN should/MD always/RB be/VB executed/VBN using/VBG sp_executesql/NN to/TO reduce/VB security/NN risk/NN ./.

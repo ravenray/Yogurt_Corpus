@@ -1,0 +1,1 @@
+Here/RB 's/VBZ an/DT article/NN I/PRP wrote/VBD on/IN how/WRB to/TO convert/VB your/PRP$ mysql/FW _/FW scripts/NNS to/TO mysqli/FW _/FW ,/, and/CC get/VB started/VBN using/VBG prepared/JJ statements/NNS :/: stackoverflow.com/a/15055993/1270996/NN

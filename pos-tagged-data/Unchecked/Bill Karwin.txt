@@ -1,0 +1,4 @@
+@Frederik/FW Gheysels/FW :/: shreevatsa.wordpress.com/2008/05/16/…/NN for/IN info/NN on/IN the/DT premature/JJ optimization/NN quote/NN ./.
+The/DT origin/NN of/IN the/DT quote/NN is/VBZ not/RB totally/RB clear/JJ ,/, but/CC seems/VBZ likely/JJ to/TO have/VB been/VBN first/RB used/VBN by/IN Knuth/NNP ./.
+@recursive/NN :/: it/PRP 's/VBZ a/DT huge/JJ SQL/NN injection/NN vulnerability/NN ./.
+Anyone/NN can/MD send/VB arbitrary/JJ SQL/NN to/TO your/PRP$ server/NN and/CC it/PRP will/MD be/VB run/VBN verbatim/JJ ./.

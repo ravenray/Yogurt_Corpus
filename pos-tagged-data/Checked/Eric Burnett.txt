@@ -1,0 +1,25 @@
+In/IN cryptography/NN ,/, hash/JJ functions/NNS provide/VBP three/CD separate/JJ functions/NNS ./.
+Collision/NN resistance/NN :/: How/WRB hard/JJ is/VBZ it/PRP for/IN someone/NN to/TO find/VB two/CD messages/NNS -LRB-/-LRB- any/DT two/CD messages/NNS -RRB-/-RRB- that/WDT hash/VBP the/DT same/JJ ./.
+Preimage/NN Resistance/NN :/: Given/VBN a/DT hash/NN ,/, how/WRB hard/JJ is/VBZ it/PRP to/TO find/VB another/DT message/NN that/WDT hashes/VBZ the/DT same/JJ ?/.
+Also/RB known/VBN as/IN a/DT one/CD way/NN hash/JJ function/NN ./.
+Second/JJ preimage/NN resistance/NN :/: Given/VBN a/DT message/NN ,/, find/VBP another/DT message/NN that/WDT hashes/VBZ the/DT same/JJ ./.
+These/DT properties/NNS are/VBP related/JJ but/CC independent/JJ ./.
+For/IN example/NN ,/, collision/NN resistance/NN implies/VBZ second/JJ preimage/NN resistance/NN ,/, but/CC not/RB the/DT other/JJ way/NN around/IN ./.
+For/IN any/DT given/VBN application/NN ,/, you/PRP will/MD have/VB different/JJ requirements/NNS ,/, needing/VBG one/CD or/CC more/JJR of/IN these/DT properties/NNS ./.
+A/DT hash/JJ function/NN for/IN securing/VBG passwords/NNS on/IN a/DT server/NN will/MD usually/RB only/RB require/VB preimage/NN resistance/NN ,/, while/IN message/NN digests/NNS require/VBP all/DT three/CD ./.
+It/PRP has/VBZ been/VBN shown/VBN that/IN MD5/ACR is/VBZ not/RB collision/NN resistant/JJ ,/, however/RB ,/, that/WDT does/VBZ not/RB preclude/VB its/PRP$ use/NN in/IN applications/NNS that/WDT do/VBP not/RB require/VB collision/NN resistance/NN ./.
+Indeed/RB ,/, MD5/ACR is/VBZ often/RB still/RB used/VBN in/IN applications/NNS where/WRB the/DT smaller/JJR key/JJ size/NN and/CC speed/NN are/VBP beneficial/JJ ./.
+That/DT said/VBD ,/, due/JJ to/TO its/PRP$ flaws/NNS ,/, researchers/NNS recommend/VBP the/DT use/NN of/IN other/JJ hash/JJ functions/NNS in/IN new/JJ scenarios/NNS ./.
+SHA1/ACR has/VBZ a/DT flaw/NN that/WDT allows/VBZ collisions/NNS to/TO be/VB found/VBN in/IN theoretically/RB far/RB less/JJR than/IN the/DT 2/CD ^/SYM 80/CD steps/NNS a/DT secure/JJ hash/JJ function/NN of/IN its/PRP$ length/NN would/MD require/VB ./.
+The/DT attack/NN is/VBZ continually/RB being/VBG revised/VBN and/CC currently/RB can/MD be/VB done/VBN in/IN ~/NN 2/CD ^/SYM 63/CD steps/NNS -/: just/RB barely/RB within/IN the/DT current/JJ realm/NN of/IN computability/NN ./.
+For/IN this/DT reason/NN NIST/ACR is/VBZ phasing/VBG out/RP the/DT use/NN of/IN SHA1/ACR ,/, stating/VBG that/IN the/DT SHA2/ACR family/NN should/MD be/VB used/VBN after/IN 2010/CD ./.
+SHA2/ACR is/VBZ a/DT new/JJ family/NN of/IN hash/JJ functions/NNS created/VBN following/VBG SHA1/ACR ./.
+Currently/RB there/EX are/VBP no/DT known/JJ attacks/NNS against/IN SHA2/ACR functions/NNS ./.
+SHA256/ACR ,/, 384/CD and/CC 512/CD are/VBP all/DT part/NN of/IN the/DT SHA2/ACR family/NN ,/, just/RB using/VBG different/JJ key/JJ lengths/NNS ./.
+RIPEMD/NNP I/PRP ca/MD n't/RB comment/VB too/RB much/RB on/IN ,/, except/IN to/TO note/VB that/IN it/PRP is/VBZ n't/RB as/RB commonly/RB used/VBN as/IN the/DT SHA/ACR families/NNS ,/, and/CC so/RB has/VBZ not/RB been/VBN scrutinized/VBN as/RB closely/RB by/IN cryptographic/JJ researchers/NNS ./.
+For/IN that/DT reason/NN alone/RB I/PRP would/MD recommend/VB the/DT use/NN of/IN SHA/ACR functions/NNS over/IN it/PRP ./.
+In/IN the/DT implementation/NN you/PRP are/VBP using/VBG it/PRP seems/VBZ quite/RB slow/JJ as/IN well/RB ,/, which/WDT makes/VBZ it/PRP less/RBR useful/JJ ./.
+In/IN conclusion/NN ,/, there/EX is/VBZ no/DT one/CD best/JJS function/NN -/: it/PRP all/DT depends/VBZ on/IN what/WP you/PRP need/VBP it/PRP for/IN ./.
+Be/VB mindful/JJ of/IN the/DT flaws/NNS with/IN each/DT and/CC you/PRP will/MD be/VB best/RB able/JJ to/TO choose/VB the/DT right/JJ hash/NN function/NN for/IN your/PRP$ scenario/NN ./.
+I/PRP would/MD n't/RB put/VB Skein/NNP and/CC MD6/ACR that/WDT high/RB in/IN the/DT list/NN ;/: there/EX is/VBZ a/DT reason/NN that/IN the/DT SHA-3/ACR competition/NN wo/MD n't/RB be/VB finished/VBN till/IN the/DT end/NN of/IN 2012/CD ./.
+It/PRP takes/VBZ a/DT long/JJ time/NN and/CC a/DT lot/NN of/IN eyes/NNS to/TO be/VB convinced/VBN that/IN a/DT hash/JJ function/NN is/VBZ actually/RB likely/JJ to/TO be/VB secure/JJ ,/, and/CC neither/DT of/IN these/DT functions/NNS have/VBP been/VBN around/RB long/RB enough/RB for/IN that/DT yet/RB ./.

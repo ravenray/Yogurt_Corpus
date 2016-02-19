@@ -1,0 +1,3 @@
+``/`` A/DT swap/NN will/MD never/RB fail/VB ''/'' ./.
+This/DT is/VBZ a/DT good/JJ recommendation/NN for/IN custom-written/JJ swap/NN -LRB-/-LRB- -RRB-/-RRB- functions/NNS ./.
+It/PRP should/MD be/VB noted/VBN ,/, however/RB ,/, that/DT std/NN :/: :/: swap/NN -LRB-/-LRB- -RRB-/-RRB- can/MD fail/VB based/VBN on/IN the/DT operations/NNS that/IN it/PRP uses/VBZ internally/RB ./.

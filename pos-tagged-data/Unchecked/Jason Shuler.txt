@@ -1,0 +1,6 @@
+I/PRP found/VBD a/DT solution/NN that/WDT uses/VBZ javascript/NN to/TO encode/VB the/DT data/NNS ,/, which/WDT is/VBZ decoded/VBN in/IN ./.
+NET/NN -LRB-/-LRB- and/CC does/VBZ n't/RB require/VB jquery/NN -RRB-/-RRB- Make/VBP the/DT textbox/NN an/DT html/NN element/NN -LRB-/-LRB- like/IN textarea/NN -RRB-/-RRB- instead/RB of/IN an/DT ASP/NN one/CD ./.
+Add/VB a/DT hidden/JJ field/NN ./.
+Add/VB the/DT following/VBG javascript/NN function/NN to/TO your/PRP$ header/NN ./.
+function/NN boo/NN -LRB-/-LRB- -RRB-/-RRB- -LCB-/-LRB- targetText/NN =/JJ document.getElementById/NN -LRB-/-LRB- ``/`` HiddenField1/NN ''/'' -RRB-/-RRB- ;/: sourceText/NN =/JJ document.getElementById/NN -LRB-/-LRB- ``/`` userbox/NN ''/'' -RRB-/-RRB- ;/: targetText.value/NN =/JJ escape/NN -LRB-/-LRB- sourceText.innerText/NN -RRB-/-RRB- ;/: -RCB-/-RRB- In/IN your/PRP$ textarea/NN ,/, include/VBP an/DT onchange/NN that/WDT calls/VBZ boo/NN -LRB-/-LRB- -RRB-/-RRB- Finally/RB ,/, in/IN ./.
+NET/NN ,/, use/NN string/NN val/NN =/JJ Server.UrlDecode/NN -LRB-/-LRB- HiddenField1.Value/NN -RRB-/-RRB- ;/: I/PRP am/VBP aware/JJ that/IN this/DT is/VBZ one-way/JJ -/: if/IN you/PRP need/VBP two-way/JJ you/PRP 'll/MD have/VB to/TO get/VB creative/JJ ,/, but/CC this/DT provides/VBZ a/DT solution/NN if/IN you/PRP can/MD not/RB edit/VB the/DT web.config/NN

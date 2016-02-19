@@ -1,0 +1,2 @@
++1/CD Salt/NNP prevents/VBZ pre-computed/JJ lists/NNS of/IN hashes/NNS -LRB-/-LRB- rainbow/NN tables/NNS -RRB-/-RRB- from/IN being/VBG useful/JJ ./.
+The/DT attacker/NN must/MD start/VB all/DT over/RB again/RB ./.

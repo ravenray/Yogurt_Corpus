@@ -1,0 +1,5 @@
+Type/NN cast/NN if/IN possible/JJ your/PRP$ parameters/NNS ./.
+But/CC it/PRP 's/VBZ only/RB working/VBG on/IN simple/JJ types/NNS like/IN int/NN ,/, bool/NN and/CC float/NN ./.
+$/$ unsafe_variable/JJ =/JJ $/$ _/CD POST/NN -LSB-/-LRB- `/`` user_id/NN '/'' -RSB-/-RRB- ;/: $/$ safe_variable/JJ =/JJ -LRB-/-LRB- int/NN -RRB-/-RRB- $/$ unsafe_variable/JJ ;/: mysql_query/NN -LRB-/-LRB- ``/`` INSERT/NNP INTO/NNP table/NN -LRB-/-LRB- column/NN -RRB-/-RRB- VALUES/NNS -LRB-/-LRB- '/'' ''/'' ./.
+$/$ safe_variable/JJ ./. ''/'' '/'' -RRB-/-RRB- ''/'' -RRB-/-RRB-
+;/: using/VBG intval/JJ -LRB-/-LRB- -RRB-/-RRB- should/MD prevent/VB this/DT behavior/NN ,/, right/NN ?/.

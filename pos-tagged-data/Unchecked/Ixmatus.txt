@@ -1,0 +1,2 @@
+I/PRP second/JJ ,/, heavily/RB ,/, #/# 1/CD and/CC #/# 2/CD ./.
+Anytime/RB I/PRP make/VBP a/DT change/NN to/TO the/DT DB/NN I/PRP dump/VBP its/PRP$ schema/NN and/CC version/NN it/PRP ;/: I/PRP have/VBP three/CD databases/NNS setup/NN ,/, a/DT dev/NN one/CD ,/, a/DT staging/NN one/CD ,/, and/CC a/DT live/JJ one/CD -/: NOTHING/NN ever/RB gets/VBZ ``/`` tested/VBN ''/'' on/IN the/DT live/JJ DB/NN !!/NN

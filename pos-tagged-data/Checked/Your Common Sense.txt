@@ -1,0 +1,111 @@
+Do/VBP n't/RB you/PRP understand/VB that/IN strings/NNS has/VBZ nothing/NN to/TO do/VB with/IN both/DT these/DT cases/NNS ?/.
+Can/MD you/PRP tell/VB a/DT string/NN from/IN the/DT identifier/NN ?/.
+Do/VBP you/PRP realise/VB the/DT SQL/ACR query/NN structure/NN at/IN all/DT ?/.
+And/CC whole/JJ your/PRP$ idea/NN of/IN ``/`` malicious/JJ characters/NNS ''/'' ./.
+The/DT best/JJS thing/NN you/PRP can/MD do/VB is/VBZ to/TO delete/VB whole/JJ answer/NN ,/, or/CC at/IN least/JJS parts/NNS with/IN explanations/NNS ./.
+Because/IN you/PRP have/VBP no/DT idea/NN how/WRB it/PRP actually/RB works/VBZ and/CC what/WP to/TO explain/VB ./.
+No/DT offence/NN ,/, mate/NN ,/, but/CC you/PRP really/RB do/VBP ./.
+Every/DT answer/NN here/RB covers/VBZ only/RB part/NN of/IN the/DT problem/NN ./.
+In/IN fact/NN ,/, there/EX are/VBP four/CD different/JJ query/NN parts/NNS which/WDT we/PRP can/MD add/VB to/TO it/PRP dynamically/RB :/: a/DT string/NN a/DT number/NN an/DT identifier/NN a/DT syntax/NN keyword/NN ./.
+and/CC prepared/JJ statements/NNS covers/VBZ only/RB 2/CD of/IN them/PRP But/CC sometimes/RB we/PRP have/VBP to/TO make/VB our/PRP$ query/NN even/RB more/RBR dynamic/JJ ,/, adding/VBG operators/NNS or/CC identifiers/NNS as/RB well/RB ./.
+So/RB ,/, we/PRP will/MD need/VB different/JJ protection/NN techniques/NNS ./.
+In/IN general/JJ ,/, such/JJ a/DT protection/NN approach/NN is/VBZ based/VBN on/IN whitelisting/COS ./.
+In/IN this/DT case/NN every/DT dynamic/JJ parameter/NN should/MD be/VB hardcoded/VBN in/IN your/PRP$ script/NN and/CC chosen/VBN from/IN that/DT set/NN ./.
+For/IN example/NN ,/, to/TO do/VB dynamic/JJ ordering/VBG :/: $/COB orders/COB =/COB array/COB -LRB-/COB ``/COB name/COB ''/COB ,/COB ``/COB price/COB ''/COB ,/COB ``/COB qty/COB ''/COB -RRB-/COB ;/COB //: //: field/NN names/NNS $/COB key/COB =/COB array_search/COB -LRB-/COB $/$COB _/COB GET/COB -LSB-/COB `/COB sort/COB '/COB -RSB-/COB ,/COB $/COB orders/COB -RRB-/COB -RRB-/COB ;/COB //: //: see/VB if/IN we/PRP have/VBP such/JJ a/DT name/NN $/COB orderby/COB =/COB $/COB orders/COB -LSB-/COB $/$ key/COB -RSB-/COB ;/COB //: //: if/IN not/RB ,/, first/RB one/CD will/MD be/VB set/VBN automatically/RB ./.
+smart/JJ enuf/RB :-RRB-/EMO $/COB query/COB =/COB ``/COB SELECT/COB */COB FROM/COB `/COB table/COB `/COB ORDER/COB BY/COB $/COB orderby/COB ''/COB ;/COB //: //: value/NN is/VBZ safe/JJ However/RB ,/, there/EX is/VBZ another/DT way/NN to/TO secure/VB identifiers/NNS -/: escaping/VBG ./.
+As/RB long/RB as/IN you/PRP have/VBP an/DT identifier/NN quoted/JJ ,/, you/PRP can/MD escape/VB backticks/NNS inside/RB by/IN doubling/VBG them/PRP ./.
+As/IN a/DT further/JJ step/NN we/PRP can/MD borrow/VB a/DT truly/RB brilliant/JJ idea/NN of/IN using/VBG some/DT placeholder/NN -LRB-/-LRB- a/DT proxy/NN to/TO represent/VB the/DT actual/JJ value/NN in/IN the/DT query/NN -RRB-/-RRB- from/IN the/DT prepared/JJ statements/NNS and/CC invent/VB a/DT placeholder/NN of/IN another/DT type/NN -/: an/DT identifier/NN placeholder/NN ./.
+So/RB ,/, to/TO make/VB long/JJ story/NN short/JJ :/: it/PRP 's/VBZ a/DT placeholder/NN ,/, not/RB prepared/VBN statement/NN can/MD be/VB considered/VBN as/IN a/DT silver/NN bullet/NN ./.
+So/RB ,/, a/DT general/JJ recommendation/NN may/MD be/VB phrased/VBN as/RB As/RB long/RB as/IN you/PRP are/VBP adding/VBG dynamic/JJ parts/NNS to/TO the/DT query/NN using/VBG placeholders/NNS -LRB-/-LRB- and/CC these/DT placeholders/NNS properly/RB processed/VBN of/IN course/NN -RRB-/-RRB- ,/, you/PRP can/MD be/VB sure/JJ that/IN your/PRP$ query/NN is/VBZ safe/JJ ./.
+Still/RB there/EX is/VBZ an/DT issue/NN with/IN SQL/ACR syntax/NN keywords/NNS -LRB-/-LRB- such/JJ as/IN AND/COS ,/, DESC/COS and/CC such/JJ -RRB-/-RRB- but/CC whitelisting/COS seems/VBZ the/DT only/JJ approach/NN in/IN this/DT case/NN ./.
+@Synchro/ATS Finally/RB I/PRP am/VBP done/VBN with/IN it/PRP ,/, and/CC I/PRP have/VBP to/TO say/VB that/IN I/PRP 'm/VBP proud/JJ of/IN my/PRP$ work/NN ,/, as/IN I/PRP 've/VBP got/VBD it/PRP easy/JJ ,/, fast/JJ and/CC lightweight/JJ ./.
+You/PRP can/MD find/VB the/DT link/NN in/IN my/PRP$ profile/NN ./.
+Your/PRP$ two/CD comments/NNS contradicts/VBZ with/IN each/DT other/JJ :-RRB-/EMO @Khez/ATS as/IN a/DT matter/NN of/IN fact/NN this/DT hexing/NN solution/NN is/VBZ worse/JJR than/IN usual/JJ quoting/escaping/NN ./.
+For/IN the/DT very/JJ example/NN provided/VBD ,/, it/PRP will/MD FAIL/VB for/IN the/DT legit/JJ values/NNS :/: as/IN it/PRP was/VBD pointed/VBN out/RP in/IN the/DT other/JJ comment/NN ,/, ``/COB SELECT/COB title/COB FROM/COB article/COB WHERE/COB id/COB =/COB 0x/COB ''/COB ./.
+bin2hex/COB -LRB-/COB $/$ _/COB GET/COB -LSB-/COB ``/COB id/COB ''/COB -RSB-/COB -RRB-/COB wo/MD n't/RB find/VB anything/NN for/IN the/DT honest/JJ number/NN of/IN 42/CD ./.
+While/IN quoted/escaped/JJ value/NN would/MD be/VB both/PDT safe/JJ and/CC fruitful/JJ ./.
+Please/VB ,/, please/VB please/VB PLEASE/VB read/VB my/PRP$ code/NN !/.
+There/EX is/VBZ no/DT 0x/COB ./COB
+$/COB _/COB GET/COB -LSB-/COB ``/COB id/COB ''/COB -RSB-/COB there/RB ./.
+But/CC anyway/RB ,/, it/PRP wo/MD n't/RB find/VB a/DT number/NN 42/CD too/RB Neither/CC 0x3432/COS nor/CC 0x42/COS wo/MD n't/RB find/VB a/DT thing/NN ./.
+That/DT is/VBZ the/DT point/NN ./.
+This/DT is/VBZ why/WRB your/PRP$ ``/`` solution/NN ''/'' is/VBZ worse/JJR than/IN regular/JJ formatting/NN and/CC thus/RB not/RB a/DT solution/NN at/IN all/DT ./.
+A/DT note/NN to/TO readers/NNS who/WP still/RB ca/MD n't/RB get/VB the/DT point/NN :/: This/DT answer/NN contradicts/VBZ with/IN itself/PRP ./.
+It/PRP can/MD not/RB solve/VB the/DT very/JJ problem/NN query/NN that/WDT posted/VBD as/IN a/DT bad/JJ example/NN ./.
+This/DT answer/NN is/VBZ wrong/JJ and/CC deceiving/JJ ./.
+The/DT approach/NN is/VBZ even/RB worse/JJR than/IN regular/JJ manual/JJ formatting/NN ,/, not/RB to/TO mention/VB prepared/JJ statements/NNS ./.
+@griffin/ATS I/PRP beg/VBP my/PRP$ pardon/NN ,/, did/VBD you/PRP try/VB to/TO run/VB the/DT very/RB proposed/JJ solution/NN yourself/PRP ?/.
+``/COB SELECT/COB title/COB FROM/COB article/COB WHERE/COB id/COB =/COB 0x/COB ''/COB ./COB
+bin2hex/COB -LRB-/COB $/COB _/COB GET/COB -LSB-/COB ``/COB id/COB ''/COB -RSB-/COB -RRB-/COB ?/.
+What/WP is/VBZ wrong/JJ with/IN representation/NN here/RB ?/.
+``/COB SELECT/COB title/COB FROM/COB article/COB WHERE/COB id/COB =/COB ?/COB ''/COB
+can/MD do/VB it/PRP for/IN either/PDT string/NN and/CC number/NN ./.
+And/CC we/PRP will/MD have/VB slightly/RB unreadable/JJ but/CC reliable/JJ query/NN ./.
+``/COB SELECT/COB title/COB FROM/COB article/COB WHERE/COB id/COB =/COB '/COB ''/COB ./COB
+mysql_real_escape_string/COB -LRB-/COB $/COB _/COB GET/COB -LSB-/COB ``/COB id/COB ''/COB -RSB-/COB -RRB-/COB ./COB ''/COB '/COB ''/COB
+can/MD do/VB it/PRP for/IN either/PDT string/NN and/CC number/NN ./.
+And/CC we/PRP will/MD have/VB readable/JJ and/CC reliable/JJ query/NN ./.
+``/COB SELECT/COB title/COB FROM/COB article/COB WHERE/COB id/COB =/COB 0x/COB ''/COB ./COB
+bin2hex/COB -LRB-/COB $/COB _/COB GET/COB -LSB-/COB ``/COB id/COB ''/COB -RSB-/COB -RRB-/COB can/MD do/VB it/PRP for/IN the/DT string/NN only/RB and/CC we/PRP will/MD have/VB unreadable/JJ and/CC unreliable/JJ query/NN ./.
+And/CC ``/`` representation/NN ''/'' has/VBZ nothing/NN to/TO do/VB here/RB ./.
+Why/WRB should/MD I/PRP try/VB anything/NN beside/IN two/CD conventional/JJ approaches/NNS I/PRP listed/VBD above/IN ?/.
+Why/WRB should/MD I/PRP fight/VB whatever/WDT troubles/NNS absent/JJ in/IN the/DT other/JJ methods/NNS ?/.
+@griffin/ATS what/WP ?/.
+What/WP does/VBZ hexing/NN to/TO do/VB with/IN table/NN size/NN ?/.
+Are/VBP you/PRP sure/JJ you/PRP understand/VBP the/DT difference/NN between/IN data/NNS and/CC it/PRP 's/POS representation/NN ?/.
+Ah/UH ,/, I/PRP see/VBP now/RB ./.
+Well/RB ,/, it/PRP gone/VBD too/RB far/RB from/IN the/DT initial/JJ topic/NN of/IN SQL/ACR injection/NN ./.
+Too/RB bad/JJ ,/, none/NN of/IN your/PRP$ abstract/JJ musings/NNS proved/VBD this/DT method/NN in/IN question/NN useful/JJ or/CC reliable/JJ ,/, nor/CC provided/VBD any/DT reason/NN to/TO prefer/VB it/PRP over/IN prepared/JJ statements/NNS ./.
+This/DT answer/NN is/VBZ still/RB pointless/JJ and/CC rather/RB a/DT swindle/NN than/IN a/DT solution/NN ./.
+First/RB of/IN all/DT ,/, proposed/JJ method/NN is/VBZ just/RB another/DT way/NN to/TO format/NN strings/NNS ./.
+There/EX is/VBZ nothing/NN new/JJ or/CC special/JJ about/IN this/DT method/NN ./.
+Yet/CC it/PRP 's/VBZ advertised/VBN as/IN a/DT silver/NN bullet/NN ./.
+While/IN it/PRP 's/VBZ actually/RB less/RBR reliable/JJ ,/, because/IN it/PRP requires/VBZ special/JJ treatment/NN for/IN numbers/NNS ,/, while/IN regular/JJ quoting/escaping/NN does/VBZ n't/RB ./.
+Not/RB to/TO mention/VB all/PDT the/DT widely/RB known/VBN flaws/NNS of/IN manual/JJ formatting/NN which/WDT proved/VBD the/DT method/NN unreliable/JJ and/CC unsafe/JJ ,/, while/IN prepared/JJ statements/NNS proved/VBD to/TO be/VB safe/JJ ./.
+It/PRP 's/VBZ a/DT shame/NN this/DT answer/NN is/VBZ still/RB here/RB ,/, advertising/VBG wrong/JJ practice/NN as/IN a/DT silver/NN bullet/NN ./.
+-1/CD ./.
+Input/NN validation/NN has/VBZ absolutely/RB nothing/NN to/TO do/VB with/IN SQL/ACR ./.
+This/DT is/VBZ one/CD of/IN many/JJ delusions/NNS connected/VBN to/TO the/DT problem/NN ./.
+You/PRP can/MD not/RB validate/VB input/NN by/IN the/DT time/NN when/WRB SQL/ACR query/NN have/VBP to/TO be/VB executed/VBN ./.
+So/RB ,/, you/PRP just/RB can/MD not/RB tell/VB which/WDT input/NN data/NN have/VBP to/TO be/VB formatted/VBN and/CC which/WDT way/NN ./.
+That/DT 's/VBZ just/RB completely/RB different/JJ realms/NNS ./.
+Not/RB to/TO mention/VB that/DT input/NN validation/NN rules/NNS may/MD change/VB ,/, to/TO reflect/VB business/NN logic/NN change/NN .../: and/CC thus/RB leave/VB SQL/ACR open/JJ ./.
+One/PRP have/VBP to/TO format/NN their/PRP$ SQL/ACR always/RB ,/, despite/IN of/IN any/DT business/NN or/CC validation/NN logic/NN This/DT is/VBZ absolutely/RB pointless/JJ answer/NN ./.
+1/CD ./.
+SELECT-based/COS injection/NN is/VBZ a/DT disaster/NN alone/RB ./.
+So/RB ,/, #/# 1/CD is/VBZ quite/RB useless/JJ ./.
+2/CD ./.
+Data/NN filtering/JJ wo/MD n't/RB help/VB for/IN the/DT most/JJS of/IN real/JJ life/NN usage/NN ./.
+Imagine/VB one/PRP were/VBD used/VBN on/IN Stack/NNP Overflow/NNP -/: this/DT answer/NN just/RB were/VBD unable/JJ to/TO happen/VB ,/, as/IN it/PRP 's/VBZ full/JJ of/IN ``/`` evil/JJ ''/'' words/NNS like/IN SELECT/COS ,/, UNION/COS and/CC even/RB complete/JJ ``/`` malicious/JJ ''/'' BENCHMARK/COS query/COS ./.
+Thus/RB ,/, #/# 2/CD is/VBZ inapplicable/JJ too/RB ./.
+3/LS ./.
+``/`` Use/VB other/JJ tools/NNS ''/'' is/VBZ not/RB a/DT protection/NN measure/NN at/IN all/DT ./.
+So/RB ,/, #/# 3/CD is/VBZ as/RB pointless/JJ as/IN other/JJ two/CD ./.
+I/PRP really/RB love/VBP this/DT kind/NN of/IN answers/NNS ,/, which/WDT become/VBP a/DT set/NN of/IN contradicting/VBG statements/NNS after/IN desperate/JJ attempt/NN to/TO salvage/VB it/PRP without/IN having/VBG the/DT proper/JJ knowledge/NN ./.
+It/PRP does/VBZ not/RB solve/VB injection/NN problem/NN ,/, not/RB even/RB slightest/JJS ./.
+Even/RB only/RB SELECT/COS rights/NNS are/VBP harmful/JJ ./.
+This/DT is/VBZ not/RB a/DT solution/NN but/CC rather/RB a/DT placebo/NN ./.
+One/PRP could/MD use/VB it/PRP for/IN whatever/WDT else/JJ purpose/NN but/CC isql/ACR injection/NN protection/NN ./.
+@CraigRinger/ATS My/PRP$ house/NN is/VBZ not/RB on/IN fire/NN ./.
+I/PRP have/VBP no/DT damage/NN and/CC thus/RB no/DT need/NN to/TO ``/`` minimize/VB ''/'' it/PRP ./.
+Anyway/RB ,/, the/DT question/NN is/VBZ ``/`` How/WRB to/TO prevent/VB a/DT fire/NN ''/'' ,/, not/RB ``/`` How/WRB to/TO let/VB my/PRP$ house/NN in/IN fire/NN but/CC minimize/VBP the/DT damage/NN ''/'' ./.
+It/PRP fits/VBZ for/IN basic/JJ CRUD/COS operations/NNS only/RB ./.
+@SteveMuster/ATS well/RB ,/, that/DT 's/VBZ good/JJ for/IN you/PRP ./.
+Unfortunately/RB ,/, I/PRP have/VBP to/TO use/VB full/JJ SQL/ACR ,/, not/RB such/JJ a/DT limited/JJ subset/NN offered/VBN by/IN CI/ACR ./.
+Say/VB ,/, sometimes/RB I/PRP have/VBP run/VBN not/RB just/RB insert-and-forget/JJ but/CC INSERT/COS IGNORE/COS or/CC INSERT/COS DELAYED/COS ./.
+Not/RB just/RB selects/VBZ but/CC index/NN hinting/VBG and/CC such/JJ ./.
+And/CC so/RB on/IN ./.
+I/PRP am/VBP afraid/JJ that/IN admin/NN would/MD rather/RB just/RB delete/VB this/DT answer/NN ./.
+This/DT approach/NN is/VBZ just/RB impractical/JJ ./.
+it/PRP 's/VBZ impossible/JJ to/TO catch/VB ALL/NN the/DT patterns/NNS using/VBG mod_rewrite/COS rules/NNS ./.
+Not/RB to/TO mention/VB that/IN some/DT of/IN them/PRP can/MD be/VB perfectly/RB legit/JJ ./.
+And/CC what/WP about/IN POST/COS requests/NNS ?/.
+that/DT 's/VBZ the/DT point/NN ./.
+As/IN PHP/ACR the/DT language/NN will/MD do/VB the/DT job/NN anyway/RB ,/, all/PDT this/DT mod_rewrite/COS unreliable/JJ magic/NN become/VBP useless/JJ ./.
+Also/RB ,/, there/EX is/VBZ absolutely/RB no/DT point/NN in/IN checking/VBG $/COS _/COS POST/COS array/NN members/NNS with/IN is_string/COS -LRB-/COS -RRB-/COS A/DT hint/NN ./.
+You/PRP could/MD use/VB sprintf/COS -LRB-/COS -RRB-/COS function/NN which/WDT will/MD not/RB only/RB parse/VB a/DT query/NN for/IN you/PRP ,/, but/CC also/RB let/VB you/PRP choose/VB format/NN manually/RB -LRB-/-LRB- say/VB ,/, your/PRP$ function/NN will/MD fail/VB if/IN LIMIT/COS clause/NN parameter/NN will/MD be/VB passed/VBN from/IN request/NN query/NN string/NN -RRB-/-RRB- ./.
+In/IN fact/NN ,/, you/PRP should/MD n't/RB trust/VB to/TO variable/JJ type/NN ./.
+That/DT 's/VBZ why/WRB your/PRP$ approach/NN will/MD never/RB get/VB any/DT followers/NNS ./.
+So/RB ,/, it/PRP 's/VBZ the/DT problem/NN -/: ``/`` if/IN caller/NN casts/VBZ ''/'' ./.
+that/DT 's/VBZ what/WP I/PRP am/VBP talking/VBG about/IN -/: what/WP 's/VBZ the/DT use/NN of/IN the/DT function/NN that/WDT require/VBP whatever/WDT extra/JJ actions/NNS ?/.
+not/RB everything/NN ,/, as/IN I/PRP said/VBD above/IN ./.

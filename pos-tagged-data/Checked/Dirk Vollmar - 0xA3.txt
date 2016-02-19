@@ -1,0 +1,20 @@
+To/TO be/VB more/RBR precise/JJ ,/, a/DT dictionary/NN attack/NN ,/, i.e./FW an/DT attack/NN where/WRB all/DT words/NNS in/IN an/DT exhaustive/JJ list/NN are/VBP tried/VBN ,/, gets/VBZ not/RB ``/`` impossible/JJ ''/'' ,/, but/CC it/PRP gets/VBZ impractical/JJ :/: each/DT bit/NN of/IN salt/NN doubles/VBZ the/DT amount/NN of/IN storage/NN and/CC computation/NN required/VBN ./.
+Of/IN course/NN ,/, this/DT is/VBZ only/RB true/JJ if/IN the/DT salt/NN is/VBZ not/RB known/VBN to/TO the/DT attacker/NN ./.
+This/DT is/VBZ different/JJ from/IN pre-computed/JJ dictionary/NN attacks/NNS like/IN attacks/NNS involving/VBG rainbow/NN tables/NNS where/WRB it/PRP does/VBZ not/RB matter/VB whether/IN the/DT salt/NN is/VBZ secret/JJ or/CC not/RB ./.
+Example/NN :/: With/IN a/DT 64-bit/JJ salt/NN -LRB-/-LRB- i.e./FW 8/CD bytes/NNS -RRB-/-RRB- you/PRP need/VBP to/TO check/VB 264/CD additional/JJ password/NN combinations/NNS in/IN your/PRP$ dictionary/NN attack/NN ./.
+With/IN a/DT dictionary/NN containing/VBG 200,000/CD words/NNS you/PRP will/MD have/VB to/TO make/VB 200,000/CD */SYM 264/CD =/SYM 3.69/CD */SYM 1024/CD tests/NNS in/IN the/DT worst/JJS case/NN -/: instead/RB of/IN 200,000/CD tests/NNS without/IN salt/NN ./.
+An/DT additional/JJ benefit/NN of/IN using/VBG salt/NN is/VBZ that/IN an/DT attacker/NN can/MD not/RB pre-compute/VB the/DT password/NN hashes/VBZ from/IN his/PRP$ dictionary/NN ./.
+It/PRP would/MD simply/RB take/VB too/RB much/JJ time/NN and/or/CC space/NN ./.
+Update/VB Your/PRP$ update/VBP assumes/VBZ that/IN an/DT attacker/NN already/RB knows/VBZ the/DT salt/NN -LRB-/-LRB- or/CC has/VBZ stolen/VBN it/PRP -RRB-/-RRB- ./.
+This/DT is/VBZ of/IN course/NN a/DT different/JJ situation/NN ./.
+Still/RB it/PRP is/VBZ not/RB possible/JJ for/IN the/DT attacker/NN to/TO use/VB a/DT pre-computed/JJ rainbow/NN table/NN ./.
+What/WP matters/VBZ here/RB a/DT lot/NN is/VBZ the/DT speed/NN of/IN the/DT hashing/VBG function/NN ./.
+To/TO make/VB an/DT attack/NN impractical/JJ ,/, the/DT hashing/VBG function/NN needs/VBZ to/TO be/VB slow/JJ ./.
+MD5/ACR or/CC SHA/ACR are/VBP not/RB good/JJ candidates/NNS here/RB because/IN they/PRP are/VBP designed/VBN to/TO be/VB fast/JJ ,/, better/JJR candidates/NNS for/IN hashing/VBG algorithms/NNS are/VBP Blowfish/NNP or/CC some/DT variations/NNS of/IN it/PRP ./.
+Update/VB 2/CD A/DT good/JJ read/NN on/IN the/DT matter/NN of/IN securing/VBG your/PRP$ password/NN hashes/VBZ in/IN general/JJ -LRB-/-LRB- going/VBG much/RB beyond/IN the/DT original/JJ question/NN but/CC still/RB interesting/JJ -RRB-/-RRB- :/: Enough/JJ With/IN The/DT Rainbow/NN Tables/NNS :/: What/WP You/PRP Need/VBD To/TO Know/VB About/IN Secure/JJ Password/NN Schemes/NNS Corollary/NN of/IN the/DT article/NN :/: Use/VB salted/JJ hashes/NNS created/VBN with/IN bcrypt/NN -LRB-/-LRB- based/VBN on/IN Blowfish/NNP -RRB-/-RRB- or/CC Eksblowfish/NNP that/WDT allows/VBZ you/PRP to/TO use/VB a/DT configurable/JJ setup/NN time/NN to/TO make/VB hashing/VBG slow/JJ ./.
+Downvoter/NNP ,/, could/MD you/PRP explain/VB ?/.
+Especially/RB if/IN there/EX is/VBZ something/NN incorrect/JJ it/PRP would/MD be/VB good/JJ to/TO know/VB ./.
+@Michael/ATS Borgwart/ATS :/: You/PRP probably/RB misread/VBD my/PRP$ answer/NN ./.
+I/PRP was/VBD referring/VBG to/TO the/DT fact/NN that/IN the/DT computational/JJ amount/NN for/IN checking/VBG the/DT items/NNS in/IN your/PRP$ word/NN list/NN is/VBZ actually/RB increased/VBN if/IN the/DT salt/NN is/VBZ unknown/JJ to/TO the/DT attacker/NN ,/, namely/RB doubled/VBD for/IN each/DT bit/NN of/IN salt/NN ./.
+And/CC you/PRP want/VBP the/DT computation/NN to/TO be/VB expensive/JJ ./.
+@Michael/ATS Borgwardt/ATS :/: I/PRP agree/VBP ,/, @erickson/ATS refers/VBZ to/TO pre-computed/JJ dictionary/NN attacks/NNS ./.

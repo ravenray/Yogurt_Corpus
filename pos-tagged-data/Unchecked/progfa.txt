@@ -1,0 +1,1 @@
+@ircmaxell/VB Your/PRP$ solution/NN also/RB prevents/VBZ XSS/NN attacks/NNS ?/.

@@ -1,0 +1,5 @@
+I/PRP 'm/VBP curious/JJ about/IN your/PRP$ statement/NN :/: ``/`` especially/RB for/IN buggy/NN ,/, non-conformant/JJ compilers/NNS like/IN GCC/NN ''/'' ./.
+Is/VBZ really/RB GCC/NNP buggy/NN and/CC also/RB non-conformant/JJ ?/.
+Thanks/NNS @R/NN ./. ./.
+for/IN your/PRP$ complete/JJ explanations/NNS !/.
+It/PRP 's/VBZ good/JJ to/TO know/VB that/IN the/DT option/NN -/: std/NN =/JJ c99/NN is/VBZ useful/JJ to/TO circumvent/VB this/DT problem/NN ./.

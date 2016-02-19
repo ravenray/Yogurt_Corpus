@@ -1,0 +1,9 @@
+I/PRP 'm/VBP a/DT little/RB surprised/JJ to/TO see/VB that/IN ``/`` many/JJ experts/NNS ''/'' overlooked/VBD the/DT problem/NN ,/, it/PRP 's/VBZ well/RB known/VBN that/IN evaluating/VBG the/DT postfix-expression/NN of/IN a/DT function/NN call/NN is/VBZ not/RB sequenced-before/NN evaluating/VBG the/DT arguments/NNS -LRB-/-LRB- in/IN all/DT versions/NNS of/IN C/NNP and/CC C++/NNP -RRB-/-RRB- ./.
+@TC/RB no/DT it/PRP is/VBZ n't/RB -LRB-/-LRB- which/WDT is/VBZ how/WRB this/DT ``/`` bug/NN ''/'' arises/VBZ -RRB-/-RRB- ./.
+E.g./FW foo/FW -LRB-/-LRB- -RRB-/-RRB- ./.
+func/NN -LRB-/-LRB- bar/NN -LRB-/-LRB- -RRB-/-RRB- -RRB-/-RRB- ,/, it/PRP could/MD call/VB foo/NN -LRB-/-LRB- -RRB-/-RRB- either/CC before/IN or/CC after/IN calling/VBG bar/NN -LRB-/-LRB- -RRB-/-RRB- ./.
+The/DT postfix-expression/NN is/VBZ foo/NN -LRB-/-LRB- -RRB-/-RRB- ./.
+func/NN ./.
+The/DT arguments/NNS and/CC postfix-expression/NN are/VBP sequenced/VBN before/IN the/DT body/NN of/IN func/NN -LRB-/-LRB- -RRB-/-RRB- ,/, but/CC unsequenced/JJ relative/JJ to/TO each/DT other/JJ ./.
+There/EX 's/VBZ also/RB the/DT factor/NN that/IN one/NN tends/VBZ to/TO assume/VB code/NN appearing/VBG in/IN a/DT B.Stroustrup/NN book/NN is/VBZ correct/JJ otherwise/JJ someone/NN would/MD have/VB surely/RB noticed/VBN already/RB !/.
+-LRB-/-LRB- related/JJ ;/: SO/NN users/NNS do/VBP still/RB find/VB new/JJ mistakes/NNS in/IN K&R/NNP -RRB-/-RRB-

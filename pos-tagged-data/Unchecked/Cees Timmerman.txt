@@ -1,0 +1,4 @@
+@BryanH/NN ,/, you/PRP probably/RB meant/VBD this/DT great/JJ answer/NN that/WDT says/VBZ %/NN and/CC _/NN are/VBP unaffected/JJ by/IN mysql_real_escape_string/NN and/CC mess/NN up/RP SQL/NNP 's/POS LIKE/NNP input/NN ./.
+Even/RB if/IN PHP/NNP knew/VBD it/PRP was/VBD a/DT value/NN meant/VBN for/IN a/DT LIKE/NN input/NN ,/, and/CC that/IN the/DT wildcards/NNS were/VBD unwanted/JJ ,/, then/RB SQL/NNP still/RB has/VBZ different/JJ escapes/VBZ for/IN that/DT depending/VBG on/IN the/DT server/NN ./.
+Then/RB again/RB ,/, prepared/JJ statements/NNS also/RB pass/VBP them/PRP ./.
+Cases/NNS like/IN this/DT one/CD are/VBP why/WRB manual/JJ escaping/VBG is/VBZ discouraged/VBN ./.

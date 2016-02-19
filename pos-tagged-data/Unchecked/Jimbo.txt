@@ -1,0 +1,2 @@
+The/DT problem/NN with/IN your/PRP$ comment/NN is/VBZ that/IN errors/NNS in/IN exception/NN safety/NN can/MD occur/VB well/RB before/IN the/DT handling/NN code/NN ./.
+Kristopher/NNP 's/POS example/NN is/VBZ just/RB that/DT ./.

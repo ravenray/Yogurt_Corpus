@@ -1,0 +1,3 @@
+Which/WDT one/NN you/PRP use/VBP really/RB depends/VBZ on/IN what/WP you/PRP are/VBP using/VBG it/PRP for/IN ./.
+If/IN you/PRP just/RB want/VBP to/TO make/VB sure/JJ that/IN files/NNS do/VBP n't/RB get/VB corrupted/VBN in/IN transit/NN and/CC are/VBP n't/RB that/IN concerned/VBN about/IN security/NN ,/, go/VB for/IN fast/JJ and/CC small/JJ ./.
+If/IN you/PRP need/VBP digital/JJ signatures/NNS for/IN multi-billion/JJ dollar/NN federal/JJ bailout/NN agreements/NNS and/CC need/VBP to/TO make/VB sure/JJ they/PRP are/VBP n't/RB forged/VBN ,/, go/VB for/IN hard/JJ to/TO spoof/VB and/CC slow/VB ./.

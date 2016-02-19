@@ -1,0 +1,2 @@
+No/RB ,/, it/PRP wo/MD n't/RB help/VB ./.
+An/DT attacker/NN can/MD bypass/VB the/DT page/NN that/IN runs/NNS that/WDT JS/VBP entirely/RB and/CC send/VB the/DT victim/NN directly/RB to/TO http://loginPageURLGoesHere/NN ./.

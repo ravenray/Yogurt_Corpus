@@ -1,0 +1,3 @@
+You/PRP could/MD also/RB use/VB JavaScript/NNP 's/POS escape/NN -LRB-/-LRB- string/NN -RRB-/-RRB- function/NN to/TO replace/VB the/DT special/JJ characters/NNS ./.
+Then/RB server/NN side/JJ use/NN Server.URLDecode/NN -LRB-/-LRB- string/NN -RRB-/-RRB- to/TO switch/VB it/PRP back/RB ./.
+This/DT way/NN you/PRP do/VBP n't/RB have/VB to/TO turn/VB off/RP input/NN validation/NN and/CC it/PRP will/MD be/VB more/RBR clear/JJ to/TO other/JJ programmers/NNS that/IN the/DT string/NN may/MD have/VB HTML/NNP content/NN ./.

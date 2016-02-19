@@ -1,0 +1,1 @@
+@progfa/NNP Whether/NNP it/PRP does/VBZ or/CC not/RB you/PRP should/MD always/RB validate/VB your/PRP$ input/NN on/IN the/DT server/NN before/IN doing/VBG anything/NN with/IN user/NN data/NNS ./.

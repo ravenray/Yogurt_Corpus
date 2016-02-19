@@ -1,0 +1,4 @@
+Very/RB large/JJ transactions/NNS ,/, inserting/updating/VBG a/DT lot/NN of/IN data/NNS and/CC then/RB reloading/VBG it/PRP ./.
+Basically/RB this/DT is/VBZ down/RB to/TO not/RB considering/VBG the/DT multi-user/JJ environment/NN the/DT database/NN works/VBZ in/IN ./.
+Overuse/NN of/IN functions/NNS ,/, specifically/RB as/IN results/NNS in/IN selects/VBZ and/CC in/IN where/WRB clauses/NNS which/WDT causes/VBZ the/DT function/NN to/TO be/VB called/VBN over/RB and/CC over/RB again/RB for/IN the/DT results/NNS ./.
+This/DT ,/, I/PRP think/VBP ,/, fits/VBZ under/IN the/DT general/JJ case/NN of/IN them/PRP trying/VBG to/TO work/VB in/IN the/DT procedural/JJ fashion/NN they/PRP 're/VBP more/RBR used/VBN to/TO rather/RB than/IN use/VB SQL/NNP to/TO its/PRP$ full/JJ advantage/NN ./.

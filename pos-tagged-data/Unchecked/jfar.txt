@@ -1,0 +1,1 @@
+Blaming/VBG the/DT db/NN engine/NN when/WRB the/DT query/NN that/WDT ran/VBD sooo/NN fast/RB on/IN your/PRP$ development/NN machine/NN blows/NNS up/RB and/CC choke/VB once/IN you/PRP throw/VBP some/DT traffic/NN at/IN the/DT application/NN ./.

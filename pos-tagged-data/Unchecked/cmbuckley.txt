@@ -1,0 +1,2 @@
+While/IN mysqli/JJ supports/NNS bound/VBD parameters/NNS ,/, it/PRP does/VBZ not/RB support/VB named/VBN parameters/NNS --/: so/IN you/PRP 'll/MD need/VB to/TO use/VB the/DT WHERE/NNP name/NN =/JJ ?/.
+form/NN ./.

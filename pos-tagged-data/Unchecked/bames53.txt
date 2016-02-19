@@ -1,0 +1,1 @@
+Exception/NNP Safe/NNP Coding/NNP in/IN C++/NNP --/: Jon/NNP Kalb/NNP ;/: this/DT talk/NN even/RB specifically/RB references/NNS Joel/NNP 's/POS article/NN and/CC shows/VBZ where/WRB his/PRP$ example/NN goes/VBZ wrong/JJ ./.

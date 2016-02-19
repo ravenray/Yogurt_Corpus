@@ -1,0 +1,2 @@
+I/PRP wonder/VBP how/WRB 6/CD people/NNS could/MD upvote/VB a/DT comment/NN proposing/VBG a/DT plainly/RB wrong/JJ use/NN of/IN a/DT prepared/JJ statement/NN ./.
+Had/VBD they/PRP even/RB tried/VBD it/PRP once/RB ,/, they/PRP 'd/MD have/VB discovered/VBN right/RB away/RB that/IN using/VBG named/VBN parameter/NN in/IN place/NN of/IN a/DT table/NN name/NN will/MD not/RB work/VB ./.

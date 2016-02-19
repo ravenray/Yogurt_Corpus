@@ -1,0 +1,2 @@
+Here/RB at/IN Red/NNP Gate/NNP we/PRP 've/VBP taken/VBN steps/NNS to/TO improve/VB your/PRP$ first/JJ point/NN with/IN SQL/NNP Source/NNP Control/NNP !/.
+From/IN conversations/NNS I/PRP 've/VBP had/VBN during/IN my/PRP$ research/NN I/PRP think/VBP people/NNS are/VBP n't/RB developing/VBG against/IN production/NN databases/NNS anymore/RB ,/, but/CC often/RB ``/`` emergency/NN ''/'' fixes/NNS are/VBP made/VBN that/IN generally/RB find/VBP their/PRP$ way/NN back/RB to/TO development/NN environments/NNS ,/, which/WDT is/VBZ another/DT issue/NN ./.

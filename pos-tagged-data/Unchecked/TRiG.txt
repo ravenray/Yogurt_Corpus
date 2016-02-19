@@ -1,0 +1,2 @@
+Note/VB that/DT mysql_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- will/MD return/VB false/JJ if/IN you/PRP do/VBP n't/RB already/RB have/VB a/DT currently/RB open/JJ connection/NN to/TO the/DT database/NN ./.
+I/PRP have/VBP a/DT function/NN called/VBN $/$ db/SYM -/: >/JJR escape/NN -LRB-/-LRB- -RRB-/-RRB- ,/, which/WDT checks/VBZ that/IN a/DT connection/NN is/VBZ open/JJ ,/, opens/VBZ it/PRP if/IN not/RB ,/, and/CC then/RB returns/VBZ the/DT call/NN to/TO mysql_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- ./.

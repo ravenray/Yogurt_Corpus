@@ -1,0 +1,5 @@
+@NikiC/VB I/PRP beg/VBP to/TO differ/VB ./.
+Maintenence/NNP only/RB becomes/VBZ a/DT nightmare/NN if/IN the/DT database/NN columns/NNS and/CC relationships/NNS are/VBP allowed/VBN to/TO be/VB changed/VBN willy-nilly/RB ./.
+Then/RB again/RB ,/, flippant/JJ changing/VBG of/IN database/NN columns/NNS will/MD break/VB PHP/NNP scripts/NNS just/RB as/RB well/RB ./.
+The/DT only/JJ concern/NN I/PRP 'd/MD give/VB salt/NN to/TO about/IN not/RB using/VBG SP/NN 's/VBZ too/RB much/JJ is/VBZ the/DT performance/NN concern/NN of/IN loading/VBG the/DT database/NN server/NN with/IN too/RB many/JJ logic/NN computations/NNS ./.
+Well/RB the/DT easy/JJ solution/NN is/VBZ substr/NN -LRB-/-LRB- $/$ unsafe_variable/JJ ,/, 0/CD ,/, 10/CD -RRB-/-RRB- -LRB-/-LRB- keep/VB only/RB first/JJ 10/CD characters/NNS of/IN post/NN variable/NN -RRB-/-RRB-

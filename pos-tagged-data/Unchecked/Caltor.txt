@@ -1,0 +1,1 @@
+It/PRP 's/VBZ worth/JJ stating/VBG here/RB that/IN the/DT benefits/NNS of/IN prepared/JJ statements/NNS -LRB-/-LRB- parameterised/JJ queries/NNS -RRB-/-RRB- are/VBP available/JJ with/IN mysqli/NNS as/RB well/RB as/IN PDO/NNP ./.

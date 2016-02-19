@@ -1,0 +1,1 @@
+JS/NNP Guru/NNP Douglas/NNP Crockford/NNP has/VBZ written/VBN a/DT parseJSON/NN function/NN which/WDT you/PRP download/VBP here/RB

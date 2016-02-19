@@ -1,0 +1,22 @@
+This/DT question/NN is/VBZ similar/JJ to/TO Exploitable/JJ PHP/ACR Functions/NNS ./.
+Tainted/JJ data/NNS comes/VBZ from/IN the/DT user/NN ,/, or/CC more/RBR specifically/RB an/DT attacker/NN ./.
+When/WRB a/DT tainted/JJ variable/NN reaches/VBZ a/DT sink/NN function/NN ,/, then/RB you/PRP have/VBP a/DT vulnerability/NN ./.
+For/IN instance/NN a/DT function/NN that/WDT executes/VBZ a/DT sql/ACR query/NN is/VBZ a/DT sink/NN ,/, and/CC GET/POST/COS variables/NNS are/VBP sources/NNS of/IN taint/NN ./.
+What/WP are/VBP all/DT of/IN the/DT sink/NN functions/NNS in/IN C#/NNP ?/.
+I/PRP am/VBP looking/VBG for/IN functions/NNS that/WDT introduce/VBP a/DT vulnerability/NN or/CC software/NN weakness/NN ./.
+I/PRP am/VBP particularly/RB interested/JJ in/IN Remote/JJ Code/NN Execution/NN vulnerabilities/NNS ./.
+Are/VBP there/RB whole/JJ classes/libraries/NNS that/WDT contain/VBP nasty/JJ functionally/RB that/IN a/DT hacker/NN would/MD like/VB to/TO influence/VB ?/.
+How/WRB do/VBP people/NNS accidentally/RB make/VBP dangerous/JJ C#/NNP code/NN ?/.
+@Lucero/ATS I/PRP liked/VBD the/DT php/ACR question/NN ,/, I/PRP think/VBP this/DT applies/VBZ to/TO C#/NNP quite/RB well/RB ./.
+@Gio/ATS yep/UH took/VBD a/DT while/NN to/TO put/VB together/RB ;-RRB-/EMO @Kobi/ATS My/PRP$ post/NN for/IN PHP/ACR functions/NNS was/VBD pretty/RB useful/JJ and/CC more/JJR than/IN just/RB a/DT dumb/JJ list/NN ./.
+There/EX are/VBP families/NNS of/IN functions/NNS ,/, and/CC unintended/JJ functionality/NN ./.
+I/PRP should/MD have/VB read/VBN this/DT more/RBR carefully/RB ./.
+Interesting/JJ oddity/NN ,/, but/CC this/DT is/VBZ a/DT far/JJ reach/NN from/IN the/DT complete/JJ answer/NN ./.
+Yes/UH data/NNS from/IN the/DT user/NN is/VBZ called/VBN tainted/JJ data/NNS ./.
+When/WRB tainted/VBN data/NNS reaches/VBZ a/DT ``/`` sink/NN ''/'' function/NN ,/, then/RB you/PRP have/VBP a/DT vulnerability/NN ./.
+Look/VB at/IN the/DT list/NN of/IN PHP/ACR sink/NN functions/VBZ i/PRP posted/VBN at/IN the/DT top/NN ./.
+did/VBD you/PRP see/VB my/PRP$ PHP/ACR link/NN at/IN the/DT top/NN ?/.
+Or/CC have/VB you/PRP come/VBP across/IN static/JJ analysis/NN tools/NNS like/IN RATS/COS -LRB-/COS fortify.com/ssa-elements/threat-intelligence/rats.html/URL -RRB-/COS Apparently/RB you/PRP 've/VBP never/RB done/VBN a/DT hash/JJ benchmark/NN on/IN your/PRP$ system/NN ./.
+You/PRP can/MD do/VB MANY/JJ MILLIONS/NNS of/IN sha1/COS calculations/NNS per/IN seconds/NNS ./.
+A/DT 1,000/CD rounds/NNS is/VBZ meaningless/JJ to/TO an/DT attacker/NN ./.
+Also/RB -1/CD because/IN sha1/COS is/VBZ a/DT broken/JJ hash/NN function/NN ./.

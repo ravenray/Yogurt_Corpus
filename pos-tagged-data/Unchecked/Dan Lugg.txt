@@ -1,0 +1,3 @@
+Just/RB for/IN pedantry/NN ;/: given/VBN ``/`` SELECT/VB */SYM FROM/NN users/NNS WHERE/VBP email/NN =/JJ '/'' ''/'' ./.
+$/$ _/CD POST/NN -LSB-/-LRB- 'em/PRP ail/VB '/'' -RSB-/-RRB- ./. ''/'' '/'' ''/''
+;/: the/DT malicious/JJ user/NN would/MD likely/RB foo@bar'/VB or/CC '/'' 1/CD '/POS =/JJ '/'' 1/CD thus/RB creating/VBG an/DT altogether/RB new/JJ expression/NN of/IN '/'' 1/CD '/POS =/JJ '/'' 1/CD '/''

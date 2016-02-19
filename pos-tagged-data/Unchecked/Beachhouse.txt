@@ -1,0 +1,6 @@
+In/IN most/JJS languages/NNS eval/NN carries/VBZ an/DT additional/JJ risk/NN ./.
+Eval/NNP leaves/VBZ an/DT open/JJ door/NN to/TO be/VB exploited/VBN by/IN hackers/NNS ./.
+HOWEVER/RB ,/, remember/VBP that/IN all/DT javascript/NN runs/VBZ on/IN the/DT client/NN ./.
+EXPECT/VB that/IN it/PRP will/MD be/VB changed/VBN by/IN hackers/NNS ./.
+They/PRP can/MD EVAL/VB anything/NN they/PRP want/VBP ,/, just/RB by/IN using/VBG the/DT console/NN ./.
+You/PRP must/MD build/VB your/PRP$ protection/NN on/IN the/DT server/NN side/NN ./.

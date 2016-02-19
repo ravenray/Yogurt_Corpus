@@ -1,0 +1,1 @@
+Use/NN -LSB-/-LRB- AllowHtml/NN -RSB-/-RRB- on/IN the/DT model/NN 's/POS properties/NNS instead/RB of/IN -LSB-/-LRB- ValidateInput/NN -RSB-/-RRB- on/IN the/DT Action/NNP to/TO achieve/VB the/DT same/JJ end/NN result/NN ./.

@@ -1,0 +1,2 @@
+This/DT is/VBZ a/DT really/RB clever/JJ approach/NN ./.
+Is/VBZ this/DT something/NN that/WDT will/MD work/VB with/IN other/JJ database/NN servers/NNS -LRB-/-LRB- Oracle/NNP ,/, Microsoft/NNP ,/, etc/NN -RRB-/-RRB- ,/, or/CC specific/JJ to/TO MySQL/VB ?/.

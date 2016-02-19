@@ -1,0 +1,3 @@
+@Xaqron/NN :/: that/DT is/VBZ one/CD path/NN to/TO allow/VB -LSB-/-LRB- cross/JJ site/NN scripting/NN -RSB-/-RRB- -LRB-/-LRB- en.wikipedia.org/wiki/Cross-site_scripting/NN -RRB-/-RRB- -1/CD for/IN qualifying/VBG pointers/NNS as/IN problems/NNS .../: what/WDT kind/NN of/IN problem/NN they/PRP are/VBP ?/.
+if/IN used/VBN incorrectly/RB ./.
+Your/PRP$ car/NN is/VBZ unsafe/JJ if/IN used/VBN incorrectly/RB ,/, a/DT kitchen/NN knife/NN is/VBZ unsafe/JJ if/IN used/VBN incorrectly/RB ,/, but/CC they/PRP are/VBP not/RB inherently/RB unsafe/JJ for/IN someone/NN who/WP knows/VBZ what/WP are/VBP doing/VBG and/CC how/WRB to/TO properly/RB use/VB them/PRP ./.

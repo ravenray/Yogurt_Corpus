@@ -1,0 +1,1 @@
+the/DT solution/NN for/IN ASP.NET/NNP MVC/NNP is/VBZ just/RB what/WP i/FW needed/VBN ,/, thanks/NNS !/.

@@ -1,0 +1,9 @@
+Zaffy/NNP -/: man/NN ,/, you/PRP are/VBP a/DT STAR/NN ./.
+Hurray/NNP ,/, hurray/NN ,/, hurray/NN ./.
+If/IN you/PRP look/VBP at/IN programming/NN as/IN a/DT multi/JJ layer/NN data/NNS interaction/NN there/EX are/VBP good/JJ reasons/NNS to/TO treat/VB variable/JJ base/NN types/NNS -LRB-/-LRB- float/NN ,/, integer/NN ,/, string/NN ,/, boolean/NN -RRB-/-RRB- differently/RB `/`` accross/VBZ the/DT board/NN '/'' ./.
+In/IN such/PDT a/DT context/NN it/PRP is/VBZ more/JJR than/IN valid/JJ to/TO hex/VB strings/NNS in/IN sql/NN statements/NNS ./.
+The/DT quotes/NNS in/IN quotes/NNS are/VBP a/DT pain/NN in/IN the/DT ass/NN anyway/RB and/CC not/RB only/RB a/DT security/NN risk/NN ./.
+The/DT 0x/unhex/NN issue/NN is/VBZ a/DT no-brainer/NN ./.
+Stick/NNP to/TO varchar/VB for/IN string/NN ,/, use/VBP surrogate/JJ keys/NNS over/IN char/NN keys/NNS -/: >/JJR issue/NN gone/VBN ./.
+Btw/NN ./.
+the/DT shortcut-force-INT-method/NN in/IN php/NN works/VBZ like/IN this/DT :/: $/$ guarantueedInt/NN =/JJ $/$ meanttobeInt/JJ +0/NN

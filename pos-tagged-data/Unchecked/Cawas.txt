@@ -1,0 +1,2 @@
+I/PRP like/VBP this/DT much/RB better/JJR than/IN the/DT accepted/VBN answer/NN !/.
+But/CC is/VBZ mysql_real_escape_string/VBG really/RB as/RB safe/JJ as/IN parameterization/NN ?/.

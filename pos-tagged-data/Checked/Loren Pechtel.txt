@@ -1,0 +1,19 @@
+This/DT will/MD just/RB limit/VB their/PRP$ use/NN of/IN it/PRP ,/, it/PRP wo/MD n't/RB stop/VB them/PRP from/IN breaking/VBG it/PRP ./.
+Passwords/NNS fall/VBP in/IN random/JJ time/NN ,/, not/RB fixed/VBN time/NN !/.
+I/PRP do/VBP n't/RB believe/VB there/EX is/VBZ a/DT perfect/JJ answer/NN but/CC I/PRP would/MD be/VB inclined/VBN to/TO approach/VB it/PRP on/IN a/DT basis/NN of/IN trying/VBG to/TO confound/VB the/DT robots/NNS if/IN an/DT attack/NN is/VBZ sensed/VBN ./.
+Off/IN the/DT top/NN of/IN my/PRP$ mind/NN :/: Switch/VB to/TO an/DT alternate/JJ login/NN screen/NN ./.
+It/PRP has/VBZ multiple/JJ username/NN and/CC password/NN blanks/NNS which/WDT really/RB do/VBP appear/VB but/CC only/RB one/CD of/IN them/PRP is/VBZ in/IN the/DT right/JJ place/NN ./.
+The/DT field/NN names/NNS are/VBP RANDOM/COS --/: a/DT session/NN key/NN is/VBZ sent/VBN along/IN with/IN the/DT login/NN screen/NN ,/, the/DT server/NN can/MD then/RB find/VB out/RP what/WP fields/NNS are/VBP what/WP ./.
+Succeed/VB or/CC fail/VB it/PRP 's/VBZ then/RB discarded/VBN so/IN you/PRP ca/MD n't/RB try/VB a/DT replay/NN attack/NN --/: if/IN you/PRP reject/VBP the/DT password/NN they/PRP get/VBP a/DT new/JJ session/NN ID/NN ./.
+Any/DT form/NN that/WDT is/VBZ submitted/VBN with/IN data/NNS in/IN a/DT wrong/JJ field/NN is/VBZ assumed/VBN to/TO be/VB from/IN a/DT robot/NN --/: the/DT login/NN fails/VBZ ,/, period/NN ,/, and/CC that/IN IP/NNP is/VBZ throttled/VBN ./.
+Make/NNP sure/RB the/DT random/JJ field/NN names/NNS never/RB match/VBP the/DT legit/JJ field/NN names/NNS so/IN someone/NN using/VBG something/NN that/WDT remembers/VBZ passwords/NNS is/VBZ n't/RB mislead/VBN ./.
+Next/RB ,/, how/WRB about/RB a/DT different/JJ sort/NN of/IN captcha/NN :/: You/PRP have/VBP a/DT series/NN of/IN questions/NNS that/WDT wo/MD n't/RB cause/VB problems/NNS for/IN a/DT human/JJ ./.
+However/RB ,/, they/PRP are/VBP NOT/RB random/JJ ./.
+When/WRB the/DT attack/NN starts/VBZ everyone/NN is/VBZ given/VBN question/NN #/# 1/CD ./.
+After/IN an/DT hour/NN question/NN #/# 1/CD is/VBZ discarded/VBN ,/, never/RB to/TO be/VB used/VBN again/RB and/CC everyone/NN gets/VBZ question/NN #/# 2/CD and/CC so/RB on/RB ./.
+The/DT attacker/NN ca/MD n't/RB probe/VB to/TO download/VB the/DT database/NN to/TO put/VB into/IN his/PRP$ robot/NN because/IN of/IN the/DT disposable/JJ nature/NN of/IN the/DT questions/NNS ./.
+He/PRP has/VBZ to/TO send/VB new/JJ instructions/NNS out/RP to/TO his/PRP$ botnet/NN within/IN an/DT hour/NN to/TO have/VB any/DT ability/NN to/TO do/VB anything/NN ./.
+You/PRP 're/VBP missing/VBG the/DT point/NN ./.
+The/DT attacker/NN ca/MD n't/RB check/VB the/DT in/IN advance/NN because/IN it/PRP only/RB shows/VBZ the/DT extra/JJ defenses/NNS when/WRB an/DT attack/NN shows/VBZ up/RP ./.
+Sure/RB ,/, the/DT human/JJ could/MD see/VB what/WP the/DT question/NN was/VBD --/: but/CC he/PRP has/VBZ to/TO communicate/VB that/DT to/TO all/PDT his/PRP$ bots/NNS ./.
+That/DT 's/VBZ a/DT communications/NNS path/NN that/WDT makes/VBZ it/PRP easier/JJR to/TO bring/VB down/RP the/DT botnet/COS ./.

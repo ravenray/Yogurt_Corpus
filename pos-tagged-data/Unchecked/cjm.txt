@@ -1,0 +1,3 @@
+If/IN ALL/NN your/PRP$ queries/NNS are/VBP parametrized/VBN ,/, you/PRP 're/VBP also/RB protected/VBN against/IN 2nd/JJ order/NN injection/NN ./.
+1st/JJ order/NN injection/NN is/VBZ forgetting/VBG that/IN user/NN data/NNS is/VBZ untrustworthy/JJ ./.
+2nd/JJ order/NN injection/NN is/VBZ forgetting/VBG that/IN database/NN data/NNS is/VBZ untrustworthy/JJ -LRB-/-LRB- because/IN it/PRP came/VBD from/IN the/DT user/NN originally/RB -RRB-/-RRB- ./.

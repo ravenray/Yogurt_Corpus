@@ -1,0 +1,6 @@
+@BarryWark/NN I/PRP think/VBP I/PRP should/MD point/VB out/RP that/IN the/DT entire/JJ Git/NN source/NN control/NN system/NN depends/VBZ on/IN SHA1/NN -LRB-/-LRB- or/CC is/VBZ it/PRP SHA256/NNP ?/. -RRB-/-RRB-
+hashes/NNS being/VBG unique/JJ for/IN every/DT file/NN ,/, every/DT directory/NN and/CC every/DT commit/VB in/IN the/DT entire/JJ repository/NN ./.
+The/DT chance/NN of/IN an/DT accidental/JJ collision/NN is/VBZ so/RB small/JJ that/IN you/PRP can/MD rely/VB on/IN it/PRP happening/VBG after/IN our/PRP$ planet/NN is/VBZ no/RB longer/RB habitable/JJ ./.
+:--RRB-/CD So/RB for/IN many/JJ use/NN cases/NNS ,/, hash/VBP =/JJ GUID/NN ./.
+@user2332868/NN Breaking/VBG of/IN SHA-1/NN has/VBZ no/DT effect/NN on/IN probability/NN of/IN accidental/JJ collisions/NNS ./.
+When/WRB a/DT malicious/JJ intent/NN is/VBZ a/DT threat/NN for/IN your/PRP$ usage/NN ,/, I/PRP think/VBP blindly/RB picking/VBG any/DT hash/JJ function/NN is/VBZ wrong/JJ ,/, and/CC you/PRP need/VBP to/TO spend/VB time/NN doing/VBG risk/cost/JJ analysis/NN for/IN your/PRP$ specific/JJ case/NN ./.

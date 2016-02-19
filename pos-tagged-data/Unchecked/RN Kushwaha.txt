@@ -1,0 +1,5 @@
+Although/IN question/NN has/VBZ accepted/VBN an/DT answer/NN ,/, I/PRP want/VBP to/TO mention/VB a/DT nice/JJ tutorial/NN on/IN PDO/NNP ./.
+It/PRP may/MD help/VB others/NNS to/TO learn/VB PDO/NNP ./.
+a2znotes.blogspot.in/NN //: 2014/09/introduction-to-pdo/NN ./.
+html/NN Here/RB is/VBZ a/DT great/JJ tutorial/NN on/IN PDO/NNP if/IN you/PRP want/VBP to/TO learn/VB it/PRP ./.
+a2znotes.blogspot.in/NN //: 2014/09/introduction-to-pdo/NN ./.

@@ -1,0 +1,2 @@
+``/`` No/DT sane/JJ code/NN protects/VBZ itself/PRP against/IN the/DT possibility/NN of/IN it/PRP having/VBG a/DT bug/NN ./. ''/''
+I/PRP guess/VBP my/PRP$ code/NN is/VBZ insane/JJ then/RB :-RRB-/CD There/EX is/VBZ no/DT spoon/NN

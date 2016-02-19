@@ -1,0 +1,2 @@
+@Theo/NNP PDO/NNP Prepared/NNP statements/NNS are/VBP n't/RB protected/VBN against/IN 3rd/JJ order/NN +/CC attacks/NNS though/IN is/VBZ it/PRP ?/.
+Making/VBG it/PRP injectable/JJ in/IN some/DT applications/NNS ./.

@@ -1,0 +1,4 @@
+@Mehrdad/NN Exactly/RB ,/, in/IN Java/NNP the/DT same/JJ effect/NN is/VBZ achieved/VBN not/RB through/IN finalizers/NNS ,/, but/CC through/IN try-finally/JJ blocks/NNS ./.
+Really/RB ,/, this/DT answer/NN made/VBD me/PRP appreciate/VB Java/NNP more/JJR ./.
+It/PRP 's/VBZ much/RB harder/JJR to/TO leak/NN memory/NN ,/, exceptions/NNS have/VBP been/VBN placed/VBN into/IN several/JJ groups/NNS by/IN their/PRP$ function/NN ,/, and/CC also/RB there/EX are/VBP checked/VBN and/CC unchecked/JJ exceptions/NNS ,/, which/WDT are/VBP -LRB-/-LRB- with/IN proper/JJ use/NN !/. -RRB-/-RRB-
+helping/VBG a/DT lot/NN to/TO not/RB forget/VB to/TO handle/VB the/DT exceptions/NNS ./.

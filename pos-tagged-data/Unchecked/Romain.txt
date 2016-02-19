@@ -1,0 +1,4 @@
+One/CD aspect/NN of/IN resolution-independence/NN is/VBZ that/IN you/PRP can/MD not/RB tell/VB for/IN sure/JJ what/WP a/DT ``/`` visible/JJ shift/NN ''/'' is/VBZ at/IN compile-time/NN ./.
+What/WP is/VBZ invisible/JJ on/IN a/DT super-HD/JJ screen/NN might/MD very/RB well/RB be/VB obvious/JJ on/IN a/DT tiny-ass/JJ screen/NN ./.
+One/CD should/MD at/IN least/JJS make/VB it/PRP a/DT function/NN of/IN screen/NN size/NN ./.
+Or/CC name/VB it/PRP something/NN else/RB ./.

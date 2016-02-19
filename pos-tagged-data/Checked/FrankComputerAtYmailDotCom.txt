@@ -1,0 +1,15 @@
+For/IN SQL-based/JJ databases/NNS :/: Not/RB taking/VBG advantage/NN of/IN CLUSTERED/JJ INDEXES/NNS or/CC choosing/VBG the/DT wrong/JJ column/NN -LRB-/-LRB- s/NNS -RRB-/-RRB- to/TO CLUSTER/VB ./.
+Not/RB using/VBG a/DT SERIAL/COS -LRB-/-LRB- autonumber/NN -RRB-/-RRB- datatype/NN as/IN a/DT PRIMARY/COS KEY/COS to/TO join/VB to/TO a/DT FOREIGN/COS KEY/COS -LRB-/COS INT/COS -RRB-/COS in/IN a/DT parent/child/NN table/NN relationship/NN ./.
+Not/RB UPDATING/COS STATISTICS/COS on/IN a/DT table/NN when/WRB many/JJ records/NNS have/VBP been/VBN INSERTED/COS or/CC DELETED/COS ./.
+Not/RB reorganizing/VBG -LRB-/-LRB- i.e./FW unloading/VBG ,/, droping/VBG ,/, re-creating/VBG ,/, loading/VBG and/CC re-indexing/VBG -RRB-/-RRB- tables/NNS when/WRB many/JJ rows/NNS have/VBP been/VBN inserted/VBN or/CC deleted/VBN -LRB-/-LRB- some/DT engines/NNS physically/RB keep/VBP deleted/JJ rows/NNS in/IN a/DT table/NN with/IN a/DT delete/VB flag/NN ./. -RRB-/-RRB-
+Not/RB taking/VBG advantage/NN of/IN FRAGMENT/COS ON/COS EXPRESSION/COS -LRB-/-LRB- if/IN supported/VBN -RRB-/-RRB- on/IN large/JJ tables/NNS which/WDT have/VBP high/JJ transaction/NN rates/NNS ./.
+Choosing/VBG the/DT wrong/JJ datatype/NN for/IN a/DT column/NN !/.
+Not/RB choosing/VBG a/DT proper/JJ column/NN name/NN ./.
+Not/RB adding/VBG new/JJ columns/NNS at/IN the/DT end/NN of/IN the/DT table/NN ./.
+Not/RB creating/VBG proper/JJ indexes/NNS to/TO support/VB frequently/RB used/VBN queries/NNS ./.
+creating/VBG indexes/NNS on/IN columns/NNS with/IN few/JJ possible/JJ values/NNS and/CC creating/VBG unnecessary/JJ indexes/NNS ./.
+.../: more/JJR to/TO be/VB added/VBN ./.
+the/DT main/JJ reason/NN for/IN using/VBG autonumber/NN for/IN primary/JJ and/CC foreign/JJ key/NN is/VBZ to/TO guarantee/VB that/IN a/DT parent-child/NN join/VB can/MD be/VB maintained/JJ irregardless/JJ of/IN changes/NNS in/IN any/DT other/JJ columns/NNS ./.
+using/VBG a/DT different/JJ primary/JJ key/NN ,/, like/IN customer/NN name/NN or/CC other/JJ data/NNS can/MD be/VB risky/JJ !/.
+@David/ATS :/: I/PRP stand/VBP corrected/VBN !/. ./. ./.
+its/PRP$ not/RB necessary/JJ to/TO use/VB autonumber/NN as/IN the/DT primary/JJ key/NN ,/, one/PRP can/MD still/RB have/VB an/DT indexed/VBN serial/NN column/NN in/IN the/DT parent/NN ,/, joining/VBG the/DT surrogate/NN in/IN the/DT child/NN to/TO guarantee/VB the/DT relation/NN will/MD not/RB be/VB severed/VBN ,/, while/IN having/VBG another/DT column/NN as/IN a/DT meaningful/JJ primary/NN to/TO locate/VB the/DT row/NN !/.

@@ -1,0 +1,6 @@
+Salt/NNP size/NN has/VBZ absolutely/RB nothing/NN to/TO do/VB with/IN it/PRP ./.
+The/DT point/NN is/VBZ to/TO modify/VB the/DT user/NN 's/POS password/NN to/TO be/VB something/NN that/WDT wo/MD n't/RB show/VB up/RP in/IN a/DT rainbow/NN table/NN ./.
+The/DT rainbow/NN table/NN might/MD have/VB every/DT dictionary/NN word/NN in/IN it/PRP ./.
+If/IN the/DT user/NN uses/VBZ the/DT password/NN ``/`` apple/NN ''/'' ,/, it/PRP 's/VBZ going/VBG to/TO show/VB up/RP in/IN the/DT table/NN ./.
+If/IN you/PRP salt/NN with/IN ``/`` a/DT ''/'' to/TO make/VB their/PRP$ password/NN ``/`` aapple/NN ''/'' ,/, now/RB it/PRP does/VBZ n't/RB show/VB up/RP in/IN the/DT table/NN ./.
+It/PRP 's/VBZ not/RB any/DT more/RBR difficult/JJ to/TO make/VB a/DT custom/NN table/NN for/IN the/DT salt/NN ``/`` a/DT ''/'' than/IN it/PRP is/VBZ for/IN a/DT 30-character/JJ salt/NN

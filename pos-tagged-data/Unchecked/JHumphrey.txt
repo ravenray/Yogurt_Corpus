@@ -1,0 +1,15 @@
+Comparing/VBG to/TO zero/VB can/MD be/VB a/DT safe/JJ operation/NN ,/, as/RB long/RB as/IN the/DT zero/NN was/VBD n't/RB a/DT calculated/JJ value/NN -LRB-/-LRB- as/IN noted/VBN in/IN an/DT above/JJ answer/NN -RRB-/-RRB- ./.
+The/DT reason/NN for/IN this/DT is/VBZ that/DT zero/NN is/VBZ a/DT perfectly/RB representable/JJ number/NN in/IN floating/VBG point/NN ./.
+Talking/VBG perfectly/RB representable/JJ values/NNS ,/, you/PRP get/VBP 24/CD bits/NNS of/IN range/NN in/IN a/DT power-of-two/JJ notion/NN -LRB-/-LRB- single/JJ precision/NN -RRB-/-RRB- ./.
+So/RB 1/CD ,/, 2/CD ,/, 4/CD are/VBP perfectly/RB representable/JJ ,/, as/IN are/VBP .5/CD ,/, .25/CD ,/, and/CC .125/CD ./.
+As/RB long/RB as/IN all/DT your/PRP$ important/JJ bits/NNS are/VBP in/IN 24-bits/JJ ,/, you/PRP are/VBP golden/JJ ./.
+So/RB 10.625/CD can/MD be/VB repsented/VBN precisely/RB ./.
+This/DT is/VBZ great/JJ ,/, but/CC will/MD quickly/RB fall/VB apart/RB under/IN pressure/NN ./.
+Two/CD scenarios/NNS spring/NN to/TO mind/VB :/: 1/LS -RRB-/-RRB- When/WRB a/DT calculation/NN is/VBZ involved/VBN ./.
+Do/VBP n't/RB trust/VB that/DT sqrt/NN -LRB-/-LRB- 3/CD -RRB-/-RRB- */NN sqrt/NN -LRB-/-LRB- 3/CD -RRB-/-RRB- ==/NN 3/CD ./.
+It/PRP just/RB wo/MD n't/RB be/VB that/DT way/NN ./.
+And/CC it/PRP probably/RB wo/MD n't/RB be/VB within/IN an/DT epsilon/NN ,/, as/IN some/DT of/IN the/DT other/JJ answers/NNS suggest/VBP ./.
+2/LS -RRB-/-RRB- When/WRB any/DT non-power-of-2/JJ -LRB-/-LRB- NPOT/NN -RRB-/-RRB- is/VBZ involved/VBN ./.
+So/RB it/PRP may/MD sound/VB odd/JJ ,/, but/CC 0.1/CD is/VBZ an/DT infinite/JJ series/NN in/IN binary/JJ and/CC therefore/RB any/DT calculation/NN involving/VBG a/DT number/NN like/IN this/DT will/MD be/VB imprecise/JJ from/IN the/DT start/NN ./.
+-LRB-/-LRB- Oh/UH and/CC the/DT original/JJ question/NN mentioned/VBD comparisons/NNS to/TO zero/VB ./.
+Do/VBP n't/RB forget/VB that/IN -0.0/CD is/VBZ also/RB a/DT perfectly/RB valid/JJ floating-point/JJ value/NN ./. -RRB-/-RRB-

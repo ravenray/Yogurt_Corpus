@@ -1,0 +1,3 @@
+The/DT most/RBS common/JJ mistake/NN I/PRP 've/VBP seen/VBN in/IN twenty/CD years/NNS :/: not/RB planning/VBG ahead/RB ./.
+Many/JJ developers/NNS will/MD create/VB a/DT database/NN ,/, and/CC tables/NNS ,/, and/CC then/RB continually/RB modify/VB and/CC expand/VB the/DT tables/NNS as/IN they/PRP build/VBP out/RP the/DT applications/NNS ./.
+The/DT end/NN result/NN is/VBZ often/RB a/DT mess/NN and/CC inefficient/JJ and/CC difficult/JJ to/TO clean/VB up/RP or/CC simplify/VB later/RB on/RB ./.

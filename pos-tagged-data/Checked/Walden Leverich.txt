@@ -1,0 +1,9 @@
+Nice/JJ !/.
+Was/VBD n't/RB aware/JJ of/IN the/DT ability/NN to/TO replace/VB the/DT Request/NN Validator/NN ./.
+Instead/RB of/IN just/RB saying/VBG ``/`` ok/UH ''/'' like/IN you/PRP do/VBP I/PRP extended/VBD this/DT idea/NN to/TO not/RB validate/VB fields/NNS that/WDT end/VBP in/IN ''/'' _/COS NoValidation/COS ''/'' as/IN their/PRP$ name/NN ./.
+Code/NNP below/IN ./.
+Sel/NNP ,/, yes/RB in/IN an/DT MVC/ACR environment/NN that/WDT would/MD work/VB ./.
+But/CC in/IN a/DT webforms/JJ application/NN I/PRP do/VBP n't/RB have/VB a/DT model/NN to/TO do/VB that/DT on/IN ./.
+:--RRB-/EMO As/IN indicated/VBN in/IN my/PRP$ comment/NN to/TO http://stackoverflow.com/a/20450300/2673770/URL this/DT is/VBZ our/PRP$ extension/NN to/TO a/DT custom/NN request/NN validator/NN ./.
+public/COB class/COB SkippableRequestValidator/COB :/COB RequestValidator/COB -LCB-/COB protected/COB override/COB bool/COB IsValidRequestString/COB -LRB-/COB HttpContext/COB context/COB ,/COB string/COB value/COB ,/COB RequestValidationSource/COB requestValidationSource/COB ,/COB string/COB collectionKey/COB ,/COB out/COB int/COB validationFailureIndex/COB -RRB-/COB -LCB-/COB if/COB -LRB-/COB collectionKey/COB !/COB
+=/COB null/COB &/COB &/COB collectionKey.EndsWith/COB -LRB-/COB ''/COB _/COB NoValidation/COB ''/COB -RRB-/COB -RRB-/COB -LCB-/COB validationFailureIndex/COB =/COB 0/COB ;/COB return/COB true/COB ;/COB -RCB-/COB return/COB base.IsValidRequestString/COB -LRB-/COB context/COB ,/COB value/COB ,/COB requestValidationSource/COB ,/COB collectionKey/COB ,/COB out/COB validationFailureIndex/COB -RRB-/COB ;/COB -RCB-/COB -RCB-/COB

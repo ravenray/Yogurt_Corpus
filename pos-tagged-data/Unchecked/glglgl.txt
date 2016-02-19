@@ -1,0 +1,2 @@
+@Polynomial/JJ Completely/RB right/JJ ,/, but/CC I/PRP 'd/MD see/VB this/DT merely/RB as/IN wrong/JJ usage/NN ./.
+As/RB long/RB as/IN you/PRP use/VBP it/PRP correctly/RB ,/, it/PRP will/MD definitely/RB work/VB ./.

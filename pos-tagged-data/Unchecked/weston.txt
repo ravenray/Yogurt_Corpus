@@ -1,0 +1,2 @@
+Matt/NNP -/: can/MD you/PRP revue/VB the/DT accepted/JJ answer/NN ./.
+You/PRP have/VBP to/TO scroll/VB a/DT long/JJ way/NN to/TO get/VB to/TO a/DT pure/JJ javascript/NN answer/NN and/CC I/PRP fear/VBP some/DT users/NNS just/RB take/VBP the/DT accepted/VBN answer/NN as/IN gospel/NN and/CC use/VB antiquated/JJ libraries/NNS as/IN a/DT result/NN ./.

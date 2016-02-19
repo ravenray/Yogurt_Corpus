@@ -1,0 +1,4 @@
+If/IN there/EX is/VBZ a/DT need/NN for/IN separation/NN of/IN business/NN logic/NN from/IN the/DT UI/NNP ,/, multi/JJ tier-architectures/NNS can/MD be/VB used/VBN ./.
+Or/CC ,/, a/DT library/NN with/IN business/NN objects/NNS and/CC logic/NN ,/, used/VBN by/IN different/JJ apps/UIs/NNS ./.
+Stored/VBN procedures/NNS lock/VB your/PRP$ data/business/NN logic/NN to/TO a/DT specific/JJ database/NN ,/, changing/VBG a/DT database/NN in/IN this/DT case/NN is/VBZ very/RB costly/JJ ./.
+And/CC huge/JJ cost/NN is/VBZ bad/JJ ./.

@@ -1,0 +1,9 @@
+@Tom/NN :/: then/RB it/PRP 's/VBZ not/RB a/DT rainbow/NN table/NN anymore/RB ,/, it/PRP 's/VBZ just/RB a/DT password/NN list/NN ./.
+the/DT entire/JJ value/NN of/IN a/DT rainbow/NN table/NN is/VBZ that/IN someone/NN spent/VBD a/DT lot/NN of/IN computation/NN time/NN calculating/VBG the/DT hashes/NNS ,/, so/IN you/PRP can/MD reverse/VB them/PRP instantly/RB ./.
+@Tom/NN :/: the/DT point/NN is/VBZ brute/JJ forcing/VBG is/VBZ n't/RB feasible/JJ if/IN you/PRP use/VBP a/DT good/JJ hash/JJ algorithm/NN and/CC reasonably/RB complex/JJ passwords/NNS ./.
+SHA1/NN may/MD not/RB be/VB a/DT good/JJ choice/NN for/IN a/DT password/NN hash/JJ algorithm/NN because/IN it/PRP is/VBZ designed/VBN to/TO be/VB fast/RB ./.
+You/PRP want/VBP something/NN designed/VBN to/TO be/VB slow/JJ ./.
+Sadly/RB ,/, I/PRP ca/MD n't/RB find/VB the/DT article/NN I/PRP read/VBP recently/RB on/IN this/DT ,/, but/CC I/PRP believe/VBP blowfish/NN was/VBD one/CD of/IN the/DT recommended/VBN algorithms/NNS ./.
+@R/NN ./.
+Bemrose/NNP :/: exactly/RB ,/, you/PRP can/MD use/VB that/DT technique/NN for/IN key/JJ strengthening/NN ,/, or/CC you/PRP can/MD use/VB an/DT algorithm/NN that/WDT is/VBZ inherently/RB slow/JJ ./.
+I/PRP found/VBD an/DT article/NN -LRB-/-LRB- not/RB the/DT one/NN I/PRP read/VBP originally/RB -RRB-/-RRB- on/IN how/WRB blowfish/JJ is/VBZ used/VBN this/DT way/NN ,/, since/IN it/PRP has/VBZ a/DT peculiar/JJ property/NN that/IN changing/VBG keys/NNS is/VBZ very/RB slow/JJ ./.

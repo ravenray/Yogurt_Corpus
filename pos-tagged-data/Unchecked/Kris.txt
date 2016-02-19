@@ -1,0 +1,4 @@
+I/PRP 'd/MD still/RB take/VB static/JJ class/NN over/IN free/JJ functions/NNS ./.
+If/IN there/EX was/VBD ever/RB a/DT name/NN class/NN I/PRP could/MD use/VB \/NNP DB/NNP as/IN XDB/NNP ./.
+not/RB so/RB much/JJ with/IN free/JJ functions/NNS ./.
+While/IN a/DT purely/RB static/JJ class/NN may/MD be/VB a/DT code/NN smell/NN ,/, it/PRP is/VBZ not/RB a/DT guarantee/NN that/IN the/DT design/NN is/VBZ bad/JJ ;/: life/NN is/VBZ not/RB black/JJ and/CC white/JJ ,/, neither/CC is/VBZ code/NN ./.

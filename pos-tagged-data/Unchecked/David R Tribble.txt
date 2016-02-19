@@ -1,0 +1,5 @@
+Some/DT of/IN us/PRP prefer/VBP languages/NNS like/IN Java/NNP which/WDT force/VBP us/PRP to/TO declare/VB all/PDT the/DT exceptions/NNS thrown/VBN by/IN methods/NNS ,/, instead/RB of/IN making/VBG them/PRP invisible/JJ as/IN in/IN C++/NNP and/CC C#/NNP ./.
+When/WRB done/VBN properly/RB ,/, exceptions/NNS are/VBP superior/JJ to/TO error/NN return/NN codes/NNS ,/, if/IN for/IN no/DT other/JJ reason/NN than/IN you/PRP do/VBP n't/RB have/VB to/TO propagate/VB failures/NNS up/IN the/DT call/NN chain/NN manually/RB ./.
+That/IN being/VBG said/VBD ,/, low-level/JJ API/NN library/NN programming/NN should/MD probably/RB avoid/VB exception/NN handling/NN ,/, and/CC stick/NN to/TO error/NN return/NN codes/NNS ./.
+It/PRP 's/VBZ been/VBN my/PRP$ experience/NN that/IN it/PRP 's/VBZ difficult/JJ to/TO write/VB clean/JJ exception/NN handling/NN code/NN in/IN C++/NNP ./.
+I/PRP end/VBP up/RP using/VBG new/JJ -LRB-/-LRB- nothrow/NN -RRB-/-RRB- a/DT lot/NN ./.

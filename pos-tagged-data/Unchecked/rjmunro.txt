@@ -1,0 +1,3 @@
+@Synchro/NN prepared/JJ queries/NNS should/MD never/RB be/VB a/DT ``/`` wasteful/JJ overhead/NN ''/'' ./.
+Internally/RB ,/, all/DT queries/NNS need/VBP to/TO be/VB prepared/VBN at/IN some/DT point/NN ./.
+If/IN there/EX is/VBZ a/DT way/NN that/IN preparing/VBG a/DT query/NN before/IN running/VBG it/PRP is/VBZ significantly/RB slower/JJR than/IN running/VBG it/PRP ,/, that/DT 's/VBZ a/DT bug/NN ./.

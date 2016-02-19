@@ -1,0 +1,4 @@
+@Michael/NN :/: It/PRP is/VBZ enormously/RB more/RBR difficult/JJ to/TO make/VB a/DT table/NN for/IN all/DT 30/CD character/NN salts/NNS than/IN it/PRP is/VBZ for/IN all/DT single/JJ character/NN salts/NNS ./.
+Salt/NNP size/NN is/VBZ critical/JJ ./.
+@/SYM 0A0D/NN :/: So/RB ?/.
+I/PRP certainly/RB do/VBP n't/RB consider/VB PCI/NN to/TO be/VB the/DT first/JJ or/CC final/JJ word/NN in/IN security/NN ./.

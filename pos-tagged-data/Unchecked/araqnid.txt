@@ -1,0 +1,2 @@
+Odd/NNP ,/, I/PRP 've/VBP used/VBN Hibernate/NNP a/DT lot/NN and/CC it/PRP does/VBZ n't/RB routinely/RB add/VB ``/`` distinct/JJ ''/'' on/IN the/DT front/NN of/IN queries/NNS ./.
+I/PRP would/MD n't/RB use/VB it/PRP if/IN it/PRP did/VBD !/.

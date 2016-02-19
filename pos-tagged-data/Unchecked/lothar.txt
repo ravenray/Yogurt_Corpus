@@ -1,0 +1,2 @@
+is/VBZ that/IN a/DT specific/JJ problem/NN with/IN the/DT MS/NN regex/NN implementation/NN ?/.
+it/PRP did/VBD not/RB take/VB that/DT long/JJ with/IN a/DT simple/JJ grep/NN on/IN the/DT command/NN line/NN :/: $/$ time/NN echo/VBP ``/`` 123456789012345678901234567890/CD ''/'' |/FW grep/FW ''/'' \/NN -LRB-/-LRB- -LSB-/-LRB- 0-9/CD -RSB-/-RRB- \/CD +/CC \/CD -RRB-/-RRB- \/CD +/CC ''/'' 123456789012345678901234567890/CD real/JJ 0m0/NN .007/CD s/NN user/NN 0m0/NN .020/CD s/NN sys/FW 0m0/FW .010/CD s/NN

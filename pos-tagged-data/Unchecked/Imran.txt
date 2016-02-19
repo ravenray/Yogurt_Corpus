@@ -1,0 +1,2 @@
+Use/NN PDO/NN and/CC prepared/JJ queries/NNS ./.
+-LRB-/-LRB- $/$ conn/NN is/VBZ a/DT PDO/NN object/NN -RRB-/-RRB- $/$ stmt/NN =/JJ $/$ conn/JJ -/: >/JJR prepare/VB -LRB-/-LRB- ``/`` INSERT/FW INTO/FW tbl/FW VALUES/NNS -LRB-/-LRB- :/: id/NN ,/, :/: name/NN -RRB-/-RRB- ''/'' -RRB-/-RRB- ;/: $/$ stmt/JJ -/: >/JJR bindValue/NN -LRB-/-LRB- '/'' :/: id/NN '/'' ,/, $/$ id/CD -RRB-/-RRB- ;/: $/$ stmt/JJ -/: >/JJR bindValue/NN -LRB-/-LRB- '/'' :/: name/NN '/'' ,/, $/$ name/NN -RRB-/-RRB- ;/: $/$ stmt/JJ -/: >/JJR execute/VB -LRB-/-LRB- -RRB-/-RRB- ;/:

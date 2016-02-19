@@ -1,0 +1,3 @@
+@BryanH/NN Unfortunately/RB only/RB because/IN mysql/FW _/FW set/NN of/IN functions/NNS have/VBP been/VBN deprecated/VBN ./.
+Notice/NNP how/WRB they/PRP recommend/VBP mysqli_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- and/CC PDO/NN :/: :/: quote/NN -LRB-/-LRB- -RRB-/-RRB- ,/, not/RB parameterized/VBN queries/NNS ./.
+Security/NNP is/VBZ n't/RB a/DT major/JJ concern/NN for/IN the/DT PHP/NNP developers/NNS ,/, based/VBN on/IN their/PRP$ continuing/VBG track/NN record/NN ./.

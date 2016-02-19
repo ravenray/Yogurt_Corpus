@@ -1,0 +1,13 @@
+I/PRP think/VBP you/PRP are/VBP attacking/VBG it/PRP from/IN the/DT wrong/JJ angle/NN by/IN trying/VBG to/TO encode/VB all/DT posted/VBN data/NNS ./.
+Note/VB that/IN a/DT ''/'' </COS ''/'' could/MD also/RB come/VB from/IN other/JJ outside/JJ sources/NNS ,/, like/IN a/DT database/NN field/NN ,/, a/DT configuration/NN ,/, a/DT file/NN ,/, a/DT feed/NN and/CC so/RB on/IN ./.
+Furthermore/RB ,/, ''/'' </COS ''/'' is/VBZ not/RB inherently/RB dangerous/JJ ,/, its/PRP$ only/RB dangerous/JJ in/IN a/DT specific/JJ context/NN :/: when/WRB writing/VBG unencoded/JJ strings/NNS to/TO HTML/ACR output/NN -LRB-/-LRB- because/IN of/IN XSS/ACR -RRB-/-RRB- ./.
+In/IN other/JJ contexts/NNS different/JJ substrings/NNS are/VBP dangerous/JJ ,/, e.g./FW if/IN you/PRP write/VBP an/DT user-provided/JJ URL/ACR into/IN a/DT link/NN ,/, the/DT substring/NN ``/`` javascript/COS :/: ''/'' may/MD be/VB dangerous/JJ ./.
+The/DT single/JJ quote/NN character/NN on/IN the/DT other/JJ hand/NN is/VBZ dangerous/JJ when/WRB interpolating/VBG strings/NNS in/IN SQL/ACR queries/NNS ,/, but/CC perfectly/RB safe/JJ if/IN it/PRP is/VBZ a/DT part/NN of/IN a/DT name/NN submitted/VBN from/IN a/DT form/NN or/CC read/VB from/IN a/DT database/NN field/NN ./.
+The/DT bottom/JJ line/NN is/VBZ :/: you/PRP ca/MD n't/RB filter/NN random/JJ input/NN for/IN dangerous/JJ characters/NNS ,/, because/IN any/DT charater/NN may/MD be/VB dangerous/JJ under/IN the/DT right/JJ circumstances/NNS ./.
+You/PRP should/MD encode/VB at/IN the/DT point/NN where/WRB some/DT specific/JJ characters/NNS may/MD become/VB dangerous/JJ because/IN they/PRP cross/VBP into/IN a/DT different/JJ sublanguage/NN where/WRB they/PRP have/VBP special/JJ meaning/VBG ./.
+When/WRB you/PRP write/VBP a/DT string/NN to/TO HTML/ACR ,/, you/PRP should/MD encode/VB characters/NNS that/WDT have/VBP special/JJ meaning/NN in/IN HTML/ACR ,/, using/VBG Server.HtmlEncode/COS ./.
+If/IN you/PRP pass/VBP a/DT string/NN to/TO a/DT dyamic/JJ SQL/ACR statement/NN ,/, you/PRP should/MD encode/VB different/JJ characters/NNS -LRB-/-LRB- or/CC better/JJR ,/, let/VB the/DT framework/NN do/VBP it/PRP for/IN you/PRP by/IN using/VBG prepared/JJ statements/NNS or/CC the/DT like/JJ -RRB-/-RRB- ./.
+When/WRB you/PRP are/VBP sure/JJ you/PRP HTML-encode/VB everywhere/RB you/PRP pass/VBP strings/NNS to/TO HTML/ACR ,/, then/RB set/COB validateRequest/COB =/COB ``/COB false/COB ''/COB ./COB
+In/IN ./.
+NET/ACR 4/CD you/PRP may/MD need/VB to/TO do/VB a/DT little/RB more/JJR ./.
+Sometimes/RB it/PRP 's/VBZ necessary/JJ to/TO also/RB add/VB to/TO web.config/COS -LRB-/COS reference/COS -RRB-/COS ./.

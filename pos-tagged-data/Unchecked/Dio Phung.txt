@@ -1,0 +1,3 @@
+@Samuel/NN :/: requestValidationMode/NN =/JJ ``/`` 4.0/CD ''/'' -LRB-/-LRB- or/CC anything/NN >/JJR =/JJ 4.0/CD -RRB-/-RRB- means/VBZ that/IN the/DT validation/NN is/VBZ done/VBN whenever/WRB a/DT HTTP/NN request/NN data/NNS is/VBZ accessed/VBN -LRB-/-LRB- url/NN ,/, cookies/NNS -RRB-/-RRB- ./.
+requestValidationMode/NN =/JJ ``/`` 2.0/CD ''/'' -LRB-/-LRB- or/CC anything/NN less/JJR than/IN 4.0/CD -RRB-/-RRB- is/VBZ to/TO enable/VB HTTP/NN request/NN validation/NN for/IN pages/NNS only/RB ./.
+Take/VB a/DT look/NN at/IN the/DT MSDN/NN :/: msdn.microsoft.com/en-us/library/…/NN

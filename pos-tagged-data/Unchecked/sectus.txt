@@ -1,0 +1,3 @@
+I/PRP am/VBP not/RB agree/VB with/IN this/DT '/'' a/DT specially-made/JJ function/NN to/TO prevent/VB these/DT attacks/NNS '/POS ./.
+I/PRP think/VBP that/IN mysql_real_escape_string/NN purpose/NN is/VBZ in/IN allow/VB to/TO build/VB correct/JJ SQL/NNP query/NN for/IN every/DT input/NN data-string/NN ./.
+Prevention/NNP sql-injection/NN is/VBZ the/DT side-effect/NN of/IN this/DT function/NN ./.

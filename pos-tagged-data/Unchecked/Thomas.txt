@@ -1,0 +1,7 @@
+Completely/RB disagree/VBP with/IN #/# 3/CD ./.
+Yes/RB ,/, countries/NNS can/MD cease/VB to/TO exist/VB ,/, but/CC the/DT country/NN code/NN will/MD continue/VB to/TO represent/VB the/DT same/JJ thing/NN ./.
+Same/JJ with/IN currency/NN codes/NNS or/CC US/NNP States/NNPS ./.
+It/PRP is/VBZ dumb/JJ to/TO use/VB a/DT surrogate/JJ key/NN in/IN these/DT cases/NNS and/CC creates/VBZ more/RBR overhead/JJ in/IN your/PRP$ queries/NNS as/IN you/PRP must/MD include/VB an/DT extra/JJ join/VB ./.
+I/PRP would/MD say/VB that/IN it/PRP is/VBZ safer/JJR to/TO say/VB that/IN you/PRP probably/RB ought/MD to/TO use/VB a/DT surrogate/NN for/IN user-specific/JJ data/NNS -LRB-/-LRB- thus/RB ,/, not/RB countries/NNS ,/, currencies/NNS and/CC US/NNP States/NNPS -RRB-/-RRB- ./.
+RE/NN :/: #/# 11/CD The/DT check/NN constraint/NN needed/VBN to/TO enforce/VB data/NNS integrity/NN is/VBZ trivial/JJ ./.
+There/EX are/VBP other/JJ reasons/NNS for/IN avoiding/VBG that/DT design/NN ,/, but/CC the/DT need/NN for/IN ``/`` complex/JJ ''/'' check/NN constraint/NN is/VBZ n't/RB one/CD of/IN them/PRP ./.

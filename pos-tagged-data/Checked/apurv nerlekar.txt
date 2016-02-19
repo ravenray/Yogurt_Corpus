@@ -1,0 +1,8 @@
+The/DT simple/JJ alternative/NN to/TO this/DT problem/NN could/MD be/VB solved/VBN by/IN granting/VBG appropriate/JJ permissions/NNS in/IN the/DT database/NN itself/PRP ./.
+For/IN example/NN :/: if/IN you/PRP are/VBP using/VBG mysql/COS database/NN ./.
+then/RB enter/VB into/IN the/DT database/NN through/IN terminal/NN or/CC the/DT ui/ACR provided/VBN and/CC just/RB follow/VB this/DT command/NN :/: GRANT/COB SELECT/COB ,/COB INSERT/COB ,/COB DELETE/COB ON/COB database/COB TO/COB username@'localhost'/COB IDENTIFIED/COB BY/COB `/COB password/COB '/COB ;/COB This/DT will/MD restrict/VB the/DT user/NN to/TO only/RB get/VB confined/VBN with/IN the/DT specified/VBN query/NN 's/VBZ only/RB ./.
+Remove/VB the/DT delete/VB permission/NN and/CC so/IN the/DT data/NNS would/MD never/RB get/VB deleted/VBN from/IN the/DT query/NN fired/VBD from/IN the/DT php/ACR page/NN ./.
+The/DT second/JJ thing/NN to/TO do/VB is/VBZ to/TO flush/VB the/DT privileges/NNS so/IN that/IN the/DT mysql/COS refreshes/VBZ the/DT permissions/NNS and/CC updates/NNS ./.
+FLUSH/COB PRIVILEGES/COB ;/COB more/JJR information/NN about/IN flush/NN ./.
+To/TO see/VB the/DT current/JJ privileges/NNS for/IN the/DT user/NN fire/NN the/DT following/VBG query/NN ./.
+select/COB */COB from/COB mysql.user/COB where/COB User/COB =/COB `/COB username/COB '/COB ;/COB Learn/COB more/COB about/COB GRANT/COB ./COB

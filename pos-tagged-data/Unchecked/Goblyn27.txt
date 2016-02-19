@@ -1,0 +1,1 @@
+Whereas/IN I/PRP prefer/VBP connectionstring/VBG with/IN usernames/NNS and/CC password/NN ,/, but/CC then/RB tightly/RB control/VBP the/DT database/NN permissions/NNS so/IN that/IN the/DT username/NN and/CC password/NN cant/NN do/VBP anything/NN I/PRP didnt/VBP explicitly/RB give/VB it/PRP permission/NN to/TO do/VB on/IN a/DT case/NN by/IN case/NN basis/NN ./.

@@ -1,0 +1,4 @@
+I/PRP think/VBP it/PRP 's/VBZ worth/JJ mentioning/VBG that/IN the/DT linked/VBN article/NN mis-describes/NNS rainbow/NN tables/NNS ./.
+What/WP he/PRP describes/VBZ is/VBZ a/DT simple/JJ dictionary/NN attach/VB ./.
+Rainbow/NNP tables/NNS are/VBP really/RB quite/RB different/JJ -LRB-/-LRB- and/CC somewhat/RB more/JJR complex/NN -RRB-/-RRB- ./.
+There/EX 's/VBZ a/DT pretty/RB decent/JJ explanation/NN of/IN how/WRB rainbow/NN tables/NNS really/RB work/VBP at/IN :/: kestas.kuliukas.com/RainbowTables/NNS
