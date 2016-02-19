@@ -1,0 +1,3 @@
+This/DT is/VBZ Not/RB A/DT Good/JJ Answer/NN ./.
+First/RB ,/, the/DT whole/JJ ``/`` object/NN thing/NN ''/'' does/VBZ nothing/NN whatsoever/RB to/TO solve/VB your/PRP$ issue/NN ./.
+And/CC second/JJ ,/, your/PRP$ actual/JJ implementation/NN of/IN ``/`` equality/NN ''/'' is/VBZ n't/RB in/IN fact/NN the/DT correct/JJ one/CD ./.

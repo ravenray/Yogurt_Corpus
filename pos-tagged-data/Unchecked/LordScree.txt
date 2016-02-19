@@ -1,0 +1,2 @@
+@MGOwen/VB you/PRP can/MD also/RB add/VB the/DT page/NN directive/NN to/TO the/DT web.config/NN via/IN in/IN ./.
+Doing/VBG so/RB will/MD apply/VB the/DT property/NN to/TO all/DT pages/NNS ./.

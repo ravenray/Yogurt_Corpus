@@ -1,0 +1,10 @@
+This/DT is/VBZ often/RB used/VBN way/NN which/WDT is/VBZ not/RB too/RB good/JJ ./.
+I/PRP am/VBP been/VBN penetration/NN tester/NN and/CC usually/RB used/VBN this/DT to/TO pass/VB arguments/NNS like/IN 999999999999999999/CD which/WDT go/VBP smoothly/RB through/IN cast/NN and/CC later/JJ cause/NN huge/JJ error/NN message/NN when/WRB passed/VBN to/TO 4/CD bytes/NNS integer/NN storage/NN ./.
+Not/RB exactly/RB ./.
+Manual/NN says/VBZ ``/`` The/DT maximum/NN value/NN depends/VBZ on/IN the/DT system/NN ./.
+32/CD bit/NN systems/NNS have/VBP a/DT maximum/JJ signed/JJ integer/NN range/NN of/IN -2147483648/CD to/TO 2147483647/CD ./.
+So/RB for/IN example/NN on/IN such/PDT a/DT system/NN ,/, intval/JJ -LRB-/-LRB- '/'' 1000000000000/CD '/'' -RRB-/-RRB- will/MD return/VB 2147483647/CD ./.
+The/DT maximum/NN signed/VBD integer/NN value/NN for/IN 64/CD bit/NN systems/NNS is/VBZ 9223372036854775807/CD ./. ''/'' ./.
+I/PRP think/VBP it/PRP is/VBZ not/RB clever/JJ idea/NN to/TO have/VB PHP/ACR app/NN which/WDT uses/VBZ 4/CD byte/NN ints/COS in/IN MySQL/NNP to/TO rely/VB on/IN this/DT ``/`` feature/NN ''/'' ./.
+It/PRP breaks/VBZ on/IN 64/CD bit/NN systems/NNS ./.
+I/PRP think/VBP web/NN apps/NNCS should/MD check/VB for/IN values/NNS to/TO remain/VB in/IN some/DT range/NN to/TO be/VB sure/JJ ./.

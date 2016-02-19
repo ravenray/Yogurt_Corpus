@@ -1,0 +1,2 @@
+Dismissing/VBG an/DT ORM/NNP like/IN Hibernate/NNP out/IN of/IN hand/NN ,/, for/IN reasons/NNS like/IN ``/`` it/PRP 's/VBZ too/RB magical/JJ ''/'' or/CC ``/`` not/RB on/IN my/PRP$ database/NN ''/'' ./.
+Relying/VBG too/RB heavily/RB on/IN an/DT ORM/NNP like/IN Hibernate/NNP and/CC trying/VBG to/TO shoehorn/VB it/PRP in/IN where/WRB it/PRP is/VBZ n't/RB appropriate/JJ ./.

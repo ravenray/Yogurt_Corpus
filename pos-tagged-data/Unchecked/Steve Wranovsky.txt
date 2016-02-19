@@ -1,0 +1,1 @@
+This/DT answer/NN to/TO this/DT question/NN has/VBZ a/DT reference/NN to/TO setting/VBG the/DT requestValidationMode/NN =/JJ ``/`` 2.0/CD ''/'' for/IN only/RB a/DT single/JJ page/NN on/IN your/PRP$ site/NN ,/, which/WDT is/VBZ definitely/RB more/RBR secure/JJ than/IN turning/VBG the/DT validation/NN off/RP for/IN an/DT entire/JJ site/NN ./.

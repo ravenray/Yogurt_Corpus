@@ -1,0 +1,1 @@
+Biggest/JJS mistake/NN is/VBZ having/VBG a/DT loop/NN in/IN the/DT code/NN updating/VBG or/CC inserting/VBG data/NNS when/WRB a/DT simple/JJ set-based/JJ solution/NN would/MD do/VB the/DT trick/NN much/RB faster/RBR ,/, and/CC much/RB more/RBR simple/JJ ./.

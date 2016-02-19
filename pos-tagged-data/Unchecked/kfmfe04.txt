@@ -1,0 +1,6 @@
++1/CD best/RBS practical/JJ explanation/NN I/PRP 've/VBP seen/VBN so/RB far/RB ,/, but/CC I/PRP do/VBP n't/RB know/VB how/WRB I/PRP can/MD implement/VB safe/JJ EH/NN in/IN my/PRP$ code/NN ./.
+Just/RB looking/VBG at/IN the/DT 3/CD examples/NNS ,/, only/RB the/DT first/JJ one/CD is/VBZ easy/JJ to/TO comprehend/VB ./.
+Without/IN comments/NNS ,/, my/PRP$ head/NN is/VBZ spinning/VBG as/IN to/TO what/WP is/VBZ the/DT main-code-logic/JJ and/CC what/WP is/VBZ the/DT EH/NN in/IN the/DT last/JJ two/CD examples/NNS :/: the/DT code/NN no/RB longer/RB passes/VBZ the/DT rubber-ducky/JJ test/NN ./.
+IMHO/NNP ,/, this/DT unintended/JJ obfuscation/NN can/MD easily/RB lead/VB to/TO broken/JJ code/NN ./.
+Is/VBZ there/RB any/DT way/NN to/TO write/VB EH/NN code/NN that/WDT is/VBZ easier/JJR to/TO read/maintain/NN ?/.
+I/PRP am/VBP afraid/JJ that/IN if/IN I/PRP do/VBP not/RB do/VB EH/NN right/NN ,/, it/PRP will/MD lead/VB to/TO brittle/half-failing/JJ code/NN rather/RB than/IN one/CD that/WDT fails/VBZ loudly/RB ./.

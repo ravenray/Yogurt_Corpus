@@ -1,0 +1,2 @@
+NO/NN ./.
+The/DT issue/NN is/VBZ that/IN you/PRP are/VBP expecting/VBG a/DT JSON/NN object/NN and/CC could/MD end/VB up/RP with/IN -LRB-/-LRB- function/NN -LRB-/-LRB- -RRB-/-RRB- -LCB-/-LRB- postCookiesToHostileServer/NN -LRB-/-LRB- -RRB-/-RRB- ;/: -RCB-/-RRB- -LRB-/-LRB- -RRB-/-RRB- -RRB-/-RRB- ;/: or/CC even/RB nastier/JJR stuff/NN in/IN the/DT context/NN of/IN Node/NNP ./.

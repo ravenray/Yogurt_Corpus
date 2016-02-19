@@ -1,0 +1,3 @@
+t.integer/NN +/CC =/JJ 1/CD ;/: is/VBZ without/IN the/DT guarantee/NN that/DT overflow/NN will/MD not/RB happen/VB NOT/NN exception/NN safe/NN ,/, and/CC in/IN fact/NN may/MD technically/RB invoke/VB UB/NNP !/.
+-LRB-/-LRB- Signed/VBN overflow/NN is/VBZ UB/NNP :/: C++/NNP 11 5/4/CD ``/`` If/IN during/IN the/DT evaluation/NN of/IN an/DT expression/NN ,/, the/DT result/NN is/VBZ not/RB mathematically/RB defined/VBN or/CC not/RB in/IN the/DT range/NN of/IN representable/JJ values/NNS for/IN its/PRP$ type/NN ,/, the/DT behavior/NN is/VBZ undefined/JJ ./. ''/'' -RRB-/-RRB-
+Note/VB that/DT unsigned/JJ integer/NN do/VBP not/RB overflow/NN ,/, but/CC do/VBP their/PRP$ computations/NNS in/IN an/DT equivalence/JJ class/NN modulo/NN 2/CD ^/FW #bits/FW ./.

@@ -1,0 +1,14 @@
+As/IN a/DT side/NN note/NN :/: ./.
+NET/ACR 4.5/CD has/VBZ the/DT option/NN of/IN limiting/VBG the/DT execution/NN time/NN of/IN a/DT regular/JJ expression/NN ./.
+Use/VB the/DT constructor/NN with/IN the/DT TimeSpan/COS ./.
+msdn.microsoft.com/en-us/library/hh160196/URL -LRB-/COB v/COB =/COB vs./COB 110/COB -RRB-/COB ./COB
+aspx/COB Probably/RB half/PDT the/DT framework/NN contains/VBZ very/RB scary/JJ functions/NNS ./.
+I/PRP myself/PRP think/VBP that/IN File.WriteAllText/COS -LRB-/COS -RRB-/COS is/VBZ very/RB scary/JJ since/IN it/PRP can/MD overwrite/VB any/DT file/NN the/DT current/JJ user/NN has/VBZ access/NN to/TO ./.
+A/DT different/JJ approach/NN to/TO this/DT question/NN would/MD be/VB how/WRB you/PRP can/MD manage/VB security/NN ./.
+The/DT article/NN at/IN http://ondotnet.com/pub/a/dotnet/2003/02/18/permissions.html/NN contains/URL a/DT basic/JJ description/NN concerning/VBG the/DT ./.
+NET/ACR security/NN system/NN ,/, with/IN the/DT System.Security.Permissions/COS namespace/NN containing/VBG all/DT permissions/NNS ./.
+NET/ACR makes/VBZ available/JJ ./.
+You/PRP can/MD also/RB take/VB a/DT look/NN at/IN http://msdn.microsoft.com/en-us/library/5ba4k1c5.aspx/URL for/IN more/JJR information/NN ./.
+In/IN short/JJ ,/, ./.
+NET/ACR allows/VBZ you/PRP to/TO limit/VB the/DT permissions/NNS a/DT process/NN can/MD have/VB ,/, for/IN example/NN denying/VBG methods/NNS that/WDT change/VBP data/NNS on/IN disk/NN ./.
+You/PRP can/MD then/RB check/VB these/DT permissions/NNS and/CC act/VBP on/IN whether/IN the/DT process/NN has/VBZ them/PRP or/CC not/RB ./.

@@ -1,0 +1,19 @@
+Regarding/VBG #/# 3/CD I/PRP must/MD quibble/VB a/DT bit/NN ./.
+Sure/RB ,/, go/VB ahead/RB and/CC give/VB yourself/PRP a/DT surrogate/NN ,/, but/CC do/VBP n't/RB mark/VB that/IN as/IN the/DT primary/JJ key/NN ,/, because/IN that/DT 's/VBZ not/RB what/WP a/DT primary/JJ key/NN IS/VBZ -/: a/DT primary/JJ key/NN is/VBZ ``/`` what/WP the/DT record/NN is/VBZ about/IN ,/, ''/'' not/RB simply/RB a/DT programming/VBG aid/NN ./.
+Build/VB a/DT unique/JJ index/NN on/IN your/PRP$ surrogate/NN key/VB and/CC use/VB that/IN for/IN relationships/NNS ,/, fine/RB ,/, but/CC it/PRP 's/VBZ not/RB a/DT primary/JJ key/NN ./.
+Regarding/VBG #/# 10/CD :/: there/EX are/VBP good/JJ reasons/NNS to/TO normalize/VB ,/, not/RB least/JJS of/IN which/WDT is/VBZ that/IN the/DT data/NNS structures/NNS will/MD then/RB reflect/VB the/DT entities/NNS you/PRP 're/VBP trying/VBG to/TO model/VB ./.
+You/PRP may/MD have/VB to/TO build/VB some/DT views/NNS to/TO make/VB life/NN easier/JJR ,/, but/CC do/VBP n't/RB be/VB a/DT data/NN slob/NN for/IN convenience/NN !/.
+So/RB ,/, you/PRP 'd/MD enmesh/VB your/PRP$ business/NN logic/NN in/IN the/DT UI/ACR ,/, where/WRB it/PRP was/VBD divorced/VBN from/IN the/DT data/NNS being/VBG manipulated/VBN ?/.
+This/DT does/VBZ n't/RB seem/VB like/IN such/PDT a/DT good/JJ idea/NN ,/, particularly/RB as/IN data/NNS manipulation/NN is/VBZ most/RBS efficient/JJ when/WRB performed/VBN by/IN the/DT database/NN server/NN rather/RB than/IN by/IN round-trips/NNS from/IN the/DT UI/ACR ./.
+That/DT also/RB means/VBZ that/IN it/PRP 's/VBZ more/RBR difficult/JJ to/TO control/VB the/DT application/NN because/IN you/PRP ca/MD n't/RB rely/VB on/IN the/DT database/NN being/VBG in/IN control/NN of/IN its/PRP$ data/NNS and/CC potentially/RB have/VBP different/JJ versions/NNS of/IN a/DT UI/ACR out/RP there/EX with/IN different/JJ data/NNS manipulation/NN going/VBG on/RP ./.
+Not/RB good/JJ ./.
+I/PRP do/VBP n't/RB let/VB anything/NN touch/VB my/PRP$ data/NNS except/IN through/IN a/DT stored/JJ procedure/NN ./.
+Agreed/VBD !/.
+I/PRP 've/VBP only/RB had/VBD one/CD case/NN in/IN which/WDT a/DT correlated/JJ subquery/NN was/VBD more/RBR efficient/JJ ,/, and/CC that/DT 's/VBZ in/IN 16/CD years/NNS of/IN writing/VBG SQL/ACR !/.
+A/DT quibble/NN :/: 2/LS -RRB-/-RRB- is/VBZ actually/RB bad/JJ practice/NN ./.
+I/PRP see/VBP what/WP you/PRP 're/VBP getting/VBG at/IN -/: you/PRP want/VBP an/DT unique/JJ index/NN on/IN that/DT autonumber/NN ,/, and/CC to/TO use/VB it/PRP as/IN a/DT surrogate/JJ key/NN ./.
+But/CC the/DT primary/JJ key/NN should/MD n't/RB be/VB an/DT autonumber/NN ,/, as/IN that/DT 's/VBZ not/RB what/WP a/DT primary/JJ key/NN IS/VBZ :/: a/DT primary/JJ key/NN is/VBZ ``/`` what/WP the/DT record/NN is/VBZ about/IN ,/, ''/'' which/WDT -LRB-/-LRB- except/IN for/IN things/NNS like/IN sales/NNS transactions/NNS -RRB-/-RRB- is/VBZ NOT/RB the/DT autonumber/NN ,/, but/CC some/DT unique/JJ bit/NN of/IN information/NN about/IN the/DT entity/NN being/VBG modeled/VBN ./.
+It/PRP 's/VBZ an/DT issue/NN of/IN semantics/NNS ,/, at/IN the/DT end/NN of/IN the/DT day/NN .../: and/CC Microsoft/NNP prefers/VBZ primary/JJ keys/NNS to/TO be/VB meaningless/JJ ,/, rather/RB than/IN meaningful/JJ ./.
+Debates/NNS around/IN it/PRP rage/NN on/IN ,/, but/CC I/PRP fall/VBP into/IN the/DT ``/`` meaningful/JJ ''/'' camp/NN ./.
+:-RRB-/EMO +1/CD for/IN #/# 5/CD ./.
+Truly/RB -/: it/PRP 's/VBZ a/DT horror/NN to/TO work/VB with/IN one/CD of/IN these/DT apps/NNCS !/.

@@ -1,0 +1,42 @@
+@Peter/ATS Bailey/ATS :/: I/PRP agree/VBP ./.
+``/`` Use/VB Views/NNS ''/'' is/VBZ bad/JJ advice/NN ./.
+It/PRP 's/VBZ more/JJR complex/NN ./.
+If/IN a/DT DB/ACR supports/VBZ materialized/VBN views/NNS ,/, then/RB definitely/RB ,/, use/VB views/NNS ./.
+Use/VB them/PRP liberally/RB ./.
+If/IN a/DT DB/ACR does/VBZ not/RB ,/, do/VBP not/RB use/VB views/NNS ./.
+And/CC while/IN MySQL/NNP claims/VBZ they/PRP have/VBP materialized/VBN views/NNS ,/, upon/IN closer/JJR examination/NN ,/, they/PRP do/VBP not/RB ,/, not/RB in/IN the/DT ways/NNS that/IN matter/NN ,/, not/RB in/IN the/DT way/NN Oracle/NNP ,/, MSSQL/ACR and/CC PGSQL/ACR do/VBP ./.
+With/IN #/# 3/CD you/PRP are/VBP not/RB being/VBG honest/JJ ./.
+There/EX are/VBP more/JJR downsides/NNS to/TO the/DT artificial/JJ key/NN than/IN ``/`` you/PRP may/MD not/RB need/VB it/PRP ./. ''/''
+Specifically/RB ,/, using/VBG a/DT natural/JJ key/NN will/MD give/VB you/PRP the/DT ability/NN to/TO control/VB the/DT order/NN in/IN which/WDT data/NNS in/IN your/PRP$ table/NN is/VBZ written/VBN to/TO the/DT disk/NN ./.
+If/IN you/PRP know/VBP how/WRB your/PRP$ table/NN will/MD be/VB queried/VBN ,/, you/PRP can/MD index/NN it/PRP so/RB concurrently-accessed/JJ rows/NNS will/MD end-up/VB in/IN the/DT same/JJ page/NN ./.
+Furthermore/RB ,/, you/PRP can/MD enforce/VB data/NN integrity/NN using/VBG a/DT unique/JJ composite/JJ index/NN ./.
+If/IN you/PRP need/VBP this/DT you/PRP will/MD have/VB to/TO add/VB it/PRP in/IN addition/NN to/TO your/PRP$ artificial/JJ key/JJ index/NN ./.
+If/IN said/VBD composite/JJ index/NN is/VBZ your/PRP$ pkey/COS it/PRP 's/VBZ 2/CD birds/NNS killed/VBN with/IN one/CD stone/NN ./.
+Not/RB understanding/VBG how/WRB a/DT DBMS/ACR works/VBZ under/IN the/DT hood/NN ./.
+You/PRP can/MD not/RB properly/RB drive/VB a/DT stick/NN without/IN understanding/VBG how/WRB a/DT clutch/NN works/VBZ ./.
+And/CC you/PRP can/MD not/RB understand/VB how/WRB to/TO use/VB a/DT Database/NN without/IN understanding/VBG that/IN you/PRP are/VBP really/RB just/RB writing/VBG to/TO a/DT file/NN on/IN your/PRP$ hard/JJ disk/NN ./.
+Specifically/RB :/: Do/VBP you/PRP know/VB what/WP a/DT Clustered/NNP Index/NNP is/VBZ ?/.
+Did/VBD you/PRP think/VBP about/IN it/PRP when/WRB you/PRP designed/VBD your/PRP$ schema/NN ?/.
+Do/VBP you/PRP know/VB how/WRB to/TO use/VB indexes/NNS properly/RB ?/.
+How/WRB to/TO reuse/VB an/DT index/NN ?/.
+Do/VBP you/PRP know/VB what/WP a/DT Covering/NNP Index/NNP is/VBZ ?/.
+So/RB great/JJ ,/, you/PRP have/VBP indexes/NNS ./.
+How/WRB big/JJ is/VBZ 1/CD row/NN in/IN your/PRP$ index/NN ?/.
+How/WRB big/JJ will/MD the/DT index/NN be/VB when/WRB you/PRP have/VBP a/DT lot/NN of/IN data/NNS ?/.
+Will/MD that/WDT fit/VBP easily/RB into/IN memory/NN ?/.
+If/IN it/PRP wo/MD n't/RB it/PRP 's/VBZ useless/JJ as/IN an/DT index/NN ./.
+Have/VBP you/PRP ever/RB used/VBD EXPLAIN/COS in/IN MySQL/NNP ?/.
+Great/JJ ./.
+Now/RB be/VB honest/JJ with/IN yourself/PRP :/: Did/VBD you/PRP understand/VBP even/RB half/NN of/IN what/WP you/PRP saw/VBD ?/.
+No/DT ,/, you/PRP probably/RB did/VBD n't/RB ./.
+Fix/VB that/DT ./.
+Do/VBP you/PRP understand/VB the/DT Query/NNP Cache/NNP ?/.
+Do/VBP you/PRP know/VB what/WP makes/VBZ a/DT query/NN un-cachable/JJ ?/.
+Are/VBP you/PRP using/VBG MyISAM/ACR ?/.
+If/IN you/PRP NEED/VBP full/JJ text/NN search/NN ,/, MyISAM/ACR 's/POS is/VBZ crap/NN anyway/RB ./.
+Use/NN Sphinx/NNP ./.
+Then/RB switch/NN to/TO Inno/NNP ./.
+I/PRP disagree/VBP ./.
+I/PRP do/VBP n't/RB think/VB you/PRP can/MD optimally/RB use/VB a/DT clutch/NN without/IN understanding/VBG how/WRB it/PRP works/VBZ ./.
+That/DT was/VBD a/DT belief/NN passed/VBD down/RB 3/CD generations/NNS in/IN my/PRP$ family/NN and/CC one/CD I/PRP have/VBP experienced/VBN first-hand/JJ ./.
+The/DT difference/NN ,/, the/DT way/NN I/PRP was/VBD able/JJ to/TO drive/VB the/DT car/NN ,/, after/IN I/PRP rebuilt/VBP the/DT clutch/NN with/IN my/PRP$ father/NN ,/, was/VBD night/NN and/CC day/NN ./.

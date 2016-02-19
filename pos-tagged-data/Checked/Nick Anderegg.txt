@@ -1,0 +1,12 @@
+Well/RB ,/, I/PRP would/MD have/VB to/TO say/VB that/IN the/DT biggest/JJS mistake/NN application/NN developers/NNS make/VBP is/VBZ not/RB properly/RB normalizing/VBG the/DT database/NN ./.
+As/IN an/DT application/NN developer/NN myself/PRP ,/, I/PRP realize/VBP the/DT importance/NN of/IN proper/JJ database/NN structure/NN ,/, normalization/NN ,/, and/CC maintenance/NN ;/: I/PRP have/VBP spent/VBN countless/JJ hours/NNS educating/VBG myself/PRP on/IN database/NN structure/NN and/CC administration/NN ./.
+In/IN my/PRP$ experience/NN ,/, whenever/WRB I/PRP start/VBP working/VBG with/IN a/DT different/JJ developer/NN ,/, I/PRP usually/RB have/VBP to/TO restructure/VB the/DT entire/JJ database/NN and/CC update/VB the/DT app/NNC to/TO suit/VB because/IN it/PRP is/VBZ usually/RB malformed/JJ and/CC defective/JJ ./.
+For/IN example/NN ,/, I/PRP started/VBD working/VBG with/IN a/DT new/JJ project/NN where/WRB the/DT developer/NN asked/VBD me/PRP to/TO implement/VB Facebook/NNP Connect/NNP on/IN the/DT site/NN ./.
+I/PRP cracked/VBD open/JJ the/DT database/NN to/TO see/VB what/WP I/PRP had/VBD to/TO work/VB with/IN and/CC saw/VBD that/IN every/DT little/JJ bit/NN of/IN information/NN about/IN any/DT given/JJ user/NN was/VBD crammed/VBN into/IN one/CD table/NN ./.
+It/PRP took/VBD me/PRP six/CD hours/NNS to/TO write/VB a/DT script/NN that/WDT would/MD organize/VB the/DT table/NN into/IN four/CD or/CC five/CD separate/JJ tables/NNS and/CC another/DT two/CD to/TO get/VB the/DT app/NNC to/TO use/VB those/DT tables/NNS ./.
+Please/VB ,/, normalize/VB your/PRP$ databases/NNS !/.
+It/PRP will/MD make/VB everything/NN else/RB less/JJR of/IN a/DT headache/NN ./.
+Well/RB ,/, the/DT developer/NN wanted/VBD me/PRP to/TO implement/VB Facebook/NNP Connect/NNP ,/, Twitter/NNP account/NN integration/NN ,/, etc./FW ./.
+I/PRP 'm/VBP a/DT specialist/NN in/IN several/JJ areas/NNS ,/, social/JJ media/NNS integration/NN being/VBG one/CD of/IN them/PRP ./.
+The/DT developer/NN that/WDT wanted/VBD it/PRP already/RB had/VBD the/DT previous/JJ version/NN of/IN the/DT Graph/NN API/ACR integrated/VBD .../: right/RB in/IN the/DT user/NN data/NN table/NN ./.
+That/DT just/RB would/MD not/RB do/VB ,/, so/IN I/PRP ended/VBD up/RP having/VBG to/TO restructure/VB the/DT entire/JJ thing/NN just/RB to/TO get/VB everything/NN to/TO match/VB up/RP correctly/RB ./.

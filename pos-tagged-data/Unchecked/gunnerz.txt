@@ -1,0 +1,3 @@
+I/PRP installed/VBD Microsoft.AspNet.Mvc/NN package/NN in/IN my/PRP$ project/NN using/VBG Nuget/NNP ./.
+Install-Package/JJ Microsoft.AspNet.Mvc/NN -/: Version/NN <version>/NN -/: Project/NNP PROJECTNAME/NNP MVC/NNP 4/CD version/NN :/: 4.0.40804.0/CD MVC/NN 3/CD version/NN :/: 3.0.50813.1/CD This/NNP fixed/VBD the/DT problem/NN ./.
+Details/NNP here/RB :/: http://blogs.msdn.com/b/webdev/archive/2014/10/16/microsoft-asp-net-mvc-security-update-broke-my-build.aspx/NN

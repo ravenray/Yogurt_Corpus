@@ -1,0 +1,1 @@
+15/CD -/: Using/VBG some/DT crazy/JJ construct/NN and/CC application/NN logic/NN instead/RB of/IN a/DT simple/JJ COALESCE/NN ./.

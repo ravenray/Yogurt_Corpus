@@ -1,0 +1,3 @@
+I/PRP 'm/VBP not/RB aware/JJ of/IN any/DT performant/JJ implementations/NNS of/IN Skein/NNP for/IN ./.
+NET/NN ./.
+I/PRP 've/VBP come/VBN across/IN SkeinFish/NN and/CC nskein/NN ,/, and/CC both/DT were/VBD very/RB slow/JJ ./.

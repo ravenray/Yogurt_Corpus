@@ -1,0 +1,2 @@
+if/IN an/DT attacker/NN can/MD guess/VB a/DT password/NN ,/, is/VBZ this/DT the/DT same/JJ for/IN login/NN -LRB-/-LRB- or/CC something/NN escaped/VBD to/TO me/PRP ?/.
+lol/NN -RRB-/-RRB- I/PRP 'm/VBP asking/VBG about/IN guessing/VBG login/NN too/RB ,/, is/VBZ it/PRP easy/JJ than/IN password/NN or/CC it/PRP 's/VBZ not/RB a/DT problem/NN for/IN attacker/NN from/IN the/DT beginning/NN ?/.

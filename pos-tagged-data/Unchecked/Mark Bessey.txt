@@ -1,0 +1,3 @@
+Leaving/VBG aside/RB the/DT confusion/NN between/IN SEH/NNP and/CC C++/NNP exceptions/NNS ,/, you/PRP need/VBP to/TO be/VB aware/JJ that/IN exceptions/NNS can/MD be/VB thrown/VBN at/IN any/DT time/NN ,/, and/CC write/VB your/PRP$ code/NN with/IN that/DT in/IN mind/NN ./.
+The/DT need/NN for/IN exception-safety/NN is/VBZ largely/RB what/WP drives/VBZ the/DT use/NN of/IN RAII/NN ,/, smart/JJ pointers/NNS ,/, and/CC other/JJ modern/JJ C++/NNP techniques/NNS ./.
+If/IN you/PRP follow/VBP the/DT well-established/JJ patterns/NNS ,/, writing/VBG exception-safe/JJ code/NN is/VBZ not/RB particularly/RB hard/JJ ,/, and/CC in/IN fact/NN it/PRP 's/VBZ easier/JJR than/IN writing/VBG code/NN that/WDT handles/VBZ error/NN returns/NNS properly/RB in/IN all/DT cases/NNS ./.

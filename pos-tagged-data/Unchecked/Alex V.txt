@@ -1,0 +1,1 @@
+unsupported/JJ by/IN IE8/NN ,/, some/DT versions/NNS of/IN IE9/NN ,/, &/CC older/JJR versions/NNS of/IN all/DT other/JJ browsers/NNS If/IN you/PRP 're/VBP using/VBG jQuery/NN just/RB use/VBP :/: jQuery.parseJSON/NN -LRB-/-LRB- jsonString/NN -RRB-/-RRB- ;/: It/PRP 's/VBZ exactly/RB what/WP you/PRP 're/VBP looking/VBG for/IN http://api.jquery.com/jQuery.parseJSON//NN

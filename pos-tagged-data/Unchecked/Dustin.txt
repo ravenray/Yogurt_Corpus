@@ -1,0 +1,6 @@
+Sanitizing/VBG input/NN is/VBZ the/DT wrong/JJ thing/NN to/TO do/VB ./.
+You/PRP can/MD not/RB scrub/NN the/DT input/NN to/TO make/VB it/PRP safe/JJ for/IN database/NN consumption/NN ,/, you/PRP can/MD only/RB supply/VB it/PRP out/IN of/IN band/NN -LRB-/-LRB- via/IN parameterized/VBN queries/NNS -RRB-/-RRB- ./.
+It/PRP 's/VBZ safer/JJR ,/, easier/JJR and/CC faster/JJR ./.
+Except/IN sanitizing/VBG input/NN is/VBZ wrong/JJ ./.
+Sanitizing/VBG implies/VBZ putting/VBG it/PRP somewhere/RB where/WRB it/PRP can/MD be/VB dangerous/JJ ./.
+Parameterizing/NNP means/VBZ keeping/VBG it/PRP out/IN of/IN the/DT path/NN of/IN harm/NN altogether/RB ./.

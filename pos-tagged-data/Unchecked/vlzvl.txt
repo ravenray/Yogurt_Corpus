@@ -1,0 +1,7 @@
+./. ./.
+when/WRB comes/VBZ to/TO mysql/VB _/CD */NN people/NNS tend/VBP to/TO overreact/VB and/CC paste/VB stuff/NN over/IN &/CC over/IN and/CC getting/VBG upvotes/NNS for/IN saying/VBG the/DT same/JJ thing/NN again/RB &/CC again/RB ./.
+The/DT really/RB simple/JJ solution/NN to/TO above/JJ injection/NN problem/NN is/VBZ mysql_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- ;/: ./.
+And/CC thats/VBZ all/DT ./.
+Question/NN had/VBD mysql/NN tags/NNS ,/, you/PRP see/VBP that/IN ?/.
+Period/NN ./.
+A/DT simple/JJ reference/NN to/TO PDO/NNP is/VBZ welcomed/VBN ,/, whole/JJ answers/NNS that/WDT describes/VBZ mysql/NN to/TO PDO/NN conversion/NN is/VBZ not/RB ./.

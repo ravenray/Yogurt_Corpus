@@ -1,0 +1,2 @@
+I/PRP would/MD wait/VB with/IN using/VBG SHA-3/NN until/IN the/DT actual/JJ standard/NN is/VBZ out/IN there/RB ,/, at/IN least/JJS if/IN you/PRP want/VBP to/TO actually/RB follow/VB a/DT standard/NN ./.
+The/DT algorithm/NN itself/PRP has/VBZ too/RB many/JJ options/NNS ./.

@@ -1,0 +1,13 @@
+UI/PRP 'm/VBP not/RB sure/JJ about/IN other/JJ ways/NNS to/TO do/VB it/PRP but/CC here/RB 's/POS how/WRB you/PRP do/VBP it/PRP in/IN Prototype/NNP -LRB-/-LRB- JSON/NNP tutorial/NN -RRB-/-RRB- ./.
+new/COB Ajax.Request/COB -LRB-/COB '/COB //COB some_url/COB '/COB ,/COB -LCB-/COB method/COB :/COB `/COB get/COB '/COB ,/COB requestHeaders/COB :/COB -LCB-/COB Accept/COB :/COB `/COB` application/json/COB '/COB -RCB-/COB ,/COB onSuccess/COB :/COB function/COB -LRB-/COB transport/COB -RRB-/COB -LCB-/COB var/COB json/COB =/COB transport.responseText.evalJSON/COB -LRB-/COB true/COB -RRB-/COB ;/COB -RCB-/COB -RCB-/COB -RRB-/COB ;/COB Calling/VBG evalJSON/COS -LRB-/COS -RRB-/COS with/IN true/JJ as/IN the/DT argument/NN sanitizes/VBZ the/DT incoming/JJ string/NN ./.
+Let/VB 's/POS say/VBP I/PRP have/VBP code/NN like/IN this/DT :/: $/COB dbh/COB =/COB new/COB PDO/COB -LRB-/COB ``/COB blahblah/COB ''/COB -RRB-/COB ;/COB $/COB stmt/COB =/COB $/COB dbh/COB -/COB >/COB prepare/COB -LRB-/COB `/COB SELECT/COB */COB FROM/COB users/COB where/COB username/COB =/COB :/COB username/COB '/COB -RRB-/COB ;/COB $/COB stmt/COB -/COB >/COB execute/COB -LRB-/COB array/COB -LRB-/COB '/COB :/COB username/COB '/COB =/COB >/COB $/COB _/COB REQUEST/COB -LSB-/COB `/COB username/COB '/COB -RSB-/COB -RRB-/COB -RRB-/COB ;/COB The/DT PDO/ACR documentation/NN says/VBZ :/: The/DT parameters/NNS to/TO prepared/JJ statements/NNS do/VBP n't/RB need/VB to/TO be/VB quoted/VBN ;/: the/DT driver/NN handles/VBZ it/PRP for/IN you/PRP ./.
+Is/VBZ that/IN truly/RB all/DT I/PRP need/VBP to/TO do/VB to/TO avoid/VB SQL/ACR injections/NNS ?/.
+Is/VBZ it/PRP really/RB that/IN easy/JJ ?/.
+You/PRP can/MD assume/VB MySQL/ACR if/IN it/PRP makes/VBZ a/DT difference/NN ./.
+Also/RB ,/, I/PRP 'm/VBP really/RB only/RB curious/JJ about/IN the/DT use/NN of/IN prepared/JJ statements/NNS against/IN SQL/ACR injection/NN ./.
+In/IN this/DT context/NN ,/, I/PRP do/VBP n't/RB care/VB about/IN XSS/NNP or/CC other/JJ possible/JJ vulnerabilities/NNS ./.
+That/DT 's/VBZ interesting/JJ ./.
+I/PRP was/VBD n't/RB aware/JJ of/IN 1st/JJ order/NN vs./IN 2nd/JJ order/NN ./.
+Can/MD you/PRP elaborate/VB a/DT little/RB more/JJR on/IN how/WRB 2nd/JJ order/NN works/NNS ?/.
+Thanks/NNS cjm/NNP ./.
+I/PRP also/RB found/VBD this/DT article/NN helpful/JJ in/IN explaining/VBG 2nd/JJ order/NN injections/NNS :/: codeproject.com/KB/database/SqlInjectionAttacks.aspx/URL

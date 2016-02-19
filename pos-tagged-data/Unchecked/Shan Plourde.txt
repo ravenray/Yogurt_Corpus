@@ -1,0 +1,2 @@
+You/PRP can/MD also/RB add/VB the/DT -LSB-/-LRB- ValidateInput/NNP -LRB-/-LRB- false/JJ -RRB-/-RRB- -RSB-/-RRB- attribute/NN at/IN the/DT class/NN level/NN ./.
+If/IN you/PRP add/VBP it/PRP to/TO your/PRP$ base/NN controller/NN class/NN ,/, it/PRP will/MD apply/VB to/TO all/DT controller/NN method/NN actions/NNS ./.

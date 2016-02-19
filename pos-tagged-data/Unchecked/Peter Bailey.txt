@@ -1,0 +1,8 @@
+I/PRP have/VBP to/TO ask/VB about/IN #/# 6/CD ./.
+Using/VBG views/NNS like/IN this/DT is/VBZ one/CD of/IN my/PRP$ favorite/JJ things/NNS to/TO do/VB ,/, but/CC I/PRP recently/RB learned/VBD ,/, to/TO my/PRP$ horror/NN ,/, that/IN with/IN MySQL/NN indexes/NNS on/IN the/DT underlying/JJ tables/NNS are/VBP only/RB obeyed/VBN if/IN the/DT structure/NN of/IN the/DT view/NN allows/VBZ use/NN of/IN the/DT merge/VBP algorithm/NN ./.
+Otherwise/RB ,/, a/DT temp/NN table/NN is/VBZ used/VBN and/CC all/DT your/PRP$ indexes/NNS are/VBP useless/JJ ./.
+It/PRP 's/VBZ even/RB more/RBR alarming/JJ when/WRB you/PRP realize/VBP that/IN a/DT bunch/NN of/IN operations/NNS cause/VBP this/DT behavior/NN ./.
+It/PRP 's/VBZ a/DT great/JJ way/NN to/TO turn/VB a/DT .01/CD sec/NN query/NN into/IN to/TO a/DT 100/CD second/JJ one/CD ./.
+Does/VBZ anyone/NN else/RB here/RB have/VBP experience/NN with/IN this/DT ?/.
+Check/VB the/DT links/NNS in/IN my/PRP$ next/JJ comment/NN ./.
+MySQL/NNP View/NNP algos/VBZ dev.mysql.com/doc/refman/5.0/en/view-algorithms.html/NNP MySQL/NNP View/NNP Performance/NNP mysqlperformanceblog.com/2007/08/12/…/NN

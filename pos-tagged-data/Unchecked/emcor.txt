@@ -1,0 +1,2 @@
+You/PRP could/MD reference/VB to/TO the/DT warning/NN ``/`` Version/NN =/JJ 3.0.0.0/CD ''/'' and/CC increase/VB the/DT version/NN string/NN until/IN it/PRP fits/VBZ @usr/NNP No/NNP because/IN the/DT next/JJ update/VBP always/RB has/VBZ higher/JJR version/NN ./.
+So/IN the/DT next/JJ version/NN will/MD require/VB one/CD more/JJR increase/NN ,/, but/CC code/NN stays/NNS same/JJ ./.

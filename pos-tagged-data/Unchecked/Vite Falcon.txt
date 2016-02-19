@@ -1,0 +1,1 @@
+There/EX 's/VBZ a/DT really/RB good/JJ video/NN about/IN exception/NN safe/JJ coding/NN in/IN C++/NNP at/IN exceptionsafecode.com/NNP

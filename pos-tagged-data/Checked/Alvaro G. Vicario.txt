@@ -1,0 +1,2 @@
+This/DT is/VBZ the/DT best/JJS you/PRP can/MD do/VB with/IN legacy/NN mysql/NNP extension/NN ./.
+For/IN new/JJ code/NN ,/, you/PRP 're/VBP advised/VBN to/TO switch/VB to/TO mysqli/NNP or/CC PDO/ACR ./.

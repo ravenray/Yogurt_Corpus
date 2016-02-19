@@ -1,0 +1,7 @@
+Please/VB bear/NN in/IN mind/NN that/IN some/DT ./.
+NET/NN controls/NNS will/MD automatically/RB HTML/NNP encode/VBP the/DT output/NN ./.
+For/IN instance/NN setting/VBG the/DT ./.
+Text/VB property/NN on/IN a/DT TextBox/NNP control/NN will/MD automatically/RB encode/VB it/PRP ,/, that/WDT specifically/RB means/VBZ converting/VBG </JJR into/IN </JJR ,/, >/JJR into/IN >/JJR and/CC &/CC into/IN &/CC ./.
+So/RB be/VB wary/JJ of/IN doing/VBG this/DT .../: myTextBox.Text/NN =/JJ Server.HtmlEncode/NN -LRB-/-LRB- myStringFromDatabase/NN -RRB-/-RRB- ;/: //: //: Pseudo/NNP code/NN However/RB ,/, the/DT ./.
+Text/VB property/NN for/IN HyperLink/NNP ,/, Literal/JJ and/CC Label/NN wo/MD n't/RB HTML/NNP Encode/NNP things/NNS so/RB wrapping/VBG Server.HtmlEncode/NN -LRB-/-LRB- -RRB-/-RRB- ;/: around/IN anything/NN being/VBG set/VBN on/IN these/DT properties/NNS is/VBZ a/DT must/MD if/IN you/PRP want/VBP to/TO prevent/VB window.location/NN =/JJ ``/`` http://www.porn.com/NN ''/'' ;/: from/IN being/VBG output/NN into/IN your/PRP$ page/NN and/CC subsequently/RB executed/VBN ./.
+Do/VB a/DT little/JJ experimenting/VBG to/TO see/VB what/WP gets/VBZ Encoded/NNP and/CC what/WP does/VBZ n't/RB ./.

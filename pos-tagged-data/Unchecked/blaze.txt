@@ -1,0 +1,5 @@
+Yes/UH ,/, you/PRP need/VBP just/RB 3/CD days/NNS for/IN sha1/NN -LRB-/-LRB- salt/NN |/CD password/NN -RRB-/-RRB- ./.
+That/DT 's/VBZ why/WRB good/JJ password/NN storage/NN algorithms/NNS use/VBP 1000-iteration/JJ hashing/VBG :/: you/PRP will/MD need/VB 8/CD years/NNS ./.
+Apparently/RB I/PRP 'm/VBP using/VBG names/NNS and/CC numbers/NNS from/IN question/NN ./.
+If/IN you/PRP ever/RB heard/VBD about/IN such/JJ thing/NN as/IN topic/NN and/CC clarity/NN .../: oh/UH ,/, it/PRP 's/VBZ Rook/NNP ./.
+Never/NNP mind/NN ./.

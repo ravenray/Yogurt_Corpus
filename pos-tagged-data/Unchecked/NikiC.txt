@@ -1,0 +1,1 @@
+I/PRP have/VBP n't/RB downvoted/VBN ,/, but/CC stored/VBN procedures/NNS are/VBP generally/RB frowned/VBN upon/IN ,/, because/IN you/PRP put/VBP business/NN logic/NN ,/, which/WDT belongs/VBZ into/IN your/PRP$ PHP/NNP scripts/NNS ,/, into/IN the/DT database/NN ,/, making/VBG maintainance/NN a/DT nightmare/NN ./.

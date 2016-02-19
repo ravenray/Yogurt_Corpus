@@ -1,0 +1,1 @@
+``/`` Putting/VBG the/DT DB/NN query/NN code/NN in/IN the/DT ``/`` OnButtonPress/NNP ''/'' action/NN in/IN a/DT Windows/NNP Form/NN application/NN ''/'' What/WP 's/VBZ the/DT database/NN mistake/NN here/RB ?/.

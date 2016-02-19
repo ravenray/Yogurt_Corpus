@@ -1,0 +1,2 @@
+Is/VBZ consensus/NN this/DT trick/NN is/VBZ a/DT safe/JJ method/NN turning/VBG string/NN into/IN JSON/NN object/NN ?/.
+I/PRP could/MD use/VB this/DT as/IN no/DT additional/JJ js/NN imports/NNS are/VBP needed/VBN ./.

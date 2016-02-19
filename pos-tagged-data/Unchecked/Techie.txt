@@ -1,0 +1,1 @@
+SQL/NN Injection/NN --/: >/JJR php.net/manual/en/security.database.sql-injection.php/NN

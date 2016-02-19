@@ -1,0 +1,2 @@
+We/PRP had/VBD the/DT exact/JJ same/JJ behavior/NN ,/, but/CC none/NN of/IN the/DT patches/NNS listed/VBN are/VBP installed/VBN on/IN our/PRP$ machines/NNS .../: odd/JJ ./. ./.
+patches/NNS were/VBD installed/VBN just/RB not/RB those/DT numbers/NNS listed/VBN ./.

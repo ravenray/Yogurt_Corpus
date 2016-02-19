@@ -1,0 +1,2 @@
+@mafu/NN :/: Late/JJ response/NN here/RB ,/, but/CC it/PRP is/VBZ possible/JJ to/TO compute/VB any/DT hash/NN via/IN brute/JJ force/NN ./.
+It/PRP just/RB might/MD take/VB a/DT really/RB long/JJ time/NN ./.

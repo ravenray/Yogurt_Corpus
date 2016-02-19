@@ -1,0 +1,3 @@
+Using/VBG an/DT ORM/NN to/TO do/VB bulk/JJ updates/NNS Selecting/VBG more/JJR data/NNS than/IN needed/VBN ./.
+Again/RB ,/, typically/RB done/VBN when/WRB using/VBG an/DT ORM/NN Firing/NN sqls/NNS in/IN a/DT loop/NN ./.
+Not/RB having/VBG good/JJ test/NN data/NNS and/CC noticing/VBG performance/NN degradation/NN only/RB on/IN live/JJ data/NNS ./.

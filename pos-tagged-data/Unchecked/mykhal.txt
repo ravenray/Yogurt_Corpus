@@ -1,0 +1,2 @@
+i/LS think/VBP that/IN using/VBG natural/JJ keys/NNS could/MD leat/VB to/TO less/RBR optimal/JJ -/: sparse/JJ -/: internal/JJ database/NN index/NN structure/NN ,/, while/IN autoincremented/JJ index/NN would/MD be/VB compact/JJ ./.
+please/VB correct/VB me/PRP ,/, if/IN i/FW 'm/VBP wrong/JJ

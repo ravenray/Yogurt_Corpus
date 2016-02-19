@@ -1,0 +1,1 @@
+@sambo/NN MD5/NN works/VBZ just/RB fine/JJ for/IN almost/RB any/DT case/NN except/IN when/WRB the/DT actual/JJ security/integrity/NN of/IN your/PRP$ system/NN depends/VBZ on/IN preventing/VBG collisions/NNS ./.

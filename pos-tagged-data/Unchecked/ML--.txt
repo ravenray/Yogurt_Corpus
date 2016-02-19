@@ -1,0 +1,3 @@
+Using/VBG Excel/NNP for/IN storing/VBG -LRB-/-LRB- huge/JJ amounts/NNS of/IN -RRB-/-RRB- data/NNS ./.
+I/PRP have/VBP seen/VBN companies/NNS holding/VBG thousands/NNS of/IN rows/NNS and/CC using/VBG multiple/JJ worksheets/NNS -LRB-/-LRB- due/JJ to/TO the/DT row/NN limit/NN of/IN 65535/CD on/IN previous/JJ versions/NNS of/IN Excel/NNP -RRB-/-RRB- ./.
+Excel/NNP is/VBZ well/RB suited/VBN for/IN reports/NNS ,/, data/NNS presentation/NN and/CC other/JJ tasks/NNS ,/, but/CC should/MD not/RB be/VB treated/VBN as/IN a/DT database/NN ./.

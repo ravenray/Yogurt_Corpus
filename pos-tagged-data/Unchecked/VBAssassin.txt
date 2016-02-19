@@ -1,0 +1,1 @@
+It/PRP also/RB should/MD n't/RB work/VB if/IN you/PRP have/VBP given/VBN proper/JJ permissions/NNS to/TO the/DT user/NN and/CC assuming/VBG that/IN the/DT average/JJ sql/NN user/NN should/MD not/RB be/VB granted/VBN permissions/NNS to/TO drop/VB tables/NNS it/PRP should/MD n't/RB work/VB ./.

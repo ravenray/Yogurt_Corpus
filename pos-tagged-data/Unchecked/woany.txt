@@ -1,0 +1,5 @@
+Disable/VB the/DT page/NN validation/NN if/IN you/PRP really/RB need/VBP the/DT special/JJ characters/NNS like/IN >/JJR and/CC </JJR etc./NN ./.
+Then/RB ensure/VB that/IN when/WRB the/DT user/NN input/NN is/VBZ displayed/VBN ,/, the/DT data/NNS is/VBZ HTML/NNP encoded/VBN ./.
+There/EX is/VBZ a/DT security/NN vuln/NN with/IN the/DT page/NN validation/NN ,/, so/IN it/PRP can/MD be/VB bypassed/VBN ./.
+Also/RB the/DT page/NN validation/NN should/MD n't/RB be/VB solely/RB relied/VBN on/IN ./.
+See/VB :/: http://www.procheckup.com/PDFs/bypassing-dot-NET-ValidateRequest.pdf/NN

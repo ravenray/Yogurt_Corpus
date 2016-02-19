@@ -1,0 +1,2 @@
+As/RB long/RB as/IN these/DT are/VBP only/RB ''/'' </JJR ''/'' and/CC ''/'' >/JJR ''/'' -LRB-/-LRB- and/CC not/RB the/DT double/JJ quote/NN itself/PRP -RRB-/-RRB- characters/NNS and/CC you/PRP 're/VBP using/VBG them/PRP in/IN context/NN like/IN <input value="this" />/NN ,/, you/PRP 're/VBP safe/JJ -LRB-/-LRB- while/IN for/IN this/DT one/CD you/PRP would/MD be/VB vulnerable/JJ of/IN course/NN -RRB-/-RRB- ./.
+That/DT may/MD simplify/VB your/PRP$ situation/NN ,/, but/CC for/IN anything/NN more/JJR use/NN one/CD of/IN other/JJ posted/VBN solutions/NNS ./.

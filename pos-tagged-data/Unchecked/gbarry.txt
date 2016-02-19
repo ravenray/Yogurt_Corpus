@@ -1,0 +1,3 @@
+Kittens/NNS ?/.
+Neither/DT SO/NNP ,/, Google/NNP ,/, or/CC Wikipedia/NNP could/MD help/VB me/PRP here/RB ./.
+Did/VBD I/PRP miss/VBP a/DT joke/NN ?/.

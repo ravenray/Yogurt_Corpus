@@ -1,0 +1,1 @@
+a/LS -RRB-/-RRB- Hardcoding/NN query/NN values/NNS in/IN string/NN b/NN -RRB-/-RRB- Putting/VBG the/DT database/NN query/NN code/NN in/IN the/DT ``/`` OnButtonPress/NNP ''/'' action/NN in/IN a/DT Windows/NNP Forms/NNP application/NN I/PRP have/VBP seen/VBN both/DT ./.

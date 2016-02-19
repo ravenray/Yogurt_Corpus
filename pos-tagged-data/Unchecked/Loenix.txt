@@ -1,0 +1,6 @@
+I/PRP do/VBP n't/RB agree/VB with/IN the/DT precept/NN ``/`` Use/NNP prepared/VBD statements/NNS and/CC parameterized/JJ queries/NNS ./. ''/''
+.../: NO/NN !!!/NN
+DO/NNP N'T/RB USED/VBD IT/PRP !/.
+-LRB-/-LRB- For/IN this/DT reason/NN -RRB-/-RRB- Prepared/VBN statements/NNS are/VBP made/VBN for/IN re-used/JJ queries/NNS but/CC the/DT real/JJ solution/NN -LRB-/-LRB- the/DT ultimate/JJ one/CD -RRB-/-RRB- is/VBZ to/TO check/VB that/IN the/DT variable/NN contains/VBZ that/IN you/PRP are/VBP expecting/VBG ,/, check/NN type/NN ,/, check/NN contents/NNS ,/, if/IN you/PRP are/VBP expecting/VBG for/IN an/DT email/NN ,/, check/NN if/IN this/DT is/VBZ an/DT email/NN ,/, you/PRP should/MD always/RB tell/VB to/TO the/DT user/NN ``/`` Wrong/JJ !/.
+Your/PRP$ input/NN is/VBZ not/RB an/DT email/NN ,/, try/VB again/RB ./. ''/'' ./.
+This/DT is/VBZ YOUR/JJ JOB/NN !/.

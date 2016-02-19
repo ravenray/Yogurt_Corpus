@@ -1,0 +1,4 @@
+Mysqli/NNP has/VBZ mysqli_real_escape_string/NN too/RB ./.
+It/PRP need/VBP 2/CD values/NNS ./.
+1/CD link/NN of/IN connection/NN and/CC 2nd/JJ is/VBZ input/NN ./.
+so/RB mysqli/JJ code/NN for/IN is/VBZ mysqli_real_escape_string/NN -LRB-/-LRB- $/$ link/NN ,/, $/$ _/CD POST/NN -LSB-/-LRB- `/`` id/NN '/'' -RSB-/-RRB- -RRB-/-RRB- ;/: I/PRP use/VBP it/PRP like/IN trim/JJ -LRB-/-LRB- mysqli_real_escape_string/NN -LRB-/-LRB- $/$ link/NN ,/, $/$ _/CD POST/NN -LSB-/-LRB- `/`` id/NN '/'' -RSB-/-RRB- -RRB-/-RRB- ;/:

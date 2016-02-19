@@ -1,0 +1,4 @@
+@Xaqron/NN :/: That/DT would/MD be/VB equally/RB wrong/JJ ./.
+Better/NNP :/: s.replace/NN -LRB-/-LRB- s.replace/NN -LRB-/-LRB- s.replace/NN -LRB-/-LRB- 0/CD ,/, 4/CD ,/, ''/'' ''/'' -RRB-/-RRB- ./.
+find/VB -LRB-/-LRB- ``/`` even/RB ''/'' -RRB-/-RRB- ,/, 4/CD ,/, ``/`` only/RB ''/'' -RRB-/-RRB- ./.
+find/VB -LRB-/-LRB- ''/'' do/VBP n't/RB ''/'' -RRB-/-RRB- ,/, 6/CD ,/, ''/'' ''/'' -RRB-/-RRB- ;/:

@@ -1,0 +1,5 @@
+@ircmaxell/NN ./.
+Thanks/NNS ,/, this/DT is/VBZ great/JJ stuff/NN ./.
+One/CD question/NN left/VBD for/IN me/PRP ,/, concerning/VBG the/DT setting/VBG the/DT emulation/NN to/TO false/JJ ./.
+Do/VBP I/PRP need/VB to/TO have/VB that/IN $/$ pdo/SYM -/: >/JJR setAttribute/NN -LRB-/-LRB- PDO/NN :/: :/: ATTR_EMULATE_PREPARES/NN ,/, false/JJ -RRB-/-RRB- ;/: in/IN every/DT query/NN or/CC should/MD it/PRP be/VB enough/RB once/RB in/IN a/DT script/NN ?/.
+Thanks/NNS ./.

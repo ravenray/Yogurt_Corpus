@@ -1,0 +1,1 @@
+According/VBG to/TO this/DT link/NN it/PRP is/VBZ supported/VBN by/IN IE8/NN +/CC ,/, although/IN it/PRP says/VBZ :/: Requires/VBZ document/NN to/TO be/VB in/IN IE8/NN +/CC standards/NNS mode/NN to/TO work/VB in/IN IE8/NN ./.

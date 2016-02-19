@@ -1,0 +1,3 @@
+As/IN JimmyJ/NN said/VBD ,/, you/PRP still/RB have/VBP to/TO sanitize/VB your/PRP$ data/NNS !/.
+With/IN PDO/NNP ,/, you/PRP can/MD still/RB save/VB something/NN like/IN phpinfo/NN -LRB-/-LRB- -RRB-/-RRB- ;/: in/IN your/PRP$ database/NN ./.
+Ok/RB ,/, this/DT example/NN wo/MD n't/RB harm/VB anything/NN ,/, but/CC it/PRP could/MD be/VB anything/NN else/RB instead/RB of/IN phpinfo/NN ./.

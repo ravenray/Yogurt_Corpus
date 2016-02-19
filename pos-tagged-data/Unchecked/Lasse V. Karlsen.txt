@@ -1,0 +1,4 @@
+All/DT regular/JJ expressions/NNS wo/MD n't/RB cause/VB such/JJ problems/NNS ./.
+This/DT one/NN is/VBZ particularly/RB crafted/VBN to/TO have/VB this/DT kind/NN of/IN problem/NN ./.
+Yes/UH ,/, I/PRP did/VBD ,/, and/CC I/PRP fully/RB agree/VBP ./.
+If/IN you/PRP use/VBP regular/JJ expressions/NNS that/IN you/PRP have/VBP n't/RB vetted/VBN ,/, and/CC you/PRP know/VBP a/DT lot/NN about/IN regular/JJ expressions/NNS ,/, you/PRP 're/VBP opening/VBG up/RP all/DT sorts/NNS of/IN cans/NNS of/IN worms/NNS ./.

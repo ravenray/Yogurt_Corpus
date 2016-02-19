@@ -1,0 +1,1 @@
+what/WP if/IN we/PRP have/VBP to/TO insert/VB multiple/JJ values/NNS into/IN table/NN ,/, using/VBG above/IN prepared/JJ statement/NN ,/, when/WRB we/PRP use/VBP $/COB stmt/COB -/COB >/COB bind_param/COB -LRB-/COB ``/COB s/COB ''/COB ,/COB $/COB unsafe_variable/COB -RRB-/COB ;/COB ??/COB

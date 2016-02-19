@@ -1,0 +1,9 @@
+Oh/UH ,/, that/DT 's/VBZ a/DT good/JJ one/CD ./.
+And/CC applies/VBZ to/TO any/DT language/NN with/IN regex/NN support/NN ./.
+Aside/RB from/IN the/DT obvious/JJ Process.Start/NN -LRB-/-LRB- -RRB-/-RRB- already/RB mentioned/VBN ,/, I/PRP can/MD see/VB a/DT couple/NN of/IN ways/NNS of/IN potential/JJ indirect/JJ exploitation/NN ./.
+WinAPI/NN calls/VBZ via/IN PInvoke/NN to/TO CreateProcess/NNP -LRB-/-LRB- -RRB-/-RRB- and/CC whatnot/NN ./.
+Any/DT sort/NN of/IN dynamic/JJ assembly/NN loading/VBG mechanism/NN using/VBG Assembly.Load/NN -LRB-/-LRB- -RRB-/-RRB- and/CC other/JJ such/JJ overloads/NNS ./.
+If/IN a/DT compromised/VBN assembly/NN made/VBD it/PRP to/TO the/DT system/NN and/CC loaded/JJ ./.
+If/IN running/VBG in/IN full/JJ trust/NN in/IN general/JJ ./.
+With/IN the/DT right/JJ permissions/NNS ,/, any/DT registry/NN operations/NNS could/MD put/VB you/PRP at/IN risk/NN ./.
+That/DT 's/VBZ all/DT that/WDT comes/VBZ to/TO mind/VB right/RB now/RB ./.

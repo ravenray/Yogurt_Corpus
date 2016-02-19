@@ -1,0 +1,2 @@
+By/IN using/VBG a/DT smart/JJ algorithm/NN and/CC removing/VBG support/NN for/IN some/DT exotic/JJ features/NNS ,/, regex/NN can/MD be/VB done/VBN safely/RB ./.
+Examples/NNS :/: TRE/NN ,/, Google/NNP 's/POS RE2/NN ./.

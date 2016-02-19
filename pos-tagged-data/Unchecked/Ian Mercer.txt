@@ -1,0 +1,4 @@
+In/IN ./.
+NET/NN 4/CD you/PRP may/MD need/VB to/TO do/VB a/DT little/RB more/JJR ./.
+Sometimes/RB it/PRP 's/VBZ necessary/JJ to/TO also/RB add/VB to/TO web.config/NN ./.
+See/NNP asp.net/NNP //: -LRB-/-LRB- S/NN -LRB-/-LRB- ywiyuluxr3qb2dfva1z5lgeg/NN -RRB-/-RRB- -RRB-/-RRB- //: learn/whitepapers/aspnet4/NN //: .../:

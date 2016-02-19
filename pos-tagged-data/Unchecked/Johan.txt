@@ -1,0 +1,2 @@
+Note/VB that/IN that/DT particular/JJ example/NN will/MD not/RB work/VB ,/, because/IN the/DT mysql/FW _/FW lib/NN does/VBZ not/RB allow/VB executing/VBG 2/CD queries/NNS in/IN one/CD statement/NN ./.
+As/RB long/RB as/IN you/PRP keep/VBP the/DT manipulation/NN in/IN a/DT single/JJ statement/NN the/DT injection/NN will/MD work/VB ./.

@@ -1,0 +1,3 @@
+How/WRB far/RB is/VBZ too/RB far/RB ?/.
+If/IN no/DT data/NN is/VBZ duplicated/JJ how/WRB can/MD you/PRP take/VB it/PRP further/RB ?/.
+Treating/VBG the/DT database/NN as/IN just/RB a/DT storage/NN mechanism/NN -LRB-/-LRB- i.e./FW glorified/JJ collections/NNS library/NN -RRB-/-RRB- and/CC hence/RB subordinate/JJ to/TO their/PRP$ application/NN -LRB-/-LRB- ignoring/VBG other/JJ applications/NNS which/WDT share/VBP the/DT data/NNS -RRB-/-RRB-

@@ -1,0 +1,3 @@
+Since/IN several/JJ folks/NNS included/VBD CAPTCHA/NNP as/IN a/DT fallback/JJ human/JJ mechanism/NN ,/, I/PRP 'm/VBP adding/VBG an/DT earlier/JJR StackOverflow/NNP question/NN and/CC thread/NN on/IN CAPTCHA/NNP 's/POS effectiveness/NN ./.
+Has/VBZ reCaptcha/NN been/VBN cracked/VBN //: hacked/VBN //: OCR/NNP 'd/NNP //: defeated/VBN //: broken/VBN ?/.
+Using/VBG CAPTCHA/NN does/VBZ n't/RB limit/VB improvements/NNS from/IN your/PRP$ throttling/NN and/CC other/JJ suggestions/NNS ,/, but/CC I/PRP think/VBP the/DT number/NN of/IN answers/NNS that/WDT include/VBP CAPTCHA/NN as/IN a/DT fallback/NN should/MD consider/VB the/DT human-based/JJ methods/NNS available/JJ to/TO people/NNS looking/VBG to/TO break/VB security/NN ./.

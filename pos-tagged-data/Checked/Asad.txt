@@ -1,0 +1,12 @@
+I/PRP was/VBD explaining/VBG parametrization/NN and/CC its/PRP$ advantages/NNS to/TO my/PRP$ friend/NN recently/RB ,/, and/CC he/PRP asked/VBD how/WRB it/PRP was/VBD any/DT better/JJR than/IN mysqli_escape_string/COS in/IN terms/NNS of/IN security/NN ./.
+Specifically/RB ,/, can/MD you/PRP think/VB of/IN any/DT examples/NNS of/IN SQL/ACR injection/NN that/WDT would/MD succeed/VB despite/IN the/DT input/NN strings/NNS being/VBG escaped/VBN -LRB-/-LRB- using/VBG mysqli_escape_string/COS -RRB-/-RRB- ?/.
+UPDATE/NN :/: I/PRP apologise/VBP for/IN not/RB being/VBG clear/JJ enough/RB in/IN my/PRP$ original/JJ question/NN ./.
+The/DT general/JJ question/NN being/VBG asked/VBN here/RB is/VBZ ,/, is/VBZ SQL/ACR injection/NN possible/JJ despite/IN escaping/VBG input/NN strings/NNS ?/.
+I/PRP know/VBP this/DT already/RB ,/, I/PRP am/VBP not/RB advocating/VBG the/DT use/NN of/IN the/DT mysql/COS extension/NN ./.
+I/PRP am/VBP simply/RB asking/VBG you/PRP to/TO illustrate/VB how/WRB it/PRP is/VBZ vulnerable/JJ ./.
+@martinstoeckli/ATS good/JJ idea/NN ,/, edited/VBN ./.
+@Jon/ATS how/WRB does/VBZ it/PRP make/VB a/DT difference/NN for/IN the/DT answers/NNS ?/.
+If/IN I/PRP were/VBD to/TO ask/VB a/DT hypothetical/JJ question/NN about/IN B/NN language/NN ,/, I/PRP would/MD prefer/VB not/RB to/TO recieve/VB answers/NNS that/WDT tell/VBP me/PRP to/TO use/VB C++/ACR instead/RB ./.
++1/CD for/IN being/VBG pretty/RB much/RB the/DT only/RB on/IN topic/NN answerer/NN ./.
+Must/MD have/VB been/VBN downvoted/VBN because/IN you/PRP did/VBD n't/RB include/VB the/DT words/NNS HIGHLY/RB DISCOURAGED/VBN in/IN bold/JJ capitals/NNS in/IN your/PRP$ answer/NN I/PRP specifically/RB asked/VBD for/IN examples/NNS of/IN how/WRB SQL/ACR injection/NN could/MD occur/VB when/WRB using/VBG mysql_escape_string/COS ./.
+This/DT is/VBZ supported/VBN by/IN the/DT fact/NN that/IN my/PRP$ question/NN asks/VBZ Specifically/RB ,/, can/MD you/PRP think/VB of/IN any/DT examples/NNS of/IN SQL/ACR injection/NN that/WDT would/MD succeed/VB despite/IN the/DT input/NN strings/NNS being/VBG escaped/VBN

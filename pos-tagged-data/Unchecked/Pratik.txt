@@ -1,0 +1,4 @@
+There/EX is/VBZ one/CD thing/NN I/PRP might/MD add/VB ,/, learn/VB using/VBG analytic/JJ functions/NNS like/IN PARTITION/NNP BY/NNP ,/, RANK/NN ,/, DENSE_RANK/NN -LRB-/-LRB- for/IN Oracle/NNP -RRB-/-RRB- ./.
+They/PRP are/VBP absolutely/RB essential/JJ for/IN complex/JJ queries/NNS ./.
+Other/JJ advice/NN is/VBZ ,/, if/IN possible/JJ ,/, to/TO have/VB a/DT dedicated/JJ database/NN developer/NN in/IN your/PRP$ development/NN team/NN who/WP is/VBZ expert/NN in/IN SQL/NN ,/, database/NN modelling/NN ,/, tuning/NN ,/, etc./NN -LRB-/-LRB- Not/RB a/DT DBA/NNP though/IN -RRB-/-RRB- ./.
+Such/JJ skill/NN is/VBZ a/DT great/JJ asset/NN ./.

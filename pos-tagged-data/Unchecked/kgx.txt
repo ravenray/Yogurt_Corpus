@@ -1,0 +1,2 @@
+@Dementic/JJ -/: hence/RB ``/`` If/IN you/PRP 're/VBP using/VBG jQuery/NN ''/'' ./.
+If/IN you/PRP are/VBP not/RB using/VBG jQuery/NN ,/, then/RB hopefully/RB your/PRP$ alternative/JJ framework/NN has/VBZ similar/JJ functionality/NN ./.

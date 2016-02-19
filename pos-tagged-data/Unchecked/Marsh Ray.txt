@@ -1,0 +1,23 @@
+Disclaimer/NNP :/: I/PRP work/VBP for/IN a/DT two-factor/JJ company/NN ,/, but/CC am/RB not/RB here/RB to/TO plug/VB it/PRP ./.
+Here/RB 're/VBP some/DT observations/NNS ./.
+Cookies/NNS can/MD be/VB stolen/VBN with/IN XSS/NN and/CC browser/NN vulns/NNS ./.
+Users/NNS commonly/RB change/VBP browsers/NNS or/CC clear/VB their/PRP$ cookies/NNS ./.
+Source/NNP IP/NNP addresses/NNS are/VBP simultaneously/RB dynamically/RB variable/JJ and/CC spoofable/JJ ./.
+Captcha/NNP is/VBZ useful/JJ ,/, but/CC does/VBZ n't/RB authenticate/VB a/DT specific/JJ human/NN ./.
+Multiple/JJ methods/NNS can/MD be/VB combined/VBN successfully/RB ,/, but/CC good/JJ taste/NN is/VBZ certainly/RB in/IN order/NN ./.
+Password/NN complexity/NN is/VBZ good/JJ ,/, anything/NN password-based/JJ critically/RB depends/VBZ on/IN passwords/NNS having/VBG sufficient/JJ entropy/NN ./.
+IMHO/NNP ,/, a/DT strong/JJ password/NN written/VBN down/RP in/IN a/DT secure/JJ physical/JJ location/NN is/VBZ better/JJR than/IN a/DT weak/JJ password/NN in/IN memory/NN ./.
+People/NNS know/VBP how/WRB to/TO evaluate/VB the/DT security/NN of/IN paper/NN documents/NNS much/RB better/JJR than/IN they/PRP know/VBP how/WRB to/TO figure/VB the/DT effective/JJ entropy/NN in/IN their/PRP$ dog/NN 's/POS name/NN when/WRB used/VBN as/IN a/DT password/NN for/IN three/CD different/JJ websites/NNS ./.
+Consider/VB giving/VBG users/NNS the/DT ability/NN to/TO print/VB out/RP a/DT big/JJ or/CC small/JJ page/NN full/JJ of/IN one-time/JJ use/NN pass/NN codes/NNS ./.
+Security/NN questions/NNS like/IN ``/`` what/WP was/VBD your/PRP$ high-school/JJ mascot/NN ''/'' are/VBP mostly/RB another/DT lousy/JJ form/NN of/IN ``/`` something/NN you/PRP know/VBP ''/'' ,/, most/JJS of/IN them/PRP are/VBP easily/RB guessable/JJ or/CC outright/JJ in/IN the/DT public/JJ domain/NN ./.
+As/IN you/PRP noted/VBD ,/, throttling/VBG back/RB failed/VBN login/NN attempts/NNS is/VBZ a/DT trade-off/NN between/IN preventing/VBG brute-force/JJ attacks/NNS and/CC ease/NN of/IN DoSing/NN an/DT account/NN ./.
+Aggressive/JJ lockout/NN policies/NNS may/MD reflect/VB a/DT lack/NN of/IN confidence/NN in/IN password/NN entropy/NN ./.
+I/PRP personally/RB do/VBP n't/RB see/VB the/DT the/DT benefit/NN to/TO enforcing/VBG password/NN expiration/NN on/IN a/DT website/NN anyway/RB ./.
+Attacker/NN gets/VBZ your/PRP$ password/NN once/RB ,/, he/PRP can/MD change/VB it/PRP then/RB and/CC comply/VB with/IN that/DT policy/NN just/RB as/RB easily/RB as/IN you/PRP can/MD ./.
+Perhaps/RB one/CD benefit/NN is/VBZ that/IN the/DT user/NN might/MD notice/VB sooner/RBR if/IN the/DT attacker/NN changes/VBZ the/DT account/NN password/NN ./.
+Even/RB better/RB would/MD be/VB if/IN the/DT the/DT user/NN were/VBD somehow/RB notified/VBN before/IN the/DT attacker/NN gained/VBD access/NN ./.
+Messages/NNS like/IN ``/`` N/NN failed/VBD attempts/NNS since/IN last/JJ login/NN ''/'' are/VBP useful/JJ in/IN this/DT respect/NN ./.
+The/DT best/JJS security/NN comes/VBZ from/IN a/DT second/JJ factor/NN of/IN authentication/NN which/WDT is/VBZ out-of-band/JJ relative/JJ to/TO the/DT first/JJ ./.
+Like/IN you/PRP said/VBD ,/, hardware/NN tokens/NNS in/IN the/DT ``/`` something/NN you/PRP have/VBP ''/'' are/VBP great/JJ ,/, but/CC many/JJ -LRB-/-LRB- not/RB all/DT -RRB-/-RRB- have/VBP real/JJ admin/JJ overhead/NN associated/VBN with/IN their/PRP$ distribution/NN ./.
+I/PRP do/VBP n't/RB know/VB of/IN any/DT biometric/JJ ``/`` something/NN you/PRP are/VBP ''/'' solutions/NNS good/JJ for/IN websites/NNS ./.
+Some/DT two-factor/JJ solutions/NNS work/VBP with/IN openid/NN providers/NNS ,/, some/DT have/VBP PHP/Perl/Python/NN SDKs/NNS ./.

@@ -1,0 +1,1 @@
+This/DT can/MD go/VB in/IN the/DT directive/NN at/IN the/DT top/NN of/IN your/PRP$ page/NN </JJR %/NN @/IN Control/NN Language/NN =/JJ ``/`` C#/NN ''/'' AutoEventWireup/NN =/JJ ``/`` true/JJ ''/'' CodeBehind/NN =/JJ ``/`` yourPage.ascx.cs/NNS ''/'' Inherits/VBZ =/JJ ``/`` yourPage/NN ''/'' ValidateRequestMode/NN =/JJ ``/`` Disabled/JJ ''/'' %/NN >/JJR

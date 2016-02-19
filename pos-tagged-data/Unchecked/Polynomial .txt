@@ -1,0 +1,3 @@
+-1/CD because/IN concatenation-style/JJ query/NN building/NN is/VBZ always/RB a/DT bad/JJ idea/NN ./.
+The/DT mysql_real_escape_string/NN function/NN is/VBZ not/RB a/DT catch-all/NN ./.
+It/PRP only/RB escapes/VBZ special/JJ characters/NNS ,/, so/IN SELECT/NNP */SYM FROM/NN users/NNS WHERE/VBP score/NN =/JJ $/$ var/NN is/VBZ still/RB vulnerable/JJ to/TO $/$ var/NN =/JJ ``/`` 1/CD OR/NN 1/CD =/JJ 1/CD ''/'' ./.

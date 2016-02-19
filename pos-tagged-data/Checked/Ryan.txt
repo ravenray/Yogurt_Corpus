@@ -1,0 +1,7 @@
+What/WP I/PRP ended/VBD up/RP doing/VBG was/VBD using/VBG javascript/NNP before/IN each/DT postback/NN to/TO check/VB for/IN the/DT characters/NNS you/PRP did/VBD n't/RB want/VB such/JJ as/IN .../: <asp:Button/COB runat="server"/COB ID="saveButton"/COB Text="Save"/COB CssClass="saveButton"/COB OnClientClick="return/COB checkFields()"/COB />/COB function/COB checkFields/COB -LRB-/COB -RRB-/COB -LCB-/COB var/COB tbs/COB =/COB new/COB Array/COB -LRB-/COB -RRB-/COB ;/COB tbs/COB =/COB document.getElementsByTagName/COB -LRB-/COB ``/COB input/COB ''/COB -RRB-/COB ;/COB var/COB isValid/COB =/COB true/COB ;/COB for/COB -LRB-/COB i/COB =/COB 0/COB ;/COB i/COB </COB tbs.length/COB ;/COB i/COB +/COB +/COB -RRB-/COB -LCB-/COB if/COB -LRB-/COB tbs/COB -LRB-/COB i/COB -RRB-/COB ./COB
+type/COB ==/COB `/COB text/COB '/COB -RRB-/COB -LCB-/COB if/COB -LRB-/COB tbs/COB -LRB-/COB i/COB -RRB-/COB ./COB
+value.indexOf/COB -LRB-/COB '/COB </COB '/COB -RRB-/COB !/COB
+=/COB -1/COB |/COB |/COB tbs/COB -LRB-/COB i/COB -RRB-/COB ./COB
+value.indexOf/COB -LRB-/COB '/COB >/COB '/COB -RRB-/COB !/COB
+=/COB -1/COB -RRB-/COB -LCB-/COB alert/COB -LRB-/COB '/COB </COB >/COB symbols/NNS not/RB allowed/VBN ./COB '/COB -RRB-/COB
+;/COB isValid/COB =/COB false/COB ;/COB -RCB-/COB -RCB-/COB -RCB-/COB return/COB isValid/COB ;/COB -RCB-/COB Granted/VBN my/PRP$ page/NN is/VBZ mostly/RB data/NN entry/NN ,/, and/CC there/EX are/VBP very/RB few/JJ elements/NNS that/WDT do/VBP postbacks/NNS ,/, but/CC at/IN least/JJS their/PRP$ data/NNS is/VBZ retained/VBN ./.

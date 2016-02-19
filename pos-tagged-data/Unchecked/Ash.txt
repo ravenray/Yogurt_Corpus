@@ -1,0 +1,5 @@
+Nice/JJ one/CD ./.
+Sadly/RB it/PRP 's/VBZ more/JJR like/IN ``/`` not/RB even/RB knowing/VBG that/IN indexes/NNS exist/VBP ''/'' ./.
+Not/RB using/VBG parameterized/JJ queries/NNS ./.
+They/PRP 're/VBP pretty/RB handy/JJ in/IN stopping/VBG SQL/NN Injection/NN ./.
+This/DT is/VBZ a/DT specific/JJ example/NN of/IN not/RB sanitizing/VBG input/NN data/NNS ,/, mentioned/VBN in/IN another/DT answer/NN ./.

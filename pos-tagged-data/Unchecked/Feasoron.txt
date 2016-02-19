@@ -1,0 +1,3 @@
+If/IN you/PRP have/VBP sudo/VBN ,/, you/PRP can/MD use/VB passwd/NN to/TO change/VB the/DT Jenkins/NNP user/NN 's/POS password/NN ./.
+Then/RB you/PRP can/MD get/VB the/DT Jenkins/NNP password/NN ./.
+Also/RB ,/, I/PRP 'm/VBP not/RB sure/JJ if/IN this/DT is/VBZ the/DT issue/NN for/IN you/PRP ,/, but/CC the/DT ANT/NNP Script/NNP I/PRP use/VBP via/IN Jenkins/NNP has/VBZ this/DT :/: <arg value="-v"/>/FW <arg value="unlock-keychain"/>/FW <arg value="-p"/>/FW <arg value="<My Password>"/>/NN <arg value="/Users/macbuild/Library/Keychains/login.keychain"/>/NN

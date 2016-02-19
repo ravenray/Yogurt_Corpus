@@ -1,0 +1,20 @@
+Does/VBZ n't/RB Java/NNP have/VB try/finally/COS ?/.
+@paercebal/ATS :/: Could/MD you/PRP tell/VB me/PRP what/WDT part/NN of/IN that/DT is/VBZ ``/`` failure/NN ''/'' ,/, exactly/RB ?/.
+The/DT syntax/NN is/VBZ different/JJ ,/, sure/JJ ,/, but/CC it/PRP seems/VBZ like/IN finally/RB does/VBZ exactly/RB what/WP you/PRP were/VBD trying/VBG to/TO achieve/VB ./.
+The/DT garbage/NN collection/NN model/NN is/VBZ simply/RB different/JJ from/IN C++/NNP --/: if/IN you/PRP need/VBP destruction/NN ,/, you/PRP use/VBP a/DT finalizer/NN ;/: if/IN you/PRP need/VBP execution/NN at/IN a/DT particular/JJ time/NN ,/, you/PRP use/VBP a/DT finally/RB block/NN ./.
+Just/RB because/IN it/PRP does/VBZ n't/RB match/VB your/PRP$ taste/NN -LRB-/-LRB- RAII/ACR does/VBZ n't/RB match/VB mine/NN ,/, since/IN it/PRP needs/VBZ a/DT new/JJ struct/NN every/DT single/JJ darn/JJ time/NN ,/, which/WDT is/VBZ tedious/JJ sometimes/RB -RRB-/-RRB- does/VBZ n't/RB mean/VB it/PRP 's/VBZ ``/`` failing/VBG ''/'' ./.
+@paercebal/ATS :/: The/DT -LSB-/-LRB- .../: -RSB-/-RRB- part/NN that/IN you/PRP omitted/VBD shows/NNS you/PRP completely/RB missed/VBD the/DT point/NN of/IN my/PRP$ comment/NN ./.
+I/PRP never/RB said/VBD I/PRP do/VBP n't/RB like/VB using/VBG or/CC the/DT new/JJ try/NN block/NN ./.
+Read/VB my/PRP$ comment/NN again/RB about/IN why/WRB I/PRP said/VBD I/PRP do/VBP n't/RB like/VB RAII/ACR in/IN C++/NNP ./.
+@paercebal/ATS :/: it/PRP is/VBZ almost/RB impossible/JJ to/TO produce/VB robust/JJ code/NN when/WRB multiple/JJ resources/NNS are/VBP used/VBN ./.
+No/UH ,/, it/PRP 's/VBZ pretty/RB easy/JJ ./.
+Just/RB 1/CD `/`` finally/RB '/'' block/NN per/IN resource/NN does/VBZ the/DT trick/NN ./.
+Regarding/VBG your/PRP$ second/JJ comment/NN :/: Note/VB the/DT word/NN ``/`` sometimes/RB ''/'' ./.
+Obviously/RB ,/, if/IN someone/NN wrote/VBD the/DT code/NN for/IN you/PRP already/RB then/RB it/PRP does/VBZ n't/RB apply/VB ./.
+But/CC the/DT whole/JJ point/NN of/IN my/PRP$ comment/NN is/VBZ that/IN it/PRP forces/VBZ you/PRP to/TO make/VB a/DT wrapper/NN for/IN something/NN you/PRP may/MD not/RB need/VB a/DT wrapper/NN for/IN ,/, which/WDT like/IN I/PRP said/VBD ,/, I/PRP find/VBP tedious/JJ ./.
+I/PRP 'm/VBP not/RB trying/VBG to/TO show/VB you/PRP I/PRP 'm/VBP right/RB regarding/VBG that/IN ;/: I/PRP 'm/VBP just/RB telling/VBG you/PRP it/PRP 's/VBZ a/DT matter/NN of/IN taste/NN in/IN both/DT languages/NNS ,/, not/RB correctness/NN ./.
+@paercebal/ATS :/: I/PRP should/MD also/RB note/VB that/IN having/VBG a/DT good/JJ IDE/ACR makes/VBZ things/NNS a/DT heck/NN of/IN a/DT lot/NN easier/JJR with/IN try/finally/RB ./.
+-LRB-/-LRB- E.g./FW C#/NNP 's/POS tryf/COS snippet/NN basically/RB writes/VBZ the/DT thing/NN for/IN you/PRP when/WRB you/PRP press/VBP TAB/COS ./. -RRB-/-RRB-
+Also/RB ,/, realize/VBP that/IN I/PRP 'm/VBP not/RB a/DT Java/NNP fan/NN at/IN all/DT .../: if/IN anything/NN ,/, I/PRP like/VBP C++/NNP better/RBR than/IN Java/NNP in/IN general/JJ ./.
+But/CC I/PRP do/VBP n't/RB feel/VB like/IN try/finally/COS is/VBZ insufficient/JJ for/IN writing/VBG correct/JJ code/NN ;/: it/PRP 's/VBZ just/RB tedious/JJ ./.
+-LRB-/-LRB- It/PRP 's/VBZ really/RB easy/JJ to/TO put/VB an/DT extra/JJ set/NN of/IN braces/NNS outside/IN the/DT resource/NN acquisition/NN code/NN to/TO signal/VB to/TO the/DT reader/NN that/IN he/PRP should/MD n't/RB do/VB anything/NN before/IN the/DT try/COS block/NN starts/VBZ ,/, if/IN necessary/JJ ./. -RRB-/-RRB-

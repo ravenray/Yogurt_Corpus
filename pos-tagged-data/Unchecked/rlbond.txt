@@ -1,0 +1,8 @@
+``/`` EH/NN replaced/VBD the/DT old/JJ clean/JJ deterministical/JJ approach/NN -LRB-/-LRB- return/NN values/NNS ./. ./. -RRB-/-RRB- ''/''
+What/WP ?/.
+Exceptions/NNS are/VBP just/RB as/RB deterministic/JJ as/IN return/NN codes/NNS ./.
+There/EX 's/VBZ nothing/NN random/JJ about/IN them/PRP ./.
+In/IN MD5/NN 's/POS defense/NN ,/, there/EX is/VBZ no/DT known/JJ way/NN to/TO produce/VB a/DT file/NN with/IN an/DT arbitrary/JJ MD5/NN hash/NN ./.
+The/DT original/JJ author/NN must/MD plan/VB in/IN advance/NN to/TO have/VB a/DT working/NN collision/NN ./.
+Thus/RB if/IN the/DT receiver/NN trusts/NNS the/DT sender/NN ,/, MD5/NN is/VBZ fine/JJ ./.
+MD5/NN is/VBZ broken/VBN if/IN the/DT signer/NN is/VBZ malicious/JJ ,/, but/CC it/PRP is/VBZ not/RB known/VBN to/TO be/VB vulnerable/JJ to/TO man-in-the-middle/JJ attacks/NNS ./.

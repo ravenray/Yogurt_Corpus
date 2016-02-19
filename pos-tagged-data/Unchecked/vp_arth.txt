@@ -1,0 +1,2 @@
+should/MD not/RB last/VB example/NN throw/VB exception/NN ?/.
+I/PRP do/VBP n't/RB want/VB much/JJ MAX_INT/NN values/NNS in/IN my/PRP$ data/NNS .../:

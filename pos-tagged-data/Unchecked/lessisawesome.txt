@@ -1,0 +1,1 @@
+The/DT way/NN using/VBG JavaScript/NNP Function/NN Object/NNP :/: jsonObject/NN =/JJ -LRB-/-LRB- new/JJ Function/NN -LRB-/-LRB- `/`` return/NN '/'' +/CC jsonFormatData/NN -RRB-/-RRB- -RRB-/-RRB- -LRB-/-LRB- -RRB-/-RRB-

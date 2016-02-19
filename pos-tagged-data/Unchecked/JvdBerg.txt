@@ -1,0 +1,5 @@
+from/IN the/DT manual/NN :/: >/JJR This/DT function/NN has/VBZ been/VBN DEPRECATED/VBN as/IN of/IN PHP/NNP 5.3.0/CD ./.
+Relying/VBG on/IN this/DT >/JJR feature/NN is/VBZ highly/RB discouraged/VBN ./.
+Do/VBP not/RB put/VB effort/NN in/IN deprecated/VBN code/NN ./.
+Use/NN parameter/NN binding/NN ,/, no/DT worries/NNS about/IN SQL/NN injection/NN @Asad/NN :/: You/PRP never/RB know/VBP ,/, as/IN it/PRP is/VBZ a/DT internal/JJ function/NN of/IN PHP/NNP ./.
+You/PRP would/MD have/VB to/TO look/VB in/IN the/DT source/NN code/NN to/TO figure/VB it/PRP out/RP

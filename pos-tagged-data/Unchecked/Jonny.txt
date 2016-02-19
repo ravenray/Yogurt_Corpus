@@ -1,0 +1,1 @@
+Something/NN broke/VBD the/DT launch/NN of/IN Jenkins/NNP on/IN OS/NNP X/NNP Yosemite/NNP -/: used/VBD the/DT installer/NN of/IN Jenkins/NNP ./.

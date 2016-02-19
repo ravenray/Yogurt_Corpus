@@ -1,0 +1,5 @@
+@Brad/NN ,/, Do/VBP an/DT edit/NN ./.
+@Brad/NN ,/, Hey/UH SO/NNP is/VBZ like/IN Wikipedia/NNP ./.
+There/EX 's/VBZ no/DT your/PRP$ post/NN or/CC my/PRP$ post/NN ,/, just/RB edit/VB it/PRP ./.
+@Brad/NN ,/, That/DT 's/VBZ provided/VBN the/DT ``/`` original/JJ meaning/NN ''/'' is/VBZ n't/RB wrong/JJ ./.
+If/IN it/PRP 's/VBZ wrong/JJ ,/, feel/VB free/JJ to/TO edit/VB it/PRP to/TO make/VB it/PRP right/RB ./.

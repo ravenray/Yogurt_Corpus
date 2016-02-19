@@ -1,0 +1,5 @@
+Please/VB ,/, do/VBP n't/RB use/VB mysql/FW _/FW */NN functions/NNS in/IN new/JJ code/NN ./.
+They/PRP are/VBP no/RB longer/RB maintained/VBN and/CC are/VBP officially/RB deprecated/VBN ./.
+See/VB the/DT red/JJ box/NN ?/.
+Learn/VB about/IN prepared/JJ statements/NNS instead/RB ,/, and/CC use/VB PDO/NNP or/CC MySQLi/NNP -/: this/DT article/NN will/MD help/VB you/PRP decide/VB which/WDT ./.
+If/IN you/PRP choose/VBP PDO/NNP ,/, here/RB is/VBZ a/DT good/JJ tutorial/NN ./.

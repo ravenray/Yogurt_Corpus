@@ -1,0 +1,143 @@
+1/LS ./.
+Not/RB using/VBG appropriate/JJ indices/NNS This/DT is/VBZ a/DT relatively/RB easy/JJ one/CD but/CC still/RB it/PRP happens/VBZ all/PDT the/DT time/NN ./.
+Foreign/JJ keys/NNS should/MD have/VB indexes/NNS on/IN them/PRP ./.
+If/IN you/PRP 're/VBP using/VBG a/DT field/NN in/IN a/DT WHERE/COS you/PRP should/MD -LRB-/-LRB- probably/RB -RRB-/-RRB- have/VBP an/DT index/NN on/IN it/PRP ./.
+Such/JJ indexes/NNS should/MD often/RB cover/VB multiple/JJ columns/NNS based/VBN on/IN the/DT queries/NNS you/PRP need/VBP to/TO execute/VB ./.
+2/LS ./.
+Not/RB enforcing/VBG referential/JJ integrity/NN Your/PRP$ database/NN may/MD vary/VB here/RB but/CC if/IN your/PRP$ database/NN supports/VBZ referential/JJ integrity/NN --/: meaning/VBG that/IN all/DT foreign/JJ keys/NNS are/VBP guaranteed/VBN to/TO point/NN to/TO an/DT entity/NN that/WDT exists/VBZ --/: you/PRP should/MD be/VB using/VBG it/PRP ./.
+It/PRP 's/VBZ quite/RB common/JJ to/TO see/VB this/DT failure/NN on/IN MySQL/ACR databases/NNS ./.
+I/PRP do/VBP n't/RB believe/VB MyISAM/ACR supports/VBZ it/PRP ./.
+InnoDB/ACR does/VBZ ./.
+You/PRP 'll/MD find/VB people/NNS who/WP are/VBP using/VBG MyISAM/ACR or/CC those/DT that/WDT are/VBP using/VBG InnoDB/ACR but/CC are/VBP n't/RB using/VBG it/PRP anyway/RB ./.
+More/RBR here/RB :/: How/WRB important/JJ are/VBP constraints/NNS like/IN NOT/COS NULL/COS and/CC FOREIGN/COS KEY/COS if/IN I/PRP 'll/MD always/RB control/VB my/PRP$ database/NN input/NN with/IN php/ACR ?/.
+Are/VBP foreign/JJ keys/NNS really/RB necessary/JJ in/IN a/DT database/NN design/NN ?/.
+Are/VBP foreign/JJ keys/NNS really/RB necessary/JJ in/IN a/DT database/NN design/NN ?/.
+3/LS ./.
+Using/VBG natural/JJ rather/RB than/IN surrogate/JJ -LRB-/-LRB- technical/JJ -RRB-/-RRB- primary/JJ keys/NNS Natural/JJ keys/NNS are/VBP keys/NNS based/VBN on/IN externally/RB meaningful/JJ data/NNS that/WDT is/VBZ -LRB-/-LRB- ostensibly/RB -RRB-/-RRB- unique/JJ ./.
+Common/JJ examples/NNS are/VBP product/NN codes/NNS ,/, two-letter/JJ state/NN codes/NNS -LRB-/-LRB- US/NNP -RRB-/-RRB- ,/, social/JJ security/NN numbers/NNS and/CC so/RB on/RB ./.
+Surrogate/NN or/CC technical/JJ primary/JJ keys/NNS are/VBP those/DT that/WDT have/VBP absolutely/RB no/DT meaning/NN outside/IN the/DT system/NN ./.
+They/PRP are/VBP invented/VBN purely/RB for/IN identifying/VBG the/DT entity/NN and/CC are/VBP typically/RB auto-incrementing/JJ fields/NNS -LRB-/-LRB- SQL/ACR Server/NN ,/, MySQL/ACR ,/, others/NNS -RRB-/-RRB- or/CC sequences/NNS -LRB-/-LRB- most/RBS notably/RB Oracle/NNP -RRB-/-RRB- ./.
+In/IN my/PRP$ opinion/NN you/PRP should/MD always/RB use/VB surrogate/JJ keys/NNS ./.
+This/DT issue/NN has/VBZ come/VBN up/RP in/IN these/DT questions/NNS :/: How/WRB do/VBP you/PRP like/VB your/PRP$ primary/JJ keys/NNS ?/.
+What/WP 's/VBZ the/DT best/JJS practice/NN for/IN primary/JJ keys/NNS in/IN tables/NNS ?/.
+Which/WDT format/NN of/IN primary/JJ key/NN would/MD you/PRP use/VB in/IN this/DT situation/NN ./.
+Surrogate/NN vs./IN natural/JJ business/NN keys/NNS Should/MD I/PRP have/VB a/DT dedicated/JJ primary/JJ key/JJ field/NN ?/.
+This/DT is/VBZ a/DT somewhat/RB controversial/JJ topic/NN on/IN which/WDT you/PRP wo/MD n't/RB get/VB universal/JJ agreement/NN ./.
+While/IN you/PRP may/MD find/VB some/DT people/NNS ,/, who/WP think/VBP natural/JJ keys/NNS are/VBP in/IN some/DT situations/NNS OK/UH ,/, you/PRP wo/MD n't/RB find/VB any/DT criticism/NN of/IN surrogate/JJ keys/NNS other/JJ than/IN being/VBG arguably/RB unnecessary/JJ ./.
+That/DT 's/VBZ quite/RB a/DT small/JJ downside/NN if/IN you/PRP ask/VBP me/PRP ./.
+Remember/VB ,/, even/RB countries/NNS can/MD cease/VB to/TO exist/VB -LRB-/-LRB- for/IN example/NN ,/, Yugoslavia/NNP -RRB-/-RRB- ./.
+4/LS ./.
+Writing/VBG queries/NNS that/WDT require/VBP DISTINCT/COS to/TO work/VB You/PRP often/RB see/VBP this/DT in/IN ORM-generated/JJ queries/NNS ./.
+Look/VB at/IN the/DT log/NN output/NN from/IN Hibernate/COS and/CC you/PRP 'll/MD see/VB all/PDT the/DT queries/NNS begin/VBP with/IN :/: SELECT/COB DISTINCT/COB .../COB This/DT is/VBZ a/DT bit/NN of/IN a/DT shortcut/NN to/TO ensuring/VBG you/PRP do/VBP n't/RB return/VB duplicate/VB rows/NNS and/CC thus/RB get/VBP duplicate/VB objects/NNS ./.
+You/PRP 'll/MD sometimes/RB see/VB people/NNS doing/VBG this/DT as/RB well/RB ./.
+If/IN you/PRP see/VBP it/PRP too/RB much/RB it/PRP 's/VBZ a/DT real/JJ red/JJ flag/NN ./.
+Not/RB that/IN DISTINCT/COS is/VBZ bad/JJ or/CC does/VBZ n't/RB have/VB valid/JJ applications/NNS ./.
+It/PRP does/VBZ -LRB-/-LRB- on/IN both/DT counts/NNS -RRB-/-RRB- but/CC it/PRP 's/VBZ not/RB a/DT surrogate/NN or/CC a/DT stopgap/COS for/IN writing/VBG correct/JJ queries/NNS ./.
+From/IN Why/WRB I/PRP Hate/VBP DISTINCT/COS :/: Where/WRB things/NNS start/VBP to/TO go/VB sour/JJ in/IN my/PRP$ opinion/NN is/VBZ when/WRB a/DT developer/NN is/VBZ building/VBG substantial/JJ query/NN ,/, joining/VBG tables/NNS together/RB ,/, and/CC all/DT of/IN a/DT sudden/JJ he/PRP realizes/VBZ that/IN it/PRP looks/VBZ like/IN he/PRP is/VBZ getting/VBG duplicate/VB -LRB-/-LRB- or/CC even/RB more/JJR -RRB-/-RRB- rows/NNS and/CC his/PRP$ immediate/JJ response/NN .../: his/PRP$ ``/`` solution/NN ''/'' to/TO this/DT ``/`` problem/NN ''/'' is/VBZ to/TO throw/VB on/IN the/DT DISTINCT/COS keyword/NN and/CC POOF/NN all/PDT his/PRP$ troubles/NNS go/VB away/RB ./.
+5/LS ./.
+Favouring/VBG aggregation/NN over/IN joins/VBZ Another/DT common/JJ mistake/NN by/IN database/NN application/NN developers/NNS is/VBZ to/TO not/RB realize/VB how/WRB much/RB more/RBR expensive/JJ aggregation/NN -LRB-/-LRB- ie/FW the/DT GROUP/COS BY/COS clause/COS -RRB-/-RRB- can/MD be/VB compared/VBN to/TO joins/COS ./.
+To/TO give/VB you/PRP an/DT idea/NN of/IN how/WRB widespread/JJ this/DT is/VBZ ,/, I/PRP 've/VBP written/VBN on/IN this/DT topic/NN several/JJ times/NNS here/RB and/CC been/VBN downvoted/VBN a/DT lot/NN for/IN it/PRP ./.
+For/IN example/NN :/: From/IN SQL/ACR statement/NN -/: ``/COB join/COB ''/COB vs/COB ``/COB group/COB by/COB and/COB having/COB ''/COB :/COB First/JJ query/NN :/: SELECT/COB userid/COB FROM/COB userrole/COB WHERE/COB roleid/COB IN/COB -LRB-/COB 1/COB ,/COB 2/COB ,/COB 3/COB -RRB-/COB GROUP/COB by/COB userid/COB HAVING/COB COUNT/COB -LRB-/COB 1/COB -RRB-/COB =/COB 3/CD Query/NN time/NN :/: 0.312/CD s/NN Second/JJ query/NN :/: SELECT/COB t1.userid/COB FROM/COB userrole/COB t1/COB JOIN/COB userrole/COB t2/COB ON/COB t1.userid/COB =/COB t2.userid/COB AND/COB t2.roleid/COB =/COB 2/COB JOIN/COB userrole/COB t3/COB ON/COB t2.userid/COB =/COB t3.userid/COB AND/COB t3.roleid/COB =/COB 3/COB AND/COB t1.roleid/COB =/COB 1/CD Query/NN time/NN :/: 0.016/CD s/NN That/DT 's/VBZ right/JJ ./.
+The/DT join/VBP version/NN I/PRP proposed/VBD is/VBZ twenty/CD times/NNS faster/RBR than/IN the/DT aggregate/JJ version/NN ./.
+6/LS ./.
+Not/RB simplifying/VBG complex/JJ queries/NNS through/IN views/NNS Not/RB all/DT database/NN vendors/NNS support/VBP views/NNS but/CC for/IN those/DT that/WDT do/VBP ,/, they/PRP can/MD greatly/RB simplify/VB queries/NNS if/IN used/VBN judiciously/RB ./.
+For/IN example/NN ,/, on/IN one/CD project/NN I/PRP used/VBD a/DT generic/JJ Party/NN model/NN for/IN CRM/ACR ./.
+This/DT is/VBZ an/DT extremely/RB powerful/JJ and/CC flexible/JJ modelling/NN technique/NN but/CC can/MD lead/VB to/TO many/JJ joins/VBZ ./.
+In/IN this/DT model/NN there/EX were/VBD :/: Party/NN :/: people/NNS and/CC organisations/NNS ;/: Party/NN Role/NN :/: things/NNS those/DT parties/NNS did/VBD ,/, for/IN example/NN Employee/NN and/CC Employer/NN ;/: Party/NN Role/NN Relationship/NN :/: how/WRB those/DT roles/NNS related/VBN to/TO each/DT other/JJ ./.
+Example/NN :/: Ted/NNP is/VBZ a/DT Person/NN ,/, being/VBG a/DT subtype/NN of/IN Party/NN ;/: Ted/NNP has/VBZ many/JJ roles/NNS ,/, one/CD of/IN which/WDT is/VBZ Employee/NN ;/: Intel/NNP is/VBZ an/DT organisation/NN ,/, being/VBG a/DT subtype/NN of/IN a/DT Party/NN ;/: Intel/NNP has/VBZ many/JJ roles/NNS ,/, one/CD of/IN which/WDT is/VBZ Employer/NN ;/: Intel/NNP employs/VBZ Ted/NNP ,/, meaning/VBG there/EX is/VBZ a/DT relationship/NN between/IN their/PRP$ respective/JJ roles/NNS ./.
+So/RB there/EX are/VBP five/CD tables/NNS joined/VBD to/TO link/VB Ted/NNP to/TO his/PRP$ employer/NN ./.
+You/PRP assume/VBP all/DT employees/NNS are/VBP Persons/NNS -LRB-/-LRB- not/RB organisations/NNS -RRB-/-RRB- and/CC provide/VB this/DT helper/NN view/NN :/: CREATE/COB VIEW/COB vw_employee/COB AS/COB SELECT/COB p.title/COB ,/COB p.given/COB _/COB names/COB ,/COB p.surname/COB ,/COB p.date/COB _/COB of_birth/COB ,/COB p2.party/COB _/COB name/COB employer_name/COB FROM/COB person/COB p/COB JOIN/COB party/COB py/COB ON/COB py.id/COB =/COB p.id/COB JOIN/COB party_role/COB child/COB ON/COB p.id/COB =/COB child.party/COB _/COB id/COB JOIN/COB party_role_relationship/COB prr/COB ON/COB child.id/COB =/COB prr.child/COB _/COB id/COB AND/COB prr.type/COB =/COB 'EM/COB PLOYMENT/COB '/COB JOIN/COB party_role/COB parent/COB ON/COB parent.id/COB =/COB prr.parent/COB _/COB id/COB =/COB parent.id/COB JOIN/COB party/COB p2/COB ON/COB parent.party/COB _/COB id/COB =/COB p2.id/COB And/CC suddenly/RB you/PRP have/VBP a/DT very/RB simple/JJ view/NN of/IN the/DT data/NNS you/PRP want/VBP but/CC on/IN a/DT highly/RB flexible/JJ data/NNS model/NN ./.
+7/LS ./.
+Not/RB sanitizing/VBG input/NN This/DT is/VBZ a/DT huge/JJ one/CD ./.
+Now/RB I/PRP like/IN PHP/ACR but/CC if/IN you/PRP do/VBP n't/RB know/VB what/WP you/PRP 're/VBP doing/VBG it/PRP 's/VBZ really/RB easy/JJ to/TO create/VB sites/NNS vulnerable/JJ to/TO attack/NN ./.
+Nothing/NN sums/VBZ it/PRP up/RP better/RBR than/IN the/DT story/NN of/IN little/JJ Bobby/NNP Tables/NNP ./.
+Data/NNS provided/VBN by/IN the/DT user/NN by/IN way/NN of/IN URLs/ACR ,/, form/NN data/NNS and/CC cookies/NNS should/MD always/RB be/VB treated/VBN as/IN hostile/JJ and/CC sanitized/VBN ./.
+Make/VB sure/JJ you/PRP 're/VBP getting/VBG what/WP you/PRP expect/VBP ./.
+8/LS ./.
+Not/RB using/VBG prepared/JJ statements/NNS Prepared/VBN statements/NNS are/VBP when/WRB you/PRP compile/VBP a/DT query/JJ minus/NN the/DT data/NNS used/VBN in/IN inserts/NNS ,/, updates/NNS and/CC WHERE/COS clauses/NNS and/CC then/RB supply/NN that/WDT later/RB ./.
+For/IN example/NN :/: SELECT/COB */COB FROM/COB users/COB WHERE/COB username/COB =/COB `/COB bob/COB '/COB vs/COB SELECT/COB */COB FROM/COB users/COB WHERE/COB username/COB =/COB ?/COB
+or/CC SELECT/COB */COB FROM/COB users/COB WHERE/COB username/COB =/COB :/COB username/COB depending/VBG on/IN your/PRP$ platform/NN ./.
+I/PRP 've/VBP seen/VBN databases/NNS brought/VBN to/TO their/PRP$ knees/NNS by/IN doing/VBG this/DT ./.
+Basically/RB ,/, each/DT time/NN any/DT modern/JJ database/NN encounters/VBZ a/DT new/JJ query/NN it/PRP has/VBZ to/TO compile/VB it/PRP ./.
+If/IN it/PRP encounters/VBZ a/DT query/NN it/PRP 's/VBZ seen/VBN before/RB ,/, you/PRP 're/VBP giving/VBG the/DT database/NN the/DT opportunity/NN to/TO cache/NN the/DT compiled/VBN query/NN and/CC the/DT execution/NN plan/NN ./.
+By/IN doing/VBG the/DT query/NN a/DT lot/NN you/PRP 're/VBP giving/VBG the/DT database/NN the/DT opportunity/NN to/TO figure/VB that/IN out/IN and/CC optimize/VB accordingly/RB -LRB-/-LRB- for/IN example/NN ,/, by/IN pinning/VBG the/DT compiled/VBN query/NN in/IN memory/NN -RRB-/-RRB- ./.
+Using/VBG prepared/JJ statements/NNS will/MD also/RB give/VB you/PRP meaningful/JJ statistics/NNS about/IN how/WRB often/RB certain/JJ queries/NNS are/VBP used/VBN ./.
+Prepared/JJ statements/NNS will/MD also/RB better/RBR protect/VB you/PRP against/IN SQL/ACR injection/NN attacks/NNS ./.
+9/LS ./.
+Not/RB normalizing/VBG enough/RB Database/NN normalization/NN is/VBZ basically/RB the/DT process/NN of/IN optimizing/VBG database/NN design/NN or/CC how/WRB you/PRP organize/VBP your/PRP$ data/NNS into/IN tables/NNS ./.
+Just/RB this/DT week/NN I/PRP ran/VBD across/IN some/DT code/NN where/WRB someone/NN had/VBD imploded/VBN an/DT array/NN and/CC inserted/VBD it/PRP into/IN a/DT single/JJ field/NN in/IN a/DT database/NN ./.
+Normalizing/VBG that/DT would/MD be/VB to/TO treat/VB element/NN of/IN that/DT array/NN as/IN a/DT separate/JJ row/NN in/IN a/DT child/NN table/NN -LRB-/-LRB- ie/NN a/DT one-to-many/JJ relationship/NN -RRB-/-RRB- ./.
+This/DT also/RB came/VBD up/RP in/IN Best/JJ method/NN for/IN storing/VBG a/DT list/NN of/IN user/NN IDs/ACR :/: I/PRP 've/VBP seen/VBN in/IN other/JJ systems/NNS that/IN the/DT list/NN is/VBZ stored/VBN in/IN a/DT serialized/VBN PHP/ACR array/NN ./.
+But/CC lack/NN of/IN normalization/NN comes/VBZ in/IN many/JJ forms/NNS ./.
+More/RBR :/: Normalization/NN :/: How/WRB far/RB is/VBZ far/RB enough/RB ?/.
+SQL/ACR by/IN Design/NN :/: Why/WRB You/PRP Need/VBD Database/NN Normalization/NN 10/CD ./.
+Normalizing/VBG too/RB much/JJ This/DT may/MD seem/VB like/IN a/DT contradiction/NN to/TO the/DT previous/JJ point/NN but/CC normalization/NN ,/, like/IN many/JJ things/NNS ,/, is/VBZ a/DT tool/NN ./.
+It/PRP is/VBZ a/DT means/NN to/TO an/DT end/NN and/CC not/RB an/DT end/NN in/IN and/CC of/IN itself/PRP ./.
+I/PRP think/VBP many/JJ developers/NNS forget/VBP this/DT and/CC start/VB treating/VBG a/DT ``/`` means/NN ''/'' as/IN an/DT ``/`` end/NN ''/'' ./.
+Unit/NN testing/NN is/VBZ a/DT prime/JJ example/NN of/IN this/DT ./.
+I/PRP once/RB worked/VBD on/IN a/DT system/NN that/WDT had/VBD a/DT huge/JJ hierarchy/NN for/IN clients/NNS that/WDT went/VBD something/NN like/IN :/: Licensee/NN -/: >/SYM Dealer/NN Group/NN -/: >/SYM Company/NN -/: >/SYM Practice/NN -/: >/SYM .../: such/JJ that/IN you/PRP had/VBD to/TO join/VB about/RB 11/CD tables/NNS together/RB before/IN you/PRP could/MD get/VB any/DT meaningful/JJ data/NNS ./.
+It/PRP was/VBD a/DT good/JJ example/NN of/IN normalization/NN taken/VBN too/RB far/RB ./.
+More/RBR to/TO the/DT point/NN ,/, careful/JJ and/CC considered/JJ denormalization/NN can/MD have/VB huge/JJ performance/NN benefits/NNS but/CC you/PRP have/VBP to/TO be/VB really/RB careful/JJ when/WRB doing/VBG this/DT ./.
+More/RBR :/: Why/WRB too/RB much/JJ Database/NN Normalization/NN can/MD be/VB a/DT Bad/JJ Thing/NN How/WRB far/RB to/TO take/VB normalization/NN in/IN database/NN design/NN ?/.
+When/WRB Not/RB to/TO Normalize/VB your/PRP$ SQL/ACR Database/NN Maybe/RB Normalizing/VBG Is/VBZ n't/RB Normal/JJ The/DT Mother/NN of/IN All/DT Database/NN Normalization/NN Debates/NNS on/IN Coding/NN Horror/NN 11/CD ./.
+Using/VBG exclusive/JJ arcs/ACR An/DT exclusive/JJ arc/NN is/VBZ a/DT common/JJ mistake/NN where/WRB a/DT table/NN is/VBZ created/VBN with/IN two/CD or/CC more/JJR foreign/JJ keys/NNS where/WRB one/CD and/CC only/RB one/CD of/IN them/PRP can/MD be/VB non-null/JJ ./.
+Big/JJ mistake/NN ./.
+For/IN one/CD thing/NN it/PRP becomes/VBZ that/IN much/RB harder/JJR to/TO maintain/VB data/NNS integrity/NN ./.
+After/IN all/DT ,/, even/RB with/IN referential/JJ integrity/NN ,/, nothing/NN is/VBZ preventing/VBG two/CD or/CC more/JJR of/IN these/DT foreign/JJ keys/NNS from/IN being/VBG set/VBN -LRB-/-LRB- complex/JJ check/NN constraints/NNS notwithstanding/RB -RRB-/-RRB- ./.
+From/IN A/DT Practical/JJ Guide/NN to/TO Relational/JJ Database/NN Design/NN :/: We/PRP have/VBP strongly/RB advised/VBN against/IN exclusive/JJ arc/ACR construction/NN wherever/WRB possible/JJ ,/, for/IN the/DT good/JJ reason/NN that/IN they/PRP can/MD be/VB awkward/JJ to/TO write/VB code/NN and/CC pose/VB more/JJR maintenance/NN difficulties/NNS ./.
+12/LS ./.
+Not/RB doing/VBG performance/NN analysis/NN on/IN queries/NNS at/IN all/DT Pragmatism/NN reigns/VBZ supreme/NN ,/, particularly/RB in/IN the/DT database/NN world/NN ./.
+If/IN you/PRP 're/VBP sticking/VBG to/TO principles/NNS to/TO the/DT point/NN that/IN they/PRP 've/VBP become/VBN a/DT dogma/NN then/RB you/PRP 've/VBP quite/RB probably/RB made/VBN mistakes/NNS ./.
+Take/VB the/DT example/NN of/IN the/DT aggregate/JJ queries/NNS from/IN above/IN ./.
+The/DT aggregate/JJ version/NN might/MD look/VB ``/`` nice/JJ ''/'' but/CC its/PRP$ performance/NN is/VBZ woeful/JJ ./.
+A/DT performance/NN comparison/NN should/MD 've/VB ended/VBN the/DT debate/NN -LRB-/-LRB- but/CC it/PRP did/VBD n't/RB -RRB-/-RRB- but/CC more/JJR to/TO the/DT point/NN :/: spouting/VBG such/JJ ill-informed/JJ views/NNS in/IN the/DT first/JJ place/NN is/VBZ ignorant/JJ ,/, even/RB dangerous/JJ ./.
+13/LS ./.
+Over-reliance/NN on/IN UNION/COS ALL/COS and/CC particularly/RB UNION/COS constructs/NNS A/DT UNION/COS in/IN SQL/ACR terms/NNS merely/RB concatenates/VBZ congruent/JJ data/NNS sets/NNS ,/, meaning/VBG they/PRP have/VBP the/DT same/JJ type/NN and/CC number/NN of/IN columns/NNS ./.
+The/DT difference/NN between/IN them/PRP is/VBZ that/IN UNION/COS ALL/COS is/VBZ a/DT simple/JJ concatenation/NN and/CC should/MD be/VB preferred/VBN wherever/WRB possible/JJ whereas/IN a/DT UNION/COS will/MD implicitly/RB do/VB a/DT DISTINCT/COS to/TO remove/VB duplicate/VB tuples/NNS ./.
+UNIONs/COS ,/, like/IN DISTINCT/COS ,/, have/VBP their/PRP$ place/NN ./.
+There/EX are/VBP valid/JJ applications/NNS ./.
+But/CC if/IN you/PRP find/VBP yourself/PRP doing/VBG a/DT lot/NN of/IN them/PRP ,/, particularly/RB in/IN subqueries/NNS ,/, then/RB you/PRP 're/VBP probably/RB doing/VBG something/NN wrong/JJ ./.
+That/DT might/MD be/VB a/DT case/NN of/IN poor/JJ query/NN construction/NN or/CC a/DT poorly/RB designed/VBN data/NN model/NN forcing/VBG you/PRP to/TO do/VB such/JJ things/NNS ./.
+UNIONs/COS ,/, particularly/RB when/WRB used/VBN in/IN joins/VBZ or/CC dependent/JJ subqueries/NNS ,/, can/MD cripple/VB a/DT database/NN ./.
+Try/VB to/TO avoid/VB them/PRP whenever/WRB possible/JJ ./.
+14/LS ./.
+Using/VBG OR/COS conditions/NNS in/IN queries/NNS This/DT might/MD seem/VB harmless/JJ ./.
+After/IN all/DT ,/, ANDs/COS are/VBP OK/JJ ./.
+OR/COS should/MD be/VB OK/JJ too/RB right/JJ ?/.
+Wrong/JJ ./.
+Basically/RB an/DT AND/COS condition/NN restricts/VBZ the/DT data/NNS set/VBN whereas/IN an/DT OR/COS condition/NN grows/VBZ it/PRP but/CC not/RB in/IN a/DT way/NN that/WDT lends/VBZ itself/PRP to/TO optimisation/NN ./.
+Particularly/RB when/WRB the/DT different/JJ OR/COS conditions/NNS might/MD intersect/VB thus/RB forcing/VBG the/DT optimizer/NN to/TO effectively/RB to/TO a/DT DISTINCT/COS operation/NN on/IN the/DT result/NN ./.
+Bad/JJ :/: .../COB WHERE/COB a/COB =/COB 2/COB OR/COB a/COB =/COB 5/COB OR/COB a/COB =/COB 11/COB Better/JJ :/: .../COB WHERE/COB a/COB IN/COB -LRB-/COB 2/COB ,/COB 5/COB ,/COB 11/COB -RRB-/COB Now/RB your/PRP$ SQL/ACR optimizer/NN may/MD effectively/RB turn/VB the/DT first/JJ query/NN into/IN the/DT second/JJ ./.
+But/CC it/PRP might/MD not/RB ./.
+Just/RB do/VBP n't/RB do/VB it/PRP ./.
+15/LS ./.
+Not/RB designing/VBG their/PRP$ data/NNS model/NN to/TO lend/VB itself/PRP to/TO high-performing/JJ solutions/NNS This/DT is/VBZ a/DT hard/JJ point/NN to/TO quantify/VB ./.
+It/PRP is/VBZ typically/RB observed/VBN by/IN its/PRP$ effect/NN ./.
+If/IN you/PRP find/VBP yourself/PRP writing/VBG gnarly/JJ queries/NNS for/IN relatively/RB simple/JJ tasks/NNS or/CC that/IN queries/NNS for/IN finding/VBG out/RP relatively/RB straightforward/JJ information/NN are/VBP not/RB efficient/JJ ,/, then/RB you/PRP probably/RB have/VBP a/DT poor/JJ data/NN model/NN ./.
+In/IN some/DT ways/NNS this/DT point/NN summarizes/VBZ all/PDT the/DT earlier/JJR ones/NNS but/CC it/PRP 's/VBZ more/JJR of/IN a/DT cautionary/JJ tale/NN that/IN doing/VBG things/NNS like/IN query/NN optimisation/NN is/VBZ often/RB done/VBN first/RB when/WRB it/PRP should/MD be/VB done/VBN second/JJ ./.
+First/JJ and/CC foremost/JJ you/PRP should/MD ensure/VB you/PRP have/VBP a/DT good/JJ data/NN model/NN before/IN trying/VBG to/TO optimize/VB the/DT performance/NN ./.
+As/IN Knuth/NNP said/VBD :/: Premature/JJ optimization/NN is/VBZ the/DT root/NN of/IN all/DT evil/JJ 16/CD ./.
+Incorrect/JJ use/NN of/IN Database/NN Transactions/NNS All/DT data/NNS changes/NNS for/IN a/DT specific/JJ process/NN should/MD be/VB atomic/JJ ./.
+I.e./FW ./.
+If/IN the/DT operation/NN succeeds/VBZ ,/, it/PRP does/VBZ so/RB fully/RB ./.
+If/IN it/PRP fails/VBZ ,/, the/DT data/NN is/VBZ left/RB unchanged/JJ ./.
+-/: There/EX should/MD be/VB no/DT possibility/NN of/IN `/`` half-done/JJ '/'' changes/NNS ./.
+Ideally/RB ,/, the/DT simplest/JJS way/NN to/TO achieve/VB this/DT is/VBZ that/IN the/DT entire/JJ system/NN design/NN should/MD strive/VB to/TO support/VB all/DT data/NNS changes/NNS through/IN single/JJ INSERT/COB UPDATE/COB DELETE/COB statements/NNS ./.
+In/IN this/DT case/NN ,/, no/DT special/JJ transaction/NN handling/NN is/VBZ needed/VBN ,/, as/IN your/PRP$ database/NN engine/NN should/MD do/VB so/RB automatically/RB ./.
+However/RB ,/, if/IN any/DT processes/NNS do/VBP require/VB multiple/JJ statements/NNS be/VB performed/VBN as/IN a/DT unit/NN to/TO keep/VB the/DT data/NNS in/IN a/DT consistent/JJ state/NN ,/, then/RB appropriate/JJ Transaction/NN Control/NN is/VBZ necessary/JJ ./.
+Begin/VB a/DT Transaction/NN before/IN the/DT first/JJ statement/NN ./.
+Commit/VB the/DT Transaction/NN after/IN the/DT last/JJ statement/NN ./.
+On/IN any/DT error/NN ,/, Rollback/NN the/DT Transaction/NN ./.
+And/CC very/JJ NB/ACR !/.
+Do/VBP n't/RB forget/VB to/TO skip/abort/VB all/DT statements/NNS that/WDT follow/VBP after/IN the/DT error/NN ./.
+Also/RB recommended/VBN to/TO pay/VB careful/JJ attention/NN to/TO the/DT subtelties/NNS of/IN how/WRB your/PRP$ database/NN connectivity/NN layer/NN ,/, and/CC database/NN engine/NN interact/VBP in/IN this/DT regard/NN ./.
+17/LS ./.
+Not/RB understanding/VBG the/DT `/`` set-based/JJ '/'' paradigm/NN The/DT SQL/ACR language/NN follows/VBZ a/DT specific/JJ paradigm/NN suited/VBN to/TO specific/JJ kinds/NNS of/IN problems/NNS ./.
+Various/JJ vendor-specific/JJ extensions/NNS notwithstanding/RB ,/, the/DT language/NN struggles/VBZ to/TO deal/VB with/IN problems/NNS that/WDT are/VBP trivial/JJ in/IN langues/NNS like/IN Java/NNP ,/, C#/NNP ,/, Delphi/NNP etc./NN ./.
+This/DT lack/NN of/IN understanding/NN manifests/VBZ itself/PRP in/IN a/DT few/JJ ways/NNS ./.
+Inappropriately/RB imposing/VBG too/RB much/RB procedural/JJ or/CC imperative/JJ logic/NN on/IN the/DT databse/NN ./.
+Inappropriate/JJ or/CC excessive/JJ use/NN of/IN cursors/NNS ./.
+Especially/RB when/WRB a/DT single/JJ query/NN would/MD suffice/VB ./.
+Incorrectly/RB assuming/VBG that/IN triggers/NNS fire/VBP once/RB per/IN row/NN affected/VBN in/IN multi-row/JJ updates/NNS ./.
+Determine/VB clear/JJ division/NN of/IN responsibility/NN ,/, and/CC strive/VBP to/TO use/VB the/DT appropriate/JJ tool/NN to/TO solve/VB each/DT problem/NN ./.
+I/PRP do/VBP n't/RB mean/VB to/TO imply/VB that/DT MyISAM/ACR is/VBZ bad/JJ ,/, just/RB that/IN you/PRP do/VBP n't/RB have/VB that/DT option/NN if/IN you/PRP 're/VBP using/VBG MyISAM/ACR ./.

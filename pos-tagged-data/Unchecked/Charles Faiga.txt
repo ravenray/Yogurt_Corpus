@@ -1,0 +1,2 @@
+What/WP are/VBP common/JJ database/NN development/NN mistakes/NNS made/VBN by/IN application/NN developers/NNS ?/.
+Here/RB is/VBZ a/DT link/NN to/TO video/NN called/VBN `/`` Classic/NNP Database/NNP Development/NNP Mistakes/NNPS and/CC five/CD ways/NNS to/TO overcome/VB them/PRP '/'' by/IN Scott/NNP Walz/NNP

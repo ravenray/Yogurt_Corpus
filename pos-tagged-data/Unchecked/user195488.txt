@@ -1,0 +1,4 @@
+EH/NN has/VBZ been/VBN the/DT standard/NN for/IN a/DT long/JJ time/NN -LRB-/-LRB- since/IN Ada/NN even/RB !/. -RRB-/-RRB-
+See/NNP also/RB :/: stackoverflow.com/questions/213380/…/NN and/CC stackoverflow.com/questions/1645161/…/NN and/CC stackoverflow.com/questions/536584/…/NN @GregS/NN :/: Just/RB as/IN a/DT real-world/JJ example/NN ,/, PCI/NN does/VBZ not/RB require/VB a/DT salt/NN length/NN only/RB that/IN there/EX is/VBZ a/DT salt/NN ./.
+It/PRP can/MD be/VB generated/VBN with/IN srand/NN -LRB-/-LRB- time/NN -LRB-/-LRB- NULL/NN -RRB-/-RRB- -RRB-/-RRB- ;/: for/IN instance/NN ./.
+@GregS/NN :/: My/PRP$ point/NN is/VBZ that/IN significant/JJ enforcers/NNS of/IN security/NN do/VBP not/RB consider/VB salt/NN length/NN to/TO be/VB important/JJ ,/, just/RB that/IN it/PRP is/VBZ added/VBN ./.

@@ -1,0 +1,3 @@
+Store/NNP Procedure/NNP is/VBZ best/JJS way/NN avoid/VB SQL/NN injection/NN ,/, If/IN you/PRP are/VBP good/JJ SP/NN developer/NN then/RB always/RB use/VB SP/NN ./.
+We/PRP can/MD say/VB SP/NN is/VBZ middle-ware/JJ between/IN SQL/NN DB/NN and/CC your/PRP$ application/NN ./.
+Its/PRP$ Creates/VBZ separation/NN of/IN work/NN and/CC it/PRP is/VBZ very/RB helpful/JJ in/IN big/JJ applications/NNS ./.

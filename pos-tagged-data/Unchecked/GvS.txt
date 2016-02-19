@@ -1,0 +1,4 @@
+IMO/NNP :/: The/DT nr/NN 1/CD exploitable/JJ functions/NNS ,/, are/VBP innocent/JJ looking/VBG ,/, but/CC very/RB dangerously/RB when/WRB used/VBN without/IN thought/NN ./.
+In/IN ASP.Net/NN Response.Write/NN or/CC the/DT shortcut/NN :/: </JJR %/NN =/JJ searchTermFromUser/NN %/NN >/JJR In/IN ADO.Net/NN :/: The/DT string/NN +/CC operator/NN :/: var/NN sql/NN =/JJ ``/`` SELECT/VB */SYM FROM/NN table/NN WHERE/NN name/NN =/JJ '/'' ''/'' +/CC searchTermFromUser/NN +/CC ''/'' '/'' ''/'' Yes/NNP ,/, that/DT 's/VBZ what/WP I/PRP mean/VBP ./.
+These/DT are/VBP examples/NNS of/IN exploitable/JJ code/NN ./.
+@Xaqron/NN :/: Because/IN it/PRP is/VBZ common/JJ to/TO forget/VB HtmlEncode/NNP

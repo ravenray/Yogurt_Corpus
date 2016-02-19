@@ -1,0 +1,5 @@
+@Zaffy/NN ,/, I/PRP like/VBP the/DT idea/NN ,/, but/CC what/WP about/IN performance/NN ,/, I/PRP mean/VBP if/IN you/PRP have/VBP 1/CD million/CD records/NNS and/CC 1000/CD users/NNS searching/VBG does/VBZ it/PRP slow/VB down/RP as/RB compare/VB to/TO prepare/VB solution/NN ?/.
+I/PRP just/RB test/VBP SELECT/NNP */SYM FROM/FW tblproducts/FW WHERE/FW product_code/FW LIKE/NN -LRB-/-LRB- '/POS %/NN 42/CD %/NN '/'' -RRB-/-RRB- does/VBZ find/VB record/VB but/CC SELECT/VB */SYM FROM/FW tblproducts/FW WHERE/FW product_code/FW LIKE/NN -LRB-/-LRB- '/POS %/NN '/'' +0/CD x3432/NN +/CC '/POS %/NN '/'' -RRB-/-RRB- does/VBZ n't/RB ,/, so/IN it/PRP simply/RB does/VBZ n't/RB work/VB or/CC I/PRP did/VBD something/NN wrong/JJ ?/.
+oops/VB my/PRP$ bad/NN ./.
+But/CC that/IN for/IN good/JJ information/NN ./.
+I/PRP will/MD test/VB this/DT method/NN more/JJR for/IN performance/NN myself/PRP :-RRB-/NNP ./.

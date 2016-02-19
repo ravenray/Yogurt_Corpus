@@ -1,0 +1,67 @@
+Exception/NN handling/VBG -LRB-/-LRB- EH/ACR -RRB-/-RRB- seems/VBZ to/TO be/VB the/DT current/JJ standard/NN ,/, and/CC by/IN searching/VBG the/DT web/NN ,/, I/PRP can/MD not/RB find/VB any/DT novel/JJ ideas/NNS or/CC methods/NNS that/WDT try/VBP to/TO improve/VB or/CC replace/VB it/PRP -LRB-/-LRB- well/RB ,/, some/DT variations/NNS exist/VBP ,/, but/CC nothing/NN novel/NN -RRB-/-RRB- ./.
+Though/IN most/JJS people/NNS seem/VBP to/TO ignore/VB it/PRP or/CC just/RB accept/VB it/PRP ,/, EH/ACR has/VBZ some/DT huge/JJ drawbacks/NNS :/: exceptions/NNS are/VBP invisible/JJ to/TO the/DT code/NN and/CC it/PRP creates/VBZ many/JJ ,/, many/JJ possible/JJ exit/NN points/NNS ./.
+Joel/NNP on/IN software/NN wrote/VBD an/DT article/NN about/IN it/PRP ./.
+The/DT comparison/NN to/TO goto/NN fits/VBZ perfect/JJ ,/, it/PRP made/VBD me/PRP think/VB again/RB about/IN EH/ACR ./.
+I/PRP try/VBP to/TO avoid/VB EH/ACR and/CC just/RB use/VB return/NN values/NNS ,/, callbacks/NNS or/CC whatever/WDT fits/VBZ the/DT purpose/NN ./.
+But/CC when/WRB you/PRP have/VBP to/TO write/VB reliable/JJ code/NN ,/, you/PRP just/RB ca/MD n't/RB ignore/VB EH/ACR these/DT days/NNS :/: It/PRP starts/VBZ with/IN the/DT new/JJ ,/, which/WDT may/MD throw/VB an/DT exception/NN ,/, instead/RB of/IN just/RB returning/VBG 0/CD -LRB-/-LRB- like/IN in/IN the/DT old/JJ days/NNS -RRB-/-RRB- ./.
+This/DT makes/VBZ about/IN any/DT line/NN of/IN C++/NNP code/NN vulnerable/JJ to/TO an/DT exception/NN ./.
+And/CC then/RB more/JJR places/NNS in/IN the/DT C++/NNP foundational/JJ code/NN throw/VB exceptions/NNS .../: std/COS lib/COS does/VBZ it/PRP ,/, and/CC so/RB on/RB ./.
+This/DT feels/VBZ like/IN walking/VBG on/IN shaky/JJ grounds/NNS ./. ./.
+So/RB ,/, now/RB we/PRP are/VBP forced/VBN to/TO take/VB care/NN about/IN exceptions/NNS !/.
+But/CC its/PRP$ hard/JJ ,/, its/PRP$ really/RB hard/JJ ./.
+You/PRP have/VBP to/TO learn/VB to/TO write/VB exception/NN safe/JJ code/NN ,/, and/CC even/RB if/IN you/PRP have/VBP some/DT experience/NN with/IN it/PRP ,/, it/PRP will/MD still/RB be/VB required/VBN to/TO double/RB check/VB any/DT single/JJ line/NN of/IN code/NN to/TO be/VB safe/JJ !/.
+Or/CC you/PRP start/VBP to/TO put/VB try/catch/COS blocks/NNS everywhere/RB ,/, which/WDT clutters/VBZ the/DT code/NN until/IN it/PRP reaches/VBZ a/DT state/NN of/IN unreadability/NN ./.
+EH/ACR replaced/VBD the/DT old/JJ clean/JJ deterministical/JJ approach/NN -LRB-/-LRB- return/NN values/NNS ./. ./. -RRB-/-RRB-
+,/, which/WDT had/VBD just/RB a/DT few/JJ but/CC understandable/JJ and/CC easily/RB solveable/JJ drawbacks/NNS with/IN an/DT approach/NN that/WDT creates/VBZ many/JJ possible/JJ exit/NN points/NNS in/IN your/PRP$ code/NN ,/, and/CC if/IN you/PRP start/VBP writing/VBG code/NN that/WDT catches/VBZ exceptions/NNS -LRB-/-LRB- what/WP you/PRP are/VBP forced/VBN to/TO do/VB at/IN some/DT point/NN -RRB-/-RRB- ,/, then/RB it/PRP even/RB creates/VBZ a/DT multitude/NN of/IN paths/NNS through/IN your/PRP$ code/NN -LRB-/-LRB- code/NN in/IN the/DT catch/NN blocks/NNS ,/, think/VBP about/IN a/DT server/NN program/NN where/WRB you/PRP need/VBP logging/VBG facilities/NNS other/JJ than/IN std/COB :/COB :/COB cerr/COB ./COB ./. -RRB-/-RRB- ./.
+EH/ACR has/VBZ advantages/NNS ,/, but/CC that/DT 's/VBZ not/RB the/DT point/NN ./.
+My/PRP$ actual/JJ questions/NNS :/: Do/VBP you/PRP really/RB write/VB exception/NN safe/JJ code/NN ?/.
+Are/VBP you/PRP sure/JJ your/PRP$ last/JJ ``/`` production/NN ready/JJ ''/'' code/NN is/VBZ exception/NN safe/NN ?/.
+Can/MD you/PRP even/RB be/VB sure/JJ ,/, that/IN it/PRP is/VBZ ?/.
+Do/VBP you/PRP know/VB and/or/CC actually/RB use/VBP alternatives/NNS that/IN work/NN ?/.
+Alright/UH ,/, my/PRP$ fault/NN ./.
+That/DT does/VBZ not/RB mean/VB I/PRP am/VBP confused/VBN ,/, let/VB me/PRP explain/VB :/: In/IN german/NNP it/PRP is/VBZ sometimes/RB -LRB-/-LRB- inaccurately/RB -RRB-/-RRB- called/VBN ``/`` Strukturierte/FW Ausnahmebehandlung/FW ''/'' -LRB-/-LRB- translates/NNS to/TO ``/`` structured/JJ exception/NN handling/VBG ''/'' -RRB-/-RRB- to/TO avoid/VB confusion/NN with/IN what/WP is/VBZ usually/RB called/VBN ``/`` error/NN handling/VBG ''/'' ./.
+The/DT term/NN ``/`` exception/NN handling/VBG ''/'' on/IN its/PRP$ own/JJ is/VBZ not/RB very/RB precise/JJ ,/, it/PRP could/MD mean/VB anything/NN ;-RRB-/EMO @Thomas/ATS Padron-McCarthy/ATS :/: how/WRB else/RB would/MD you/PRP abbreviate/VB _/COS E_xception/COS _/COS H_andling/COS ?/.
+My/PRP$ question/NN is/VBZ long/JJ ,/, and/CC I/PRP did/VBD not/RB want/VB to/TO discourage/VB people/NNS from/IN reading/VBG it/PRP ,/, so/IN I/PRP abbreviated/VBD the/DT term/NN that/WDT was/VBD used/VBN most/JJS of/IN the/DT time/NN ./. ./.
+well/RB ,/, I/PRP used/VBD a/DT wrong/JJ term/NN first/RB ,/, but/CC then/RB ./. ./.
+hey/UH ,/, why/WRB do/VBP I/PRP answer/VB this/DT anyway/RB ,/, you/PRP 're/VBP just/RB trying/VBG to/TO confuse/VB me/PRP ,/, are/VBP n't/RB you/PRP ?/.
+:D/EMO @David/AT Thornley/ATS :/: yes/UH ,/, true/JJ ,/, return-error-code/COS and/CC exception/NN handling/NN worked/VBD for/IN years/NNS ,/, whats/VBZ next/JJ ?/.
+Thanks/VBZ a/DT lot/NN !/.
+I/PRP still/RB hoped/VBD for/IN something/NN different/JJ ./.
+But/CC I/PRP accept/VBP your/PRP$ answer/NN for/IN sticking/VBG to/TO C++/NNP and/CC for/IN your/PRP$ detailed/JJ explanation/NN ./.
+You/PRP even/RB disproved/VBD my/PRP$ ``/`` This/DT makes/VBZ about/IN any/DT line/NN of/IN C++/NNP code/NN vulnerable/JJ to/TO an/DT exception/NN ''/'' -/: offense/NN ./.
+This/DT line/NN by/IN line/NN analysis/NN makes/VBZ sense/NN after/IN all/DT .../: I/PRP have/VBP to/TO think/VB about/IN it/PRP ./.
+Just/RB writing/VBG down/RP an/DT idea/NN ,/, before/IN I/PRP 'll/MD forget/VB it/PRP :/: would/MD n't/RB it/PRP then/RB be/VB nice/JJ and/CC comfortable/JJ to/TO annotate/VB each/DT single/JJ line/NN of/IN code/NN with/IN 1/LS -RRB-/-RRB- the/DT guarantee/NN level/NN and/CC 2/LS -RRB-/-RRB- a/DT term/NN of/IN ``/`` what/WP ''/'' to/TO do/VB if/IN a/DT given/VBN exception/NN occurs/VBZ in/IN that/DT given/VBN line/NN ?/.
+Maybe/RB like/IN a/DT second/JJ layer/NN of/IN code/NN ,/, that/WDT will/MD be/VB executed/VBN whenever/WRB the/DT program/NN leaves/VBZ the/DT ``/`` usual/JJ code/NN path/NN ''/'' ./.
+This/DT would/MD provide/VB a/DT complete/JJ separation/NN of/IN code/NN and/CC error/NN handling/NN ,/, and/CC in/IN practice/NN one/CD could/MD write/VB code/NN ,/, and/CC write/VB error/NN handling/NN in/IN a/DT second/JJ step/NN -LRB-/-LRB- without/IN intermingling/VBG them/PRP too/RB much/RB -RRB-/-RRB- ./.
+.../: this/DT separation/NN of/IN code/NN and/CC error/NN handling/NN is/VBZ somehow/RB similar/JJ to/TO what/WP EH/ACR promises/NNS -LRB-/-LRB- besides/IN other/JJ things/NNS ,/, I/PRP can/MD imagine/VB that/IN the/DT initial/JJ IDEA/NN of/IN it/PRP was/VBD to/TO remove/VB the/DT burden/NN of/IN error/NN handling/VBG from/IN application/NN code/NN -RRB-/-RRB- ./.
+Maybe/RB the/DT removal/NN should/MD be/VB more/RBR explicit/JJ -/: line-by-line/NN in/IN a/DT second/JJ code/NN layer/NN or/CC something/NN similar/JJ ./.
+Well/RB ,/, forget/VB text/NN editors/NNS then/RB ,/, but/CC the/DT idea/NN is/VBZ interesting/JJ .../: @David/ATS Thornley/ATS :/: I/PRP know/VBP exception/NN safety/NN -LRB-/-LRB- at/IN least/JJS the/DT basics/NNS and/CC some/DT practice/NN applying/VBG it/PRP -RRB-/-RRB- ./.
+But/CC I/PRP still/RB do/VBP not/RB like/VB it/PRP ./. ./. ./.
+one/CD more/JJR note/NN :/: when/WRB exception/NN handling/NN was/VBD meant/VBN as/IN a/DT replacement/NN for/IN error-return-codes/COS ,/, then/RB it/PRP was/VBD meant/VBN to/TO -LRB-/-LRB- plainly/RB speaking/VBG -RRB-/-RRB- remove/VB error-handling/JJ code/NN from/IN application/NN code/NN ./.
+So/RB ,/, it/PRP was/VBD -LRB-/-LRB- also/RB plainly/RB speaking/VBG -RRB-/-RRB- invented/VBD to/TO separate/VB error-handling/JJ code/NN from/IN application/NN code/NN ./.
+So/RB ,/, maybe/RB the/DT current/JJ concept/NN of/IN EH/ACR works/VBZ and/CC is/VBZ matured/VBN ,/, but/CC there/EX could/MD be/VB completely/RB different/JJ solutions/NNS -LRB-/-LRB- that/WDT are/VBP still/RB to/TO be/VB developed/VBN -RRB-/-RRB- ./.
+@Mehrdad/ATS :/: ``/`` it/PRP forces/VBZ you/PRP to/TO make/VB a/DT wrapper/NN for/IN something/NN you/PRP may/MD not/RB need/VB a/DT wrapper/NN for/IN ''/'' -/: when/WRB coding/VBG in/IN RAII/ACR fashion/NN ,/, you/PRP will/MD not/RB need/VB any/DT kind/NN of/IN wrappers/NNS :/: the/DT ressource/NN is/VBZ the/DT object/NN ,/, and/CC objects/NNS lifetime/NN is/VBZ resource/NN lifetime/NN ./.
+However/RB ,/, me/PRP coming/VBG from/IN a/DT C++/NNP world/NN ,/, I/PRP currently/RB struggle/VBP with/IN a/DT Java/NNP project/NN ./.
+Compared/VBN to/TO RAII/ACR in/IN C++/NNP ,/, that/IN ``/`` manual/JJ resource/NN management/NN ''/'' in/IN Java/NNP IS/VBZ A/DT MESS/NN !/.
+My/PRP$ Opinion/NN ,/, but/CC Java/NNP long/RB ago/RB traded/VBN ``/`` automatic/JJ memory/NN mgmt/NN ''/'' for/IN ``/`` automatic/JJ resource/NN mgmt/NN ''/'' ./.
+His/PRP$ book/NN ``/`` Exceptional/JJ C++/NNP ''/'' is/VBZ also/RB a/DT good/JJ read/NN ./.
+But/CC I/PRP still/RB try/VBP to/TO question/VB the/DT concept/NN of/IN EH/ACR .../: Please/VB do/VBP n't/RB get/VB me/PRP wrong/JJ ,/, I/PRP am/VBP -LRB-/-LRB- or/CC am/RB trying/VBG to/TO -RRB-/-RRB- questioning/VBG EH/ACR ./.
+And/CC especially/RB C++/NNP EH/ACR ./.
+And/CC I/PRP am/VBP searching/VBG for/IN alternatives/NNS ./.
+Maybe/RB I/PRP have/VBP to/TO accept/VB it/PRP -LRB-/-LRB- and/CC I/PRP will/MD if/IN its/PRP$ the/DT only/JJ way/NN -RRB-/-RRB- ,/, but/CC I/PRP think/VBP there/EX could/MD be/VB better/JJR alternatives/NNS ./.
+Its/PRP$ not/RB that/IN I/PRP think/VBP that/IN the/DT concept/NN is/VBZ new/JJ ,/, but/CC yes/RB ,/, I/PRP think/VBP it/PRP can/MD be/VB more/RBR dangerous/JJ than/IN explicit/JJ error/NN handling/NN with/IN return/NN codes/NNS .../: Ok/UH ,/, perfect/JJ ,/, I/PRP will/MD just/RB use/VB EH/ACR and/CC error-codes/NNS ,/, and/CC live/VBP with/IN it/PRP ./.
+I/PRP 'm/VBP a/DT nitwit/NN ,/, I/PRP should/MD have/VB come/VBN to/TO that/DT solution/NN on/IN my/PRP$ own/JJ !/.
+;-RRB-/EMO You/PRP just/RB ca/MD n't/RB ignore/VB exceptions/NNS -LRB-/-LRB- and/CC not/RB write/VB handling/NN code/NN -RRB-/-RRB- ,/, neither/CC in/IN C++/NNP nor/CC in/IN managed/VBN code/NN ./.
+It/PRP will/MD be/VB unsafe/JJ ,/, and/CC it/PRP will/MD not/RB well-behave/JJ ./.
+Except/IN for/IN maybe/RB some/DT toy/NN code/NN ./.
+You/PRP wrote/VBD ''/'' -LSB-/-LRB- ./. ./. -RSB-/-RRB-
+if/IN you/PRP do/VBP n't/RB write/VB any/DT handling/NN code/NN -/: the/DT result/NN is/VBZ perfectly/RB safe/JJ and/CC well-behaved/JJ -LSB-/-LRB- ./. ./. -RSB-/-RRB- ''/'' ./.
+So/RB ,/, this/DT sounds/VBZ like/IN ``/`` you/PRP can/MD write/VB perfectly/RB safe/JJ and/CC well-behaved/JJ code/NN even/RB if/IN you/PRP ignore/VBP exceptions/NNS ''/'' ./.
+not/RB handling/VBG exceptions/NNS =/SYM ignoring/VBG them/PRP ./.
+Of/IN course/NN its/PRP$ similar/JJ situation/NN with/IN error/NN codes/NNS ./.
+But/CC that/DT 's/VBZ not/RB the/DT point/NN ./.
+You/PRP just/RB wrote/VBD that/IN ignoring/VBG exceptions/NNS results/NNS is/VBZ safe/JJ and/CC well-behaved/JJ code/NN ;--RRB-/EMO But/CC yes/UH ,/, I/PRP understand/VBP your/PRP$ intention/NN ./.
+If/IN you/PRP ignore/VBP exceptions/NNS in/IN application/NN code/NN ,/, the/DT program/NN may/MD still/RB NOT/RB behave/VB well/RB when/WRB external/JJ ressources/NNS are/VBP involved/VBN ./.
+True/JJ ,/, the/DT OS/ACR cares/VBZ about/IN closing/NN file/NN handles/VBZ ,/, locks/NNS ,/, sockets/NNS and/CC so/RB on/RB ./.
+But/CC not/RB everything/NN is/VBZ handled/VBN ,/, e.g./FW it/PRP may/MD leave/VB unnecessary/JJ files/NNS or/CC damage/NN files/NNS while/IN writing/VBG to/TO them/PRP and/CC so/RB on/RB ./.
+If/IN you/PRP ignore/VBP exceptions/NNS ,/, you/PRP have/VBP a/DT problem/NN in/IN Java/NNP ,/, in/IN C++/NNP you/PRP can/MD work/VB with/IN RAII/ACR -LRB-/-LRB- but/CC when/WRB you/PRP use/VBP RAII/ACR technique/NN ,/, you/PRP most/RBS probably/RB use/VBP them/PRP because/IN you/PRP care/VBP about/IN exceptions/NNS -RRB-/-RRB- .../:

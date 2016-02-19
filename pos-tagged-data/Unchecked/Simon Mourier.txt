@@ -1,0 +1,5 @@
+To/TO add/VB to/TO @Kobi/NNP 's/POS remarks/NNS ,/, no/DT answer/NN below/IN is/VBZ in/IN fact/NN related/JJ to/TO C#/NN as/IN a/DT language/NN ./.
+They/PRP apply/VBP to/TO probably/RB all/DT ./.
+NET/NN languages/NNS -LRB-/-LRB- VB/NN ,/, F#/NN ,/, etc./NN -RRB-/-RRB- ./.
+You/PRP should/MD widen/VB the/DT question/NN to/TO BCL/NN or/CC ./.
+NET/NNP IMHO/NNP ./.

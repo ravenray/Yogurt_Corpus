@@ -1,0 +1,16 @@
+If/IN the/DT attackers/NNS are/VBP trying/VBG to/TO hack/VB with/IN the/DT form/NN via/IN PHP/ACR 's/POS $/COS _/COS GET/COS variable/COS or/CC with/IN the/DT URL/ACR 's/POS query/NN string/NN ,/, you/PRP would/MD be/VB able/JJ to/TO catch/VB them/PRP if/IN they/PRP 're/VBP not/RB secure/JJ ./.
+RewriteCond/COB %/COB -LCB-/COB QUERY_STRING/COB -RCB-/COB -LRB-/COB -LSB-/COB 0-9/COB -RSB-/COB +/COB -RRB-/COB =-LRB-/COB -LSB-/COB 0-9/COB -RSB-/COB +/COB -RRB-/COB RewriteRule/COB ^/COB -LRB-/COB ./COB
+*/COB -RRB-/COB ^/COB //COB track.php/COB Because/IN 1/CD =/SYM 1/CD ,/, 2/CD =/SYM 2/CD ,/, 1/CD =/SYM 2/CD ,/, 2/CD =/SYM 1/CD ,/, 1/CD +1/CD =/SYM 2/CD ,/, etc./FW ./. ./.
+are/VBP the/DT common/JJ questions/NNS to/TO an/DT SQL/ACR database/NN of/IN an/DT attacker/NN ./.
+Maybe/RB also/RB it/PRP 's/VBZ used/VBN by/IN many/JJ hacking/NN applications/NNS ./.
+But/CC you/PRP must/MD be/VB careful/JJ ,/, that/IN you/PRP must/MD not/RB rewrite/VB a/DT safe/JJ query/NN from/IN your/PRP$ site/NN ./.
+The/DT code/NN above/IN is/VBZ giving/VBG you/PRP a/DT tip/NN ,/, to/TO rewrite/VB or/CC redirect/VB -LRB-/-LRB- it/PRP depends/VBZ on/IN you/PRP -RRB-/-RRB- that/IN hacking-specific/JJ dynamic/JJ query/NN string/NN into/IN a/DT page/NN that/WDT will/MD store/VB the/DT attacker/NN 's/POS IP/ACR address/NN ,/, or/CC EVEN/JJ THEIR/PRP$ COOKIES/NNS ,/, history/NN ,/, browser/NN ,/, or/CC any/DT other/JJ sensitive/JJ information/NN ,/, and/CC try/VB to/TO hack/VB them/PRP back/RB for/IN security/NN purposes/NNS ./.
+I/PRP 'm/VBP referring/VBG to/TO a/DT query/NN string/NN that/WDT 's/VBZ often/RB used/VBN by/IN search/NN engines/NNS ,/, and/CC giving/VBG some/DT tips/NNS to/TO catch/VB the/DT hacker/NN tools/NNS that/WDT are/VBP looking/VBG for/IN SQL/ACR vulnerability/NN via/IN query/NN string/NN ./.
+And/CC mostly/RB ,/, to/TO catch/VB their/PRP$ sensitive/JJ informations/NNS ./.
+About/IN POST/COS requests/NNS ?/.
+Let/VB the/DT PHP/ACR language/NN do/VBP the/DT job/NN ./. ./.
+I/PRP 'm/VBP just/RB trying/VBG to/TO answer/VB what/WP the/DT user/NN 's/POS asking/NN ./. ./.
+At/IN least/JJS RewriteEngine/COS can/MD able/JJ to/TO catch/VB it/PRP ./.
+@GaborGarami/ATS Yes/UH I/PRP agreed/VBD ./. ./.
+But/CC the/DT scenario/NN is/VBZ to/TO catch/VB the/DT hacker/NN ,/, to/TO track/VB it/PRP ,/, mostly/RB to/TO get/VB their/PRP$ private/JJ information/NN with/IN their/PRP$ account/NN ./.
+You/PRP can/MD even/RB edit/VB the/DT answer/NN ,/, for/IN it/PRP is/VBZ in/IN community/NN wiki/NN ./. ./.

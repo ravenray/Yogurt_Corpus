@@ -1,0 +1,15 @@
+A/DT breadth/NN first/JJ attack/NN on/IN usernames/NNS is/VBZ n't/RB going/VBG to/TO be/VB very/RB successful/JJ ./. ./.
+Why/WRB does/VBZ a/DT salt/NN make/NN rainbow/NN tables/NNS useless/JJ ?/.
+@R/ATS ./.
+Bemrose/NNP Why/WRB would/MD n't/RB there/RB be/VB a/DT rainbow/NN table/NN with/IN that/DT particular/JJ salt/NN value/NN ?/.
+Does/VBZ n't/RB that/RB completely/RB rely/VB on/IN what/WP you/PRP use/VBP as/IN a/DT salt/NN ?/.
+The/DT current/JJ explanation/NN is/VBZ not/RB sitting/VBG well/RB with/IN me/PRP because/IN I/PRP feel/VBP like/IN there/EX are/VBP a/DT LOT/NN of/IN assumptions/NNS @R/ATS ./.
+Bemrose/NNP So/IN I/PRP believe/VBP what/WP you/PRP 're/VBP saying/VBG is/VBZ that/IN the/DT benefit/NN that/IN a/DT salt/NN provides/VBZ is/VBZ simply/RB to/TO lengthen/VB the/DT password/NN ./.
+In/IN which/WDT case/NN ,/, having/VBG a/DT salt/NN of/IN `/`` a/DT '/'' is/VBZ going/VBG to/TO be/VB nearly/RB useless/JJ ?/.
+Ok/UH ,/, I/PRP see/VBP now/RB ./.
+If/IN a/DT password/NN is/VBZ salted/VBN and/CC you/PRP do/VBP n't/RB know/VB the/DT salt/NN ,/, then/RB you/PRP would/MD have/VB to/TO do/VB a/DT lot/NN of/IN educated/VBN guessing/VBG to/TO figure/VB out/RP what/WP the/DT password/NN is/VBZ because/IN SHA1/ACR -LRB-/-LRB- stored/VBN salt/NN +/CC user/NN entered/VBD password/NN -RRB-/-RRB- ==/SYM stored/VBD hash/JJ ./.
+But/CC I/PRP would/MD think/VB that/IN if/IN you/PRP 're/VBP able/JJ to/TO get/VB the/DT stored/VBN hash/NN then/RB you/PRP could/MD also/RB easily/RB get/VB the/DT salt/NN ./.
+This/DT just/RB does/VBZ n't/RB seem/VB anywhere/RB close/RB to/TO impossible/JJ to/TO me/PRP ./.
+And/CC what/WP 's/VBZ to/TO stop/VB you/PRP from/IN generating/VBG rainbow/NN tables/NNS for/IN large/JJ strings/NNS ?/.
+@Colin/ATS In/IN that/DT case/NN I/PRP think/VBP it/PRP is/VBZ an/DT important/JJ distinction/NN to/TO make/VB ./.
+Size/NN plays/VBZ an/DT important/JJ part/NN -LRB-/-LRB- depending/VBG on/IN your/PRP$ salting/JJ algorithm/NN -RRB-/-RRB-

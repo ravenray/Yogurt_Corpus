@@ -1,0 +1,4 @@
+Not/RB taking/VBG a/DT backup/NN before/IN fixing/VBG some/DT issue/NN inside/IN production/NN database/NN ./.
+Using/VBG DDL/NN commands/NNS on/IN stored/VBN objects/NNS -LRB-/-LRB- like/IN tables/NNS ,/, views/NNS -RRB-/-RRB- in/IN stored/VBN procedures/NNS ./.
+Fear/NN of/IN using/VBG stored/VBN proc/NN or/CC fear/NN of/IN using/VBG ORM/NN queries/NNS wherever/WRB the/DT one/NN is/VBZ more/RBR efficient/appropriate/JJ to/TO use/VB ./.
+Ignoring/VBG the/DT use/NN of/IN a/DT database/NN profiler/NN ,/, which/WDT can/MD tell/VB you/PRP exactly/RB what/WP your/PRP$ ORM/NNP query/NN is/VBZ being/VBG converted/VBN into/IN finally/RB and/CC hence/RB verify/VB the/DT logic/NN or/CC even/RB for/IN debugging/VBG when/WRB not/RB using/VBG ORM/NN ./.

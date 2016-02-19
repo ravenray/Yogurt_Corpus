@@ -1,0 +1,2 @@
+If/IN you/PRP are/VBP using/VBG replication/NN -LRB-/-LRB- MySQL/NN -RRB-/-RRB- ,/, following/VBG functions/NNS are/VBP unsafe/JJ unless/IN you/PRP are/VBP using/VBG row-based/JJ replication/NN ./.
+USER/NN -LRB-/-LRB- -RRB-/-RRB- ,/, CURRENT_USER/NN -LRB-/-LRB- -RRB-/-RRB- -LRB-/-LRB- or/CC CURRENT_USER/NN -RRB-/-RRB- ,/, UUID/NN -LRB-/-LRB- -RRB-/-RRB- ,/, VERSION/NN -LRB-/-LRB- -RRB-/-RRB- ,/, LOAD_FILE/NN -LRB-/-LRB- -RRB-/-RRB- ,/, and/CC RAND/NN -LRB-/-LRB- -RRB-/-RRB- See/NNP :/: http://dev.mysql.com/doc/refman/5.1/en/replication-features-functions.html/NN

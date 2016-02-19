@@ -1,0 +1,3 @@
+@R/NN ./.
+:/: You/PRP might/MD find/VB this/DT question/NN interesting/JJ ./.
+I/PRP would/MD certainly/RB like/VB to/TO know/VB your/PRP$ opinion/NN on/IN it/PRP ,/, if/IN any/DT ./.

@@ -1,0 +1,4 @@
+Also/RB -/: one/CD more/JJR imporatant/JJ point/NN -/: using/VBG a/DT USER-specific/JJ salt/NN prevents/VBZ the/DT detection/NN of/IN two/CD users/NNS with/IN the/DT SAME/NN password/NN -/: their/PRP$ hashes/NNS would/MD match/VB ./.
+That/DT 's/VBZ why/WRB many/JJ times/NNS the/DT hash/NN is/VBZ hash/NN -LRB-/-LRB- salt/NN +/CC username/NN +/CC password/NN -RRB-/-RRB- If/IN you/PRP try/VBP and/CC keep/VBP the/DT hash/JJ secret/NN the/DT attacker/NN also/RB can/MD not/RB verify/VB the/DT hashes/NNS ./.
+Edit/VB -/: just/RB noticed/VBD the/DT main/JJ point/NN was/VBD made/VBN in/IN a/DT comment/NN above/IN ./.
+@snemarch/NN -/: Yes/RB -/: thank/VB you/PRP very/RB much/RB for/IN this/DT important/JJ distinction/NN !/.

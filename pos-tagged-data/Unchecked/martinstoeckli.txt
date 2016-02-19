@@ -1,0 +1,5 @@
+This/DT is/VBZ because/IN it/PRP was/VBD replaced/VBN with/IN mysqli_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- ,/, not/RB because/IN you/PRP should/MD not/RB escape/VB strings/NNS anymore/RB ./.
+Maybe/RB you/PRP should/MD replace/VB mysql_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- with/IN mysqli_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- to/TO get/VB better/JJR answers/NNS ./.
+@Jon/NN -/: Agreed/NN ,/, but/CC i/FW think/VBP the/DT question/NN was/VBD about/IN ``/`` escaping/VBG strings/NNS ''/'' versus/CC ``/`` parametrized/VBN queries/NNS ''/'' from/IN the/DT start/NN ./.
+It/PRP was/VBD just/RB a/DT inattention/NN of/IN Asad/NNP and/CC the/DT ``/`` unuseful/JJ ''/'' answers/NNS did/VBD n't/RB stop/VB otherwise/RB ./.
+@Iserni/NNP Jon/NNP -/: I/PRP 'm/VBP sorry/JJ to/TO have/VB ruined/VBN your/PRP$ answers/NNS ,/, but/CC maybe/RB you/PRP know/VBP an/DT answer/NN to/TO the/DT new/JJ question/NN as/RB well/RB ?/.

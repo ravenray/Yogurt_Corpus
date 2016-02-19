@@ -1,0 +1,2 @@
+You/PRP should/MD never/RB use/VB a/DT query/JJ string/POST/NN body/NN to/TO pick/VB the/DT table/NN to/TO use/VB ./.
+If/IN you/PRP do/VBP n't/RB have/VB models/NNS ,/, at/IN least/JJS use/VBP a/DT switch/NN to/TO derive/VB the/DT table/NN name/NN ./.

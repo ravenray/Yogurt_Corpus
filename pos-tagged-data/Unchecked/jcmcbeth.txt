@@ -1,0 +1,2 @@
+The/DT term/NN broken/VBN has/VBZ a/DT specific/JJ meaning/NN in/IN the/DT context/NN of/IN hashing/VBG ,/, and/CC it/PRP is/VBZ n't/RB the/DT meaning/NN this/DT answer/NN puts/VBZ emphasis/NN on/IN ./.
+All/PDT this/DT answer/NN will/MD do/VB is/VBZ cause/VB confusion/NN ./.

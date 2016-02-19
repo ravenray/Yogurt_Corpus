@@ -1,0 +1,1 @@
+Here/RB 's/VBZ a/DT very/RB simple/JJ wrapper/NN around/IN mysqli/NNS :/: blog.vjeux.com/2009/php/…/NN

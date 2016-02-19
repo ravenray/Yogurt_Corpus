@@ -1,0 +1,2 @@
+Indeed/RB JSON/NNP is/VBZ not/RB in/IN every/DT browser/NN and/CC was/VBD added/VBN recently/RB ./.
+For/IN some/DT browsers/NNS to/TO support/VB JSON/NNP you/PRP need/VBP to/TO load/VB external/JJ library/NN for/IN example/NN :/: github.com/douglascrockford/JSON-js/NNS

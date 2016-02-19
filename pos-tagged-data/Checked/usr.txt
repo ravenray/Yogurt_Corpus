@@ -1,0 +1,25 @@
+After/IN installing/VBG the/DT ASP.NET/ACR MVC/ARC 3/CD security/NN update/VBP KB2990942/COS it/PRP appears/VBZ the/DT MVC/ARC version/NN increased/VBD from/IN 3.0.0.0/CD to/TO 3.0.0.1/CD ./.
+This/DT causes/VBZ Visual/NNP Studio/NNP to/TO no/DT longer/RBR find/VB the/DT reference/NN ./.
+Resharper/NNP does/VBZ not/RB show/VB any/DT problems/NNS but/CC the/DT build/VBP fails/VBZ with/IN lots/NNS of/IN unresolved/JJ MVC/ACR types/NNS and/CC a/DT warning/NN :/: Warning/NN :/: Could/MD not/RB resolve/VB this/DT reference/NN ./.
+Could/MD not/RB locate/VB the/DT assembly/NN ``/`` System.Web.Mvc/COB ,/COB Version/COB =/COB 3.0.0.0/COB ,/COB Culture/COB =/COB neutral/COB ,/COB PublicKeyToken/COB =/COB 31bf3856ad364e35/COB ,/COB processorArchitecture/COB =/COB MSIL/COB ''/COB ./COB
+Check/VB to/TO make/VB sure/JJ the/DT assembly/NN exists/VBZ on/IN disk/NN ./.
+If/IN this/DT reference/NN is/VBZ required/VBN by/IN your/PRP$ code/NN ,/, you/PRP may/MD get/VB compilation/NN errors/NNS ./.
+This/DT kind/NN of/IN makes/VBZ sense/NN ./.
+This/DT version/NN no/RB longer/RB exists/VBZ on/IN my/PRP$ machine/NN ./.
+I/PRP can/MD not/RB guarantee/VB the/DT exact/JJ MVC/ACR version/NN on/IN dev/NNC machines/NNS ,/, build/VB servers/NNS and/CC production/NN servers/NNS ./.
+They/PRP might/MD have/VB 3.0.0.0/CD or/CC 3.0.0.1/CD and/CC this/DT might/MD change/VB at/IN any/DT time/NN ./.
+Windows/NNP Update/NN might/MD release/VB new/JJ MVC/ACR versions/NNS at/IN any/DT time/NN ./.
+Also/RB ,/, I/PRP do/VBP n't/RB want/VB to/TO increase/VB the/DT version/NN number/NN in/IN all/DT */COS ./COS
+csproj/COS files/NNS whenever/WRB an/DT MVC/ARC update/VBP is/VBZ released/VBN ./.
+Multiple/JJ versions/NNS are/VBP affected/VBN by/IN the/DT update/NN :/: KB/ACR 2993939/CD :/: Security/NN Update/NN for/IN Microsoft/NNP ASP.NET/ACR MVC/ARC 2/CD KB/ARC 2993937/CD :/: Security/NN Update/NN for/IN Microsoft/NNP ASP.NET/ARC MVC/ARC 3/CD KB/ARC 2993928/CD :/: Security/NN Update/NN for/IN Microsoft/NNP ASP.NET/ARC MVC/ARC 4.0/CD KB/ARC 2992080/CD :/: Security/NN Update/NN for/IN Microsoft/NNP ASP.NET/ARC MVC/ARC 5.0/CD The/DT security/NN bulletin/NN :/: MS14-059/COS :/: Vulnerability/NN in/IN ASP.NET/ARC MVC/ARC Could/MD Allow/VB Security/NN Feature/NN Bypass/NN -LRB-/-LRB- 2990942/CD -RRB-/-RRB- What/WP 's/VBZ the/DT best/JJS way/NN to/TO deal/VB with/IN this/DT situation/NN ?/.
+How/WRB can/MD I/PRP unbreak/VB build/VBP and/CC production/NN and/CC be/VB safe/JJ regarding/VBG future/JJ MVC/ARC updates/NNS ?/.
+@Stijn/ATS I/PRP plan/NN to/TO do/VB that/DT but/CC I/PRP can/MD not/RB guarantee/VB that/IN updates/NNS happen/VB at/IN the/DT exact/JJ same/JJ time/NN ./.
+The/DT development/NN process/NN must/MD work/VB on/IN its/PRP$ own/JJ for/IN a/DT few/JJ weeks/NNS without/IN manual/JJ attention/NN ./.
+It/PRP did/VBD not/RB break/VB production/NN with/IN MVC/ACR 3/CD ./.
+In/IN the/DT GAC/ARC I/PRP found/VBD a/DT ``/`` System.Web.Mvc.dll.config/COS ''/'' that/WDT has/VBZ a/DT binding/NN redirect/NN ./.
+Apparently/RB ,/, this/DT file/NN is/VBZ being/VBG used/VBN by/IN the/DT CLR/ACR ./.
+That/DT would/MD need/VB to/TO happen/VB any/DT time/NN an/DT update/NN is/VBZ installed/VBN ./.
+I/PRP do/VBP n't/RB want/VB to/TO increase/VB anything/NN ./.
+I/PRP want/VBP this/DT fixed/VBN once/RB and/CC for/IN all/DT ./.
+There/EX might/MD not/RB even/RB be/VB a/DT human/JJ present/NN at/IN the/DT time/NN a/DT build/VB is/VBZ failing/VBG ./.
+It/PRP might/MD be/VB an/DT automated/JJ nightly/JJ build/VBP that/IN stops/NNS working/VBG after/IN an/DT automatic/JJ Windows/NNP Update/NN ./.

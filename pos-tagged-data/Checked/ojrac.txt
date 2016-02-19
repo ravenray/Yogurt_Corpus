@@ -1,0 +1,15 @@
+I/PRP have/VBP to/TO ask/VB whether/IN you/PRP 've/VBP done/VBN cost-benefit/JJ analysis/NN of/IN this/DT problem/NN ;/: it/PRP sounds/VBZ like/IN you/PRP 're/VBP trying/VBG to/TO protect/VB yourself/PRP from/IN an/DT attacker/NN who/WP has/VBZ enough/JJ web/NN presence/NN to/TO guess/VB a/DT number/NN of/IN passwords/NNS ,/, sending/VBG maybe/RB 3-5/CD requests/NNS per/IN IP/ACR -LRB-/-LRB- since/IN you/PRP 've/VBP dismissed/VBN IP/ACR throttling/VBG -RRB-/-RRB- ./.
+How/WRB much/JJ -LRB-/-LRB- roughly/RB -RRB-/-RRB- would/MD that/DT kind/NN of/IN attack/NN cost/NN ?/.
+Is/VBZ it/PRP more/RBR expensive/JJ than/IN the/DT value/NN of/IN the/DT accounts/NNS you/PRP 're/VBP trying/VBG to/TO protect/VB ?/.
+How/WRB many/JJ gargantuan/JJ botnets/NNS want/VBP what/WP you/PRP 've/VBP got/VBN ?/.
+The/DT answer/NN might/MD be/VB no/DT --/: but/CC if/IN it/PRP is/VBZ ,/, I/PRP hope/VBP you/PRP 're/VBP getting/VBG help/NN from/IN a/DT security/NN professional/NN of/IN some/DT sort/NN ;/: programming/NN skill/NN -LRB-/-LRB- and/CC StackOverflow/NNP score/NN -RRB-/-RRB- do/VBP not/RB correlate/VB strongly/RB to/TO security/NN know-how/NN ./.
+No/DT matter/NN how/WRB good/JJ your/PRP$ system/NN is/VBZ ,/, it/PRP 'll/MD fail/VB under/IN a/DT long/JJ enough/JJ attack/NN ./.
+There/EX are/VBP some/DT good/JJ ideas/NNS here/RB ,/, on/IN how/WRB to/TO extend/VB a/DT password/NN 's/POS duration/NN ./.
+-LRB-/-LRB- I/PRP personally/RB like/IN the/DT idea/NN of/IN exponentially-increasing/JJ attempt/NN rate/NN limiting/VBG per-user/NN and/CC per-IP/NN address/NN ./. -RRB-/-RRB-
+But/CC no/DT matter/NN what/WP you/PRP go/VBP with/IN ,/, you/PRP 'll/MD need/VB to/TO back/VB it/PRP up/RP with/IN some/DT password/NN rules/NNS ./.
+I/PRP 'd/MD encourage/VB you/PRP to/TO figure/VB out/RP how/WRB fast/RB a/DT password/NN can/MD be/VB cracked/VBN ,/, and/CC have/VBP users/NNS change/VB them/PRP twice/RB as/RB often/RB as/IN that/DT ./.
+Hope/VB this/DT helps/VBZ ./.
+Edit/VB :/: If/IN you/PRP expect/VBP a/DT lot/NN of/IN lazy/JJ attackers/NNS ,/, requiring/VBG some/DT CAPTCHA/ACR after/IN multiple/JJ failed/JJ attempts/NNS is/VBZ good/JJ :/: it/PRP raises/VBZ the/DT bar/NN a/DT little/JJ ./.
+If/IN you/PRP 're/VBP worried/JJ about/IN a/DT lot/NN of/IN intelligent/JJ attackers/NNS ,/, hire/VBP a/DT security/NN consultant/NN ./.
+;-RRB-/EMO Loren/NNP ,/, you/PRP 're/VBP right/JJ that/IN security/NN is/VBZ no/DT guarantee/NN ;/: the/DT goal/NN is/VBZ to/TO improve/VB your/PRP$ odds/NNS until/IN improving/NN is/VBZ more/RBR expensive/JJ than/IN a/DT breach/NN ./.
+That/DT 's/VBZ why/WRB you/PRP should/MD get/VB a/DT rough/JJ number/NN for/IN how/WRB long/RB a/DT password/NN lasts/VBZ on/IN average/NN ,/, and/CC make/VB users/NNS change/VB the/DT password/NN way/NN more/RBR often/RB than/IN that/DT ./.

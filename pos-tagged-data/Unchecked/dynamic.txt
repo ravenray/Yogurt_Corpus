@@ -1,0 +1,5 @@
+using/VBG static/JJ methods/NNS as/IN a/DT namespace/NN is/VBZ n't/RB generally/RB a/DT good/JJ solution/NN you/PRP are/VBP using/VBG it/PRP as/IN a/DT namespace/NN and/CC it/PRP 's/VBZ not/RB so/RB good/JJ ./.
+Anyway/RB I/PRP gave/VBD you/PRP a/DT +1/NN ./.
+For/IN other/JJ information/NN look/NN at/IN stackoverflow.com/questions/4690478/functions-vs-static-methods/NNS I/PRP am/VBP not/RB confused/VBN ./.
+I/PRP am/VBP saying/VBG that/IN your/PRP$ way/NN to/TO use/VB a/DT class/NN like/IN that/DT is/VBZ a/DT smell/NN of/IN bad/JJ design/NN ./.
+Not/RB to/TO mention/VB how/WRB bad/JJ are/VBP static/JJ methods/NNS ,/, for/IN more/JJR information/NN :/: misko.hevery.com/code-reviewers-guide/…/NN to/TO be/VB honest/JJ ./.

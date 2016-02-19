@@ -1,0 +1,6 @@
+@Radu094/NN ,/, the/DT point/NN is/VBZ that/IN angle/NN brackets/NNS are/VBP not/RB the/DT least/JJS bit/NN dangerous/JJ ./.
+Incompetent/JJ Web/NN developers/NNS are/VBP ./.
+As/IN emphasized/VBN by/IN the/DT fact/NN that/IN we/PRP can/MD type/NN them/PRP into/IN our/PRP$ comments/NNS right/RB here/RB on/IN SO/NN and/CC nothing/NN bad/NN is/VBZ happening/VBG !/.
+ZOMG/NN ,/, how/WRB do/VBP they/PRP do/VB it/PRP ?!/VB
+alert/NN -LRB-/-LRB- ``/`` Attack/NN !/. ''/'' -RRB-/-RRB-
+;/: Awww/NNP ./.

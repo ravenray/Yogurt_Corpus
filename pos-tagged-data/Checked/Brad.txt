@@ -1,0 +1,14 @@
+This/DT answer/NN is/VBZ bad/JJ !/.
+YourCommonSense/NNP outlined/VBD most/JJS of/IN the/DT reasons/NNS ,/, but/CC I/PRP 'm/VBP throwing/VBG a/DT downvote/NN in/IN for/IN the/DT thought/NN that/IN beginners/NNS ca/MD n't/RB use/VB a/DT prepared/JJ statement/NN ./.
+Ridiculous/JJ ./.
+I/PRP would/MD argue/VB that/IN it/PRP 's/VBZ probably/RB easier/JJR to/TO use/VB prepared/JJ statements/NNS than/IN concatenate/JJ garbage/NN into/IN a/DT query/NN in/IN the/DT first/JJ place/NN ./.
+You/PRP should/MD delete/VB your/PRP$ answer/NN ./.
+Nearly/RB 7/CD years/NNS later/RB ,/, this/DT answer/NN is/VBZ still/RB wrong/JJ and/CC still/RB misleading/JJ ./.
+@JoelCoehoorn/ATS your/PRP$ intentions/NNS with/IN this/DT post/NN are/VBP good/JJ ,/, and/CC while/IN you/PRP are/VBP getting/VBG at/IN the/DT right/JJ things/NNS ,/, the/DT way/NN it/PRP 's/VBZ worded/VBN makes/VBZ people/NNS believe/VBP that/IN there/EX is/VBZ some/DT sort/NN of/IN difference/NN between/IN injection/NN and/CC injection/NN ./.
+As/IN you/PRP know/VBP ,/, the/DT issue/NN is/VBZ about/IN bringing/VBG data/NNS into/IN the/DT correct/JJ context/NN ,/, which/WDT when/WRB done/VBN correctly/RB removes/VBZ any/DT chance/NN of/IN SQL/ACR injection/NN attacks/NNS ./.
+Data/NNS from/IN user/NN or/CC no/DT ,/, separating/VBG the/DT data/NNS from/IN the/DT command/NN is/VBZ required/VBN for/IN an/DT application/NN that/IN functions/NNS correctly/RB ./.
+@Pacerier/ATS Joel/ATS made/VBD an/DT edit/NN after/IN my/PRP$ comment/NN on/IN March/NNP 8th/JJ ,/, emphasizing/VBG a/DT sentence/NN in/IN what/WP he/PRP already/RB wrote/VBD ./.
+It/PRP 's/VBZ clear/JJ that/IN the/DT post/NN has/VBZ the/DT content/NN he/PRP intends/VBZ ./.
+I/PRP 'm/VBP not/RB going/VBG to/TO edit/VB someone/NN 's/POS post/NN to/TO change/VB the/DT meaning/NN of/IN it/PRP ,/, and/CC other/JJ answers/NNS already/RB answer/VBP the/DT question/NN ./.
+@Pacerier/ATS I/PRP disagree/VBP with/IN you/PRP there/RB ./.
+The/DT system/NN is/VBZ set/VBN up/RP in/IN a/DT way/NN that/IN we/PRP can/MD edit/VB everone/NN 's/POS posts/NNS ,/, yes/UH ,/, but/CC it/PRP is/VBZ good/JJ etiquette/NN and/CC rule/NN to/TO not/RB drastically/RB change/VB the/DT original/JJ meaning/NN ./.

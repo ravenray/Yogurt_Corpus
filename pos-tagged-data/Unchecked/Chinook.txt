@@ -1,0 +1,1 @@
+I/PRP have/VBP tried/VBN your/PRP$ example/NN and/CC it/PRP 's/VBZ work/NN fine/NN for/IN me.Could/NN you/PRP clear/VBP ``/`` this/DT wo/MD n't/RB solve/VB every/DT problem/NN ''/''

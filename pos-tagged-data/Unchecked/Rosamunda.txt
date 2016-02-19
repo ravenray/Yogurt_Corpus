@@ -1,0 +1,2 @@
+I/PRP ´/VBP ve/RB tried/VBN your/PRP$ solution/NN -LRB-/-LRB- loved/VBD it/PRP !/. -RRB-/-RRB-
+,/, but/CC I/PRP ´/FW ve/FW used/VBN mysqli/NNS instead/RB ,/, and/CC as/IN mysqli_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- requires/VBZ 2/CD parameters/NNS I/PRP have/VBP to/TO put/VB the/DT connection/NN as/IN the/DT first/JJ one/CD and/CC it/PRP worked/VBD ./.

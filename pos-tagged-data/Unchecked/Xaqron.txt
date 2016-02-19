@@ -1,0 +1,2 @@
+What/WP 's/VBZ wrong/JJ with/IN response.write/NN for/IN the/DT website/NN using/VBG that/IN ?/.
+It/PRP 's/VBZ more/RBR clear/JJ to/TO write/VB Response.Write/NN -LRB-/-LRB- UserData/NN -RRB-/-RRB-

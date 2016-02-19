@@ -1,0 +1,3 @@
+bug/NN aside/RB ,/, am/VBP I/PRP the/DT only/JJ one/NN who/WP thinks/VBZ ugly/JJ code/NN like/IN that/DT should/MD n't/RB be/VB in/IN the/DT book/NN ?/.
+--/: @Oktalist/NN :/: :-RRB-/NN at/IN least/JJS I/PRP get/VBP the/DT intention/NN there/RB ./.
+it/PRP teaches/VBZ argument-dependent/JJ name/NN lookup/NN and/CC operator/NN syntax/VBP the/DT same/JJ time/NN in/IN a/DT terse/JJ format/NN .../: and/CC it/PRP does/VBZ n't/RB give/VB the/DT impression/NN you/PRP should/MD actually/RB write/VB code/NN like/IN that/DT ./.

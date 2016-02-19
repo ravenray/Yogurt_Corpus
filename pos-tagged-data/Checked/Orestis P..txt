@@ -1,0 +1,17 @@
+Why/WRB has/VBZ this/DT answer/NN got/VBD so/RB many/JJ upvotes/NNS ?/.
+What/WP 's/VBZ the/DT point/NN of/IN blocking/VBG the/DT IP/ACR of/IN the/DT attacker/NN if/IN there/EX is/VBZ a/DT backup/JJ login/NN ?/.
+The/DT attacker/NN would/MD be/VB able/JJ to/TO use/VB the/DT backup/NN login/NN ./.
+It/PRP 's/VBZ exactly/RB the/DT same/JJ thing/NN as/IN -/: >/SYM After/IN a/DT number/NN of/IN invalid/JJ attempts/NNS from/IN an/DT IP/ACR ,/, display/VBP a/DT captcha/NN ./.
+This/DT solution/NN has/VBZ already/RB been/VBN stated/VBN in/IN the/DT question/NN ./.
+You/PRP just/RB filled/VBD it/PRP with/IN a/DT lot/NN of/IN other/JJ stuff/NN and/CC made/VBD it/PRP even/RB more/RBR complicated/JJ and/CC inefficient/JJ as/IN it/PRP already/RB is/VBZ ./.
+Thanks/VBZ for/IN replying/VBG ./.
+I/PRP still/RB do/VBP n't/RB understand/VB why/WRB this/DT is/VBZ more/RBR secured/JJ than/IN simply/RB displaying/VBG a/DT captcha/ACR after/IN a/DT number/NN of/IN invalid/JJ attempts/NNS from/IN an/DT IP/ACR ./.
+Your/PRP$ solution/NN displays/VBZ a/DT captcha/ACR after/IN a/DT number/NN of/IN invalid/JJ attempts/NNS from/IN an/DT IP/ACR as/IN well/RB ,/, the/DT difference/NN is/VBZ that/IN you/PRP have/VBP a/DT whitelist/COS so/IN that/IN IPs/ACR in/IN the/DT whitelist/COS do/VBP n't/RB get/VB blocked/VBN that/IN easily/RB -LRB-/-LRB- Keep/VB in/IN mind/NN that/IN a/DT whitelist/COS may/MD contain/VB an/DT IP/ACR of/IN a/DT large/JJ network/NN ,/, where/WRB an/DT attacker/NN could/MD potentially/RB exist/VB -RRB-/-RRB- ./.
+When/WRB I/PRP read/VBP your/PRP$ suggestion/NN I/PRP started/VBD implementing/VBG it/PRP ,/, but/CC then/RB realized/VBD that/IN it/PRP 's/VBZ pretty/RB much/JJ as/IN secured/VBN as/IN the/DT traditional/JJ method/NN ./.
+Hmm/UH I/PRP re-read/VBP your/PRP$ suggestion/NN and/CC stopped/VBD at/IN ``/`` setting/VBG a/DT very/RB restrictive/JJ maximum/NN number/NN of/IN failed/JJ login/NN attempts/NNS ''/'' -LRB-/-LRB- from/IN IPs/ACR not/RB in/IN whitelist/COS -RRB-/-RRB- ./.
+How/WRB restrictive/JJ are/VBP we/PRP talking/VBG about/IN ?/.
+If/IN it/PRP 's/VBZ more/JJR than/IN 2/CD or/CC 3/CD ,/, then/RB your/PRP$ suggestion/NN would/MD still/RB be/VB vulnerable/JJ to/TO this/DT attack/NN ,/, am/VBP I/PRP right/JJ ?/.
+Ohh/UH it/PRP 's/VBZ from/IN any/DT IP/ACR ./.
+Now/RB I/PRP understand/VBP ,/, thank/VB you/PRP ./.
+Sorry/JJ for/IN misunderstanding/VBG your/PRP$ suggestion/NN ./.
+Thanks/VBZ again/RB !/.

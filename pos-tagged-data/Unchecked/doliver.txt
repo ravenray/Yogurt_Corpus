@@ -1,0 +1,13 @@
+@Polynomial/NN ca/MD n't/RB that/DT issue/NN be/VB resolved/VBN by/IN just/RB putting/VBG $/$ var/NN into/IN quotations/NNS in/IN the/DT SQL/NN statement/NN ?/.
+Are/VBP there/RB other/JJ such/JJ instances/NNS where/WRB you/PRP can/MD get/VB around/IN mysql_real_escape_string/NN ,/, or/CC is/VBZ it/PRP pretty/RB much/RB only/RB when/WRB you/PRP put/VBP a/DT raw/JJ variable/NN in/IN SQL/NN without/IN quotes/NNS ?/.
+Would/MD n't/RB any/DT quoted/VBN string/NN then/RB be/VB forced/VBN to/TO close/VB those/DT quotes/NNS to/TO inject/VB which/WDT would/MD then/RB be/VB escaped/VBN by/IN mysql_real_escape_string/NN ?/.
+@BryanH/NNP Sorry/NNP for/IN my/PRP$ ignorance/NN here/RB ,/, but/CC I/PRP do/VBP n't/RB see/VB it/PRP .../: I/PRP just/RB ran/VBD that/IN query/NN against/IN a/DT test/NN table/NN in/IN my/PRP$ db/NN and/CC it/PRP returns/VBZ 0/CD rows/looks/NNS in/IN table/NN foo/NN for/IN entries/NNS where/WRB bar/NN =/JJ '/'' 1/CD \/NN ''/'' OR/NN \/CD ``/`` 2/CD \/NN ''/'' =/JJ \/CD ``/`` 2/CD '/'' ./.
+What/WP 's/VBZ the/DT idea/NN here/RB ?/.
+that/IN somehow/RB some/DT of/IN the/DT quotes/NNS go/VBP unescaped/JJ because/IN they/PRP 're/VBP escaped/VBN once/RB for/IN php/NN and/CC then/RB interped/VBD literally/RB in/IN SQL/NNP ?/.
+I/PRP 'm/VBP not/RB trying/VBG to/TO be/VB a/DT smartass/NN here/RB ,/, just/RB trying/VBG to/TO learn/VB ./.
+I/PRP see/VBP the/DT injection/NN ,/, but/CC if/IN we/PRP have/VBP a/DT query/NN that/WDT looks/VBZ like/IN this/DT :/: select/JJ */NN from/IN foo/NN where/WRB bar/NN =/JJ '/'' ''/'' ./.
+mysql_real_escape_string/NN -LRB-/-LRB- $/$ unsafe_var/JJ -RRB-/-RRB- ./. ''/'' '/''
+;/: ''/'' then/RB how/WRB do/VBP you/PRP inject/VB into/IN that/DT ?/.
+Any/DT quotes/NNS ,/, backslashes/NNS ,/, or/CC anything/NN else/RB will/MD be/VB escaped/VBN ,/, correct/VB ?/.
+I/PRP understand/VBP that/IN even/RB if/IN that/DT 's/VBZ the/DT case/NN ,/, best/JJS practice/NN is/VBZ to/TO use/VB Mysqli/NNP ./.
+I/PRP 'm/VBP just/RB wondering/VBG if/IN this/DT injection/NN is/VBZ actually/RB possible/JJ .../:

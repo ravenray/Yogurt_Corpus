@@ -1,0 +1,2 @@
+Only/RB applicable/JJ for/IN ASP.NET/NN 4.5/CD -LRB-/-LRB- and/CC ,/, presumably/RB ,/, whatever/WDT will/MD come/VB after/IN it/PRP ./. -RRB-/-RRB-
+Pre/NN 4.5/CD does/VBZ not/RB support/VB this/DT ./.

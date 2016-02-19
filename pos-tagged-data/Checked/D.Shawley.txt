@@ -1,0 +1,38 @@
+First/RB of/IN all/DT -LRB-/-LRB- as/IN Neil/NNP stated/VBD -RRB-/-RRB- ,/, SEH/ACR is/VBZ Microsoft/NNP 's/POS Structured/JJ Exception/NN Handling/VBG ./.
+It/PRP is/VBZ similar/JJ to/TO but/CC not/RB identical/JJ to/TO exception/NN processing/NN in/IN C++/NNP ./.
+In/IN fact/NN ,/, you/PRP have/VBP to/TO enable/VB C++/NNP Exception/NN Handling/VBG if/IN you/PRP want/VBP it/PRP in/IN Visual/NNP Studio/NNP -/: the/DT default/NN behavior/NN does/VBZ not/RB guarantee/VB that/IN local/JJ objects/NNS are/VBP destroyed/VBN in/IN all/DT cases/NNS !/.
+In/IN either/DT case/NN ,/, Exception/NN Handling/VBG is/VBZ not/RB really/RB harder/JJR it/PRP is/VBZ just/RB different/JJ ./.
+Now/RB for/IN your/PRP$ actual/JJ questions/NNS ./.
+Do/VBP you/PRP really/RB write/VB exception/NN safe/JJ code/NN ?/.
+Yes/UH ./.
+I/PRP strive/VBP for/IN exception/NN safe/JJ code/NN in/IN all/DT cases/NNS ./.
+I/PRP evangelize/VBP using/VBG RAII/NN techniques/NNS for/IN scoped/JJ access/NN to/TO resources/NNS -LRB-/-LRB- e.g./FW ,/, boost/NN :/: :/: shared_ptr/COS for/IN memory/NN ,/, boost/NN :/: :/: lock_guard/COS for/IN locking/VBG -RRB-/-RRB- ./.
+In/IN general/JJ ,/, consistent/JJ usage/NN of/IN RAII/ACR and/CC scope/NN guarding/VBG techniques/NNS will/MD make/VB exception/NN safe/JJ code/NN much/RB easier/JJR to/TO write/VB ./.
+The/DT trick/NN is/VBZ to/TO learn/VB what/WP exists/VBZ and/CC how/WRB to/TO apply/VB it/PRP ./.
+Are/VBP you/PRP sure/JJ your/PRP$ last/JJ ``/`` production/NN ready/JJ ''/'' code/NN is/VBZ exception/NN safe/NN ?/.
+No/UH ./.
+It/PRP is/VBZ as/RB safe/JJ as/IN it/PRP is/VBZ ./.
+I/PRP can/MD say/VB that/IN I/PRP have/VBP n't/RB seen/VBN a/DT process/NN fault/NN due/JJ to/TO an/DT exception/NN in/IN several/JJ years/NNS of/IN 24/7/CD activity/NN ./.
+I/PRP do/VBP n't/RB expect/VB perfect/JJ code/NN ,/, just/RB well-written/JJ code/NN ./.
+In/IN addition/NN to/TO providing/VBG exception/NN safety/NN ,/, the/DT techniques/NNS above/IN guarantee/NN correctness/NN in/IN a/DT way/NN that/WDT is/VBZ near/RB impossible/JJ to/TO achieve/VB with/IN try/catch/COS blocks/NNS ./.
+If/IN you/PRP are/VBP catching/VBG everything/NN in/IN your/PRP$ top/JJ control/NN scope/NN -LRB-/-LRB- thread/NN ,/, process/NN ,/, etc./FW -RRB-/-RRB- ,/, then/RB you/PRP can/MD be/VB sure/JJ that/IN you/PRP will/MD continue/VB to/TO run/VB in/IN the/DT face/NN of/IN exceptions/NNS -LRB-/-LRB- most/JJS of/IN the/DT time/NN -RRB-/-RRB- ./.
+The/DT same/JJ techniques/NNS will/MD also/RB help/VB you/PRP continue/VBP to/TO run/VB correctly/RB in/IN the/DT face/NN of/IN exceptions/NNS without/IN try/catch/NN blocks/VBZ everywhere/RB ./.
+Can/MD you/PRP even/RB be/VB sure/JJ that/IN it/PRP is/VBZ ?/.
+Yes/UH ./.
+You/PRP can/MD be/VB sure/JJ by/IN a/DT thorough/JJ code/NN audit/NN but/CC no/DT one/NN really/RB does/VBZ that/IN do/VB they/PRP ?/.
+Regular/JJ code/NN reviews/NNS and/CC careful/JJ developers/NNS go/VBP a/DT long/JJ way/NN to/TO getting/VBG there/RB though/IN ./.
+Do/VBP you/PRP know/VB and/or/CC actually/RB use/VBP alternatives/NNS that/IN work/NN ?/.
+I/PRP have/VBP tried/VBN a/DT few/JJ variations/NNS over/IN the/DT years/NNS such/JJ as/IN encoding/VBG states/NNS in/IN the/DT upper/JJ bits/NNS -LRB-/-LRB- ala/FW HRESULTs/COS -RRB-/-RRB- or/CC that/IN horrible/JJ setjmp/COS -LRB-/COS -RRB-/COS .../: longjmp/COS -LRB-/COS -RRB-/COS hack/NN ./.
+Both/DT of/IN these/DT break/NN down/RP in/IN practice/NN though/IN in/IN completely/RB different/JJ ways/NNS ./.
+In/IN the/DT end/NN ,/, if/IN you/PRP get/VBP into/IN the/DT habit/NN of/IN applying/VBG a/DT few/JJ techniques/NNS and/CC carefully/RB thinking/VBG about/IN where/WRB you/PRP can/MD actually/RB do/VB something/NN in/IN response/NN to/TO an/DT exception/NN ,/, you/PRP will/MD end/VB up/RP with/IN very/RB readable/JJ code/NN that/WDT is/VBZ exception/NN safe/NN ./.
+You/PRP can/MD sum/VB this/DT up/RP by/IN following/VBG these/DT rules/NNS :/: You/PRP only/RB want/VBP to/TO see/VB try/catch/NN when/WRB you/PRP can/MD do/VB something/NN about/IN a/DT specific/JJ exception/NN You/PRP almost/RB never/RB want/VBP to/TO see/VB a/DT raw/JJ new/JJ or/CC delete/VB in/IN code/NN Eschew/NN std/COB :/COB :/COB sprintf/COB ,/, snprintf/COB ,/, and/CC arrays/NNS in/IN general/JJ -/: use/VB std/COB :/COB :/COB ostringstream/COB for/IN formatting/NN and/CC replace/VB arrays/NNS with/IN std/COB :/COB :/COB vector/COB and/CC std/COB :/COB :/COB string/COB When/WRB in/IN doubt/NN ,/, look/NN for/IN functionality/NN in/IN Boost/NN or/CC STL/ACR before/IN rolling/VBG your/PRP$ own/JJ I/PRP can/MD only/RB recommend/VB that/IN you/PRP learn/VBP how/WRB to/TO use/VB exceptions/NNS properly/RB and/CC forget/VB about/IN result/NN codes/NNS if/IN you/PRP plan/VBP on/IN writing/NN in/IN C++/NNP ./.
+If/IN you/PRP want/VBP to/TO avoid/VB exceptions/NNS ,/, you/PRP might/MD want/VB to/TO consider/VB writing/VBG in/IN another/DT language/NN that/WDT either/RB does/VBZ not/RB have/VB them/PRP or/CC makes/VBZ them/PRP safe/JJ ./.
+If/IN you/PRP want/VBP to/TO really/RB learn/VB how/WRB to/TO fully/RB utilize/VB C++/NNP ,/, read/VBD a/DT few/JJ books/NNS from/IN Herb/NNP Sutter/NNP ,/, Nicolai/NNP Josuttis/NNP ,/, and/CC Scott/NNP Meyers/NNP ./.
+@Raedwald/ATS -/: re/ACR :/: VC++/ACR :/: the/DT VS2005/CD edition/NN of/IN VC++/ACR will/MD not/RB destroy/VB local/JJ objects/NNS when/WRB an/DT SEH/ACR exception/NN is/VBZ thrown/VBN ./.
+Read/VB the/DT ``/`` enable/VB C++/NNP Exception/NN Handling/VBG ''/'' ./.
+In/IN VS2005/CD ,/, SEH/ACR exceptions/NNS do/VBP not/RB call/VB the/DT destructors/NNS of/IN C++/NNP objects/NNS by/IN default/NN ./.
+If/IN you/PRP call/VBP Win32/NNP functions/NNS or/CC anything/NN defined/VBN in/IN a/DT C-interface/COS DLL/ACR ,/, then/RB you/PRP have/VBP to/TO worry/VB about/IN this/DT since/IN they/PRP can/MD -LRB-/-LRB- and/CC will/NN on/IN occasion/NN -RRB-/-RRB- throw/VBP an/DT SEH/ACR exception/NN your/PRP$ way/NN ./.
+@Raedwald/ATS :/: re/ACR :/: raw/JJ :/: basically/RB ,/, delete/COS should/MD never/RB be/VB used/VBN outside/IN of/IN the/DT implementation/NN of/IN tr1/COB :/COB :/COB shared_ptr/COB and/CC the/DT like/JJ ./.
+new/JJ can/MD be/VB used/VBN provided/VBN that/IN its/PRP$ usage/NN is/VBZ something/NN like/IN tr1/COB :/COB :/COB shared_ptr/COB <X>/COB ptr/COB -LRB-/COB new/COB X/COB -LRB-/COB arg/COB ,/COB arg/COB -RRB-/COB -RRB-/COB ;/COB ./COB
+The/DT important/JJ part/NN is/VBZ that/IN the/DT result/NN of/IN new/JJ goes/VBZ directly/RB into/IN a/DT managed/JJ pointer/NN ./.
+The/DT page/NN on/IN boost/COB :/COB :/COB shared_ptr/COB Best/NN Practices/NNS describes/VBZ the/DT best/JJS ./.

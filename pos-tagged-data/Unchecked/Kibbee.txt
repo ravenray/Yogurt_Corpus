@@ -1,0 +1,3 @@
+I/PRP 'd/MD recommend/VB using/VBG PDO/NN -LRB-/-LRB- PHP/NN Data/NN Objects/NNS -RRB-/-RRB- to/TO run/VB parameterized/JJ SQL/NN queries/NNS ./.
+Not/RB only/RB does/VBZ this/DT protect/VB against/IN SQL/NNP injection/NN ,/, it/PRP also/RB speeds/VBZ up/RP queries/NNS ./.
+And/CC by/IN using/VBG PDO/NN rather/RB than/IN mysql/FW _/FW ,/, mysqli/JJ _/NN ,/, and/CC pgsql/FW _/FW functions/NNS ,/, you/PRP make/VBP your/PRP$ app/NN a/DT little/RB more/RBR abstracted/JJ from/IN the/DT database/NN ,/, in/IN the/DT rare/JJ occurrence/NN that/IN you/PRP have/VBP to/TO switch/VB database/NN providers/NNS ./.

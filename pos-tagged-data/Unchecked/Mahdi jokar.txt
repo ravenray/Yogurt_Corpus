@@ -1,0 +1,3 @@
+In/IN the/DT web.config/NN file/NN ,/, within/IN the/DT tags/NNS ,/, insert/VBP the/DT httpRuntime/NN element/NN with/IN the/DT attribute/NN requestValidationMode/NN =/JJ ``/`` 2.0/CD ''/'' ./.
+Also/RB add/VB the/DT validateRequest/NN =/JJ ``/`` false/JJ ''/'' attribute/NN in/IN the/DT pages/NNS element/NN ./.
+Example/NN :/:

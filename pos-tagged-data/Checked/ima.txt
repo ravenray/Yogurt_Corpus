@@ -1,0 +1,15 @@
+A/DT lot/NN -LRB-/-LRB- I/PRP would/MD even/RB say/VB most/JJS -RRB-/-RRB- people/NNS do/VBP ./.
+What/WP 's/VBZ really/RB important/JJ about/IN exceptions/NNS ,/, is/VBZ that/IN if/IN you/PRP do/VBP n't/RB write/VB any/DT handling/VBG code/NN -/: the/DT result/NN is/VBZ perfectly/RB safe/JJ and/CC well-behaved/JJ ./.
+Too/RB eager/JJ to/TO panic/NN ,/, but/CC safe/JJ ./.
+You/PRP need/VBP to/TO actively/RB make/VB mistakes/NNS in/IN handlers/NNS to/TO get/VB something/NN unsafe/JJ ,/, and/CC only/RB catch/NN -LRB-/-LRB- .../: -RRB-/-RRB- -LCB-/-LRB- -RCB-/-RRB- will/MD compare/VB to/TO ignoring/VBG error/NN code/NN ./.
+It/PRP would/MD n't/RB matter/VB when/WRB you/PRP program/NN terminates/VBZ ,/, right/RB ?/.
+To/TO continue/VB execution/NN ,/, you/PRP 'll/MD have/VB to/TO actively/RB swallow/VB exceptions/NNS ./.
+Well/RB ,/, there/EX are/VBP some/DT specific/JJ cases/NNS where/WRB termination/NN without/IN clean-up/JJ is/VBZ still/RB unacceptable/JJ ,/, but/CC such/JJ situations/NNS needs/VBZ special/JJ care/NN in/IN any/DT programming/NN language/NN and/CC style/NN ./.
+Did/VBD I/PRP say/VB you/PRP can/MD ?/.
+Now/RB read/VB again/RB what/WP I/PRP wrote/VBD and/CC try/VB to/TO understand/VB ./.
+With/IN exceptions/NNS ,/, unsafe/JJ code/NN results/NNS from/IN you/PRP making/VBG mistakes/NNS in/IN handling/VBG code/NN ./.
+With/IN error/NN codes/NNS ,/, unsafe/JJ code/NN results/NNS from/IN you/PRP not/RB writing/VBG handling/VBG code/NN ./.
+The/DT difference/NN is/VBZ huge/JJ ./.
+Please/VB ,/, do/VBP n't/RB twist/VB my/PRP$ words/NNS ./.
+I/PRP wrote/VBD ``/`` if/IN you/PRP do/VBP n't/RB write/VB any/DT handling/VBG code/NN ''/'' -/: and/CC I/PRP meant/VBD exactly/RB that/DT ./.
+To/TO ignore/VB exceptions/NNS ,/, you/PRP need/VBP to/TO write/VB code/NN ./.

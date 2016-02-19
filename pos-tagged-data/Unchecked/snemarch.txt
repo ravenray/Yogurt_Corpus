@@ -1,0 +1,6 @@
+-1/CD for/IN ``/`` Of/IN course/NN the/DT salt/NN needs/VBZ to/TO be/VB kept/VBN secret/NN ''/'' ./.
+If/IN an/DT attacker/NN has/VBZ access/NN to/TO your/PRP$ password/NN hashes/VBZ ,/, he/PRP will/MD have/VB your/PRP$ salts/NNS as/RB well/RB -/: what/WP you/PRP need/VBP are/VBP per-user/JJ salts/NNS ,/, not/RB the/DT security/NN through/IN obscurity/NN of/IN a/DT ``/`` hidden/JJ ''/'' salt/NN ./.
+Short/JJ and/CC precise/JJ answer/NN -/: worth/JJ adding/VBG that/IN without/IN salt/NN or/CC with/IN site-wide/JJ salt/NN ,/, you/PRP can/MD easily/RB spot/VB users/NNS with/IN the/DT same/JJ password/NN ,/, and/CC will/MD only/RB need/VB to/TO brute-force/JJ one/NN ./.
+With/IN per-user/JJ salts/NNS ,/, you/PRP ca/MD n't/RB do/VB that/DT ./.
+You/PRP should/MD edit/VB to/TO specify/VB per-user/JJ salt/NN ;/: sites/NNS using/VBG a/DT site-wide/JJ salt/NN will/MD still/RB allow/VB you/PRP to/TO detect/VB identical/JJ passwords/NNS ./.
+@Tom/NNP Gullen/NNP :/: generating/VBG salted/JJ rainbow/NN tables/NNS is/VBZ only/RB feasible/JJ if/IN site-wide/JJ salts/NNS are/VBP used/VBN ;/: per-user/JJ salting/NN makes/VBZ rainbow/NN table/NN attacks/NNS pretty/RB much/RB useless/JJ ./.

@@ -1,0 +1,2 @@
+Am/VBP I/PRP missing/VBG something/NN here/RB but/CC is/VBZ n't/RB the/DT whole/JJ point/NN of/IN prepared/JJ statements/NNS to/TO avoid/VB treating/VBG sql/NN like/IN a/DT string/NN ?/.
+Would/MD n't/RB something/NN like/IN $/$ dbh/SYM -/: >/JJR prepare/VB -LRB-/-LRB- `/`` SELECT/JJ */NN FROM/NN :/: tableToUse/NN where/WRB username/NN =/JJ :/: username/NN '/'' -RRB-/-RRB- ;/: get/VB around/IN your/PRP$ problem/NN ?/.

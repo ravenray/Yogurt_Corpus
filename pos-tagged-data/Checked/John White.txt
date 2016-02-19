@@ -1,0 +1,11 @@
+I/PRP 'd/MD say/VB the/DT right/JJ thing/NN is/VBZ to/TO declare/VB each/DT number/NN as/IN an/DT object/NN ,/, and/CC then/RB define/VB three/CD things/NNS in/IN that/DT object/NN :/: 1/LS -RRB-/-RRB- an/DT equality/NN operator/NN ./.
+2/LS -RRB-/-RRB- a/DT setAcceptableDifference/COS method/NN ./.
+3/LS -RRB-/-RRB- the/DT value/NN itself/PRP ./.
+The/DT equality/NN operator/NN returns/VBZ true/JJ if/IN the/DT absolute/JJ difference/NN of/IN two/CD values/NNS is/VBZ less/JJR than/IN the/DT value/NN set/VBN as/IN acceptable/JJ ./.
+You/PRP can/MD subclass/VB the/DT object/NN to/TO suit/VB the/DT problem/NN ./.
+For/IN example/NN ,/, round/JJ bars/NNS of/IN metal/NN between/IN 1/CD and/CC 2/CD inches/NNS might/MD be/VB considered/VBN of/IN equal/JJ diameter/NN if/IN their/PRP$ diameters/NNS differed/VBN by/IN less/JJR than/IN 0.0001/CD inches/NNS ./.
+So/RB you/PRP 'd/MD call/VB setAcceptableDifference/COS with/IN parameter/NN 0.0001/CD ,/, and/CC then/RB use/VB the/DT equality/NN operator/NN with/IN confidence/NN ./.
+Tom/NNP ,/, maybe/RB you/PRP 'd/MD think/VB again/RB about/IN the/DT ``/`` object/NN thing/NN ''/'' ./.
+With/IN real/JJ numbers/NNS ,/, represented/VBN to/TO high/JJ precision/NN ,/, equality/NN rarely/RB happens/VBZ ./.
+But/CC one/PRP 's/VBZ idea/NN of/IN equality/NN may/MD be/VB tailored/VBN if/IN it/PRP suits/VBZ you/PRP ./.
+It/PRP would/MD be/VB nicer/JJR if/IN there/EX was/VBD an/DT overridable/JJ `/`` approximately/RB equal/JJ '/'' operator/NN ,/, but/CC there/EX ai/VBP n't/RB ./.

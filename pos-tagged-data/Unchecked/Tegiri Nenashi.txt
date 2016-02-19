@@ -1,0 +1,3 @@
+-1/CD #/# 14/CD The/DT queries/NNS are/VBP equivalent/JJ :/: if/IN query/JJ planner/NN in/IN your/PRP$ favorite/JJ database/NN tells/VBZ you/PRP otherwise/RB ,/, fire/VB your/PRP$ db/NN vendor/NN ./.
+-1/CD There/EX is/VBZ no/DT inherently/RB good/JJ and/CC bad/JJ queries/NNS ./.
+Optimizer/NNP does/VBZ this/DT transformation/NN when/WRB needed/VBN ./.

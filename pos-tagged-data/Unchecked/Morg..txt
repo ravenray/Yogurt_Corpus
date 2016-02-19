@@ -1,0 +1,6 @@
+It/PRP is/VBZ perfectly/RB safe/JJ to/TO escape/VB strings/NNS if/IN you/PRP do/VBP it/PRP right/RB ./.
+Using/VBG prepared/JJ statements/NNS to/TO escape/VB strings/NNS is/VBZ just/RB a/DT way/NN to/TO slow/VB down/RP your/PRP$ application/NN ./.
+If/IN you/PRP want/VBP to/TO use/VB parameters/NNS ,/, there/EX 's/VBZ something/NN called/VBN stored/VBD procedure/NN ,/, which/WDT can/MD be/VB used/VBN as/IN a/DT long-term/JJ prepared/JJ statement/NN that/WDT does/VBZ not/RB incur/VB an/DT overhead/NN every/DT time/NN you/PRP call/VBP prepare/VB -LRB-/-LRB- -RRB-/-RRB- ./.
+Depending/VBG on/IN your/PRP$ DBMS/NN ,/, a/DT prepared/JJ statement/NN could/MD also/RB be/VB unsafe/JJ ./.
+And/CC with/IN the/DT code/NN quality/NN of/IN MySQL/NN ,/, it/PRP 's/VBZ perfectly/RB possible/JJ to/TO write/VB a/DT safer/JJR string/NN escape/NN in/IN PHP/NNP ./.
+Lastly/RB ,/, if/IN you/PRP care/VBP about/IN security/NN ,/, why/WRB use/NN MySQL/NN at/IN all/DT ./.

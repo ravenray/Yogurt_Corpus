@@ -1,0 +1,6 @@
+In/FW MySQL/FW ,/, this/DT can/MD actually/RB make/VB performance/NN worse/JJR since/IN prepared/VBN statements/NNS are/VBP n't/RB cached/VBN and/CC also/RB ,/, the/DT query/NN cache/NN wo/MD n't/RB be/VB used/VBN for/IN prepared/JJ statements/NNS ./.
+This/DT blog/NN post/NN is/VBZ old/JJ ,/, but/CC I/PRP believe/VBP still/RB up-to-date/JJ with/IN respect/NN to/TO caching/VBG info/NN mysqlperformanceblog.com/2006/08/02/mysql-prepared-statements/NNS This/DT can/MD be/VB -LRB-/-LRB- somewhat/RB -RRB-/-RRB- solved/VBD via/IN $/$ db/SYM -/: >/JJR setAttribute/NN -LRB-/-LRB- PDO/NN :/: :/: ATTR_EMULATE_PREPARES/NN ,/, true/JJ -RRB-/-RRB- ;/: to/TO emulate/VB prepared/JJ statements/NNS client/NN -LRB-/-LRB- PHP/NN -RRB-/-RRB- -/: side/NN ./.
+@Basic/JJ Do/VBP you/PRP have/VB a/DT reference/NN that/IN ?/.
+Thanks/NNS @Basic/JJ !/.
+Although/IN I/PRP believe/VBP this/DT exists/VBZ only/RB as/IN of/IN MySQL/NN 5.6/CD which/WDT was/VBD not/RB around/RB when/WRB this/DT question/NN was/VBD answered/VBN :-RRB-/NNP @Justin/NNP ??????/NNP Prepared/NNP statements/NNS can/MD make/VB use/NN of/IN the/DT query/NN cache/NN as/IN of/IN MySQL/FW 5.1.17/FW ./.
+But/CC prepared/JJ statements/NNS themselves/PRP were/VBD not/RB cached/VBN until/IN 5.6/CD as/IN noted/VBN in/IN another/DT comment/NN ./.

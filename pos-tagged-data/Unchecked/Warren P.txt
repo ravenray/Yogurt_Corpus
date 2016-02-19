@@ -1,0 +1,3 @@
+Stored/VBN procedures/NNS tend/VBP to/TO become/VB an/DT island/NN of/IN hurt/NN in/IN any/DT project/NN where/WRB they/PRP are/VBP used/VBN ,/, thus/RB some/DT developers/NNS make/VBP a/DT rule/NN ``/`` No/NNP stored/VBD procedures/NNS ''/'' ./.
+So/IN it/PRP looks/VBZ like/IN there/EX is/VBZ an/DT open/JJ conflict/NN beteween/VBG them/PRP ./.
+Your/PRP$ answer/NN makes/VBZ a/DT good/JJ case/NN for/IN when/WRB to/TO actually/RB choose/VB one/CD way/NN ,/, or/CC the/DT other/JJ ./.

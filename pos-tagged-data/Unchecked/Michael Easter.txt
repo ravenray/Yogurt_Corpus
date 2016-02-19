@@ -1,0 +1,2 @@
+A/DT better/JJR analogy/NN might/MD be/VB that/IN one/PRP can/MD not/RB properly/RB troubleshoot/VB a/DT manual/JJ transmission/NN without/IN understanding/VBG a/DT clutch/NN ./.
+Plenty/NN of/IN people/NNS properly/RB drive/VBP a/DT stick-shift/NN without/IN knowing/VBG how/WRB a/DT clutch/NN works/VBZ ./.

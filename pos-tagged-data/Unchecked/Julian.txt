@@ -1,0 +1,2 @@
+Move/VB your/PRP$ certificate/NN to/TO the/DT System/NNP keychain/NN and/CC be/VB happy/JJ ;-RRB-/NN Ca/MD n't/RB find/VB this/DT file/NN on/IN my/PRP$ system/NN ./.
+Any/DT reference/NN for/IN this/DT information/NN ?/.

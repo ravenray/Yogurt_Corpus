@@ -1,0 +1,11 @@
+I/PRP added/VBD the/DT private/JJ and/CC public/JJ key/NN for/IN the/DT company/NN to/TO the/DT keychain/NN ./.
+I/PRP added/VBD the/DT provision/NN profiles/NNS for/IN the/DT production/NN I/PRP will/MD be/VB building/VBG ./.
+Since/IN this/DT user/NN did/VBD not/RB have/VB an/DT account/NN I/PRP logged/VBD into/IN devcenter/NN with/IN my/PRP$ account/NN ./.
+Downloaded/VBN the/DT provisioning/VBG certs/NNS and/CC loaded/VBD them/PRP into/IN Xcode/NNP ./.
+I/PRP did/VBD not/RB add/VB a/DT cert/NN specifically/RB for/IN the/DT build/VBP role/NN account/NN ,/, ex/FW ./.
+jenkins/NNS ./.
+I/PRP did/VBD add/VB this/DT to/TO the/DT build/VB script/NN :/: security/NN unlock-keychain/JJ -/: p/NN mySecretPassword/NN as/IN above/JJ ,/, but/CC .../: I/PRP created/VBD a/DT file/NN ~/NN //: ./.
+ssh/mypass/NN and/CC add/VB the/DT password/NN to/TO the/DT file/NN ./.
+Then/RB the/DT command/NN becomes/VBZ :/: security/NN unlock-keychain/JJ -/: p/NN cat/NN ~/NN //: ./.
+ssh/mypass/NN Builds/NNS are/VBP working/VBG like/IN a/DT champ/NN ./.
+I/PRP get/VBP the/DT ipa/NN file/NN ,/, it/PRP loads/NNS on/IN app/NN central/NN and/CC works/VBZ on/IN the/DT device/NN ./.

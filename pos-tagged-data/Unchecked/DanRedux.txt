@@ -1,0 +1,1 @@
+@StormByte/NNP Yes/NNP ,/, you/PRP do/VBP ,/, but/CC you/PRP 're/VBP simply/RB avoiding/VBG client/NN data/NNS ./.

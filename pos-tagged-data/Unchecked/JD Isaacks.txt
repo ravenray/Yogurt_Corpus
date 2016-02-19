@@ -1,0 +1,10 @@
+This/DT make/NN sense/NN ,/, However/RB ,/, PDO/NN is/VBZ an/DT extension/NN right/NN ?/.
+meaning/VBG it/PRP needs/VBZ to/TO be/VB installed/VBN ?/.
+Is/VBZ there/RB a/DT way/NN I/PRP can/MD check/VB to/TO see/VB if/IN it/PRP is/VBZ installed/VBN ?/.
+Also/RB I/PRP am/VBP using/VBG a/DT shared/JJ hosting/VBG ,/, so/RB if/IN it/PRP is/VBZ not/RB installed/VBN and/CC my/PRP$ hosting/VBG provider/NN cannot/will/NN not/RB install/VB it/PRP ,/, is/VBZ there/RB an/DT alternative/NN to/TO using/VBG a/DT PDO/NNP ?/.
+Thank/VB You/PRP !!/VBP
+This/DT make/NN sense/NN ,/, However/RB ,/, PDO/NN is/VBZ an/DT extension/NN right/NN ?/.
+meaning/VBG it/PRP needs/VBZ to/TO be/VB installed/VBN ?/.
+Is/VBZ there/RB a/DT way/NN I/PRP can/MD check/VB to/TO see/VB if/IN it/PRP is/VBZ installed/VBN ?/.
+Also/RB I/PRP am/VBP using/VBG a/DT shared/JJ hosting/VBG ,/, so/RB if/IN it/PRP is/VBZ not/RB installed/VBN and/CC my/PRP$ hosting/VBG provider/NN cannot/will/NN not/RB install/VB it/PRP ,/, is/VBZ there/RB an/DT alternative/NN to/TO using/VBG a/DT PDO/NNP ?/.
+Thank/VB You/PRP !!/VBP

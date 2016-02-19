@@ -1,0 +1,5 @@
+Thinking/VBG that/IN they/PRP are/VBP DBAs/NNS and/CC data/NNS modelers/designers/NNS when/WRB they/PRP have/VBP no/DT formal/JJ indoctrination/NN of/IN any/DT kind/NN in/IN those/DT areas/NNS ./.
+Thinking/VBG that/IN their/PRP$ project/NN does/VBZ n't/RB require/VB a/DT DBA/NNP because/IN that/DT stuff/NN is/VBZ all/DT easy/trivial/NN ./.
+Failure/NN to/TO properly/RB discern/VB between/IN work/NN that/WDT should/MD be/VB done/VBN in/IN the/DT database/NN ,/, and/CC work/NN that/WDT should/MD be/VB done/VBN in/IN the/DT app/NN ./.
+Not/RB validating/VBG backups/NNS ,/, or/CC not/RB backing/VBG up/RP ./.
+Embedding/VBG raw/JJ SQL/NN in/IN their/PRP$ code/NN ./.

@@ -1,0 +1,7 @@
+I/PRP try/VBP my/PRP$ darned/RB best/JJS to/TO write/VB exception-safe/JJ code/NN ,/, yes/UH ./.
+That/DT means/VBZ I/PRP take/VBP care/NN to/TO keep/VB an/DT eye/NN on/IN which/WDT lines/NNS can/MD throw/VB ./.
+Not/RB everyone/NN can/MD ,/, and/CC it/PRP is/VBZ critically/RB important/JJ to/TO keep/VB that/IN in/IN mind/NN ./.
+The/DT key/NN is/VBZ really/RB to/TO think/VB about/IN ,/, and/CC design/VB your/PRP$ code/NN to/TO satisfy/VB ,/, the/DT exception/NN guarantees/NNS defined/VBN in/IN the/DT standard/NN ./.
+Can/MD this/DT operation/NN be/VB written/VBN to/TO provide/VB the/DT strong/JJ exception/NN guarantee/NN ?/.
+Do/VBP I/PRP have/VBP to/TO settle/VB for/IN the/DT basic/JJ one/CD ?/.
+Which/WDT lines/NNS may/MD throw/VB exceptions/NNS ,/, and/CC how/WRB can/MD I/PRP ensure/VB that/IN if/IN they/PRP do/VBP ,/, they/PRP do/VBP n't/RB corrupt/JJ the/DT object/NN ?/.

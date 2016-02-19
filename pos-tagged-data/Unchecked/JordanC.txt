@@ -1,0 +1,2 @@
+If/IN you/PRP are/VBP on/RP ./.
+net/NN 4.0/CD make/VBP sure/JJ you/PRP add/VBP this/DT in/IN your/PRP$ web.config/NN <httpRuntime requestValidationMode="2.0" / >/NN Inside/IN the/DT <system.web >/NN tags/NNS

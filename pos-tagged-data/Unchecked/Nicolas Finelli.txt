@@ -1,0 +1,6 @@
+Using/VBG this/DT PHP/NN function/NN mysql_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- you/PRP can/MD get/VB a/DT good/JJ prevention/NN in/IN a/DT fast/JJ way/NN ./.
+For/IN example/NN :/: SELECT/VB */SYM FROM/NN users/NNS WHERE/VBP name/NN =/JJ '/'' ''/'' ./.
+mysql_escape_string/NN -LRB-/-LRB- $/$ name_from_html_form/NN -RRB-/-RRB- ./. ''/'' '/''
+mysql_escape_string/NN --/: Escapes/VBZ a/DT string/NN for/IN use/NN in/IN a/DT mysql_query/NN For/IN more/JJR prevention/NN you/PRP can/MD add/VB at/IN the/DT end/NN .../: wHERE/NN 1/CD =/JJ 1/CD or/CC LIMIT/NN 1/CD Finally/RB you/PRP get/VBP :/: SELECT/VB */SYM FROM/NN users/NNS WHERE/VBP name/NN =/JJ '/'' ''/'' ./.
+mysql_escape_string/NN -LRB-/-LRB- $/$ name_from_html_form/NN -RRB-/-RRB- ./. ''/'' '/''
+LIMIT/NN 1/CD

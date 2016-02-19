@@ -1,0 +1,3 @@
+Re/NNP :/: #/# 5/CD Most/NNP likely/RB the/DT slowdown/NN does/VBZ n't/RB get/VB generated/VBN by/IN your/PRP$ group/NN by/IN but/CC because/IN you/PRP are/VBP using/VBG HAVING/NNP ./.
+The/DT use/NN of/IN having/VBG gets/VBZ run/VBN after/IN it/PRP got/VBD all/PDT the/DT data/NNS ./.
+So/IN it/PRP is/VBZ a/DT lot/NN slower/JJR than/IN just/RB skipping/VBG while/IN gathering/VBG data/NNS ./.

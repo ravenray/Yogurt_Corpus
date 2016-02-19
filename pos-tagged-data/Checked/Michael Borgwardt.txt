@@ -1,0 +1,11 @@
+-1/CD from/IN me/PRP :/: being/VBG kept/VBN secret/NN is/VBZ totally/RB not/RB the/DT point/NN of/IN salts/NNS ./.
+You/PRP need/VBP them/PRP accessible/JJ for/IN checking/VBG passwords/NNS anyway/RB ,/, so/IN any/DT attempt/NN to/TO keep/VB them/PRP secret/NN is/VBZ likely/JJ to/TO make/VB the/DT system/NN more/RBR vulnerable/JJ through/IN added/VBN complexity/NN rather/RB than/IN actually/RB succeed/VB ./.
+@0xA3/ATS :/: again/RB :/: being/VBG unknown/JJ to/TO an/DT attacker/NN is/VBZ not/RB the/DT point/NN of/IN a/DT salt/NN ./.
+Your/PRP$ machine/NN needs/VBZ to/TO access/VB it/PRP in/IN some/DT way/NN ,/, so/IN an/DT attacker/NN who/WP breaks/VBZ into/IN the/DT machine/NN can/MD get/VB it/PRP too/RB ./.
+Any/DT scenario/NN where/WRB the/DT attacker/NN does/VBZ not/RB know/VB the/DT salt/NN is/VBZ a/DT red/JJ herring/NN ./.
+I/PRP think/VBP that/IN by/IN ``/`` dictionary/NN attack/NN ''/'' ,/, Tom/NNP refers/VBZ to/TO trying/VBG out/RP known/JJ weak/JJ passwords/NNS -LRB-/-LRB- i.e./FW straight/RB out/IN of/IN a/DT human/JJ language/NN dictionary/NN -RRB-/-RRB- ,/, not/RB precomputed/VBN hash-plaintext/NN tables/NNS -/: this/DT is/VBZ also/RB what/WP I/PRP first/JJ think/NN of/IN when/WRB I/PRP read/VBP ``/`` dictionary/NN ''/'' in/IN this/DT context/NN ./.
+The/DT point/NN of/IN salting/VBG is/VBZ to/TO prevent/VB the/DT amortization/NN of/IN the/DT attacker/NN 's/POS effort/NN ./.
+With/IN no/DT salt/NN ,/, a/DT single/JJ table/NN of/IN precomputed/JJ hash-password/JJ entries/NNS -LRB-/-LRB- e.g./FW MD5/ACR of/IN all/DT alphanumeric/JJ 5/CD character/NN strings/NNS ,/, easy/JJ to/TO find/VB online/NN -RRB-/-RRB- can/MD be/VB used/VBN on/IN every/DT user/NN in/IN every/DT database/NN in/IN the/DT world/NN ./.
+With/IN a/DT site-specific/JJ salt/NN ,/, the/DT attacker/NN has/VBZ to/TO compute/VB the/DT table/NN himself/PRP and/CC can/MD then/RB use/VB it/PRP on/IN all/DT users/NNS of/IN the/DT site/NN ./.
+With/IN a/DT per-user/JJ salt/NN ,/, the/DT attacker/NN has/VBZ to/TO expend/VB this/DT effort/NN for/IN every/DT user/NN separately/RB ./.
+Of/IN course/NN ,/, this/DT does/VBZ n't/RB do/VB much/RB to/TO protect/VB really/RB weak/JJ passwords/NNS straight/RB out/IN of/IN a/DT dictionary/NN ,/, but/CC it/PRP protects/VBZ reasonably/RB strong/JJ passwords/NNS against/IN this/DT amortization/NN ./.

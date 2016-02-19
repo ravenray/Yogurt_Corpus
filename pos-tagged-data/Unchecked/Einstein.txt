@@ -1,0 +1,4 @@
+Not/RB having/VBG an/DT understanding/NN of/IN the/DT databases/NNS concurrency/NN model/NN and/CC how/WRB this/DT affects/VBZ development/NN ./.
+It/PRP 's/VBZ easy/JJ to/TO add/VB indexes/NNS and/CC tweak/VB queries/NNS after/IN the/DT fact/NN ./.
+However/RB applications/NNS designed/VBN without/IN proper/JJ consideration/NN for/IN hotspots/NNS ,/, resource/NN contention/NN and/CC correct/JJ operation/NN -LRB-/-LRB- Assuming/VBG what/WP you/PRP just/RB read/VB is/VBZ still/RB valid/JJ !/. -RRB-/-RRB-
+can/MD require/VB significant/JJ changes/NNS within/IN the/DT database/NN and/CC application/NN tier/NN to/TO correct/VB later/RB ./.

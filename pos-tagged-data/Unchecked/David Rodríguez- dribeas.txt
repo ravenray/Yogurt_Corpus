@@ -1,0 +1,3 @@
+That/DT is/VBZ the/DT difference/NN between/IN checked/VBN -LRB-/-LRB- Java/NNP -RRB-/-RRB- and/CC unchecked/JJ -LRB-/-LRB- c++/JJ -RRB-/-RRB- exceptions/NNS -LRB-/-LRB- Java/NNP has/VBZ a/DT few/JJ of/IN those/DT too/RB -RRB-/-RRB- ./.
+The/DT advantage/NN of/IN checked/VBN exceptions/NNS is/VBZ what/WP you/PRP wrote/VBD ,/, but/CC there/EX it/PRP has/VBZ its/PRP$ own/JJ disadvantages/NNS ./.
+Google/NNP for/IN the/DT difference/NN approaches/NNS and/CC the/DT different/JJ problems/NNS they/PRP have/VBP ./.

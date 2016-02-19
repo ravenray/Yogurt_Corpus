@@ -1,0 +1,1 @@
+A/DT simple/JJ way/NN would/MD be/VB to/TO use/VB a/DT PHP/NNP framework/NN like/IN CodeIgniter/NNP or/CC Laravel/NNP which/WDT have/VBP in-built/JJ features/NNS like/IN filtering/VBG and/CC active-record/NN ,/, so/IN that/IN you/PRP do/VBP n't/RB have/VB to/TO worry/VB about/IN these/DT nuances/NNS ./.

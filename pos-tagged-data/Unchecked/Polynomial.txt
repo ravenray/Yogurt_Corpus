@@ -1,0 +1,11 @@
+@doliver/NN Traditionally/RB ,/, yes/UH ./.
+However/RB ,/, it/PRP 's/VBZ a/DT big/JJ risk/NN to/TO assume/VB that/IN developers/NNS will/MD always/RB know/remember/VB to/TO do/VB that/DT ./.
+Also/RB ,/, it/PRP 's/VBZ a/DT blacklisting/NN approach/NN -/: there/EX may/MD well/RB be/VB Unicode/NNP tricks/NNS that/WDT break/VBP it/PRP ./.
+Add/VB that/DT to/TO the/DT fact/NN that/IN the/DT mysql/FW _/FW functions/NNS are/VBP deprecated/VBN ,/, and/CC it/PRP 's/VBZ just/RB a/DT bad/JJ decision/NN ./.
+By/IN using/VBG PDO/NN or/CC MySQLi/NN with/IN parameterised/JJ queries/NNS you/PRP get/VBP a/DT solution/NN that/WDT is/VBZ a/DT -RRB-/-RRB- invulnerable/JJ to/TO SQL/NN injection/NN as/RB long/RB as/IN it/PRP is/VBZ properly/RB used/VBN ,/, and/CC b/NN -RRB-/-RRB- not/RB deprecated/VBN ./.
+If/IN you/PRP do/VBP n't/RB quote/VB the/DT string/NN ,/, it/PRP 's/VBZ still/RB injectable/JJ ./.
+Take/VB $/$ q/NN =/JJ ``/`` SELECT/FW col/FW FROM/FW tbl/FW WHERE/FW x/NN =/JJ $/$ safe_var/JJ ''/'' ;/: for/IN example/NN ./.
+Setting/VBG $/$ safe_var/CD to/TO 1/CD UNION/NN SELECT/NN password/NN FROM/NN users/NNS works/VBZ in/IN this/DT case/NN because/IN of/IN the/DT lack/NN of/IN quotes/NNS ./.
+It/PRP 's/VBZ also/RB possible/JJ to/TO inject/VB strings/NNS into/IN the/DT query/NN using/VBG CONCAT/NNP and/CC CHR/NNP ./.
+@glglgl/VB That/DT 's/VBZ fine/JJ ,/, if/IN you/PRP 're/VBP willing/JJ to/TO accept/VB the/DT risk/NN of/IN someone/NN forgetting/VBG a/DT quote/NN somewhere/RB in/IN your/PRP$ entire/JJ application/NN ./.
+Bad/JJ development/NN practices/NNS keep/VBP me/PRP in/IN a/DT job/NN ;-RRB-/NN

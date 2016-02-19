@@ -1,0 +1,4 @@
+A/DT corollary/NN to/TO to/TO this/DT is/VBZ offloading/VBG too/RB much/JJ query/NN work/NN to/TO the/DT application/NN instead/RB of/IN keeping/VBG it/PRP in/IN the/DT db/NN where/WRB it/PRP belongs/VBZ ./.
+LINQ/NNP is/VBZ particularly/RB bad/JJ about/IN this/DT ./.
+b/LS -RRB-/-RRB- is/VBZ an/DT architecture/NN mistake/NN ./.
+Of/IN course/NN ,/, coding/VBG queries/NNS directly/RB in/IN your/PRP$ app/NN is/VBZ a/DT bad/JJ idea/NN ,/, anyway/RB ./.

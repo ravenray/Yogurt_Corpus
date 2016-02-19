@@ -1,0 +1,2 @@
+Check/VB out/RP this/DT slideshow/NN of/IN SQL/NN myths/NNS and/CC fallacies/NNS ./.
+It/PRP should/MD answer/VB any/DT SQL/NNP injection/NN questions/NNS you/PRP have/VBP ./.

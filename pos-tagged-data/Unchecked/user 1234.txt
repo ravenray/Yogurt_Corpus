@@ -1,0 +1,6 @@
+I/PRP got/VBD the/DT below/IN error/NN when/WRB I/PRP testing/VBG my/PRP$ mobile/JJ application/NN ./.
+How/WRB can/MD i/FW resolve/VB this/DT XSS/NN error/NN ?/.
+The/DT value/NN of/IN the/DT q/NN request/NN parameter/NN is/VBZ copied/VBN into/IN the/DT HTML/NNP document/NN as/IN plain/JJ text/NN between/IN tags/NNS ./.
+The/DT payload/NN 2906f/CD alert/NN -LRB-/-LRB- 1/LS -RRB-/-RRB- b08ffac3085/NN was/VBD submitted/VBN in/IN the/DT q/NN parameter/NN ./.
+This/DT input/NN was/VBD echoed/VBN unmodified/JJ in/IN the/DT application/NN 's/POS response/NN ./.
+This/DT proof-of-concept/JJ attack/NN demonstrates/VBZ that/IN it/PRP is/VBZ possible/JJ to/TO inject/VB arbitrary/JJ JavaScript/NNP into/IN the/DT application/NN 's/POS response/NN ./.

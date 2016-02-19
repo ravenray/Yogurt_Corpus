@@ -1,0 +1,11 @@
+I/PRP fixed/VBD this/DT by/IN :/: Removing/VBG the/DT MVC/ACR reference/NN and/CC add/VB the/DT correct/JJ reference/NN to/TO the/DT project/NN ./.
+Changing/VBG the/DT Copy/VB Local/JJ property/NN of/IN the/DT reference/NN to/TO true/JJ ./.
+Update/VB the/DT bindingRedirect/COS setting/NN in/IN web.config/COB :/COB web.config/COB runtime/COB section/COB :/COB <runtime>/COB <assemblyBinding/COB xmlns="urn:schemas-microsoft-com:asm.v1">/COB <dependentAssembly>/COB <assemblyIdentity/COB name="System.Web.Mvc"/COB publicKeyToken="31bf3856ad364e35"/COB />/COB <bindingRedirect/COB oldVersion="1.0.0.0-3.0.0.0"/COB newVersion="3.0.0.1"/COB />/COB </dependentAssembly>/COB .../COB Changing/VBG the/DT Copy/VB Local/JJ setting/NN will/MD include/VB the/DT System.Web.MVC.dll/COS file/NN in/IN the/DT bin/NN folder/NN when/WRB you/PRP publish/VBP the/DT project/NN ,/, so/IN that/IN it/PRP works/VBZ even/RB if/IN the/DT server/NN is/VBZ not/RB updated/VBN with/IN the/DT new/JJ version/NN ./.
+Note/VB that/IN updates/NNS like/IN this/DT rarely/RB happens/VBZ ./.
+This/DT is/VBZ the/DT first/JJ time/NN that/IN MVC/NN 3/CD has/VBZ been/VBN patched/VBN since/IN it/PRP was/VBD released/VBN ./.
+You/PRP should/MD be/VB able/JJ to/TO change/VB Copy/VB Local/JJ back/RB to/TO false/JJ once/IN the/DT servers/NNS has/VBZ been/VBN updated/VBN ./.
+The/DT next/JJ time/NN Microsoft/NNP makes/VBZ an/DT update/VB like/IN this/DT ,/, they/PRP will/MD probably/RB know/VB to/TO fix/VB issues/NNS like/IN this/DT first/JJ ./.
+@EricBrown/ATS -/ATS Cal/ATS :/: Do/VBP you/PRP mean/VB the/DT server/NN version/NN update/VB ?/.
+On/IN my/PRP$ computer/NN it/PRP shows/VBZ up/RP as/IN an/DT installed/VBN update/VBP ./.
+@EricBrown/ATS -/ATS Cal/ATS :/: Yes/UH ,/, that/DT list/NN does/VBZ n't/RB show/VB all/DT updates/NNS for/IN some/DT reason/NN ./.
+If/IN I/PRP open/VBP PC/ACR Settings/NNS ,/, go/VB to/TO Update/VB and/CC recovery/NN ,/, and/CC click/VB View/VB your/PRP$ update/VB history/NN ,/, it/PRP shows/VBZ all/DT updates/NNS ./.

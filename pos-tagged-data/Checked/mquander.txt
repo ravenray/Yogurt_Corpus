@@ -1,0 +1,8 @@
+Seeing/VBG as/IN MD5/ACR worked/VBD fine/JJ for/IN millions/NNS of/IN people/NNS for/IN fifteen/CD years/NNS ,/, I/PRP suspect/VBP that/IN it/PRP 's/VBZ OK/JJ for/IN you/PRP if/IN hash/JJ security/NN is/VBZ n't/RB crucial/JJ ./.
+I/PRP do/VBP n't/RB really/RB understand/VB the/DT question/NN ./.
+You/PRP measured/VBD all/PDT the/DT algorithms/NNS and/CC researched/VBD how/WRB secure/JJ they/PRP are/VBP ,/, so/IN you/PRP already/RB know/VB under/IN what/WP conditions/NNS to/TO use/VB each/DT ./.
+Use/VB a/DT fast/JJ one/CD where/WRB performance/NN is/VBZ important/JJ and/CC a/DT secure/JJ one/CD where/WRB reliability/NN is/VBZ important/JJ ./.
+You/PRP measured/VBD exactly/RB what/WP the/DT performance/NN difference/NN is/VBZ ,/, although/IN it/PRP might/MD vary/VB slightly/RB on/IN different/JJ data/NNS ./.
+I/PRP do/VBP n't/RB think/VB I/PRP 've/VBP ever/RB written/VBN anything/NN where/WRB CPU/ACR cycles/NNS were/VBD literally/RB of/IN no/DT concern/NN at/IN all/DT ,/, but/CC if/IN they/PRP 're/VBP of/IN no/DT concern/NN to/TO you/PRP ,/, then/RB I/PRP suppose/VBP you/PRP should/MD not/RB use/VB a/DT hash/JJ algorithm/NN at/IN all/DT in/IN this/DT instance/NN and/CC just/RB compare/VB two/CD files/NNS bit-for-bit/JJ instead/RB ./.
+-LRB-/-LRB- Unless/IN you/PRP 're/VBP hashing/VBG sensitive/JJ data/NNS ./. -RRB-/-RRB-
+Seriously/RB ,/, though/RB ,/, you/PRP know/VBP the/DT performance/NN difference/NN ,/, and/CC you/PRP understand/VBP that/IN some/DT are/VBP more/RBR secure/JJ than/IN others/NNS when/WRB it/PRP comes/VBZ to/TO manufacturing/VBG artificial/JJ collisions/NNS ,/, so/IN I/PRP do/VBP n't/RB think/VB there/EX 's/VBZ anything/NN else/RB to/TO mention/VB ./.

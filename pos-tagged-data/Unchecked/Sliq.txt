@@ -1,0 +1,8 @@
+@Dementic/FW 31kb/FW added/VBN to/TO the/DT project/NN vs./NN Hundreds/NNS of/IN developer/NN working/VBG hours/NNS saved/VBN ./.
+Seriously/RB ,/, not/RB using/VBG jQuery/NN is/VBZ so/RB f/FW `/`` ing/NN stupid/JJ ./.
+@Dementic/FW ???/FW If/IN you/PRP can/MD shorten/VB development/NN time/NN by/IN using/VBG a/DT lib/NN than/IN doe/VBP n't/RB reinvent/VB the/DT wheel/NN ,/, use/VB it/PRP ./.
+Think/VB productive/JJ ,/, not/RB like/IN a/DT stupid/JJ nerd/NN ./.
+31k/NN are/VBP nothing/NN these/DT days/NNS ./.
+gzip/NN `/`` ed/VBD that/DT 's/VBZ 5kb/JJ ,/, absolutly/RB nothing/NN ./.
+@Dementic/JJ Because/IN development/NN is/VBZ expensive/JJ ,/, a/DT developer/NN costs/VBZ $/$ 300/CD -/: $/$ 600/CD per/IN day/NN ./.
+Writing/VBG native/JJ JS/NN takes/VBZ longer/RBR than/IN using/VBG a/DT crossbrowsersafe/NN ,/, optimized/VBN one-line/JJ with/IN jQuery/NN ./.

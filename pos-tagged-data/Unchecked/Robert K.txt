@@ -1,0 +1,4 @@
+It/PRP 's/VBZ far/RB less/JJR about/IN which/WDT hash/VBP you/PRP use/VB for/IN passwords/NNS ,/, than/IN it/PRP is/VBZ what/WP is/VBZ hashed/VBN ./.
+If/IN your/PRP$ salt/NN is/VBZ known/VBN then/RB your/PRP$ database/NN is/VBZ immediately/RB vulnerable/JJ to/TO a/DT dictionary/NN attack/NN ;/: if/IN your/PRP$ salt/NN is/VBZ procedural/JJ ,/, and/CC your/PRP$ filesystem/NN is/VBZ compromised/VBN ,/, you/PRP are/VBP -LRB-/-LRB- again/RB -RRB-/-RRB- vulnerable/JJ ;/: if/IN your/PRP$ salt/NN is/VBZ omitted/VBN you/PRP are/VBP again/RB compromised/VBN ./.
+The/DT security/NN at/IN issue/NN is/VBZ ,/, no/DT matter/NN what/WP ,/, WHAT/WDT is/VBZ hashed/VBN ./.
+Certificates/NNS ,/, I/PRP wo/MD n't/RB address/VB because/IN I/PRP 've/VBP not/RB dealt/VBN with/IN them/PRP in/RP as/IN a/DT programmer/NN -LRB-/-LRB- IE/NN ,/, creating/VBG ,/, understanding/NN ,/, etc/NN -RRB-/-RRB- ./.

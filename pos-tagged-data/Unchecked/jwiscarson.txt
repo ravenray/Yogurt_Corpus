@@ -1,0 +1,1 @@
+If/IN your/PRP$ biggest/JJS problem/NN is/VBZ that/IN your/PRP$ application/NN developer/NN 's/POS databases/NNS closely/RB adhere/VBP to/TO largely-accepted/JJ database/NN design/NN conventions/NNS ,/, then/RB you/PRP live/VBP in/IN a/DT very/RB happy/JJ world/NN indeed/RB ./.

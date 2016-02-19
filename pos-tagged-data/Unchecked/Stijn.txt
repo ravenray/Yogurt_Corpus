@@ -1,0 +1,7 @@
+You/PRP should/MD at/IN least/JJS be/VB able/JJ to/TO guarantee/VB that/DT your/PRP$ build/VB servers/NNS and/CC production/NN servers/NNS run/VBP in/IN an/DT identical/JJ environment/NN ./.
+Dev/NN machines/NNS can/MD run/VB out/IN of/IN sync/NN ,/, but/CC you/PRP can/MD deal/VB with/IN such/JJ problems/NNS when/WRB they/PRP arise/VBP ./.
+Your/PRP$ build/VB servers/NNS should/MD uncover/VB any/DT issues/NNS ./.
+That/IN being/VBG said/VBD ,/, this/DT could/MD be/VB an/DT annoying/JJ issue/NN ./.
+The/DT updates/NNS have/VBP n't/RB hit/VBN our/PRP$ machines/NNS yet/RB ,/, do/VBP you/PRP know/VB if/IN it/PRP breaks/VBZ production/NN ?/.
+And/CC I/PRP see/VBP in/IN Windows/NNP Update/NNP that/IN MVC/NNP 2/CD ,/, 3/CD ,/, 4/CD and/CC 5/CD are/VBP affected/VBN ./.
+@Eric/VB those/DT patch/NN numbers/NNS are/VBP for/IN a/DT Windows/NNP 7/CD x64/NN system/NN ,/, they/PRP may/MD be/VB different/JJ for/IN other/JJ systems/NNS ./.

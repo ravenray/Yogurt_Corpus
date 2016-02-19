@@ -1,0 +1,1 @@
+Size/NN of/IN the/DT database/NN is/VBZ relevant/JJ ,/, but/CC a/DT bigger/JJR issue/NN is/VBZ load/NN --/: even/RB if/IN you/PRP test/VBP on/IN a/DT real/JJ dataset/NN you/PRP are/VBP n't/RB testing/VBG performance/NN of/IN your/PRP$ queries/NNS when/WRB the/DT database/NN is/VBZ under/IN a/DT production/NN load/NN ,/, which/WDT can/MD be/VB a/DT real/JJ eye-opener/NN ./.

@@ -1,0 +1,2 @@
+Do/VBP not/RB use/VB Social/NNP Security/NNP Numbers/NNPS as/IN keys/NNS !/.
+-LRB-/-LRB- Unless/IN you/PRP are/VBP the/DT Social/NNP Security/NNP Administration/NNP -RRB-/-RRB- Yes/NNP they/PRP are/VBP unique/JJ however/RB they/PRP CAN/NNP change/NN and/CC they/PRP can/MD be/VB ``/`` reused/VBN ''/'' ./.

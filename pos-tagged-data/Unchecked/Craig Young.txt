@@ -1,0 +1,6 @@
+@Greg/NN :/: Provided/VBN the/DT joins/VBZ are/VBP inner/JJ joins/VBZ ,/, and/CC there/EX are/VBP no/RB duplicate/VB by/IN userid/NN ,/, roleid/NN -/: both/DT queries/NNS will/MD produce/VB the/DT exact/JJ same/JJ result/NN set/NN ./.
+1/LS -RRB-/-RRB- This/DT query/NN filters/VBZ roleid/NN IN/IN -LRB-/-LRB- 1,2,3/CD -RRB-/-RRB- ,/, and/CC counts/VBZ them/PRP up/RP per/IN userid/NN ./.
+The/DT HAVING/NNP clause/NN filters/NNS only/RB those/DT users/NNS with/IN all/DT 3/CD roles/NNS ./.
+2/LS -RRB-/-RRB- This/DT query/NN joins/VBZ lists/NNS of/IN users/NNS for/IN each/DT role/NN by/IN userid/NN ./.
+INNER/JJ JOINS/NN means/VBZ that/IN any/DT user/NN missing/VBG any/DT one/CD of/IN the/DT roles/NNS will/MD be/VB excluded/VBN ./.
+So/IN the/DT final/JJ list/NN has/VBZ only/RB those/DT users/NNS with/IN all/DT 3/CD roles/NNS ./.

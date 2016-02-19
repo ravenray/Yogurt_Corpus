@@ -1,0 +1,31 @@
+Key/NN database/NN design/NN and/CC programming/NN mistakes/NNS made/VBN by/IN developers/NNS Selfish/JJ database/NN design/NN and/CC usage/NN ./.
+Developers/NNS often/RB treat/VBP the/DT database/NN as/IN their/PRP$ personal/JJ persistent/JJ object/NN store/NN without/IN considering/VBG the/DT needs/NNS of/IN other/JJ stakeholders/NNS in/IN the/DT data/NNS ./.
+This/DT also/RB applies/VBZ to/TO application/NN architects/NNS ./.
+Poor/JJ database/NN design/NN and/CC data/NN integrity/NN makes/VBZ it/PRP hard/JJ for/IN third/JJ parties/NNS working/VBG with/IN the/DT data/NNS and/CC can/MD substantially/RB increase/VB the/DT system/NN 's/POS life/NN cycle/NN costs/NNS ./.
+Reporting/VBG and/CC MIS/ACR tends/VBZ to/TO be/VB a/DT poor/JJ cousin/NN in/IN application/NN design/NN and/CC only/RB done/VBN as/IN an/DT afterthought/NN ./.
+Abusing/VBG denormalised/VBN data/NNS ./.
+Overdoing/VBG denormalised/JJ data/NNS and/CC trying/VBG to/TO maintain/VB it/PRP within/IN the/DT application/NN is/VBZ a/DT recipe/NN for/IN data/NNS integrity/NN issues/NNS ./.
+Use/VB denormalisation/NN sparingly/RB ./.
+Not/RB wanting/VBG to/TO add/VB a/DT join/VB to/TO a/DT query/NN is/VBZ not/RB an/DT excuse/NN for/IN denormalising/VBG ./.
+Scared/VBN of/IN writing/VBG SQL/ACR ./.
+SQL/ACR is/VBZ n't/RB rocket/NN science/NN and/CC is/VBZ actually/RB quite/RB good/JJ at/IN doing/VBG its/PRP$ job/NN ./.
+O/R/CC mapping/NN layers/NNS are/VBP quite/RB good/JJ at/IN doing/VBG the/DT 95/CD %/SYM of/IN queries/NNS that/WDT are/VBP simple/JJ and/CC fit/JJ well/RB into/IN that/DT model/NN ./.
+Sometimes/RB SQL/ACR is/VBZ the/DT best/JJS way/NN to/TO do/VB the/DT job/NN ./.
+Dogmatic/JJ `/`` No/DT Stored/JJ Procedures/NNS '/POS policies/NNS ./.
+Regardless/RB of/IN whether/IN you/PRP believe/VBP stored/VBN procedures/NNS are/VBP evil/JJ ,/, this/DT sort/NN of/IN dogmatic/JJ attitude/NN has/VBZ no/DT place/NN on/IN a/DT software/NN project/NN ./.
+Not/RB understanding/VBG database/NN design/NN ./.
+Normalisation/NN is/VBZ your/PRP$ friend/NN and/CC it/PRP 's/VBZ not/RB rocket/NN science/NN ./.
+Joining/VBG and/CC cardinality/NN are/VBP fairly/RB simple/JJ concepts/NNS -/: if/IN you/PRP 're/VBP involved/VBN in/IN database/NN application/NN development/NN there/EX 's/VBZ really/RB no/DT excuse/NN for/IN not/RB understanding/VBG them/PRP ./.
+Not/RB just/RB the/DT poor/JJ mug/NN writing/VBG the/DT ETL/ACR -/: anyone/NN using/VBG data/NNS from/IN the/DT system/NN ,/, the/DT poor/JJ quality/NN data/NNS in/IN the/DT MIS/ACR application/NN that/WDT 's/VBZ boxed/VBN in/IN because/IN several/JJ key/JJ relationships/NNS are/VBP n't/RB actually/RB recorded/VBN at/IN source/NN ,/, anyone/NN involved/VBN in/IN the/DT endless/JJ reconciliation/NN bun-fignts/NNS that/WDT ensue/VBP from/IN the/DT poor/JJ data/NNS quality/NN ./.
+From/IN time/NN to/TO time/NN I/PRP do/VBP too/RB ,/, although/IN these/DT days/NNS I/PRP tend/VBP to/TO be/VB drifting/VBG further/RBR into/IN the/DT dark/JJ abyss/NN of/IN consultancy/NN -LRB-/-LRB- Your/PRP$ anger/NN will/MD make/VB you/PRP strong/JJ .../: -RRB-/-RRB- ./.
+However/RB ,/, all/RB too/RB often/RB I/PRP see/VBP operational/JJ systems/NNS designed/VBN with/IN no/DT thought/NN to/TO actually/RB doing/VBG MIS/ACR off/IN them/PRP ./.
+Trivial/JJ example/NN :/: I/PRP have/VBP an/DT insurance/NN policy/NN administration/NN system/NN and/CC need/VBP to/TO load/VB the/DT state/NN of/IN 5/CD million/CD claims/NNS into/IN a/DT ceded/VBN reinsurance/NN system/NN to/TO calculate/VB potential/JJ recoveries/NNS ./.
+The/DT systems/NNS are/VBP older/JJR client-server/JJ COTS/ACR packages/NNS ,/, designed/VBN to/TO interface/NN to/TO even/RB older/JJR mainframe/NN systems/NNS ./.
+Both/DT have/VBP to/TO be/VB reconciled/VBN for/IN financial/JJ control/NN purposes/NNS ./.
+This/DT job/NN is/VBZ done/VBN once/RB per/IN month/NN ./.
+By/IN your/PRP$ logic/NN I/PRP would/MD write/VB a/DT series/NN of/IN user/NN stories/NNS defining/VBG the/DT requirements/NNS and/CC ask/VB the/DT vendors/NNS to/TO quote/VB on/IN adding/VBG a/DT web/NN service/NN wrapper/NN to/TO their/PRP$ existing/VBG products/NNS ./.
+But/CC then/RB again/RB ,/, I/PRP do/VBP work/NN in/IN companies/NNS where/WRB phrases/NNS like/IN `/`` Audit/NN '/'' ,/, `/`` FSA/ACR '/'' and/CC `/`` Sarbannes-Oxley/NNP '/'' are/VBP somewhat/RB common/JJ ./.
+Then/RB your/PRP$ DBA/ACR is/VBZ either/CC lazy/JJ or/CC incompetent/JJ ./.
++1/CD -/: Database/NN programming/NN involves/VBZ optimising/VBG the/DT behaviour/NN of/IN mechanical/JJ components/NNS ./.
+Note/VB ,/, however/RB ,/, that/IN Knuth/NNP says/VBZ premature/JJ optimisation/NN is/VBZ the/DT root/NN of/IN all/DT evil/NN about/IN 97/CD %/SYM of/IN the/DT time/NN -LRB-/-LRB- or/CC words/NNS to/TO that/DT effect/NN -RRB-/-RRB- ./.
+Database/NN design/NN is/VBZ one/CD area/NN where/WRB you/PRP really/RB do/VBP have/VB to/TO think/VB about/IN this/DT up/RP front/JJ ./.

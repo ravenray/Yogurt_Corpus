@@ -1,0 +1,3 @@
+When/WRB I/PRP run/VBP the/DT command/NN to/TO change/VB the/DT jenkins/NNS user/NN password/NN ,/, I/PRP get/VBP asked/VBN for/IN the/DT current/JJ password/NN ./.
+I/PRP have/VBP no/DT idea/NN what/WP this/DT is/VBZ and/CC I/PRP can/MD not/RB hit/VB enter/VB ./.
+Any/DT suggestions/NNS ?/.

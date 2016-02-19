@@ -1,0 +1,132 @@
+Your/PRP$ question/NN makes/VBZ an/DT assertion/NN ,/, that/IN ``/`` Writing/VBG exception/NN safe/JJ code/NN is/VBZ very/RB hard/JJ ''/'' ./.
+I/PRP will/MD answer/VB your/PRP$ questions/NNS first/RB ,/, and/CC then/RB ,/, answer/VB the/DT hidden/JJ question/NN behind/IN them/PRP ./.
+Answering/NN questions/NNS Do/VBP you/PRP really/RB write/VB exception/NN safe/JJ code/NN ?/.
+Of/IN course/NN I/PRP do/VBP ./.
+This/DT is/VBZ the/DT reason/NN Java/NNP lost/VBD a/DT lot/NN of/IN its/PRP$ appeal/NN to/TO me/PRP as/IN a/DT C++/NNP programmer/NN -LRB-/-LRB- lack/NN of/IN RAII/ACR semantics/NNS -RRB-/-RRB- ,/, but/CC I/PRP am/VBP digressing/VBG :/: This/DT is/VBZ a/DT C++/NNP question/NN ./.
+It/PRP is/VBZ in/IN fact/NN necessary/JJ when/WRB you/PRP need/VBP to/TO work/VB with/IN STL/ACR or/CC Boost/NN code/NN ./.
+For/IN example/NN ,/, C++/NNP threads/NNS -LRB-/-LRB- boost/NN :/: :/: thread/NN or/CC std/NN :/: :/: thread/NN -RRB-/-RRB- will/MD throw/VB an/DT exception/NN to/TO exit/VB gracefully/RB ./.
+Are/VBP you/PRP sure/JJ your/PRP$ last/JJ ``/`` production/NN ready/JJ ''/'' code/NN is/VBZ exception/NN safe/NN ?/.
+Can/MD you/PRP even/RB be/VB sure/JJ ,/, that/IN it/PRP is/VBZ ?/.
+Writing/VBG exception-safe/JJ code/NN is/VBZ like/IN writing/VBG bug-free/JJ code/NN ./.
+You/PRP ca/MD n't/RB be/VB 100/CD %/NN sure/JJ your/PRP$ code/NN is/VBZ exception/NN safe/NN ./.
+But/CC then/RB ,/, you/PRP strive/VBP for/IN it/PRP ,/, using/VBG well/RB known/VBN patterns/NNS ,/, and/CC avoiding/VBG well/RB known/VBN anti-patterns/NNS ./.
+Do/VBP you/PRP know/VB and/or/CC actually/RB use/VBP alternatives/NNS that/IN work/NN ?/.
+There/EX are/VBP no/DT viable/JJ alternatives/NNS in/IN C++/NNP -LRB-/-LRB- i.e./FW you/PRP 'll/MD need/VB to/TO revert/VB back/RB to/TO C/NNP ,/, and/CC avoid/VB C++/NNP libraries/NNS ,/, as/RB well/RB as/IN external/JJ surprises/NNS like/IN Windows/NNP SEH/ACR -RRB-/-RRB- ./.
+Writing/VBG exception/NN safe/JJ code/NN To/TO write/VB exception/NN safe/JJ code/NN ,/, you/PRP must/MD know/VB first/RB what/WDT level/NN of/IN exception/NN safety/NN each/DT instruction/NN you/PRP write/VBP is/VBZ ./.
+For/IN example/NN ,/, a/DT new/JJ can/MD throw/VB an/DT exception/NN ,/, but/CC assigning/VBG a/DT built-in/JJ -LRB-/-LRB- e.g./FW an/DT int/NN ,/, or/CC a/DT pointer/NN -RRB-/-RRB- wo/MD n't/RB fail/VB ./.
+A/DT swap/NN will/MD never/RB fail/VB -LRB-/-LRB- do/VBP n't/RB ever/RB write/VB a/DT throwing/NN swap/NN -RRB-/-RRB- ,/, a/DT std/ACR :/: :/: list/NN :/: :/: push_back/COS can/MD throw/VB .../: Exception/NN guarantee/NN The/DT first/JJ thing/NN to/TO understand/VB is/VBZ that/IN you/PRP must/MD be/VB able/JJ to/TO evaluate/VB the/DT exception/NN guarantee/NN offered/VBN by/IN all/DT of/IN your/PRP$ functions/NNS :/: none/NN :/: Your/PRP$ code/NN should/MD never/RB offer/VB that/DT ./.
+This/DT code/NN will/MD leak/NN everything/NN ,/, and/CC break/VB down/RP at/IN the/DT very/RB first/JJ exception/NN thrown/VBN ./.
+basic/JJ :/: This/DT is/VBZ the/DT guarantee/NN you/PRP must/MD at/IN the/DT very/RB least/JJS offer/NN ,/, that/DT is/VBZ ,/, if/IN an/DT exception/NN is/VBZ thrown/VBN ,/, no/DT resources/NNS are/VBP leaked/VBN ,/, and/CC all/DT objects/NNS are/VBP still/RB whole/JJ strong/JJ :/: The/DT processing/NN will/MD either/RB succeed/VB ,/, or/CC throw/VB an/DT exception/NN ,/, but/CC if/IN it/PRP throws/VBZ ,/, then/RB the/DT data/NNS will/MD be/VB in/IN the/DT same/JJ state/NN as/IN if/IN the/DT processing/NN had/VBD not/RB started/VBN at/IN all/DT -LRB-/-LRB- this/DT gives/VBZ a/DT transactional/JJ power/NN to/TO C++/NNP -RRB-/-RRB- nothrow/nofail/COS :/: The/DT processing/NN will/MD succeed/VB ./.
+Example/NN of/IN code/NN The/DT following/VBG code/NN seems/VBZ like/IN correct/JJ C++/NNP ,/, but/CC in/IN truth/NN ,/, offers/VBZ the/DT ``/`` none/NN ''/'' guarantee/NN ,/, and/CC thus/RB ,/, it/PRP is/VBZ not/RB correct/JJ :/: void/COB doSomething/COB -LRB-/COB T/COB &/COB t/COB -RRB-/COB -LCB-/COB if/COB -LRB-/COB std/COB :/COB :/COB numeric_limits/COB <int>/COB :/COB :/COB max/COB -LRB-/COB -RRB-/COB >/COB t.integer/COB -RRB-/COB //COB //COB 1/COB ./COB
+nothrow/nofail/COB t.integer/COB +/COB =/COB 1/COB ;/COB //COB //COB 1/COB '/COB ./COB
+nothrow/nofail/COB X/COB */COB x/COB =/COB new/COB X/COB -LRB-/COB -RRB-/COB ;/COB //COB //COB 2/COB ./COB
+basic/JJ :/: can/MD throw/VB with/IN new/JJ and/CC X/COB constructor/COB t.list.push/COB _/COB back/COB -LRB-/COB x/COB -RRB-/COB ;/COB //COB //COB 3/COB ./COB
+strong/COB :/COB can/MD throw/VB x/COB -/COB >/COB doSomethingThatCanThrow/COB -LRB-/COB -RRB-/COB ;/COB //COB //COB 4/COB ./COB
+basic/JJ :/: can/MD throw/VB -RCB-/-RRB- I/PRP write/VBP all/DT my/PRP$ code/NN with/IN this/DT kind/NN of/IN analysis/NN in/IN mind/NN ./.
+The/DT lowest/JJS guarantee/NN offered/VBN is/VBZ basic/JJ ,/, but/CC then/RB ,/, the/DT ordering/VBG of/IN each/DT instruction/NN makes/VBZ the/DT whole/JJ function/NN ``/`` none/NN ''/'' ,/, because/IN if/IN 3/CD ./.
+throws/VBZ ,/, x/NN will/NN leak/NN ./.
+The/DT first/JJ thing/NN to/TO do/VB would/MD be/VB to/TO make/VB the/DT function/NN ``/`` basic/JJ ''/'' ,/, that/WDT is/VBZ putting/VBG x/NN in/IN a/DT smart/JJ pointer/NN until/IN it/PRP is/VBZ safely/RB owned/VBN by/IN the/DT list/NN :/: void/COB doSomething/COB -LRB-/COB T/COB &/COB t/COB -RRB-/COB -LCB-/COB if/COB -LRB-/COB std/COB :/COB :/COB numeric_limits/COB <int>/COB :/COB :/COB max/COB -LRB-/COB -RRB-/COB >/COB t.integer/COB -RRB-/COB //COB //COB 1/COB ./COB
+nothrow/nofail/COB t.integer/COB +/COB =/COB 1/COB ;/COB //COB //COB 1/COB '/COB ./COB
+nothrow/nofail/COB std/COB :/COB :/COB auto_ptr/COB <X>/COB x/COB -LRB-/COB new/COB X/COB -LRB-/COB -RRB-/COB -RRB-/COB ;/COB //COB //COB 2/COB ./COB
+basic/JJ :/: can/MD throw/VB with/IN new/JJ and/CC X/NN constructor/NN X/COB */COB px/COB =/COB x.get/COB -LRB-/COB -RRB-/COB ;/COB //COB //COB 2/COB '/COB ./COB
+nothrow/nofail/COB t.list.push/COB _/COB back/COB -LRB-/COB px/COB -RRB-/COB ;/COB //COB //COB 3/COB ./COB
+strong/JJ :/: can/MD throw/VB x.release/COB -LRB-/COB -RRB-/COB ;/COB //COB //COB 3/COB '/COB ./COB
+nothrow/nofail/COB px/COB -/COB >/COB doSomethingThatCanThrow/COB -LRB-/COB -RRB-/COB ;/COB //COB //COB 4/COB ./COB
+basic/JJ :/: can/MD throw/VB -RCB-/-RRB- Now/RB ,/, our/PRP$ code/NN offers/VBZ a/DT ``/`` basic/JJ ''/'' guarantee/NN ./.
+Nothing/NN will/MD leak/NN ,/, and/CC all/DT objects/NNS will/MD be/VB in/IN a/DT correct/JJ state/NN ./.
+But/CC we/PRP could/MD offer/VB more/JJR ,/, that/DT is/VBZ ,/, the/DT strong/JJ guarantee/NN ./.
+This/DT is/VBZ where/WRB it/PRP can/MD become/VB costly/JJ ,/, and/CC this/DT is/VBZ why/WRB not/RB all/DT C++/NNP code/NN is/VBZ strong/JJ ./.
+Let/VB 's/PRP try/VB it/PRP :/: void/COB doSomething/COB -LRB-/COB T/COB &/COB t/COB -RRB-/COB -LCB-/COB //COB //COB we/PRP create/VBP ``/`` x/NN ''/'' std/ACR :/: :/COB auto_ptr/COB <X>/COB x/COB -LRB-/COB new/COB X/COB -LRB-/COB -RRB-/COB -RRB-/COB ;/COB //COB //COB 1/COB ./COB
+basic/JJ :/: can/MD throw/VB with/IN new/JJ and/CC X/NN constructor/NN X/COB */COB px/COB =/COB x.get/COB -LRB-/COB -RRB-/COB ;/COB //COB //COB 2/COB ./COB
+nothrow/nofail/COB px/COB -/COB >/COB doSomethingThatCanThrow/COB -LRB-/COB -RRB-/COB ;/COB //COB //COB 3/COB ./COB
+basic/JJ :/: can/MD throw/VB //: //: we/PRP copy/VBP the/DT original/JJ container/NN to/TO avoid/VB changing/VBG it/PRP T/COB t2/COB -LRB-/COB t/NN -RRB-/COB ;/COB //COB //COB 4/COB ./COB
+strong/JJ :/: can/MD throw/VB with/IN T/NN copy-constructor/NN //: //: we/PRP put/VBD ``/`` x/NN ''/'' in/IN the/DT copied/VBN container/NN t2.list.push/COB _/COB back/COB -LRB-/COB px/COB -RRB-/COB ;/COB //COB //COB 5/CD ./.
+strong/JJ :/: can/MD throw/VB x.release/COB -LRB-/COB -RRB-/COB ;/COB //COB //COB 6/CD ./.
+nothrow/nofail/COB if/COB -LRB-/COB std/COB :/COB :/COB numeric_limits/COB <int>/COB :/COB :/COB max/COB -LRB-/COB -RRB-/COB >/COB t2.integer/COB -RRB-/COB //COB //COB 7/CD ./.
+nothrow/nofail/COB t2.integer/COB +/COB =/COB 1/COB ;/COB //COB //COB 7/CD '/'' ./.
+nothrow/nofail/COB //COB //COB we/PRP swap/VBP both/DT containers/NNS t.swap/COB -LRB-/COB t2/COB -RRB-/COB ;/COB //COB //COB 8/CD ./.
+nothrow/nofail/NN -RCB-/-RRB- We/PRP re-ordered/VBD the/DT operations/NNS ,/, first/RB creating/VBG and/CC setting/VBG X/NN to/TO its/PRP$ right/JJ value/NN ./.
+If/IN any/DT operation/NN fails/VBZ ,/, then/RB t/NN is/VBZ not/RB modified/VBN ,/, so/RB ,/, operation/NN 1/CD to/TO 3/CD can/MD be/VB considered/VBN ``/`` strong/JJ ''/'' :/: If/IN something/NN throws/VBZ ,/, t/NN is/VBZ not/RB modified/VBN ,/, and/CC X/NN will/MD not/RB leak/NN because/IN it/PRP 's/VBZ owned/VBN by/IN the/DT smart/JJ pointer/NN ./.
+Then/RB ,/, we/PRP create/VBP a/DT copy/NN t2/COS of/IN t/COS ,/, and/CC work/NN on/IN this/DT copy/NN from/IN operation/NN 4/CD to/TO 7/CD ./.
+If/IN something/NN throws/VBZ ,/, t2/COS is/VBZ modified/VBN ,/, but/CC then/RB ,/, t/COS is/VBZ still/RB the/DT original/NN ./.
+We/PRP still/RB offer/VBP the/DT strong/JJ guarantee/NN ./.
+Then/RB ,/, we/PRP swap/VBP t/COS and/CC t2/COS ./.
+Swap/NN operations/NNS should/MD be/VB nothrow/JJ in/IN C++/NNP ,/, so/RB lets/VBZ hope/VB the/DT swap/NN you/PRP wrote/VBD for/IN T/COS is/VBZ nothrow/NN -LRB-/-LRB- if/IN it/PRP is/VBZ n't/RB ,/, rewrite/VB it/PRP so/IN it/PRP is/VBZ nothrow/JJ -RRB-/-RRB- ./.
+So/RB ,/, if/IN we/PRP reach/VBP the/DT end/NN of/IN the/DT function/NN ,/, everything/NN succeeded/VBD -LRB-/-LRB- No/DT need/NN of/IN a/DT return/NN type/NN -RRB-/-RRB- and/CC t/COS has/VBZ its/PRP$ excepted/VBN value/NN ./.
+If/IN it/PRP fails/VBZ ,/, then/RB t/COS has/VBZ still/RB its/PRP$ original/JJ value/NN ./.
+Now/RB ,/, offering/VBG the/DT strong/JJ guarantee/NN could/MD be/VB quite/RB costly/JJ ,/, so/RB do/VBP n't/RB strive/VB to/TO offer/VB the/DT strong/JJ guarantee/NN to/TO all/DT your/PRP$ code/NN ,/, but/CC if/IN you/PRP can/MD do/VB it/PRP without/IN a/DT cost/NN -LRB-/-LRB- and/CC C++/NNP inlining/NN and/CC other/JJ optimization/NN could/MD make/VB all/PDT the/DT code/NN above/IN costless/JJ -RRB-/-RRB- ,/, then/RB do/VBP it/PRP ./.
+The/DT function/NN user/NN will/MD thank/VB you/PRP for/IN it/PRP ./.
+Conclusion/NN It/PRP takes/VBZ some/DT habit/NN to/TO write/VB exception-safe/JJ code/NN ./.
+You/PRP 'll/MD need/VB to/TO evaluate/VB the/DT guarantee/NN offered/VBN by/IN each/DT instruction/NN you/PRP 'll/MD use/VB ,/, and/CC then/RB ,/, you/PRP 'll/MD need/VB to/TO evaluate/VB the/DT guarantee/NN offered/VBN by/IN a/DT list/NN of/IN instructions/NNS ./.
+Of/IN course/NN ,/, the/DT C++/NNP compiler/NN wo/MD n't/RB back/VB up/RP the/DT guarantee/NN -LRB-/-LRB- in/IN my/PRP$ code/NN ,/, I/PRP offer/VBP the/DT guarantee/NN as/IN a/DT @warning/ATS doxygen/ATS tag/NN -RRB-/-RRB- ,/, which/WDT is/VBZ kinda/RB sad/JJ ,/, but/CC it/PRP should/MD not/RB stop/VB you/PRP from/IN trying/VBG to/TO write/VB exception/NN safe/JJ code/NN ./.
+Normal/JJ failure/NN vs./IN bug/NN How/WRB can/MD a/DT programmer/NN guarantee/NN that/IN a/DT nofail/COS function/NN will/MD always/RB succeed/VB ?/.
+After/IN all/DT ,/, the/DT function/NN could/MD have/VB a/DT bug/NN ./.
+This/DT is/VBZ true/JJ ./.
+The/DT exception/NN guarantees/NNS are/VBP supposed/VBN to/TO be/VB offered/VBN by/IN bug-free/JJ code/NN ./.
+But/CC then/RB ,/, in/IN any/DT language/NN ,/, calling/VBG a/DT function/NN supposes/VBZ the/DT function/NN is/VBZ bug-free/JJ ./.
+No/DT sane/JJ code/NN protects/VBZ itself/PRP against/IN the/DT possibility/NN of/IN it/PRP having/VBG a/DT bug/NN ./.
+Write/VB code/VB the/DT best/JJS you/PRP can/MD ,/, and/CC then/RB ,/, offer/VBP the/DT guarantee/NN with/IN the/DT supposition/NN it/PRP is/VBZ bug/NN free/JJ ./.
+And/CC if/IN there/EX is/VBZ a/DT bug/NN ,/, correct/VB it/PRP ./.
+Exceptions/NNS are/VBP for/IN exceptional/JJ processing/NN failure/NN ,/, not/RB for/IN code/NN bugs/NNS ./.
+Last/JJ words/NNS Now/RB ,/, the/DT question/NN is/VBZ ``/`` Is/VBZ this/DT worth/JJ it/PRP ?/. ''/'' ./.
+Of/IN course/NN it/PRP is/VBZ ./.
+Having/VBG a/DT ``/`` nothrow/nofail/COS ''/'' function/NN knowing/VBG that/IN the/DT function/NN wo/MD n't/RB fail/VB is/VBZ a/DT great/JJ boon/NN ./.
+The/DT same/JJ can/MD be/VB said/VBN for/IN a/DT ``/`` strong/JJ ''/'' function/NN ,/, which/WDT enables/VBZ you/PRP to/TO write/VB code/NN with/IN transactional/JJ semantics/NNS ,/, like/IN databases/NNS ,/, with/IN commit/rollback/NN features/NNS ,/, the/DT commit/VBP being/VBG normal/JJ execution/NN of/IN the/DT code/NN ,/, throwing/VBG exceptions/NNS being/VBG the/DT rollback/NN ./.
+Then/RB ,/, the/DT ``/`` basic/JJ ''/'' is/VBZ the/DT very/RB least/JJS guarantee/NN you/PRP should/MD offer/VB ./.
+C++/NNP is/VBZ a/DT very/RB strong/JJ language/NN there/RB ,/, with/IN its/PRP$ scopes/NNS ,/, enabling/VBG you/PRP to/TO avoid/VB any/DT resource/NN leaks/NNS -LRB-/-LRB- something/NN a/DT garbage/NN collector/NN would/MD find/VB it/PRP difficult/JJ to/TO offer/VB for/IN database/NN ,/, connection/NN or/CC file/NN handles/VBZ -RRB-/-RRB- ./.
+So/RB ,/, as/RB far/RB as/IN I/PRP see/VBP it/PRP ,/, it/PRP is/VBZ worth/JJ it/PRP ./.
+Edit/VB 2010-01-29/CD :/: About/IN non-throwing/JJ swap/NN nobar/NNP made/VBD a/DT comment/NN that/IN ,/, I/PRP believe/VBP ,/, is/VBZ quite/RB relevant/JJ ,/, because/IN it/PRP is/VBZ part/NN of/IN ``/`` how/WRB do/VBP you/PRP write/VB exception/NN safe/JJ code/NN ''/'' :/: -LSB-/-LRB- me/PRP -RSB-/-RRB- A/DT swap/NN will/MD never/RB fail/VB -LRB-/-LRB- do/VBP n't/RB even/RB write/VB a/DT throwing/NN swap/NN -RRB-/-RRB- -LSB-/-LRB- nobar/COS -RSB-/-RRB- This/DT is/VBZ a/DT good/JJ recommendation/NN for/IN custom-written/JJ swap/NN -LRB-/-LRB- -RRB-/-RRB- functions/NNS ./.
+It/PRP should/MD be/VB noted/VBN ,/, however/RB ,/, that/DT std/ACR :/: :/: swap/COS -LRB-/COS -RRB-/COS can/MD fail/VB based/VBN on/IN the/DT operations/NNS that/IN it/PRP uses/VBZ internally/RB the/DT default/NN std/ACR :/: :/: swap/NN will/MD make/VB copies/NNS and/CC assignments/NNS ,/, which/WDT ,/, for/IN some/DT objects/NNS ,/, can/MD throw/VB ./.
+Thus/RB ,/, the/DT default/NN swap/NN could/MD throw/VB ,/, either/RB used/VBN for/IN your/PRP$ classes/NNS ,/, or/CC even/RB for/IN STL/ACR classes/NNS ./.
+As/RB far/RB as/IN the/DT C++/NNP standard/NN is/VBZ concerned/VBN ,/, the/DT swap/NN operation/NN for/IN vector/COS ,/, deque/COS ,/, and/CC list/COS wo/MD n't/RB throw/VB ,/, whereas/IN it/PRP could/MD for/IN map/COS if/IN the/DT comparison/NN functor/NN can/MD throw/VB on/IN copy/NN construction/NN -LRB-/-LRB- See/VB The/DT C++/NNP Programming/NN Language/NN ,/, Special/JJ Edition/NN ,/, appendix/NN E/ACR ,/, E./ACR 4.3/CD ./.
+Swap/NN -RRB-/-RRB- ./.
+Looking/VBG at/IN Visual/NNP C++/NNP 2008/CD implementation/NN of/IN the/DT vector/NN 's/POS swap/NN ,/, the/DT vector/NN 's/POS swap/NN wo/MD n't/RB throw/VB if/IN the/DT two/CD vectors/NNS have/VBP the/DT same/JJ allocator/NN -LRB-/-LRB- i.e./FW ,/, the/DT normal/JJ case/NN -RRB-/-RRB- ,/, but/CC will/MD make/VB copies/NNS if/IN they/PRP have/VBP different/JJ allocators/NNS ./.
+And/CC thus/RB ,/, I/PRP assume/VBP it/PRP could/MD throw/VB in/IN this/DT last/JJ case/NN ./.
+So/RB ,/, the/DT original/JJ text/NN still/RB holds/VBZ :/: Do/VBP n't/RB even/RB write/VB a/DT throwing/NN swap/NN ,/, but/CC nobar/NNP 's/POS comment/NN must/MD be/VB remembered/VBN :/: Be/VB sure/JJ the/DT objects/NNS you/PRP 're/VBP swapping/VBG have/VBP a/DT non-throwing/JJ swap/NN ./.
+Edit/VB 2011-11-06/CD :/: Interesting/JJ article/NN Dave/NNP Abrahams/NNP ,/, who/WP gave/VBD us/PRP the/DT basic/strong/nothrow/NN guarantees/NNS ,/, described/VBN in/IN an/DT article/NN his/PRP$ experience/NN about/IN making/VBG the/DT STL/ACR exception/NN safe/NN :/: http://www.boost.org/community/exception_safety.html/URL Look/VB at/IN the/DT 7th/JJ point/NN -LRB-/-LRB- Automated/JJ testing/NN for/IN exception-safety/NN -RRB-/-RRB- ,/, where/WRB he/PRP relies/VBZ on/IN automated/JJ unit/NN testing/NN to/TO make/VB sure/JJ every/DT case/NN is/VBZ tested/VBN ./.
+I/PRP guess/VBP this/DT part/NN is/VBZ an/DT excellent/JJ answer/NN to/TO the/DT question/NN author/NN 's/POS ``/`` Can/MD you/PRP even/RB be/VB sure/JJ ,/, that/IN it/PRP is/VBZ ?/. ''/'' ./.
+Edit/VB 2013-05-31/CD :/: Comment/NN from/IN dionadar/NNP t.integer/COS +/COS =/COS 1/COS ;/COS is/VBZ without/IN the/DT guarantee/NN that/DT overflow/NN will/MD not/RB happen/VB NOT/RB exception/NN safe/NN ,/, and/CC in/IN fact/NN may/MD technically/RB invoke/VB UB/ACR !/.
+-LRB-/-LRB- Signed/VBN overflow/NN is/VBZ UB/ACR :/: C++/NNP 11/CD 5/4/CD ``/`` If/IN during/IN the/DT evaluation/NN of/IN an/DT expression/NN ,/, the/DT result/NN is/VBZ not/RB mathematically/RB defined/VBN or/CC not/RB in/IN the/DT range/NN of/IN representable/JJ values/NNS for/IN its/PRP$ type/NN ,/, the/DT behavior/NN is/VBZ undefined/JJ ./. ''/'' -RRB-/-RRB-
+Note/VB that/DT unsigned/JJ integer/NN do/VBP not/RB overflow/NN ,/, but/CC do/VBP their/PRP$ computations/NNS in/IN an/DT equivalence/JJ class/NN modulo/NN 2/CD ^/SYM #bits/NN ./.
+Dionadar/NNP is/VBZ refering/VBG to/TO the/DT following/VBG line/NN ,/, which/WDT indeed/RB has/VBZ undefined/JJ behaviour/NN ./.
+t.integer/COS +/COS =/COS 1/COS ;/COS //COS //COS 1/COS ./COS
+nothrow/nofail/COS The/DT solution/NN here/RB is/VBZ to/TO verify/VB if/IN the/DT integer/NN is/VBZ already/RB at/IN its/PRP$ max/NN value/NN -LRB-/-LRB- using/VBG std/ACR :/: :/COS numeric_limits/COS <T>/COS :/COS :/COS max/COS -LRB-/COS -RRB-/COS -RRB-/COS before/IN doing/VBG the/DT addition/NN ./.
+My/PRP$ error/NN would/MD go/VB in/IN the/DT ``/`` Normal/JJ failure/NN vs./IN bug/NN ''/'' section/NN ,/, that/DT is/VBZ ,/, a/DT bug/NN ./.
+It/PRP does/VBZ n't/RB invalidate/VB the/DT reasoning/NN ,/, and/CC it/PRP does/VBZ not/RB mean/VB exception/NN safe/JJ code/NN is/VBZ useless/JJ because/IN impossible/JJ to/TO attain/VB ./.
+You/PRP ca/MD n't/RB protect/VB yourself/PRP against/IN the/DT computer/NN switching/NN off/IN ,/, or/CC compiler/NN bugs/NNS ,/, or/CC even/RB your/PRP$ bugs/NNS ,/, or/CC other/JJ errors/NNS ./.
+You/PRP ca/MD n't/RB attain/VB perfection/NN ,/, but/CC you/PRP can/MD try/VB to/TO get/VB as/RB near/JJ as/IN possible/JJ ./.
+I/PRP corrected/VBD the/DT code/NN with/IN Dionadar/NNP 's/POS comment/NN in/IN mind/NN ./.
+@frunsi/ATS :/: Exception/NN safety/NN has/VBZ funny/JJ effects/NNS ./.
+For/IN example/NN ,/, when/WRB you/PRP have/VBP a/DT function/NN calling/VBG only/JJ nofail/nothrow/COS code/NN ,/, and/CC when/WRB you/PRP realize/VBP that/IN as/IN a/DT whole/NN ,/, the/DT function/NN is/VBZ nofail/nothrow/COS ,/, too/RB ,/, there/EX is/VBZ a/DT little/JJ moment/NN of/IN ``/`` shining/VBG ''/'' that/WDT somehow/RB makes/VBZ your/PRP$ day/NN brighter/NN ./.
+The/DT same/JJ can/MD be/VB said/VBN for/IN strong/JJ functions/NNS ./.
+When/WRB you/PRP have/VBP a/DT function/NN that/WDT seems/VBZ to/TO do/VB a/DT lot/NN ,/, and/CC you/PRP can/MD offer/VB a/DT strong/commit/rollback/NN guarantee/NN ,/, you/PRP see/VBP your/PRP$ code/NN from/IN a/DT new/JJ viewpoint/NN ./.
+I/PRP started/VBD wrapping/VBG SQLite3/ACR C/NNP code/NN into/IN C++/NNP code/NN ,/, and/CC offering/VBG strong/nothrow/NN guarantees/NNS to/TO transactional/JJ concept/NN was/VBD both/CC fun/NN and/CC rewarding/JJ ./.
+@nobar/ATS :/: +1/CD for/IN the/DT comment/NN ./.
+I/PRP 'll/MD edit/VB my/PRP$ answer/NN to/TO add/VB your/PRP$ contribution/NN ./.
+@Malcolm/ATS :/: Really/RB ,/, this/DT answer/NN made/VBD me/PRP appreciate/VB Java/NNP more/RBR :/: You/PRP 'd/MD be/VB wrong/JJ to/TO believe/VB that/DT ./.
+Java/NNP makes/VBZ it/PRP harder/RBR than/IN C++/NNP to/TO have/VB exception/NN safe/JJ code/NN ./.
+For/IN example/NN ,/, there/EX is/VBZ no/DT finally/RB in/IN C++/NNP ,/, and/CC this/DT is/VBZ not/RB an/DT error/NN .../: See/VB my/PRP$ question/NN stackoverflow.com/questions/194261/URL for/IN an/DT example/NN of/IN how/WRB Java/NNP fails/VBZ ,/, when/WRB compared/VBN to/TO C#/NNP and/CC -LRB-/-LRB- of/IN course/NN -RRB-/-RRB- C++/NNP ./.
+@Mehrdad/ATS :/: ``/`` finally/RB ''/'' does/VBZ exactly/RB what/WP you/PRP were/VBD trying/VBG to/TO achieve/VB :/: Of/IN course/NN it/PRP does/VBZ ./.
+And/CC because/IN it/PRP is/VBZ easy/JJ to/TO produce/VB brittle/JJ code/NN with/IN finally/RB ,/, the/DT ``/`` try-with-resource/NN ''/'' notion/NN was/VBD finally/RB introduced/VBN in/IN Java/NNP 7/CD -LRB-/-LRB- that/DT is/VBZ ,/, 10/CD years/NNS after/IN C#/NNP 's/POS using/VBG and/CC 3/CD decades/NNS after/IN C++/NNP destructors/NNS -RRB-/-RRB- ./.
+This/DT is/VBZ this/DT brittleness/NN I/PRP criticize/VBP ./.
+As/IN for/IN Just/RB because/IN -LSB-/-LRB- finally/RB -RSB-/-RRB- does/VBZ n't/RB match/VB your/PRP$ taste/NN -LRB-/-LRB- RAII/ACR does/VBZ n't/RB match/VB mine/NN ,/, -LSB-/-LRB- .../: -RSB-/-RRB- -RRB-/-RRB- does/VBZ n't/RB mean/VB it/PRP 's/VBZ ``/`` failing/VBG ''/'' :/: In/IN this/DT ,/, the/DT industry/NN disagree/VBP with/IN your/PRP$ taste/NN ,/, as/IN Garbage/NN Collected/JJ languages/NNS tend/VBP to/TO add/VB RAII-inspired/JJ statements/NNS -LRB-/-LRB- C#/NNP 's/POS using/VBG and/CC Java/NNP 's/POS try/NN -RRB-/-RRB- ./.
+@Mehrdad/ATS :/: As/IN for/IN See/VB my/PRP$ question/NN http://stackoverflow.com/questions/194261/URL for/IN an/DT example/NN of/IN how/WRB Java/NNP fails/VBZ ,/, please/VB ,/, again/RB ,/, refer/VBP to/TO the/DT linked/VBN question/NN ,/, and/CC how/WRB it/PRP is/VBZ almost/RB impossible/JJ to/TO produce/VB robust/JJ code/NN when/WRB multiple/JJ resources/NNS are/VBP used/VBN in/IN the/DT same/JJ function/NN in/IN Java/NNP without/IN using/VBG the/DT Java/NNP 7/CD try-with-resource/NN pattern/NN ./.
+@Mehrdad/ATS :/: RAII/ACR does/VBZ n't/RB match/VB mine/NN ,/, since/IN it/PRP needs/VBZ a/DT new/JJ struct/NN every/DT single/JJ darn/JJ time/NN ,/, which/WDT is/VBZ tedious/JJ sometimes/RB :/: No/UH ,/, it/PRP does/VBZ n't/RB ./.
+You/PRP can/MD use/VB smart/JJ pointers/NNS or/CC utility/NN classes/NNS to/TO ``/`` protect/VB ''/'' resources/NNS ./.
+@Mehrdad/ATS :/: Ok/NN ,/, no/DT need/NN to/TO discuss/VB you/PRP tastes/NNS ,/, then/RB ./.
+@ESRogs/ATS :/: ``/COB t.integer/COB +/COB =/COB 1/COB ;/COB //COB //COB 1/COB ./COB
+nothrow/nofail/COB ''/COB Would/MD n't/RB this/DT throw/VB an/DT exception/NN if/IN t/NN is/VBZ null/JJ ?/.
+:/: t/NN was/VBD passed/VBN as/IN reference/NN ,/, so/IN it/PRP is/VBZ a/DT value/NN ,/, not/RB a/DT pointer/NN ./.
+And/CC in/IN C++/NNP ,/, dereferenced/JJ NULL/NN pointers/NNS do/VBP n't/RB throw/VB exceptions/NNS ,/, but/CC instead/RB have/VBP undefined/VBN behaviour/NN -LRB-/-LRB- usually/RB it/PRP will/MD crash/VB at/IN first/JJ true/JJ use/NN -RRB-/-RRB- @Jeroen/ATS Dirks/ATS :/: Usually/RB ,/, memory/NN allocation/NN failures/NNS will/MD be/VB thrown/VBN by/IN the/DT new/JJ operator/NN ,/, so/RB no/RB need/VB to/TO manually/RB throw/VB them/PRP yourself/PRP from/IN your/PRP$ constructor/NN ./.
+Now/RB ,/, in/IN some/DT cases/NNS -LRB-/-LRB- you/PRP are/VBP using/VBG malloc/NN for/IN an/DT allocation/NN ,/, for/IN example/NN -RRB-/-RRB- ,/, if/IN you/PRP want/VBP to/TO behave/VB correctly/RB ,/, you/PRP 'll/MD need/VB to/TO manually/RB throw/VB the/DT exception/NN ./.
+Usually/RB ,/, there/EX are/VBP greater/JJR problems/NNS ,/, but/CC if/IN you/PRP are/VBP writing/VBG a/DT library/NN ,/, then/RB you/PRP just/RB CA/ACR N'T/RB write/VB code/NN with/IN assumptions/NNS like/IN ``/`` If/IN it/PRP goes/VBZ there/RB ,/, then/RB sorry/JJ ,/, my/PRP$ code/NN only/RB works/VBZ on/IN normal/JJ cases/NNS ''/'' ./.
+So/RB ,/, even/RB if/IN the/DT OS/NNP is/VBZ thrashing/VBG ,/, throwing/VBG an/DT exception/NN is/VBZ still/RB the/DT right/JJ thing/NN to/TO go/VB IMHO/ACR ./.
+@kfmfe04/ACR :/: It/PRP 's/VBZ easier/JJR than/IN it/PRP seems/VBZ ,/, but/CC like/IN everything/NN ,/, it/PRP takes/VBZ a/DT little/JJ work/NN to/TO get/VB familiar/JJ :/: I/PRP worked/VBD on/IN a/DT full/JJ library/NN -LRB-/-LRB- a/DT STL-like/JJ tree/NN structure/NN -RRB-/-RRB- to/TO become/VB at/IN ease/NN with/IN the/DT concept/NN ./.
+My/PRP$ advice/NN :/: Keep/VB functions/NNS small/JJ and/CC simple/JJ -LRB-/-LRB- and/CC have/VBP them/PRP do/VB ONE/CD thing/NN -RRB-/-RRB- ,/, assume/VB nothing/NN -LRB-/-LRB- but/CC basic/JJ guarantee/NN ,/, that/WDT is/VBZ RAII/ACR -RRB-/-RRB- ,/, and/CC learn/VB to/TO recognize/VB the/DT guarantees/NNS for/IN each/DT line/NN ./.
+With/IN simple/JJ functions/NNS ,/, you/PRP will/MD be/VB able/JJ to/TO recognize/VB the/DT level/NN of/IN guarantee/NN .../: Now/RB ,/, for/IN larger/JJR functions/NNS ,/, it/PRP will/MD be/VB more/RBR complicated/JJ ,/, but/CC this/DT is/VBZ ok/RB as/IN the/DT basic/JJ guarantee/NN is/VBZ almost/RB automatic/JJ with/IN C++/NNP ./.
+@dionadar/aATS :/: +1/CD :/: Thanks/NNS for/IN the/DT input/NN ./.
+I/PRP 'll/MD update/VB my/PRP$ answer/NN ./.
+The/DT Java/NNP checked/VBD exception/NN usability/NN is/VBZ highly/RB exagerated/JJ ./.
+In/IN fact/NN ,/, non-Java/JJ languages/NNS ,/, they/PRP are/VBP NOT/RB considered/VBN a/DT success/NN ./.
+This/DT is/VBZ why/WRB the/DT ``/`` throw/VB ''/'' statement/NN in/IN C++/NNP is/VBZ now/RB considered/VBN obsolete/JJ ,/, and/CC C#/NNP never/RB seriously/RB considered/VBN implementing/VBG them/PRP -LRB-/-LRB- this/DT was/VBD a/DT design/NN choice/NN -RRB-/-RRB- ./.
+For/IN Java/NNP ,/, the/DT following/JJ document/NN could/MD be/VB enlightning/VBG :/: googletesting.blogspot.com/2009/09/…/URL

@@ -1,0 +1,1 @@
+To/TO disable/VB it/PRP globally/RB for/IN MVC/NNP 3/CD you/PRP also/RB need/VBP GlobalFilters.Filters.Add/NN -LRB-/-LRB- new/JJ ValidateInputAttribute/NNP -LRB-/-LRB- false/JJ -RRB-/-RRB- -RRB-/-RRB- ;/: in/IN Application_Start/NN -LRB-/-LRB- -RRB-/-RRB- ./.

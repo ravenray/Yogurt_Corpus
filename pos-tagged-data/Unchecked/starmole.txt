@@ -1,0 +1,16 @@
+I/PRP want/VBP to/TO give/VB a/DT bit/NN of/IN a/DT different/JJ answer/NN than/IN the/DT others/NNS ./.
+They/PRP are/VBP great/JJ for/IN answering/VBG your/PRP$ question/NN as/IN stated/JJ but/CC probably/RB not/RB for/IN what/WP you/PRP need/VBP to/TO know/VB or/CC what/WP your/PRP$ real/JJ problem/NN is/VBZ ./.
+Floating/VBG point/NN in/IN graphics/NNS is/VBZ fine/JJ !/.
+But/CC there/EX is/VBZ almost/RB no/DT need/NN to/TO ever/RB compare/VB floats/VBZ directly/RB ./.
+Why/WRB would/MD you/PRP need/VB to/TO do/VB that/DT ?/.
+Graphics/NNP uses/VBZ floats/VBZ to/TO define/VB intervals/NNS ./.
+And/CC comparing/VBG if/IN a/DT float/NN is/VBZ within/IN an/DT interval/NN also/RB defined/VBN by/IN floats/VBZ is/VBZ always/RB well/RB defined/VBN and/CC merely/RB needs/VBZ to/TO be/VB consistent/JJ ,/, not/RB accurate/JJ or/CC precise/JJ !/.
+As/RB long/RB as/IN a/DT pixel/NN -LRB-/-LRB- which/WDT is/VBZ also/RB an/DT interval/NN !/. -RRB-/-RRB-
+can/MD be/VB assigned/VBN that/DT 's/VBZ all/DT graphics/NNS needs/NNS ./.
+So/RB if/IN you/PRP want/VBP to/TO test/VB if/IN your/PRP$ point/NN is/VBZ outside/IN a/DT -LSB-/-LRB- 0/CD ./. ./.
+width/NN -LSB-/-LRB- range/NN this/DT is/VBZ just/RB fine/JJ ./.
+Just/RB make/VB sure/JJ you/PRP define/VBP inclusion/NN consistently/RB ./.
+For/IN example/NN always/RB define/VBP inside/NN is/VBZ -LRB-/-LRB- x/NN >/JJR =/JJ 0/CD &/CC &/CC x/NN </JJR width/NN -RRB-/-RRB- ./.
+The/DT same/JJ goes/VBZ for/IN intersection/NN or/CC hit/NN tests/NNS ./.
+However/RB ,/, if/IN you/PRP are/VBP abusing/VBG a/DT graphics/NNS coordinate/JJ as/IN some/DT kind/NN of/IN flag/NN ,/, like/IN for/IN example/NN to/TO see/VB if/IN a/DT window/NN is/VBZ docked/VBN or/CC not/RB ,/, you/PRP should/MD not/RB do/VB this/DT ./.
+Use/VB a/DT boolean/JJ flag/NN that/WDT is/VBZ separate/JJ from/IN the/DT graphics/NNS presentation/NN layer/NN instead/RB ./.

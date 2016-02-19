@@ -1,0 +1,9 @@
+I/PRP use/VBP three/CD different/JJ ways/NNS to/TO prevent/VB my/PRP$ web/NN application/NN from/IN being/VBG vulnerable/JJ to/TO SQL/NN injection/NN ./.
+Use/NN of/IN mysql_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- ,/, which/WDT is/VBZ a/DT pre-defined/JJ function/NN in/IN PHP/NNP ,/, and/CC this/DT code/NN add/VB backslashes/NNS to/TO the/DT following/JJ characters/NNS :/: \/CD x00/NN ,/, \/CD n/NN ,/, \/CD r/NN ,/, \/NN ,/, '/'' ,/, ''/'' and/CC \/FW x1a/FW ./.
+Pass/VB the/DT input/NN values/NNS as/IN parameters/NNS to/TO minimize/VB the/DT chance/NN of/IN SQL/NN injection/NN ./.
+The/DT most/RBS advanced/JJ way/NN is/VBZ to/TO use/VB PDOs/NNS ./.
+I/PRP hope/VBP this/DT will/MD help/VB you/PRP ./.
+Consider/VB the/DT following/JJ query/NN :/: $/$ iId/NN =/JJ mysql_real_escape_string/NN -LRB-/-LRB- ``/`` 1/CD OR/NN 1/CD =/JJ 1/CD ''/'' -RRB-/-RRB- ;/: $/$ sSql/NN =/JJ ``/`` SELECT/VB */SYM FROM/NN table/NN WHERE/NN id/NN =/JJ $/$ iId/NN ''/'' ;/: mysql_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- will/MD not/RB protect/VB here/RB ./.
+If/IN you/PRP use/VBP single/JJ quotes/NNS -LRB-/-LRB- '/'' '/'' -RRB-/-RRB- around/IN your/PRP$ variables/NNS inside/IN your/PRP$ query/NN is/VBZ what/WP protects/VBZ you/PRP against/IN this/DT ./.
+Here/RB is/VBZ an/DT solution/NN below/IN for/IN this/DT :/: $/$ iId/NN =/JJ -LRB-/-LRB- int/JJ -RRB-/-RRB- mysql_real_escape_string/NN -LRB-/-LRB- ``/`` 1/CD OR/NN 1/CD =/JJ 1/CD ''/'' -RRB-/-RRB- ;/: $/$ sSql/NN =/JJ ``/`` SELECT/VB */SYM FROM/NN table/NN WHERE/NN id/NN =/JJ $/$ iId/NN ''/'' ;/: This/DT question/NN has/VBZ some/DT good/JJ answers/NNS about/IN this/DT ./.
+I/PRP suggest/VBP ,/, using/VBG PDO/NNP is/VBZ the/DT best/JJS option/NN ./.

@@ -1,0 +1,3 @@
+while/IN this/DT whole/JJ discussion/NN is/VBZ stupid/JJ because/IN of/IN prior/JJ arguments/NNS ./.
+$/$ ./.
+parseJSON/NN is/VBZ actually/RB just/RB wrapping/VBG JSON.parse/NN so/RB yeah/JJ ,/, adding/VBG jQuery/NN for/IN it/PRP would/MD be/VB stupid/JJ

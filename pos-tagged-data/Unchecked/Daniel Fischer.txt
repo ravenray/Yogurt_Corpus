@@ -1,0 +1,2 @@
+fabs/NNS -LRB-/-LRB- x/NN +/CC y/NN -RRB-/-RRB- is/VBZ problematic/JJ if/IN x/NN and/CC y/NN -LRB-/-LRB- can/NN -RRB-/-RRB- have/VBP different/JJ sign/NN ./.
+Still/RB ,/, a/DT good/JJ answer/NN against/IN the/DT tide/NN of/IN cargo-cult/JJ comparisons/NNS ./.

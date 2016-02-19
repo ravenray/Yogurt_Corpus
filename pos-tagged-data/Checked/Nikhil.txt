@@ -1,0 +1,41 @@
+I/PRP favor/VBP stored/VBN procedures/NNS -LRB-/-LRB- MySQL/NNP has/VBZ had/VBD stored/VBN procedures/NNS support/VBP since/IN 5.0/CD -RRB-/-RRB- from/IN a/DT security/NN point/NN of/IN view/NN -/: the/DT advantages/NNS are/VBP -/: Most/JJS databases/NNS -LRB-/-LRB- including/VBG MySQL/NNP -RRB-/-RRB- enable/VBP user/NN access/NN to/TO be/VB restricted/JJ to/TO executing/VBG stored/VBN procedures/NNS ./.
+The/DT fine/NN grained/VBD security/NN access/NN control/NN is/VBZ useful/JJ to/TO prevent/VB escalation/NN of/IN privileges/NNS attacks/NNS ./.
+This/DT prevents/VBZ compromised/VBN applications/NNS from/IN being/VBG able/JJ to/TO run/VB SQL/ARC directly/RB against/IN the/DT database/NN ./.
+They/PRP abstract/JJ the/DT raw/JJ SQL/ACR query/NN from/IN the/DT application/NN so/RB less/JJR information/NN of/IN the/DT database/NN structure/NN is/VBZ available/JJ to/TO the/DT application/NN ./.
+This/DT makes/VBZ it/PRP harder/RBR for/IN people/NNS to/TO understand/VB the/DT underlying/JJ structure/NN of/IN the/DT database/NN and/CC design/NN suitable/JJ attacks/NNS ./.
+They/PRP accept/VBP only/RB parameters/NNS ,/, so/IN the/DT advantages/NNS of/IN parameterized/JJ queries/NNS are/VBP there/RB ./.
+Of/IN course/NN -/: IMO/ACR you/PRP still/RB need/VB to/TO sanitize/VB your/PRP$ input/NN -/: especially/RB if/IN you/PRP are/VBP using/VBG dynamic/JJ SQL/ACR inside/IN the/DT stored/VBN procedure/NN ./.
+The/DT disadvantages/NNS are/VBP -/: They/PRP -LRB-/-LRB- stored/VBN procedures/NNS -RRB-/-RRB- are/VBP tough/JJ to/TO maintain/VB and/CC tend/VB to/TO multiply/VB very/RB quickly/RB ./.
+This/DT makes/VBZ managing/VBG them/PRP an/DT issue/NN ./.
+They/PRP are/VBP not/RB very/RB suitable/JJ for/IN dynamic/JJ queries/NNS -/: if/IN they/PRP are/VBP built/VBN to/TO accept/VB dynamic/JJ code/NN as/IN parameters/NNS then/RB a/DT lot/NN of/IN the/DT advantages/NNS are/VBP negated/VBN ./.
+I/PRP have/VBP noticed/VBN a/DT lot/NN of/IN down-votes/NNS to/TO this/DT answer/NN but/CC no/DT comments/NNS or/CC any/DT reasons/NNS as/IN to/TO why/WRB ./.
+I/PRP would/MD appreciate/VB the/DT courtesy/NN of/IN letting/VBG me/PRP know/VB why/WRB you/PRP think/VBP this/DT answer/NN deserves/VBZ a/DT down-vote/NN so/IN i/PRP have/VBP an/DT opportunity/NN to/TO respond/VB ./.
+@nikic/ATS -/: Yes/UH ,/, using/VBG stored/VBN procedures/NNS may/MD encourage/VB people/NNS to/TO put/VB business/NN logic/NN in/IN them/PRP when/WRB it/PRP is/VBZ not/RB appropriate/JJ ./.
+But/CC IMO/ACR that/WDT is/VBZ a/DT code/NN smell/NN which/WDT should/MD be/VB caught/VBN in/IN your/PRP$ code/NN review/NN ./.
+@greyfade/ATS Your/PRP$ argument/NN is/VBZ not/RB clear/JJ to/TO me/PRP -/: it/PRP looks/VBZ like/IN you/PRP are/VBP saying/VBG that/IN somehow/RB malicous/JJ SQL/ACR can/MD be/VB injected/VBN into/IN SP/ACR through/IN its/PRP$ parameters/NNS and/CC once/IN it/PRP does/VBZ it/PRP can/MD harm/VB the/DT database/NN ./.
+First/RB of/IN all/DT if/IN you/PRP are/VBP using/VBG SP/ACR parameters/NNS that/WDT are/VBP properly/RB typed/VBN malicous/JJ injection/NN will/MD be/VB limited/VBN to/TO only/RB those/DT parameters/NNS that/WDT accept/VBP strings/NNS ./.
+If/IN you/PRP pass/VBP a/DT piece/NN of/IN text/NN to/TO a/DT sp/ACR parameter/NN of/IN type/NN integer/NN the/DT DB/ACR will/MD not/RB execute/VB it/PRP ./.
+This/DT particular/JJ problem/NN is/VBZ valid/JJ for/IN parameterized/JJ queries/NNS as/RB well/RB if/IN you/PRP do/VBP not/RB sanitize/VB the/DT string/NN that/IN you/PRP assign/VBP to/TO the/DT parameters/NNS ./.
+Sanitizing/VBG the/DT input/NN is/VBZ of/IN of/IN the/DT points/NNS I/PRP made/VBD in/IN my/PRP$ answer/NN -/: point/NN three/CD ./.
+In/IN this/DT point/NN I/PRP mention/VBP that/IN sps/ACR are/VBP not/RB suitable/JJ for/IN dynamic/JJ queries/NNS and/CC this/DT is/VBZ one/CD of/IN the/DT reasons/NNS why/WRB ./.
+Assuming/VBG for/IN a/DT moment/NN one/CD is/VBZ able/JJ to/TO compromise/VB a/DT stored/VBN procedure/NN using/VBG SQL/ACR injection/NN -LRB-/-LRB- becuase/IN the/DT sql/ARC injection/NN happened/VBD through/IN a/DT string/NN parameter/NN and/CC was/VBD then/RB used/VBN in/IN the/DT query/NN -RRB-/-RRB- ./.
+In/IN this/DT case/NN the/DT limited/JJ access/NN privileges/NNS of/IN the/DT stored/VBN procedure/NN -LRB-/-LRB- assuming/VBG you/PRP have/VBP set/VBN it/PRP up/RP correctly/RB -RRB-/-RRB- will/MD limit/VB the/DT damage/NN to/TO the/DT parts/NNS of/IN the/DT database/NN the/DT sp/ARC has/VBZ access/NN to/TO ./.
+Assuming/VBG for/IN a/DT moment/NN one/PRP is/VBZ able/JJ to/TO compromise/VB a/DT stored/VBN procedure/NN using/VBG SQL/ARC injection/NN ./.
+In/IN this/DT case/NN the/DT limited/JJ access/NN privileges/NNS of/IN the/DT stored/VBN procedure/NN -LRB-/-LRB- link/NN on/IN mySQL/NNP sp/ARC access/NN privileges/NNS -RRB-/-RRB- will/MD limit/VB the/DT damage/NN to/TO the/DT parts/NNS of/IN the/DT database/NN the/DT sp/ACR has/VBZ access/NN to/TO ./.
+@greyfade/ATS :/: So/IN what/WP you/PRP are/VBP saying/VBG is/VBZ that/IN by/IN using/VBG parameterised/JJ calls/NNS to/TO the/DT SP/ACR it/PRP is/VBZ impossible/JJ to/TO inject/VB malicious/JJ SQL/ACR even/RB if/IN you/PRP are/VBP concatenating/VBG strings/NNS inside/IN the/DT SP/ACR ./.
+I/PRP did/VBD not/RB know/VB that/DT parameterisation/NN had/VBD that/IN particular/JJ advantage/NN and/CC I/PRP am/VBP curious/JJ to/TO know/VB how/WRB this/DT is/VBZ done/VBN -/: technically/RB ./.
+Does/VBZ making/VBG the/DT data/NN input/NN a/DT parameter/NN automatically/RB sanitise/VB it/PRP ?/.
+Is/VBZ this/DT specific/NN to/TO PHP/ACR and/CC mySQL/NNP ?/.
+Can/MD you/PRP link/VB to/TO any/DT article/NN or/CC post/NN I/PRP could/MD read/VB regarding/VBG this/DT ?/.
+Concatenating/VBG strings/NNS to/TO make/VB a/DT query/NN i.e./FW using/VBG dynamic/JJ queries/NNS -/: inside/IN an/DT SP/ACR will/MD negate/VB the/DT advantages/NNS of/IN using/VBG the/DT SP/ACR in/IN the/DT first/JJ place/NN ./.
+I/PRP have/VBP mentioned/VBN this/DT in/IN the/DT disadvantages/NNS of/IN using/VBG an/DT SP/ACR section/NN of/IN my/PRP$ answer/NN above/IN ./.
+@greyfade/ATS OK/UH -/: I/PRP get/VBP that/IN you/PRP are/VBP using/VBG mysqli_prepare/COS -LRB-/COS $/COS query/COS -RRB-/COS to/TO parse/VB the/DT command/NN you/PRP are/VBP going/VBG to/TO send/VB in/IN and/CC it/PRP is/VBZ going/VBG to/TO use/VB ?/.
+to/TO pull/VB in/IN the/DT data/NNS from/IN the/DT passed/VBN values/NNS as/IN data/NNS ./.
+This/DT is/VBZ what/WP happens/VBZ in/IN an/DT SP/ACR as/RB well/RB ,/, it/PRP accepts/VBZ parameters/NNS as/IN input/NN and/CC treats/VBZ the/DT passed/VBN in/IN values/NNS as/IN data/NNS ./.
+You/PRP can/MD call/VB the/DT SP/ACR using/VBG the/DT same/JJ mysqli_prepare/COS -LRB-/COS $/COS query/COS -RRB-/COS and/CC pass/VBP in/IN the/DT parameters/NNS using/VBG ?/. ./.
+As/RB far/RB as/IN passing/VBG dummy/NN parameters/NNS is/VBZ concerned/VBN ,/, if/IN you/PRP are/VBP using/VBG SPs/ACR you/PRP can/MD disable/VB access/NN permission/NN to/TO do/VB direct/JJ operations/NNS on/IN the/DT db/ACR for/IN the/DT application/NN ./.
+This/DT way/NN trying/VBG to/TO squeeze/VB extra/JJ SQL/ACR commands/NNS after/IN the/DT SP/ACR parameters/NNS will/MD throw/VB an/DT exception/NN ./.
+The/DT only/JJ data/NNS that/WDT will/MD be/VB considered/VBN will/MD be/VB what/WP is/VBZ passed/VBN into/IN the/DT SP/ACR and/CC that/DT will/MD be/VB treated/VBN as/IN variables/NNS with/IN data/NNS values/NNS assuming/VBG you/PRP are/VBP n't/RB building/VBG a/DT dynamic/JJ query/NN ./.
+Personally/RB I/PRP would/MD use/VB a/DT combination/NN of/IN mysqli_prepare/COS and/CC stored/JJ procedures/NNS ./.
+I/PRP believe/VBP in/IN defense/NN in/IN depth/NN and/CC do/VBP not/RB favor/VB providing/VBG the/DT application/NN adhoc/FW access/NN to/TO the/DT schema/NN ./.
+However/RB ,/, I/PRP think/VBP a/DT combination/NN of/IN using/VBG SPs/ACR along/IN with/IN the/DT layered/JJ access/NN -LRB-/-LRB- like/IN I/PRP have/VBP suggested/VBN in/IN my/PRP$ answer/NN -RRB-/-RRB- provides/VBZ an/DT alternative/NN to/TO using/VBG prepared/JJ statements/NNS that/WDT solves/VBZ the/DT problem/NN posed/VBD in/IN the/DT question/NN ./.

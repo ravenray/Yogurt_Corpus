@@ -1,0 +1,30 @@
+Salt/NN does/VBZ not/RB need/VB to/TO be/VB secret/JJ ./.
+stackoverflow.com/questions/3347035/…/URL Salts/NNS are/VBP implemented/VBN to/TO prevent/VB rainbow/NN table/NN attacks/NNS ./.
+A/DT rainbow/NN table/NN is/VBZ a/DT list/NN of/IN pre-calculated/JJ hashes/NNS ,/, which/WDT makes/VBZ translating/VBG a/DT hash/NN into/IN it/PRP 's/VBZ phrase/NN much/RB more/RBR simple/JJ ./.
+You/PRP need/VBP to/TO understand/VB that/DT salting/NN is/VBZ n't/RB effective/JJ as/IN a/DT modern/JJ prevention/NN to/TO cracking/VBG a/DT password/NN unless/IN we/PRP have/VBP a/DT modern/JJ hashing/VBG algo/NN ./.
+So/RB lets/VBZ say/VBP we/PRP 're/VBP working/VBG with/IN SHA1/NN ,/, taking/VBG advantage/NN of/IN recent/JJ exploits/NNS discovered/VBN with/IN this/DT algo/NN ,/, and/CC lets/VBZ say/VBP we/PRP have/VBP a/DT computer/NN running/VBG at/IN 1,000,000/CD hashes/second/NN ,/, it/PRP would/MD take/VB 5.3/CD million/CD million/CD million/CD years/NNS to/TO find/VB a/DT collision/NN ,/, so/RB yeah/JJ php/NN can/MD work/VB 300/CD a/DT second/JJ ,/, big/JJ woop/NN ,/, does/VBZ n't/RB really/RB matter/VB ./.
+The/DT reason/NN we/PRP salt/NN is/VBZ because/IN if/IN someone/NN did/VBD bother/VB to/TO generate/VB all/DT common/JJ dictionary/NN phrases/NNS ,/, -LRB-/-LRB- 2/CD ^/CD 160/CD people/NNS ,/, welcome/JJ to/TO 2007/CD era/NN exploits/NNS -RRB-/-RRB- ./.
+So/RB here/RB 's/VBZ an/DT actual/JJ database/NN ,/, with/IN 2/CD users/NNS I/PRP use/VBP for/IN testing/NN and/CC admin/NN purposes/NNS ./.
+RegistrationTime/COB UserName/COB UserPass/COB 1280185359.365591/COB briang/COB a50b63e927b3aebfc20cd783e0fc5321b0e5e8b5/COB 1281546174.065087/COB test/COB 5872548f2abfef8cb729cac14bc979462798d023/COB In/IN fact/NN ,/, the/DT salting/NN scheme/NN is/VBZ your/PRP$ sha1/ACR -LRB-/-LRB- registration/NN time/NN +/CC user/NN name/NN -RRB-/-RRB- ./.
+Go/VB ahead/RB ,/, tell/VB me/PRP my/PRP$ password/NN ,/, these/DT are/VBP real/JJ passwords/NNS in/IN production/NN ./.
+You/PRP can/MD even/RB sit/VB there/RB and/CC hash/VB out/RP a/DT word/NN list/NN in/IN php/ACR ./.
+Go/VB wild/JJ ./.
+I/PRP 'm/VBP not/RB crazy/JJ ,/, I/PRP just/RB know/VBP that/IN this/DT is/VBZ secure/JJ ./.
+For/IN fun/NN sake/NN ,/, test/NN 's/POS password/NN is/VBZ test/NN ./.
+sha1/COB -LRB-/COB sha1/COB -LRB-/COB 1281546174.065087/COB +/COB test/COB -RRB-/COB +/COB test/COB -RRB-/COB =/COB 5872548f2abfef8cb729cac14bc979462798d023/COB You/PRP would/MD need/VB to/TO generate/VB an/DT entire/JJ rainbow/NN table/NN perpended/VBN with/IN 27662aee8eee1cb5ab4917b09bdba31d091ab732/COS for/IN just/RB this/DT user/NN ./.
+That/DT means/VBZ I/PRP can/MD actually/RB allow/VB my/PRP$ passwords/NNS to/TO not/RB all/DT be/VB compromised/VBN by/IN a/DT single/JJ rainbow/NN table/NN ,/, the/DT hacker/NN needs/VBZ to/TO generate/VB an/DT entire/JJ rainbow/NN table/NN for/IN 27662aee8eee1cb5ab4917b09bdba31d091ab732/COS for/IN test/NN ,/, and/CC again/RB f3f7735311217529f2e020468004a2aa5b3dee7f/COS for/IN briang/COS ./.
+Think/VB back/RB to/TO the/DT 5.3/CD million/CD million/CD million/CD years/NNS for/IN all/DT hashes/NNS ./.
+Think/VB of/IN the/DT size/NN of/IN storing/VBG just/RB the/DT 2/CD ^/SYM 80/CD hashes/NNS -LRB-/-LRB- that/DT 's/VBZ well/RB over/IN 20/CD yottabytes/NNS -RRB-/-RRB- ,/, it/PRP 's/VBZ not/RB going/VBG to/TO happen/VB ./.
+Do/VBP n't/RB confuse/VB salting/VBG as/IN a/DT means/NN of/IN making/VBG a/DT hash/JJ something/NN you/PRP ca/MD n't/RB ever/RB decode/VB ,/, it/PRP 's/VBZ a/DT means/NN of/IN preventing/VBG a/DT rainbow/NN table/NN from/IN translating/VBG all/DT your/PRP$ user/NN passwords/NNS ./.
+It/PRP 's/VBZ imposable/JJ at/IN this/DT level/NN of/IN technology/NN ./.
+Put/VB your/PRP$ money/NN where/WRB your/PRP$ mouth/NN is/VBZ ?/.
+Yes/RB ,/, salting/NN does/VBZ n't/RB prevent/VB you/PRP from/IN being/VBG able/JJ to/TO brute/JJ force/NN that/IN password/NN ./.
+It/PRP makes/VBZ it/PRP harder/RBR for/IN you/PRP to/TO generate/VB the/DT -LRB-/COB -LRB-/COB 10/COB ^/COB 5/COB -RRB-/COB */COB -LRB-/COB 94/COB ^/COB 10/COB -RRB-/COB -RRB-/COB =/COB 10/COB ^/COB 24/COB if/IN users/NNS have/VBP around/IN 10-character/JJ passwords/NNS ,/, which/WDT is/VBZ much/RB harder/JJR than/IN the/DT 10/CD ^/SYM 19/CD without/IN hashes/NNS ./.
+Again/RB ,/, it/PRP 's/VBZ not/RB to/TO make/VB breaking/VBG one/CD password/NN hard/RB ,/, it/PRP 's/VBZ to/TO make/VB breaking/VBG all/PDT the/DT passwords/NNS unfeasible/JJ with/IN a/DT pre-processed/JJ rainbow/NN table/NN ./.
+-LRB-/-LRB- and/CC check/VB my/PRP$ math/NN here/RB ,/, but/CC I/PRP believe/VBP 10/COB ^/COB 25/2300000000/60/COB //COB 60/24/365/COB //COB 1000/COB =/COB 137/COB 869/COB ~/COB milinea/COB for/IN everyone/NN 's/POS password/NN -RRB-/-RRB- ./.
+If/IN we/PRP want/VBP stronger/JJR passwords/NNS we/PRP do/VBP n't/RB salt/NN them/PRP ,/, we/PRP use/VBP things/NNS like/IN Diffie/COS --/: Hellman/COS key/JJ exchange/NN ./.
+Breaking/VBG 4-character/JJ passwords/NNS is/VBZ nothing/NN new/JJ ./.
+Salting/VBG does/VBZ n't/RB make/VB them/PRP harder/JJR to/TO crack/VB ,/, it/PRP makes/VBZ the/DT database/NN harder/JJR to/TO crack/VB ./.
+To/TO be/VB fair/JJ ,/, I/PRP 've/VBP actually/RB learned/VBN more/JJR ,/, and/CC standard/JJ PKCS/ACR #/# 5/CD section/NN 4.2/CD says/VBZ I/PRP should/MD have/VB run/VBN at/IN least/JJS 1000/CD iterations/NNS of/IN my/PRP$ hash/JJ function/NN ,/, not/RB one/CD ./.
+There/EX 's/POS other/JJ considerations/NNS I/PRP neglected/VBD since/IN then/RB also/RB ./.
+docs.google.com/URL //: .../:

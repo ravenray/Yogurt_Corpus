@@ -1,0 +1,9 @@
+Do/VBP you/PRP really/RB write/VB exception/NN safe/JJ code/NN ?/.
+Well/RB ,/, I/PRP certainly/RB intend/VBP to/TO ./.
+Are/VBP you/PRP sure/JJ your/PRP$ last/JJ ``/`` production/NN ready/JJ ''/'' code/NN is/VBZ exception/NN safe/NN ?/.
+I/PRP 'm/VBP sure/JJ that/IN my/PRP$ 24/7/CD servers/NNS built/VBN using/VBG exceptions/NNS run/VB 24/7/CD and/CC do/VBP n't/RB leak/NN memory/NN ./.
+Can/MD you/PRP even/RB be/VB sure/JJ ,/, that/IN it/PRP is/VBZ ?/.
+It/PRP 's/VBZ very/RB difficult/JJ to/TO be/VB sure/JJ that/IN any/DT code/NN is/VBZ correct/JJ ./.
+Typically/RB ,/, one/PRP can/MD only/RB go/VB by/IN results/NNS Do/VBP you/PRP know/VB and/or/CC actually/RB use/VBP alternatives/NNS that/IN work/NN ?/.
+No/DT ./.
+Using/VBG exceptions/NNS is/VBZ cleaner/JJR and/CC easier/JJR than/IN any/DT of/IN the/DT alternatives/NNS I/PRP 've/VBP used/VBN over/IN the/DT last/JJ 30/CD years/NNS in/IN programming/NN ./.

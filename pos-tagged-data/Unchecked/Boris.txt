@@ -1,0 +1,3 @@
+@Tom/NN :/: Generally/RB ,/, always/RB assume/VB that/IN both/DT your/PRP$ code/NN and/CC your/PRP$ database/NN may/MD become/VB public/JJ knowledge/NN ./.
+This/DT means/VBZ that/IN having/VBG a/DT secret/JJ way/NN of/IN blending/VBG the/DT salt/NN with/IN the/DT password/NN ,/, as/IN you/PRP mention/VBP ,/, is/VBZ a/DT bad/JJ idea/NN ,/, in/IN essence/NN being/VBG security/NN by/IN obscurity/NN ./.
+Not/RB that/IN I/PRP see/VBP you/PRP advertising/VBG for/IN it/PRP ,/, but/CC I/PRP would/MD just/RB mention/VB it/PRP for/IN clarification/NN ./.

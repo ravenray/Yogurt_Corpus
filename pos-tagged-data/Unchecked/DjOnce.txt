@@ -1,0 +1,2 @@
+so/RB ,/, if/IN I/PRP write/VBP these/DT codes/NNS ,/, db/NN is/VBZ still/RB unprotected/JJ ?/.
+mysql_query/NN -LRB-/-LRB- ``/`` INSERT/NNP INTO/NNP table/NN -LRB-/-LRB- column/NN -RRB-/-RRB- VALUES/NNS -LRB-/-LRB- '/'' $/$ safe_variable/JJ '/'' -RRB-/-RRB- ''/'' -RRB-/-RRB- ;/:

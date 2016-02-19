@@ -1,0 +1,4 @@
+I/PRP suspect/VBP that/IN very/RB little/JJ production/NN C++/NNP code/NN is/VBZ exception/NN safe/NN ./.
+``/`` the/DT default/NN behavior/NN does/VBZ not/RB guarantee/VB that/IN local/JJ objects/NNS are/VBP destroyed/VBN in/IN all/DT cases/NNS ''/'' You/PRP are/VBP saying/VBG that/IN the/DT default/NN setting/NN of/IN the/DT Visual/NNP Studio/NNP C++/NNP compiler/NN produces/VBZ code/NN that/WDT is/VBZ incorrect/JJ in/IN the/DT face/NN of/IN exceptions/NNS ./.
+Is/VBZ that/IN really/RB so/RB ?/.
+``/`` You/PRP almost/RB never/RB want/VBP to/TO see/VB a/DT raw/JJ new/JJ or/CC delete/VB in/IN code/NN ''/'' :/: by/IN raw/JJ I/PRP guess/VBP you/PRP mean/VB outside/IN a/DT constructor/NN or/CC destructor/NN ./.

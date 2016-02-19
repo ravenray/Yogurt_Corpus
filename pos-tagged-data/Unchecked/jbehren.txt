@@ -1,0 +1,2 @@
+@Radu094/NN :/: This/DT solution/NN allows/VBZ you/PRP to/TO keep/VB ValidateRequest/NN =/JJ true/JJ ,/, which/WDT means/VBZ hackers/NNS will/MD still/RB hit/VB that/DT wall/NN ./.
+Vote/VB UP/NN ,/, since/IN this/DT leaves/VBZ you/PRP less/RBR vulnerable/JJ than/IN turning/VBG ValidateRequest/NNP off/IN ./.

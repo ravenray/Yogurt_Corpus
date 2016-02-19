@@ -1,0 +1,3 @@
+But/CC if/IN you/PRP use/VBP 100/CD %/NN static/JJ prepared/JJ statements/NNS in/IN your/PRP$ whole/JJ program/NN ,/, I/PRP mean/VBP ,/, all/DT SQL/NNP hardcoded/VBD into/IN prepared/JJ statements/NNS ,/, then/RB you/PRP avoid/VBP all/DT levels/NNS of/IN injection/NN ,/, right/NN ?/.
+Well/RB ,/, that/WDT could/MD make/VB sense/NN with/IN some/DT horrible/JJ programming/NN skills/NNS I/PRP saw/VBD out/RB there/RB -LRB-/-LRB- for/IN example/NN ,/, making/VBG use/NN of/IN eval/NN with/IN data/NNS obtained/VBN from/IN DB/NN ./.
+Of/IN course/NN it/PRP is/VBZ not/RB good/JJ doing/VBG that/IN ,/, but/CC believe/VBP me/PRP ,/, there/EX is/VBZ code/NN like/IN that/DT ,/, just/RB to/TO make/VB things/NNS ``/`` faster/JJR ''/'' for/IN that/DT developer/NN .../:

@@ -1,0 +1,3 @@
+In/IN ASP.NET/NNP MVC/NNP 3/CD ,/, you/PRP can/MD add/VB the/DT AllowHtml/NNP attribute/NN to/TO a/DT property/NN on/IN your/PRP$ model/NN ./.
+It/PRP allows/VBZ a/DT request/NN to/TO include/VB HTML/NNP markup/NN during/IN model/NN binding/NN by/IN skipping/VBG request/NN validation/NN for/IN the/DT property/NN ./.
+-LSB-/-LRB- AllowHtml/NN -RSB-/-RRB- public/JJ string/NN Description/NN -LCB-/-LRB- get/VB ;/: set/NN ;/: -RCB-/-RRB-

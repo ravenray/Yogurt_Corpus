@@ -1,0 +1,3 @@
+@R/NN ./. ./.
+Would/MD you/PRP approve/VB this/DT ?/.
+gist.github.com/hfossli/4616c778bea3a334f034/NN I/PRP replaced/VBD ``/`` K/NN ''/'' with/IN ``/`` accuracy/NN ''/'' if/IN that/DT makes/VBZ sense/NN ./.

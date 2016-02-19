@@ -1,0 +1,2 @@
+Good/JJ points/NNS ./.
+Can/MD somebody/NN elaborate/JJ on/IN the/DT points/NNS ?/.

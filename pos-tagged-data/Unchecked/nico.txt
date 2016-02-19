@@ -1,0 +1,1 @@
+A/DT dumb/JJ question/NN :/: am/VBP I/PRP 100/CD %/NN safe/JJ with/IN parametrized/JJ queries/NNS or/CC should/MD I/PRP ``/`` just/RB in/IN case/NN ''/'' still/RB sanitize/VB the/DT inputs/NNS -LRB-/-LRB- e.g./FW casting/VBG numbers/NNS to/TO int/VB etc/NN -RRB-/-RRB-

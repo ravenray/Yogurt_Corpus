@@ -1,0 +1,1 @@
+I/PRP can/MD imagine/VB the/DT horrors/NNS that/cc ensue/VBP in/IN these/DT situations/NNS .../: Schemaless/JJ databases/NNS are/VBP a/DT much/RB better/JJR fit/NN for/IN rapid/JJ prototyping/NN and/CC iterative/JJ development/NN ,/, but/CC like/IN everything/NN else/RB ,/, such/JJ flexibility/NN comes/VBZ with/IN various/JJ trade-offs/NNS ./.

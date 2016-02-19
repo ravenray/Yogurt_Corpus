@@ -1,0 +1,4 @@
+@BryanH/NN What/WP about/IN vsprintf/NN -LRB-/-LRB- for/IN forcing/VBG type/NN -RRB-/-RRB- +/CC mysqli/JJ escaping/VBG ?/.
+@BryanH/NN For/IN the/DT sake/NN of/IN understanding/VBG how/WRB stuff/NN is/VBZ made/VBN ./.
+And/CC also/RB ,/, performance/NN ./.
+Offloading/VBG a/DT DB/NN server/NN by/IN leveraging/VBG escaping/VBG on/IN front/JJ servers/NNS is/VBZ better/JJR if/IN you/PRP have/VBP a/DT single/JJ DB/NN +/CC several/JJ fronts/NNS ./.

@@ -1,0 +1,4 @@
+I/PRP know/VBP UIKit/NN uses/VBZ CGFloat/NN because/IN of/IN the/DT resolution/NN independent/JJ coordinate/JJ system/NN ./.
+But/CC every/DT time/NN I/PRP want/VBP to/TO check/VB if/IN for/IN example/NN frame.origin.x/NN is/VBZ 0/CD it/PRP makes/VBZ me/PRP feel/VB sick/JJ :/: if/IN -LRB-/-LRB- theView.frame.origin.x/NN ==/NN 0/CD -RRB-/-RRB- -LCB-/-LRB- //: //: do/VBP important/JJ operation/NN -RCB-/-RRB- Is/VBZ n't/RB CGFloat/NN vulnerable/JJ to/TO false/JJ positives/NNS when/WRB comparing/VBG with/IN ==/NN ,/, </JJR =/JJ ,/, >/JJR =/JJ ,/, </JJR ,/, >/JJR ?/.
+It/PRP is/VBZ a/DT floating/JJ point/NN and/CC they/PRP have/VBP unprecision/JJ problems/NNS :/: 0.0000000000041/CD for/IN example/NN ./.
+Is/VBZ Objective-C/NN handling/VBG this/DT internally/RB when/WRB comparing/VBG or/CC can/MD it/PRP happen/VB that/IN a/DT origin.x/NN which/WDT reads/VBZ as/IN zero/NN does/VBZ not/RB compare/VB to/TO 0/CD as/IN true/JJ ?/.

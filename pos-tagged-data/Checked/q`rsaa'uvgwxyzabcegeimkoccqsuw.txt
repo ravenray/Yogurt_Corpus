@@ -1,0 +1,2 @@
+This/DT is/VBZ one/CD of/IN the/DT answers/NNS that/WDT should/MD be/VB voted/VBN for/IN Great/JJ Answers/NNS to/TO be/VB put/VBN on/IN the/DT main/JJ page/NN ,/, as/IN an/DT article/NN from/IN which/WDT other/JJ users/NNS will/MD learn/VB I/PRP would/MD say/VB that/WDT database/NN size/NN is/VBZ bigger/JJR issue/NN than/IN load/NN ./.
+I/PRP 've/VBP seen/VBN many/JJ times/NNS ,/, that/IN there/EX were/VBD missing/VBG crucial/JJ indexes/NNS -/: never/RB been/VBN performance/NN problem/NN during/IN tests/NNS ,/, because/IN whole/JJ database/NN fit/NN into/IN memory/NN

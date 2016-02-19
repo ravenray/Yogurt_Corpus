@@ -1,0 +1,2 @@
+Update/NNP -/: mysql_real_escape_string/NN HAS/VBZ BEEN/NNP DEPRECATED/NNP as/IN of/IN PHP/FW 5.5.0/FW and/CC thus/RB will/MD someday/RB be/VB removed/VBN ./.
+I/PRP was/VBD wrong/JJ and/CC there/EX was/VBD much/JJ rejoicing/NN !/.

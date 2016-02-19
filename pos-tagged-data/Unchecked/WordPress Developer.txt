@@ -1,0 +1,3 @@
+Additionally/RB to/TO PDO/NNP and/CC MYSQLI/NNP ,/, most/JJS PHP/NNP frameworks/NNS have/VBP overlaying/VBG database/NN connection/NN libraries/NNS that/IN support/NN variable/NN parameterizing/VBG and/CC escaping/VBG ./.
+Make/VB sure/JJ you/PRP take/VBP advantage/NN of/IN those/DT ./.
+These/DT are/VBP real/JJ time/NN savers/NNS ./.

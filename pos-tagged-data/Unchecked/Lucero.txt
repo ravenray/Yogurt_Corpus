@@ -1,0 +1,2 @@
+It/PRP 's/VBZ a/DT little/JJ bit/NN vague/JJ ./.
+A/DT lot/NN of/IN the/DT danger/NN comes/VBZ from/IN applications/NNS running/VBG under/IN full/JJ trust/NN instead/RB of/IN a/DT lower/JJR trust/NN level/NN ;/: the/DT lower/JJR the/DT trust/NN ,/, the/DT harder/JJR it/PRP gets/VBZ to/TO do/VB something/NN malicious/JJ ./.

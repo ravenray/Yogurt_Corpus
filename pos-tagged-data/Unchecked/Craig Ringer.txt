@@ -1,0 +1,4 @@
+WHERE/NN 1/CD =/JJ 1/CD or/CC LIMIT/NN 1/CD does/VBZ you/PRP no/DT good/JJ if/IN they/PRP inject/VBP '/'' -RRB-/-RRB- ;/: DROP/NN TABLE/NN users/NNS ;/: --/: ./.
+It/PRP 's/VBZ beyond/IN me/PRP why/WRB people/NNS just/RB do/VBP n't/RB use/VB parameterized/VBN -LRB-/-LRB- ``/`` prepared/VBN ''/'' -RRB-/-RRB- statements/NNS for/IN this/DT and/CC be/VB done/VBN with/IN it/PRP ./.
+Operating/NN with/IN minimum/NN privileges/NNS is/VBZ a/DT useful/JJ damage/NN control/NN strategy/NN to/TO make/VB life/NN harder/RBR for/IN the/DT attacker/NN and/CC limit/VB the/DT damage/NN they/PRP can/MD do/VB ,/, but/CC it/PRP 's/VBZ a/DT bit/NN like/IN saying/VBG ``/`` my/PRP$ house/NN is/VBZ on/IN fire/NN ,/, but/CC it/PRP 's/VBZ fine/JJ ,/, I/PRP keep/VBP the/DT kerosene/NN locked/VBN safely/RB in/IN the/DT garage/NN ./. ''/''
+Your/PRP$ house/NN is/VBZ still/RB on/IN fire/NN ./.

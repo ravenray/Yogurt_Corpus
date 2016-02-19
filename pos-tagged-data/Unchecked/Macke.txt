@@ -1,0 +1,6 @@
+``/`` Whenever/IN I/PRP start/VBP working/VBG with/IN a/DT different/JJ developer/NN ,/, I/PRP usually/RB have/VBP to/TO restructure/VB the/DT entire/JJ database/NN ./. ''/''
+.../: I/PRP was/VBD like/IN this/DT with/IN code/NN formatting/NN once/RB ./.
+I/PRP 've/VBP gotten/VBN over/IN it/PRP ./.
+@Alix/NN :/: I/PRP 'm/VBP saying/VBG that/IN reformatting/rewriting/VBG every/DT thing/NN on/IN first/JJ contact/NN is/VBZ not/RB ,/, IMO/NNP ,/, the/DT right/JJ thing/NN to/TO do/VB ./.
+Now/RB ,/, setting/VBG a/DT worthy/JJ goal/NN and/CC pursuing/VBG it/PRP relentlessly/RB throughout/IN a/DT project/NN is/VBZ another/DT thing/NN ./.
+-LRB-/-LRB- Perhaps/RB I/PRP reacted/VBD to/TO strongly/RB to/TO Nick/NNP 's/POS statement/NN ./. -RRB-/-RRB-

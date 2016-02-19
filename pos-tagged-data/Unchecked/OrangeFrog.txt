@@ -1,0 +1,5 @@
+As/IN Mattygabe/NNP suggested/VBD ,/, you/PRP do/VBP NOT/NNP need/VB to/TO use/VB real/JJ prepared/JJ statements/NNS with/IN the/DT attribute/NN flag/NN :/: ATTR_EMULATE_PREPARES/NN set/VBN to/TO false/JJ ./.
+There/EX are/VBP very/RB specific/JJ vulnerabilities/NNS where/WRB ATTR_EMULATE_PREPARES/NN should/MD be/VB set/VBN to/TO false/JJ -LRB-/-LRB- e.g./FW using/VBG a/DT table/NN name/NN with/IN a/DT substituted/VBN value/NN -RRB-/-RRB- ./.
+The/DT verbage/NN above/IN noting/VBG this/DT is/VBZ ``/`` mandatory/JJ ''/'' is/VBZ incorrect/JJ --/: slightly/RB safer/JJR ?/.
+yes/RB ./.
+But/CC only/RB in/IN some/DT situations/NNS ./.

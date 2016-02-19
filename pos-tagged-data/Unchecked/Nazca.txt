@@ -1,0 +1,3 @@
+you/PRP dont/VBP use/NN functions/NNS to/TO write/VB correct/JJ input/NN data-strings/NNS ./.
+You/PRP just/RB write/VB correct/JJ ones/NNS that/WDT do/VBP n't/RB need/VB escaping/VBG or/CC have/VBP already/RB been/VBN escaped/VBN ./.
+mysql_real_escape_string/NN -LRB-/-LRB- -RRB-/-RRB- may/MD have/VB been/VBN designed/VBN with/IN the/DT purpose/NN you/PRP mention/VBP in/IN mind/NN ,/, but/CC its/PRP$ only/JJ value/NN is/VBZ preventing/VBG injection/NN ./.

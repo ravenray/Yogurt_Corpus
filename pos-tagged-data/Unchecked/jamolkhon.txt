@@ -1,0 +1,1 @@
+Not/RB executing/VBG a/DT corresponding/JJ SELECT/FW query/FW before/IN running/VBG the/DT DELETE/NN query/NN -LRB-/-LRB- particularly/RB on/IN production/NN databases/NNS -RRB-/-RRB- !/.
