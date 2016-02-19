@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>XSS vulnerability</title>
+				<author>user 1234</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/11559053/xss-vulnerability</p>
+			</sourceDesc>
+		</fileDesc>
+		<listPerson>
+			<person xml:id="user 1234" url="http://stackoverflow.com/users/1488174/user-1234">
+				<signatureContent>
+					<p>Reputation: <num>54</num>
+						Number of Gold Badges: <num></num>
+						Number of Silver Badges:<num></num>
+						Number of Bronze Badges:<num>11</num></p>	
+				</signatureContent>
+			</person>
+			<person xml:id="Quentin" url="http://stackoverflow.com/users/19068/quentin">
+				<signatureContent>
+					<p>Reputation: <num>355k</num>
+						Number of Gold Badges: <num>36</num>
+						Number of Silver Badges:<num>422</num>
+						Number of Bronze Badges:<num>586</num></p>
+				</signatureContent>
+			</person>
+		</listPerson>
+	</teiHeader>
+	<text>
+		<body>
+		<div type="forum">
+			<post when="Jul 19 '12 at 10:40" who="user 1234" revisedWhen="Jul 19 '12 at 10:42" revisedBy="legoscia" upVote="0" accepted="favorite">
+			<p> I got the below error when I testing my mobile application. How can i resolve this XSS error?
+
+The value of the q request parameter is copied into the HTML document as plain text between tags. The payload 2906f&lt;script>alert(1)&lt;/script>b08ffac3085 was submitted in the q parameter. This input was echoed unmodified in the application's response.
+
+				This proof-of-concept attack demonstrates that it is possible to inject arbitrary JavaScript into the application's response.
+
+        		<tag>javascript</tag> <tag>android</tag> <tag>jquery-mobile</tag> <tag>xss</tag>
+			</p>
+			</post>	
+		</div>
+			<div type="answer">
+				<post when="Jul 19 '12 at 10:41" who="Quentin" upVote="0" accepted="accepted">
+			 	<p>You encode it for HTML before you put it in the HTML document.
+
+				With JavaScript (since that is the only language you've mentioned), that generally means using createTextNode instead of innerHTML
+				</p>			 	
+			 	</post>
+			</div>
+		</body>
+	</text>
+</TEI>

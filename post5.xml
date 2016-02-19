@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Is this vulnerable for XSS? [closed]</title>
+				<author>user2488578</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source?</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/18376401/is-this-vulnerable-for-xss</p>
+			</sourceDesc>
+		</fileDesc>
+		<listPerson>
+			<person xml:id="user2488578" url="http://stackoverflow.com/users/2488578/user2488578">
+				<signatureContent>
+					<p>Reputation: <num>86</num>
+						Number of Gold Badges: <num></num>
+						Number of Silver Badges:<num>2</num>
+						Number of Bronze Badges:<num>9</num></p>	
+				</signatureContent>
+			</person>
+			<person xml:id="SilverlightFox" url="http://stackoverflow.com/users/413180/silverlightfox">
+				<signatureContent>
+					<p>Reputation: <num>6,075</num>
+						Number of Gold Badges: <num>3</num>
+						Number of Silver Badges:<num>14</num>
+						Number of Bronze Badges:<num>39</num></p>
+				</signatureContent>
+			</person>
+			<person xml:id="Quentin" url="http://stackoverflow.com/users/19068/quentin">
+				<signatureContent>
+					<p>Reputation: <num>355k</num>
+					Number of Gold Badges: <num>36</num>
+					Number of Silver Badges:<num>422</num>
+					Number of Bronze Badges:<num>586</num></p>
+				</signatureContent>
+			</person>
+			<person xml:id="dnet" url="http://stackoverflow.com/users/246098/dnet">
+				<signatureContent>
+					<p>Reputation: <num>716</num>
+						Number of Gold Badges: <num></num>
+						Number of Silver Badges:<num>3</num>
+						Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+			</person>
+		</listPerson>
+	</teiHeader>
+	<text>
+	<body>
+		<div type="forum">
+			<post when="Aug 22 '13 at 9:21" who="user2488578" upVote="0" accepted="favorite">
+			<p>Is below Java Script code vulnerable for XSS? This is invoked from login page. If error is found in the page, again login page will be hit with the error message.
+			<code>if(userName.length==0)
+			{ 
+			 initialMsg="Please enter a User Name"; 
+			 errorMessage+=encodeHTML(initialMsg);
+			 document.writeln("&lt;form name=\"errForm\" method=\"POST\" action=\"http://loginPageURLGoesHere\">");
+			 document.writeln("&lt;input type=\"hidden\" name=\"errorMessage\" value=\"" + errorMessage + "\">"); 
+ 			document.writeln("&lt;/form>"); 
+ 			document.errForm.submit();
+			 return false;
+				}
+
+			function encodeHTML(s)
+			{
+  			return s.replace(/&amp;/g, '&amp;').replace(/&lt;/g, '&lt;').replace(/&quot;/g, '&quot;').replace(/>/g, '&gt;');
+			}</code>
+			Doing all checks at server side is a solution for fixing XSS. But, I want to know if above encoding will help to prevent XSS.
+
+			<tag>javascript</tag> <tag>security</tag> <tag>xss</tag>
+			</p>
+			</post>	
+		</div>		
+		<div type="moderator">
+			<head>closed as off-topic by Quentin, David Smith, Chris, uthark, Frank van Puffelen Aug 22 '13 at 20:06</head>
+			<post when="Aug 22 '13 at 20:06" who="Quentin">
+			 	<p>This question does not appear to be about programming within the scope defined in the help center.
+				If this question can be reworded to fit the rules in the help center, please edit the question.
+			 	</p>
+			 	</post>
+			 	</div>
+				<div type="response">
+				<post when="Aug 22 '13 at 9:34" who="Quentin" indentLevel="1" upVote="4">
+				<p>This question appears to be off-topic because it belongs on codereview.stackexchange.com
+				</p>				
+				</post>
+		</div>
+			<div type="answer">
+				<post when="Aug 22 '13 at 9:48" who="SilverlightFox" upVote="1">
+			 	<p>It depends on the initial value of errorMessage. As you are appending to it, it is not possible to see from your code what it already contains. The encoding should be done when output to guard against any possible DOM Based XSS.
+
+				i.e. document.writeln("&lt;input type=\"hidden\" name=\"errorMessage\" value=\"" + encodeHTML(errorMessage) + "\">");
+
+				Also, don't forget to encode single quote.
+
+				You should make sure that http://loginPageURLGoesHere correctly sanitises the errorMessage POSTed to it before output to guard against regular XSS.
+			 	</p>
+			 	</post>
+			</div>
+			<div type="response">
+				<post when="Aug 22 '13 at 10:32" who="user2488578" indentLevel="1"> 
+				<p>So, instead of errorMessage+=encodeHTML(initialMsg); I should do this document.writeln("&lt;input type=\"hidden\" name=\"errorMessage\" value=\"" + encodeHTML(errorMessage) + "\">"); ?
+				</p>
+				</post>
+			</div>
+			<div type="response">
+				<post when="Aug 22 '13 at 10:41" who="SilverlightFox" indentLevel="1">  
+				<p>Yes - I always encode at point of output, or name my variable in such as way to indicate that it has already been encoded.
+				</p>
+				</post>
+			</div>
+		<div type="answer">
+				<post when="Aug 22 '13 at 9:36" who="Quentin" upVote="0" >
+			 	<p>Yes, it does, especially, since nothing used in the string concatenation comes from user input, so even without encodeHTML, it couldn't be exploited in a useful way.
+			 	</p>
+				</post>
+		</div>
+			<div type="answer">
+				<post when="Aug 22 '13 at 9:33" who="dnet" upVote="0" >
+			 	<p>No, it won't help. An attacker can bypass the page that runs that JS entirely and send the victim directly to http://loginPageURLGoesHere.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post when="Aug 22 '13 at 10:30" who="user2488578" indentLevel="1"> 
+				<p>In case an attacker doesn't bypass but he tampers with the output (errorMessage)... Does the above code will be able to prevent it?
+				</p>
+				</post>
+			</div>
+	</body>
+	</text>
+</TEI> 	
