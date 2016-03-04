@@ -1,3 +1,3 @@
-this/DT always/RB expects/VBZ a/DT string/NN which/WDT can/MD be/VB converted/VBN to/TO JSON/NNP ./.
+this/DT always/RB expects/VBZ a/DT string/NN which/WDT can/MD be/VB converted/VBN to/TO JSON/ACR ./.
 if/IN some/DT junk/NN characters/NNS are/VBP passed/VBN ,/, it/PRP throws/VBZ an/DT exception/NN ./.
-better/JJR put/VBD it/PRP in/IN a/DT try/NN catch/NN block/NN ./.
+better/JJR put/VBD it/PRP in/IN a/DT try/COS catch/COS block/NN ./.
