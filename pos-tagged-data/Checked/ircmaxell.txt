@@ -1,4 +1,4 @@
-Yes/UH ,/, except/IN that/DT PDO/ACR does/VBZ n't/RB use/VB real/JJ prepared/JJ statements/NNS by/IN default/NN ;--RRB-/EMO ./. 
+Yes/UH ,/, except/IN that/DT PDO/ACR does/VBZ n't/RB use/VB real/JJ prepared/JJ statements/NNS by/IN default/NN ;--RRB-/EMO ./.  
 See/VB my/PRP$ answer/NN below/IN for/IN a/DT demonstration/NN and/CC explanation/NN of/IN an/DT attack/NN .../: The/DT short/JJ answer/NN is/VBZ NO/UH ,/, PDO/ACR prepares/VBZ will/MD not/RB defend/VB you/PRP from/IN all/DT possible/JJ SQL-Injection/COS attacks/NNS ./.
 For/IN certain/JJ obscure/JJ edge-cases/NNS ./.
 I/PRP 'm/VBP adapting/VBG this/DT answer/NN to/TO talk/VB about/IN PDO/ACR .../: The/DT long/JJ answer/NN is/VBZ n't/RB so/RB easy/JJ ./.
