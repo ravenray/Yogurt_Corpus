@@ -1,4 +1,4 @@
-Yes/UH ,/, except/IN that/DT PDO/ACR does/VBZ n't/RB use/VB real/JJ prepared/JJ statements/NNS by/IN default/NN ;--RRB-/EMO ./.
+Yes/UH ,/, except/IN that/DT PDO/ACR does/VBZ n't/RB use/VB real/JJ prepared/JJ statements/NNS by/IN default/NN ;--RRB-/EMO ./.  
 See/VB my/PRP$ answer/NN below/IN for/IN a/DT demonstration/NN and/CC explanation/NN of/IN an/DT attack/NN .../: The/DT short/JJ answer/NN is/VBZ NO/UH ,/, PDO/ACR prepares/VBZ will/MD not/RB defend/VB you/PRP from/IN all/DT possible/JJ SQL-Injection/COS attacks/NNS ./.
 For/IN certain/JJ obscure/JJ edge-cases/NNS ./.
 I/PRP 'm/VBP adapting/VBG this/DT answer/NN to/TO talk/VB about/IN PDO/ACR .../: The/DT long/JJ answer/NN is/VBZ n't/RB so/RB easy/JJ ./.
@@ -56,6 +56,6 @@ The/DT problem/NN that/IN I/PRP 'm/VBP running/VBG into/IN is/VBZ that/IN a/DT L
 One/CD problem/NN is/VBZ that/IN emulated/VBN prepares/VBZ will/MD only/RB throw/VB syntax/NN errors/NNS on/IN execute/VB ,/, but/CC true/JJ prepares/VBZ will/MD throw/VB errors/NNS on/IN prepare/VB ./.
 So/IN that/DT can/MD cause/VB issues/NNS -LRB-/-LRB- and/CC is/VBZ part/NN of/IN the/DT reason/NN tests/NNS are/VBP borking/VBG -RRB-/-RRB- ./.
 @nicogawenda/ATS :/: that/DT was/VBD a/DT different/JJ bug/NN ./.
-Prior/RB to/TO 5.0.22/NN ,/, mysql_real_escape_string/COS would/MD n't/RB properly/RB handle/VB cases/NNS where/WRB the/DT connection/NN was/VBD properly/RB set/VBN to/TO BIG5/GBK/ACR ./.
+Prior/RB to/TO 5.0.22/CD ,/, mysql_real_escape_string/COS would/MD n't/RB properly/RB handle/VB cases/NNS where/WRB the/DT connection/NN was/VBD properly/RB set/VBN to/TO BIG5/GBK/ACR ./.
 So/RB actually/RB even/RB calling/VBG mysql_set_charset/COS -LRB-/COS -RRB-/COS on/IN mysql/COS </SYM 5.0.22/CD would/MD be/VB vulnerable/JJ to/TO this/DT bug/NN !/.
-So/IN no/DT ,/, this/DT post/NN is/VBZ still/RB applicable/JJ to/TO 5.0.22/CD -LRB-/-LRB- because/IN mysql_real_escape_string/COS is/VBZ only/RB charset/NNC away/RB to/TO calls/NNS from/IN mysql_set_charset/COS -LRB-/COS -RRB-/COS ,/, which/WDT is/VBZ what/WP this/DT post/NN is/VBZ talking/VBG about/IN bypassing/VBG -RRB-/-RRB- .../:
+So/RB no/UH ,/, this/DT post/NN is/VBZ still/RB applicable/JJ to/TO 5.0.22/CD -LRB-/-LRB- because/IN mysql_real_escape_string/COS is/VBZ only/RB charset/NNC away/RB to/TO calls/VBZ from/IN mysql_set_charset/COS -LRB-/COS -RRB-/COS ,/, which/WDT is/VBZ what/WP this/DT post/NN is/VBZ talking/VBG about/IN bypassing/VBG -RRB-/-RRB- .../:
