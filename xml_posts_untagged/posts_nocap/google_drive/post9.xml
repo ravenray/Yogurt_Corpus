@@ -1,0 +1,845 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Safely turning a JSON string into an object</title>
+				<author>Matt Sheppard</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source?</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from http://stackoverflow.com/questions/45015/safely-turning-a-json-string-into-an-object
+				On: April 24, 2015
+				</p>
+			<listPerson>
+				<person xml:id="Matt Sheppard" url="http://stackoverflow.com/users/797/matt-sheppard">
+				<signatureContent>
+					<p>Reputation: <num>37.3k</num>
+					Number of Gold Badges: <num>33</num>
+					Number of Silver Badges:<num>88</num>
+					Number of Bronze Badges:<num>108</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="Daniel" url="http://stackoverflow.com/users/2995613/daniel">
+				<signatureContent>
+					<p>Reputation: <num>171</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Beachhouse" url="http://stackoverflow.com/users/783004/beachhouse">
+				<signatureContent>
+					<p>Reputation: <num>1,725</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>9</num>
+					Number of Bronze Badges:<num>23</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="weston" url="http://stackoverflow.com/users/360211/weston">
+				<signatureContent>
+					<p>Reputation: <num>17,624</num>
+					Number of Gold Badges: <num>8</num>
+					Number of Silver Badges:<num>41</num>
+					Number of Bronze Badges:<num>87</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Jonathan." url="http://stackoverflow.com/users/191463/jonathan">
+				<signatureContent>
+					<p>Reputation: <num>18.8k</num>
+					Number of Gold Badges: <num>26</num>
+					Number of Silver Badges:<num>115</num>
+					Number of Bronze Badges:<num>213</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Stephen" url="http://stackoverflow.com/users/558721/stephen">
+				<signatureContent>
+					<p>Reputation: <num>3,037</num>
+					Number of Gold Badges: <num>5</num>
+				    Number of Silver Badges:<num>19</num>
+					Number of Bronze Badges:<num>48</num></p>
+				</signatureContent>
+				</person>
+					<person xml:id="Connor" url="http://stackoverflow.com/users/1907358/iconnor">
+				<signatureContent>
+					<p>Reputation: <num>9,077</num>
+					Number of Gold Badges: <num>4</num>
+				    Number of Silver Badges:<num>32</num>
+					Number of Bronze Badges:<num>66</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Redsandro" url="http://stackoverflow.com/users/754174/redsandro">
+				<signatureContent>
+					<p>Reputation: <num>2,300</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>22</num>
+					Number of Bronze Badges:<num>50</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="speedplane" url="http://stackoverflow.com/users/234270/speedplane">
+				<signatureContent>
+					<p>Reputation: <num>4,332</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>30</num>
+					Number of Bronze Badges:<num>59</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Antony" url="http://stackoverflow.com/users/336470/antony">
+				<signatureContent>
+					<p>Reputation: <num>2,594</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>13</num>
+					Number of Bronze Badges:<num>20</num></p>
+				</signatureContent>
+				</person>
+			<person xml:id="Alex V" url="http://stackoverflow.com/users/327934/alex-v">
+				<signatureContent>
+					<p>Reputation: <num>9,995</num>
+					Number of Gold Badges: <num>3</num>
+					Number of Silver Badges:<num>15</num>
+					Number of Bronze Badges:<num>24</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Gacek" url="http://stackoverflow.com/users/1430632/gacek">
+				<signatureContent>
+					<p>Reputation: <num>709</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>3</num>
+					Number of Bronze Badges:<num>17</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Eric Elliott" url="http://stackoverflow.com/users/1043390/eric-elliott">
+				<signatureContent>
+					<p>Reputation: <num>1,313</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>9</num>
+					Number of Bronze Badges:<num>16</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="FireCoding" url="http://stackoverflow.com/users/580606/firecoding">
+				<signatureContent>
+					<p>Reputation: <num>1,150</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>14</num>
+				    Number of Bronze Badges:<num>28</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="saluce">
+				<signatureContent>
+					<p>Reputation: <num>5,867</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>27</num>
+					Number of Bronze Badges:<num>47</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Radek">
+				<signatureContent>
+					<p>Reputation: <num>2,116</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>21</num>
+					Number of Bronze Badges:<num>27</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Dementic">
+				<signatureContent>
+					<p>Reputation: <num>3,562</num>
+				    Number of Gold Badges: <num>5</num>
+					Number of Silver Badges:<num>29</num>
+					Number of Bronze Badges:<num>57</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="kgx">
+				<signatureContent>
+					<p>Reputation: <num>408</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>5</num>
+					Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="michael.orchard">
+				<signatureContent>
+					<p>Reputation: <num>446</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>2</num>
+					Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Amit">
+				<signatureContent>
+					<p>Reputation: <num>3,761</num>
+					Number of Gold Badges: <num>12</num>
+					Number of Silver Badges:<num>43</num>
+					Number of Bronze Badges:<num>75</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Chandra Nakka">
+				<signatureContent>
+					<p>Reputation: <num>2,541</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>9</num>
+					Number of Bronze Badges:<num>28</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Muhammad Umer">
+				<signatureContent>
+					<p>Reputation: <num>2,363</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>10</num>
+					Number of Bronze Badges:<num>27</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Sliq">
+				<signatureContent>
+					<p>Reputation: <num>5,548</num>
+					Number of Gold Badges: <num>11</num>
+					Number of Silver Badges:<num>50</num>
+					Number of Bronze Badges:<num>97</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="IcedDante">
+				<signatureContent>
+					<p>Reputation: <num>701</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>11</num>
+					Number of Bronze Badges:<num>26</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="b1nary">
+				<signatureContent>
+					<p>Reputation: <num>155</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>1</num>
+					Number of Bronze Badges:<num>9</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="John" url="http://stackoverflow.com/users/2168/john">
+				<signatureContent>
+					<p>Reputation: <num>5,906</num>
+					Number of Gold Badges: <num>3</num>
+					Number of Silver Badges:<num>32</num>
+				    Number of Bronze Badges:<num>47</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Sotirios Delimanolis" url="http://stackoverflow.com/users/438154/sotirios-delimanolis">
+				<signatureContent>
+					<p>Reputation: <num>114,610</num>
+					Number of Gold Badges: <num>13</num>
+					Number of Silver Badges:<num>115</num>
+					Number of Bronze Badges:<num>209</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Ronald" url="http://stackoverflow.com/users/2154661/ronald">
+				<signatureContent>
+					<p>Reputation: <num>518</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>6</num>
+					Number of Bronze Badges:<num>6</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Daniel" url="http://stackoverflow.com/users/2995613/daniel">
+				<signatureContent>
+					<p>Reputation: <num>171</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="MikeD" url="http://stackoverflow.com/users/185547/miked">
+				<signatureContent>
+					<p>Reputation: <num>5,698</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>11</num>
+					Number of Bronze Badges:<num>34</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Coyote">
+				<signatureContent>
+					<p>Reputation: <num>1,155</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>12</num>
+					Number of Bronze Badges:<num>23</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Mark Biek" url="http://stackoverflow.com/users/305/mark-biek">
+				<signatureContent>
+					<p>Reputation: <num>49,670</num>
+					Number of Gold Badges: <num>38</num>
+					Number of Silver Badges:<num>114</num>
+					Number of Bronze Badges:<num>171</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Leanan" url="http://stackoverflow.com/users/22390/leanan">
+				<signatureContent>
+					<p>Reputation: <num>409</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>5</num>
+					Number of Bronze Badges:<num>12</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="xdazz" url="http://stackoverflow.com/users/762073/xdazz">
+				<signatureContent>
+					<p>Reputation: <num>93,084</num>
+					Number of Gold Badges: <num>18</num>
+					Number of Silver Badges:<num>89</num>
+					Number of Bronze Badges:<num>140</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Alexandre C." url="http://stackoverflow.com/users/373025/alexandre-c">
+				<signatureContent>
+					<p>Reputation: <num>33,955</num>
+					Number of Gold Badges: <num>3</num>
+					Number of Silver Badges:<num>63</num>
+					Number of Bronze Badges:<num>143</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="teleclimber" url="http://stackoverflow.com/users/472819/teleclimber">
+				<signatureContent>
+					<p>Reputation: <num>91</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num>4</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Prahlad" url="http://stackoverflow.com/users/190477/prahlad">
+				<signatureContent>
+					<p>Reputation: <num>161</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num>5</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Cody" url="http://stackoverflow.com/users/1153121/cody">
+				<signatureContent>
+					<p>Reputation: <num>2,104</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>13</num>
+					Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Yaur" url="http://stackoverflow.com/users/184025/yaur">
+				<signatureContent>
+					<p>Reputation: <num>4,748</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>11</num>
+					Number of Bronze Badges:<num>27</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Manu" url="http://stackoverflow.com/users/2133/manu">
+				<signatureContent>
+					<p>Reputation: <num>11,784</num>
+					Number of Gold Badges: <num>21</num>
+					Number of Silver Badges:<num>50</num>
+					Number of Bronze Badges:<num>80</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="AllenJB" url="http://stackoverflow.com/users/324019/allenjb">
+				<signatureContent>
+					<p>Reputation: <num>803</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>6</num>
+					Number of Bronze Badges:<num>11</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="user1574779">
+				<signatureContent>
+					<p>Reputation: <num>120</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>1</num>
+					Number of Bronze Badges:<num>12</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="diynevala" url="http://stackoverflow.com/users/2380459/diynevala">
+				<signatureContent>
+					<p>Reputation: <num>321</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>2</num>
+					Number of Bronze Badges:<num>5</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Whome" url="http://stackoverflow.com/users/185565/whome">
+				<signatureContent>
+					<p>Reputation: <num>3,254</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>15</num>
+					Number of Bronze Badges:<num>19</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="lessisawesome" url="http://stackoverflow.com/users/2651695/lessisawesome">
+				<signatureContent>
+					<p>Reputation: <num>321</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>3</num>
+					Number of Bronze Badges:<num>8</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Dorian" url="http://stackoverflow.com/users/407213/dorian">
+				<signatureContent>
+					<p>Reputation: <num>3,661</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>24</num>
+					Number of Bronze Badges:<num>35</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Bharath Kumaar" url="http://stackoverflow.com/users/2920768/bharath-kumaar">
+				<signatureContent>
+					<p>Reputation: <num>11</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num>2</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="rcplay" url="http://stackoverflow.com/users/3999488/rcplay">
+				<signatureContent>
+					<p>Reputation: <num>9</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num></num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<div type="forum">
+			<post synch="Sep 5 '08 at 0:12" who="Matt Sheppard" upVote="375" accepted="favorite">
+			<p>Given a string of JSON data, how can you safely turn that string into a JavaScript object?
+
+				Obviously you can do this unsafely with something like...
+
+				var obj = eval("(" + json + ')');
+				...but that leaves us vulnerable to the json string containing other code, which it seems very dangerous to simply eval.
+
+				<tag>javascript</tag> <tag>ajax</tag> <tag>json</tag>
+			</p>
+			</post>	
+		</div>		
+			<div type="response">   
+				<post synch="Feb 7 '13 at 17:34" who="Beachhouse" IndentLevel="1" upVote="20">  
+					<p>In most languages eval carries an additional risk. Eval leaves an open door to be exploited by hackers. HOWEVER, remember that all javascript runs on the client. EXPECT that it will be changed by hackers. They can EVAL anything they want, just by using the console. You must build your protection on the server side. 
+					</p>				
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Oct 22 '14 at 6:27" who="Daniel" IndentLevel="1" upVote="2">   
+					<p>Ok, now it is 2014 and you should never use eval in order to parse a JSON string because you would be exposing your code to "code injection". Use JSON.parse(yourString) instead. 
+					</p>			
+				</post>
+				</div>
+				<div type="response">  
+				<post synch="Jan 8 at 15:03" who="weston" IndentLevel="1"  upVote="1">       
+					<p>Matt - can you revue the accepted answer. You have to scroll a long way to get to a pure javascript answer and I fear some users just take the accepted answer as gospel and use antiquated libraries as a result. 
+					</p>			
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Apr 16 '11 at 11:45" who="Jonathan." revisedWhen="Jan 9 at 22:23" revisedBy="Matt Sheppard" upVote="437">
+			 	<p>JSON.parse(jsonString);
+					Is a pure JavaScript approach so long as you can require a reasonably modern browser.
+
+					See also https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Jan 5 '10 at 21:31" who="JD Isaacks" IndentLevel="1" upVote="32">      
+				<p>This make sense, However, PDO is an extension right? meaning it needs to be installed? Is there a way I can check to see if it is installed? Also I am using a shared hosting, so if it is not installed and my hosting provider cannot/will not install it, is there an alternative to using a PDO? Thank You!! 
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Oct 18 '11 at 17:07" who="Stephen" IndentLevel="1" upVote="43">         
+				<p>I'm pretty sure it's safe for Node.js    
+				</p>
+				</post>
+				</div>
+				<div type="response">     
+				<post synch="Jan 12 '13 at 5:53" who="speedplane" IndentLevel="1" upVote="1">        
+				<p>It isn't supported in all browsers, but the script at the link below adds it to browsers that don't have it: github.com/douglascrockford/JSON-js/blob/master/json2.js 
+				</p>
+				</post>
+				</div>
+				<div type="response">   
+				<post synch="Jul 21 '13 at 22:31" who="Connor" IndentLevel="1" upVote="28">      
+				<p>@vsync you do realise that this is the ONLY Pure Javascript Answer... if you read the description for the javascript tag you will see this... "Unless a tag for a framework/library is also included, a pure JavaScript answer is expected.".. I give this a +1 for being the only javascript answer...    
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Oct 8 '13 at 11:52 " who="Redsandro" IndentLevel="1" upVote="2">         
+				<p>Pretty safe to use.    
+				</p>
+				</post>
+				</div>
+				<div type="response">  
+				<post synch="Oct 15 '13 at 16:49" who="Antony" IndentLevel="1" upVote="5">         
+				<p>If you are doing NodeJS, there is no way I would load up jQuery just to parse a jsonString into a JSON object. So upvote Jonathan's answer 
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="May 4 '14 at 14:34" who="Alex V" IndentLevel="1">          
+				<p>unsupported by IE8, some versions of IE9, &amp; older versions of all other browsers    
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="May 27 '14 at 11:08" who="Gacek" IndentLevel="1">          
+				<p>Indeed JSON is not in every browser and was added recently. For some browsers to support JSON you need to load external library for example: github.com/douglascrockford/JSON-js 
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Nov 7 '14 at 18:21" who="Eric Elliott" IndentLevel="1" upVote="2">          
+				<p>This is the correct answer in 2014.   
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Jan 12 at 21:19" who="FireCoding" IndentLevel="1">         
+				<p>According to this link it is supported by IE8+, although it says: Requires document to be in IE8+ standards mode to work in IE8. 
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Sep 2 '10 at 14:07" who="Alex V" revisedWhen="Jan 2 '13 at 16:40" revisedBy="saluce" upVote="727">
+			 	<p>If you're using jQuery just use:
+
+					jQuery.parseJSON( jsonString );
+
+					It's exactly what you're looking for
+
+					http://api.jquery.com/jQuery.parseJSON/
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Jun 2 '11 at 10:17" who="Radek" IndentLevel="1" upVote="13">      
+				<p>version >= 1.4.1 required btw    
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Jan 10 '12 at 12:03" who="Dementic" IndentLevel="1" upVote="27">         
+				<p>31kb added to your project also.        
+				</p>
+				</post>
+				</div>
+				<div type="response">      
+				<post synch="Oct 19 '12 at 14:24" who="kgx" IndentLevel="1" upVote="43">        
+				<p>@Dementic - hence "If you're using jQuery" . If you are not using jQuery, then hopefully your alternative framework has similar functionality. 
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Jan 10 '13 at 15:20" who="michael.orchard" IndentLevel="1"  upVote="25">      
+				<p>No, that's not a fact; 31kb is not added to your project just by calling parseJson. If you're using jQuery you already have that extra weight. 
+				</p>
+				</post>
+				</div>
+				<div type="response">   
+				<post synch="Mar 12 '13 at 22:30" who="Amit" IndentLevel="1"  upVote="5">         
+				<p>this always expects a string which can be converted to JSON. if some junk characters are passed, it throws an exception. better put it in a try catch block.   
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Apr 13 '13 at 1:50" who="Chandra Nakka" IndentLevel="1" upVote="1">         
+				<p>Wow! Very simple , but great effect...   
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Apr 26 '14 at 5:34" who="Muhammad Umer" IndentLevel="1">          
+				<p>stackoverflow.com/questions/4935632/…       
+				</p>
+				</post>
+				</div>
+				<div type="response">         
+				<post synch="May 18 '14 at 3:28" who="Sliq" IndentLevel="1" upVote="10">          
+				<p>@Dementic 31kb added to the project vs. Hundreds of developer working hours saved. Seriously, not using jQuery is so f'ing stupid. 
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="May 18 '14 at 15:03" who="Dementic" IndentLevel="1">          
+				<p>@Panique - Those developers are worth nothing if they cant program in pure js. also, when you will get to manage high volume sites, that 31k will matter a lot. also, i just commented that for a simple json parsing, you do not need JQuery.    
+				</p>
+				</post>
+				</div>
+				<div type="response">      
+				<post synch="May 19 '14 at 8:54" who="Sliq" IndentLevel="1" upVote="2">         
+				<p>@Dementic ??? If you can shorten development time by using a lib than doen't reinvent the wheel, use it. Think productive, not like a stupid nerd. 31k are nothing these days. gzip'ed that's 5kb, absolutly nothing. 
+				</p>
+				</post>
+				</div>
+				<div type="response">  
+				<post synch="May 19 '14 at 18:27" who="Dementic" IndentLevel="1">          
+				<p>@Panique - what i am trying to say (and you dont get), is if the code is 1kb (since that is all that is needed), why bloat it with JQuery?    
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="May 19 '14 at 20:48" who="Sliq" IndentLevel="1" upVote="4">         
+				<p>@Dementic Because development is expensive, a developer costs $300-$600 per day. Writing native JS takes longer than using a crossbrowsersafe, optimized one-line with jQuery. 
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Nov 29 '14 at 5:45" who="IcedDante" IndentLevel="1" upVote="3">          
+				<p>Not to mention you can reference JQuery from a Google hosted site, so chances are most people needing it will already have it in their browser cache. the 31k argument is pretty silly   
+				</p>
+				</post>
+				</div>
+				<div type="response">       
+				<post synch="Mar 8 at 19:26" who="b1nary" IndentLevel="1">         
+				<p>while this whole discussion is stupid because of prior arguments. $.parseJSON is actually just wrapping JSON.parse so yeah, adding jQuery for it would be stupid 
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Sep 5 '08 at 0:13" who="John" revisedWhen="Apr 1 at 21:26" upVote="90">
+			 	<p>Edit: This answer is outdated and Jonathan's answer above (JSON.parse(jsonString)) is now the best answer.
+
+					JSON.org has JSON parsers for many languages including 4 different ones for Javascript. I believe most people would consider json2.js their goto implementation.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">   
+				<post synch="Jan 16 at 2:26" who="John" IndentLevel="1">      
+				<p>I wish people would stop down-voting this answer. It was accurate when it was posted in 2008. Just upvote the new one.    
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Mar 7 at 5:35" who="Sotirios Delimanolis" IndentLevel="1">         
+				<p>If the answer is now outdated, consider updating it.           
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Dec 15 '13 at 23:26" who="Ronald" revisedWhen="Oct 30 '14 at 4:02" revisedBy="Daniel"  upVote="32">
+			 	<p>Use simple code represented in the following link on MSDN.
+
+					var jsontext = '{"firstname":"Jesper","surname":"Aaberg","phone":["555-0100","555-0120"]}';
+					var contact = JSON.parse(jsontext);
+					and reverse
+
+					var str = JSON.stringify(arr);
+			 	</p>
+				</post>
+			</div>
+			<div type="response">       
+				<post synch="Feb 18 '14 at 10:21" who="MikeD" IndentLevel="1">     
+				<p>Please make an effort to quote links in English (for our international audience) ... like msdn.microsoft.com/en-us/en-uk/library/ie/… 
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Mar 23 '14 at 9:22" who="Coyote" IndentLevel="1"  upVote="3">         
+				<p>This is the best answer.              
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Sep 5 '08 at 0:13" who="John" revisedWhen="Apr 1 at 21:26" upVote="90">
+			 	<p>Edit: This answer is outdated and Jonathan's answer above (JSON.parse(jsonString)) is now the best answer.
+
+					JSON.org has JSON parsers for many languages including 4 different ones for Javascript. I believe most people would consider json2.js their goto implementation.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">   
+				<post synch="Jan 16 at 2:26" who="John" IndentLevel="1">      
+				<p>I wish people would stop down-voting this answer. It was accurate when it was posted in 2008. Just upvote the new one.    
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Mar 7 at 5:35" who="Sotirios Delimanolis" IndentLevel="1">         
+				<p>If the answer is now outdated, consider updating it.           
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Sep 5 '08 at 0:13" who="Mark Biek" upVote="9">
+			 	<p>UI'm not sure about other ways to do it but here's how you do it in Prototype (JSON tutorial).
+
+					new Ajax.Request('/some_url', {
+					  method:'get',
+					  requestHeaders: {Accept: 'application/json'},
+					  onSuccess: function(transport){
+					    var json = transport.responseText.evalJSON(true);
+					  }
+						});
+					Calling evalJSON() with true as the argument sanitizes the incoming string.
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Oct 24 '08 at 13:57" who="Leanan" revisedWhen="Apr 29 '13 at 7:39" revisedBy="xdazz" upVote="5">
+			 	<p>If you're using jQuery, you can also just do $.getJSON(url, function(data) { });
+
+					Then you can do things like data.key1.something, data.key1.something_else, etc.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Sep 2 '10 at 14:09" who="Alexandre C." IndentLevel="1">         
+				<p>you are using jQuery, aren't you ?              
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Dec 6 '10 at 22:34" who="teleclimber" upVote="3">
+			 	<p>I have successfully been using json_sans_eval for a while now. According to its author, it is more secure than json2.js.
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="May 6 '10 at 6:23" who="Prahlad" upVote="2">
+			 	<p>$.ajax({
+				  url: url,
+					  dataType: 'json',
+				  data: data,
+				  success: callback
+					});
+
+					The callback is passed the returned data, which will be a JavaScript object or array as defined by the JSON structure and parsed using the $.parseJSON() method.
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Apr 29 '13 at 7:37" who="Cody" revisedBy="Apr 24 '14 at 21:15" upVote="2">
+			 	<p>This seems to be the issue:
+
+					An input is received, via ajax websocket etc, and it is always gonna be in String format - but you need to know if it is JSON.parsable. Touble is, that if you always run it through a JSON.parse, the program MAY continue 'successfully' but you'll still see an error thrown in the console with the dreaded "Error: unexpected token 'x'".
+
+					Here's what I tend to do (but its very kludgy):
+
+					var data = (data[0] === '{' || data[0] === '[') ? JSON.parse(data) : data;
+					Any insight on a sure catch-all way without errors?
+
+					ps. this is kludgy, don't up-vote.
+
+					EDIT:
+
+					After months of dealing with this issue here and there, it seems the best approach is to use try/catch() and use your own error handling (even if initially its just a console log et cetera):
+
+					try {
+					    JSON.parse("a"); // Produces a SyntaxError
+						} catch (error) {
+					    // Handle the error
+					    console.log(error.message);
+						}
+					Unfortunately, there's not really elegant degradation for this that I'm aware of.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">    
+				<post synch="Apr 15 '14 at 21:56" who="Yaur" IndentLevel="1">         
+				<p>NO. The issue is that you are expecting a JSON object and could end up with (function(){ postCookiesToHostileServer(); }()); or even nastier stuff in the context of Node.               
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Apr 24 '14 at 21:11" who="Cody" IndentLevel="1">         
+				<p>Well JSON.parse scrubs the input of functions (which in this case would not help as its an IIF --> object). It seems the best way to go about this subject is try/catch. (See edit)              
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Sep 5 '08 at 0:47" who="Manu" upVote="1">
+			 	<p>JS Guru Douglas Crockford has written a parseJSON function which you download here
+			 	</p>
+				</post>
+			</div>
+			<div type="response">     
+				<post synch="May 6 '10 at 6:44" who="AllenJB" IndentLevel="1" upVote="12">         
+				<p>The code pointed to by this link has been superceded by json2.js mentioned above.    
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Jul 15 '14 at 18:53" who="user1574779" upVote="1">
+			 	<p>If you want this method can be used on this way.Here Data object which you want ex:Data='{result:true,count:1}'
+
+ 				   try{
+
+				        eval('var obj='+Data);
+				        console.log(obj.count);
+
+ 				   }catch(e){
+
+ 				      console.log(e.message);
+					    }
+					This method really helps in Nodejs If you are working with serial port programing
+			 	</p>
+				</post>
+			</div>
+			<div type="response">      
+				<post synch="Sep 12 '14 at 10:52" who="diynevala" IndentLevel="1">         
+				<p>It is really funny how people are fixated to "eval is evil" and they'll do anything to avoid it, even re-writing the whole eval-functionality..    
+				</p>
+				</post>
+				</div>
+				<div type="response">          
+				<post synch="Oct 13 '14 at 10:48" who="Whome" IndentLevel="1">         
+				<p>Is consensus this trick is a safe method turning string into JSON object? I could use this as no additional js imports are needed. 
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Oct 15 '14 at 8:11" who="lessisawesome" upVote="1">
+			 	<p>The way using JavaScript Function Object:
+
+				 jsonObject = (new Function('return ' + jsonFormatData))()
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Feb 18 at 13:38" who="Dorian" upVote="0">
+			 	<p>I found a "better" way:
+
+				In CoffeeScript:
+
+				try data = JSON.parse(jqxhr.responseText)
+				data ||= { message: 'Server error, please retry' }
+				In Javascript:
+
+				var data;
+
+				try {
+			  data = JSON.parse(jqxhr.responseText);
+				} catch (_error) {}
+
+				data || (data = {
+			  message: 'Server error, please retry'
+				});
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Apr 22 at 9:40" who="Bharath Kumaar" upVote="0">
+			 	<p>Using JSON.parse is probably the best way. Here's an example live demo
+
+				var jsonRes = '{ "students" : [' +
+			          '{ "firstName":"Michel" , "lastName":"John" ,"age":18},' +
+			          '{ "firstName":"Richard" , "lastName":"Joe","age":20 },' +
+ 				         '{ "firstName":"James" , "lastName":"Henry","age":15 } ]}';
+				var studentObject = JSON.parse(jsonRes);
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Sep 9 '14 at 15:55" who="rcplay" downVote="-1">
+			 	<p>The alternative solution is: jQuery.parseJSON( jsonString );
+			 	</p>
+				</post>
+			</div>
+		</body>	
+	</text>
+</TEI>

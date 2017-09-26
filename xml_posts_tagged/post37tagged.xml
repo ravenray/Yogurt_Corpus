@@ -1,0 +1,149 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Node.js Express Framework Security Issues [closed]</title>
+        <author>D.Deriso</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/14612143/node-js-express-framework-security-issues</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="D.Deriso" url="http://stackoverflow.com/users/1438550/d-deriso">
+        <signatureContent>
+          <p>Reputation: <num>1,409</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>13</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Emre" url="http://stackoverflow.com/users/1928926/emre">
+        <signatureContent>
+          <p>Reputation: <num>495</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>5</num>Number of Bronze Badges: <num>9</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Adam Baldwin" url="http://stackoverflow.com/users/1450341/adam-baldwin">
+        <signatureContent>
+          <p>Reputation: <num>561</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>5</num>Number of Bronze Badges: <num>4</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="zemirco" url="http://stackoverflow.com/users/1256496/zemirco">
+        <signatureContent>
+          <p>Reputation: <num>8,722</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>30</num>Number of Bronze Badges: <num>55</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="andrewrk" url="http://stackoverflow.com/users/432/andrewrk">
+        <signatureContent>
+          <p>Reputation: <num>9,448</num>Number of Gold Badges: <num>18</num>Number of Silver Badges: <num>62</num>Number of Bronze Badges: <num>85</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Eric Elliott" url="http://stackoverflow.com/users/1043390/eric-elliott">
+        <signatureContent>
+          <p>Reputation: <num>2,116</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>12</num>Number of Bronze Badges: <num>19</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2013-01-30 19:30:07Z" who="D.Deriso" revisedWhen="2015-05-24 23:28:27Z" upVote="52" accepted="favorite"><p>I/PRP 'm/VBP looking/VBG for/IN modules/NNS that/WDT should/MD be/VB added/VBN to/TO a/DT Node/NN //: Express/NN app/NN that/WDT address/VB the/DT general/JJ security/NN concerns/NNS listed/VBN below/IN :/:
+
+            Injection/NN Vulnerabilities/NNS (/( JavaScript/NNP ,/, SQL/NNP ,/, Mongo/NNP ,/, HTML/NNP )/)
+            Session/NN fixation/NN and/CC hijacking/NN
+            Cross-Site/JJ Vulnerabilities/NNS (/( Scripting/NN ,/, Request/NN Forgery/NN )/)
+            Mass/NN Assignment/NN
+            insert/VBP relevant/JJ concern/NN here/RB
+
+            Thanks/VBZ for/IN your/PRP$ help/NN !/.
+----------
+
+            Some/DT resources/NNS I/PRP 've/VBP found/VBN :/:
+
+            Excellent/JJ talk/NN (/( 11/CD //: 2012/CD )/) :/: http://lanyrd.com/2012/asfws/sxzbm//URL (/( see/VBP slides/NNS )/)
+
+            ServerFault/COS question/NN (/( 2011/CD -/: 2012/CD )/) :/: http://serverfault.com/questions/285123/is-node-js-mature-for-enterprise-security/URL
+
+            Blog/NN post/NN on/IN topic/NN (/( 9/CD //: 2012/CD )/) :/: http://codefol.io/posts/29-Why-Rails-and-not-Sinatra-or-Node-js-/URL
+
+            Exploit/NN tester/NN :/: https://code.google.com/p/skipfish/URL
+
+            Passport/NN Module/NN :/: https://github.com/jaredhanson/passport/URL
+
+            EveryAuth/COS Module/NN :/: https://github.com/bnoguchi/everyauth/URL
+<tag>security</tag><tag>express</tag><tag>node.js</tag></p></post>
+      </div>
+      <div type="moderator">
+        <head>closed  as too broad by  Ryan O'Hara ♦ Dec 6 '13 at 0:50</head>
+          <post when="2013-12-06 00:50:49Z" who="Ryan O'Hara">There/EX are/VBP either/RB too/RB many/JJ possible/JJ answers/NNS ,/, or/CC good/JJ answers/NNS would/MD be/VB too/RB long/JJ for/IN this/DT format/NN ./.   Please/VB add/VB details/NNS to/TO narrow/VB the/DT answer/NN set/NN or/CC to/TO isolate/VB an/DT issue/NN that/WDT can/MD be/VB answered/VBN in/IN a/DT few/JJ paragraphs/NNS ./. If/IN this/DT question/NN can/MD be/VB reworded/VBN to/TO fit/VB the/DT rules/NNS in/IN the/DT  help/NN center/NN ,/, please/VB  edit/VB the/DT question/NN ./.</post>
+      </div>
+      <div type="answer">
+        <post who="Adam Baldwin" revisedBy="Emre" when="2013-01-31 03:11:12Z" upVote="43" accepted="accepted">
+            <p>I/PRP wrote/VBD a/DT blog/NN post/NN that/WDT gives/VBZ a/DT great/JJ starting/JJ point/NN on/IN Writing/VBG Secure/JJ Express/NNP ./. js/NNP Apps/NNS ./. It/PRP covers/VBZ a/DT few/JJ other/JJ things/NNS beyond/IN csrf/NNP and/CC helmet/NNP as/IN was/VBD mentioned/VBN by/IN zeMirco/NNP ./.
+
+                The/DT other/JJ thing/NN is/VBZ you/PRP can/MD 't/RB compare/VB express/NNP ./. js/NNP to/TO rails/NNS ./. They/PRP are/VBP apples/NNS and/CC oranges/NNS ./. For/IN example/NN ,/, there/EX is/VBZ no/DT ORM/ACR that/WDT is/VBZ bundled/VBN with/IN Express/NNP ,/, that/DT implementation/NN or/CC use/VB of/IN a/DT third/JJ party/NN module/NN is/VBZ up/RB to/TO you/PRP ./.
+
+                I/PRP 'll/MD try/VB and/CC give/VBP a/DT breakdown/NN of/IN each/DT of/IN your/PRP$ concerns/NNS ./.
+
+                -/: Injection/NN Vulnerabilities/NNS (/( JavaScript/NNP ,/, SQL/NNP ,/, Mongo/NNP ,/, HTML/NNP )/)
+
+                Again/UH ,/, these/DT are/VBP things/NNS not/RB built/VBN into/IN express/NNP ./. The/DT closest/JJ thing/NN would/MD be/VB XSS/ACR worries/NNS over/IN injection/NN in/IN templates/NNS ./. Jade/NNP or/CC EJS/NNP templates/NNS that/WDT are/VBP commonly/RB used/VBN with/IN express/NNP output/NN encode/NN &lt;/COS >/COS "/COS '/COS and?CC &amp;/COS by/IN default/NN ,/, but/CC remember/VBP there/EX are/VBP other/JJ contexts/NNS like/IN user/NN input/NN into/IN JavaScript/NNP or/CC CSS/NNP that/WDT you/PRP would/MD need/VB to/TO worry/VB about/IN ./.
+
+                -/: Session/NN fixation/NN and/CC hijacking/NN
+
+                Again/UH see/VBP the/DT blog/NN post/NN above/IN ,/, but/CC Express/NNP is/VBZ based/VBN on/IN and/CC uses/VBZ most/NNP of/IN the/DT connect/NN middleware/NN one/CD of/IN these/DT is/VBZ the/DT session/NN middleware/NN ./. Biggest/JJS thing/NN here/RB is/VBZ to/TO properly/RB set/VBP your/PRP$ cookie/NN flags/NNS ./.
+
+                -/: Cross-Site/JJ Vulnerabilities/NNS (/( Scripting/NN ,/, Request/NN Forgery/NN )/)
+
+                See/VBP above/IN ./. It/PRP also/RB comes/VBZ with/IN express/COS ./COS csrf/COS (/COS )/COS middleware/NN ./. The/DT blog/NN post/NN mentioned/VBD shows/VBZ how/WRB to/TO implement/VB it/PRP ./.
+
+                -/: Mass/NN Assignment/NN
+
+                Not/RB an/DT issue/NN with/IN express/NNP ./. js/NNP as/IN it/PRP has/VBZ no/DT concepts/NNS in/IN which/WDT this/DT type/NN of/IN vulnerable/JJ would/MD be/VB applicable/JJ ,/, however/RB the/DT custom/JJ logic/NN you/PRP write/VBP may/MD be/VB in/IN fact/NN vulnerable/JJ to/TO this/DT problem/NN ,/, so/IN again/RB it/PRP 's/VBZ a/DT problem/NN of/IN verifying/VBG if/IN your/PRP$ code/NN is/VBZ vulnerable/JJ or/CC if/IN the/DT third/JJ party/NN module/NN you/PRP used/VBD is/VBZ .../.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="D.Deriso" when="2013-02-01 23:00:37Z" indentLevel="1">
+            <p>Wow/UH ,/, thanks/VBZ for/IN this/DT detailed/JJ response/NN and/CC the/DT excellent/JJ blog/NN post/NN !/. I/PRP 'll/MD try/VB to/TO get/VB these/DT up/JJ and/CC running/JJ !/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jesse Clark" when="2013-12-09 18:41:09Z" indentLevel="1">
+            <p>Blog/NN post/NN link/NN seems/VBZ to/TO be/VB dead/JJ ./. Here/RB is/VBZ another/DT resource/NN for/IN some/DT common/JJ Express/NNP ./. js/NNP security/NN concerns/NNS :/:  gist.github.com/cerebrl/6487587/URL</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Luc Morin" when="2014-01-04 21:19:03Z" indentLevel="1">
+            <p>@/AdamBaldiwn/ATS :/: could/MD you/PRP post/VB a/DT new/JJ link/NN to/TO your/PRP$ blog/NN post/NN ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Emre" when="2014-02-14 20:15:50Z" indentLevel="1">
+            <p>Fixed/VBD the/DT blog/NN post/NN link/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="zemirco" when="2013-01-30 19:47:12Z" upVote="8">
+            <p>Two/CD modules/NNS I/PRP can/MD immediately/RB think/VB of/IN :/:
+
+                csrf/NNP :/: CRSF/NNP protection/NN middleware/NN ./.
+                helmet/NNP :/: Middleware/NN that/WDT implement/VB various/JJS security/NN headers/NNS</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="D.Deriso" when="2013-01-30 19:56:18Z" indentLevel="1">
+            <p>Thanks/VBZ for/IN sharing/VBG ,/, I/PRP 'll/MD check/VB these/DT out/RP !/.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="andrewrk" when="2013-09-06 23:23:26Z" upVote="6">
+            <p>One/CD thing/NN to/TO be/VB wary/JJ of/IN is/VBZ bodyParser/COS ./. See/VBP  http://andrewkelley.me/post/do-not-use-bodyparser-with-express-js.html/URL</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Eric Elliott" when="2013-10-21 09:21:19Z" upVote="1">
+            <p>You/PRP should/MD be/VB aware/JJ that/WDT if/IN you/PRP specify/VB a/DT catch-all/JJ error/NN handler/NN ,/, you/PRP should/MD NOT/RB restart/VB the/DT server/NN or/CC do/VB anything/NNP blocking/VBG in/IN that/DT handler/NN in/IN response/NN to/TO USER/NN errors/NNS (/( the/DT  4xx/COS  range/NN )/) because/IN it/PRP could/MD lead/VB to/TO a/DT DOS/COS vulnerability/NN ./. This/DT vulnerability/NN is/VBZ addressed/VBN automatically/RB in/IN  express-error-handler/NN ,/, and/CC the/DT service/NN will/MD shut/VB down/RP as/IN soon/RB as/IN it/PRP can/MD (/( when/WRB active/JJ connections/NNS are/VBP drained/VBN or/CC a/DT timeout/NN occurs/VBZ )/) so/IN restarts/NNS should/MD n't/RB be/VB a/DT big/JJ deal/NN ./. Implementing/VBG this/DT behavior/NN made/VBD a/DT really/RB big/JJ difference/NN in/IN my/PRP$ exploit/NN tests/NNS ./. BTW/ACR ,/, it/PRP 's/VBZ NOT/RB safe/JJ to/TO simply/RB ignore/VB all/DT unhandled/JJ errors/NNS ./. That/DT would/MD leave/VB your/PRP$ application/NN in/IN an/DT undefined/JJ state/NN ,/, which/WDT just/RB presents/VBZ another/DT type/NN of/IN DOS/COS vulnerability/NN ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

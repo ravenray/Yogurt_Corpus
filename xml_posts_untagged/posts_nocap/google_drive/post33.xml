@@ -1,0 +1,105 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Code vulnerability</title>
+        <author>thechico</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/29109870/code-vulnerability</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="thechico" url="http://stackoverflow.com/users/4559651/thechico">
+        <signatureContent>
+          <p>Reputation: <num>6</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>0</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="duskwuff" url="http://stackoverflow.com/users/149341/duskwuff">
+        <signatureContent>
+          <p>Reputation: <num>101k</num>Number of Gold Badges: <num>12</num>Number of Silver Badges: <num>113</num>Number of Bronze Badges: <num>159</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="John Bollinger" url="http://stackoverflow.com/users/2402272/john-bollinger">
+        <signatureContent>
+          <p>Reputation: <num>31.6k</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>14</num>Number of Bronze Badges: <num>40</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2015-03-17 21:16:35Z" who="thechico" revisedBy="Jonathan Leffler" revisedWhen="2015-03-17 22:35:57Z" upVote="0" accepted="favorite"><p>As a learning exercise, I am trying to find a weakness in the following code snippet to gain access as the owner of the executable.
+
+setresuid(geteuid(), geteuid(), geteuid());
+system("/usr/bin/id");
+
+FWIW, I can't see any. I know setresuid will set the uid to the owner of the file, but I can't change the owner to anyone but myself. I thought about trying to redirect the id command by altering the PATH, but since it uses an absolute path, that trick doesn't work. Hints?
+<tag>c</tag><tag>exploit</tag><tag>unix</tag><tag>security</tag><tag>linux</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="John Bollinger" when="2015-03-17 21:25:05Z" indentLevel="1" upVote="1">
+          <p>What makes you think there's a vulnerability to be found?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="John Bollinger" when="2015-03-17 21:48:05Z" indentLevel="1">
+          <p>If there were a vulnerability of that type, it would depend on the executable being installed with its suid bit set. In particular, only if the program has its suid bit set will its effective UID equal to the file owner's UID.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="John Bollinger" when="2015-03-17 22:11:05Z" indentLevel="1">
+          <p>Furthermore, if there were a vulnerability then it would rely either on the fact that the system() function uses /bin/sh -c to run the command, or on some behavior of the /usr/bin/id command that depended on the real UID of the process. As far as I know, id works the same regardless of real and effective UIDs.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Ben Voigt" when="2015-03-17 22:48:05Z" indentLevel="1">
+          <p>manpage says "Do not use system() from a program with set-user-ID or set-group-ID privileges, because strange values for some environment variables might be used to subvert system integrity. Use the exec(3) family of functions instead, but not execlp(3) or execvp(3). system() will not, in fact, work properly from programs with set-user-ID or set-group-ID privileges on systems on which /bin/sh is bash version 2, since bash 2 drops privileges on startup. (Debian uses a modified bash which does not do this when invoked as sh.)"</p>
+        </post>
+      </div>
+       <div type="answer">
+        <post who="John Bollinger" when="2015-03-17 22:56:03Z" upVote="1">
+          <p>The system() function executes the command given as its argument by passing it to /bin/sh -c. I think the /usr/bin/id program is not particularly relevant; it is the shell's behavior that is key. In particular, note that the shell's startup behavior is different when the real and effective UIDs differ:
+
+    If the shell is started with the effective user (group) id not equal to the real user (group) id [...] no startup files are read, shell functions are not inherited from the environment, the SHELLOPTS, BASHOPTS, CDPATH, and GLOBIGNORE variables, if they appear in the environment, are ignored, and the effective user id is set to the real user id.
+
+-- BASH 4.1 manual
+
+In the event that a program containing the code you presented is installed suid, the code prevents the condition given in that paragraph from applying by setting real, effective, and saved UIDs all equal to the effective UID (which will be the UID of the owner of the executable).
+
+Exploits typically revolve around unsafe use of untrustworthy data, with environment variables being a frequent offender. The ENV environment variable in particular names a file that under some circumstances the shell will execute at startup. bash will not run it when the real and effective UIDs differ, as documented in the excerpt above, but otherwise will do so when invoked interactively in POSIX compatibility mode or as sh.
+
+That doesn't help for non-interactive invocation, as applies here, so now I have to go speculative. I suspect, but cannot currently document, that some other past -- and maybe even present -- versions of the shell do read and execute commands from the file named by ENV when invoked non-interactively. That would provide a vector for executing arbitrary commands as the owner of the setuid program.
+
+In weak support of that speculation I direct your attention to the BASH_ENV variable, which is analogous to ENV, but is used when bash is invoked noninteractively, as bash. I am supposing that once these two variables were more parallel, applicable to both interactive and non-interactive modes, but the non-interactive use of ENV and the interactive use of BASH_ENV were removed at different times. for different reasons. Quite possibly the non-interactive use of ENV was removed to plug exactly the hole that you are looking for.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="John Bollinger" when="2015-03-18 15:58:45Z" indentLevel="1">
+          <p>Note:  online sources  seem to confirm that the attack via  ENV  did, indeed, work at one time.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="duskwuff" when="2015-03-17 22:35:57Z" upVote="1">
+          <p>It is possible to exploit an obscure (and now patched) issue involving the unchecked usage of setresuid():
+
+    Under Linux 2.6 and later, setresuid() can fail if the process is running with an RLIMIT_NPROC (that is, a limit on the number of processes as set by ulimit -n) such that the target UID would have too many processes if the setresuid() succeeded.
+
+    However, under Linux 3.1 and later, failing a setresuid() sets a flag on a process such that any subsequent execve() calls will fail. This would prevent the system() from running on any modern Linux if the setresuid() failed.
+
+    Unless there is some larger context which has been omitted, it may be possible to set environment variables (e.g, LD_PRELOAD) which cause code to be injected into /usr/bin/id. These variables are ignored for setuid executables, but will not be ignored for executables launched by a setuid executable, as is occurring here.
+
+If you are on a vulnerable system (Linux 2.6 through 3.0), you may be able to exploit this vulnerability by setting environment variables and causing the setresuid() to fail, so that /usr/bin/id runs user-specified code as root.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="John Bollinger" when="2015-03-18 14:23:05Z" indentLevel="1">
+          <p>Does that apply to this case, since the program modifies only its real and saved UIDs, not its effective UID?</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

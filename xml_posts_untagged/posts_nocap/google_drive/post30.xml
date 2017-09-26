@@ -1,0 +1,124 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>SOA vulnerabilities</title>
+        <author>preeti</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/2199997/soa-vulnerabilities</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="preeti" url="http://stackoverflow.com/users/242645/preeti">
+        <signatureContent>
+          <p>Reputation: <num>53</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>1</num>Number of Bronze Badges: <num>6</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Younes" url="http://stackoverflow.com/users/81892/younes">
+        <signatureContent>
+          <p>Reputation: <num>3,361</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>24</num>Number of Bronze Badges: <num>60</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Will" url="http://stackoverflow.com/users/15721/will">
+        <signatureContent>
+          <p>Reputation: <num>38.3k</num>Number of Gold Badges: <num>22</num>Number of Silver Badges: <num>115</num>Number of Bronze Badges: <num>183</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="rook" url="http://stackoverflow.com/users/183528/rook">
+        <signatureContent>
+          <p>Reputation: <num>40.7k</num>Number of Gold Badges: <num>24</num>Number of Silver Badges: <num>120</num>Number of Bronze Badges: <num>198</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2010-02-04 13:36:20Z" who="preeti" revisedWhen="2010-02-04 13:40:07Z" upVote="1" revisedBy="Younes" accepted="favorite"><p>I am a post graduate student. I have to do a masters thesis on SOA vulnerabilities(SOA security). In the sense, finding vulnerabilities in web services or finding solutions to the existing vulnerabilities. In that direction i have been searching for vulnerabilities in SOA. Once the vulnerability is find i have to stimulate it and show to my guide. Some attacks i found in OWASP in the corresponding areas are DOS attacks, Injection attacks(SQL injection,XPath injection). I could not able to take a proper decision at the moment so as what to do next. 
+        Can anyone please tell me how could i proceed to successfully reach the destination?<tag>security</tag><tag>soa</tag><tag>sql-injection</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Will" when="2010-02-04 13:40:50Z" indentLevel="1">
+          <p>post graduate != masters; it would be worth stating your country or retranslating</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mitch Wheat" when="2010-02-04 13:44:50Z" indentLevel="1">
+          <p>@Will : last time I checked, a Masters IS post-graduate. It's something you pursue after graduating.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Will" when="2010-02-04 16:37:50Z" indentLevel="1">
+          <p> I stand corrected, it was my lousy translating</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Younes" when="2010-02-04 13:39:16Z" upVote="2" accepted="accepted">
+          <p>To help you out a bit on your research i'm stating this website: http://www.packetstormsecurity.com This website has alot of information regarding to exploits / hacks / fixxes and alot of info about cross site server scripting / dos-attacks / sql-injection etc etc etc.
+          If you really need more info or nice articles about various attacks and fixxes you should seriously consider checking out that page.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="brozo" when="2010-02-04 13:49:50Z" indentLevel="1">
+          <p>This site is great. It provides a lot of security-related information and the descriptions of vulnerabilities are very well written. Definitely your number one site regarding web-security.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Younes" when="2010-02-04 13:57:26Z" indentLevel="1">
+          <p>deffo, best site regarding that kind of shizzle ;)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2010-02-04 17:01:46Z" indentLevel="1">
+          <p>packet storm is for script kiddies of the 1990's.  That site is so old and all it contains is outdated papers and forgotten exploit code.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Younes" when="2010-05-27 06:10:54Z" indentLevel="1">
+          <p>Bullox, there is alot of updated material and everyday new exploits / fixxes etc gets submitted.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Will" when="2010-02-04 13:41:22Z" upVote="1">
+          <p>Generally, you should discuss this in depth with your tutor rather than ask the internet in general.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Younes" when="2010-02-04 13:58:08Z" indentLevel="1">
+          <p>You could have commented on her post instead of faking an answer :P</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Will" when="2010-02-04 15:50:10Z" indentLevel="1">
+          <p>@Younes it was genuine advice.  I've said it before too:  stackoverflow.com/questions/1245885/…</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2010-02-04 16:34:54Z" indentLevel="1">
+          <p>-1,  this is what stack overflow is for.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Will" when="2010-02-04 16:37:33Z" indentLevel="1">
+          <p>The question isn't about SOA nor how it works nor anything technical, its "not able to take a proper decision at the moment so as what to do next" and that's a question about the academic task at hand.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2010-02-04 17:05:59Z" indentLevel="1">
+          <p>Will,   If you are having trouble finding direction then it follows that you should ask for help.  Stack Overflow is about helping programmers, and this question is helping a programmer do research.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Will" when="2010-02-04 17:09:59Z" indentLevel="1">
+          <p>If, as I interpret, the question is how to graduate, then I think my advice to discuss it with the tutor is very sound.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="rook" when="2010-02-04 16:51:12Z" upVote="1" revisedWhen="2010-02-04 16:58:12Z">
+          <p>The field of computer security is massive and there is always something to explore.   This is one of the reasons why I love hacking.   Currently I am working on a masterpiece exploit that will be the basis for my Blackhat/Defcon talk in august.   I think that writing exploit code is vital for understanding the exploitation process.  Even if you are the most Arian of white hats,  you must write exploit or you will always be behind the attacks in terms of skill.  I love going to hacker cons to get now ideas for my security research.  It is also helpful to see new attacks. Some things that you have no mentioned are Memory manipulation attacks such as buffer overflows.   Modern buffer overflows are more difficult to exploit than Aleph One's smashing the stack for fun and profit.    You should look into modern bypasses to ASLR such as heap spraying or heap feng shui.   Attacks like jmp2reg (jmp2esp jump2ebx ect...) are also interesting for bypasses for ASLR. Attacking ActiveX components is fun. I used H.D. Moore's  AxMan  with great success.  Here is the remote code execution exploit I found using AxMan:  http://www.milw0rm.com/exploits/7910  .  Here are more exploits that I have written:  http://www.milw0rm.com/author/677   .  The best fuzzer is by far  PeachFuzz , and writing a some pit files for it can be very fruitful research. Buffer overflows and sql injection are the most talked about,  but there are a couple hundred categories for vulnerabilities and they are identified by  CWE numbers . Its worth exploring,  I think it will surprised you what NIST thinks a vulnerability is. </p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,47 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Block bots searching for vulnerabilities</title>
+        <author>Kevin Burke</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/7368818/block-bots-searching-for-vulnerabilities</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Kevin Burke" url="http://stackoverflow.com/users/329700/kevin-burke">
+        <signatureContent>
+          <p>Reputation: <num>10.2k</num>Number of Gold Badges: <num>21</num>Number of Silver Badges: <num>83</num>Number of Bronze Badges: <num>174</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="someone" url="http://stackoverflow.com/users/902654/someone">
+        <signatureContent>
+          <p>Reputation: <num>1,352</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>5</num>Number of Bronze Badges: <num>9</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="rook" url="http://stackoverflow.com/users/183528/rook">
+        <signatureContent>
+          <p>Reputation: <num>40.7k</num>Number of Gold Badges: <num>24</num>Number of Silver Badges: <num>120</num>Number of Bronze Badges: <num>198</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-09-10 00:32:56Z" who="Kevin Burke" revisedWhen="2011-09-10 00:42:39Z" upVote="2" accepted="favorite"><p>I/PRP downloaded/VBD a/DT Wordpress/NNP plugin/NN that/WDT emails/VBZ me/PRP any/DT time/NN my/PRP$ site/NN serves/VBZ a/DT 404/CD error/NN ./. Last/JJ night/NN I/PRP got/VBD about/IN 1000/CD emails/NNS from/IN bots/NNS searching/VBG for/IN //: wp-content/NN //: plugins/NNS //: (/( X/NNP name/NN of/IN popular/JJ plugin/NN )/) //: timthumb.phpwhere/URL timthumb.php/URL is/VBZ a/DT popular/JJ plugin/NN that/WDT had/VBD a/DT zero-day/JJ vulnerability/NN a/DT few/JJ weeks/NNS ago/RB ,/, so/IN the/DT traffic/NN is/VBZ searching/VBG my/PRP$ site/NN for/IN vulnerabilities/NNS that/WDT can/MD be/VB hacked/VBN ./. I/PRP do/VBP n't/RB have/VBP timthumb/NNP installed/VBD ,/, but/CC I/PRP really/RB do/VB n't/RB want/VB this/DT traffic/NN -/: is/VBZ there/EX an/DT easy/JJ way/NN to/TO block/VB it/PRP ?/. <tag>security</tag><tag>bots</tag><tag>wordpress</tag></p></post>
+      </div>
+      <div type="answer">
+        <post who="someone" when="2011-09-10 00:50:32Z" upVote="0" accepted="accepted">
+            <p>Use/VBP  this/DT  and/CC  this/DT  page/NN to/TO blacklist/VB all/DT the/DT bots/NNS that/WDT were/VBD logged/VBN through/IN your/PRP$ ./. htaccess/NNP file/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="rook" when="2011-09-10 16:10:36Z" upVote="0">
+            <p>This/DT is/VBZ really/RB not/RB something/NNP that/WDT can/MD be/VB fully/RB stopped/VBN ./.   Instead/RB you/PRP should/MD focus/VB on/IN making/VBG sure/RB your/PRP$ system/NN is/VBZ fully/RB updated/VBN ,/,  and/CC configured/VBD correctly/RB ./. Some/DT vulnerability/NN scans/NNS and/CC exploits/NNS can/MD be/VB stopped/VBN using/VBG a/DT Web/NN Application/NN Firewall/NN like/IN  PHPIDS/NNS  or/CC  mod_security/COS ./.  However/RB these/DT security/NN measures/NNS wo/MD n't/RB stop/VB bots/NNS from/IN looking/VBG for/IN vulnerable/JJ files/NNS like/IN ,/, phpmyadmin/COS ,/, fckeditor/COS or/CC the/DT new/JJ timthumb.php/URL remote/JJ code/NN execution/NN vulnerability/NN ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

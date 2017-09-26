@@ -1,0 +1,386 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Best Practices: Salting &amp; peppering passwords?</title>
+        <author>Silent Echo</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/16891729/best-practices-salting-peppering-passwords</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Silent Echo" url="http://stackoverflow.com/users/2294775/silent-echo">
+        <signatureContent>
+          <p>Reputation: <num>7,972</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>22</num>Number of Bronze Badges: <num>47</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="ircmaxell" url="http://stackoverflow.com/users/338665/ircmaxell">
+        <signatureContent>
+          <p>Reputation: <num>106k</num>Number of Gold Badges: <num>20</num>Number of Silver Badges: <num>199</num>Number of Bronze Badges: <num>264</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="martinstoeckli" url="http://stackoverflow.com/users/575765/martinstoeckli">
+        <signatureContent>
+          <p>Reputation: <num>11.9k</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>20</num>Number of Bronze Badges: <num>42</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="foochow" url="http://stackoverflow.com/users/896075/foochow">
+        <signatureContent>
+          <p>Reputation: <num>377</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>20</num></p>
+        </signatureContent>
+      </person>
+       <person xml:id="Agmlauncher" url="http://stackoverflow.com/users/945775/agmlauncher">
+        <signatureContent>
+          <p>Reputation: <num>2,478</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>22</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="PriceChild" url="http://stackoverflow.com/users/601779/pricechild">
+        <signatureContent>
+          <p>Reputation: <num>224</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>2</num>Number of Bronze Badges: <num>18</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Perseids" url="http://stackoverflow.com/users/371137/perseids">
+        <signatureContent>
+          <p>Reputation: <num>3,607</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>14</num>Number of Bronze Badges: <num>33</num></p>
+        </signatureContent>
+      </person>
+       <person xml:id="Richard" url="http://stackoverflow.com/users/163495/richard">
+        <signatureContent>
+          <p>Reputation: <num>16,022</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>39</num>Number of Bronze Badges: <num>81</num></p>
+        </signatureContent>
+      </person>
+       <person xml:id="Aron" url="http://stackoverflow.com/users/1808494/aron">
+        <signatureContent>
+          <p>Reputation: <num>9,730</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>13</num>Number of Bronze Badges: <num>41</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Sven" url="http://stackoverflow.com/users/1434613/sven">
+        <signatureContent>
+          <p>Reputation: <num>1,167</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>10</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2013-06-03 07:15:47Z" who="Silent Echo" revisedWhen="2015-03-28 02:08:06Z" revisedBy="Charles" upVote="89" accepted="favorite"><p>I/PRP came/VBD across/IN a/DT discussion/NN in/IN which/WDT I/PRP learned/VBD that/WDT what/WP I/PRP 'd/MD been/VNN doing/VBG was/VBD n't/RB in/IN fact/NN salting/VBG passwords/NNS but/CC peppering/VBG them/PRP ,/, and/CC I/PRP 've/VBP since/IN begun/VBN doing/VBG both/DT with/IN a/DT function/NN like/IN :/:
+
+            hash_function/COB (/COB $/COB salt/COB ./COB hash_function/COB  (/COB  $/COB  pepper/COB ./COB  $/COB  password/COB  )/COB  )/COB  [/COB  multiple/COB  iterations/COB  ]/COB 
+
+            Ignoring/VBG the/DT chosen/JJ hash/NN algorithm/NN (/( I/PRP want/VBP this/DT to/TO be/VB a/DT discussion/NN of/IN salts/NNS &amp;/COS peppers/NNS and/CC not/RB specific/JJ algorithms/NNS but/CC I/PRP 'm/VBP using/VBG a/DT secure/JJ one/CD )/) ,/, is/VBZ this/DT a/DT secure/JJ option/NN or/CC should/MD I/PRP be/VB doing/VBG something/NNP different/JJ ?/. For/IN those/DT unfamiliar/JJ with/IN the/DT terms/NNS :/:
+
+            A/DT salt/NN is/VBZ a/DT randomly/RB generated/JJ value/NN usually/RB stored/VBN with/IN the/DT string/NN in/IN the/DT database/NN designed/VBD to/TO make/VB it/PRP impossible/JJ to/TO use/VB hash/NN tables/NNS to/TO crack/VB passwords/NNS ./. As/IN each/DT password/NN has/VBZ it/PRP s/POS own/JJ salt/NN ,/, they/PRP must/MD all/DT be/VB brute/JJ -/: forced/VBN individually/RB in/IN order/NN to/TO crack/VB them/PRP ;/: however/RB ,/, as/IN the/DT salt/NN is/VBZ stored/VBN in/IN the/DT database/NN with/IN the/DT password/NN hash/NN ,/, a/DT database/NN compromise/NN means/VBZ losing/VBG both/DT ./.
+
+            A/DT pepper/NNP is/VBZ a/DT site/NN -/: wide/JJ static/JJ value/NN stored/VBN separately/RB from/IN the/DT database/NN (/( usually/RB hard/JJ -/: coded/JJ in/IN the/DT application/NN 's/POS source/NN code/NN )/) which/WDT is/VBZ intended/VBN to/TO be/VB secret/NN ./. It/PRP is/VBZ used/VBN so/IN that/WDT a/DT compromise/NN of/IN the/DT database/NN would/MD not/RB cause/VB the/DT entire/JJ application/NN 's/POS password/NN table/NN to/TO be/VB brute/JJ -/: forceable/JJ ./.
+
+            Is/VBZ there/EX anything/NN I/PRP 'm/VBP missing/VBG and/CC is/VBZ salting/VBG &amp;/COS peppering/VBG my/PRP$ passwords/NNS the/DT best/JJ option/NN to/TO protect/VB my/PRP$ user/NN 's/POS security/NN ?/. Is/VBZ there/EX any/DT potential/JJ security/NN flaw/NN to/TO doing/VBG it/PRP this/DT way/NN ?/.
+
+            Note/NN :/: Assume/VB for/IN the/DT purpose/NN of/IN the/DT discussion/NN that/WDT the/DT application/NN &amp;/COS database/NN are/VBP stored/VBN on/IN separate/JJ machines/NNS ,/, do/VBP not/RB share/VB passwords/NNS etc./FW so/IN a/DT breach/NN of/IN the/DT database/NN server/NN does/VBZ not/RB automatically/RB mean/VB a/DT breach/NN of/IN the/DT application/NN server/NN ./.
+<tag>security</tag><tag>password-hash</tag><tag>salt</tag><tag>passwords</tag><tag>hash</tag></p></post>
+      </div>
+         <div type="response">
+        <post who="irmaxell" when="2013-06-03 11:14:08Z" indentLevel="1" upVote="3">
+            <p>Not/RB quite/RB a/DT duplicate/NN ,/, but/CC extremely/RB related/JJ :/: stackoverflow.com/questions/16594613//URL</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="ircmaxell" when="2013-06-03 11:59:06Z" revisedWhen="2015-03-28 11:59:06Z" upVote="201" accepted="accepted">
+            <p>Ok/UH ./. Seeing/VBG as/IN I/PRP need/VB to/TO write/VB about/IN this/DT over/IN and/CC over/IN ,/, I/PRP 'll/MD do/VB one/CD last/JJ canonical/JJ answer/NN on/IN pepper/NNP alone/JJ ./.
+                The/DT Apparent/JJ Upside/NN Of/IN Peppers/NNPS
+
+                It/PRP seems/VBZ quite/RB obvious/JJ that/WDT peppers/NNPS should/MD make/VB hash/JJ functions/NNS more/JJR secure/JJ ./. I/PRP mean/VB ,/, if/IN the/DT attacker/NN only/RB gets/VBZ your/PRP$ database/NN ,/, then/RB your/PRP$ users/NNS passwords/NNS should/MD be/VB secure/JJ ,/, right/RB ?/. Seems/VBZ logical/JJ ,/, right/RB ?/.
+
+                That/WDT 's/VBZ why/WRB so/IN many/JJ people/NN believe/VB that/WDT peppers/NNPS are/VBP a/DT good/JJ idea/NN ./. It/PRP "/" makes/VBZ sense/NN "/" ./.
+                The/DT Reality/NN Of/IN Peppers/NNPS
+
+                In/IN the/DT security/NN and/CC cryptography/NN realms/NNS ,/, "/" make/VB sense/NN "/" is/VBZ n't/RB enough/RB ./. Something/NNP has/VBZ to/TO be/VB provable/JJ and/CC make/VB sense/NN in/IN order/NN for/IN it/PRP to/TO be/VB considered/VBN secure/JJ ./. Additionally/RB ,/, it/PRP has/VBZ to/TO be/VB implementable/JJ in/IN a/DT maintainable/JJ way/NN ./. The/DT most/JJS secure/JJ system/NN that/WDT can/MD 't/RB be/VB maintained/VBN is/VBZ considered/VBN insecure/JJ (/( because/IN if/IN any/DT part/NN of/IN that/DT security/NN breaks/VBZ down/RP ,/, the/DT entire/JJ system/NN falls/VBZ apart/RB )/) ./.
+
+                And/CC peppers/NNPS fit/VB neither/DT the/DT provable/JJ or/CC the/DT maintainable/JJ models/NNS .../.
+                Theoretical/JJ Problems/NN With/IN Peppers/NNPS
+
+                Now/RB that/WDT we/PRP 've/VBP set/VB the/DT stage/NN ,/, let/VB 's/VBZ look/VB at/IN what/WP 's/VBZ wrong/JJ with/IN peppers/NNPS ./.
+
+                Feeding/VBG one/CD hash/NN into/IN another/DT can/MD be/VB dangerous/JJ ./.
+
+                In/IN your/PRP$ example/NN ,/, you/PRP do/VBP hash_function/COS (/COS $/COS salt/COS ./. hash_function/COS (/COS $/COS pepper/COS ./. $/COS password/COS )/COS )/COS ./.
+
+                We/PRP know/VBP from/IN past/JJ experience/NN that/WDT "/" just/RB feeding/VBG "/" one/CD hash/NN result/NN into/IN another/DT hash/NN function/NN can/MD decrease/VB the/DT overall/JJ security/NN ./. The/DT reason/NN is/VBZ that/WDT both/DT hash/NN functions/NNS can/MD become/VB a/DT target/NN of/IN attack/NN ./.
+
+                That/WDT 's/VBZ why/WRB algorithms/NNS like/IN PBKDF2/COS use/VBP special/JJ operations/NNS to/TO combine/VB them/PRP (/( hmac/ACR in/IN that/WDT case/NN )/) ./.
+
+                The/DT point/NN is/VBZ that/WDT while/IN it/PRP 's/VBZ not/RB a/DT big/JJ deal/NN ,/, it/PRP is/VBZ also/RB not/RB a/DT trivial/JJ thing/NN to/TO just/RB throw/VB around/IN ./. Crypto/NNP systems/NNS are/VBP designed/VBN to/TO avoid/VB "/" should/MD work/VB "/" cases/NNS ,/, and/CC instead/RB focus/VBP on/IN "/" designed/VBD to/TO work/VB "/" cases/NNS ./.
+
+                While/IN this/DT may/MD seem/VB purely/RB theoretical/JJ ,/, it/PRP 's/VBZ in/IN fact/NN not/RB ./. For/IN example/NN ,/, Bcrypt/COS can/MD not/RB accept/VB arbitrary/JJ passwords/NNS ./. So/IN passing/VBG bcrypt/COS (/COS hash/COS (/COS pw/COS )/COS ,/, salt/COS )/) can/MD indeed/RB result/VB in/IN a/DT far/JJ weaker/JJ hash/NN than/IN bcrypt/COS (/COS pw/COS ,/, salt/COS )/COS if/IN hash/COS (/COS )/COS returns/VBZ a/DT binary/JJ string/NN ./.
+
+                Working/VBG Against/IN Design/NN
+               
+                The/DT way/NN bcrypt/COS (/( and/CC other/JJ password/NN hashing/VBG algorithms/NNS )/) were/VBD designed/VBN is/VBZ to/TO work/VB with/IN a/DT salt/NNP ./. The/DT concept/NN of/IN a/DT pepper/NNP was/VBD never/RB introduced/VBN ./. This/DT may/MD seem/VB like/IN a/DT triviality/NN ,/, but/CC it/PRP 's/VBZ not/RB ./. The/DT reason/NN is/VBZ that/WDT a/DT salt/NNP is/VBZ not/RB a/DT secret/NN ./. It/PRP is/VBZ just/RB a/DT value/NN that/WDT can/MD be/VB known/VBN to/TO an/DT attacker/NN ./. A/DT pepper/NNP on/IN the/DT other/JJ hand/NN ,/, by/IN very/JJ definition/NN is/VBZ a/DT cryptographic/JJ secret/NN ./.
+
+                The/DT current/JJ password/NN hashing/VBG algorithms/NNS (/( bcrypt/COS ,/, pbkdf2/COS ,/, etc/FW )/) all/DT are/VBP designed/VBN to/TO only/RB take/VB in/IN one/CD secret/JJ value/NN (/( the/DT password/NN )/) ./. Adding/VBG in/IN another/JJ secret/NN into/IN the/DT algorithm/NN has/VBZ n't/RB been/VBN studied/VBN at/IN all/RB ./.
+
+                That/WDT does/VBZ n't/RB mean/VB it/PRP is/VBZ not/RB safe/JJ ./. It/PRP means/VBZ we/PRP do/VBP n't/RB know/VB if/IN it/PRP is/VBZ safe/JJ ./. And/CC the/DT general/JJ recommendation/NN with/IN security/NN and/CC cryptography/NN is/VBZ that/WDT if/IN we/PRP do/VBP n't/RB know/VB ,/, it/PRP is/VBZ n't/RB ./.
+
+                So/IN until/IN algorithms/NNS are/VBP designed/VBN and/CC vetted/VBN by/IN cryptographers/NNS for/IN use/NN with/IN secret/JJ values/NNS (/( peppers/NNPS )/) ,/, current/JJ algorithms/NNS should/MD n't/RB be/VB used/VBN with/IN them/PRP ./.
+
+                Complexity/NN Is/VBZ The/DT Enemy/NN Of/IN Security/NN
+
+                Believe/VBP it/PRP or/CC not/RB ,/, Complexity/NN Is/VBZ The/DT Enemy/NN Of/IN Security/NN ./. Making/VBG an/DT algorithm/NN that/WDT looks/VBZ complex/JJ may/MD be/VB secure/JJ ,/, or/CC it/PRP may/MD be/VB not/RB ./. But/CC the/DT chances/NNS are/VBP quite/RB significant/JJ that/WDT it/PRP 's/VBZ not/RB secure/JJ ./.
+
+                Significant/JJ Problems/NNS With/IN Peppers/NNPS
+
+                It/PRP 's/VBZ Not/RB Maintainable/JJ
+
+                Your/PRP implementation/NN of/IN peppers/NNPS precludes/VBZ the/DT ability/NN to/TO rotate/VB the/DT pepper/NNP key/NN ./. Since/IN the/DT pepper/NNP is/VBZ used/VBN at/IN the/DT input/NN to/TO the/DT one/CD way/NN function/NN ,/, you/PRP can/MD never/RB change/VB the/DT pepper/NNP for/IN the/DT lifetime/NN of/IN the/DT value/NN ./. This/DT means/VBZ that/WDT you/PRP 'd/MD need/VB to/TO come/VB up/RP with/IN some/DT wonky/JJ hacks/NNS to/TO get/VB it/PRP to/TO support/VB key/NN rotation/NN ./.
+
+                This/DT is/VBZ extremely/RB important/JJ as/IN it/PRP 's/VBZ required/VBN whenever/WRB you/PRP store/VBP cryptographic/JJ secrets/NNS ./. Not/RB having/VBG a/DT mechanism/NN to/TO rotate/VB keys/NNS (/( periodically/RB ,/, and/CC after/IN a/DT breach/NN )/) is/VBZ a/DT huge/JJ security/NN vulnerability/NN ./.
+
+                And/CC your/PRP$ current/JJ pepper/NNP approach/NN would/MD require/VB every/DT user/NN to/TO either/RB have/VB their/PRP$ password/NN completely/RB invalidated/VBD by/IN a/DT rotation/NN ,/, or/CC wait/VBP until/IN their/PRP$ next/JJ login/NN to/TO rotate/NN (/( which/WDT may/MD be/VB never/RB )/) .../.
+
+                Which/WDT basically/RB makes/VBZ your/PRP$ approach/NN an/DT immediate/JJ no-go/NN ./.
+
+                It/PRP Requires/VBZ You/PRP To/TO Roll/VB Your/PRP$ Own/JJ Crypto/NNP
+
+                Since/IN no/DT current/JJ algorithm/NN supports/VBZ the/DT concept/NN of/IN a/DT pepper/NNP ,/, it/PRP requires/VBZ you/PRP to/TO either/RB compose/VB algorithms/NNS or/CC invent/VBP new/JJ ones/NNS to/TO support/VB a/DT pepper/NNP ./. And/CC if/IN you/PRP can/MD 't/RB immediately/RB see/VB why/WRB that/WDT 's/VBZ a/DT really/RB bad/JJ thing/NN :/:
+
+                Anyone/NN ,/, from/IN the/DT most/JJS clueless/JJ amateur/NN to/TO the/DT best/JJ cryptographer/NN ,/, can/MD create/VB an/DT algorithm/NN that/WDT he/PRP himself/PRP can/MD 't/RB break/VB ./.
+
+                Bruce/NNP Schneier/NNP
+
+                NEVER/RB roll/VBP your/PRP$ own/JJ crypto/NNP .../.
+
+                The/DT Better/JJ Way/NN
+
+                So/IN ,/, out/IN of/IN all/DT the/DT problems/NNS detailed/VBD above/IN ,/, there/EX are/VBP two/CD ways/NNS of/IN handling/VBG the/DT situation/NN ./.
+
+                Just/RB Use/VB The/DT Algorithms/NNS As/IN They/PRP Exist/VBP
+
+                If/IN you/PRP use/VBP bcrypt/COS or/CC scrypt/COS correctly/RB (/( with/IN a/DT high/JJ cost/NN )/) ,/, all/DT but/CC the/DT weakest/JJ dictionary/NN passwords/NNS should/MD be/VB statistically/RB safe/JJ ./. The/DT current/JJ record/NN for/IN hashing/VBG bcrypt/COS at/DT cost/NN 5/CD is/VBZ 71k/CD hashes/NNS per/IN second/NN ./. At/IN that/DT rate/NN even/RB a/DT 6/CD character/NN random/JJ password/NN would/MD take/VB years/NNS to/TO crack/VB ./. And/CC considering/VBG my/PRP$ minimum/JJ recommended/JJ cost/NN is/VBZ 10/CD ,/, that/WDT reduces/VBZ the/DT hashes/NNS per/IN second/NN by/IN a/DT factor/NN of/IN 32/CD ./. So/IN we/PRP 'd/MD be/VB talking/VBG only/RB about/IN 2200/CD hashes/NNS per/IN second/NN ./. At/IN that/DT rate/NN ,/, even/RB some/DT dictionary/NN phrases/NNS or/CC modificaitons/NNS may/MD be/VB safe/JJ ./.
+
+                Additionally/RB ,/, we/PRP should/MD be/VB checking/VBG for/IN those/DT weak/JJ classes/NNS of/IN passwords/NNS at/IN the/DT door/NN and/CC not/RB allowing/VBG them/PRP in/IN ./. As/IN password/NN cracking/NN gets/VBZ more/JJR advanced/VBN ,/, so/IN should/MD password/NN quality/NN requirements/NNS ./. It/PRP 's/VBZ still/MD a/DT statistical/JJ game/NN ,/, but/CC with/IN a/DT proper/JJ storage/NN technique/NN ,/, and/CC strong/JJ passwords/NNS ,/, everyone/NN should/MD be/VB practically/RB very/RB safe/JJ .../.
+
+                Encrypt/VBP The/DT Output/NN Hash/NN Prior/RB To/TO Storage/NN
+
+                There/EX exists/VBZ in/IN the/DT security/NN realm/NN an/DT algorithm/NN designed/VBD to/TO handle/VB everything/NN we/PRP 've/VBP said/VBN above/IN ./. It/PRP 's/VBZ a/DT block/NN cipher/NN ./. It/PRP 's/VBZ good/JJ ,/, because/IN it/PRP 's/VBZ reversible/JJ ,/, so/IN we/PRP can/MD rotate/VB keys/NNS (/( yay/UH !/. maintainability/NN !/. )/) ./. It/PRP 's/VBZ good/JJ because/IN it/PRP 's/VBZ being/VBG used/VBN as/IN designed/VBN ./. It/PRP 's/VBZ good/JJ because/IN it/PRP gives/VBZ the/DT user/NN no/DT information/NN ./.
+
+                Let/VBP 's/POS look/VB at/IN that/DT line/NN again/RB ./. Let/VBP 's/POS say/VB that/WDT an/DT attacker/NN knows/VBZ your/PRP$ algorithm/NN (/( which/WDT is/VBZ required/VBN for/IN security/NN ,/, otherwise/RB it/PRP 's/VBZ security/NN through/IN obscurity/NN )/) ./. With/IN a/DT traditional/JJ pepper/NNP approach/NN ,/, the/DT attacker/NN can/MD create/VB a/DT sentinel/JJ password/NN ,/, and/CC since/IN he/PRP knows/VBZ the/DT salt/NNP and/CC the/DT output/NN ,/, he/PRP can/MD brute/JJ force/NN the/DT pepper/NNP ./. Ok/UH ,/, that/WDT 's/VBZ a/DT long/JJ shot/NN ,/, but/CC it/PRP 's/VBZ possible/JJ ./. With/IN a/DT cipher/NN ,/, the/DT attacker/NN gets/VBZ nothing/NN ./. And/CC since/IN the/DT salt/NNP is/VBZ randomized/JJ ,/, a/DT sentinel/JJ password/NN wo/MD n't/RB even/RB help/VB him/PRP //: her/PRP ./. So/IN the/DT best/JJ they/PRP are/VBP left/VB with/IN is/VBZ to/TO attack/VB the/DT encrypted/JJ form/NN ./. Which/WDT means/VBZ that/WDT they/PRP first/RB have/VBP to/TO attack/VB your/PRP$ encrypted/JJ hash/NN to/TO recover/VB the/DT encryption/NN key/NN ,/, and/CC then/RB attack/VBP the/DT hashes/NNS ./. But/CC there/EX 's/VBZ a/DT lot/NN of/IN research/NN into/IN the/DT attacking/VBG of/IN ciphers/NNS ,/, so/IN we/PRP want/VBP to/TO rely/VB on/IN that/DT ./.
+
+                TL/ACR //: DR/ACR
+
+                Do/VBP n't/RB use/VB peppers/NNPS ./. There/EX are/VBP a/DT host/NN of/IN problems/NNS with/IN them/PRP ,/, and/CC there/EX are/VBP two/CD better/JJR ways/NNS :/: not/RB using/VBG any/DT server-side/NN secret/NN (/( yes/UH ,/, it/PRP 's/VBZ ok/UH )/) and/CC encrypting/VBG the/DT output/NN hash/NN using/VBG a/DT block/NN cipher/NN prior/RB to/TO storage/NN ./.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 12:03:56Z" indentLevel="1" upVote="9">
+          <p>Thank you for this very complete answer.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="martinstoeckli" when="2013-06-03 13:21:16Z" indentLevel="1" upVote="1">
+            <p>Thanks/VBZ for/IN including/VBG that/DT last/JJ part/NN of/IN encrypting/VBG the/DT hash-value/NN ,/, this/DT is/VBZ an/DT answer/NN i/PRP can/MD fully/RB agree/VB with/IN ./. If/IN the/DT encryption/NN would/MD become/VB part/NN of/IN your/PRP$ password/NN api/ACR ,/, there/EX would/MD be/VB no/DT reason/NN not/RB to/TO use/VB it/PRP ,/, so/IN maybe/RB .../. (/( i/PRP would/MD love/VB to/TO write/VB the/DT documentation/NN for/IN it/PRP )/)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ircmaxell" when="2013-06-04 14:56:21Z" indentLevel="1" upVote="1">
+            <p>@martinstoeckli/ATS :/: I/PRP would/MD not/RB agree/VB to/TO add/VB the/DT encryption/NN step/NN to/TO the/DT simplified/JJ hashing/JJ API/ACR ./. The/DT reason/NN is/VBZ that/WDT the/DT storage/NN of/IN secrets/NNS (/( keys/NNS )/) is/VBZ a/DT lot/NN harder/JJR than/IN people/NN realize/VBP ,/, and/CC it/PRP 's/VBZ quite/RB easy/JJ to/TO shoot/VB yourself/PRP in/IN the/DT foot/NN ./. For/IN 99.9/CD %/SYM of/IN the/DT users/NNS out/IN there/EX ,/, raw/JJ bcrypt/COS is/VBZ more/JJR than/IN sufficient/JJ for/IN all/DT but/CC the/DT simplest/JJS passwords/NNS .../.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="martinstoeckli" when="2013-06-04 20:14:10Z" indentLevel="1" upVote="7">
+            <p>@ircmaxell/ATS -/: On/IN the/DT other/JJ side/NN ,/, you/PRP would/MD loose/VB nothing/NN ./. In/IN the/DT worst/JJS case/NN ,/, when/WRB the/DT key/NN becomes/VBZ known/JJ ,/, an/DT attacker/NN must/MD still/RB crack/VB the/DT BCrypt/COS hash/NN (/( same/JJ situation/NN as/IN without/IN encryption/NN )/) ./. This/DT is/VBZ not/RB the/DT same/JJ as/IN storing/VBG a/DT key/NN for/IN encrypting/VBG data/NN ,/, this/DT is/VBZ about/IN adding/VBG a/DT server-side/NN secret/NN ./. Even/RB a/DT hardcoded/JJ key/NN would/MD protect/VB those/DT weak/JJ passwords/NNS ,/, as/IN long/JJ as/IN the/DT attacker/NN has/VBZ no/DT control/NN over/IN the/DT server/NN :/: code/NN ./. This/DT situation/NN is/VBZ not/RB uncommon/JJ :/: aside/RB from/IN SQL-injection/NN ,/, also/RB thrown/JJ away/JJ backups/NNS ,/, discarded/JJ servers/NNS â/FW €/FW ¦/FW can/MD lead/VB to/TO this/DT situation/NN ./. A/DT lot/NN of/IN PHP/ACR users/NNS work/VB on/IN hosted/JJ servers/NNS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="foochow" when="2013-06-27 19:51:31Z" indentLevel="1" upVote="2">
+            <p>@martinstoeckli/ATS I/PRP would/MD have/VBP to/TO agree/VB with/IN ircmaxwell/NNP here/RB ,/, I/PRP do/VBP nt/RB think/VBP that/WDT encryption/NN belongs/VBZ in/IN the/DT password/NN api/ACR ./. Although/IN ,/, it/PRP could/MD be/VB noted/VBN that/WDT for/IN maximum/JJ security/NN encrypting/VBG your/PRP$ hashes/NNS is/VBZ an/DT additional/JJ provision/NN that/WDT can/MD be/VB used/VBN ./.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="AgmLauncher" when="2015-01-15 3:51:28Z" indentLevel="1">
+            <p>I/PRP have/VBP a/DT question/NN regarding/VBG the/DT encryption/NN of/IN output/NN prior/RB to/TO storage/NN ./. If/IN I/PRP 'm/VBP not/RB mistaken/JJ ,/, encryption/NN keys/NNS are/VBP generally/RB used/VBN to/TO encrypt/VB messages/NNS uniquely/RB ,/, or/CC transiently/RB ./. If/IN however/RB you/PRP have/VBP 200,000/CD user/NN passwords/NNS all/DT encrypted/VBD with/IN the/DT same/JJ key/NN and/CC stored/VBD together/RB ,/, does/VBZ n't/RB that/WDT make/VBP it/PRP easier/JJR to/TO attack/VB the/DT key/NN ?/. You/PRP now/RB have/VBP 200,000/CD messages/NNS ,/, compared/VBD to/TO just/RB 1/CD or/CC 2/CD ./.</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="PriceChild" when="2015-03-27 21:01:59Z" indentLevel="1" upVote="1">
+            <p>Can/MD 't/RB tell/VB if/IN "/" modificaitons/NNS "/" is/VBZ intentional/JJ</p>
+        </post>
+      </div> 
+       <div type="response">
+        <post who="Perseids" when="2015-03-28 0:38:05Z" indentLevel="1">
+            <p>We/PRP know/VBP from/IN past/JJ experience/NN that/WDT "/" just/RB feeding/VBG "/" one/CD hash/NN result/NN into/IN another/DT hash/NN function/NN can/MD decrease/VB the/DT overall/JJ security/NN ./. "/" "/" "/" -/: Tell/VBP me/PRP just/RB one/CD real/JJ world/NN attack/NN that/WDT is/VBZ remotely/RB relevant/JJ to/TO the/DT case/NN described/VBD by/IN Suhosin/NNP ./. Of/IN course/NN ,/, doing/VBG stuff/NN like/IN Sha/NNP 256/CD (/( MD/NNP 5/CD (/( m/NNP )/) )/) basically/RB nulls/VBZ its/PRP$ colSlision/NN resistance/NN ,/, but/CC for/IN password/NN hashing/VBG even/RB that/WDT would/MD not/RB be/VB a/DT problem/NN ./. Regarding/VBG "/" Working/VBG Against/IN Design/NN "/" :/: While/IN it/PRP might/MD be/VB good/JJ to/TO refer/VB to/TO bcrypt/COS and/CC scrypt/COS ,/, because/IN that/WDT is/VBZ what/WP people/NN are/VBP likely/RB using/VBG ,/, you/PRP ignore/VB the/DT original/JJ question/NN</p>
+        </post>
+      </div>
+              <div type="response">
+        <post who="Perseids" when="2015-03-28 00:52:21Z" indentLevel="1">
+            <p>Suhosin/NNP 's/POS hash_function/COS only/RB had/VBD one/CD input/NN and/CC Suhosin/NNP referred/VBD to/TO it/PRP as/IN a/DT secure/JJ hash/NN function/NN ,/, which/WDT implies/VBZ something/NNP like/IN Sha/NNP 256/CD ./. And/CC for/IN secure/JJ hash/NN function/NN onewayness/NN is/VBZ an/DT explicit/JJ design/NN goal/NN ./. You/PRP wo/MD n't/RB get/VB a/DT formal/JJ reduction/NN proof/NN ,/, but/CC it/PRP is/VBZ absurd/JJ to/TO believe/VB that/WDT $/COB password/COB |/COB -> hash_function/COB  (/COB $/COB salt/COB ./COB  hash_function/COB (/COB  $/COB  pepper/COB  ./COB  $/COB  password/COB  )/COB  )/COB  would/MD be/VB any/DT less/JJR oneway/JJ than/IN password/NN |/: -/: >/COS hash_function/COS (/COS $/COS salt/COS ./COS $/COS password/COS )/COS ./. And/CC ,/, referring/VBG to/TO authority/NN ,/, Cryptography/NN Engineering/NN advises/VBZ the/DT use/NN of/IN Sha/NNP 256/CD (/( Sha/NNP 256/CD (/( m/NNP )/) )/) instead/RB of/IN a/DT single/JJ application/NN to/TO counter/VB the/DT length/NN extension/NN property/NN ./. </p>
+        </post>
+      </div>
+               <div type="response">
+        <post who="Perseids" when="2015-03-28 01:10:36Z" indentLevel="1">
+            <p>I/PRP do/VBP much/JJ like/VB your/PRP$ argument/NN ,/, though/IN ,/, that/DT encryption/NN is/VBZ better/JJR for/IN the/DT job/NN ,/, because/IN it/PRP allows/VBZ easier/JJR management/NN and/CC is/VBZ a/DT tool/NN that/WDT was/VBD simply/RB made/VB for/IN the/DT task/NN of/IN keeping/VBG data/NN confidential/JJ ./. Also/RB ,/, for/IN the/DT case/NN of/IN password/NN hashing/NN ,/, you/PRP have/VBP to/TO try/VB really/RB hard/JJ to/TO apply/VB the/DT encryption/NN primitive/NN wrongly/RB ./. Even/RB ECB/ACR mode/NN would/MD be/VB fine/JJ ./. Regarding/VBG your/PRP$ complexity/NN argument/NN :/: I/PRP would/MD still/RB argue/VB that/WDT statically/RB prepending/VBG pepper/NNP to/TO the/DT password/NN in/IN e.g./FW a/DT PHP/ACR 5.5/CD password_hash/COS has/VBZ much/JJ less/JJR complexity/NN than/IN using/VBG a/DT library/NN like/IN mcrypt/COS to/TO encrypt/VB the/DT password/NN afterwards/RB ./. </p>
+        </post>
+      </div>       
+       <div type="response">
+        <post who="ircmaxell" when="2015-03-28 02:10:07Z" indentLevel="1">
+            <p>@Perseids/ATS I/PRP edited/VBD in/IN a/DT reference/NN to/TO a/DT very/RB real-world/JJ and/CC practical/JJ attack/NN from/IN combining/VBG hash/NN functions/NNS (/( specifically/RB bcrypt/COS (/COS hash/COS (/COS )/COS )) when/WRB hash/COS (/COS )/COS returns/VBZ raw/JJ bytes/NNS )/) ./. I/PRP 'm/VBP definitely/RB not/RB saying/VBG you/PRP can/MD never/RB safely/RB combine/VB hash/NN functions/NNS ./. I/PRP 'm/VBP saying/VBG you/PRP shoud/MD n't/RB do/VB it/PRP willy-nilly/JJ without/IN research/NN ./. As/IN far/JJ as/IN prepending/VBG a/DT pepper/NNP to/TO the/DT password/NN ,/, that/WDT can/MD cause/VB issues/NNS (/( both/DT with/IN null/JJ bytes/NNS ,/, and/CC reducing/VBG available/JJ password/NN space/NN since/IN bcrypt/COS is/VBZ limited/VBN to/TO 72/CD character/NN passwords/NNS )/) ./. Why/WRB not/RB just/RB encrypt/VB and/CC be/VB done/VBN with/IN it/PRP rather/RB than/IN rolling/VBG more/JJR custom/JJ schemes/NNS ?/.</p>
+        </post>
+      </div>
+               <div type="response">
+        <post who="Perseids" when="2015-03-28 08:34:06Z" indentLevel="1">
+            <p>Oh/UH ,/, silly/JJ me/PRP ,/, I/PRP recognized/VBD that/WDT you/PRP call/VBP bcrypt/COS a/DT hash/NN function/NN for/IN the/DT purpose/NN of/IN this/DT article/NN in/IN the/DT very/RB next/JJ bullet/NN point/NN ,/, but/CC did/VBP n't/RB realize/VB its/PRP$ use/NN there/EX ./. It/PRP 's/VBZ unfortunate/JJ that/WDT we/PRP call/VBP bcrypt/COS a/DT "/" password/NN hash/NN function/NN "/" while/IN it/PRP bears/VBZ next/JJ to/TO no/DT resemblance/NN to/TO a/DT cryptographic/JJ hash/NN function/NN (/( no/DT arbitrary/JJ input/NN values/NNS ,/, no/DT arbitrary/JJ input/NN length/NN )/) ./. Again/RB (/( like/IN in/IN "/" Working/VBG Against/IN Design/NN "/" )/) ,/, it/PRP 's/VBZ probably/RB better/JJ to/TO leave/VB the/DT paragraph/NN like/IN it/PRP is/VBZ because/IN many/JJ readers/NNS are/VBP quite/RB likely/RB to/TO confuse/VB bcrypt/COS with/IN a/DT secure/JJ hash/NN function/NN ./. And/CC with/IN the/DT added/JJ link/NN the/DT rest/NN knows/VBZ what/WP you/PRP are/VBP talking/VBG about/IN ./.</p>
+        </post>
+      </div>
+               <div type="response">
+        <post who="Perseids" when="2015-03-28 09:02:41Z" indentLevel="1">
+            <p>Re/UH why/WRB not/RB just/RB use/VBP encryption/NN :/: Because/IN with/IN encryption/NN people/NN are/VBP as/IN likely/RB to/TO roll/VB their/PRP$ own/JJ custom/JJ schemes/NNS (/( not/RB in/IN the/DT sense/NN of/IN inventing/VBG their/PRP$ own/JJ cipher/NN ,/, but/CC in/IN the/DT sense/NN of/IN plugging/VBG together/RB components/NNS they/PRP know/VBP nothing/NN about/IN )/) ./. While/RB we/PRP would/MD like/VB to/TO think/VB encryption/NN should/MD be/VB just/RB as/IN easy/JJ as/IN password/NN hashing/VBG ,/, the/DT dire/JJ reality/NN is/VBZ that/WDT most/JJ libraries/NNS are/VBP horrible/JJ ./. I/PRP 've/VBP already/RB alluded/VBN to/TO PHP/ACR 's/POS mcrypt/COS ,/, but/CC even/RB the/DT Java/NNP documentation/NN is/VBZ outright/JJ dangerous/JJ :/: Cipher/COB ./COB getInstance/COB (/COB "/COB DES/COB //COB  CBC/COB  //COB PKCS5Padding/COB "/COB  )/COB ;/:</p>
+        </post>
+      </div>
+               <div type="response">
+        <post who="Perseids" when="2015-03-28 09:22:32Z" indentLevel="1">
+            <p>Now/RB ,/, as/IN I/PRP 've/VBP said/VBN above/IN ,/, encrypting/VBG hashed/JJ passwords/NNS is/VBZ especially/RB forgiving/JJ ./. But/CC if/IN it/PRP was/VBD n't/RB for/IN bcrypt/COS s/POS 72/CD bytes/NNS limit/NN ,/, I/PRP would/MD gladly/RB suggest/VB prepending/VBG pepper/NNP to/TO the/DT password/NN as/IN the/DT least/JJS complex/JJ (/( and/CC thus/RB more/JJR secure/JJ )/) and/CC theoretically/RB sound/JJ solution/NN ./. And/CC yes/UH ,/, I/PRP know/VBP you/PRP probably/RB do/VBP not/RB agree/VB that/WDT preventing/VBG key/JJ rollover/NN is/VBZ worth/JJ the/DT lessened/JJ complexity/NN ./. I/PRP for/IN one/CD ,/, are/VBP more/JJR afraid/JJ of/IN all/DT the/DT ways/NNS the/DT encryption/NN code/NN can/MD go/VB wrong/JJ than/IN of/IN the/DT threat/NN of/IN a/DT disclosed/JJ pepper/NNP ./.</p>
+        </post>
+      </div>
+        <div type="answer">
+        <post who="martinstoeckli" when="2013-06-03 09:05:14Z" revisedWhen="2013-06-03 09:48:14Z" upVote="12">
+            <p>Fist/RB we/PRP should/MD talk/VB about/IN the/DT exact/JJ advantage/NN of/IN a/DT pepper/NNP :/:
+
+                The/DT pepper/NNP can/MD protect/VB weak/JJ passwords/NNS from/IN a/DT dictionary/NN attack/NN ,/, in/IN the/DT special/JJ case/NN ,/, where/WRB the/DT attacker/NN has/VBZ read-access/NN to/TO the/DT database/NN (/( containing/VBG the/DT hashes/NNS )/) but/CC does/VBZ not/RB have/VBP access/NN to/TO the/DT source/NN code/NN with/IN the/DT pepper/NNP ./.
+
+                A/DT typical/JJ scenario/NN would/MD be/VB SQL-injection/NN ,/, thrown/JJ away/JJ backups/NNS ,/, discarded/JJ servers/NNS .../. These/DT situations/NNS are/VBP not/RB as/IN uncommon/JJ as/IN it/PRP sounds/VBZ ,/, and/CC often/RB not/RB under/IN your/PRP$ control/NN (/( server-hosting/NN )/) ./. If/IN you/PRP use/VBP .../.
+
+                A/DT unique/JJ salt/NNP per/IN password/NN
+                A/DT slow/JJ hashing/JJ algorithm/NN like/IN BCrypt/COS
+
+                .../. strong/JJ passwords/NNS are/VBP well/RB protected/VBN. It/PRP 's/VBZ nearly/RB impossible/JJ to/TO brute/JJ force/VB a/DT strong/JJ password/NN under/IN those/DT conditions/NNS ,/, even/RB when/WRB the/DT salt/NNP is/VBZ known/JJ ./. The/DT problem/NN are/VBP the/DT weak/JJ passwords/NNS ,/, that/WDT are/VBP part/NN of/IN a/DT brute-force/NN dictionary/NN or/CC are/VBP derivations/NNS of/IN them/PRP ./. A/DT dictionary/NN attack/NN will/MD reveal/VB those/DT very/RB fast/JJ ,/, because/IN you/PRP test/VBP only/RB the/DT most/JJS common/JJ passwords/NNS ./.
+
+                The/DT second/JJ question/NN is/VBZ how/WRB to/TO apply/VB the/DT pepper/NNP ?/.
+
+                An/DT often/RB recommended/JJ way/NN to/TO apply/VB a/DT pepper/NN ,/, is/VBZ to/TO combine/VB the/DT password/NN and/CC the/DT pepper/NNP before/IN passing/VBG it/PRP to/TO the/DT hash/NN function/NN :/:
+
+$/COB pepperedPassword/COB  =/COB  hash_hmac/COB  (/COB '/COB sha512/COB '/COB ,/COB  $/COB  password/COB  ,/COB  $/COB  pepper/COB  )/COB  ;/:
+                $/COB  passwordHash/COB  =/COB  bcrypt/COB  (/COB  $/COB  pepperedPassword/COB  )/COB  ;/:
+
+                There/EX is/VBZ another/DT even/RB better/JJ way/NN though/IN :/:
+
+                $/COB passwordHash/COB  =/COB  bcrypt/COB  (/COB  $/COB  password/COB  )/COB  ;/:
+                $/COB  encryptedHash/COB  =/COB  encrypt/COB  (/COB $/COB passwordHash/COB ,/, $/COB serverSideKey/COB )/COB ;/:
+
+                This/DT not/RB only/RB allows/VBZ to/TO add/VB a/DT server/NN side/NN secret/NN ,/, it/PRP also/RB allows/VBZ to/TO exchange/VB the/DT $/COS serverSideKey/COS ,/, should/MD this/DT be/VB necessary/JJ ./. This/DT method/NN involves/VBZ a/DT bit/NN more/JJR work/VB ,/, but/CC if/IN the/DT code/NN once/IN exists/VBZ (/( library/NN )/) there/EX is/VBZ no/DT reason/NN not/RB to/TO use/VB it/PRP ./.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 09:24:35Z" indentLevel="1">
+            <p>So/IN you/PRP 'd/MD say/VB a/DT pepper/NNP does/VBZ add/VB security/NN over/RB just/IN a/DT salt/NNP ,/, in/IN short/JJ ?/. Thanks/VBZ for/IN the/DT help/NN on/IN how/WRB to/TO implement/VB ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="martinstoeckli" when="2013-06-03 09:28:58Z" indentLevel="1" upVote="1">
+            <p>@LightningDust/ATS -/: Yes/UH it/PRP does/VBZ ,/, for/IN weak/JJ passwords/NNS ,/, as/IN long/JJ as/IN the/DT pepper/NNP stays/VBZ secret/JJ ./. It/PRP mitigates/VBZ some/DT well/JJ defined/JJ types/NNS of/IN threats/NNS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 09:30:22Z" indentLevel="1">
+            <p>Will/MD probably/RB accept/VB this/DT answer/NN but/CC I/PRP 'll/MD wait/VB to/TO see/VB what/WP else/RB is/VBZ posted/VBN ./. Have/VBP upvoted/VBN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="foochow" when="2013-06-27 19:40:28Z" indentLevel="1">
+            <p>@martinstoeckli/ATS definitely/RB a/DT good/JJ way/NN to/TO implement/VB this/DT ./. Good/JJ to/TO see/VB that/WDT someone/NN with/IN some/DT security/NN experience/NN supports/VBZ this/DT method/NN ./. Would/MD a/DT MySQL/COB  AES_ENCRYPT/COB (/COS $/COS passwordHash/COB ,/COB  $/COB serverSideKey/COB  )//COB  call/NN also/RB be/VB an/DT appropriate/JJ way/NN of/IN implementing/VBG this/DT ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="martinstoeckli" when="2013-06-27 20:14:02Z" indentLevel="1" upVote="1">
+            <p>@Foo_Chow/ATS -/: I/PRP do/MD n't/RB know/VBP the/DT implementation/NN of/IN the/DT MySQL/COS function/NN ,/, but/CC it/PRP seems/VBZ that/WDT they/PRP used/VBD the/DT EBC/ACR mode/NN ,/, to/TO avoid/VB the/DT IV-vector/NN ./. Together/RB with/IN the/DT known/JJ plaintext/NN (/( hash-values/NNS always/RB start/VBP with/IN the/DT same/JJ characters/NNS )/) ,/, this/DT could/MD be/VB a/DT problem/NN ./. On/IN my/PRP$  homepage/NN  i/PRP published/VBD an/DT example/NN implementation/NN ,/, that/WDT handles/VBZ this/DT encryption/NN ./.</p>
+        </post>
+      </div>
+          <div type="response">
+        <post who="foochow" when="2013-06-27 22:08:09Z" indentLevel="1">
+            <p>@martinstoeckli/ATS interesting/JJ ,/, not/RB too/RB familiar/JJ with/IN the/DT concepts/NNS ;/: however/RB seems/VBZ like/IN an/DT IV/NN would/MD be/VB desirable/JJ for/IN the/DT most/JJS robust/JJ results/NNS ./. Does/VBZ nt/RB seem/VB to/TO add/VB much/JJ overhead/NN for/IN the/DT added/JJ benefit/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Aron" when="2013-06-03 07:32:12Z" upVote="2">
+            <p>The/DT point/NN of/IN salt/NNP and/CC pepper/NNP is/VBZ to/TO increase/VB the/DT cost/NN of/IN a/DT pre-computed/JJ password/NN lookup/NN ,/, called/VBD a/DT rainbow/NNP table/NNP ./. In/IN general/JJ trying/VBG to/TO find/VB a/DT collision/NN for/IN a/DT single/JJ hash/NN is/VBZ hard/JJ (/( assuming/VBG the/DT hash/NN is/VBZ secure/JJ )/) ./. However/RB ,/, with/IN short/JJ hashes/NNS ,/, it/PRP is/VBZ possible/JJ to/TO use/VB computer/NN to/TO generate/VB all/DT possible/JJ hashes/NNS into/IN a/DT lookup/NN onto/IN a/DT hard/JJ disk/NN ./. This/DT is/VBZ called/VBN a/DT Rainbow/NNP Table/NNP ./. If/IN you/PRP create/VBP a/DT rainbow/NNP table/NNP you/PRP can/MD then/RB go/VB out/RP into/IN the/DT world/NN and/CC quickly/RB find/VBP plausable/JJ passwords/NNS for/IN any/DT (/( unsalted/JJ unpeppered/JJ )/) hash/NN ./. The/DT point/NN of/IN a/DT pepper/NNP is/VBZ to/TO make/VB the/DT rainbow/NNP table/NNP needed/VBN to/TO hack/VB your/PRP$ password/NN list/NN unique/JJ ./. Thus/RB wasting/VBG more/JJR time/NN on/IN the/DT attacker/NN to/TO construct/VB the/DT rainbow/NNP table/NNP ./. The/DT point/NN of/IN the/DT salt/NNP however/RB is/VBZ to/TO make/VB the/DT rainbow/NNP table/NNP for/IN each/DT user/NN be/VBP unique/JJ to/TO the/DT user/NN ,/, further/RB increasing/VBG the/DT complexity/NN of/IN the/DT attack/NN ./. Really/RB the/DT point/NN of/IN computer/NN security/NN is/VBZ almost/RB never/RB to/TO make/VB it/PRP (/( mathematically/RB )/) impossible/JJ ,/, just/RB mathematically/RB and/CC physically/RB impractical/JJ (/( for/IN example/NN in/IN secure/JJ systems/NNS it/PRP would/MD take/VB all/DT the/DT entropy/NN in/IN the/DT universe/NN (/( and/CC more/JJR )/) to/TO compute/VB a/DT single/JJ user/NN 's/POS password/NN )/) ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 07:34:17Z" indentLevel="1">
+            <p>So/IN does/VBZ a/DT salt/NNP +/SYM pepper/NNP offer/VBP any/DT more/JJR security/NN than/IN just/RB a/DT salt/NNP ?/. Or/CC would/MD I/PRP be/VB better/JJR off/RP dropping/VBG the/DT pepper/NNP and/CC running/VBG more/JJR iterations/NNS of/IN scrypt/COS ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Richard" when="2013-06-03 07:34:31Z" indentLevel="1" upVote="2">
+            <p>The/DT main/JJ thing/NN about/IN a/DT rainbow/NNP table/NNP is/VBZ that/WDT you/PRP do/MD n't/RB create/VB one/CD for/IN a/DT specific/JJ attack/NN ,/, you/PRP download/VBP a/DT pre-existing/JJ one/CD ./.  There/EX are/VBP lengthy/JJ rainbow/NNP tables/NNP available/JJ for/IN popular/JJ hash/NN algorithms/NNS just/RB a/DT google/NNP away/RB !/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aron" when="2013-06-03 07:36:14Z" indentLevel="1" upVote="1">
+            <p>@LightningDust/ATS I/PRP can/MD 't/RB think/VB of/IN any/DT reason/NN myself/PRP ./. However/RB Richard/NNP in/IN the/DT other/JJ thread/NN came/VBD up/RP with/IN one/CD ./. You/PRP can/MD hide/VB the/DT pepper/NNP in/IN your/PRP$ source/NN code/NN ,/, which/WDT means/VBZ another/DT place/NN your/PRP$ attacker/NN needs/VBZ to/TO get/VB access/NN to/TO ,/, just/RB to/TO get/VB a/DT rainbow/NNP table/NNP together/RB ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 07:38:07Z" indentLevel="1">
+            <p>@Aron/ATS -/: Well/RB that/WDT 's/VBZ what/WP I/PRP thought/VBD ,/, since/IN we/PRP have/VBP application/NN servers/NNS separate/VBP from/IN database/NN servers/NNS (/( that/WDT is/VBZ ,/, if/IN you/PRP get/VBP  root/NN  on/IN our/PRP$ db/ACR server/NN ,/, you/PRP still/MD have/VBP no/DT access/NN to/TO our/PRP$ application/NN server/NN )/) ,/, that/WDT hiding/VBG pepper/NNP in/IN the/DT source/NN code/NN (/( in/IN our/PRP$ config/NN file/NN )/) would/MD provide/VB additional/JJ security/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Sven" when="2013-06-03 07:23:06Z" upVote="1">
+            <p>Can/MD 't/RB see/VBP storing/VBG a/DT hardcoded/JJ value/NN in/IN your/PRP$ source/NN code/NN as/IN having/VBG any/DT security/NN relevance/NN ./. It/PRP 's/VBZ security/NN through/IN obscurity/NN ./.  If/IN a/DT hacker/NN acquires/VBZ your/PRP$ database/NN ,/, he/PRP will/MD be/VB able/JJ to/TO start/VB brute/JJ forcing/VBG your/PRP$ user/NN passwords/NNS ./. It/PRP wo/MD n't/RB take/VB long/JJ for/IN that/DT hacker/NN to/TO identify/VB your/PRP$ pepper/NNP if/IN he/PRP manages/VBZ to/TO crack/VB a/DT few/JJ passwords/NNS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aron" when="2013-06-03 07:24:33Z" indentLevel="1">
+            <p>It/PRP would/MD make/VB a/DT precomputed/JJ rainbow/NNP table/NNP for/IN an/DT unsalted/JJ password/NN table/NN useless/JJ ./. In/IN short/JJ ,/, even/RB if/IN the/DT attacker/NN knew/VBD your/PRP$ pepper/NNP he/PRP would/MD need/VBP to/TO create/VB a/DT new/JJ rainbow/NNP table/NNP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Richard" when="2013-06-03 07:25:41Z" indentLevel="1" upVote="1">
+            <p>It/PRP strengthens/VBZ the/DT hash/NN based/VBN on/IN data/NN not/RB available/JJ in/IN the/DT database/NN ,/, which/WDT is/VBZ a/DT good/JJ thing/NN ./.  Things/NNS in/IN the/DT database/NN can/MD be/VB potentially/RB revealed/VBN in/IN vulnerabilities/NNS -/: it/PRP 's/VBZ less/JJS likely/RB that/WDT a/DT value/NN in/IN the/DT code/NN will/MD be/VB accessed/VBN in/IN the/DT same/JJ way/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 07:30:15Z" indentLevel="1">
+            <p>Salts/NNPS are/VBP one/CD way/NN functions/NNS ,/, even/RB successfully/RB brute-forcing/VBG a/DT password/NN would/MD only/RB give/VB you/PRP that/DT password/NN ,/, and/CC would/MD not/RB help/VB you/PRP to/TO get/VB the/DT pepper/NNP value/NN itself/PRP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 07:31:15Z" indentLevel="1">
+            <p>MD5/NNP example/NN here/RB using/VBG md5/NNP (/( $/COS pepper/COS ./COS $/COS password/COS )/) (/( note/NN :/: I/PRP know/VBP not/RB to/TO use/VB MD5/NNP on/IN a/DT live/JJ site/NN ,/, this/DT is/VBZ for/IN example/NN purposes/NNS )/) ,/, my/PRP$ password/NN is/VBZ cat/NN ,/, my/PRP$ hash/NN is/VBZ 2d1ec2609e8265e64f2dbf6a697ebbfe/NNP ./. What/WP is/VBZ my/PRP$ pepper/NNP ?/. At/IN very/RB best/JJ here/RB ,/, all/DT you/PRP can/MD do/VB is/VBZ try/VB to/TO brute/JJ force/NN my/PRP$ (/( typically/RB 64/CD -/: character/NN )/) pepper/NNP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aron" when="2013-06-03 07:36:15Z" indentLevel="1" upVote="1">
+            <p>@LightningDust/ATS I/PRP think/VB you/PRP mean/VBP "/" Hashes/NNS are/VBP trapdoor/NN functions/NNS "/" ./. Yes/UH it/PRP is/VBZ impossible/JJ to/TO figure/VB out/RP your/PRP$ salt/NNP and/CC //: or/CC pepper/NNP from/IN a/DT secure/JJ hash/NN (/( in/IN fact/NN that/WDT is/VBZ the/DT definition/NN of/IN a/DT secure/JJ hash/NN )/) ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Sven" when="2013-06-03 07:42:15Z" indentLevel="1">
+            <p>Interesting/JJ discussion/NN ./. Never/RB did/VBD suggest/VBP you/PRP could/MD gather/VB the/DT password/NN from/IN the/DT hash/NN though/IN ./. I/PRP think/VBP peppers/NNPS generate/VBP more/JJR complexity/NN ,/, but/CC not/RB more/JJR security/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 08:23:15Z" indentLevel="1">
+            <p>@SvenAndersRobbestad/ATS -/: You/PRP did/VBD say/VB "/" wo/MD n't/RB take/VB long/JJ for/IN that/DT hacker/NN to/TO identify/VB your/PRP$ pepper/NNP "/" ,/, which/WDT I/PRP believe/VBP to/TO be/VB factually/RB incorrect/JJ ./. Even/RB with/IN 100/CD correct/JJ passwords/NNS and/CC their/PRP$ resulting/JJ hashes/NNS ,/, you/PRP would/MD n't/RB be/VB left/JJ with/IN any/DT idea/NN what/WP the/DT pepper/NNP is/VBZ ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aron" when="2013-06-03 08:56:15Z" indentLevel="1">
+            <p>@SvenAndersRobbestad/ATS actually/RB complexity/NN is/VBZ security/NN ./. We/PRP are/VBP talking/VBG about/IN huge/JJ complexity/NN numbers/NNS here/RB ./. When/WRB all/DT is/VBZ said/VBN and/CC done/JJ ,/, with/IN a/DT good/JJ salt/NNP and/CC a/DT good/JJ pepper/NNP ,/, even/RB if/IN you/PRP could/MD magically/RB convert/VB every/JJ single/JJ proton/NN in/IN the/DT universe/NN into/IN a/DT hard/JJ disk/NN ,/, you/PRP could/MD n't/RB store/VB the/DT resultant/JJ rainbow/NNP table/NNP ./. ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aron" when="2013-06-03 09:04:43Z" indentLevel="1">
+            <p>@SvenAndersRobbestad/ATS actually/RB I/PRP think/VBP you/PRP are/VBP misunderstanding/VBG a/DT key/JJ piece/NN of/IN security/NN advise/NN (/( security/NN through/IN obscurity/NN is/VBZ bad/JJ )/) ./. This/DT advise/NN is/VBZ not/RB the/DT whole/JJ truth/NN ./. The/DT correct/JJ workings/NNS is/VBZ that/WDT all/DT obscurity/NN should/MD be/VB concentrated/VBN into/IN a/DT key/NN and/CC it/PRP is/VBZ then/RB a/DT problem/NN of/IN securing/VBG your/PRP$ key/NN ./. In/IN this/DT case/NN a/DT pepper/NNP is/VBZ in/IN a/DT sense/NN a/DT cryptography/NN key/NN ./. </p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ircmaxell" when="2013-06-03 12:03:29Z" indentLevel="1" upvote="3">
+            <p>@Aron/ATS Security/NN Through/IN Obscurity/NN can/MD be/VB a/DT valid/JJ technique/NN used/VBD as/IN a/DT layer/NN of/IN defense/NN ./. The/DT point/NN is/VBZ that/WDT it/PRP should/MD  never/RB  be/VB relied/VBN upon/IN as/IN a/IN defense/NN ,/, but/CC instead/RB used/VBD to/TO "/" slow/VB an/DT attacker/NN down/RP "/" ./. If/IN that/WDT was/VBD not/RB the/DT case/NN ,/, something/NNP like/IN a/DT honeypot/NN would/MD not/RB be/VB used/VBN ./. Instead/RB ,/, we/PRP can/MD effectively/RB make/VB use/NN of/IN security/NN through/IN obscurity/NN to/TO help/VB slow/JJ attackers/NNS down/RP ,/, as/IN long/JJ as/IN we/PRP 're/VBP not/RB relying/VBG on/IN it/PRP for/IN the/DT security/NN of/IN our/PRP$ application/NN ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,121 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Degrees of JS vulnerability</title>
+        <author>CodeMoose</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/20051011/degrees-of-js-vulnerability</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="CodeMoose" url="http://stackoverflow.com/users/524399/codemoose">
+        <signatureContent>
+          <p>Reputation: <num>1,353</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>17</num>Number of Bronze Badges: <num>41</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="MrKWatkins" url="http://stackoverflow.com/users/320508/mrkwatkins">
+        <signatureContent>
+          <p>Reputation: <num>1,952</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>13</num>Number of Bronze Badges: <num>23</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Esailija" url="http://stackoverflow.com/users/995876/esailija">
+        <signatureContent>
+          <p>Reputation: <num>95.1k</num>Number of Gold Badges: <num>8</num>Number of Silver Badges: <num>146</num>Number of Bronze Badges: <num>218</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Aurand" url="http://stackoverflow.com/users/1760609/aurand">
+        <signatureContent>
+          <p>Reputation: <num>4,184</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>25</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2013-11-18 14:46:38Z" who="CodeMoose" revisedWhen="2013-11-18 15:11:00Z" upVote="1" accepted="favorite"><p>Never/RB trust/VBP the/DT client/NN ./. It/PRP 's/VBZ my/PRP$ coding/NN mantra/NN ./. All/DT javascript/NNP can/MD ,/, with/IN enough/RB effort/NN ,/, be/VB overwritten/VBN or/CC compromised/VBN ./. The/DT thing/NN I/PRP want/VBP to/TO understand/VB is/VBZ how/WRB ./. Let/VB 's/POS say/VB I/PRP wrote/VBD a/DT function/NN checkStep/COS (/COS )/COS for/IN a/DT game/NN -/: each/DT time/NN the/DT player/NN moves/VBZ one/CD space/NN ,/, it/PRP polls/VBZ the/DT server/NN to/TO check/VB for/IN any/DT events/NNS :/: HP/ACR regeneration/NN ,/, enter/VBP random/JJ battle/NN ,/, move/VBP to/TO next/JJ map/NN ,/, etc/FW ./. I/PRP asked/VBD myself/PRP "/" self/NNP ,/, how/WRB would/MD I/PRP go/VBP about/IN rewriting/VBG or/CC disabling/CBG this/DT function/NN ?/. "/" Research/NN turned/VBD up/RP some/DT conflicting/JJ results/NNS ./. Some/DT sources/NNS say/VBP functions/NNS can/MD be/VB directly/RB redefined/VBN from/IN the/DT console/NN ,/, others/NNS say/VBP it/PRP would/MD be/VB a/DT much/RB more/RBR involved/VBN process/NN ./. My/PRP$ question/NN is/VBZ this/DT :/: what/WP would/MD a/DT player/NN have/VBP to/TO do/DO to/TO rewrite/VB or/CC disable/VB my/PRP$ checkStep/COS (/COS )/COS function/NN ?/. Can/MD they/PRP simply/RB redefine/VB it/PRP from/IN the/DT console/NN ?/. Would/MD they/PRP have/VBP to/TO rip/VB ,/, modify/VB ,/, and/CC re-host/VB my/PRP$ code/NN ?/. How/WRB would/MD you/PRP do/VBP it/PRP ?/. Please/VB note/VB ,/, I/PRP 'm/VBP  not/RB asking/VBG how/WRB to/TO make/VB this/DT function/NN secure/JJ ./.
+            The/DT first/JJ person/NN to/TO leave/VB an/DT answer/NN //: comment/NN along/IN the/DT lines/NNS of/IN "/" you/PRP
+            can/MD try/VB minifying/VBG it/PRP ,/, but/CC it/PRP still/MD wo/MD nt/RB be/VB secure/JJ "/" or/CC "/" put/VBP in/IN some/DT
+            server-side/JJ checks/NNS "/" is/VBZ getting/VBG bludgeoned/VBN with/IN a/DT semicolon/NN ,/, as/IN an/DT
+            example/NN to/TO the/DT rest/NN ./.<tag>javascript</tag><tag>security</tag></p></post>
+      </div>
+      <div type="moderator">
+        <head>migrated  from  gamedev.stackexchange.com Nov 18 '13 at 15:05</head>
+          <post when="2013-11-18 15:05:45Z" who="gamedev.stackexchange.com">This/DT question/NN came/VBD from/IN our/PRP$ site/NN for/IN professional/JJ and/CC independent/JJ game/NN developers/NNS ./.</post>
+      </div>
+      <div type="response">
+        <post who="adeneo" when="2013-11-18 15:13:30Z" indentLevel="1" upVote="2">
+            <p>A/DT player/NN does/VBZ n't/RB have/VBP to/TO rewrite/VB anything/NNP ,/, or/CC use/VB the/DT console/NN at/IN all/DT ./. The/DT browser/NN runs/VBZ the/DT javascript/NNP on/IN the/DT user/NN s/POS computer/NN ,/, sending/VBG POST/COS or/CC GET/COS requests/NNS to/TO your/PRP$ server/NN ,/, and/CC any/DT computer/NN ,/, even/RB one/CD from/IN 1996/CD running/VBG DOS/NNP 3.0/CD can/MD send/VB a/DT GET/COS or/CC POST/COS request/NN containing/VBG anything/NNP they/PRP well/RB like/VB ,/, the/DT same/JJ goes/VBZ for/IN any/DT Linux/NNP command/NN line/NN ,/, and/CC even/RB some/DT calculators/NNS ./. So/RB ,/, if/IN I/PRP where/VBD to/TO figure/VB out/RP that/WDT you/PRP 're/VBP using/VBG MySQL/COS to/TO store/VB whatever/NNP is/VBZ sent/VB to/TO the/DT server/NN ,/, and/CC that/WDT there/EX 's/VBZ no/DT filtering/VBG going/VBG on/IN ,/, I/PRP could/MD ,/, from/IN the/DT command/NN line/NN ,/, send/VBP a/DT request/NN containing/VBG a/DT simple/JJ SQL/ACR command/NN that/WDT deletes/VBZ the/DT entire/JJ DB/ACR ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:18:34Z" indentLevel="1">
+            <p>@adeneo/ATS good/JJ thing/NN I/PRP 'm/VBP not/RB that/WDT stupid/JJ ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="adeneo" when="2013-11-18 15:21:05Z" indentLevel="1">
+            <p>Ah/UH ,/, but/CC you/PRP 'd/MD be/VB suprised/VBN at/IN how/WRB little/JJ it/PRP takes/VBZ ,/, just/RB a/DT small/JJ error/NN in/IN validating/VBG a/DT form/NN or/CC even/RB leaving/VBG something/NNP open/JJ in/IN a/DT server/NN that/WDT generates/VBZ pages/NNS can/MD lead/VB to/TO someone/NNP figuring/VBG out/RP a/DT way/NN to/TO do/VB damage/NN or/CC get/VBP access/NN to/TO things/NNS they/PRP should/MD n't/RB have/VB access/NN to/TO ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:27:35Z" indentLevel="1">
+            <p>That/WDT 's/VBZ why/WRB I/PRP 'm/VBP circumventing/VBG it/PRP altogether =)/EMO The/DT JS/ACR is/VBZ really/RB just/RB a/DT rendering/JJ engine/NN ,/, it/PRP has/VBZ no/DT power/NN to/TO decide/VB when/WRB events/NNS are/VBP triggered/VBN ./. All/DT  checkStep/COS  does/VBZ is/VBZ submit/VBP two/CD integer/NN coordinates/NNS ,/, and/CC accepts/VBZ in/IN return/NN a/DT list/NN of/IN validated/JJ events/NNS to/TO display/VB ./. If/IN the/DT user/NN disables/VBZ the/DT script/NN that/WDT processes/VBZ these/DT instructions/NNS ,/, then/RB they/PRP do/VBP n't/RB get/VB any/DT battles/NNS or/CC regen/NN ,/, and/CC can/MD 't/RB leave/VB the/DT current/JJ map/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:28:21Z" indentLevel="1">
+            <p>The/DT server/NN also/RB validates/VBZ that/WDT these/DT two/CD coordinates/NNS are/VBP integers/NNS ,/, and/CC nukes/VBZ any/DT other/JJ values/NNS sent/VBN over/RP in/IN the/DT request/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="MrKWatkins" when="2013-11-18 15:04:12Z" upVote="2" accepted="accepted">
+            <p>You/PRP could/MD use/VB a/DT web/NN debugging/JJ proxy/NN like/IN  Fiddler/NNP  to/TO do/VBP this/DT for/IN your/PRP$ local/JJ machine/NN ./. Programs/NNS like/IN this/DT allow/VB you/PRP to/TO intercept/VB content/NN you/PRP download/VBP and/CC fiddle/VBP with/IN it/PRP ./. So/IN you/PRP could/MD write/VB a/DT new/JJ version/NN of/IN the/DT function/NN ,/, then/RB use/VB the/DT program/NN to/TO replace/VB it/PRP with/IN your/PRP$ version/NN when/WRB the/DT file/NN is/VBZ downloaded/VBN from/IN the/DT server/NN ./. Then/RB ,/, for/IN your/PRP$ local/JJ machine/NN ,/, the/DT code/NN would/MD run/VB with/IN the/DT new/JJ function/NN in/IN place/NN ./. The/DT  web/NN session/NN manipulation/NN  page/NN on/IN the/DT Fiddler/NNP site/NN has/VBZ a/DT few/JJ more/JJR details/NNS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:17:28Z" indentLevel="1">
+            <p>Exactly/RB what/WP I/PRP was/VBZ looking/VBG for/IN ./. Thanks/VBZ !/.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Esailija" when="2013-11-18 15:05:12Z" upVote="0">
+            <p>There/EX is/VBZ no/DT reason/NN to/TO use/VB any/DT Javascript/NNP or/CC browser/NN a/DT even/RB ./.  If/IN a/DT normal/JJ user/NN can/MD use/VB their/PRP$ browser/NN to/TO play/VB the/DT game/NN then/RB any/DT user/NN can/MD use/VB any/DT program/NN to/TO communicate/VB with/IN the/DT server/NN and/CC send/VBP it/PRP anything/NNP they/PRP want/VBP ./. The/DT server/NN is/VBZ not/RB able/JJ to/TO know/VB if/IN someone/NN is/VBZ using/VBG a/DT browser/NN to/TO connect/VB to/TO it/PRP or/CC not/RB ./. This/DT applies/VBZ to/TO anything/NNP ./. A/DT game/NN server/NN does/VBZ n't/RB know/VB if/IN the/DT user/NN is/VBZ connecting/VBG to/TO it/PRP through/IN the/DT official/JJ game/NN client/NN ./. Since/IN the/DT official/JJ game/NN is/VBZ closed/JJ source/NN it/PRP would/MD be/VB easy/JJ to/TO fall/VB into/IN trusting/VBG it/PRP even/VRB though/IN it/PRP is/VBZ possible/JJ to/TO reverse/JJ engineer/VB the/DT protocols/NNS used/VBD and/CC use/VB anything/NNP to/TO connect/VB to/TO the/DT server/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:22:23Z" indentLevel="1">
+            <p>That/WDT 's/VBZ good/JJ to/TO know/VB ,/, but/CC I/PRP 'm/VBP not/RB exposing/VBG any/DT kind/NN of/IN event-controlling/JJ code/NN to/TO the/DT client/NN ./.  checkStep/COS  does/VBZ n't/RB submit/VB anything/NNP but/CC the/DT current/JJ map/NN position/NN to/TO the/DT server/NN -/: and/CC the/DT server/NN nukes/VBZ any/DT data/NN it/PRP receives/VBZ in/IN that/DT request/NN other/JJ than/IN the/DT position/NN ./. All/DT the/DT server/NN returns/VBZ is/VBZ instruction/NN on/IN what/WP events/NNS have/VB been/VBN validated/VBN and/CC should/MD be/VB displayed/VBN ./. The/DT JS/ACR is/VBZ basically/RB just/RB a/DT rendering/JJ engine/NN ./. At/IN the/DT worst/JJS ,/, the/DT player/NN can/MD falsify/VB their/PRP$ location/NN and/CC skip/VBP to/TO the/DT other/JJ end/NN of/IN the/DT map/NN ,/, and/CC in/IN this/DT case/NN that/WDT is/VBZ n't/RB game-breaking/JJ ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Esailija" when="2013-11-18 15:30:34Z" indentLevel="1">
+            <p>@CodeMoose/ATS All/DT the/DT code/NN running/VBG on/IN client/NN side/NN is/VBZ worthless/JJ ./. The/DT only/RB thing/NN that/WDT matters/VBZ is/VBZ  how/WRB  the/DT client/NN communicates/VBZ with/IN the/DT server/NN -/: and/CC that/WDT can/MD be/VB done/VBN without/IN using/VBG any/DT of/IN the/DT client/NN code/NN or/CC even/RB a/DT browser/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:34:08Z" indentLevel="1">
+            <p>I/PRP understand/VBP that/DT ./. Even/RB if/IN the/DT user/NN successfully/RB hijacks/VBZ the/DT session/NN token/NN and/CC matching/JJ cookie/NN ,/, the/DT most/JJS the/DT server/NN will/MD accept/VB is/VBZ repeated/JJ firing/VBG of/IN the/DT  checkstep/COS (/COS )/COS  function/NN -/: and/CC all/DT that/DT 's/VBZ going/VBG to/TO get/VB them/PRP is/VBZ various/JJ tiny/JJ responses/NNS like/IN  {/{ battle/NN :/: 0/CD ,/, hp/ACR :/: 45/CD }/} {/{ battle/NN :/: 1/CD ,/, hp/ACR :/: 47/CD }/} {/{ error/NN :/: '/" battle/NN engaged/VBN '/" }/}  If/IN they/PRP rip/VB apart/RB the/DT client-side/JJ code/NN ,/, all/DT they/PRP 're/VBP going/VBG to/TO do/VB is/VBZ ruin/VB the/DT game/NN for/IN themselves/PRP ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Aurand" when="2013-11-18 15:24:27Z" upVote="0">
+            <p>Complex/JJ things/NNS like/IN creating/VBG a/DT malicious/JJ game/NN client/NN ,/, or/CC using/VBG a/DT proxy/NN to/TO alter/VB content/NN before/IN it/PRP makes/VBZ it/PRP to/TO the/DT browser/NN are/VBP technically/RB valid/JJ points/NNS ,/, however/RB that/WDT seems/VBZ like/IN a/DT lot/NN of/IN effort/NN for/IN something/NNP which/WDT is/VBZ very/RB simple/JJ to/TO do/VB ./.
+
+                var/COB checkStep/COB =/COB function/COB (/COB )/COB {/COB
+                .../. //: //: your/PRP$ original/JJ function/NN
+                }/}
+
+                //: //: later/RB on/IN
+checkStep/COB =/COB function/COB (/COB )/COB {/COB
+  alert/COB (/COB '/COB foo/COB '/COB )/COB ;/COB
+}/COB
+
+                It/PRP is/VBZ perfectly/RB valid/JJ in/IN JavaScript/NNP to/TO change/VBP what/WP function/NN a/DT variable/NN holds/VBZ ./. Any/DT function/NN you/PRP define/VBP can/MD be/VB redefined/VBN on/IN the/DT client/NN side/NN ./. This/DT can/MD be/VB done/VBN by/IN other/JJ script/NN files/NNS loaded/VBN by/IN the/DT browser/NN which/WDT use/VB conflicting/JJ variable/NN names/NNS ,/, scripts/NNS injected/VBD via/IN XSS/ACR ,/, or/CC by/IN the/DT user/NN bringing/VBG up/RP the/DT console/NN ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

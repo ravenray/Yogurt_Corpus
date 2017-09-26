@@ -1,0 +1,156 @@
+<TEI >
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Why do Ruby on Rails professionals NOT use Scaffolding?</title>
+        <author>tmaximini</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/6735468/why-do-ruby-on-rails-professionals-not-use-scaffolding</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="tmaximini" url="http://stackoverflow.com/users/532102/tmaximini">
+        <signatureContent>
+          <p>Reputation: <num>5,610</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>33</num>Number of Bronze Badges: <num>61</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="tybro0103" url="http://stackoverflow.com/users/202875/tybro0103">
+        <signatureContent>
+          <p>Reputation: <num>19k</num>Number of Gold Badges: <num>23</num>Number of Silver Badges: <num>105</num>Number of Bronze Badges: <num>145</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Michael K Madison" url="http://stackoverflow.com/users/770670/michael-k-madison">
+        <signatureContent>
+          <p>Reputation: <num>1,105</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>12</num>Number of Bronze Badges: <num>22</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="coreyward" url="http://stackoverflow.com/users/203130/coreyward">
+        <signatureContent>
+          <p>Reputation: <num>34.5k</num>Number of Gold Badges: <num>8</num>Number of Silver Badges: <num>74</num>Number of Bronze Badges: <num>105</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Vikram Sharma" url="http://stackoverflow.com/users/2781238/vikram-sharma">
+        <signatureContent>
+          <p>Reputation: <num>161</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>1</num>Number of Bronze Badges: <num>4</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="marflar" url="http://stackoverflow.com/users/227863/marflar">
+        <signatureContent>
+          <p>Reputation: <num>17.9k</num>Number of Gold Badges: <num>16</num>Number of Silver Badges: <num>73</num>Number of Bronze Badges: <num>133</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Mike Campbell" url="http://stackoverflow.com/users/1520714/mike-campbell">
+        <signatureContent>
+          <p>Reputation: <num>5,472</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>17</num>Number of Bronze Badges: <num>37</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Mattherick" url="http://stackoverflow.com/users/312395/mattherick">
+        <signatureContent>
+          <p>Reputation: <num>3,162</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>15</num>Number of Bronze Badges: <num>29</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-07-18 15:38:51Z" who="tmaximini" revisedWhen="2013-11-08 09:42:28Z" upVote="44" accepted="favorite"><p>I read sometimes from people that seem to be working with rails since longer, that one important lesson they learnt would be "Don't use scaffolding". Also on irc I read commonly hints from this direction.
+My question is why, what is the bad thing about it? And is nifty_scaffolding bad as well?My guess would be it is bad because it generates by default an xml version of your controller action, which would expose the field names of our application to anybody and make it more vulnerable for attacks, so maybe it's this?What are your reasons to not do scaffolding?<tag>ruby-on-rails</tag><tag>scaffolding</tag><tag>ruby-on-rails-3</tag></p></post>
+      </div>
+      <div type="answer">
+        <post who="tybro0103" when="2011-07-18 15:44:03Z" upVote="55" accepted="accepted">
+          <p>I'm experienced with rails and I rarely use scaffolding simply because my end goal is far from simple CRUD actions. However, there's no strict rule to not use scaffolding. Some coders frown on it because it is actually  scaffolding , literally. It's not a finished product.  Scaffolding supports you as you build the actual product.  Search google images for "scaffolding" and you should get the idea. Keep in mind  scaffold  is just one of many built-in  generators in Rails . A Rails generator is simply a script that outputs some generic code. Generators are very useful time-savers, and you'll quickly find yourself  writing generators  for your own custom needs.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Michael K Madison" when="2013-08-21 21:32:55Z" upVote="8">
+          <p>I believe most professionals avoid scaffolding because they prefer a test driven development approach to writing production code.  This means they want to write a failing test first and then write the code that makes the test pass.  This is a great way of producing strong code, but it works best at a very granular level.  Scaffolding seems to do too much at one time and so it disrupts a tight loop of writing a failing test for a specific features then writing the code that makes that particular feature pass.  It may be more important to get into that habit above and beyond the ease of use of scaffolding.  That said scaffolding can be pretty powerful in its own right.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="coreyward" when="2011-07-18 15:51:16Z" upVote="6">
+          <p>Scaffolding isn't really meant for production use. It's meant to get an application bootstrapped quickly and then it can be modified or done away with. The Rails 3 scaffolding is actually pretty decent, but it still lacks some things like a way to handle nested resources and it doesn't use the simpler  respond_with  (over  respond_to , which encourages verbosity where it isn't needed or welcome).  It's unlikely that the default scaffold forms will work un-modified, either âÂ you probably have relationships between your models that translate to a column in the database like  user_id . When creating a scaffold of a model with a relationship, this column shows up as a text field in the form when clearly it should be inferred from the URL or selected via another, more user-friendly, interface. There are a lot of small details like this that make scaffolding a really unlikely candidate for production-ready-out-of-the-box code. You can certainly build an application by generating the scaffold and then filling in the gaps and cleaning up areas you don't need, though, and I suspect most Rails developers do this to some extent.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="tmaximini" when="2011-07-18 15:57:59Z" indentLevel="1">
+          <p>okay I think it's clear that you have to modify the code that scaffolding creates, but i was more interested in potential dangers or downsides of scaffolding.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="coreyward" when="2011-07-18 15:59:49Z" indentLevel="1">
+          <p>In other frameworks, there may be security concerns. Rails scaffolding is pretty solid, though, so there aren't really any hard "dangers" aside from reliance on scaffolding.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Vikram Sharma" when="2014-08-05 13:51:04Z" upVote="5">
+          <p>It is important to understand the use of rails generate scaffold and be aware of its limitations. Scaffolding helps you to get something running quickly and test an assumption. But in the real world it will not get you too far. Lets say you created a model with scaffolding
+
+rails generate scaffold Article title:string body:text
+
+Great! You now have a prototype ready. But now lets say you have to add another field "author".
+
+rails generate migration add_to_article_author author:string
+rake db:migrate
+
+now the table articles has a new column but the files in /app/views/articles are in the same old state i.e. the form will not have author field etc. If you run scaffold again
+
+rails generate scaffold Article title:string author:string body:text --skip-migration
+
+This time you have added --skip-migrate because that has been done before and Rails will really complain if you were to migrate the same table again. Now scaffold will prompt you to overwrite the file it created the first time. Overwriting will also destroy any changes you made to your controller /app/controllers/article_controller.rb or views files like /app/views/article/show.html.erb or index.html.erb
+
+Since any worthwhile Rails app has custom code (and not boilerplate code created by scaffold) a Rails programmer should use scaffold only to test an idea. Use scaffold to give your client something to play with. But in real world boilerplate scaffold code is not used.
+</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="marflar" when="2011-07-18 15:55:21Z" upVote="3">
+          <p>I don't use scaffolding for two reasons:
+
+    Rails scaffolding puts everything in a html tables - I don't like that
+    I prefer to use rails_admin gem for my admin pages so there is no need for 90% of the scaffold code
+
+Your xml concerns are not the reason why people advise against using scaffolding. I don't bother with XML versions of my pages as it doubles the number of routes your app must generate, which in turn increases the overheads a little...
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="marflar" when="2011-07-18 15:56:48Z" indentLevel="1">
+          <p>PS- stick with scaffolding while you are learning rails, it's useful because it cuts down the amount of stuff you need to know and helps you get your app up and running quicker. Once you know what you're doing, you will naturally just stop running the generator.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="coreyward" when="2011-07-18 15:58:34Z" indentLevel="1">
+          <p>Output formats are handled in a little code in the controller. JSON and XML are natively supported by Rails, so you don't even need a view. Your routes don't change for the format at all (run  rake routes  and see the implicit  (.:format)  at the end of every route.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="tmaximini" when="2011-07-18 15:59:32Z" indentLevel="1">
+          <p>yeah i only use nifty_scaffolding as well because it seems to be more precise and leaves out already a lot of unnecessary code and improves security in my opinion.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="marflar" when="2011-07-18 16:13:09Z" indentLevel="1">
+          <p>@coreyward, good point, I forgot that rails removed the formatted routes a few years ago  ryandaigle.com/articles/2008/11/27/…</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Mike Campbell" when="2013-08-21 21:59:03Z" upVote="1">
+          <p>People thus far have said that experienced rails programmers don't use scaffolding, and for good reasons mainly. I advocate that beginners don't use scaffolding either. You may have been plodding along happily for some time with scaffolding, and then you realise that you forgot to include the  published  boolean field for your Post model, so you generate a migration to add the attribute to the table (you've managed to work that out). You then also have to work out how to add that to the form that scaffold produced.  Then  for the life of you you can't work out why it's not updating when you submit your form, and after much strife and wasted time you figure out you haven't permitted mass assignment on that attribute like scaffold did for you on the others. Turns out you don't really know anything about how Rails works. If you're learning Rails, you'd understand much more about MVC if you built the M the V and C yourself.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="suzumakes" when="2016-04-08 15:07:16Z" indentLevel="1">
+          <p>"Turns out you don't really know anything about how Rails works" nailed it.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Mattherick" when="2013-08-21 21:57:08Z" upVote="0">
+          <p>I think scaffolding is very good to check out the new stuff of new rails versions (for example now in rails 4 the params permit stuff in a controller). You can use it for fast prototyping.
+Often it is simple not necessary to generate a full scaffold..</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

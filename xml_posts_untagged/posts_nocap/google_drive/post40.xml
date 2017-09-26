@@ -1,0 +1,257 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>How to secure phpMyAdmin</title>
+        <author>Andrei</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/2631269/how-to-secure-phpmyadmin</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Andrei" url="http://stackoverflow.com/users/179581/andrei">
+        <signatureContent>
+          <p>Reputation: <num>4,233</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>41</num>Number of Bronze Badges: <num>78</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="rook" url="http://stackoverflow.com/users/183528/rook">
+        <signatureContent>
+          <p>Reputation: <num>40.7k</num>Number of Gold Badges: <num>24</num>Number of Silver Badges: <num>120</num>Number of Bronze Badges: <num>198</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jae Cho" url="http://stackoverflow.com/users/559009/jae-cho">
+        <signatureContent>
+          <p>Reputation: <num>241</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>7</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="MatW" url="http://stackoverflow.com/users/108147/matw">
+        <signatureContent>
+          <p>Reputation: <num>5,078</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>25</num>Number of Bronze Badges: <num>50</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="ppumkin" url="http://stackoverflow.com/users/706363/ppumkin">
+        <signatureContent>
+          <p>Reputation: <num>4,666</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>27</num>Number of Bronze Badges: <num>46</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="rightstuff" url="http://stackoverflow.com/users/766152/rightstuff">
+        <signatureContent>
+          <p>Reputation: <num>3,393</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>12</num>Number of Bronze Badges: <num>14</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="lexu" url="http://stackoverflow.com/users/31472/lexu">
+        <signatureContent>
+          <p>Reputation: <num>6,095</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>27</num>Number of Bronze Badges: <num>56</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="JJFS" url="http://stackoverflow.com/users/2318531/jjfs">
+        <signatureContent>
+          <p>Reputation: <num>1</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>1</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2010-04-13 16:22:31Z" who="Andrei" revisedWhen="2014-10-31 06:07:42Z" upVote="43" accepted="favorite"><p>I have noticed that there are strange requests to my website trying to find phpmyadmin, like
+
+/phpmyadmin/
+/pma/
+
+etc.
+
+Now I have installed PMA on Ubuntu via apt and would like to access it via webaddress different from /phpmyadmin/. What can I do to change it?
+
+Thanks
+
+Update
+
+For Ubuntu 9.10 and Apache2, the corresponding setting is located in the file /etc/apache2/conf.d/phpmyadmin.conf which is a link to /etc/phpmyadmin/apache.conf. The file contains
+
+Alias /phpmyadmin /usr/share/phpmyadmin
+
+where the first /phpmyadmin should be changed to something different if one wants to avoid the unnecessary activity, e.g.:
+
+Alias /secret /usr/share/phpmyadmin
+
+<tag>php</tag><tag>phpmyadmin</tag><tag>ubuntu</tag><tag>security</tag><tag>mysql</tag></p></post>
+      </div>
+      <div type="answer">
+        <post who="rook" when="2010-04-13 18:15:04Z" upVote="65" accepted="accepted">
+          <p>The biggest threat is that an attacker could leverage a vulnerability such as; directory traversal, or using SQL Injection to call load_file() to read the plain text username/password in the configuration file and then Login using phpmyadmin or over tcp port 3306. As a pentester I have used this attack pattern to compromise a system.
+
+Here is a great way to lock down phpmyadmin:
+
+    DO NOT ALLOW REMOTE ROOT LOGINS! Instead phpmyadmin can be configured to use "Cookie Auth" to limit what user can access the system. If you need some root privileges, create a custom account that can add/drop/create but doesn't have grant or file_priv.
+    Remove file_priv permissions from every account. file_priv is one of the most dangerous privileges in MySQL because it allows an attacker to read files or upload a backdoor.
+    Whitelist IP address who have access to the phpmyadmin interface. Here is an example .htaccess reulset:
+
+    Order deny,allow
+    Deny from all
+    allow from 199.166.210.1
+
+    Do not have a predictable file location like: http://127.0.0.1/phpmyadmin. Vulnerability scanners like Nessus/Nikto/Acunetix/w3af will scan for this.
+
+    Firewall off tcp port 3306 so that it cannot be accessed by an attacker.
+    Use HTTPS, otherwise data and passwords can be leaked to an attacker. If you don't want to fork out the $30 for a cert, then use a self-signed. You'll accept it once, and even if it was changed due to a MITM you'll be notified.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="therealsix" when="2010-04-15 03:49:22Z" indentLevel="1">
+          <p>I don't mean to be critical, but funny how you don't address the 'biggest threat' until the last step. The biggest threat for most people is being brute forced- which your other steps address.  Using a decent password is also a good idea.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2010-04-15 06:26:30Z" indentLevel="1">
+          <p>@therealsix  your right,  but i assumed that was obvious.  Brute force for mysql is less common than mssql becuase you have xp_cmdshell() which calls cmd.exe. In mysql wormable code execution isn't straight forward.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="zmonteca" when="2011-12-10 00:41:03Z" indentLevel="1">
+          <p>We also toggle AllowRoot to false in the phpMyAdmin config.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jonathan" when="2012-07-05 17:16:33Z" indentLevel="1">
+          <p>@Rook Thanks for these recommendations! I'm a little confused though. At the end of the day, if a user has DELETE privileges, they can empty your whole database. So how does disabling "grant" or "file_priv" help protect my database?</p>
+        </post>
+      </div>
+         <div type="response">
+        <post who="elect" when="2012-10-17 16:28:18Z" indentLevel="1">
+          <p>@Rook what do you mean in passage 4 exactly?</p>
+        </post>
+      </div>
+          <div type="response">
+        <post who="rook" when="2012-10-17 16:30:36Z" indentLevel="1">
+          <p>@elect port 3306 is used by mysql</p>
+        </post>
+      </div>
+          <div type="response">
+        <post who="elect" when="2012-10-17 20:51:47Z" indentLevel="1">
+          <p>@Rook Ok, I know. But what you mean by "firewall it off"? Close it/open it/other? </p>
+        </post>
+      </div>
+          <div type="response">
+        <post who="rook" when="2012-10-17 21:31:27Z" indentLevel="1">
+          <p>@elect If you notice the OP's question has a "security" tag, which means that this post is dealing with attacks against software.</p>
+        </post>
+      </div>  
+      <div type="response">
+        <post who="elect" when="2012-10-18 06:43:37Z" indentLevel="1">
+          <p>@Rook Yep, I noticed. I have already implemented the 'Cookie Auth' and I moved pma on a custom port. Right now I am implementing also your point 5. What I didnt get its just your point 4. What did you mean  technically ?</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Jae Cho" when="2012-06-21 02:57:58Z" upVote="8">
+          <p>One of my concerns with phpMyAdmin was that by default, all MySQL users can access the db. If DB's root password is compromised, someone can wreck havoc on the db. I wanted to find a way to avoid that by restricting which MySQL user can login to phpMyAdmin. I have found using AllowDeny configuration in PhpMyAdmin to be very useful. 
+ http://wiki.phpmyadmin.net/pma/Config#AllowDeny_.28rules.29 AllowDeny lets you configure access to phpMyAdmin in a similar way to Apache. If you set the 'order' to explicit, it will only grant access to users defined in 'rules' section. In the rules, section you restrict MySql users who can access use the phpMyAdmin. $cfg['Servers'][$i]['AllowDeny']['order'] = 'explicit'
+$cfg['Servers'][$i]['AllowDeny']['rules'] = array('pma-user from all') Now you have limited access to the user named pma-user in MySQL, you can grant limited privilege to that user. grant select on db_name.some_table to 'pma-user'@'app-server'</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jonathan" when="2012-07-05 17:26:57Z" indentLevel="1">
+          <p>Nice tip! Just a small bug in your code, the rules should look like this:  $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow pma-user from all');</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="MatW" when="2010-04-13 16:39:41Z" upVote="3">
+          <p>Most likely, somewhere on your webserver will be an Alias directive like this;
+
+Alias /phpmyadmin "c:/wamp/apps/phpmyadmin3.1.3.1/"
+
+In my wampserver / localhost setup, it was in c:/wamp/alias/phpmyadmin.conf.
+
+Just change the alias directive and you should be good to go.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="ppumkin" when="2013-01-21 12:38:05Z" upVote="3">
+          <p>Another solution is to use the config file without any settings. The first time you might have to include your mysql root login/password so it can install all its stuff but then remove it.
+
+    $cfg['Servers'][$i]['auth_type'] = 'cookie';
+
+    $cfg['Servers'][$i]['host'] = 'localhost';
+
+    $cfg['Servers'][$i]['connect_type'] = 'tcp';
+
+    $cfg['Servers'][$i]['compress'] = false;
+
+    $cfg['Servers'][$i]['extension'] = 'mysql';
+
+Leaving it like that without any apache/lighhtpd aliases will just present to you a log in screen. enter image description here
+
+You can log in with root but it is advised to create other users and only allow root for local access. Also remember to use string passwords, even if short but with a capital, and number of special character. for example !34sy2rmbr! aka "easy 2 remember"
+
+-EDIT: A good password now a days is actually something like words that make no grammatical sense but you can remember because they funny. Or use keepass to generate strong randoms an have easy access to them
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ytpillai" when="2016-02-03 04:03:31Z" indentLevel="1">
+          <p>Lastpass is also another great password management system</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="rightstuff" when="2014-06-06 16:34:12Z" upVote="2">
+          <p>In newer versions of phpMyAdmin access permissions for user-names + ip-addresses can be set up inside the phpMyAdmin's config.inc.php file. This is a much better and more robust method of restricting access (over hard-coding URLs and IP addresses into Apache's httpd.conf).
+
+Here is a full example of how to switch to white-listing all users (no one outside this list will be allowed access), and also how to restrict user root to the local system and network only.
+
+$cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
+$cfg['Servers'][$i]['AllowDeny']['rules'] = array(
+    'deny % from all', // deny everyone by default, then -
+
+    'allow % from 127.0.0.1', // allow all local users
+    'allow % from ::1',
+
+    //'allow % from SERVER_ADDRESS', // allow all from server IP
+
+    // allow user:root access from these locations (local network)
+    'allow root from localhost',
+    'allow root from 127.0.0.1',
+    'allow root from 10.0.0.0/8',
+    'allow root from 172.16.0.0/12',
+    'allow root from 192.168.0.0/16',
+
+    'allow root from ::1',
+
+    // add more usernames and their IP (or IP ranges) here -    
+    );
+
+Source: How to Install and Secure phpMyAdmin on localhost for Windows
+
+This gives you much more fine-grained access restrictions than Apache's URL permissions or an .htaccess file can provide, at the MySQL user name level.
+
+Make sure that the user you are login in with, has its MySQL Host: field set to 127.0.0.1 or ::1, as phpMyAdmin and MySQL are on the same system.
+</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="lexu" when="2010-04-13 16:30:26Z" upVote="1">
+          <p>The simplest approach would be to edit the webserver, most likely an Apache2 installation, configuration and give phpmyadmin a different name. A second approach would be to limit the IP addresses from where phpmyadmin may be accessed (e.g. only local lan or localhost).</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="JJFS" when="2016-01-05 12:06:36Z" upVote="0">
+          <p>If you are running a linux server:
+
+    Using SSH you can forbid the user/password loging and only accept a public key in the authorized_keys file
+    Use putty to connect to your server and open a remote terminal
+    Forward X11 and brings localhost firefox/iceweasel to your desktop (in windows you need Xming software installed)
+    Now you secured your phpMyAdmin throught ssh
+
+This system is quite secure/handy for homeservers -usually with all ports blocked by default-. You only have to forward the SSH port (don't use number 22).
+
+If you like Microsoft Terminal Server you can even set a SSH Tunneling to your computer and connect securely to your web server throught it.
+
+With ssh tunneling you even can forward the 3306 port of your remote server to a local port and connect using local phpMyAdmin or MySQL Workbench.
+
+I understand that this option is an overkill, but is as secure as the access of your private key.
+ </p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

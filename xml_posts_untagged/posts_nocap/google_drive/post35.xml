@@ -1,0 +1,239 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Sending mail via sendmail from python</title>
+        <author>Nate</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/73781/sending-mail-via-sendmail-from-python</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Nate" url="http://stackoverflow.com/users/12779/nate">
+        <signatureContent>
+          <p>Reputation: <num>1,769</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>15</num>Number of Bronze Badges: <num>28</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="igaurav" url="http://stackoverflow.com/users/2174742/igaurav">
+        <signatureContent>
+          <p>Reputation: <num>1,165</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>8</num>Number of Bronze Badges: <num>21</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jim" url="http://stackoverflow.com/users/8427/jim">
+        <signatureContent>
+          <p>Reputation: <num>48.6k</num>Number of Gold Badges: <num>9</num>Number of Silver Badges: <num>73</num>Number of Bronze Badges: <num>87</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Pieter" url="http://stackoverflow.com/users/5822/pieter">
+        <signatureContent>
+          <p>Reputation: <num>11.4k</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>33</num>Number of Bronze Badges: <num>71</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="amcgregor" url="http://stackoverflow.com/users/211827/amcgregor">
+        <signatureContent>
+          <p>Reputation: <num>558</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>16</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="tovare" url="http://stackoverflow.com/users/12677/tovare">
+        <signatureContent>
+          <p>Reputation: <num>1,939</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>19</num>Number of Bronze Badges: <num>28</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="MEI" url="http://stackoverflow.com/users/5351807/mei">
+        <signatureContent>
+          <p>Reputation: <num>31</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>1</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="elec3647" url="http://stackoverflow.com/users/1842416/elec3647">
+        <signatureContent>
+          <p>Reputation: <num>192</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>5</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="meagar" url="http://stackoverflow.com/users/229044/meagar">
+        <signatureContent>
+          <p>Reputation: <num>126k</num>Number of Gold Badges: <num>19</num>Number of Silver Badges: <num>188</num>Number of Bronze Badges: <num>229</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Frank Wiles" url="http://stackoverflow.com/users/12568/frank-wiles">
+        <signatureContent>
+          <p>Reputation: <num>1,251</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>7</num>Number of Bronze Badges: <num>11</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2008-09-16 15:46:43Z" who="Nate" revisedWhen="2008-09-16 16:03:56Z" upVote="43" accepted="favorite"><p>If I want to send mail not via SMTP, but rather via sendmail, is there a library for python that encapsulates this process?Better yet, is there a good library that abstracts the whole 'sendmail -versus- smtp' choice?I'll be running this script on a bunch of unix hosts, only some of which are listening on localhost:25; a few of these are part of embedded systems and can't be set up to accept SMTP.As part of Good Practice, I'd really like to have the library take care of header injection vulnerabilities itself -- so just dumping a string to popen('/usr/bin/sendmail', 'w') is a little closer to the metal than I'd like.If the answer is 'go write a library,' so be it ;-)<tag>python</tag><tag>sendmail</tag><tag>email</tag></p></post>
+      </div>
+      <div type="answer">
+        <post revisedBy="igaurav" who="Jim" when="2008-09-16 16:12:37Z" upVote="74" accepted="accepted">
+          <p>Header injection isn't a factor in how you send the mail, it's a factor in how you construct the mail. Check the email package, construct the mail with that, serialise it, and send it to /usr/sbin/sendmail using the subprocess module:
+
+from email.mime.text import MIMEText
+from subprocess import Popen, PIPE
+
+msg = MIMEText("Here is the body of my message")
+msg["From"] = "me@example.com"
+msg["To"] = "you@example.com"
+msg["Subject"] = "This is the subject."
+p = Popen(["/usr/sbin/sendmail", "-t", "-oi"], stdin=PIPE)
+p.communicate(msg.as_string())</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Nate" when="2008-09-16 16:16:57Z" indentLevel="1">
+          <p>Perfect. My conceptual problem was separating the construction and sending of email. Thanks!</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Peter" when="2013-04-08 07:23:28Z" indentLevel="1">
+          <p>nice , it helped me today , after 5 years of the answer :)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Robie Basak" when="2013-07-01 11:34:35Z" indentLevel="1">
+          <p>You should also use the  -oi  parameter to sendmail. This stops a single  .  in your message from prematurely terminating the email.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Pieter" when="2008-09-16 15:51:40Z" upVote="24">
+          <p>This is a simple python function that uses the unix sendmail to deliver a mail. def sendMail():
+    sendmail_location = "/usr/sbin/sendmail" # sendmail location
+    p = os.popen("%s -t" % sendmail_location, "w")
+    p.write("From: %s\n" % "from@somewhere.com")
+    p.write("To: %s\n" % "to@somewhereelse.com")
+    p.write("Subject: thesubject\n")
+    p.write("\n") # blank line separating headers from body
+    p.write("body of the mail")
+    status = p.close()
+    if status != 0:
+           print "Sendmail exit status", status</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="aphex" when="2012-06-19 20:36:42Z" indentLevel="1">
+          <p>really nice python function!</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Steve Folly" when="2012-06-24 10:31:03Z" indentLevel="1">
+          <p>+1 - just what I'm looking for!</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Michael Franze" when="2012-06-28 14:47:19Z" indentLevel="1">
+          <p>excellent, simple example +1</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jim" when="2012-08-02 20:26:34Z" indentLevel="1">
+          <p>They specifically said they didn't want  popen -style solutions.  Worse, the reason given was to avoid things like header injection vulnerabilities.  If the user supplies either the from or to address, this code is vulnerable to header injection attacks.  This is exactly what they didn't want.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Pieter" when="2012-08-04 12:58:51Z" indentLevel="1">
+          <p>@Jim yes, they specifically edited that part in after my answer was given (check edit dates), in response to my answer I suppose.</p>
+        </post>
+      </div>
+      
+      <div type="answer">
+        <post who="tovare" when="2008-09-16 15:49:06Z" upVote="3">
+          <p>It's quite common to just use the sendmail command from Python using os.popen Personally, for scripts i didn't write myself, I think just using the SMTP-protocol is better, since it wouldn't require installing say an sendmail clone to run on windows. https://docs.python.org/library/smtplib.html</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="MEI" when="2015-09-19 21:38:31Z" upVote="3">
+          <p>Jim's answer did not work for me in Python 3.4. I had to add an additional universal_newlines=True argument to subrocess.Popen()
+
+from email.mime.text import MIMEText
+from subprocess import Popen, PIPE
+
+msg = MIMEText("Here is the body of my message")
+msg["From"] = "me@example.com"
+msg["To"] = "you@example.com"
+msg["Subject"] = "This is the subject."
+p = Popen(["/usr/sbin/sendmail", "-t", "-oi"], stdin=PIPE, universal_newlines=True)
+p.communicate(msg.as_string())
+
+Without the universal_newlines=True I get
+
+TypeError: 'str' does not support the buffer interface</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="amcgregor" when="2011-04-04 23:24:04Z" upVote="3">
+          <p>This question is very old, but it's worthwhile to note that there is a message construction and e-mail delivery system called  TurboMail  which has been available since before this message was asked. It's now being ported to support Python 3 and updated as part of the  Marrow  suite.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="TankorSmash" when="2012-05-28 00:36:06Z" indentLevel="1">
+          <p>The turboMail link is no go, a year later</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="amcgregor" when="2012-08-27 14:46:50Z" indentLevel="1">
+          <p>It's now called marrow.mailer.   github.com/marrow/marrow.mailer</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="tjklemz" when="2012-12-14 19:46:23Z" indentLevel="1">
+          <p>+1 for Marrow Mailer. I tried it out, and it makes it very easy to send mail through smpt, sendmail, etc., and also provides very good validation. Because Marrow Mailer is "a good library that abstracts the whole 'sendmail -versus- smtp' choice", I feel this answers the original question the best.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="elec3647" when="2013-06-27 13:49:32Z" downVote="-2">
+          <p>I was just searching around for the same thing and found a good example on the Python website: http://docs.python.org/2/library/email-examples.html
+
+From the site mentioned:
+
+# Import smtplib for the actual sending function
+import smtplib
+
+# Import the email modules we'll need
+from email.mime.text import MIMEText
+
+# Open a plain text file for reading.  For this example, assume that
+# the text file contains only ASCII characters.
+fp = open(textfile, 'rb')
+# Create a text/plain message
+msg = MIMEText(fp.read())
+fp.close()
+
+# me == the sender's email address
+# you == the recipient's email address
+msg['Subject'] = 'The contents of %s' % textfile
+msg['From'] = me
+msg['To'] = you
+
+# Send the message via our own SMTP server, but don't include the
+# envelope header.
+s = smtplib.SMTP('localhost')
+s.sendmail(me, [you], msg.as_string())
+s.quit()
+
+Note that this requires that you have sendmail/mailx set up correctly to accept connections on "localhost". This works on my Mac, Ubuntu and Redhat servers by default, but you may want to double-check if you run into any issues.
+</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Frank Wiles" revisedBy="meagar" when="2013-06-27 13:49:32Z" downVote="-4">
+          <p>The easiest answer is the smtplib, you can find docs on it here.
+
+          All you need to do is configure your local sendmail to accept connection from localhost, which it probably already does by default. Sure, you're still using SMTP for the transfer, but it's the local sendmail, which is basically the same as using the commandline tool.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="S19N" when="2012-05-31 10:41:23Z" indentLevel="1" upVote="6">
+          <p>Question says "If I want to send mail not via SMTP, but rather via sendmail..."</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Denis Barmenkov" when="2012-10-12 13:20:23Z" indentLevel="1" upVote="1">
+          <p>Your program will delay in case there are no connection or lag to SMTP server. Using sendmail you pass message to MTA and your program continues.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,134 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Issue With Code: Format string is not a string literal [duplicate]</title>
+        <author>ProgramGuy</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/5428325/issue-with-code-format-string-is-not-a-string-literal</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="ProgramGuy" url="http://stackoverflow.com/users/594161/programguy">
+        <signatureContent>
+          <p>Reputation: <num>2,703</num>Number of Gold Badges: <num>8</num>Number of Silver Badges: <num>40</num>Number of Bronze Badges: <num>87</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="jlehr" url="http://stackoverflow.com/users/171562/jlehr">
+        <signatureContent>
+          <p>Reputation: <num>12.4k</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>32</num>Number of Bronze Badges: <num>43</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jhaliya" url="http://stackoverflow.com/users/406857/jhaliya">
+        <signatureContent>
+          <p>Reputation: <num>27.9k</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>57</num>Number of Bronze Badges: <num>65</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Parth Bhatt" url="http://stackoverflow.com/users/463857/parth-bhatt">
+        <signatureContent>
+          <p>Reputation: <num>12.8k</num>Number of Gold Badges: <num>22</num>Number of Silver Badges: <num>104</num>Number of Bronze Badges: <num>195</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-03-25 03:45:56Z" who="ProgramGuy" revisedWhen="2014-01-24 17:56:47Z" upVote="50" accepted="favorite"><p>Possible Duplicate:
+    SnowLeopard Xcode warning: “format not a string literal and no format arguments”
+
+I am getting the following issue for this line of code.
+
+"Format string is not a string literal (potentially insecure)"
+
+NSLog([NSString stringWithFormat:@"%@", entered]);
+
+Any suggestions?
+<tag>iphone</tag><tag>objective-c</tag></p></post>
+      </div>
+      <div type="moderator">
+        <head>marked  as duplicate by  Jeff Atwood ♦ Mar 25 '11 at 10:03</head>
+        <post when="2011-03-25 10:03:40Z" who="Jeff Atwood">This question has been asked before and already has an answer. If those answers do not fully address your question, please  ask a new question .</post>
+      </div>
+      <div type="response">
+        <post who="Parth Bhatt" when="2011-03-25 04:57:00Z" indentLevel="1" upVote="2">
+          <p>Hey Faisal, Actually this is because you have not written the  @"%@" , string specifier under the NSLog Statement. Just check out my answer. Hope that helps you. :)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Neeku" when="2013-02-27 11:39:24Z" indentLevel="1">
+          <p>@Parth Old thread, good help, but why not as an answer already?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="user501836" when="2013-07-05 09:50:14Z" indentLevel="1">
+          <p>NSLog([NSString stringWithFormat:@"%@", entered], nil);</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="jlehr" when="2011-03-25 03:51:11Z" upVote="127" accepted="accepted">
+          <p>The compiler wants us to use an NSString constant for the format string (the first argument to NSLog) because it prevents a fairly well-known exploit that could potentially violate security. So for example, you could change the code you posted as follows to keep the compiler happy:
+
+NSLog(@"%@", [NSString stringWithFormat:@"%@", entered]);
+
+EDIT
+
+And of course, the above could (and should) simply be written as follows:
+
+NSLog(@"%@", entered);
+
+Nature of Security Exploits
+
+    Uncontrolled format string[1] is a type of software vulnerability, discovered around 1999, that can be used in security exploits. Previously thought harmless, format string exploits can be used to crash a program or to execute harmful code. The problem stems from the use of unchecked user input as the format string parameter in certain C functions that perform formatting, such as printf(). A malicious user may use the %s and %x format tokens, among others, to print data from the stack or possibly other locations in memory. One may also write arbitrary data to arbitrary locations using the %n format token, which commands printf() and similar functions to write the number of bytes formatted to an address stored on the stack.
+
+    A typical exploit uses a combination of these techniques to force a program to overwrite the address of a library function or the return address on the stack with a pointer to some malicious shellcode. The padding parameters to format specifiers are used to control the number of bytes output and the %x token is used to pop bytes from the stack until the beginning of the format string itself is reached. The start of the format string is crafted to contain the address that the %n format token can then overwrite with the address of the malicious code to execute.
+
+Source: Wikipedia Uncontrolled Format String
+
+[1]: http://cwe.mitre.org/data/definitions/134.html "CWE-134: Uncontrolled Format String". Common Weakness Enumeration. MITRE.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Paul Brewczynski" when="2013-12-01 12:16:22Z" indentLevel="1">
+          <p>Could you show how this "well-known" exploit works?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Inder Kumar Rathore" when="2014-08-26 17:36:08Z" indentLevel="1">
+          <p>+1 for  Nature of Security Exploits</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Jhaliya" when="2011-03-25 03:50:24Z" upVote="31">
+          <p>Here is the solution.
+
+SnowLeopard Xcode warning: "format not a string literal and no format arguments"
+
+Try with
+
+NSLog(@"%@",entered);
+
+because NSLog can also do formatting for you...
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Sherm Pendley" when="2011-03-25 05:17:45Z" indentLevel="1">
+          <p>This is a better answer than the one that was accepted. There's no need to use stringWithFormat: when NSLog() already uses a format!</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jhaliya" when="2011-03-25 05:33:25Z" indentLevel="1">
+          <p>@Sherm Pendley : Thanks</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Parth Bhatt" when="2011-03-25 04:45:14Z" upVote="3">
+          <p>Try:NSLog(@"%@",[NSString stringWithFormat:@"%@",entered]); Hope this helps you. :)</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

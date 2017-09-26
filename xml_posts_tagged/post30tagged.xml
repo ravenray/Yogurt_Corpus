@@ -1,0 +1,124 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>SOA vulnerabilities</title>
+        <author>preeti</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/2199997/soa-vulnerabilities</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="preeti" url="http://stackoverflow.com/users/242645/preeti">
+        <signatureContent>
+          <p>Reputation: <num>53</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>1</num>Number of Bronze Badges: <num>6</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Younes" url="http://stackoverflow.com/users/81892/younes">
+        <signatureContent>
+          <p>Reputation: <num>3,361</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>24</num>Number of Bronze Badges: <num>60</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Will" url="http://stackoverflow.com/users/15721/will">
+        <signatureContent>
+          <p>Reputation: <num>38.3k</num>Number of Gold Badges: <num>22</num>Number of Silver Badges: <num>115</num>Number of Bronze Badges: <num>183</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="rook" url="http://stackoverflow.com/users/183528/rook">
+        <signatureContent>
+          <p>Reputation: <num>40.7k</num>Number of Gold Badges: <num>24</num>Number of Silver Badges: <num>120</num>Number of Bronze Badges: <num>198</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2010-02-04 13:36:20Z" who="preeti" revisedWhen="2010-02-04 13:40:07Z" upVote="1" revisedBy="Younes" accepted="favorite"><p>I/PRP am/VBP a/DT post/JJ graduate/NN student/NN ./. I/PRP have/VBP to/TO do/VB a/DT master/NN s/POS thesis/NN on/IN SOA/ACR vulnerabilities/NNS (/( SOA/ACR security/NN )/) ./. In/IN the/DT sense/NN ,/, finding/VBG vulnerabilities/NNS in/IN web/NN services/NNS or/CC finding/VBG solutions/NNS to/TO the/DT existing/JJ vulnerabilities/NNS ./. In/IN that/DT direction/NN i/PRP have/VBP been/VBN searching/VBG for/IN vulnerabilities/NNS in/IN SOA/ACR ./. Once/RB the/DT vulnerability/NN is/VBZ find/VB i/PRP have/VBP to/TO stimulate/VB it/PRP and/CC show/VB to/TO my/PRP$ guide/NN ./. Some/DT attacks/NNS i/PRP found/VBD in/IN OWASP/ACR in/IN the/DT corresponding/JJ areas/NNS are/VBP DOS/ACR attacks/NNS ,/, Injection/NN attacks/NNS (/( SQL/ACR injection/NN ,/, XPath/COS injection/NN )/) ./. I/PRP could/MD not/RB able/JJ to/TO take/VB a/DT proper/JJ decision/NN at/IN the/DT moment/NN so/IN as/IN what/WP to/TO do/VB next/JJ ./. 
+            Can/MD anyone/NN please/VB tell/VB me/PRP how/WRB could/MD i/PRP proceed/VB to/TO successfully/RB reach/VB the/DT destination/NN ?/.<tag>security</tag><tag>soa</tag><tag>sql-injection</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Will" when="2010-02-04 13:40:50Z" indentLevel="1">
+            <p>post/JJ graduate/NN !/. =/SYM master/NN s/POS ;/: it/PRP would/MD be/VB worth/JJ stating/VBG your/PRP$ country/NN or/CC retranslating/VBG</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mitch Wheat" when="2010-02-04 13:44:50Z" indentLevel="1">
+            <p>@Will/ATS :/: last/JJ time/NN I/PRP checked/VBD ,/, a/DT Master/NN s/POS IS/VBZ post/JJ -/: graduate/NN ./. It/PRP 's/VBZ something/NN you/PRP pursue/VB after/IN graduating/VBG ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Will" when="2010-02-04 16:37:50Z" indentLevel="1">
+            <p> I/PRP stand/VB corrected/VBN ,/, it/PRP was/VBD my/PRP$ lousy/JJ translating/VBG</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Younes" when="2010-02-04 13:39:16Z" upVote="2" accepted="accepted">
+            <p>To/TO help/VB you/PRP out/RP a/DT bit/NN on/IN your/PRP$ research/NN i/PRP 'm/VBP stating/VBG this/DT website/NN :/: http://www.packetstormsecurity.com/URL This/DT website/NN has/VBZ a/DT lot/NN of/IN information/NN regarding/VBG to/TO exploits/NNS //: hacks/NNS //: fixxes/NNS and/CC a/DT lot/NN of/IN info/IN about/IN cross/JJ site/NN server/NN scripting/VBG //: dos/COS -/: attacks/NNS //: sql/ACR -/: injection/NN etc/FW etc/FW etc/FW ./.
+                If/IN you/PRP really/RB need/VB more/JJR info/NN or/CC nice/JJ articles/NNS about/IN various/JJ attacks/NNS and/CC fixxes/NNS you/PRP should/MD seriously/RB consider/VB checking/VBG out/RP that/DT page/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="brozo" when="2010-02-04 13:49:50Z" indentLevel="1">
+            <p>This/DT site/NN is/VBZ great/JJ ./. It/PRP provides/VBZ a/DT lot/NN of/IN security/NN -/: related/JJ information/NN and/CC the/DT descriptions/NNS of/IN vulnerabilities/NNS are/VBP very/JJ well/RB written/VBN ./. Definitely/RB your/PRP$ number/NN one/CD site/NN regarding/VBG web/NN -/: security/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Younes" when="2010-02-04 13:57:26Z" indentLevel="1">
+            <p>deffo/UH ,/, best/JJ site/NN regarding/VBG that/DT kind/NN of/IN shizzle/FW ;)/EMO</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2010-02-04 17:01:46Z" indentLevel="1">
+            <p>packet/NN storm/NN is/VBZ for/IN script/NN kiddies/NNS of/IN the/DT 1990/CD 's/POS ./.  That/DT site/NN is/VBZ so/IN old/JJ and/CC all/DT it/PRP contains/VBZ is/VBZ outdated/JJ papers/NNS and/CC forgotten/JJ exploit/NN code/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Younes" when="2010-05-27 06:10:54Z" indentLevel="1">
+            <p>Bullox/UH ,/, there/EX is/VBZ a/DT lot/NN of/IN updated/JJ material/NN and/CC everyday/JJ new/JJ exploits/NS //: fixxes/NNS etc/FW gets/VBZ submitted/VBN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Will" when="2010-02-04 13:41:22Z" upVote="1">
+            <p>Generally/RB ,/, you/PRP should/MD discuss/VB this/DT in/IN depth/NN with/IN your/PRP$ tutor/NN rather/RB than/IN ask/VB the/DT internet/NN in/IN general/JJ ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Younes" when="2010-02-04 13:58:08Z" indentLevel="1">
+            <p>You/PRP could/MD have/VBP commented/VBN on/IN her/PRP$ post/NN instead/RB of/IN faking/VBG an/DT answer/NN :P/EMO</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Will" when="2010-02-04 15:50:10Z" indentLevel="1">
+            <p>@Younes/ATS it/PRP was/VBD genuine/JJ advice/NN ./.  I/PRP 've/VBP said/VBN it/PRP before/IN too/RB :/:  stackoverflow.com/questions/1245885//URL ./. ./. ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2010-02-04 16:34:54Z" indentLevel="1">
+            <p>-/SYM 1/CD ,/, this/DT is/VBZ what/WP stack/NN overflow/NN is/VBZ for/IN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Will" when="2010-02-04 16:37:33Z" indentLevel="1">
+            <p>The/DT question/NN is/VBZ n't/RB about/IN SOA/ACR nor/CC how/WRB it/PRP works/VBZ nor/CC anything/NN technical/JJ ,/, it/PRP s/VBZ "/" not/RB able/JJ to/TO take/VB a/DT proper/JJ decision/NN at/IN the/DT moment/NN so/IN as/IN what/WP to/TO do/VB next/JJ "/" and/CC that/DT 's/VBZ a/DT question/NN about/IN the/DT academic/JJ task/NN at/IN hand/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2010-02-04 17:05:59Z" indentLevel="1">
+            <p>Will/NNP ,/,  If/IN you/PRP are/VBP having/VBG trouble/NN finding/VBG direction/NN then/RB it/PRP follows/VBZ that/WDT you/PRP should/MD ask/VB for/IN help/NN ./.  Stack/NN Overflow/NN is/VBZ about/IN helping/VBG programmers/NNS ,/, and/CC this/DT question/NN is/VBZ helping/VBG a/DT programmer/NN do/VB research/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Will" when="2010-02-04 17:09:59Z" indentLevel="1">
+            <p>If/IN ,/, as/IN I/PRP interpret/VB ,/, the/DT question/NN is/VBZ how/WRB to/TO graduate/VB ,/, then/RB I/PRP think/VB my/PRP$ advice/NN to/TO discuss/VB it/PRP with/IN the/DT tutor/NN is/VBZ very/RB sound/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="rook" when="2010-02-04 16:51:12Z" upVote="1" revisedWhen="2010-02-04 16:58:12Z">
+            <p>The/DT field/NN of/IN computer/NN security/NN is/VBZ massive/JJ and/CC there/EX is/VBZ always/RB something/NN to/TO explore/VB ./.   This/DT is/VBZ one/CD of/IN the/DT reasons/NNS why/WRB I/PRP love/VB hacking/NN ./.   Currently/RB I/PRP am/VBP working/VBG on/IN a/DT masterpiece/NN exploit/NN that/WDT will/MD be/VB the/DT basis/NN for/IN my/PRP$ Blackhat/NNP //: Defcon/NNP talk/VB in/IN august/NNP ./.   I/PRP think/VB that/WDT writing/VBG exploit/NN code/NN is/VBZ vital/JJ for/IN understanding/VBG the/DT exploitation/NN process/NN ./.  Even/RB if/IN you/PRP are/VBP the/DT most/JJS Arian/JJ of/IN white/JJ hats/NNS ,/,  you/PRP must/MD write/VB exploit/NN or/CC you/PRP will/MD always/RB be/VB behind/IN the/DT attacks/NNS in/IN terms/NNS of/IN skill/NN ./.  I/PRP love/VB going/VBG to/TO hacker/NN cons/NNS to/TO get/VB now/JJ ideas/NNS for/IN my/PRP$ security/NN research/NN ./.  It/PRP is/VBZ also/RB helpful/JJ to/TO see/VB new/JJ attacks/NNS ./. Some/DT things/NNS that/WDT you/PRP have/VBP no/RB mentioned/VBN are/VBP Memory/NN manipulation/NN attacks/NNS such/JJ as/IN buffer/NN overflows/NNS ./.   Modern/NN buffer/NN overflows/NNS are/VBP more/JJR difficult/JJ to/TO exploit/VB than/IN Aleph/NNP One/NNP 's/POS smashing/VBG the/DT stack/NN for/IN fun/NN and/CC profit/NN ./.    You/PRP should/MD look/VB into/IN modern/JJ bypasses/NNS to/TO ASLR/ACR such/JJ as/IN heap/NN spraying/NN or/CC heap/NN feng/NN shui/NN ./.   Attacks/NNS like/IN jmp/COS 2/COS reg/COS (/( jmp/COS 2/COS esp/RB jump/COS 2/COS ebx/COS ect/FW ./. ./. ./. )/) are/VBP also/RB interesting/JJ for/IN bypasses/NNS for/IN ASLR/ACR ./. Attacking/VBG ActiveX/COS components/NNS is/VBZ fun/JJ ./. I/PRP use/VBD H/NNP ./. D/NNP ./. Moore/NNP 's/POS  AxMan/NNP  with/IN great/JJ success/NN ./.  Here/RB is/VBZ the/DT remote/NN code/NN execution/NN exploit/NN I/PRP found/VBD using/VBG AxMan/NNP :/:  http://www.milw0rm.com/exploits/7910/URL  ./.  Here/RB are/VBP more/JJR exploits/NNS that/WDT I/PRP have/VBP written/VBN :/:  http://www.milw0rm.com/author/677/URL   ./.  The/DT best/JJ fuzzer/NN is/VBZ by/IN far/JJ  PeachFuzz/NNP ,/, and/CC writing/VBG a/DT some/DT pit/NN files/NNS for/IN it/PRP can/MD be/VB very/RB fruitful/JJ research/NN ./. Buffer/NN overflows/NNS and/CC sql/ACR injection/NN are/VBP the/DT most/JJS talked/VBN about/IN ,/,  but/CC there/EX are/VBP a/DT couple/NN hundred/CD categories/NNS for/IN vulnerabilities/NNS and/CC they/PRP are/VBP identified/VBN by/IN  CWE/ACR numbers/NNS ./. It/PRP s/VBZ worth/JJ exploring/VBG ,/,  I/PRP think/VB it/PRP will/MD surprised/VBN you/PRP what/WP NIST/ACR thinks/VBZ a/DT vulnerability/NN is/VBZ ./. </p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

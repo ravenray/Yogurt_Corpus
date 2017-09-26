@@ -1,0 +1,260 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Using openssl what does “unable to write 'random state'” mean? [closed]</title>
+        <author>Luke Francl</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/94445/using-openssl-what-does-unable-to-write-random-state-mean</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Luke Francl" url="http://stackoverflow.com/users/17965/luke-francl">
+        <signatureContent>
+          <p>Reputation: <num>14.8k</num>Number of Gold Badges: <num>14</num>Number of Silver Badges: <num>58</num>Number of Bronze Badges: <num>88</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Ville Laurikari" url="http://stackoverflow.com/users/7446/ville-laurikari">
+        <signatureContent>
+          <p>Reputation: <num>15.8k</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>40</num>Number of Bronze Badges: <num>49</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Beachhouse" url="http://stackoverflow.com/users/783004/beachhouse">
+        <signatureContent>
+          <p>Reputation: <num>2,387</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>12</num>Number of Bronze Badges: <num>30</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="joel" url="http://stackoverflow.com/users/1356315/joel">
+        <signatureContent>
+          <p>Reputation: <num>207</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>2</num>Number of Bronze Badges: <num>2</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="nbanic" url="http://stackoverflow.com/users/3531904/nbanic">
+        <signatureContent>
+          <p>Reputation: <num>1,168</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>4</num>Number of Bronze Badges: <num>11</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="HalfBrian" url="http://stackoverflow.com/users/46975/halfbrian">
+        <signatureContent>
+          <p>Reputation: <num>582</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>19</num></p>
+        </signatureContent>
+      </person>
+         <person xml:id="diyism" url="http://stackoverflow.com/users/264181/diyism">
+        <signatureContent>
+          <p>Reputation: <num>4,222</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>28</num>Number of Bronze Badges: <num>34</num></p>
+        </signatureContent>
+      </person>
+            <person xml:id="John Smith" url="http://stackoverflow.com/users/2639304/john-smith">
+        <signatureContent>
+          <p>Reputation: <num>1,612</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>14</num>Number of Bronze Badges: <num>37</num></p>
+        </signatureContent>
+      </person>
+        <person xml:id="John" url="http://stackoverflow.com/users/546813/john">
+        <signatureContent>
+          <p>Reputation: <num>748</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>7</num>Number of Bronze Badges: <num>18</num></p>
+        </signatureContent>
+      </person>
+              <person xml:id="Smalcat" url="http://stackoverflow.com/users/313545/smalcat">
+        <signatureContent>
+          <p>Reputation: <num>195</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>17</num></p>
+        </signatureContent>
+      </person>
+        <person xml:id="jevon" url="http://stackoverflow.com/users/39531/jevon">
+        <signatureContent>
+          <p>Reputation: <num>1,650</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>17</num>Number of Bronze Badges: <num>31</num></p>
+        </signatureContent>
+      </person>
+          <person xml:id="Moumit" url="http://stackoverflow.com/users/2052085/moumit">
+        <signatureContent>
+          <p>Reputation: <num>1,278</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>10</num>Number of Bronze Badges: <num>17</num></p>
+        </signatureContent>
+      </person>
+       <person xml:id="Rocco The Taco" url="http://stackoverflow.com/users/1090213/rocco-the-taco">
+        <signatureContent>
+          <p>Reputation: <num>1,081</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>16</num>Number of Bronze Badges: <num>44</num></p>
+        </signatureContent>
+      </person>
+         <person xml:id="Gilad sefti" url="http://stackoverflow.com/users/1233890/jivangilad">
+        <signatureContent>
+          <p>Reputation: <num>138</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>1</num>Number of Bronze Badges: <num>15</num></p>
+        </signatureContent>
+      </person>
+         <person xml:id="jww" url="http://stackoverflow.com/users/608639/jww">
+        <signatureContent>
+          <p>Reputation: <num>30,595</num>Number of Gold Badges: <num>20</num>Number of Silver Badges: <num>93</num>Number of Bronze Badges: <num>194</num></p>
+        </signatureContent>
+      </person>
+         <person xml:id="fotNelton" url="http://stackoverflow.com/users/271678/fotnelton">
+        <signatureContent>
+          <p>Reputation: <num>2,748</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>12</num>Number of Bronze Badges: <num>26</num></p>
+        </signatureContent>
+      </person>
+            <person xml:id="symbiont" url="http://stackoverflow.com/users/2411916/symbiont">
+        <signatureContent>
+          <p>Reputation: <num>103</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>2</num>Number of Bronze Badges: <num>11</num></p>
+        </signatureContent>
+      </person>
+         <person xml:id="Synetech" url="http://stackoverflow.com/users/119540/synetech">
+        <signatureContent>
+          <p>Reputation: <num>5,118</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>35</num>Number of Bronze Badges: <num>65</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Tim Cooper" url="http://stackoverflow.com/users/142162/tim-cooper">
+        <signatureContent>
+            <p>Reputation: <num>80.3k</num>Number of Gold Badges: <num>20</num>Number of Silver Badges: <num>154</num>Number of Bronze Badges: <num>174</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jusuf" url="http://stackoverflow.com/users/816211/jusuf">
+        <signatureContent>
+          <p>Reputation: <num>81</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>1</num>Number of Bronze Badges: <num>1</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Zds" url="http://stackoverflow.com/users/639119/zds">
+        <signatureContent>
+          <p>Reputation: <num>2,964</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>11</num>Number of Bronze Badges: <num>21</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2008-09-18 16:56:43Z" who="Luke Francl" revisedWhen="2011-06-10 10:08:56Z" revisedBy="nbanic" upVote="226" accepted="favorite"><p>I/PRP 'm/VBP generating/VBG a/DT self-signed/JJ SSL/ACR certificate/NN to/TO protect/VB my/PRP$ server/NN 's/POS admin/NN section/NN ,/, and/CC I/PRP keep/VB getting/VBG this/DT message/NN from/IN OpenSSL/COS :/: unable/COS to/COS write/COS '/COS random/COS state/COS '/COS What/WP does/VBZ this/DT mean/VB ?/. A/DT quick/JJ Google/NNP search/NN yields/VBZ nothing/NN useful/JJ ,/, so/IN I/PRP thought/VBD I/PRP 'd/MD try/VB out/RP the/DT new/JJ Stack/NNP Overflow/NNP !/. This/DT is/VBZ on/IN an/DT Ubuntu/NNP server/NN ./. I/PRP have/VBP upgraded/VBN libssl/COS to/TO fix/VB the/DT recent/JJ security/NN vulnerability/NN ./.<tag>openssl</tag></p></post>
+      </div>
+      <div type="moderator">
+        <head>closed  as off topic by  Kev Jun 19 '12 at 22:56</head>
+          <post when="2012-06-19 22:56:30Z" who="Kev"><p>Questions/NNS on/IN Stack/NNP Overflow/NNP are/VBP expected/VBN to/TO relate/VB to/TO programming/NN within/IN the/DT scope/NN  defined/VBD by/IN the/DT community/NN  ./.   Consider/VBP editing/VBG the/DT question/NN or/CC leaving/VBG comments/NNS for/IN improvement/NN if/IN you/PRP believe/VBP the/DT question/NN can/MD be/VB reworded/VBN to/TO fit/VB within/IN the/DT scope/NN ./.   Read/VBP more/JJR about/IN  reopening/VBG questions/NNS here/RB ./. If/IN this/DT question/NN can/MD be/VB reworded/VBN to/TO fit/VB the/DT rules/NNS in/IN the/DT  help/NN center/NN ,/, please/VBZ  edit/VB the/DT question/NN ./.</p>
+      </post>
+      </div>
+      <div type="answer">
+        <post who="Ville Laurikari" when="2008-09-18 16:58:48Z" revisedWhen="2011-06-10 10:08:48Z" upVote="306" accepted="accepted">
+            <p>In/IN practice/NN ,/, the/DT most/JJS common/JJ reason/NN for/IN this/DT happening/VBG seems/VBZ to/TO be/VB that/WDT the/DT ./COS rnd/COS file/NN in/IN your/PRP$ home/NN directory/NN is/VBZ owned/VBN by/IN root/NN rather/RB than/IN your/PRP$ account/NN ./. The/DT quick/JJ fix/NN :/:
+
+                sudo/COS rm/COS ~/COS //COS .COS rnd/COS
+                For/IN more/JJR information/NN ,/, here/RB 's/VBZ the/DT entry/NN from/IN the/DT OpenSSL/COS FAQ/ACR :/:
+
+                Sometimes/RB the/DT openssl/COS command/NN line/NN utility/NN does/VBZ not/RB abort/VB with/IN a/DT "/" PRNG/COS not/COS seeded/COS "/" error/NN message/NN ,/, but/CC complains/VBZ that/WDT it/PRP is/VBZ "/" unable/COS to/COS write/COS '/COS random/COS state/COS '/COS "/" ./. This/DT message/NN refers/VBZ to/TO the/DT default/JJ seeding/NN file/NN (/( see/VBP previous/JJ answer/NN )/) ./. A/DT possible/JJ reason/NN is/VBZ that/WDT no/DT default/JJ filename/NN is/VBZ known/VBN because/IN neither/CC RANDFILE/COS nor/CC HOME/COS is/VBZ set/NN ./. (/( Versions/NNS up/RP to/TO 0/CD ./. 9/CD ./. 6/CD used/JJ file/NN "/" ./. rnd/COS "/" in/IN the/DT current/JJ directory/NN in/IN this/DT case/NN ,/, but/CC this/DT has/VBZ changed/VBN with/IN 0/CD ./. 9/CD ./. 6/CD a/FW ./. )/)
+                So/IN I/PRP would/MD check/VB RANDFILE/COS ,/, HOME/COS ,/, and/CC permissions/NNS to/TO write/VB to/TO those/DT places/NNS in/IN the/DT filesystem/NN ./.
+
+                If/IN everything/NN seems/VBZ to/TO be/VB in/IN order/NN ,/, you/PRP could/MD try/VB running/VBG with/IN strace/NNP and/CC see/VBP what/WP exactly/RB is/VBZ going/VBG on/RP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="HalfBrian" when="2010-06-04 16:19:33Z" indentLevel="1" upVote="20">
+            <p>My/PRP$ system/NN was/VBD giving/VBG me/PRP this/DT issue/NN because/IN the/DT "/" ./. rnd/COS "/" file/NN was/VBD owned/VBN by/IN root/NN rather/RB than/IN my/PRP$ user/NN ./.  A/DT quick/JJ  sudo/COS chown/COS user/COS :/COS user/COS ~/COS //COS ./COS rnd/COS  made/VBD everything/NN work/VB out/RP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Luc M" when="2012-07-09 02:36:38Z" indentLevel="1" upVote="1">
+            <p>I/PRP had/VBD the/DT same/JJ problem/NN as/IN OP/ACR ./. I/PRP did/VBD the/DT  sudo/COS  thing/NN and/CC it/PRP worked/VBD ./. But/CC why/WRB do/VB I/PRP still/MD have/VB a/DT  ./COS rnd/COS  directory/NN iwned/VBD by/IN root/NN in/IN my/PRP$ $/COS HOME/COS after/IN I/PRP create/VBP a/DT self-signed/JJ certificate/NN ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="diyism" when="2013-06-21 09:04:19Z" indentLevel="1">
+            <p>Yes/UH ,/, if/IN you/PRP run/VBP from/IN php/COS web/NN server/NN ,/, the/DT user/NN is/VBZ www-data/COS ,/, and/CC you/PRP should/MD add/VB "/" export/COS "/" before/IN every/DT openssl/COB :/COB shell_exec/COB (/COB '/COB export/COB RANDFILE/COB =/COB "/COB ./COB rnd/COB "/COB ;/COB openssl/COB  ecparam/COB -/COB genkey/COB -/COB name/COB secp256k1/COB '/COB )/COB )/COB</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="John Smith" when="2013-09-25 19:28:32Z" indentLevel="1">
+            <p>Maybe/RB you/PRP can/MD help/VB me/PRP with/IN this/DT question/NN  stackoverflow.com/questions/19013529//URL …/.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Beachhouse" when="2011-11-21 18:25:23Z" upVote="153">
+            <p>I/PRP know/VBP this/DT question/NN is/VBZ on/IN Linux/NNP ,/, but/CC on/IN windows/NNP I/PRP had/VBD the/DT same/JJ issue/NN ./.  Turns/VBZ out/RP you/PRP have/VBP to/TO start/VB the/DT command/NN prompt/NN in/IN "/" Run/COS As/COS Administrator/COS "/" mode/NN for/IN it/PRP to/TO work/VB ./.  Otherwise/RB you/PRP get/VB the/DT same/JJ :/: unable/COS to/TO write/VB '/COS random/COS state/COS '/COS error/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="John" when="2012-06-10 09:01:53Z" indentLevel="1" upVote="12">
+            <p>It/PRP might/MD not/RB belong/VB here/RB but/CC your/PRP$ answer/NN helped/VBD me/PRP ./. +/SYM 1/CD for/IN you/PRP ./. Thanks/VBZ ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Smalcat" when="2012-06-14 08:24:33Z" indentLevel="1" upVote="10">
+            <p>I/PRP am/VBP running/VBG on/IN windows/NNP as/IN administrator/NN but/CC still/MD get/VB the/DT error/NN</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Beachhouse" when="2012-08-28 21:46:34Z" indentLevel="1" upVote="3">
+            <p>Being/VBG an/DT administrator/NN on/IN the/DT machine/NN and/CC using/VBG "/" Run/COS As/COS Administrator/COS "/" are/VBP different/JJ ./.  "/" Run/COS As/COS Administrator/COS "/" forces/VBZ the/DT program/NN to/TO run/VB as/IN an/DT Administrator/NN ,/, otherwise/RB even/RB when/WRB you/PRP are/VBP an/DT administrator/NN ,/, the/DT prompt/NN will/MD run/VB with/IN a/DT non-administrator/NN  security/NN clearance/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="HVKotak" when="2013-01-21 04:50:12Z" indentLevel="1">
+            <p>Great/UH Beachhouse/NNP Thanks/VBZ ,/, It/PRP 's/VBZ work/VB for/IN me/PRP</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="jevon" when="2013-04-16 04:08:12Z" indentLevel="1" upVote="37">
+            <p>If/IN you/PRP are/VBP running/VBG in/IN administrator/NN mode/NN and/CC you/PRP are/VBP  still/MD  receiving/VBG "/" Unable/COS to/COS write/COS '/COS random/COS state/COS '/COS "/" ,/, another/DT solution/NN is/VBZ to/TO  set/VB RANDFILE/COS =/COS ./COS rnd/COS  before/IN executing/VBG  openssl/COS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Moumit" when="2015-04-01 07:20:53Z" indentLevel="1" upVote="1">
+            <p>These/DT problem/NN is/VBZ solved/VBN but/CC now/RB i/PRP am/VBP getting/VBG error/NN message/NN  Unable/COS to/COS load/COS certificates/COS  when/WRB trying/VBG to/TO generate/VB pfx/COS file/NN ../. can/MD you/PRP please/VBZ solve/VB this/DT ../.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="joel" when="2012-04-25 13:23:07Z" upVote="19">
+            <p>One/CD other/JJ issue/NN on/IN the/DT Windows/NNP platform/NN ,/, make/VB sure/JJ you/PRP are/VBP running/VBG your/PRP$ command/NN prompt/NN as/IN an/DT Administrative/JJ User/NN !/. I/PRP do/VB n't/RB know/VBP how/WRB many/JJ times/NNS this/DT has/VBZ bitten/VBN me/PRP .../.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Rocco The Taco" when="2012-09-07 09:19:43Z" indentLevel="1">
+            <p>This/DT was/VBP totally/RB my/PRP$ issue/NN ,/, wish/VBP I/PRP 'd/MD googled/VBN it/PRP sooner/RB ,/, thanks/VBZ !/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="jivangilad" when="2014-10-23 12:40:34Z" indentLevel="1">
+            <p>This/DT is/VBZ my/PRP$ case/NN too/RB ./. Always/RB forget/VB .../.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Simon" when="2015-12-04 18:05:14Z" indentLevel="1">
+            <p>Thanks/VBZ -/: this/DT worked/VBD for/IN me/PRP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="jww" when="2016-03-18 07:37:19Z" indentLevel="1" upVote="2">
+            <p>How/WRB many/JJ times/NNS have/VBP you/PRP re-answered/VBD a/DT question/NN with/IN three/CD other/JJ answers/NNS that/WDT state/VB the/DT same/JJ ?/.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post revisedBy="nbanic" who="Luke Francl" when="2008-09-18 17:09:51Z" revisedWhen="2014-04-14 14:19:51Z" upVote="13">
+            <p>Apparently/RB ,/, I/PRP needed/VBD to/TO run/VB OpenSSL/COS as/IN root/NN in/IN order/NN for/IN it/PRP to/TO have/VB permission/NN to/TO the/DT seeding/NN file/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="fotNelton" when="2010-09-29 09:03:26Z" indentLevel="1" upVote="11">
+            <p>It/PRP is/VBZ more/JJR likely/RB that/WDT you/PRP once/RB  ran/VBD  it/PRP as/IN root/NN whereupon/CC the/DT ./COS rnd/COS file/NN in/IN your/PRP$ home-directory/NN was/VBD created/VBN with/IN permissions/NNS set/VB for/IN root/NN only/RB ./. This/DT happened/VBD to/TO me/PRP a/DT while/NN back/RB ./. Deletion/NN of/IN ./COS rnd/COS solved/VBD the/DT issue/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Jusuf" revisedBy="Tim Cooper" when="2011-06-26 14:34:30Z" revisedWhen="2011-12-18 15:06:30Z" upVote="8">
+            <p>I/PRP had/VBD the/DT same/JJ thing/NN on/IN windows/NNP server/NN ./. Then/RB I/PRP figured/VBD out/RP by/IN changing/VBG the/DT vars/COS ./COS bat/COS which/WDT is/VBZ :/:
+
+set/COB HOME/COB =/COB C/COB :/COB \/COB Program/COB Files/COB (/COB x/COB 86/COB )/COB \/COB OpenVPN/COB \/COB easy/COB -/COB rsa/COB
+
+                then/RB redo/VB from/IN beginning/NN and/CC everything/NN should/MD be/VB fine/JJ ./.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="symbiont" when="2014-05-13 02:15:40Z" indentLevel="1">
+            <p>that/DT was/VBD it/PRP !/. thanks/VBZ ./. i/PRP made/VBD this/DT change/NN right/RB in-between/IN the/DT "/" init/COS -/COS config/COS "/" and/CC "/" vars/COS "/" commands/NNS ,/, from/IN the/DT instructions/NNS (/( here/RB :/:  openvpn.net/index.php/open-source/documentation/howto.html#pki/URL )/) ./. must/MD be/VB because/IN i/PRP installed/VBD the/DT 32/CD -/: bit/NN version/NN (/( which/WDT i/PRP prefer/VBP )/) ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Synetech" when="2014-05-26 20:36:57Z" indentLevel="1" upVote="2">
+            <p>That/DT did/VBD the/DT trick/NN ,/, and/CC I/PRP did/VBD not/RB have/VB to/TO run/VB as/IN admin/NN ./. Thanks/VBZ !/. In/IN fact/NN ,/, I/PRP simply/RB used/VBD  set/COS HOME/COS =/COS ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Zds" when="2011-04-04 10:26:42Z" upVote="3">
+            <p>The/DT problem/NN for/IN me/PRP was/VBD that/WDT I/PRP had/VBD ./COS rnd/COS  in/IN my/PRP$ home/NN directory/NN but/CC it/PRP was/VBD owned/VBN by/IN root/NN ./. Deleting/VBG it/PRP and/CC reissuing/VBG the/DT openssl/COS command/NN fixed/VBD this/DT ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

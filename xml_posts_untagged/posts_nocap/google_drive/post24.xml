@@ -1,0 +1,752 @@
+<TEI >
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>SQL injection that gets around mysql_real_escape_string()</title>
+        <author>Richard Knop</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/5741187/sql-injection-that-gets-around-mysql-real-escape-string/</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Richard Knop" url="http://stackoverflow.com/users/95944/richard-knop">
+        <signatureContent>
+          <p>Reputation: <num>21.4k</num>Number of Gold Badges: <num>88</num>Number of Silver Badges: <num>266</num>Number of Bronze Badges: <num>450</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="eggyal" url="http://stackoverflow.com/users/623041/eggyal">
+        <signatureContent>
+          <p>Reputation: <num>76.3k</num>Number of Gold Badges: <num>12</num>Number of Silver Badges: <num>89</num>Number of Bronze Badges: <num>131</num></p>
+        </signatureContent>
+      </person>
+         <person xml:id="MatBailie" url="http://stackoverflow.com/users/53341/matbailie">
+        <signatureContent>
+          <p>Reputation: <num>44,629</num>Number of Gold Badges: <num>9</num>Number of Silver Badges: <num>51</num>Number of Bronze Badges: <num>92</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Wesley van Opdorp" url="http://stackoverflow.com/users/703808/wesley-van-opdorp">
+        <signatureContent>
+          <p>Reputation: <num>10k</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>27</num>Number of Bronze Badges: <num>49</num></p>
+        </signatureContent>
+      </person>
+            <person xml:id="Bimal Poudel" url="http://stackoverflow.com/users/2156512/bimal-poudel">
+        <signatureContent>
+          <p>Reputation: <num>357</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>1</num>Number of Bronze Badges: <num>14</num></p>
+        </signatureContent>
+      </person>
+            <person xml:id="Pekka 웃" url="http://stackoverflow.com/users/187606/pekka-%EC%9B%83">
+        <signatureContent>
+          <p>Reputation: <num>296,226</num>Number of Gold Badges: <num>91</num>Number of Silver Badges: <num>673</num>Number of Bronze Badges: <num>891</num></p>
+        </signatureContent>
+      </person>
+            <person xml:id="zerkms" url="http://stackoverflow.com/users/251311/zerkms">
+        <signatureContent>
+          <p>Reputation: <num>141,912</num>Number of Gold Badges: <num>30</num>Number of Silver Badges: <num>245</num>Number of Bronze Badges: <num>313</num></p>
+        </signatureContent>
+      </person>
+            <person xml:id="NullUserException" url="http://stackoverflow.com/users/396458/nulluserexception">
+        <signatureContent>
+          <p>Reputation: <num>51,578</num>Number of Gold Badges: <num>16</num>Number of Silver Badges: <num>140</num>Number of Bronze Badges: <num>188</num></p>
+        </signatureContent>
+      </person>
+            <person xml:id="Eugenio" url="http://stackoverflow.com/users/858981/eugenio">
+        <signatureContent>
+          <p>Reputation: <num>569</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>23</num></p>
+        </signatureContent>
+      </person>
+           <person xml:id="netcoder" url="http://stackoverflow.com/users/492901/netcoder">
+        <signatureContent>
+          <p>Reputation: <num>41,280</num>Number of Gold Badges: <num>9</num>Number of Silver Badges: <num>81</num>Number of Bronze Badges: <num>121</num></p>
+        </signatureContent>
+      </person>
+              <person xml:id="Theodore R. Smith" url="http://stackoverflow.com/users/430062/theodore-r-smith">
+        <signatureContent>
+          <p>Reputation: <num>7,416</num>Number of Gold Badges: <num>8</num>Number of Silver Badges: <num>26</num>Number of Bronze Badges: <num>58</num></p>
+        </signatureContent>
+      </person>
+       <person xml:id="Mark Amery" url="http://stackoverflow.com/users/1709587/mark-amery">
+        <signatureContent>
+          <p>Reputation: <num>20,258</num>Number of Gold Badges: <num>11</num>Number of Silver Badges: <num>103</num>Number of Bronze Badges: <num>131</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="mpen" url="http://stackoverflow.com/users/65387/mpen">
+        <signatureContent>
+          <p>Reputation: <num>78.5k</num>Number of Gold Badges: <num>115</num>Number of Silver Badges: <num>452</num>Number of Bronze Badges: <num>700</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="ircmaxell" url="http://stackoverflow.com/users/338665/ircmaxell">
+        <signatureContent>
+          <p>Reputation: <num>106k</num>Number of Gold Badges: <num>20</num>Number of Silver Badges: <num>199</num>Number of Bronze Badges: <num>264</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Slava" url="http://stackoverflow.com/users/598472/slava">
+        <signatureContent>
+          <p>Reputation: <num>1,531</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>12</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="ThiefMaster" url="http://stackoverflow.com/users/298479/thiefmaster">
+        <signatureContent>
+          <p>Reputation: <num>178,092</num>Number of Gold Badges: <num>37</num>Number of Silver Badges: <num>326</num>Number of Bronze Badges: <num>434</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Mark Baker" url="http://stackoverflow.com/users/324584/mark-baker">
+        <signatureContent>
+          <p>Reputation: <num>134,458</num>Number of Gold Badges: <num>18</num>Number of Silver Badges: <num>176</num>Number of Bronze Badges: <num>236</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="tereško" url="http://stackoverflow.com/users/727208/tere%C5%A1ko">
+        <signatureContent>
+          <p>Reputation: <num>40,650</num>Number of Gold Badges: <num>15</num>Number of Silver Badges: <num>62</num>Number of Bronze Badges: <num>113</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="machineaddict" url="http://stackoverflow.com/users/1057527/machineaddict">
+        <signatureContent>
+          <p>Reputation: <num>2,131</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>14</num>Number of Bronze Badges: <num>33</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Loenix" url="http://stackoverflow.com/users/2610855/loenix">
+        <signatureContent>
+          <p>Reputation: <num>702</num>Number of Gold Badges: <num></num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>9</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="cHao" url="http://stackoverflow.com/users/319403/chao">
+        <signatureContent>
+          <p>Reputation: <num>52,434</num>Number of Gold Badges: <num>9</num>Number of Silver Badges: <num>78</num>Number of Bronze Badges: <num>122</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Wesley van Opdorp" url="http://stackoverflow.com/users/703808/wesley-van-opdorp">
+        <signatureContent>
+          <p>Reputation: <num>10,017</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>27</num>Number of Bronze Badges: <num>49</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="a_horse_with_no_name" url="http://stackoverflow.com/users/330315/a-horse-with-no-name">
+        <signatureContent>
+          <p>Reputation: <num>168,147</num>Number of Gold Badges: <num>21</num>Number of Silver Badges: <num>204</num>Number of Bronze Badges: <num>278</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Kzqai" url="http://stackoverflow.com/users/69993/kzqai">
+        <signatureContent>
+          <p>Reputation: <num>10,676</num>Number of Gold Badges: <num>14</num>Number of Silver Badges: <num>74</num>Number of Bronze Badges: <num>98</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jacco" url="http://stackoverflow.com/users/22674/jacco">
+        <signatureContent>
+          <p>Reputation: <num>14,449</num>Number of Gold Badges: <num>12</num>Number of Silver Badges: <num>64</num>Number of Bronze Badges: <num>88</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Pacerier" url="http://stackoverflow.com/users/632951/pacerier">
+        <signatureContent>
+          <p>Reputation: <num>27,667</num>Number of Gold Badges: <num>29</num>Number of Silver Badges: <num>137</num>Number of Bronze Badges: <num>263</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Palec" url="http://stackoverflow.com/users/2157640/palec">
+        <signatureContent>
+          <p>Reputation: <num>4,568</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>18</num>Number of Bronze Badges: <num>41</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="shadyyx" url="http://stackoverflow.com/users/598500/shadyyx">
+        <signatureContent>
+          <p>Reputation: <num>11,662</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>26</num>Number of Bronze Badges: <num>57</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Prof. Falken" url="http://stackoverflow.com/users/193892/prof-falken">
+        <signatureContent>
+          <p>Reputation: <num>13,175</num>Number of Gold Badges: <num>7</num>Number of Silver Badges: <num>65</num>Number of Bronze Badges: <num>112</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Your Common Sense" url="http://stackoverflow.com/users/285587/your-common-sense">
+        <signatureContent>
+          <p>Reputation: <num>103,404</num>Number of Gold Badges: <num>418</num>Number of Silver Badges: <num>91</num>Number of Bronze Badges: <num>161</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Top Questions" url="http://stackoverflow.com/users/1986811/top-questions">
+        <signatureContent>
+          <p>Reputation: <num>821</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>13</num>Number of Bronze Badges: <num>32</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-04-21 07:56:11Z" who="Richard Knop" revisedBy="Ram Sharma" revisedWhen="2016-02-05 08:28:16Z" upVote="245" accepted="favorite"><p>Is there an SQL injection possibility even when using mysql_real_escape_string() function?Consider this sample situation. SQL is constructed in PHP like this: 
+            
+$login = mysql_real_escape_string(GetFromPost('login'));
+$password = mysql_real_escape_string(GetFromPost('password'));
+
+$sql = "SELECT * FROM table WHERE login='$login' AND password='$password'";
+            
+I have heard numerous people say to me that a code like that is still dangerous and possible to hack even with mysql_real_escape_string() function used. But I cannot think of any possible exploit?Classic injections like this: 
+ 
+aaa' OR 1=1 --
+            
+ do not work.Do you know of any possible injection that would get through the PHP code above?<tag>php</tag><tag>sql-injection</tag><tag>security</tag><tag>sql</tag><tag>mysql</tag></p></post>
+      </div>
+      <div type="moderator">
+        <head>protected by Samuel Liew Oct 5 '15 at 9:21</head>
+        <post who="Samuel Liew" when="2015-10-05 09:21:21Z">
+          <p>This question is protected to prevent "thanks!", "me too!", or spam answers by new users. To answer it, you must have earned at least 10 reputation on this site.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ThiefMaster" when="2011-04-21 08:05:03Z" indentLevel="1">
+          <p>Usually it's better to do the password validation in the PHP code so you can display a more verbose error (invalid user / invalid password)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Richard Knop" when="2011-04-21 08:25:03Z" indentLevel="1" upVote="1">
+          <p>@ThiefMaster I know, the above is just a simple example to get my point across.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="MatBailie" when="2011-04-21 08:29:03Z" indentLevel="1">
+          <p> Always use prepared statements. The security provision, performance benefits of statement re-use, standardised coding, and library maintainance always (in my opinion) out-weigh any other alternative 'short-cut' method.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mark Baker" when="2011-04-21 08:37:03Z" indentLevel="1" upVote="13">
+          <p>@ThiefMaster - I prefer not to give verbose errors like invalid user / invalid password... it tells brute force merchants that they have a valid user ID, and it's just the password they need to guess</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ThiefMaster" when="2011-04-21 08:47:03Z" indentLevel="1" upVote="6">
+          <p>It's horrible from an usability point of view though. Sometimes you couldn't use your main nickname/username/email-address and forget this after some time or the site deleted your account for inactivity. Then it's extremely annoying if you continue trying passwords and maybe even get your IP blocked even though it's just your username that is invalid.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="tereško" when="2012-12-03 20:47:03Z" indentLevel="1" upVote="19">
+          <p> Please, don't use mysql_* functions in new code. They are no longer maintained and the deprecation process has begun on it. See the red box? Learn about prepared statements instead, and use PDO or MySQLi - this article will help you decide which. If you choose PDO, here is a good tutorial.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="machineaddict" when="2013-07-05 09:36:03Z" indentLevel="1" upVote="5">
+          <p>@tereško: They will not remove the mysql_* function from php, at least not very soon. Maybe in 2050. Think about it, if they remove it, all the servers that are doing automatic update of php will have all the websites nonfunctional. That's just absurd.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="tereško" when="2013-07-05 09:44:03Z" indentLevel="1" upVote="5">
+          <p>@machineaddict, since 5.5 (which was released recently) the mysql_* functions already produce E_DEPRECATED warning. The ext/mysql extension has not been maintained for more then 10 years. Are you really so delusional?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="machineaddict" when="2013-07-05 10:42:03Z" indentLevel="1" upVote="1">
+          <p>As most production websites do not print errors, E_DEPRECATED is useless. Until "all" websites switch from mysql functions, it will not be removed. Even where I work, I have to work with mysql extension, because even they don't think it will be removed very soon. Maybe in php 6.0. Will see...</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Richard Knop" when="2013-07-05 15:20:03Z" indentLevel="1" upVote="1">
+          <p>@machineaddict It will be removed eventually. Servers don't really do automatic updates as you claimed. Most servers are running LTS versions of Linux so they are still running relatively old PHP versions (lots of servers still on PHP 5.1 or 5.2). If they remove it in the next major release of PHP, there will be enough time to stop using mysql_* functions (and seriously nobody has been using it for years, it's only in legacy code) as it will take time (probably few years) until the new release is rolled into LTS releases.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Loenix" when="2014-04-26 08:18:03Z" indentLevel="1">
+          <p>There is only one ultimate way to protect you against SQL injection. Just check the variable contains what you are expecting for. If you are expecting an integer, use ctype_digit... IN most case you shoudl surround it with "" or ''. and escape in variable matching quotes...</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Bimal Poudel" when="2014-07-27 08:18:03Z" indentLevel="1">
+          <p>A [space] character after the two dashes ( -- ) in the last may make the query valid. aaa' OR 1=1 --[SPACE_HERE]</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cHao" when="2014-08-27 22:41:03Z" indentLevel="1">
+          <p> @Loenix: With ints there might be an even better way than that: rather than checking, simply turn it into what you're expecting. $value = (int) $value; or $value = intval($value);. It handles things like negative signs, which ctype_digit won't.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Loenix" when="2014-08-29 06:54:03Z" indentLevel="1">
+          <p>@cHao I can't agree with you. The best way is always to check values cause is does not mean that all integers are expected, we don't want to insert a value that the user don't want too. If you are inserting data, you must : check the content you are expecting and format the value to be standardized or workable. Here, if you check it and you got a non-well formated user name, you could return "Hey your value is not valid, please fix it."</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cHao" when="2014-08-29 08:37:03Z" indentLevel="1">
+          <p>@Loenix: If you're filtering for business reasons (eg: ensuring that a phone number looks like a phone number), that's one thing. But filtering for technical reasons is wrongheaded. SQL injection isn't caused by bad data; it's caused by bad code. One should be able to have a name of &lt;script>alert("①'ᆖ@\'½¶ഝ"), if they really want to type it in. If it would break your app, then your app is already broken. At best, rejecting such a name for technical reasons is a band-aid; at worst, it's false security.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post revisedBy="eggyal" who="Wesley van Opdorp" when="2011-04-21 08:28:21Z" revisedWhen="2011-02-05 08:05:21Z" upVote="166" accepted="accepted">
+          <p>Consider the following query: mysql_real_escape_string()  will not protect you against this.
+The fact that you use single quotes ( ' ' ) around your variables inside your query is what protects you against this. The following is also an option:</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="a_horse_with_no_name" when="2011-04-21 08:19:03Z" indentLevel="1">
+          <p>What if the users passes a single quote as part of the value: 1'; DROP TABLE -- the trailing comment will make the engine ignore the dangling other single quote from the statement</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="MatBailie" when="2011-04-21 08:21:03Z" indentLevel="1" upVote="8">
+          <p>+1 : Thus the value of paramaterised queries :)  I know so many people that try to take short-cuts to save on lines of code.  Much better, in my opinion, to be safer than you think you need to be, rather than find later that you were not safe enough...</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Kzqai" when="2011-09-11 05:09:03Z" indentLevel="1">
+          <p>@wesley $iId = mysql_real_escape_string((int)"1; DROP table"); or `$dirty = "1; DROP table";$iId = mysql_real_escape_string((int)$dirty); would be a better example than what you have, I think.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Pekka ì›ƒ" when="2011-10-07 21:07:46Z" indentLevel="1" upVote="6">
+          <p>But this wouldn't be a real problem, because  mysql_query()  doesn't execute multiple statements, no?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jacco" when="2012-05-21 09:47:46Z" indentLevel="1" upVote="5">
+          <p>@Pekka, Although the usual example is DROP TABLE, in practice the attacker is more likely to SELECT passwd FROM users. In the latter case, the second query is usually executed by use of a UNION clause.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="zerkms" when="2012-07-24 22:40:57Z" indentLevel="1" upVote="44">
+          <p>(int)mysql_real_escape_string  - this makes no sense. It doesn't differ from  (int)  at all. And they will produce the same result for every input</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="NullUserException" when="2012-10-09 16:29:00Z" indentLevel="1" upVote="14">
+          <p>This is more of a misuse of the function than anything else. After all, it is named  mysql_real_escape_string , not  mysql_real_escape_integer  . It's not mean to be used with integer fields.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ircmaxell" when="2012-12-27 22:33:30Z" indentLevel="1" upVote="18">
+          <p>To the people downvoting this answer: this answer is completely correct. This is  far  more likely to be the reason your use of  mysql_real_escape_string  is going to be compromised than my answer below. This belongs as the accepted answer (but both can live together)...</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="Pacerier" when="2015-04-11 13:12:30Z" indentLevel="1" upVote="2">
+          <p>@ircmaxell, Yet the answer is totally misleading. Obviously the question is asking about the contents within the quotes. "Quotes are not there" is not the answer to this question.</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="Palec" when="2016-02-05 08:20:30Z" indentLevel="1">
+          <p>Why did you remove the edit, @eggyal? Casting to int will produce a number, anyway. There can be nothing dangerous about numbers related to escaping, right? And Cast to integer itself does not care about any escaping.</p>
+        </post>
+      </div>
+        <div type="response">
+        <post who="eggyal" when="2016-02-05 08:28:30Z" indentLevel="1">
+          <p>@Palec: You're quite right. I hadn't looked close enough, and thought that the edit had changed the meaning of the answer. My bad.</p>
+        </post>
+      </div>
+           <div type="response">
+        <post who="Eugenio" when="2016-05-19 19:05:07Z" indentLevel="1">
+          <p>@wesley "The fact that you use single quotes (' ') around your variables inside your query is what protects you against this." Well but the single quotes were part of the example, the question asked for an attack for that situation, when you use single quotes.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post revisedBy="mpen" who="ircmaxell" when="2012-08-25 02:08:52Z" revisedWhen="2015-02-24 19:36:52Z" upVote="362">
+          <p>The short answer is yes, yes there is a way to get around mysql_real_escape_string().
+
+For Very OBSCURE EDGE CASES!!!
+
+The long answer isn't so easy. It's based off an attack demonstrated here.
+
+The Attack
+
+So, let's start off by showing the attack...
+
+mysql_query('SET NAMES gbk');
+$var = mysql_real_escape_string("\xbf\x27 OR 1=1 /*");
+mysql_query("SELECT * FROM test WHERE name = '$var' LIMIT 1");
+In certain circumstances, that will return more than 1 row. Let's dissect what's going on here:
+
+Selecting a Character Set
+
+mysql_query('SET NAMES gbk');
+For this attack to work, we need the encoding that the server's expecting on the connection both to encode ' as in ASCII i.e. 0x27 and to have some character whose final byte is an ASCII \ i.e. 0x5c. As it turns out, there are 5 such encodings supported in MySQL 5.6 by default: big5, cp932, gb2312, gbk and sjis. We'll select gbk here.
+
+Now, it's very important to note the use of SET NAMES here. This sets the character set ON THE SERVER. If we used the call to the C API function mysql_set_charset(), we'd be fine (on MySQL releases since 2006). But more on why in a minute...
+The Payload
+
+The payload we're going to use for this injection starts with the byte sequence 0xbf27. In gbk, that's an invalid multibyte character; in latin1, it's the string ¿'. Note that in latin1 and gbk, 0x27 on its own is a literal ' character.
+
+We have chosen this payload because, if we called addslashes() on it, we'd insert an ASCII \ i.e. 0x5c, before the ' character. So we'd wind up with 0xbf5c27, which in gbk is a two character sequence: 0xbf5c followed by 0x27. Or in other words, a valid character followed by an unescaped '. But we're not using addslashes(). So on to the next step...
+mysql_real_escape_string()
+
+The C API call to mysql_real_escape_string() differs from addslashes() in that it knows the connection character set. So it can perform the escaping properly for the character set that the server is expecting. However, up to this point, the client thinks that we're still using latin1 for the connection, because we never told it otherwise. We did tell the server we're using gbk, but the client still thinks it's latin1.
+
+Therefore the call to mysql_real_escape_string() inserts the backslash, and we have a free hanging ' character in our "escaped" content! In fact, if we were to look at $var in the gbk character set, we'd see:
+
+縗' OR 1=1 /*
+Which is exactly what the attack requires.
+The Query
+
+This part is just a formality, but here's the rendered query:
+SELECT * FROM test WHERE name = '縗' OR 1=1 /*' LIMIT 1
+Congratulations, you just successfully attacked a program using mysql_real_escape_string()...
+
+The Bad
+
+It gets worse. PDO defaults to emulating prepared statements with MySQL. That means that on the client side, it basically does a sprintf through mysql_real_escape_string() (in the C library), which means the following will result in a successful injection:
+
+$pdo->query('SET NAMES gbk');
+$stmt = $pdo->prepare('SELECT * FROM test WHERE name = ? LIMIT 1');
+$stmt->execute(array("\xbf\x27 OR 1=1 /*"));
+Now, it's worth noting that you can prevent this by disabling emulated prepared statements:
+
+$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+This will usually result in a true prepared statement (i.e. the data being sent over in a separate packet from the query). However, be aware that PDO will silently fallback to emulating statements that MySQL can't prepare natively: those that it can are listed in the manual, but beware to select the appropriate server version).
+
+The Ugly
+
+I said at the very beginning that we could have prevented all of this if we had used mysql_set_charset('gbk') instead of SET NAMES gbk. And that's true provided you are using a MySQL release since 2006.
+
+If you're using an earlier MySQL release, then a bug in mysql_real_escape_string() meant that invalid multibyte characters such as those in our payload were treated as single bytes for escaping purposes even if the client had been correctly informed of the connection encoding and so this attack would still succeed. The bug was fixed in MySQL 4.1.20, 5.0.22 and 5.1.11.
+
+But the worst part is that PDO didn't expose the C API for mysql_set_charset() until 5.3.6, so in prior versions it cannot prevent this attack for every possible command! It's now exposed as a DSN parameter.
+
+The Saving Grace
+
+As we said at the outset, for this attack to work the database connection must be encoded using a vulnerable character set.  utf8mb4 is not vulnerable and yet can support every Unicode character: so you could elect to use that instead—but it has only been available since MySQL 5.5.3. An alternative is utf8, which is also not vulnerable and can support the whole of the Unicode Basic Multilingual Plane.
+
+Alternatively, you can enable the NO_BACKSLASH_ESCAPES SQL mode, which (amongst other things) alters the operation of mysql_real_escape_string(). With this mode enabled, 0x27 will be replaced with 0x2727 rather than 0x5c27 and thus the escaping process cannot create valid characters in any of the vulnerable encodings where they did not exist previously (i.e. 0xbf27 is still 0xbf27 etc.)—so the server will still reject the string as invalid. However, see @eggyal's answer for a different vulnerability that can arise from using this SQL mode.
+
+Safe Examples
+
+The following examples are safe:
+
+mysql_query('SET NAMES utf8');
+$var = mysql_real_escape_string("\xbf\x27 OR 1=1 /*");
+mysql_query("SELECT * FROM test WHERE name = '$var' LIMIT 1");
+Because the server's expecting utf8...
+
+mysql_set_charset('gbk');
+$var = mysql_real_escape_string("\xbf\x27 OR 1=1 /*");
+mysql_query("SELECT * FROM test WHERE name = '$var' LIMIT 1");
+Because we've properly set the character set so the client and the server match.
+
+$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$pdo->query('SET NAMES gbk');
+$stmt = $pdo->prepare('SELECT * FROM test WHERE name = ? LIMIT 1');
+$stmt->execute(array("\xbf\x27 OR 1=1 /*"));
+Because we've turned off emulated prepared statements.
+
+$pdo = new PDO('mysql:host=localhost;dbname=testdb;charset=gbk', $user, $password);
+$stmt = $pdo->prepare('SELECT * FROM test WHERE name = ? LIMIT 1');
+$stmt->execute(array("\xbf\x27 OR 1=1 /*"));
+Because we've set the character set properly.
+
+$mysqli->query('SET NAMES gbk');
+$stmt = $mysqli->prepare('SELECT * FROM test WHERE name = ? LIMIT 1');
+$param = "\xbf\x27 OR 1=1 /*";
+$stmt->bind_param('s', $param);
+$stmt->execute();
+Because MySQLi does true prepared statements all the time.
+
+Wrapping Up
+
+If you:
+
+Use Modern Versions of MySQL (late 5.1, all 5.5, 5.6, etc) AND mysql_set_charset() / $mysqli->set_charset() / PDO's DSN charset parameter (in PHP ≥ 5.3.6)
+OR
+
+Don't use a vulnerable character set for connection encoding (you only use utf8 / latin1 / ascii / etc)
+You're 100% safe.
+
+Otherwise, you're vulnerable even though you're using mysql_real_escape_string()...</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="netcoder" when="2012-08-25 15:16:21Z" indentLevel="1" upVote="2">
+          <p>PDO emulating prepare statements for MySQL, really? I don't see any reason why it would do that since the driver supports it natively. No?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Theodore R. Smith" when="2012-08-25 16:01:13Z" indentLevel="1" upVote="10">
+          <p>It does. They say in the documentation it doesn't. But in the source code, it's plainly visible and easy to fix. I chalk it up to incompetence of the devs.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ircmaxell" when="2012-08-25 16:11:58Z" indentLevel="1" upVote="3">
+          <p>@TheodoreR.Smith: It's not that easy to fix. I've been working on changing the default, but it fails a boat load of tests when switched. So it's a bigger change than it seems. I'm still hoping to have it finished by 5.5...</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="shadyyx" when="2012-11-20 15:52:58Z" indentLevel="1">
+          <p>@ircmaxell There are few things: as stated in the article You link to, this vulnerability could be used only when using addslashes() and not mysql_real_escape_string() - that should be safe, as written in the article (read once more). Secondly I am very curious how could one PUT, GET or POST char(0xBF) followed by char(0x27)...Though it could be demonstrated with ourselves written PHP I doubt one could post such values from a form or an URL... </p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ircmaxell" when="2012-11-20 16:32:40Z" indentLevel="1" upVote="9">
+          <p>@shadyyx: No, the vulnerability the article described was about  addslashes . I  based  this vulnerability on that one. Try it yourself. Go get MySQL 5.0, and run this exploit and see for yourself. As far as how to put that into PUT/GET/POST, it's TRIVIAL. Input data are just byte streams.  char(0xBF)  is just a readable way of generating a byte. I've demoed this vulnerability live in front of multiple conferences. Trust me on this... But if you don't, try it yourself. It works...</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cHao" when="2012-12-27 06:15:21Z" indentLevel="1" upVote="4">
+          <p>@shadyyx: As for passing such funkiness in $_GET...  ?var=%BF%27+OR+1=1+%2F%2A  in the URL,  $var = $_GET['var'];  in the code, and Bob's your uncle.</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="Prof. Falken" when="2013-09-03 09:36:21Z" indentLevel="1">
+          <p>+1 for spanking php devs</p>
+        </post>
+</div>
+      <div type="response">
+        <post who="eggyal" when="2014-04-26 07:25:21Z" indentLevel="1" upVote="1">
+          <p>@MarkAmery: On reflection, I think you're right. If I want to send 0xbf27 i.e. ¿' over a latin1 connection then of course the client must still escape it as ¿\' i.e. 0xbf5c27. However, if the server is decoding received bytes using GBK (i.e. the client was mistaken about the connection's encoding) then it will perceive there to be an unescaped ' and cannot have any way of knowing that wasn't the developer's intended SQL. I have updated this answer with what I think had been intended: prior to the bugfix, even correctly setting the client charset wouldn't help!</p>
+        </post>
+     </div>
+       <div type="response">
+        <post who="Mark Amery" when="2014-04-27 13:06:21Z" indentLevel="1">
+          <p>@eggyal I now understand the issue properly (and have reproduced it just for fun). Thank you for your awesome work here. Additional things that may be worth noting: 1. the same attack can be demonstrated against mysqli_real_escape_string (as one would expect); your brief note about MySQLi here could be interpreted by somebody foolish as meaning that MySQLi is immune to this attack, but that's only true if you use parametrized queries. 2. php.net/manual/en/mysqlinfo.concepts.charset.php hints at this attack's existence and describes proper ways to set connection charset for each API.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Your Common Sense" when="2014-05-18 09:35:21Z" indentLevel="1">
+          <p> I have a feeling that some emphasizings should be removed, and a cool headed TL;DR added, saying that as long as encoding is set properly and single quotes are used, there would be not a single problem.</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="ircmaxell" when="2014-08-18 14:16:21Z" indentLevel="1" upVote="1">
+          <p>@user1986811 no, other way around. That query is the source of the vulnerability... Never use set names. Instead, always call the proper API method (for mysql_*: mysql_set_charset())...</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="Top Questions" when="2014-08-18 09:36:21Z" indentLevel="1">
+          <p>Okay, then I was confused...i´ll delete my stupid comment, thank you very much. one moment...why was that particular under Safe Examples</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="eggyal" when="2014-04-24 19:15:41Z" revisedWhen="2015-03-31 08:28:41Z" upVote="77">
+          <p>TL;DR
+
+mysql_real_escape_string() will provide no protection whatsoever (and could furthermore munge your data) if:
+
+MySQL's NO_BACKSLASH_ESCAPES SQL mode is enabled (which it might be, unless you explicitly select another SQL mode every time you connect); and
+your SQL string literals are quoted using double-quote " characters.
+This was filed as bug #72458 and has been fixed in MySQL v5.7.6 (see the section headed "The Saving Grace", below).
+This is another, (perhaps less?) obscure EDGE CASE!!!
+
+In homage to @ircmaxell's excellent answer (really, this is supposed to be flattery and not plagiarism!), I will adopt his format:
+
+The Attack
+
+Starting off with a demonstration...
+
+mysql_query('SET SQL_MODE="NO_BACKSLASH_ESCAPES"'); // could already be set
+$var = mysql_real_escape_string('" OR 1=1 -- ');
+mysql_query('SELECT * FROM test WHERE name = "'.$var.'" LIMIT 1');
+This will return all records from the test table. A dissection:
+
+Selecting an SQL Mode
+
+mysql_query('SET SQL_MODE="NO_BACKSLASH_ESCAPES"');
+As documented under String Literals:
+
+There are several ways to include quote characters within a string:
+A “'” inside a string quoted with “'” may be written as “''”.
+A “"” inside a string quoted with “"” may be written as “""”.
+Precede the quote character by an escape character (“\”).
+A “'” inside a string quoted with “"” needs no special treatment and need not be doubled or escaped. In the same way, “"” inside a string quoted with “'” needs no special treatment.
+If the server's SQL mode includes NO_BACKSLASH_ESCAPES, then the third of these options—which is the usual approach adopted by mysql_real_escape_string()—is not available: one of the first two options must be used instead. Note that the effect of the fourth bullet is that one must necessarily know the character that will be used to quote the literal in order to avoid munging one's data.
+The Payload
+
+" OR 1=1 -- 
+The payload initiates this injection quite literally with the " character. No particular encoding. No special characters. No weird bytes.
+mysql_real_escape_string()
+
+$var = mysql_real_escape_string('" OR 1=1 -- ');
+Fortunately, mysql_real_escape_string() does check the SQL mode and adjust its behaviour accordingly. See libmysql.c:
+
+ulong STDCALL
+mysql_real_escape_string(MYSQL *mysql, char *to,const char *from,
+             ulong length)
+{
+  if (mysql->server_status &amp; SERVER_STATUS_NO_BACKSLASH_ESCAPES)
+    return escape_quotes_for_mysql(mysql->charset, to, 0, from, length);
+  return escape_string_for_mysql(mysql->charset, to, 0, from, length);
+}
+Thus a different underlying function, escape_quotes_for_mysql(), is invoked if the NO_BACKSLASH_ESCAPES SQL mode is in use. As mentioned above, such a function needs to know which character will be used to quote the literal in order to repeat it without causing the other quotation character from being repeated literally.
+
+However, this function arbitrarily assumes that the string will be quoted using the single-quote ' character. See charset.c:
+
+/*
+  Escape apostrophes by doubling them up
+
+// [ deletia 839-845 ]
+
+  DESCRIPTION
+    This escapes the contents of a string by doubling up any apostrophes that
+    it contains. This is used when the NO_BACKSLASH_ESCAPES SQL_MODE is in
+    effect on the server.
+
+// [ deletia 852-858 ]
+*/
+
+size_t escape_quotes_for_mysql(CHARSET_INFO *charset_info,
+                               char *to, size_t to_length,
+                               const char *from, size_t length)
+{
+// [ deletia 865-892 ]
+
+    if (*from == '\'')
+    {
+      if (to + 2 > to_end)
+      {
+        overflow= TRUE;
+        break;
+      }
+      *to++= '\'';
+      *to++= '\'';
+    }
+So, it leaves double-quote " characters untouched (and doubles all single-quote ' characters) irrespective of the actual character that is used to quote the literal! In our case $var remains exactly the same as the argument that was provided to mysql_real_escape_string()—it's as though no escaping has taken place at all.
+The Query
+
+mysql_query('SELECT * FROM test WHERE name = "'.$var.'" LIMIT 1');
+Something of a formality, the rendered query is:
+SELECT * FROM test WHERE name = "" OR 1=1 -- " LIMIT 1
+As my learned friend put it: congratulations, you just successfully attacked a program using mysql_real_escape_string()...
+
+The Bad
+
+mysql_set_charset() cannot help, as this has nothing to do with character sets; nor can mysqli::real_escape_string(), since that's just a different wrapper around this same function.
+
+The problem, if not already obvious, is that the call to mysql_real_escape_string() cannot know with which character the literal will be quoted, as that's left to the developer to decide at a later time. So, in NO_BACKSLASH_ESCAPES mode, there is literally no way that this function can safely escape every input for use with arbitrary quoting (at least, not without doubling characters that do not require doubling and thus munging your data).
+
+The Ugly
+
+It gets worse.  NO_BACKSLASH_ESCAPES may not be all that uncommon in the wild owing to the necessity of its use for compatibility with standard SQL (e.g. see section 5.3 of the SQL-92 specification, namely the &lt;quote symbol> ::= &lt;quote>&lt;quote> grammar production and lack of any special meaning given to backslash). Furthermore, its use was explicitly recommended as a workaround to the (long since fixed) bug that ircmaxell's post describes. Who knows, some DBAs might even configure it to be on by default as means of discouraging use of incorrect escaping methods like addslashes().
+
+Also, the SQL mode of a new connection is set by the server according to its configuration (which a SUPER user can change at any time); thus, to be certain of the server's behaviour, you must always explicitly specify your desired mode after connecting.
+
+The Saving Grace
+
+So long as you always explicitly set the SQL mode not to include NO_BACKSLASH_ESCAPES, or quote MySQL string literals using the single-quote character, this bug cannot rear its ugly head: respectively escape_quotes_for_mysql() will not be used, or its assumption about which quote characters require repeating will be correct.
+
+For this reason, I recommend that anyone using NO_BACKSLASH_ESCAPES also enables ANSI_QUOTES mode, as it will force habitual use of single-quoted string literals. Note that this does not prevent SQL injection in the event that double-quoted literals happen to be used—it merely reduces the likelihood of that happening (because normal, non-malicious queries would fail).
+
+In PDO, both its equivalent function PDO::quote() and its prepared statement emulator call upon mysql_handle_quoter()—which does exactly this: it ensures that the escaped literal is quoted in single-quotes, so you can be certain that PDO is always immune from this bug.
+
+As of MySQL v5.7.6, this bug has been fixed. See change log:
+
+Functionality Added or Changed
+
+Incompatible Change: A new C API function, mysql_real_escape_string_quote(), has been implemented as a replacement for mysql_real_escape_string() because the latter function can fail to properly encode characters when the NO_BACKSLASH_ESCAPES SQL mode is enabled. In this case, mysql_real_escape_string() cannot escape quote characters except by doubling them, and to do this properly, it must know more information about the quoting context than is available. mysql_real_escape_string_quote() takes an extra argument for specifying the quoting context. For usage details, see mysql_real_escape_string_quote().
+
+ Note
+
+Applications should be modified to use mysql_real_escape_string_quote(), instead of mysql_real_escape_string(), which now fails and produces an CR_INSECURE_API_ERR error if NO_BACKSLASH_ESCAPES is enabled.
+References: See also Bug #19211994.
+Safe Examples
+
+Taken together with the bug explained by ircmaxell, the following examples are entirely safe (assuming that one is either using MySQL later than 4.1.20, 5.0.22, 5.1.11; or that one is not using a GBK/Big5 connection encoding):
+
+mysql_set_charset($charset);
+mysql_query("SET SQL_MODE=''");
+$var = mysql_real_escape_string('" OR 1=1 /*');
+mysql_query('SELECT * FROM test WHERE name = "'.$var.'" LIMIT 1');
+...because we've explicitly selected an SQL mode that doesn't include NO_BACKSLASH_ESCAPES.
+
+mysql_set_charset($charset);
+$var = mysql_real_escape_string("' OR 1=1 /*");
+mysql_query("SELECT * FROM test WHERE name = '$var' LIMIT 1");
+...because we're quoting our string literal with single-quotes.
+
+$stmt = $pdo->prepare('SELECT * FROM test WHERE name = ? LIMIT 1');
+$stmt->execute(["' OR 1=1 /*"]);
+...because PDO prepared statements are immune from this vulnerability (and ircmaxell's too, provided either that you're using PHP≥5.3.6 and the character set has been correctly set in the DSN; or that prepared statement emulation has been disabled).
+
+$var  = $pdo->quote("' OR 1=1 /*");
+$stmt = $pdo->query("SELECT * FROM test WHERE name = $var LIMIT 1");
+...because PDO's quote() function not only escapes the literal, but also quotes it (in single-quote ' characters); note that to avoid ircmaxell's bug in this case, you must be using PHP≥5.3.6 and have correctly set the character set in the DSN.
+
+$stmt = $mysqli->prepare('SELECT * FROM test WHERE name = ? LIMIT 1');
+$param = "' OR 1=1 /*";
+$stmt->bind_param('s', $param);
+$stmt->execute();
+...because MySQLi prepared statements are safe.
+
+Wrapping Up
+
+Thus, if you:
+
+use native prepared statements
+OR
+
+use MySQL v5.7.6 or later
+OR
+
+in addition to employing one of the solutions in ircmaxell's summary, use at least one of:
+PDO;
+single-quoted string literals; or
+an explicitly set SQL mode that does not include NO_BACKSLASH_ESCAPES
+...then you should be completely safe (vulnerabilities outside the scope of string escaping aside).</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Your Common Sense" when="2014-04-25 09:10:10Z" indentLevel="1" upVote="3">
+          <p>So, TL;DR would be like "there is a NO_BACKSLASH_ESCAPES mysql server mode which can cause an injection if you aren't using single quotes.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="eggyal" when="2014-04-25 09:11:48Z" indentLevel="1">
+          <p>@YourCommonSense: Yes, thank you!  I will add that.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mark Amery" when="2014-04-27 13:10:18Z" indentLevel="1">
+          <p>I'm not able to access  bugs.mysql.com/bug.php?id=72458 ; I just get an access denied page. Is it being hidden from the public due to being a security issue? Also, do I understand correctly from this answer that you are the discoverer of the vulnerability? If so, congratulations.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="eggyal" when="2014-04-27 14:33:10Z" indentLevel="1">
+          <p>@MarkAmery: Er, I think the answer to both of those questions is "yes" - although I suspect many won't consider this to be a vulnerability  per se , but rather a design flaw in separating escaping from quoting.  In the bug report I have proposed a fix, but as it changes the protocol (albeit in a safe way) I don't know whether the fix will be adopted.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cHao" when="2014-08-27 23:04:18Z" indentLevel="1">
+          <p>People shouldn't be using  "  for strings in the first place.  SQL says that's for identifiers.  But eh...just another example of MySQL saying "screw standards, i'll do whatever i want".  (Fortunately, you can include  ANSI_QUOTES  in the mode to fix the quoting brokenness.  The open disregard of standards, though, is a bigger issue that might require more severe measures.)</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Slava" when="2011-04-21 08:01:49Z" upVote="8" revisedWhen="2011-04-21 08:15:00Z">
+          <p>Well, there's nothing really that can pass through that, other than  %  wildcard. It could be dangerous if you were using  LIKE  statement as attacker could put just  %  as login if you don't filter that out, and would have to just bruteforce a password of any of your users.
+People often suggest using prepared statements to make it 100% safe, as data can't interfere with the query itself that way.
+But for such simple queries it probably would be more efficient to do something like  $login = preg_replace('/[^a-zA-Z0-9_]/', '', $login);</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Dor" when="2011-04-21 08:08:33Z" indentLevel="1" upVote="1">
+          <p>+1, but the wildcards are for LIKE clause, not simple equality.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="MatBailie" when="2011-04-21 08:28:01Z" indentLevel="1" upVote="2">
+          <p>By what measure do you consider a simple replacement  more efficient  than using prepared statements?  (Prepared statements always work, the library can be quickly corrected in case of attacks, doesn't expose human error [such as mis-typing the complete replace string], and have significant performance benefits if the statement is re-used.)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cHao" when="2013-01-27 01:26:33Z" indentLevel="1" upVote="3">
+          <p>@Slava: You're effectively limiting usernames and passwords to word chars only.  Most people who know anything about security would consider that a bad idea, as it shrinks the search space considerably.  Course they'd also consider it a bad idea to store cleartext passwords in the database, but we don't need to be compounding the problem.  :)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Slava" when="2013-01-28 09:26:34Z" indentLevel="1" upVote="1">
+          <p>@cHao, my suggestion concerns only logins. Obviously you don't need to filter passwords, sorry it isn't clearly stated in my answer. But actually that might be good idea. Using "stone ignorant tree space" instead of hard-to-remember-and-type "a4üua3!@v\"ä90;8f" would be much harder to bruteforce. Even using a dictionary of, say 3000 words to help you, knowing you used exactly 4 words - that would still be roughly 3.3*10^12 combinations. :)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cHao" when="2013-01-28 13:21:48Z" indentLevel="1">
+          <p>@Slava: I've seen that idea before; see  xkcd.com/936  .  Problem is, the math doesn't quite bear it out.  Your example 17-char password would have like 96^17 possibilities, and that's if you forgot the umlauts and limited yourself to printable ASCII.  That's about 4.5x10^33.  We're talking literally  a billion trillion times  more work to brute force.  Even an 8-char ASCII password would have 7.2x10^15 possibilities -- 3 thousand times more.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Slava" when="2013-01-28 19:29:48Z" indentLevel="1">
+          <p>@cHao, sorry to go on with this holy war here, but still... Let's say you're pretty good on resources and can try 100 million passwords/sec. Using 3k-words dictionary and knowing there are 4 words trying 3.3 trillion passwords would take you about 23 days. That will be enough for host to notice stolen DB and change your password. Safe enough. You can make that many times harder by alternating lower/upper-case letters. And all this assuming attacker knows there are exactly 4 words, which is unlikely.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Slava" when="2013-01-28 19:38:48Z" indentLevel="1">
+          <p>And if you use self-made words, leaving attacker with need to try by char... 22 chars with 6 bits/char (lower-upper case, dashes, etc. = roughly 64) ~= 5.4 duodecillion = years</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cHao" when="2013-01-29 05:41:48Z" indentLevel="1">
+          <p>@Slava: Most site owners hardly even realize there are server logs, much less read through them. And a non-idiot attacker wouldn't steal the data, but simply copy it...leaving the site functional and your average owner not even realizing there was an intrusion (and thus, not knowing to reset passwords), giving the attacker lots of time to crack the easy phrases. Human nature effectively guarantees there will be easy phrases, especially if dictionary words are allowed. And without dictionary words, all you've done is require a 20+-character password, which the users would hate you for. :)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cHao" when="2013-01-29 05:51:48Z" indentLevel="1">
+          <p>Users just want to get shit done. Security directly opposes that in most cases, and you can safely assume it will be avoided or subverted by any means possible. People aren't going to pick a half dozen random imaginary words; they're going to pick a short line/sentence/catchphrase from their favorite book or movie or whatever, making the phrase much, much more predictable. In order to prevent them from doing such things, you'd basically have to make the server understand English and/or search a database of most known artistic works for the phrase used.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

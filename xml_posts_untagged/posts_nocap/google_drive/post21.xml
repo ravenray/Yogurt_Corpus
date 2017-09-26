@@ -1,0 +1,72 @@
+<TEI >
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Can you write a sql statement without spaces between keywords</title>
+        <author>Dan Csharpster</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/37167239/can-you-write-a-sql-statement-without-spaces-between-keywords</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Dan Csharpster" url="http://stackoverflow.com/users/1073742/dan-csharpster">
+        <signatureContent>
+          <p>Reputation: <num>700</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>20</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Julien C" url="http://stackoverflow.com/users/4814663/julien-c">
+        <signatureContent>
+          <p>Reputation: <num>21</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>2</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Sean Lange" url="http://stackoverflow.com/users/3813116/sean-lange">
+        <signatureContent>
+          <p>Reputation: <num>9,490</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>23</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Gordon Linoff" url="http://stackoverflow.com/users/1144035/gordon-linoff">        
+        <signatureContent>          <p>Reputation: <num>415,200</num>Number of Gold Badges: <num>20</num>Number of Silver Badges: <num>116</num>Number of Bronze Badges: <num>179</num></p>        </signatureContent>      </person>  
+      <person xml:id="Carra" url="http://stackoverflow.com/users/21679/carra">        
+        <signatureContent>          <p>Reputation: <num>8,814</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>33</num>Number of Bronze Badges: <num>50</num></p>        </signatureContent>      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2016-05-11 15:34:27Z" who="Dan Csharpster" revisedWhen="2016-05-11 15:49:36Z" downVote="-1">
+            <p>I am trying to do SQL Injection testing but I am currently testing a command line that separates parameters by spaces, so I'm trying to write a sql statement without any spaces.  I've gotten it down to:
+                
+create table"aab"("id"int,"notes"varchar(100))
+
+But I cannot figure out how to get rid of the space between CREATE and TABLE. The same would apply obviously for DROP and TABLE, etc.Does anyone have any ideas?  This is for Microsoft SQL Server 2014.  Thanks![Update]: We are evaluating a third party product for vulnerabilities. I am not doing this to test my own code for weaknesses.<tag>sql</tag><tag>security</tag><tag>database</tag><tag>sql-server</tag></p></post>
+      </div>
+      <div type="response">        
+        <post who="Gordon Linoff" when="2016-05-11 15:37:51Z" upVote="1" indentLevel="1">          
+          <p>You can put in some other white space character (say, newline), but there needs to be a separator.</p>        </post>      </div> 
+      <div type="response">        
+        <post who="Carra" when="2016-05-11 15:48:38Z" indentLevel="1">          <p>Why not simply use prepared statements? That also saves you from sql injection.</p>        </post>      </div> 
+      <div type="answer">
+        <post who="Julien C" when="2016-05-11 15:38:00Z" upVote="1">
+          <p>This is not possible, you have to check every argument to make sure they are as intended. If they are supposed to be numbers, make sure they are numbers, is they are supposed to be a string that may contain specific caracters (like ' or ,) you should escape them when executing the request. There should be a dedicated mechanism in your programmation langage to take care of hat (like PreparedStatement in Java)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Dan Csharpster" when="2016-05-11 15:48:01Z" indentLevel="1">
+          <p>Thanks for the response, Julien!  I should have been more clear. I understand how to develop to protect against SQL injection attacks. We are evaluating a third party product to see if it is vulnerable to SQL Injection and the program is written in erlang. So before I go digging through tons of code in a language I haven't used before, I am trying to kick the tires and see if I can break it.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Sean Lange" when="2016-05-11 16:21:58Z" upVote="0">
+          <p>Sure it is possible to write some pretty elaborate statements without spaces. Here is one.
+   
+select'asdf'as[asdf]into[#MyTable] 
+              
+You can even do things like execute sp_executesql without spaces. 
+  
+exec[sp_executesql]N'select''asdf''as[asdf]into[#MyTable]'</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

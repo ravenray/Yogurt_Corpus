@@ -1,0 +1,178 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Ajax post request vulnerability</title>
+        <author>Avi</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/30214286/ajax-post-request-vulnerability</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Avi" url="http://stackoverflow.com/users/3908296/avi">
+        <signatureContent>
+          <p>Reputation: <num>35</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>0</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Siguza" url="http://stackoverflow.com/users/2302862/siguza">
+        <signatureContent>
+          <p>Reputation: <num>7,673</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>20</num>Number of Bronze Badges: <num>38</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Zgr3doo" url="http://stackoverflow.com/users/1384300/zgr3doo">
+        <signatureContent>
+          <p>Reputation: <num>371</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>2</num>Number of Bronze Badges: <num>8</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2015-05-13 12:05:16Z" who="Avi" revisedWhen="2015-05-13 13:48:36Z" upVote="0" accepted="favorite"><p>I'm trying to record user's clicks on a specific iFrame in a div containing an ad, in order to block problematic IP addresses, thus preventing those who are trying to spam the ad, from being able to click it again. In each click made by the user, a record will be inserted into a table in mySQL database which includes:
+
+    IP address
+    Clicks counter
+    Unix timestamp
+
+Each user/IP address has a privilege to click the ad 3 times in 24 hours. For detecting each click on the iFrame ad, I used iframeTracker-jquery class and implemented a JavaScript code as follow:
+index.php:
+
+&lt;?php include 'AdProtection.php'; ?>
+
+&lt;html>
+
+&lt;head>
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">&lt;/script>
+    &lt;script src="js/jquery.iframetracker.js">&lt;/script>
+    &lt;script>
+        jQuery(document).ready(function($) {
+                    $('.iframetrack iframe').iframeTracker({
+                            blurCallback: function() {
+                                console.log("Click has been detected!");
+                                $.ajax({
+                                        type: "POST",
+                                        url: "update.php"
+                                    );
+                                }
+                            });
+                    });
+    &lt;/script>
+&lt;/head>
+
+&lt;body>
+    &lt;div class="iframetrack" id="adsense_frame">
+        &lt;?php //Returns true when a user 's IP address isn't currently blocked by checking in Database. if(AdProtection::protectAd()) echo '&lt;iframe width="728" height="90" src="js/demo/sample-iframe/red.html" frameborder="0" allowtransparency="true" scrolling="no">&lt;/iframe>'; ?>
+    &lt;/div>
+&lt;/body>
+
+&lt;/html>
+
+update.php:
+
+&lt;?php
+
+function update($odb)
+{
+    $sql=$odb->prepare('INSERT INTO system (ip, clicks, timestamp) VALUES(:ip, clicks+1, :timestamp) ON DUPLICATE KEY UPDATE clicks = clicks+1, timestamp = :timestamp');
+    $sql->execute(array(':ip' => ip2long($_SERVER['REMOTE_ADDR']),':timestamp' => time()));
+}
+
+//PDO Connection
+include ( "db.php");
+$sql=$odb->prepare('SELECT clicks, timestamp FROM system WHERE ip= :ip');
+$sql->execute(array(':ip' => ip2long($_SERVER['REMOTE_ADDR'])));
+$data = $sql->fetch();
+if($data != null)
+{
+    if($data['clicks'] % 3 == 0)
+    {
+        if(($data['timestamp'] + (24 * 60 * 60)) &lt; time())
+            update($odb);
+        else
+            //User is currently blocked.
+    }
+    else
+        update($odb);
+}
+else
+    update($odb);
+
+There are 2 crucial problems when implementing this JavaScript code / jQuery POST request:
+
+    The code can be manipulated/modified by an individual since JavaScript is a client-side language.
+    A spam can be made on the update.php file.
+
+How can I deal with these problems ?
+<tag>javascript</tag><tag>spam</tag><tag>security</tag><tag>ajax</tag><tag>php</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Joe Swindelli" when="2015-05-13 12:36:21Z" indentLevel="1">
+          <p>Why does it matter? If by "spam" to your update.php you mean fast repeated access, all that would happen is the user would lock themselves out really fast.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Avi" when="2015-05-13 13:01:21Z" indentLevel="1">
+          <p> What if several Bots would spam it simultaneously ? Besides, the ajax request can be manipulated in a way that no request will be sent to update.php file.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Joe Swindelli" when="2015-05-13 13:05:21Z" indentLevel="1">
+          <p>I think you need to be more clear on your goals. WHY do you need to prevent traffic TO an ad? That's the point of an ad, to drive traffic. If you're giving credit for clicking daily, then who cares if they go over their 3. You record their 3 clicks and let them keep spamming it.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Avi" when="2015-05-13 13:11:21Z" indentLevel="1">
+          <p>I want to block those IP addresses to prevent spamming the ad, that's why I limit each IP address to click 3 times in 24 hours.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Joe Swindelli" when="2015-05-13 13:16:21Z" indentLevel="1">
+          <p>Check the ip, if ok, THEN show the iframes, space if they have already voted 3 times then do not show the Iframes</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Avi" when="2015-05-13 13:22:21Z" indentLevel="1">
+          <p>That's what the code pretty much do, but this is not the problem. The problem is that the ajax request can be modified by a person who can see the ad, and keep spamming it. The ajax request can be manipulated in a way that no request will be sent to update.php file, resulting in bypassing the check.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Joe Swindelli" when="2015-05-13 13:32:21Z" indentLevel="1">
+          <p>What I suggested isn't what your code does at all.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Siguza" when="2015-05-13 13:37:05Z" upVote="2">
+          <p>Do the checks server-side. Always.
+You have neither control nor reliable knowledge about the client, so with anything sensitive, don't trust it. 
+Ultimately, a user may just download the source code of an open-source browser and modify it as (s)he wishes. Disabling things client-side is a nice plus if it indicates that functionality is not available, and it might save you and your users some time and bandwidth, but there are gonna be those who try to circumvent it, and for those you need to be prepared. 
+Disabling things server-side means just denying execution, i.e. just put an  exit;  after your comment  //User is currently blocked. , that should do it. For your second question: yes, the update.php might get spammed, but so might any other PHP script. 
+Every reasonable web server I know has some way of limiting the amount of requests a client can make in a certain amount of time. 
+Lighttpd has a native  mod_evasive , nginx has  HttpLimitReqModule  and for Apache there's a number of things, see  this SO answer . 
+If the spamming exceeds the capabilities of your web server, it's time to look into DDos protection.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Avi" when="2015-05-13 15:29:21Z" indentLevel="1">
+          <p>How does 'exit;' command in the 'update.php' file help me when trying to deal with client-side manipulation? Let's assume that a client/user has modified the ajax POST request to url: "" instead of url: "update.php". By doing that, a record which includes his IP address wouldn't be inserted through update.php file, resulting in bypassing the system.  Thank you for your reply.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Siguza" when="2015-05-13 18:00:08Z" indentLevel="1">
+          <p>You mean, you display a direct link to  external  ads and want a bulletproof way of determining whether that has been clicked or not? I believe that is only possible by relaying everything through your server. Create a PHP file that fetches the ad contents, modifies the link to point to update.php and echo's it. Display that on the page instead of the ad, and at the end of update.php, redirect the user to the actual ads page ( header('Location: ...'); ). Other than that, there's pretty much nothing you can do.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Zgr3doo" when="2015-05-13 12:31:06Z" downVote="-1">
+          <p>Js code may be manipulated by anyone as its client side all what you can do is to minimalise risk of your code to be potentially disabled by other script in order to do it write your js to use only private methods and variables in a self-executing function. So the code will be not visible in global namespace, you may also need to copy definitions of globally available objects (like document or getElementById) as they may change them and not your code itself. After that obfuscate code and minify it.
+
+    For PHP you will probably need to implement some kind of authentication to work in pair with your js script as this is nothing more than securing any request for access so maybe IP or session validation. Yo may also implement some other server side mechanisms in order to prevent this script from being accessed by certain IP adresses.
+
+You may also decide to not display iframe at all for certain ip addresses or by device fingerprint http://en.wikipedia.org/wiki/Device_fingerprint which will not depend on client side logic, this will probably make it more secure than solution proposed by you.
+</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

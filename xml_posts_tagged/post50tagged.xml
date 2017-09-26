@@ -1,0 +1,174 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>SQL injection vulnerability thru preparedStatement</title>
+        <author>deejay</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/25024894/sql-injection-vulnerability-thru-preparedstatement</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="deejay" url="http://stackoverflow.com/users/355288/deejay">
+        <signatureContent>
+          <p>Reputation: <num>190</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>2</num>Number of Bronze Badges: <num>16</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jon Skeet" url="http://stackoverflow.com/users/22656/jon-skeet">
+        <signatureContent>
+          <p>Reputation: <num>866k</num>Number of Gold Badges: <num>460</num>Number of Silver Badges: <num>6195</num>Number of Bronze Badges: <num>7229</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="spujap" url="http://stackoverflow.com/users/1028173/spujap">
+        <signatureContent>
+          <p>Reputation: <num>36</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>3</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Elliott Frisch" url="http://stackoverflow.com/users/2970947/elliott-frisch">
+        <signatureContent>
+          <p>Reputation: <num>104k</num>Number of Gold Badges: <num>10</num>Number of Silver Badges: <num>44</num>Number of Bronze Badges: <num>91</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Vikdor" url="http://stackoverflow.com/users/240078/vikdor">
+        <signatureContent>
+          <p>Reputation: <num>17k</num>Number of Gold Badges: <num>7</num>Number of Silver Badges: <num>30</num>Number of Bronze Badges: <num>53</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Thom-x" url="http://stackoverflow.com/users/3641207/thom-x">
+        <signatureContent>
+          <p>Reputation: <num>731</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>4</num>Number of Bronze Badges: <num>18</num>
+        </p>
+        </signatureContent>
+      </person>
+       <person xml:id="Jigar Joshi" url="http://stackoverflow.com/users/260990/jigar-joshi">
+        <signatureContent>
+          <p>Reputation: <num>152,912</num>Number of Gold Badges: <num>22</num>Number of Silver Badges: <num>250</num>Number of Bronze Badges: <num>323</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Marc B" url="http://stackoverflow.com/users/118068/marc-b">
+        <signatureContent>
+          <p>Reputation: <num>258,075</num>Number of Gold Badges: <num>22</num>Number of Silver Badges: <num>208</num>Number of Bronze Badges: <num>329</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="immibis" url="http://stackoverflow.com/users/106104/immibis">
+        <signatureContent>
+          <p>Reputation: <num>24,054</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>22</num>Number of Bronze Badges: <num>50</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Mark Rotteveel" url="http://stackoverflow.com/users/466862/mark-rotteveel">
+        <signatureContent>
+          <p>Reputation: <num>33,527</num>Number of Gold Badges: <num>10</num>Number of Silver Badges: <num>40</num>Number of Bronze Badges: <num>65</num>
+        </p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2014-07-29 20:59:11Z" who="deejay" revisedWhen="2014-07-29 22:22:09Z" upVote="1" accepted="favorite">
+            <p>An/DT Statement/NN like/IN this/DT
+
+                String/COB query/COB =/COB "/COB SELECT/COB */COB FROM/COB users/COB WHERE/COB userid/COB =/COB '/COB "/COB +/COB userid/COB +/COB "/COB '/COB "/COB +/COB "/COB AND/COB password/COB =/COB '/COB "/COB +/COB password/COB +/COB "/COB '/COB "/COB ;/COB
+          Statement/COB stmt/COB =/COB connection/COB ./COB createStatement/COB (/COB )/COB ;/COB
+          ResultSet/COB rs/COB =/COB stmt/COB ./COB executeQuery/COB (/COB query/COB )/COB ;/COB
+                is/VBZ eligible/JJ for/IN SQL/ACR injection/NN ./. But/CC how/WRB does/VBZ PreparedStatement/COS helps/VBZ in/IN preventing/VBG SQL/ACR injection/NN ?/. Consider/VBP the/DT following/JJ scenario/NN :/:
+
+          PreparedStatement/COB stmt/COB =/COB connection/COB ./COB prepareStatement/COB (/COB "/COB SELECT/COB */COB FROM/COB users/COB WHERE/COB userid/COB =/COB ?/COB AND/COB password/COB =/COB ?/COB "/COB )/COB ;/COB
+          stmt/COB ./COB setString/COB (/COB 1/COB ,/COB userid/COB )/COB ;/COB
+          stmt/COB ./COB setString/COB (/COB 2/COB ,/COB password/COB )/COB ;/COB
+          ResultSet/COB rs/COB =/COB stmt/COB ./COB executeQuery/COB (/COB )/COB ;/COB
+                what/WP if/IN someone/NNP enters/VBZ the/DT userId/NN =/SYM "/" abc/NN "/" and/CC password/NN =/SYM "/" 1=1/NN "/" ,/, as/IN this/DT will/MD also/RB be/VB considered/VBN as/IN valid/JJ String/NN .../.<tag>java</tag><tag>jdbc</tag><tag>sql</tag>
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post who="Jigar Joshi" when="2014-07-29 20:59:01Z" indentLevel="1" upVote="5">
+          <p>try it &lt;!-------&gt;</p>
+        </post>
+       </div>
+      <div type="response">
+        <post who="Marc B" when="2014-07-29 21:01:01Z" indentLevel="1">
+            <p>what/WP ?/. did/VBD you/PRP think/VBP that/WDT the/DT DB/ACR library/NN //: server/NN would/MD be/VB stupid/JJ enough/RB to/TO just/RB do/VB str_replace/COB (/COB '/COB ?/COB '/COB ,/COB $/COB userid/COB ,/COB $/COB attack_string/COB )/COB ?/. The/DT whole/JJ point/NN of/IN placeholders/NNS is/VBZ to/TO tell/VB the/DT DB/ACR where/WRB outside/JJ information/NN is/VBZ going/VBG to/TO go/VB ,/, and/CC allow/VBP it/PRP to/TO keep/VB that/DT outside/JJ information/NN separate/JJ from/IN the/DT actual/JJ query/NN so/IN that/WDT the/DT attack/NN "/" code/NN "/" in/IN the/DT outside/JJ data/NN never/RB gets/VBZ a/DT chance/NN to/TO be/VB executed/VBN ./.</p>
+        </post>
+       </div>
+      <div type="response">
+        <post who="immibis" when="2014-07-29 21:10:01Z" indentLevel="1">
+            <p>It/PRP does/VBZ n't/RB just/RB replace/VB the/DT ?'s/NNS with/IN the/DT strings/NNS you/PRP passed/VBD in/IN ./.
+          </p>
+        </post>
+       </div>
+      <div type="answer">
+        <post who="Jon Skeet" when="2014-07-29 21:04:31Z" upVote="5" accepted="accepted">
+            <p>The/DT exact/JJ way/NN in/IN which/WDT this/DT protects/VBZ you/PRP is/VBZ up/VBN to/TO the/DT database/NN ,/, but/CC there/EX are/VBP two/CD obvious/JJ options/NNS :/:
+
+                The/DT database/NN driver/NN could/MD perform/VB string/NN interpolation/NN and/CC generate/VB a/DT SQL/ACR statement/NN which/WDT ensures/VBZ that/WDT all/DT parameters/NNS are/VBP properly/RB escaped/VBN ./.
+                The/DT database/NN driver/NN could/MD pass/VB the/DT SQL/ACR exactly/RB as/IN you/PRP 've/VBP specified/VBN it/PRP to/TO the/DT database/NN ,/, and/CC pass/VB the/DT values/NNS for/IN the/DT parameters/NNS through/IN an/DT entirely/RB separate/JJ channel/NN ,/, which/WDT does/VBZ n't/RB need/VB any/DT escaping/NN ,/, because/IN it/PRP just/RB contains/VBZ the/DT values/NNS ./.
+                The/DT latter/NN is/VBZ a/DT more/JJR sensible/JJ solution/NN in/IN my/PRP$ view/NN ,/, as/IN it/PRP allows/VBZ the/DT database/NN to/TO cache/VB query/NN plans/NNS really/RB simply/RB ,/, recognizing/VBG that/WDT two/CD queries/NNS are/VBP exactly/RB the/DT same/JJ other/JJ than/IN the/DT parameter/NN values/NNS ./. I/PRP 'd/MD expect/VB any/DT modern/JJ database/NN to/TO support/VB this/DT in/IN its/POS native/JJ communication/NN protocol/NN ./.</p>
+        </post>
+       </div>
+      <div type="answer">
+        <post who="spujap" when="2014-07-29 22:22:09Z" upVote="2">
+          <p>   String/COB query/COB =/COB "/COB SELECT/COB */COB FROM/COB users/COB WHERE/COB userid/COB =/COB '/COB "/COB +/COB userid/COB +/COB "/COB '/COB "/COB +/COB "/COB AND/COB password/COB =/COB '/COB "/COB  +/COB password/COB +/COB "/COB '/COB "/COB ;/COB
+              Here/RB if/IN you/PRP are/VBP trying/VBG to/TO demonstrate/VB sql/ACR injection/NN ,/, the/DT value/NN for/IN password/NN could/MD be/VB like/IN :/: '/" OR/CC 1/CD =/SYM 1/CD OR/CC '/" '/" =/SYM '/"
+
+              Then/RB resulting/JJ SQL/ACR that/WDT is/VBZ being/VBG sent/VB to/TO DB/ACR server/NN for/IN execution/NN is/VBZ -/:
+
+          SELECT/COB */COB FROM/COB users/COB WHERE/COB userid/COB =/COB '/COB abc/COB '/COB AND/COB password/COB =/COB '/COB '/COB OR/COB 1/COB =/COB 1/COB OR/COB '/COB '/COB =/COB '/COB '/COB
+              So/IN it/PRP selects/VBZ all/DT entries/NNS from/IN table/NN regardless/RB of/IN userid/NN and/CC password/NN since/RB userid/NN =/SYM '/" abc/NN '/" AND/CC password/NN =/SYM '/" '/" OR/CC 1/CD =/SYM 1/CD OR/CC '/" '/" =/SYM '/" '/" is/VBZ always/RB true/JJ ./. Any/DT unauthorized/JJ person/NN would/MD get/VB all/DT access/NN to/TO all/DT user/NN 's/POS data/NN ./.
+
+              In/IN case/NN of/IN 2nd/JJ statement/NN which/WDT uses/VBZ parametrized/JJ prepared/JJ statement/NN -/:
+
+              It/PRP would/MD search/VB for/IN entries/NNS in/IN the/DT table/NN with/IN userid/NN =/SYM "/" abc/NN "/" and/CC password/NN =/SYM "/" '/" OR/CC 1/CD =/SYM 1/CD OR/CC '/" '/" =/SYM '/" "/"
+
+              Since/RB prepared/JJ statements/NNS are/VBP pre/JJ compiled/VBN in/IN DB/ACR server/NN i.e./FW first/RB the/DT blank/JJ query/NN SELECT/COB */COB FROM/COB users/COB WHERE/COB userid/COB =/COB ?/COB AND/COB password/COB =/COB ?/COB is/VBZ sent/VB to/TO the/DT server/NN which/WDT would/MD then/RB compile/VB it/PRP and/CC after/IN that/WDT the/DT data/NN (/( parameters/NNS )/) are/VBP sent/VB to/TO the/DT db/ACR separately/RB (/( when/WRB executing/VBG it/PRP )/) ./. The/DT data/NN i.e./FW password/NN =/SYM '/" OR/CC 1/CD =/SYM 1/CD OR/CC '/" '/" =/SYM '/" is/VBZ sent/VB as/IN a/DT string/NN literal/NN by/IN JDBC/ACR Driver/NN ./. Then/RB DB/ACR server/NN forces/VBZ it/PRP to/TO be/VB used/VBN as/IN a/DT valid/JJ parameter/NN and/CC not/RB a/DT sql/ACR query/NN ./.</p>
+        </post>
+       </div>
+      <div type="response">
+        <post who="Mark Rotteveel" when="2014-07-30 07:11:01Z" indentLevel="1">
+            <p>The/DT MySQL/ACR JDBC/ACR driver/NN -/: contrary/JJ to/TO most/JJ other/JJ JDBC/ACR drivers/NNS -/: by/IN default/NN does/VBZ replace/VB the/DT parameters/NNS with/IN (/( escaped/JJ )/) values/NNS instead/RB of/IN using/VBG server/NN side/NN prepared/JJ statements/NNS ./.</p>
+        </post>
+       </div>
+      <div type="answer">
+        <post who="Elliott Frisch" when="2014-07-29 21:02:23Z" upVote="0">
+            <p>With/IN your/PRP$ second/JJ example/NN ,/,
+
+          PreparedStatement/COB stmt/COB =/COB connection/COB ./COB prepareStatement/COB (/COB "/COB SELECT/COB */COB FROM/COB users/COB "/COB
+              +/COB "/COB WHERE/COB userid/COB =/COB ?/COB AND/COB password/COB =/COB ?/COB "/COB )/COB ;/COB
+          stmt/COB ./COB setString/COB (/COB 1/COB ,/COB userid/COB )/COB ;/COB
+          stmt/COB ./COB setString/COB (/COB 2/COB ,/COB password/COB )/COB ;/COB
+          ResultSet/COB rs/COB =/COB stmt/COB ./COB executeQuery/COB (/COB )/COB ;/COB
+                what/WP if/IN someone/NNP enters/VBZ the/DT userId/NN =/SYM "/" abc/NN "/" and/CC password/NN =/SYM "/" 1/CD =/SYM 1/CD "/" ,/, as/IN this/DT will/MD also/RB be/VB considered/VBN as/IN valid/JJ String/NN .../.
+                The/DT answer/NN is/VBZ yes/RB ,/, but/CC a/DT properly/RB escaped/JJ String/NN literal/NN ./. So/RB ,/, the/DT password/NN would/MD have/VBP to/TO literally/RB be/VB 1/CD =/SYM 1/CD for/IN that/WDT to/TO work/VB ./. To/TO be/VB clear/JJ ,/, it/PRP is/VBZ not/RB subject/JJ to/TO SQL/ACR injection/NN because/IN those/DT variables/NNS are/VBP properly/RB bound/JJ ./.
+
+                Per/IN the/DT PreparedStatement/COS ./COS setString/COS (/COS int/COS ,/COS String/COS )/COS Javadoc/NNP bold/NN added/VBD ,/,
+
+                Sets/VBZ the/DT designated/JJ parameter/NN to/TO the/DT given/JJ Java/NNP String/NN value/NN ./. The/DT driver/NN converts/VBZ this/DT to/TO an/DT SQL/ACR VARCHAR/COS or/CC LONGVARCHAR/COS value/NN (/( depending/VBG on/IN the/DT argument/NN 's/POS size/NN relative/JJ to/TO the/DT driver/NN 's/POS limits/NNS on/IN VARCHAR/COS values/NNS )/) when/WRB it/PRP sends/VBZ it/PRP to/TO the/DT database/NN ./.</p>
+        </post>
+       </div>
+      <div type="answer">
+        <post who="Thom-x" revisedBy="Vikdor" when="2014-07-29 21:03:56Z" upVote="0">
+            <p>With/IN a/DT prepared/JJ statment/NN your/PRP$ request/NN will/MD be/VB :/:
+
+                SELECT/COB */COB FROM/COB users/COB WHERE/COB userId/COB =/COB \/COB &quot;/COB abc/COB \/COB &quot;/COB AND/COB password/COB =/COB \/COB &quot;/COB 1/COB =/COB 1/COB \/COB &quot;/COB
+          </p>
+        </post>
+       </div>
+      <div type="response">
+        <post who="Mark Rotteveel" when="2014-07-30 07:11:54Z" indentLevel="1">
+            <p>For/IN most/JJ JDBC/ACR drivers/NNS it/PRP wo/MD n't/RB work/VB like/IN this/DT ,/, they/PRP send/VB the/DT parameters/NNS separately/RB from/IN the/DT query/NN ./. Also/RB note/VBP that/WDT in/IN SQL/ACR strings/NNS are/VBP enclosed/VBN in/IN single/JJ quotes/NNS ,/, not/RB double/JJ quotes/NNS ./.
+          </p>
+        </post>
+       </div>
+      </body>
+    </text>
+</TEI>

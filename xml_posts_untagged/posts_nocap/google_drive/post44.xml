@@ -1,0 +1,109 @@
+<TEI >
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Is this PostgreSQL query vulnerable?</title>
+        <author>user</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/13235664/is-this-postgresql-query-vulnerable</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="user" url="http://stackoverflow.com/users/1162541/user">
+        <signatureContent>
+          <p>Reputation: <num>315</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>22</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="StormByte" url="http://stackoverflow.com/users/739009/stormbyte">
+        <signatureContent>
+          <p>Reputation: <num>663</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>7</num>Number of Bronze Badges: <num>24</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Kami" url="http://stackoverflow.com/users/1603275/kami">
+        <signatureContent>
+          <p>Reputation: <num>12.3k</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>19</num>Number of Bronze Badges: <num>46</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2012-11-05 15:54:08Z" who="user" revisedWhen="2012-11-05 15:59:03Z" upVote="3" accepted="favorite"><p>
+
+Using the pg_escape_literal PHP function, I'm escaping my user input data as follows:
+
+  <?php
+  $dbconn = pg_connect('dbname=foo');
+  $escaped = pg_escape_literal($_GET['name']);
+  pg_query("INSERT INTO participants (name) VALUES ({$escaped})");
+  ?>
+
+Being new to PostgreSQL, my questions are:
+
+    Is there a way to achieve an SQL injection given this code?
+    Is there any other vulnerability that is left untreated in this code?
+
+Using PHP 5.4 and PostgreSQL 9.2.
+<tag>php</tag><tag>postgresql</tag><tag>security</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Craig Ringer" when="2012-11-06 00:30:04Z" indentLevel="1">
+          <p>Thanks for showing the code, the versions, and providing a clear question. Much appreciated</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="StormByte" when="2012-11-05 15:59:03Z" upVote="5" accepted="accepted">
+          <p>Since you do not trust any user input and you escape it accordingly, there is no injection in there.
+Furthermore, you can use  prepared statements  to ensure you don't forget any escape, and you take correct data types for the sentence. Remember that if you forget only 1 escape, your whole system is compromised despite it may be escaped all the rest.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Craig Ringer" when="2012-11-06 00:30:04Z" indentLevel="1">
+          <p>For this reason it's also a good idea to weed out obvious SQL injection attempts. Find the string  ');  in a username? It's probably worth rejecting. See comment on other post.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="StormByte" when="2012-11-08 11:52:03Z" indentLevel="1">
+          <p>Yes, but since  prepared statements  are not affected by any attempt like that, it is the safest way. Also, it would be faster as you will not need to check any attempt via any regexp or so.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Craig Ringer" when="2012-11-08 12:22:38Z" indentLevel="1" upVote="1">
+          <p>I agree that prepared statements (or parameterized statements, really) are crucial. I'm just saying that some data cleaning isn't necessarily a bad idea  in addition , since it'll help stop attackers using one part of an app to insert data that's then used by another (perhaps supposedly internal-only) part with weaker security, exploiting the weaker app.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Kami" when="2012-11-05 15:58:01Z" upVote="1">
+          <p>That is the recomended method for escaping queries and ensuring sql injection attacks do not work. If you are extra paranoid, or just want to be safe, you can also do regex to weed out unwanted characters and length checks of the data before you escape it.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Frank Heikens" when="2012-11-05 16:11:45Z" indentLevel="1">
+          <p>What problem would a regex solve what escaping can't solve?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Kami" when="2012-11-05 16:42:01Z" indentLevel="1">
+          <p>Like I pointed out, escaping should prevent sql injection.  However, it will still result in an erroneous query.  As such is a good idea to add a regular expression check prior to the query, to ensure that name field in this instance or any other value generally, contains only the characters your application is expecting.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Frank Heikens" when="2012-11-05 17:57:42Z" indentLevel="1" upVote="1">
+          <p>In that case, add a check constraint as well, that makes it impossible to forget this check anywhere in your code.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Craig Ringer" when="2012-11-06 00:25:24Z" indentLevel="1">
+          <p>@FrankHeikens It's actually a really good idea, because one app or part of an app can carefully handle untrusted data, thus merrily inserting the user named  ');DELETE FROM users;-- . A sloppier app or part of the app might then read the data and interpolate it into another string - "because it came from the DB so it's trustworthy". Splat. Excluding obviously suspicious strings where there's no genuine reason for them to exist is in this case valuable extra protection, IMO, though no substitute for just not coding security holes in the 1st place. It's helping block XSS SQL injection.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Craig Ringer" when="2012-11-06 00:28:24Z" indentLevel="1">
+          <p>@Kami While I agree that a regex check is actually a good idea, I also think Frank is right - it should be done as a  CHECK  constraint, not in the application. More importantly I  strongly disagree that  pg_escape_literal  is the recommended method for handling untrusted parameters . Use parameterized queries ("prepared statements").</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

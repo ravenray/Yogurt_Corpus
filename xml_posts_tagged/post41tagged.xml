@@ -1,0 +1,310 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>How does the/DT JPEG of Death vulnerability operate?</title>
+        <author>Rafa</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/28369097/how-does-the/DT-jpeg-of-death-vulnerability-operate</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Rafa" url="http://stackoverflow.com/users/3043261/rafa">
+        <signatureContent>
+          <p>Reputation: <num>417</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>5</num>Number of Bronze Badges: <num>10</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Neitsa" url="http://stackoverflow.com/users/507028/neitsa">
+        <signatureContent>
+          <p>Reputation: <num>3,530</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>10</num>Number of Bronze Badges: <num>25</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="MichaelCMS" url="http://stackoverflow.com/users/746569/michaelcms">
+        <signatureContent>
+          <p>Reputation: <num>3,256</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>8</num>Number of Bronze Badges: <num>22</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2015-02-06 15:26:02Z" who="Rafa" revisedWhen="2015-03-01 00:21:49Z" upVote="93" accepted="favorite"><p>I/PRP ’ve/VBP been/VBN reading/VBG about/IN an/DT older/JJ exploit/NN against/IN GDI+/NNP on/IN Windows/NNP XP/NNP and/CC Windows/NNP Server/NN 2003/CD called/VBN the/DT JPEG/NNP of/IN death/NN for/IN a/DT project/NN I/PRP ’m/VBP working/VBG on/IN ./.
+
+the/DT exploit/NN is/VBZ well/RB explained/VBN in/IN the/DT following/JJ link/NN :/: http://www.infosecwriters.com/text_resources/pdf/JPEG.pdf/URL
+
+Basically/RB ,/, a/DT JPEG/NNP file/NN contains/VBZ a/DT section/NN called/VBD COM/COS containing/VBG a/DT (/( possibly/JJ empty/JJ )/) comment/NN field/NN ,/, and/CC a/DT two/CD byte/NN value/NN containing/VBG the/DT size/NN of/IN COM/COS ./. If/IN there/EX are/VBP no/DT comments/NNS ,/, the/DT size/NN is/VBZ 2/CD ./. the/DT reader/NN (/( GDI+/NNP )/) reads/VBZ the/DT size/NN ,/, subtracts/VBZ two/CD ,/, and/CC allocates/VBZ a/DT buffer/NN of/IN the/DT appropriate/JJ size/NN to/TO copy/VB the/DT comments/NNS in/IN the/DT heap/NN ./. the/DT attack/NN involves/VBZ placing/VBG a/DT value/NN of/IN 0/CD in/IN the/DT field/NN ./. GDI+/NNP subtracts/VBZ 2/CD ,/, leading/VBG to/TO a/DT value/NN of/IN -2/CD (/( 0xFFFe/SYM )/) which/WDT gets/VBZ converted/VBD to/TO the/DT unsigned/JJ integer/NN 0XFFFFFFFE/SYM by/IN memcpy/NNP ./.  
+
+
+Sample/JJ code/NN :/:
+
+unsigned/COB int//COB size/COB ;/COB
+size/COB =/COB len/COB -/COB 2/COB ;/COB
+char/COB */COB comment/COB =/COB (/COB char/COB */COB )/COB malloc/COB (/COB size/COB +/COB 1/COB )/COB ;/COB
+memcpy/COB (/COB comment/COB ,/COB src/COB ,/COB size/COB )/COB ;/COB
+
+Observe/VBP that/WDT malloc/COS (/COS 0/COS )/COS on/IN the/DT third/JJ line/NN should/MD return/VB a/DT pointer/NN to/TO unallocated/JJ memory/NN on/IN the/DT heap/NN ./. How/WRB can/MD writing/VBG 0XFFFFFFFE/SYM bytes/NNS (/( 4/CD GB/ACR !/. !/. !/. !/. )/) possibly/RB not/RB crash/VB the/DT program/NN ?/. Does/VBZ this/DT write/VB beyond/RB the/DT heap/NN area/NN and/CC into/IN the/DT space/NN of/IN other/JJ programs/NNS and/CC the/DT OS/ACR ?/. What/WP happens/VBZ then/RB ?/.
+
+As/IN I/PRP understand/VBP memcpy/COS ,/, it/PRP simply/RB copies/VBZ n/SYM characters/NNS from/IN the/DT destination/NN to/TO the/DT source/NN ./. In/IN this/DT case/NN ,/, the/DT source/NN should/MD be/VB on/IN the/DT stack/NN ,/, the/DT destination/NN on/IN the/DT heap/NN ,/, and/CC n/SYM is/VBZ 4/CD GB/ACR ./.
+<tag>c++</tag><tag>malware</tag><tag>memcpy</tag><tag>security</tag></p></post>
+      </div>
+        <div type="response">
+        <post who="iedoc" when="2015-02-06 16:01:53Z" indentLevel="1">
+          <p>malloc/NN will/MD allocate/VB memory/NN from/IN the/DT heap/NN ./. i/PRP think/VBP the/DT exploit/NN was/VBD done/VBN before/IN memcpy/COS and/CC after/IN the/DT memory/NN was/VBD allocated/VBN </p>
+        </post>
+      </div>
+        <div type="response">
+        <post who="AcidShout" when="2015-02-06 18:24:37Z" indentLevel="1">
+          <p>just/RB as/IN a/DT side/JJ note/NN :/: it/PRP 's/VBZ not/RB memcpy/COS what/WP promotes/VBZ the/DT value/NN to/TO an/DT unsigned/JJ integer/NN (/( 4/CD bytes/NN )/) ,/, but/CC rather/RB the/DT subtraction/NN ./.</p>
+        </post>
+      </div>
+        <div type="response">
+        <post who="Neitsa" when="2015-02-15 15:04:00Z" indentLevel="1">
+          <p>Updated/VBD my/PRP$ previous/JJ answer/NN with/IN a/DT live/JJ example/NN ./. The/DT malloced/JJ size/NN is/VBZ only/RB 2/CD bytes/NNS rather/RB than/IN 0xFFFFFFFE/SYM ./. This/DT enormous/JJ size/NN is/VBZ only/RB used/VBN for/IN the/DT copy/NN size/NN ,/, not/RB for/IN the/DT allocation/NN size/NN</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Neitsa" when="2015-02-06 17:00:28Z" upVote="89">
+          <p>
+
+This/DT vulnerability/NN was/VBD definitely/RB a/DT heap/NN overflow/NN ./.
+
+    How/WRB can/MD writing/VBG 0XFFFFFFFE/SYM bytes/NN (/( 4/CD GB/ACR !/. !/. !/. !/. )/) possibly/RB not/RB crash/VB the/DT program/NN ?/.
+
+it/PRP probably/RB will/MD, but/CC on/IN some/DT occasions/NNS you/PRP got/VBD time/NN to/TO exploit/VB before/IN the/DT crash/NN happens/VBZ (/(sometimes/RB ,/, you/PRP can/MD get/VB the/DT program/NN back/RB to/TO it/PRP s/POS normal/JJ execution/NN and/CC avoid/VBP the/DT crash/NN )/) ./.
+
+When/WRB the/DT memcpy/COS (/COS )/COS starts/VBZ ,/, the/DT copy/NN will/MD overwrite/VB either/JJ some/DT other/JJ heap/NN blocks/NNS or/CC some/DT parts/NNS of/IN the/DT heap/NN management/NN structure/NN (/( e.g/FW free/JJ list/NN ,/, busy/JJ list/NN ,/, etc./FW )/) ./.
+
+              At/IN some/DT point/NN the/DT copy/NN will/MD encounter/VB a/DT non/JJ allocated/JJ page/NN and/CC trigger/VBP an/DT AV/ACR (/( Access/NN Violation/NN )/) on/IN write/VB ./. GDI/ACR +/SYM will/MD then/RB try/VB to/TO allocate/VB a/DT new/JJ block/NN in/IN the/DT heap/NN (/( see/VBP ntdll!RtlAllocateHeap/FW )/)  .../. but/CC the/DT heap/NN structures/NNS are/VBP now/RB all/DT messed/VBN up/RP ./.
+
+              At/IN that/DT point/NN ,/, by/IN carefully/RB crafting/VBG your/PRP$ JPEG/ACR image/NN you/PRP can/MD overwrite/VB the/DT heap/NN management/NN structures/NNS with/IN controlled/JJ data/NN ./. When/WRB the/DT system/NN tries/VBZ to/TO allocate/VB the/DT new/JJ block/NN ,/, it/PRP will/MD probably/RB unlink/VB a/DT (/( free/JJ )/) block/NN from/IN the/DT free/JJ list/NN ./.
+
+              Block/NN are/VBP managed/VBN with/IN (/( notably/RB )/) a/DT flink/NN (/( Forward/JJ link/NN ;/: the/DT next/JJ block/NN in/IN the/DT list/NN )/) and/CC blink/NN (/( Backward/JJ link/NN ;/: the/DT previous/JJ block/NN in/IN the/DT list/NN )/) pointers/NNS ./. If/IN you/PRP control/VBP both/DT of/IN the/DT flink/NN and/CC blink/NN ,/, you/PRP might/MD have/VBP a/DT possible/JJ WRITE4/COS (/( write/VBP What/WP //: Where/WRB condition/NN )/) where/WRB you/PRP control/VBP what/WP you/PRP can/MD write/VB and/CC where/WRB you/PRP can/MD write/VB ./.
+
+              At/IN that/DT point/NN you/PRP can/MD overwrite/VB a/DT function/NN pointer/NN (/( SEH/ACR [/[ Structured/JJ Exception/NN Handlers/NNS ]/] pointers/NNS were/VBD a/DT target/NN of/IN choice/NN at/IN that/DT time/NN back/RB in/IN 2004/CD )/) and/CC gain/VBP code/NN execution/NN ./.
+
+              See/VBP blog/NN post/NN Heap/NN Corruption/NN :/: a/DT Case/NN Study/NN ./.
+
+              Note/NN :/: although/IN I/PRP wrote/VBD about/IN the/DT exploitation/NN using/VBG the/DT freelist/NN ,/, an/DT attacker/NN might/MD choose/VB another/DT path/NN using/VBG other/DT heap/NN metadata/NN (/( "/" heap/NN metadata/NN "/" are/VBP structures/NNS used/VBN by/IN the/DT system/NN to/TO manage the/DT heap/NN ;/: flink/NN and/CC blink/NN are/VBP part/NN of/IN the/DT heap/NN metadata/NN )/) ,/, but/CC the/DT unlink/NN exploitation/NN is/VBZ probably/RB the/DT "/" easiest/JJS "/" one/CD ./. a/DT google/NNP search/NN for/IN "/" heap/NN exploitation/NN "/" will/MD return/VB numerous/JJ studies/NNS about/IN this/DT ./.
+
+              Does/VBZ this/DT write/VB beyond/IN the/DT heap/NN area/NN and/CC into/IN the/DT space/NN of/IN other/DT programs/NNS and/CC the/DT OS/ACR ?/.
+
+              Never/RB ./. Modern/JJ OS/ACR are/VBP based/VBN on/IN the/DT concept/NN of/IN virtual/JJ address/NN space/NN so/IN each/DT process/NN on/IN has/VBZ it/PRP s/POS own/JJ virtual/JJ address/NN space/NN that/WDT enables/VBZ addressing/VBG up/IN to/TO 4/CD gigabytes/NNS of/IN memory/NN on/IN a/DT 32/CD -/: bit/NN system/NN (/( in/IN practice/NN you/PRP only/RB got/VBD half/NN of/IN it/PRP in/IN user-land/NN ,/, the/DT rest/NN is/VBZ for/IN the/DT kernel/NN )/) ./.
+
+              In/IN short/JJ ,/, a/DT process/NN can/MD 't/RB access/VB the/DT memory/NN of/IN another/DT process/NN (/( except/IN if/IN it/PRP asks/VBZ the/DT kernel/NN for/IN it/PRP through/IN some/DT service/NN //: API/ACR ,/, but/CC the/DT kernel/NN will/MD check/VB if/IN the/DT caller/NN has/VBZ the/DT right/NN to/TO do/VB so/IN )/) ./.
+
+              I/PRP decided/VBD to/TO test/VB this/DT vulnerability/NN this/DT week-end/NN ,/, so/IN we/PRP could/MD get/VB a/DT good/JJ idea/NN on/IN what/WP was/VBD going/VBG on/IN rather/RB than/IN pure/JJ speculation/NN ./. the/DT vulnerability/NN is/VBZ now/RB 10/CD years/NNS old/JJ ,/, so/IN I/PRP thought/VBD it/PRP was/VBD OK/JJ to/TO write/VB about/IN it/PRP ,/, although/IN I/PRP have/VBP n't/RB explained/VBN the/DT exploitation/NN part/NN in/IN this/DT answer/NN ./.
+
+              Planning/NN
+
+              the/DT most/JJS difficult/JJ task/NN was/VBD to/TO find/VB a/DT Windows/NNP XP/ACR with/IN only/RB SP1/ACR ,/, as/IN it/PRP was/VBD in/IN 2004/CD :)/EMO
+
+              Then/RB ,/, I/PRP downloaded/VBD a/DT JPEG/ACR image/NN composed/VBD only/RB of/IN a/DT single/JJ pixel/NN ,/, as/IN shown/VBN below/IN (/( cut/VB for/IN brevity/NN )/) :/:
+
+              File/COB 1x1_pixel/COB ./COB JPG/COB
+Address/COB   Hex/COB dump/COB                                         ASCII/COB
+00000000/COB  FF/COB D8/COB FF/COB E0/COB |/COB 00/COB 10/COB 4A/COB 46/COB |/COB 49/COB 46/COB 00/COB 01/COB |/COB 01/COB 01/COB 00/COB 60/COB |/COB ÿØÿà/COB JFIF/COB  `/COB
+00000010/COB  00/COB 60/COB 00/COB 00/COB |/COB FF/COB E1/COB 00/COB 16/COB |/COB 45/COB 78/COB 69/COB 66/COB |/COB 00/COB 00/COB 49/COB 49/COB |/COB  `/COB  ÿá/COB Exif/COB  II/COB
+00000020/COB  2A/COB 00/COB 08/COB 00/COB |/COB 00/COB 00/COB 00/COB 00/COB |/COB 00/COB 00/COB 00/COB 00/COB |/COB FF/COB DB/COB 00/COB 43/COB |/COB */COB          ÿÛ/COB C/COB
+[/COB .../COB ]/COB
+
+              a/DT JPEG/ACR picture/NN is/VBZ composed/VBN of/IN binary/NN markers/NNS (/( which/WDT intrduce/VB segments/NNS )/) ./. In/IN the/DT above/JJ image/NN ,/, FF/FW D8/FW is/VBZ the/DT SOI/ACR (/( Start/NN Of/IN Image/NN )/) marker/NN ,/, while/IN FF/FW E0/FW ,/, for/IN example/NN ,/, is/VBZ an/DT application/NN marker/NN ./.
+
+              the/DT first/JJ parameter/NN in/IN a/DT marker/NN segment/NN (/( except/IN some/DT markers/NNS like/IN SOI/ACR )/) is/VBZ a/DT two-byte/NN length/NN parameter/NN which/WDT encodes/VBZ the/DT number/NN of/IN bytes/NNS in/IN the/DT marker/NN segment/NN ,/, including/VBG the/DT length/NN parameter/NN and/CC excluding/VBG the/DT two-byte/NN marker/NN ./.
+
+              I/PRP simply/RB added/VBD a/DT COM/COS marker/NN (/( 0xFFFE/COS )/) right/JJ after/IN the/DT SOI/ACR ,/, since/IN markers/NNS have/VBP no/DT strict/JJ order/NN ./.
+
+File/COB 1x1_pixel_comment_mod1/COB ./COB JPG/COB
+Address/COB   Hex/COB dump/COB                                         ASCII/COB
+00000000/COB  FF/COB D8/COB FF/COB FE/COB |/COB 00/COB 00/COB 30/COB 30/COB |/COB 30/COB 30/COB 30/COB 30/COB |/COB 30/COB 31/COB 30/COB 30/COB |/COB ÿØÿþ/COB  0000000100/COB
+00000010/COB  30/COB 32/COB 30/COB 30/COB |/COB 30/COB 33/COB 30/COB 30/COB |/COB 30/COB 34/COB 30/COB 30/COB |/COB 30/COB 35/COB 30/COB 30/COB |/COB 0200030004000500/COB
+00000020/COB  30/COB 36/COB 30/COB 30/COB |/COB 30/COB 37/COB 30/COB 30/COB |/COB 30/COB 38/COB 30/COB 30/COB |/COB 30/COB 39/COB 30/COB 30/COB |/COB 0600070008000900/COB
+00000030/COB  30/COB 61/COB 30/COB 30/COB |/COB 30/COB 62/COB 30/COB 30/COB |/COB 30/COB 63/COB 30/COB 30/COB |/COB 30/COB 64/COB 30/COB 30/COB |/COB 0a000b000c000d00/COB
+[/COB .../COB ]/COB
+
+              the/DT length/NN of/IN the/DT COM/COS segment/NN is/VBZ set/VB to/TO 00/CD 00/CD to/TO trigger/VB the/DT vulnerability/NN ./. I/PRP also/RB injected/VBD 0xFFFC/FW bytes/NNS right/IN after/IN the/DT COM/COS marker/NN with/IN a/DT recurring/JJ pattern/NN ,/, a/DT 4/CD bytes/NNS number/NN in/IN hex/COS ,/, which/WDT will/MD become/VB handy/JJ when/WRB "/" exploiting/VBG "/" the/DT vulnerability/NN ./.
+
+              Debugging/NN
+
+              Double/JJ clicking/VBG the/DT image/NN will/MD immediately/RB trigger/VB the/DT bug/NN in/IN the/DT Windows/NNP shell/NN (/( aka/ACR "/" explorer.exe/COS "/" )/) ,/, somewhere/RB in/IN gdiplus.dll/COS ,/, in/IN a/DT function/NN named/VBD GpJpegDecoder/COS :/COS :/COS read_jpeg_marker/COS (/COS )/COS ./.
+
+              This/DT function/NN is/VBZ called/VBN for/IN each/DT marker/NN in/IN the/DT picture/NN ,/, it/PRP simply/RB :/: reads/VBZ the/DT marker/NN segment/NN size/NN ,/, allocates/VBZ a/DT buffer/NN whose/WP$ length/NN is/VBZ the/DT segment/NN size/NN and/CC copy/VBP the/DT content/NN of/IN the/DT segment/NN into/IN this/DT newly/RB allocated/JJ buffer/NN ./.
+
+              Here/RB the/DT start/NN of/IN the/DT function/NN :/:
+
+              ./COB text/COB :/COB 70E199D5/COB  mov/COB     ebx/COB ,/COB [/COB ebp/COB +/COB arg_0/COB ]/COB ;/COB ebx/COB =/COB */COB this/COB (/COB GpJpegDecoder/COB instance/COB )/COB
+./COB text/COB :/COB 70E199D8/COB  push/COB    esi/COB
+./COB text/COB :/COB 70E199D9/COB  mov/COB     esi/COB ,/COB [ ebx/COB +/COB 18h/COB ]/COB
+./COB text/COB :/COB 70E199DC/COB  mov/COB     eax/COB ,/COB [/COB esi/COB ]/COB      ;/COB eax/COB =/COB pointer/COB to/COB segment/COB size/COB
+./COB text/COB :/COB 70E199DE/COB  push/COB    edi/COB
+./COB text/COB :/COB 70E199DF/COB  mov/COB     edi/COB ,/COB [/COB esi/COB +/COB 4/COB ]/COB    ;/COB edi/COB =/COB bytes/COB left/COB to/COB process/COB in/COB the/DT image/COB
+
+              eax/COS register/NN points/VBZ to/TO the/DT segment/NN size/NN and/CC edi/COS is/VBZ the/DT number/NN of/IN bytes/NNS left/VB in/IN the/DT image/NN ./.
+
+              the/DT code/NN then/RB proceeds/VBZ to/TO read/VB the/DT segment/NN size/NN ,/, starting/VBG by/IN the/DT most/JJS significant/JJ byte/NN (/( length/NN is/VBZ a/DT 16-bits/NNS value/NN )/) :/:
+
+./COB text/COB :/COB 70E199F7/COB  xor/COB     ecx/COB ,/COB ecx/COB        ;/COB segment_size/COB =/COB 0/COB
+./COB text/COB :/COB 70E199F9/COB  mov/COB     ch/COB ,/COB [/COB eax/COB ]/COB       ;/COB get/COB most/COB significant/COB byte/COB from/COB size/COB -/COB -/COB >/COB CH/COB =/COB =/COB 00/COB
+./COB text/COB :/COB 70E199FB/COB  dec/COB     edi/COB             ;/COB bytes_to_process/COB -/COB -/COB
+./COB text/COB :/COB 70E199FC/COB  inc/COB     eax/COB             ;/COB pointer/COB +/COB +/COB
+./COB text/COB :/COB 70E199FD/COB  test/COB    edi/COB ,/COB edi/COB
+./COB text/COB :/COB 70E199FF/COB  mov/COB     [/COB ebp/COB +/COB arg_0/COB ]/COB ,/COB ecx/COB ;/COB save/COB segment_size/COB
+
+              and/CC the/DT least/JJS significant/JJ byte/NN :/:
+
+./COB text/COB :/COB 70E19A15/COB  movzx/COB   cx/COB ,/COB byte/COB ptr/COB [/COB eax/COB ]/COB ;/COB get/COB least/COB significant/COB byte/COB from/COB size/COB -/COB -/COB >/COB  CX/COB =/COB =/COB 0/COB
+./COB text/COB :/COB 70E19A19/COB  add/COB     [/COB ebp/COB +/COB arg_0/COB ]/COB ,/COB ecx/COB   ;/COB save/COB segment_size/COB
+./COB text/COB :/COB 70E19A1C/COB  mov/COB     ecx/COB ,/COB [/COB ebp/COB +/COB lpMem/COB ]/COB
+./COB text/COB :/COB 70E19A1F/COB  inc/COB     eax/COB             ;/COB pointer/COB +/COB +/COB
+./COB text/COB :/COB 70E19A20/COB  mov/COB     [/COB esi/COB ]/COB ,/COB eax/COB
+./COB text/COB :/COB 70E19A22/COB  mov/COB     eax/COB ,/COB [/COB ebp/COB +/COB arg_0/COB ]/COB ;/COB eax/COB =/COB segment_size/COB
+
+              Once/RB this/DT is/VBZ done/JJ ,/, the/DT segment/NN size/NN is/VBZ used/VBN to/TO allocate/VB a/DT buffer/NN ,/, following/VBG this/DT calculation/NN :/:
+
+alloc_size/COB =/COB segment_size/COB +/COB 2/COB
+
+              This/DT is/VBZ done/VBN by/IN the/DT code/NN below/IN :/:
+
+./COB text/COB :/COB 70E19A29/COB  movzx/COB   esi/COB ,/COB word/COB ptr/COB [/COB ebp/COB +/COB arg_0/COB ]/COB ;/COB esi/COB =/COB segment/COB size/COB (/COB cast/COB from/COB 16-bit/COB to/TO 32-bit/COB )/COB
+./COB text/COB :/COB 70E19A2D/COB  add/COB     eax/COB ,/COB 2/COB 
+./COB text/COB :/COB 70E19A30/COB  mov/COB     [/COB ecx/COB ]/COB ,/COB ax/COB 
+./COB text/COB :/COB 70E19A33/COB  lea/COB     eax/COB ,/COB [/COB esi/COB +/COB 2/COB ]/COB ;/COB alloc_size/COB =/COB segment_size/COB +/COB 2/COB
+./COB text/COB :/COB 70E19A36/COB  push/COB    eax/COB             ;/COB dwBytes/COB
+./COB text/COB :/COB 70E19A37/COB  call/COB    _GpMalloc/COB @/COB 4/COB     ;/COB GpMalloc/COB (/COB x/COB )/COB
+
+              In/IN our/PRP$ case/NN ,/, as/IN the/DT segment/NN size/NN is/VBZ 0/CD ,/, the/DT allocated/JJ size/NN for/IN the/DT buffer/NN is/VBZ 2/CD bytes/NNS ./.
+
+              the/DT vulnerability/NN is/VBZ right/RB after/IN the/DT allocation/NN :/:
+
+./COB text/COB :/COB 70E19A37/COB  call/COB    _GpMalloc/COB @/COB 4/COB     ;/COB GpMalloc/COB (/COB x/COB )/COB
+./COB text/COB :/COB 70E19A3C/COB  test/COB    eax/COB ,/COB eax/COB
+./COB text/COB :/COB 70E19A3E/COB  mov/COB     [/COB ebp/COB +/COB lpMem/COB ]/COB ,/COB eax/COB ;/COB save/COB pointer/COB to/COB allocation/COB
+./COB text/COB :/COB 70E19A41/COB  jz/COB      loc_70E19AF1/COB 
+./COB text/COB :/COB 70E19A47/COB  mov/COB     cx/COB ,/COB [/COB ebp/COB +/COB arg_4/COB ]/COB   ;/COB low/COB marker/COB byte/COB (/COB 0xFE/COB )/COB
+./COB text/COB :/COB 70E19A4B/COB  mov/COB     [/COB eax/COB ]/COB ,/COB cx/COB         ;/COB save/COB in/COB alloc/COB (/COB offset/COB 0/COB )/COB
+;/COB [/COB .../COB ]/COB
+./COB text/COB :/COB 70E19A52/COB  lea/COB     edx/COB ,/COB [/COB esi-2/COB ]/COB      ;/COB edx/COB =/COB segment_size/COB -/COB 2/COB =/COB 0/COB -/COB 2/COB =/COB 0xFFFFFFFE/COB !/. !/. !/.
+;/COB [/COB .../COB ]/COB
+./COB text/COB :/COB 70E19A61/COB  mov/COB     [/COB ebp/COB +/COB arg_0/COB ]/COB ,/COB edx/COB
+
+              the/DT code/NN simply/RB subtracts/VBZ the/DT segment_size/COS size/NN (/( segment/NN length/NN is/VBZ a/DT 2/CD bytes/NNS value/NN )/) from/IN the/DT whole/JJ segment/NN size/NN (/( 0/CD in/IN our/PRP$ case/NN )/) and/CC ends/VBZ up/RP with/IN an/DT integer/NN underflow/NN :/: 0/CD -/SYM 2/CD =/SYM 0xFFFFFFFE/COS
+
+              the/DT code/NN then/RB checks/VBZ is/VBZ there/EX are/VBP bytes/NNS left/VB to/TO parse/VB in/IN the/DT image/NN (/( which/WDT is/VBZ true/JJ )/) ,/, and/CC then/RB jumps/VBZ to/TO the/DT copy/NN :/:
+
+./COB text/COB :/COB 70E19A69/COB  mov/COB     ecx/COB ,/COB [/COB eax/COB +/COB 4/COB ]/COB  ;/COB ecx/COB =/COB bytes/COB left/COB to/TO parse/COB (/COB 0x133/COB )/COB
+./COB text/COB :/COB 70E19A6C/COB  cmp/COB     ecx/COB ,/COB edx/COB      ;/COB edx/COB =/COB 0xFFFFFFFE/COB
+./COB text/COB :/COB 70E19A6E/COB  jg/COB      short/COB loc_70E19AB4/COB ;/COB take/COB jump/COB to/TO copy/COB
+;/COB [/COB .../COB ]/COB
+./COB text/COB :/COB 70E19AB4/COB  mov/COB    eax/COB ,/COB [/COB ebx/COB +/COB 18h/COB ]/COB
+./COB text/COB :/COB 70E19AB7/COB  mov/COB     esi/COB ,/COB [/COB eax/COB ]/COB      ;/COB esi/COB =/COB source/COB =/COB points/COB to/TO segment/COB content/COB (/COB "/COB 0000000100020003/COB .../COB "/COB )/COB
+./COB text/COB :/COB 70E19AB9/COB  mov/COB     edi/COB ,/COB dword/COB ptr/COB [/COB ebp/COB +/COB arg_4/COB ]/COB  ;/COB edi/COB =/COB destination/COB buffer/COB
+./COB text/COB :/COB 70E19ABC/COB  mov/COB     ecx/COB ,/COB edx/COB        ;/COB ecx/COB =/COB copy/COB size/COB =/COB segment/COB content/COB size/COB =/COB 0xFFFFFFFE/COB
+./COB text/COB :/COB 70E19ABE/COB  mov/COB     eax/COB ,/COB ecx/COB
+./COB text/COB :/COB 70E19AC0/COB  shr/COB     ecx/COB ,/COB 2/COB          ;/COB size/COB //COB 4/COB
+./COB text/COB :/COB 70E19AC3/COB  rep/COB movsd/COB               ;/COB copy/COB segment/COB content/COB by/COB 32-bit/COB chunks/COB
+
+              the/DT above/JJ snippet/NN shows/VBZ that/WDT copy/NN size/NN is/VBZ 0xFFFFFFFE/FW 32-bits/NNS chunks/NNS ./. the/DT source/NN buffer/NN is/VBZ controlled/VBN (/( content/NN of/IN the/DT picture/NN )/) and/CC the/DT destination/NN is/VBZ a/DT buffer/NN on/IN the/DT heap/NN ./.
+
+              Write/VB condition/NN
+
+              the/DT copy/NN will/MD trigger/VB an/DT access/NN violation/NN (/( AV/ACR )/)  exception/NN when/WRB it/PRP reaches/VBZ the/DT end/NN of/IN the/DT memory/NN page/NN (/( this/DT could/MD be/VB either/RB from/IN the/DT source/NN pointer/NN or/CC destination/NN pointer/NN )/) ./. When/WRB the/DT AV/ACR is/VBZ triggered/VBN ,/, the/DT heap/NN is/VBZ already/RB in/IN a/DT vulnerable/JJ state/NN because/IN the/DT copy/NN has/VBZ already/RB overwritten/VBN all/DT following/JJ heap/NN blocks/NNS until/IN a/DT non-mapped/JJ page/NN was/VBZ encountered/VBN ./.
+
+              What/WP makes/VBZ this/DT bug/NN exploitable/JJ is/VBZ that/WDT 3/CD SEH/ACR (/( Structured/JJ Exception/NN Handler/NN ;/: this/DT is/VBZ try/VB //: except/IN at/IN low/JJ level/NN )/) are/VBP catching/VBG exceptions/NNS on/IN this/DT part/NN of/IN the/DT code/NN ./. More/RBR precisely/RB ,/, the/DT 1st/JJ SEH/ACR will/MD unwind/VB the/DT stack/NN so/IN it/PRP gets/VBZ back/RB to/TO parse/VB another/DT JPEG/ACR marker/NN ,/, thus/RB completely/RB skipping/VBG the/DT marker/NN that/WDT triggered/VBD the/DT exception/NN ./.
+
+              Without/IN an/DT SEH/ACR the/DT code/NN would/MD have/VBP just/RB crashed/VBN the/DT whole/JJ program/NN ./. So/IN the/DT code/NN skips/VBZ the/DT COM/COS segment/NN and/CC parses/VBZ another/DT segment/NN ./. So/IN we/PRP get/VB back/RB to/TO GpJpegDecoder/COS :/COS :/COS read_jpeg_marker/COS (/COS )/COS with/IN a/DT new/JJ segment/NN and/CC when/WRB the/DT code/NN allocates/VBZ a/DT new/JJ buffer/NN :/:
+
+./COB text/COB :/COB 70E19A33/COB  lea/COB     eax/COB ,/COB [/COB esi/COB +/COB 2/COB ]/COB ;/COB alloc_size/COB =/COB semgent_size/COB +/COB 2/COB
+./COB text/COB :/COB 70E19A36/COB  push/COB    eax/COB             ;/COB dwBytes/COB
+./COB text/COB :/COB 70E19A37/COB  call/COB    _GpMalloc/COB @/COB 4/COB     ;/COB GpMalloc/COB (/COB x/COB )/COB
+
+              the/DT system/NN will/MD unlink/VB a/DT block/NN from/IN the/DT free/JJ list/NN ./. it/PRP happens/VBZ that/WDT metadata/NN structures/NNS were/VBD overwritten/VBN by/IN the/DT content/NN of/IN the/DT image/NN ;/: so/IN we/PRP control/VBP the/DT unlink/NN with/IN controlled/JJ metadata/NN ./. the/DT below/JJ code/NN in/IN somewhere/RB in/IN the/DT system/NN (/( ntdll/COS )/) in/IN the/DT heap/NN manager/NN :/:
+
+              CPU/COB Disasm/COB
+Address/COB   Command/COB                                  Comments/COB
+77F52CBF/COB  MOV/COB ECX/COB ,/COB DWORD/COB PTR/COB DS/COB :/COB [/COB EAX/COB ]/COB               ;/COB eax/COB points/COB to/COB '/COB 0003/COB '/COB ;/COB ecx/COB =/COB 0x33303030/COB
+77F52CC1/COB  MOV/COB DWORD/COB PTR/COB SS/COB :/COB [/COB EBP-0B0/COB ]/COB ,/COB ECX/COB           ;/COB save/COB ecx/COB
+77F52CC7/COB  MOV/COB EAX/COB ,/COB DWORD/COB PTR/COB DS/COB :/COB [/COB EAX/COB +/COB 4/COB ]/COB             ;/COB [/COB eax/COB +/COB 4/COB ]/COB points/COB to/COB '/COB 0004/COB '/COB ;/COB eax/COB =/COB 0x34303030/COB
+77F52CCA/COB  MOV/COB DWORD/COB PTR/COB SS/COB :/COB [/COB EBP-0B4/COB ]/COB ,/COB EAX/COB
+77F52CD0/COB  MOV/COB DWORD/COB PTR/COB DS/COB :/COB [/COB EAX/COB ]/COB ,/COB ECX/COB               ;/COB write/COB 0x33303030/COB to/COB 0x34303030/COB !/. !/. !/.
+
+              Now/RB we/PRR can/MD write/VB what/WP we/PRP want/VB ,/, where/WRB we/PRP want/VB .../.
+</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="MichaelCMS" when="2015-02-06 16:12:03Z" upVote="3">
+            <p>Since/IN I/PRP do/VBP n't/RB know/VB the/DT code/NN from/IN GDI/ACR ,/, what/WP 's/VBZ below/IN is/VBZ just/RB speculation/NN ./.
+
+                Well/RB ,/, one/CD thing/NN that/WDT pops/VBZ into/IN mind/NN is/VBZ one/CD behavior/NN that/WDT I/PRP 've/VBP noticed/VBN on/IN some/DT OSes/NNPS (/( I/PRP do/VBP n't/RB know/VB if/IN Windows/NNP XP/NNP had/VBD this/DT )/) was/VBN when/WRB allocating/VBG with/IN new/JJ //: malloc/NN ,/, you/PRP can/MD actually/RB allocate/VB more/JJR than/IN your/PRP$ RAM/ACR ,/, as/IN long/JJ as/IN you/PRP do/VBP n't/RB write/VB to/TO that/DT memory/NN ./.
+
+                This/DT is/VBZ actually/RB a/DT behavior/NN of/IN the/DT linux/NNP Kernel/NN ./.
+
+                From/IN www.kernel.org/URL :/:
+
+                Pages/NNS in/IN the/DT process/NN linear/NN address/NN space/NN are/VBP not/RB necessarily/RB resident/JJ in/IN memory/NN ./. For/IN example/NN ,/, allocations/NNS made/VBD on/IN behalf/NN of/IN a/DT process/NN are/VBP not/RB satisfied/VBD immediately/RB as/IN the/DT space/NN is/VBZ just/RB reserved/VBN within/IN the/DT vm_area_struct/COS ./.
+
+                to/TO get/VB into/IN resident/NN memory/NN a/DT page/NN fault/NN must/MD be/VB triggered/VBN ./.
+
+                Basically/RB you/PRP need/VBP to/TO make/VB the/DT memory/NN dirty/JJ before/IN it/PRP actually/RB gets/VBZ allocated/VBN on/IN the/DT system/NN :/:
+
+                unsigned/COB int/COB size/COB =/COB -/COB 1/COB ;/COB
+  char/COB */COB comment/COB =/COB new/COB char/COB [/COB size/COB ]/COB ;/COB
+
+                Sometimes/RB it/PRP wo/MD n't/RB actually/RB make/VB a/DT real/JJ allocation/NN in/IN RAM/ACR (/( your/PRP$ program/NN will/MD still/RB not/RB use/VB 4/CD GB/ACR )/) ./. I/PRP know/VBP I/PRP 've/VBP seen/VBN this/DT behavior/NN on/IN a/DT Linux/NNP ,/, but/CC I/PRP can/MD not/RB however/RB replicate/VB it/PRP now/RB on/IN my/PRP$ Windows/NNP 7/CD installation/NN ./.
+
+                Starting/VBZ from/IN this/DT behavior/NN the/DT following/JJ scenario/NN is/VBZ possible/JJ ./.
+
+                In/IN order/NN to/TO make/VB that/DT memory/NN existing/VBG in/IN RAM/ACR you/PRP need/VBP to/TO make/VB it/PRP dirty/JJ (/( basically/RB memset/NN or/CC some/DT other/JJ write/NN to/TO it/PRP )/) :/:
+
+  memset/COB (/COB comment/COB ,/COB 0/COB ,/COB size/COB )/COB ;/COB
+
+                However/RB the/DT vulnerability/NN exploits/VBZ a/DT buffer/NN overflow/NN ,/, not/RB an/DT allocation/NN failure/NN ./.
+
+                In/IN other/JJ words/NNS ,/, if/IN I/PRP 'd/MD were/VBD to/TO have/VB this/DT :/:
+
+ unsinged/COB int/COB size/COB =/COB -/COB 1/COB ;/COB
+                char/COB */COB p/COB =/COB new/COB char/COB [/COB size/COB ]/COB ;/COB //: //: will/MD not/RB crash/VB here/RB
+ memcpy/COB (/COB p/COB ,/COB some_buffer/COB ,/COB size/COB )/COB ;/COB
+
+                This/DT will/MD lead/VB to/TO a/DT write/NN after/IN buffer/NN ,/, because/IN there/EX 's/VBZ no/DT such/JJ thing/NN as/IN a/DT 4/CD GB/ACR segment/NN of/IN continuous/JJ memory/NN ./.
+
+                you/PRP did/MD n't/RB put/VB anything/NNP in/IN p/COS to/TO make/VB the/DT whole/NN 4/CD GB/ACR of/IN memory/NN dirty/JJ ,/, and/CC I/PRP do/VBP n't/RB know/VB if/IN memcpy/COS makes/VBZ memory/NN dirty/JJ all/DT at/IN once/RB ,/, or/CC just/RB page/NN by/IN page/NN (/( I/PRP think/VBP it/PRP 's/VBZ page/NN by/IN page/NN )/) ./.
+
+                Eventually/RB it/PRP will/MD end/VB up/RP overwriting/VBG the/DT stack/NN frame/NN (/( Stack/NN Buffer/NN Overflow/NN )/) ./.
+
+                Another/DT more/JJR possible/JJ vulnerability/NN was/VBD if/IN the/DT picture/NN was/VBD kept/VBN in/IN memory/NN as/IN a/DT byte/NN array/NN (/( read/VBP whole/JJ file/NN into/IN buffer/NN )/) ,/, and/CC the/DT size/NN of/IN comments/NNS was/VBD used/VBN just/RB to/TO skip/VB ahead/IN non-vital/JJ information/NN ./.
+
+                For/IN example/NN
+
+     unsigned/COB int/COB commentsSize/COB =/COB -/COB 1/COB ;/COB
+     char/COB */COB wholePictureBytes/COB ;/COB //COB //COB  Has/VBZ size/NN of/IN file/NN
+     .../.
+                //: //: Time/NN to/TO start/VB processing/VBG the/DT output/NN color/NN
+     char/COB */COB p/COB =/COB wholePictureButes/COB ;/COB
+     offset/COB =/COB (/COB short/COB )/COB p/COB [/COB COM_OFFSET/COB ]/COB ;/COB
+     char/COB */COB dataP/COB =/COB p/COB +/COB offset/COB ;/COB
+                dataP/COB [/COB 0/COB ]/COB =/COB EvilHackerValue/COB ;/COB //COB //COB  Vulnerability/NN here/RB
+
+                As/IN you/PRP mentioned/VBD ,/, if/IN the/DT GDI/ACR did/MD n't/RB allocates/VBZ that/DT size/NN ,/, the/DT program/NN will/MD never/RB crash/VB ./.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rodrigo" when="2015-02-06 16:24:29Z" indentLevel="1">
+            <p>That/WDT could/MD be/IN with/IN a/DT 64-bit/NN system/NN ,/, where/WRB 4/CD GB/ACR is/VBZ not/RB a/DT big/JJ deal/NN (/( speaking/VBG about/IN addess/NN space/NN )/) ./. but/CC in/IN a/DT 32-bit/NN system/NN ,/, (/( they/PRP appear/VB to/TO be/VB vulnerable/JJ too/RB )/) you/PRP can/MD not/RB reserve/VB 4/CD GB/ACR of/IN address/NN space/NN ,/, because/IN that/WDT would/MD be/VB all/DT there/EX is/VBZ !/. So/IN a/DT  malloc/NN (/( -/COS 1U/COS )/)  will/MD surely/RB fail/VB ,/, return/VBP  NULL/COS  and/CC  memcpy/COS (/COS )/COS  will/MD crash/VB ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="chue x" when="2015-02-06 19:49:28Z" indentLevel="1">
+            <p>I/PRP do/VBP n't/RB think/VB this/DT line/NN is/VBZ true/JJ :/: "/" Eventually/RB it/PRP will/MD end/VB up/RP writing/VBG into/IN another/DT process/NN address/NN ./. "/" Normally/RB one/CD process/NN can/MD not/RB access/VB another/DT 's/POS memory/NN ./. See/VBP  MMU/ACR Benefits/NNS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="MichaelCMS" when="2015-02-11 11:19:04Z" indentLevel="1">
+            <p>@/ATS MMU/ACR Benefits/NNS yes/UH ,/, you/PRP are/VBP right/JJ ./. I/PRP was/VBD meant/VBN to/TO say/VB that/WDT will/MD go/VB over/RP the/DT normal/JJ heap/NN boundaries/NNS and/CC start/VB overwriting/VBG the/DT stack/NN frame/NN ./. I/PRP will/MD edit/VB my/PRP$ answer/NN ,/, thanks/VBZ for/IN pointing/VBG it/PRP out/RP ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

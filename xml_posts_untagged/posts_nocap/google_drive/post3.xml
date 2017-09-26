@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>mysql_escape_string vulnerabilities</title>
+				<author>Asad</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source?</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/13026469/mysql-escape-string-vulnerabilities</p>
+			</sourceDesc>
+		</fileDesc>
+		<listPerson>
+			<person xml:id="Asad" url="http://stackoverflow.com/users/1726343/asad-saeeduddin">
+				<signatureContent>
+					<p>Reputation: <num>23.8k</num>
+						Number of Gold Badges: <num>1</num>
+						Number of Silver Badges:<num>24</num>
+						Number of Bronze Badges:<num>50</num></p>
+				</signatureContent>
+			</person>
+			<person xml:id="JvdBerg" url="http://stackoverflow.com/users/1617954/jvdberg">
+				<signatureContent>
+					<p>Reputation: <num>12,301</num>
+						Number of Gold Badges: <num>5</num>
+						Number of Silver Badges:<num>14</num>
+						Number of Bronze Badges:<num>36</num></p>
+				</signatureContent>
+			</person>
+			<person xml:id="NullPoiиteя" url="http://stackoverflow.com/users/1723893/nullpoi%D0%B8te%D1%8F">
+				<signatureContent>
+					<p>Reputation: <num>27,148</num>
+						Number of Gold Badges: <num>11</num>
+						Number of Silver Badges:<num>58</num>
+						Number of Bronze Badges:<num>94</num></p>
+				</signatureContent>
+			</person>
+			<person xml:id="lserni" url="http://stackoverflow.com/users/1428679/lserni">
+				<signatureContent>
+					<p>Reputation: <num>20.6k</num>
+						Number of Gold Badges: <num>5</num>
+						Number of Silver Badges:<num>15</num>
+						Number of Bronze Badges:<num>40</num></p>
+				</signatureContent>
+			</person>
+			<person xml:id="Jon" url="http://stackoverflow.com/users/50079/jon">
+				<signatureContent>
+					<p>Reputation: <num>208k</num>
+						Number of Gold Badges: <num>26</num>
+						Number of Silver Badges:<num>319</num>
+						Number of Bronze Badges:<num>453</num></p>
+				</signatureContent>
+			</person>
+			<person xml:id="martinstoeckli" url="http://stackoverflow.com/users/575765/martinstoeckli">
+				<signatureContent>
+					<p>Reputation: <num>9,179</num>
+						Number of Gold Badges: <num>2</num>
+						Number of Silver Badges:<num>13</num>
+						Number of Bronze Badges:<num>34</num></p>
+				</signatureContent>
+			</person>
+			<person xml:id="William The Dev" url="http://stackoverflow.com/users/1405274/william-the-dev">
+				<signatureContent>
+					<p>Reputation: <num>395</num>
+						Number of Gold Badges: <num></num>
+						Number of Silver Badges:<num>3</num>
+						Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+			</person>
+		</listPerson>
+	</teiHeader>
+	<text>
+		<body>
+			<div type="forum">
+				<post when="Oct 23 '12 at 8:37" who="Asad" revisedWhen="Oct 23 '12 at 9:12" upVote="2" accepted="favorite">
+				<p>I was explaining parametrization and its advantages to my friend recently, and he asked how it was any better than mysqli_escape_string in terms of security. Specifically, can you think of any examples of SQL injection that would succeed despite the input strings being escaped (using mysqli_escape_string)?
+
+				UPDATE:
+
+				I apologise for not being clear enough in my original question. The general question being asked here is, is SQL injection possible despite escaping input strings?
+
+				<tag>php</tag> <tag>mysql</tag> <tag>sql-parametrized-query</tag>
+				</p>
+				</post>	
+			</div>		
+			<div type="response">
+				<post when="Oct 23 '12 at 8:39" who="JvdBerg" indentLevel="1">  
+			 	<p>from the manual: > This function has been DEPRECATED as of PHP 5.3.0. Relying on this > feature is highly discouraged. Do not put effort in deprecated code. Use parameter binding, no worries about SQL injection
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 8:40" who="NullPoiиteя" indentLevel="1">  
+				<p>Please, don't use mysql_* functions to write new code. They are no longer maintained and the community has begun deprecation process. See the red box? Instead you should learn about prepared statements and use either PDO or MySQLi. If you can't decide which, this article will help you. If you pick PDO, here is good tutorial. Also see Why shouldn't I use mysql functions in PHP?
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 8:41" who="Asad" indentLevel="1" upVote="1" > 
+				<p>I know this already, I am not advocating the use of the mysql extension. I am simply asking you to illustrate how it is vulnerable.
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 8:41" who="martinstoeckli" indentLevel="1">    
+				<p>This is because it was replaced with mysqli_real_escape_string(), not because you should not escape strings anymore.
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 8:42" who="JvdBerg" indentLevel="1">    
+				<p>@Asad: You never know, as it is a internal function of PHP. You would have to look in the source code to figure it out
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 8:43" who="martinstoeckli" indentLevel="1">   
+				<p>Maybe you should replace mysql_escape_string() with mysqli_real_escape_string() to get better answers.
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 8:46" who="William The Dev" indentLevel="1">   
+				<p>Check out this slideshow of SQL myths and fallacies. It should answer any SQL injection questions you have.
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 8:48" who="Asad" indentLevel="1">   
+				<p>@martinstoeckli good idea, edited.
+				</p>
+			</post>
+			</div>
+			<div type="response">
+				<post when="Oct 23 '12 at 8:54" who="Jon" indentLevel="1"  upVote="1" >    
+				<p>@martinstoeckli: That change also makes a difference for the answers :)
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 8:59" who="Asad" indentLevel="1">   
+				<p>@Jon how does it make a difference for the answers? If I were to ask a hypothetical question about B language, I would prefer not to recieve answers that tell me to use C++ instead.
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 9:00" who="martinstoeckli" indentLevel="1">   
+				<p>@Jon - Agreed, but i think the question was about "escaping strings" versus "parametrized queries" from the start. It was just a inattention of Asad and the "unuseful" answers didn't stop otherwise.
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 9:04" who="lserni" indentLevel="1">    
+				<p>Gaah, @Jon, I was all bubbly and happily writing my answer, and not only you beat me to the punch, my answer does not even apply anymore. *cries*
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 9:07" who="martinstoeckli" indentLevel="1">   
+				<p>@Iserni Jon - I'm sorry to have ruined your answers, but maybe you know an answer to the new question as well?
+				</p>
+			</post>
+			</div>
+			<div type="response">
+			<post when="Oct 23 '12 at 11:02" who="Jon" indentLevel="1">   
+				<p>@martinstoeckli: I have updated the answer to cover the current question.
+				</p>
+			</post>
+		</div>
+			<div type="answer">
+				<post when="Oct 23 '12 at 8:47" who="Jon" revisedWhen="Oct 23 '12 at 11:02" upVote="3"  accepted="accepted">
+			 	<p>Updated answer
+
+				The question was edited (after my answer was posted) to specifically target mysqli_escape_string, which is an alias of mysql_real_escape_string and therefore takes the connection encoding into account. This makes the original answer non-applicable anymore, but I 've left it for completeness.
+
+				The new answer, in short: mysqli_escape_string is as good security-wise as parameterized queries, provided you don't shoot yourself in the foot.
+
+				Specifically, what you must not do is highlighted in the giant warning on the PHP doc page:
+
+				he character set must be set either at the server level, or with the API function mysqli_set_charset() for it to affect  mysqli_real_escape_string().
+				If you don't heed this warning (i.e. if you change the character set with a direct SET NAMES query) and you change the character set from a single-byte encoding to a "convenient" (from the attacker's perspective) multibyte encoding, you will have in effect emulated what the dumb mysql_escape_string does: attempt to escape characters without knowing which encoding the input is in.
+
+				This situation leaves you potentially vulnerable to SQL injection as described by the original answer below.
+
+				Important note: I remember reading somewhere that recent MySql versions have plugged this hole on their end (in the client libraries?), which means that you might be perfectly safe even if using SET NAMES to switch to a vulnerable multibyte encoding. But please don't take my word for it.
+
+				Original answer
+
+				In contrast to mysql_real_escape_string, the bare mysql_escape_string does not take into account the connection encoding. This means that it assumes the input is in a single-byte encoding, when in fact it can legitimately be in a multibyte encoding.
+
+				Some multibyte encodings have byte sequences that correspond to a single character where one of the bytes is the ASCII value of the single quote (0x27); if fed such a string, mysql_escape_string will happily "escape the quote", which means substituting 0x27 with 0x5c 0x27. Depending on the encoding rules, this could result in mutating the multibyte character into another that includes the 0x5c and leaving the "remaining" 0x27 as a stand-alone single quote in the input. Voilà, you have injected an unescaped quote into the SQL.
+
+				For more details see this blog post.
+			 	</p>
+				</post>
+			</div>
+				<div type="response">
+				<post when="Oct 23 '12 at 8:54" who="Asad" indentLevel="1" upVote="2" >    
+				<p>+1 for being pretty much the only on topic answerer. Must have been downvoted because you didn't include the words HIGHLY DISCOURAGED in bold capitals in your answer
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post when="Oct 23 '12 at 8:56" who="Jon" indentLevel="1">   
+				<p>@Asad: You specifically did not ask for something like that, so I guess it's your fault :)
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post when="Oct 23 '12 at 8:58" who="Asad" indentLevel="1"> 
+				<p>I specifically asked for examples of how SQL injection could occur when using mysql_escape_string. This is supported by the fact that my question asks Specifically, can you think of any examples of SQL injection that would succeed despite the input strings being escaped
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post when="Oct 23 '12 at 8:59" who="Jon" indentLevel="1">  
+				<p>@Asad: Sure, just joking :)
+				</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post when="Oct 23 '12 at 8:58" who="lserni" upVote="0" >
+			 	<p>The bad answer:
+
+				Specifically, can you think of any examples of SQL injection that would succeed despite the input strings being escaped (using mysql_escape_string)?
+				Not reliably. You are referring to mysql_escape_string(), which does not take into account the connection encoding (while mysql_real_escape_string() does).
+
+				So maybe a carefully crafted string, with a carefully crafted incomplete UTF8 codepoint in front, might result in, say, a quote sign being escaped by mysql_escape_string() but the escape itself being ignored by MySQL since it will "see" it as an UTF8 character.
+
+				E.g.:
+
+				0xC2' OR 1=1 OR 0xC2'
+				would be escaped by mysql_escape_string() as
+
+				0xC2\' OR 1=1 ;--
+				which would be assembled to
+
+				WHERE password='0xC2\' OR 1=1 ;--';
+				and seen by MySQL (if the proper connection encoding was in effect) as, say,
+
+				WHERE password='€' OR 1=1 ;--';
+				which would be a classic SQL injection.
+
+				But this plays on the fact that you specified, maybe through distraction, a doubly deprecated function. If you really were referring to mysql_real_escape_string(), then it would not work.
+
+				Also, this assumes that neither the server, nor the application layer (e.g. PHP) employs any kind of charset validation when populating the input. If they did, the invalid UTF8 would be deleted on arrival, and never even be seen by mysql_escape_string, which would then of course be enough.
+
+				The real answer:
+
+				Do not use mysql_escape_string (or mysql_whatever) at all. They've been deprecated and your code might stop working. Use PDO functions instead.
+				</p>
+				</post>
+			</div>
+		</body>
+	</text>
+</TEI>

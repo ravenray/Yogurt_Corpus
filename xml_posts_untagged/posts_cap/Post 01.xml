@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>DotNetNuke vulnerabilities [closed]</title>
+				<author>AviD</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source
+				This corpus  is freely available and you are hereby authorised to copy and modify it in any way without further reference or permissions.
+				</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/138175/dotnetnuke-vulnerabilities
+					On: Date Unknown 2015
+					Created by: 
+					Rachael Duke
+					Department of Linguistics
+					University of California, Davis
+					Please email me with any questions, comments, or errors.
+					Email: rebrim @ ucdavis . edu 
+					</p>
+				<listPerson>
+					<person xml:id="AviD" url="http://stackoverflow.com/users/10080/avid">
+					<signatureContent>
+						<p>Reputation: <num>8,606</num></p>
+						<p>Number of Gold Badges: <num>4</num></p>
+						<p>Number of Silver Badges:<num>41</num></p>
+						<p>Number of Bronze Badges:<num>65</num></p>
+					</signatureContent>
+					</person>
+					<person xml:id="Bill the Lizard" url="http://stackoverflow.com/users/1288/bill-the-lizard">
+					<signatureContent>
+						<p>Reputation: <num>205,678</num></p>
+						<p>Number of Gold Badges: <num>130</num></p>
+						<p>Number of Silver Badges:<num>435</num></p>
+						<p>Number of Bronze Badges:<num>725</num></p>
+					</signatureContent>
+					</person>
+					<person url="http://stackoverflow.com/users/3050/paul-whelan" xml:id="Paul Whelan">
+                <signatureContent>
+                    <p>Reputation: <num>9891</num>
+                        Number of Gold Badges: <num>9</num>
+                        Number of Silver Badges:<num>29</num>
+                        Number of Bronze Badges:<num>61</num></p>
+                </signatureContent>
+            </person>
+					<person xml:id="Chris Lively">
+					<signatureContent>
+						<p>Reputation: <num>61.2k</num></p>
+						<p> Number of Gold Badges: <num>14</num></p>
+						<p>Number of Silver Badges:<num>96</num></p>
+						<p>Number of Bronze Badges:<num>178</num></p>
+					</signatureContent>
+					</person>
+					<person xml:id="bdukes">
+					<signatureContent>
+						<p>Reputation: <num>60k</num></p>
+						<p> Number of Gold Badges: <num>10</num></p>
+						<p>Number of Silver Badges:<num>93</num></p>
+						<p>Number of Bronze Badges:<num>129</num></p>
+					</signatureContent>
+					</person>
+					<person xml:id="Mitchel Sellers">
+					<signatureContent>
+						<p>Reputation: <num>39.3k</num></p>
+						<p> Number of Gold Badges: <num>7</num></p>
+						<p>Number of Silver Badges:<num>74</num></p>
+						<p>Number of Bronze Badges:<num>127</num></p>
+					</signatureContent>
+					</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<div type="forum">
+			<posting synch="Sep 26 '08 at 7:38" who="AviD" revisedWhen="Sep 26 '08 at 8:12" upVote="7" accepted="favorite">
+			<p>Anyone familiar with specific security issues in the current version of DotNetNuke?
+				(I've already checked out their site, securityfocus, etc...)
+
+				I've reopened the question, since my client developed their system using DotNetNuke - hence it is a programming question. I just need to know some issues regarding this platform.
+			<tag>security</tag> <tag>dotnetnuke</tag>
+			</p>
+			</posting>	
+		</div>		
+		<div type="moderator">
+			<head>closed as not constructive by Bill the Lizard May 5 '13 at 13:49</head>
+			<posting synch="May 5 '13 at 13:49" who="Bill the Lizard">
+			 	<p>As it currently stands, this question is not a good fit for our Q&amp;A format. We expect answers to be supported by facts, references, or expertise, but this question will likely solicit debate, arguments, polling, or extended discussion. If you feel that this question can be improved and possibly reopened, visit the help center for guidance.
+				If this question can be reworded to fit the rules in the help center, please edit the question.</p>
+			</posting>
+			</div>
+			<div type="response">
+			<posting synch="Sep 26 '08 at 8:06" who="Paul Whelan" IndentLevel="1">
+				<p>harsh closing this its better than the 101 what is the best book type questions.
+				</p>
+			</posting>
+			</div>
+			<div type="response">
+			<posting synch="Sep 26 '08 at 8:10" who="AviD" IndentLevel="1">
+				<p>Not that familiar with it, but isnt DotNetNuke also a dev platform?
+				</p>
+			</posting>
+		</div>
+		<front>
+			<head>3 Answers</head>
+				<div type="up vote">
+				<p>up vote  <num>9</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 26 '08 at 14:12" who="Chris Lively">
+			 	<p>DNN Vulnerability information will be at: http://www.dotnetnuke.com/News/SecurityPolicy/tabid/940/Default.aspx
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Sep 27 '08 at 16:30" who="AviD" IndentLevel="1">
+				<p>Thanks, this was a great help! Not just the vulnerabilities, but especially the security guides and such. Exactly what I was looking for.
+				</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 26 '08 at 14:48" who="bdukes">
+			 	<p>I'm not aware of any security issues that have been announced with the current version of DotNetNuke (4.9.0). The security policy of DotNetNuke is to address any known security issues as soon as they are discovered. They won't release a version with a known security issue.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Sep 27 '08 at 16:31" who="AviD" IndentLevel="1">
+				<p>Thanks, this is good to know.
+				</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Feb 7 '13 at 11:20" who="Cheekysoft" IndentLevel="1">
+				<p>Obvious note: This is, of course, no longer true cvedetails.com/product/4306/...
+				</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>0</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 30 '08 at 14:05" who="Mitchel Sellers">
+			 	<p>I just want to add to this, that DotNetNuke corporation, right or wrong, asks that people not publicly discuss exploit details if known, as it exposes the wide community to greater risk.
+
+				Typically the rule of thumb with DNN is to upgrade to the most current version, and keep an eye on the security items posted on the site, also, keeping an eye on Cathal's blog is a good idea as he is the head security person.
+			 	</p>
+				</posting>
+			</div>
+		</body>
+	</text>
+</TEI>

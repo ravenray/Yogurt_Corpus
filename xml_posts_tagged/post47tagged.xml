@@ -1,0 +1,88 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>XSS Vulnerability in PHP scripts</title>
+        <author>cosmoba</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/8764696/xss-vulnerability-in-php-scripts</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="cosmoba" url="http://stackoverflow.com/users/1052433/cosmoba">
+        <signatureContent>
+          <p>Reputation: <num>88</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>0</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Umbrella" url="http://stackoverflow.com/users/1125513/umbrella">
+        <signatureContent>
+          <p>Reputation: <num>3,236</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>10</num>Number of Bronze Badges: <num>25</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="hakre" url="http://stackoverflow.com/users/367456/hakre">
+        <signatureContent>
+          <p>Reputation: <num>128k</num>Number of Gold Badges: <num>24</num>Number of Silver Badges: <num>193</num>Number of Bronze Badges: <num>357</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="dqhendricks" url="http://stackoverflow.com/users/512922/dqhendricks">
+        <signatureContent>
+          <p>Reputation: <num>12.9k</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>32</num>Number of Bronze Badges: <num>66</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2012-01-06 21:22:09Z" who="cosmoba" revisedWhen="2012-01-06 21:45:06Z" upVote="2" accepted="favorite"><p>I/PRP have/VBP been/VBN searching/VBG everywhere/RB to/TO try/VB and/CC find/VBP a/DT solution/NN to/TO this/DT ./. I/PRP have/VBP recently/RB been/VBN running/VBG scans/NNS on/IN our/PRP$ websites/NNS to/TO find/VB any/DT vulnerabilities/NNS to/TO XSS/ACR and/CC SQL/ACR Injection/NN ./. Some/DT items/NNS have/VBP been/VBN brought/VBN to/TO my/PRP$ attention/NN ./. Any/DT data/NN which/WDT is/VBZ user/NN inputted/JJ is/VBZ now/RB validated/JJ and/CC sanitized/JJ using/VBG filter_var/COS (/COS )/COS ./. My/PRP$ issue/NN now/RB is/VBZ with/IN XSS/ACR and/CC persons/NNS manipulating/VBG the/DT URL/NN ./. The/DT simple/JJ one/CD which/WDT seems/VBZ to/TO be/VB everywhere/RB is/VBZ :/: This/DT then/RB changes/VBZ some/DT of/IN the/DT $/COS _/COS SERVER/COS variables/NNS and/CC causes/VBZ all/DT of/IN my/PRP$ relative/JJ paths/NNS to/TO CSS/ACR ,/, links/NNS ,/, images/NNS ,/, etc/FW ../. to/TO be/VB invalid/JJ and/CC the/DT page/NN does/VBZ n't/RB load/VB correctly/RB ./. I/PRP clean/VBP any/DT variables/NNS that/WDT are/VBP used/VBN within/IN the/DT script/NN ,/, but/CC I/PRP am/VBP not/RB sure/JJ how/WRB I/PRP get/VBP around/IN removing/VBG this/DT unwanted/JJ data/NN in/IN the/DT URL/NN ./. Thanks/VBZ in/IN advance/NN ./. Addition/NN :/:
+            This/DT then/RB causes/VBZ a/DT simple/JJ link/NN in/IN a/DT template/NN file/NN :/: to/TO actually/RB link/VB to/TO :/: "/" http://www.domainname.com/script.php//URL "/" &gt;/COB &lt;/COB script/COB &gt;/COB alert/COB (/COB '/COB xss/COB '/COB )/COB ;/COB &lt;/COB //COB script/COB &gt;/COB anotherpage.php/URL<tag>php</tag><tag>xss</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Adrian" when="2012-01-06 21:38:35Z" indentLevel="1">
+            <p>sanitize/VBP user/NN input/NN ;/: never/RB trust/VBP it/PRP</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cosmoba" when="2012-01-06 21:49:35Z" indentLevel="1">
+            <p>What/WP exactly/RB am/VBP I/PRP sanitizing/VBG ,/, I/PRP am/VBP not/RB taking/VBG this/DT input/NN in/IN for/IN any/DT use/NN ./. I/PRP just/RB want/VBP it/PRP ignored/VBN if/IN it/PRP is/VBZ not/RB a/DT variable/NN I/PRP want/VBP ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Umbrella" when="2012-01-07 03:39:58Z" upVote="0" accepted="accepted">
+            <p>To/TO your/PRP$ concern/NN about/IN XSS/ACR :/: The/DT altered/JJ URL/NN wo/MD n't/RB get/VB into/IN your/PRP$ page/NN unless/IN you/PRP blindly/RB use/VB the/DT related/JJ $_SERVER/COS variables/NNS ./.  The/DT fact/NN that/WDT the/DT relative/JJ links/NNS seem/VB to/TO include/VB the/DT URL/NN injected/JJ script/NN is/VBZ a/DT browser/NN behavior/NN that/WDT risks/VBZ only/RB breaking/VBG your/PRP$ relative/JJ links/NNS ./.  Since/IN you/PRP are/VBP not/RB blinding/VBG using/VBG the/DT $/COS _/COS SERVER/COS variables/NNS ,/, you/PRP do/VB n't/RB have/VBP to/TO worry/VB ./. To/TO your/PRP$ concern/NN about/IN your/PRP$ relative/JJ paths/NNS breaking/VBG :/: Do/VB n't/RB use/VB relative/JJ paths/NNS ./.  Reference/VBP all/DT your/PRP$ resources/NNS with/IN at/IN least/JJS a/DT root-of-domain/NN path/NN (/( starting/VBG with/IN a/DT slash/NN )/) and/CC this/DT sort/NN of/IN URL/NN corruption/NN will/MD not/RB break/VB your/PRP$ site/NN in/IN the/DT way/NN you/PRP described/VBD ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="hakre" when="2012-01-06 21:26:42Z" upVote="2">
+            <p>This/DT sounds/VBZ you/PRP made/VBP a/DT big/JJ mistake/NN with/IN your/PRP$ website/NN and/CC should/MD re-think/VB how/WRB you/PRP inject/VBP link-information/NN from/IN the/DT input/NN into/IN your/PRP$ output/NN ./. Filtering/VBG input/NN alone/RB does/VBZ not/RB help/VB here/RB ,/, you/PRP need/VBP to/TO filter/VB the/DT output/NN as/IN well/RB ./. Often/RB it/PRP 's/VBZ more/JJR easy/JJ if/IN your/PRP$ application/NN recieves/VBZ a/DT request/NN that/WDT does/VBZ not/RB match/VB the/DT superset/NN of/IN allowed/JJ requests/NNS to/TO return/VB a/DT 404/CD error/NN ./. Actually/RB ,/, the/DT request/NN has/VBZ been/VBN already/RB send/VB ,/, so/IN the/DT URL/NN is/VBZ set/VB ./. You/PRP can/MD 't/RB "/" change/VB "/" it/PRP ./. It/PRP 's/VBZ just/RB the/DT information/NN what/WP was/VBZ requested/VBN ./. It/PRP 's/VBZ now/RB your/PRP$ part/NN to/TO deal/VB upon/IN it/PRP ,/, not/RB to/TO blindly/RB pass/VB it/PRP around/IN any/DT longer/RB ,/, e.g./FW into/IN your/PRP$ output/NN (/( and/CC then/RB your/PRP$ links/NNS are/VBP broken/JJ )/) ./. Edit/NN :/:  You/PRP now/RB wrote/VBN more/JJR specifically/RB what/WP you/PRP 're/VBP concerned/JJ about/IN ./. I/PRP would/MD go/VB in/IN one/CD with/IN dqhendricks/NNP  here/RB :/: Who/WP cares/VBZ ?/. If/IN you/PRP really/RB feel/VB uncomfortable/JJ with/IN the/DT fact/NN that/WDT a/DT user/NN is/VBZ just/RB using/VBG her/PRP$ browser/NN and/CC enters/VBZ any/DT URL/NN she/PRP feels/VBZ free/JJ to/TO do/VB so/RB ,/, well/UH ,/, the/DT technically/RB correct/JJ response/NN is/VBZ :/: And/CC return/VBP a/DT page/NN with/IN no/DT or/CC only/RB fully-qualified/JJ URIs/NNPS (/( absolute/JJ URIs/NNPS )/) or/CC a/DT redefinition/NN of/IN the/DT  Base-URI/NNP ,/, otherwise/RB the/DT browser/NN will/MD take/VB the/DT URI/NNP entered/VBD into/IN it/PRP 's/POS address/NN bar/NN as/IN the/DT  Base-URI/NNP ./. See/VBP  Uniform/NN Resource/NN Identifier/NN (/( URI/NN )/) :/: Generic/JJ Syntax/NN RFC/ACR 3986/CD ;/:  Section/NN 5/CD ./. Reference/NN Resolution/NN ­/FW Specs/NNS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cosmoba" when="2012-01-06 21:48:35Z" indentLevel="1">
+            <p>I/PRP do/VBP n't/RB actually/RB use/VB any/DT of/IN the/DT input/NN in/IN my/PRP$ output/NN ./. I/PRP do/VBP not/RB use/VB PHP_SELF/COS ,/, or/CC any/DT of/IN the/DT $/COS _/COS SERVER/COS vars/NNS ./. Unless/IN there/EX is/VBZ something/NNP I/PRP am/VBP missing/VBG on/IN my/PRP$ server/NN configuration/NN ./. The/DT script/NN that/WDT is/VBZ being/VBG called/VBN does/VBZ exist/VB ,/, so/RB I/PRP am/VBP unsure/JJ as/IN to/TO how/WRB I/PRP should/MD give/VB a/DT 404/CD error/NN ./. I/PRP modified/VBD my/PRP$ question/NN to/TO show/VB how/WRB the/DT links/NNS are/VBP modified/VBN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="hakre" when="2012-01-06 22:25:42Z" indentLevel="1">
+            <p>@cosmoba/ATS :/: I/PRP edited/VBD the/DT answer/NN ./. To/TO learn/VB how/WRB you/PRP can/MD make/VB your/PRP$ scripts/NNS return/VB a/DT HTTP/ACR status/NN code/NN ,/, please/VB see/VBP  php.net/header/URL  ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="dqhendricks" when="2012-01-06 21:28:48Z" upVote="1">
+            <p>first/RB ,/, if/IN someone/NNP adds/VBZ that/WDT crap/NN to/TO their/PRP$ url/NN ,/, who/WP cares/VBZ if/IN the/DT page/NN does/VBZ n't/RB load/VB images/NNS correctly/RB ?/. also/RB if/IN the/DT request/NN is/VBZ n't/RB valid/JJ ,/, why/WRB would/MD it/PRP load/VB any/DT page/NN ?/. why/WRB are/VBP you/PRP using/VBG SERVER/COS vars/NNS to/TO get/VB paths/NNS anyways/RB ?/. second/RB ,/, you/PRP should/MD also/RB be/VB escaping/VBG any/DT user/NN submitted/JJ database/NN input/NN with/IN the/DT appropriate/JJ method/NN for/IN your/PRP$ particular/JJ database/NN to/TO avoid/VB sql/ACR injection/NN ./. filter_var/COS generally/RB will/MD not/RB help/VB ./. third/RB ,/, xss/ACR is/VBZ simple/JJ to/TO protect/VB from/IN ./. Any/DT user/NN submitted/JJ data/NN that/WDT is/VBZ to/TO be/VB displayed/VBN on/IN any/DT page/NN needs/VBZ to/TO be/VB escaped/VBN with/IN htmlspecialchars/COS (/COS )/COS ./. this/DT is/VBZ easier/JJR to/TO ensure/VB if/IN you/PRP use/VB a/DT view/NN class/NN that/WDT you/PRP can/MD build/VB this/DT escaping/VBG in/IN to/TO ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cosmoba" when="2012-01-06 21:54:30Z" indentLevel="1">
+            <p>I/PRP am/VBP not/RB using/VBG $/COS _/COS SERVER/COS vars/NN to/TO get/VB any/DT paths/NNS ./. I/PRP do/VBP escape/VB all/DT user/NN submitted/JJ data/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="dqhendricks" when="2012-01-09 18:43:54Z" indentLevel="1">
+            <p>@cosmoba/ATS you/PRP said/VBD in/IN your/PRP$ post/NN ,/, "/" This/DT then/RB changes/VBZ some/DT of/IN the/DT $/COS _/COS SERVER/COS  variables/NNS and/CC causes/VBZ all/DT of/IN my/PRP$ relative/JJ paths/NNS to/TO CSS/ACR ,/, links/NNS ,/, images/NNS ,/, etc/FW ../. to/TO be/VB invalid/JJ and/CC the/DT page/NN does/VBZ n't/RB load/VB correctly/RB ./. "/" $/COS _/COS SERVER/COS vars/NNS should/MD not/RB affect/VB relative/JJ paths/NNS in/IN any/DT way/NN ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

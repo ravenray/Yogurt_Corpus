@@ -1,0 +1,135 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Issue With Code: Format string is not a string literal [duplicate]</title>
+        <author>ProgramGuy</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/5428325/issue-with-code-format-string-is-not-a-string-literal</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="ProgramGuy" url="http://stackoverflow.com/users/594161/programguy">
+        <signatureContent>
+          <p>Reputation: <num>2,703</num>Number of Gold Badges: <num>8</num>Number of Silver Badges: <num>40</num>Number of Bronze Badges: <num>87</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="jlehr" url="http://stackoverflow.com/users/171562/jlehr">
+        <signatureContent>
+          <p>Reputation: <num>12.4k</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>32</num>Number of Bronze Badges: <num>43</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jhaliya" url="http://stackoverflow.com/users/406857/jhaliya">
+        <signatureContent>
+          <p>Reputation: <num>27.9k</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>57</num>Number of Bronze Badges: <num>65</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Parth Bhatt" url="http://stackoverflow.com/users/463857/parth-bhatt">
+        <signatureContent>
+          <p>Reputation: <num>12.8k</num>Number of Gold Badges: <num>22</num>Number of Silver Badges: <num>104</num>Number of Bronze Badges: <num>195</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-03-25 03:45:56Z" who="ProgramGuy" revisedWhen="2014-01-24 17:56:47Z" upVote="50" accepted="favorite"><p>Possible/JJ Duplicate/NN :/:
+            SnowLeopard/NNP Xcode/NNP warning/NN :/: “/"
+            format/NN not/RB a/DT string/NN literal/NN and/CC no/DT format/NN arguments/NNS ”/"
+
+            I/PRP am/VBP getting/VBG the/DT following/JJ issue/NN for/IN this/DT line/NN of/IN code/NN ./.
+
+            "/" Format/NN string/NN is/VBZ not/RB a/DT string/NN literal/NN (/( potentially/RB insecure/JJ )/) "/"
+
+NSLog/COB (/COB [/COB NSString/COB stringWithFormat/COB :/COB @/COB "/COB %/COB @/COB "/COB ,/COB entered/COB ]/COB )/COB ;/COB
+
+            Any/DT suggestions/NNS ?/.
+<tag>iphone</tag><tag>objective-c</tag></p></post>
+      </div>
+      <div type="moderator">
+          <head>marked/VBD  as/IN duplicate/NN by/IN  Jeff/NNP Atwood/NNP ♦/SYM Mar/NNP 25/CD '/" 11/CD at/IN 10:03/CD</head>
+          <post when="2011-03-25 10:03:40Z" who="Jeff Atwood">This/DT question/NN has/VBZ been/VBN asked/VBN before/IN and/CC already/RB has/VBZ an/DT answer/NN ./. If/IN those/DT answers/NNS do/VBP not/RB fully/RB address/VB your/PRP$ question/NN ,/, please/VB  ask/VBP a/DT new/JJ question/NN ./.</post>
+      </div>
+      <div type="response">
+        <post who="Parth Bhatt" when="2011-03-25 04:57:00Z" indentLevel="1" upVote="2">
+            <p>Hey/UH Faisal/NNP ,/, Actually/RB this/DT is/VBZ because/IN you/PRP have/VBP not/RB written/VBN the/DT  @/COS "/COS %/COS @/COS "/COS ,/, string/NN specifier/NN under/IN the/DT NSLog/COS Statement/NN ./. Just/RB check/VBP out/RP my/PRP$ answer/NN ./. Hope/VBP that/DT helps/VBZ you/PRP ./. :)/EMO</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Neeku" when="2013-02-27 11:39:24Z" indentLevel="1">
+            <p>@Parth/ATS Old/JJ thread/NN ,/, good/JJ help/NN ,/, but/CC why/WRB not/RB as/IN an/DT answer/NN already/RB ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="user501836" when="2013-07-05 09:50:14Z" indentLevel="1">
+          <p>NSLog/COB (/COB [/COB NSString/COB stringWithFormat/COB :/COB @/COB "/COB %/COB @/COB "/COB ,/COB entered/COB ]/COB ,/COB nil/COB )/COB ;/:</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="jlehr" when="2011-03-25 03:51:11Z" upVote="127" accepted="accepted">
+            <p>The/DT compiler/NN wants/VBZ us/NN to/TO use/VB an/DT NSString/NNP constant/NN for/IN the/DT format/NN string/NN (/( the/DT first/JJ argument/NN to/TO NSLog/NNP )/) because/IN it/PRP prevents/VBZ a/D fairly/RB well-known/JJ exploit/NN that/WDT could/MD potentially/RB violate/VB security/NN ./. So/IN for/IN example/NN ,/, you/PRP could/MD change/VB the/DT code/NN you/PRP posted/VBD as/IN follows/VBZ to/TO keep/VB the/DT compiler/NN happy/JJ :/:
+
+                NSLog/COB (/COB @/COB "/COB %/COB @/COB "/COB ,/, [/COB NSString/COB stringWithFormat/COB :/COB @/COB "/COB %/COB @/COB "/COB ,/COB entered/COB ]/COB )/COB ;/COB
+
+                EDIT/NN
+
+                And/CC of/IN course/NN ,/, the/DT above/JJ could/MD (/( and/CC should/MD )/) simply/RB be/VB written/VBN as/IN follows/VBZ :/:
+
+                NSLog/COB (/COB @/COB "/COB %/COB @/COB "/COB ,/COB entered/COB )/COB ;/:
+
+                Nature/NN of/IN Security/NN Exploits/NNS
+
+                Uncontrolled/JJ format/NN string/COS [/COS 1/COS ]/COS is/VBZ a/DT type/NN of/IN software/NN vulnerability/NN ,/, ;/: discovered/VBD around/IN 1999/CD ,/, that/WDT can/MD be/VB used/VBN in/IN security/NN exploits/NNS ./. Previously/RB thought/VBD harmless/JJ ,/, format/NN string/NN exploits/NNS can/MD be/VB used/VBN to/TO crash/VB a/DT program/NN or/CC to/TO execute/VB harmful/JJ code/NN ./. The/DT problem/NN stems/VBZ from/IN the/DT use/NN of/IN unchecked/JJ user/NN input/NN as/IN the/DT format/NN string/NN parameter/NN in/IN certain/JJ C/NNP functions/NNS that/WDT perform/VBP formatting/NN ,/, such/IN as/IN printf/COS (/COS )/COS ./. A/DT malicious/JJ user/NN may/MD use/VB the/DT %/COS s/COS and/CC %/COS x/COS format/NN tokens/NNS ,/, among/IN others/NNS ,/, to/TO print/VB data/NN from/IN the/DT stack/NN or/CC possibly/RB other/JJ locations/NNS in/IN memory/NN ./. One/CD may/MD also/RB write/VB arbitrary/JJ data/NN to/TO arbitrary/JJ locations/NNS using/VBG the/DT %/COS n/COS format/NN token/NN ,/, which/WDT commands/VBZ printf/COS (/COS )/COS and/CC similar/JJ functions/NNS to/TO write/VB the/DT number/NN of/IN bytes/NNS formatted/VBN to/TO an/DT address/NN stored/VBN on/IN the/DT stack/NN ./.
+
+                A/DT typical/JJ exploit/NN uses/VBZ a/DT combination/NN of/IN these/DT techniques/NNS to/TO force/VB a/DT program/NN to/TO overwrite/VB the/DT address/NN of/IN a/DT library/NN function/NN or/CC the/DT return/JJ address/NN on/IN the/DT stack/NN with/IN a/DT pointer/NN to/TO some/DT malicious/JJ shellcode/NNP ./. The/DT padding/NN parameters/NNS to/TO format/VB specifiers/NNS are/VBP used/VBN to/TO control/VB the/DT number/NN of/IN bytes/NNS output/NN and/CC the/DT %/COS x/COS token/NN is/VBZ used/VBN to/TO pop/VB bytes/NNS from/IN the/DT stack/NN until/IN the/DT beginning/NN of/IN the/DT format/NN string/NN itself/PRP is/VBZ reached/VBN ./. The/DT start/NN of/IN the/DT format/NN string/NN is/VBZ crafted/VBN to/TO contain/VB the/DT address/NN that/WDT the/DT %/COS n/COS format/NN token/NN can/MD then/RB overwrite/VB with/IN the/DT address/NN of/IN the/DT malicious/JJ code/NN to/TO execute/VB ./.
+
+                Source/NN :/: Wikipedia/NNP Uncontrolled/JJ Format/NN String/NN
+
+                [/[ 1/CD ]/] :/: http://cwe.mitre.org/data/definitions/134.html/URL "/" CWE/NNP -/: 134/CD :/: Uncontrolled/JJ Format/NN String/NN "/" ./. Common/JJ Weakness/NN Enumeration/NN ./. MITRE/NNP ./.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Paul Brewczynski" when="2013-12-01 12:16:22Z" indentLevel="1">
+            <p>Could/MD you/PRP show/VBP how/WRB this/DT "/" well-known/JJ "/" exploit/NN works/VBZ ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Inder Kumar Rathore" when="2014-08-26 17:36:08Z" indentLevel="1">
+            <p>+/SYM 1/CD for/IN  Nature/NN of/IN Security/NN Exploits/NNS</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Jhaliya" when="2011-03-25 03:50:24Z" upVote="31">
+            <p>Here/RB is/VBZ the/DT solution/NN ./.
+
+                SnowLeopard/NNP Xcode/NNP warning/NN :/: "/" format/NN not/RB a/DT string/NN literal/NN and/CC no/DT format/NN arguments/NNS "/"
+
+                Try/VBP with/IN
+
+                NSLog/COB (/COB @/COB "/COB %/COB @/COB "/COB ,/COB entered/COB )/COB ;/COB
+
+                because/IN NSLog/COS can/MD also/RB do/VB formatting/NN for/IN you/PRP .../.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Sherm Pendley" when="2011-03-25 05:17:45Z" indentLevel="1">
+            <p>This/DT is/VBZ a/DT better/JJ answer/NN than/IN the/DT one/CD that/WDT was/VBD accepted/VBN ./. There/EX 's/VBZ no/DT need/NN to/TO use/VB stringWithFormat/COS :/COS when/WRB NSLog/COS (/COS )/COS already/RB uses/VBZ a/DT format/NN !/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jhaliya" when="2011-03-25 05:33:25Z" indentLevel="1">
+            <p>@Sherm/ATS Pendley/NNP :/: Thanks/VBZ</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Parth Bhatt" when="2011-03-25 04:45:14Z" upVote="3">
+            <p>Try/VBP :/: NSLog/COB (/COB @/COB "/COB %/COB @/COB "/COB ,/COB [/COB NSString/COB stringWithFormat/COB :/COB @/COB "/COB %/COB @/COB "/COB ,/COB entered/COB ]/COB )/COB ;/: Hope/VBP this/DT helps/VBZ you/PRP ./. :)/EMO</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

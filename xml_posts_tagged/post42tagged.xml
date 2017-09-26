@@ -1,0 +1,178 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Ajax post request vulnerability</title>
+        <author>Avi</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/30214286/ajax-post-request-vulnerability</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Avi" url="http://stackoverflow.com/users/3908296/avi">
+        <signatureContent>
+          <p>Reputation: <num>35</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>0</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Siguza" url="http://stackoverflow.com/users/2302862/siguza">
+        <signatureContent>
+          <p>Reputation: <num>7,673</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>20</num>Number of Bronze Badges: <num>38</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Zgr3doo" url="http://stackoverflow.com/users/1384300/zgr3doo">
+        <signatureContent>
+          <p>Reputation: <num>371</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>2</num>Number of Bronze Badges: <num>8</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2015-05-13 12:05:16Z" who="Avi" revisedWhen="2015-05-13 13:48:36Z" upVote="0" accepted="favorite"><p>I/PRP 'm/VBP trying/VBG to/TO record/VB user/NN 's/POS clicks/NNS on/IN a/DT specific/JJ iFrame/NNP in/IN a/DT div/NN containing/VBG an/DT ad/NN ,/, in/IN order/NN to/TO block/VB problematic/JJ IP/ACR addresses/NNS ,/, thus/RB preventing/VBG those/DT who/WP are/VBP trying/VBG to/TO spam/VB the/DT ad/NN ,/, from/IN being/VBG able/JJ to/TO click/VB it/PRP again/RB ./. In/IN each/DT click/NN made/VBD by/IN the/DT user/NN ,/, a/DT record/NN will/MD be/VB inserted/VBN into/IN a/DT table/NN in/IN mySQL/COS database/NN which/WDT includes/VBZ :/:
+
+            IP/ACR address/NN
+            Clicks/NNS counter/NN
+            Unix/NNP timestamp/NN
+
+            Each/DT user/NNP //: IP/ACR address/NN has/VBZ a/DT privilege/NN to/TO click/VB the/DT ad/NN 3/CD times/NNS in/IN 24/CD hours/NNS ./. For/IN detecting/VBG each/DT click/NN on/IN the/DT iFrame/NNP ad/NN ,/, I/PRP used/VBD iframeTracker/NNP -/: jquery/NNP class/NN and/CC implemented/VBD a/DT JavaScript/NNP code/NN as/IN follow/JJ :/:
+            index/COB ./COB php/COB :/COB
+
+&lt;/COB ?/COB php/COB include/COB '/COB AdProtection/COB ./COB php/COB '/COB ;v  ?/COB >/COB
+
+&lt;/COB html/COB >/COB
+
+&lt;/COB head/COB >/COB
+    &lt;/COB script/COB src/COB =/COB "/COB http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js/COB "/COB >/COB &lt;/COB //COB script/COB >/COB
+    &lt;/COB script/COB src/COB =/COB "/COB js/jquery.iframetracker.js/COB "/COB >/COB &lt;/COB //COB script/COB >/COB
+    &lt;/COB script/COB >/COB
+        jQuery/COB (/COB document/COB )/COB ./COB ready/COB (/COB function/COB (/COB $/COB )/COB {/COB
+                    $/COB (/COB '/COB ./COB iframetrack/COB iframe/COB '/COB )/COB ./COB iframeTracker/COB (/COB {/COB
+                            blurCallback/COB :/COB function/COB (/COB )/COB {/COB
+                                console/COB ./COB log/COB (/COB "/COB Click/COB has/COB been/COB detected/COB !/COB "/COB )/COB ;/COB
+                                $/COB ./COB ajaxv (/COB {/COB
+                                        type/COB :/COB "/COB POST/COB "/COB ,/COB
+                                        url/COB :/COB "/COB update/COB ./COB php/COB "/COB
+                                    )/COB ;/COB
+                                }/COB
+                            }/COB )/COB ;/COB
+                    }/COB )/COB ;/COB
+    &lt;/COB //COB scriptv >/COB
+&lt;/COB //COB head/COB >/COB
+
+&lt;/COB body/COB >/COB
+    &lt;/COB div/COB class/COB =/COB "/COB iframetrack/COB "/COB id/COB =/COB "/COB adsense_frame/COB "/COB >/COB
+            &lt;/COB ?/COB php/COB //: //: Returns/VBZ true/JJ when/WRB a/DT user/NN 's/POS IP/ACR address/NN is/VBZ n't/RB currently/RB blocked/VBN by/IN checking/VBG in/IN Database/NN ./. if/IN (//COB AdProtection/COB :/COB :/COB protectAd/COB (/COB )/COB )/COB echo/COB '/COB &lt;/COB iframe/COB width/COB =/COB "/COB 728/COB "/COB height/COB =/COB "/COB 90/COB "/COB src/COB =/COB "/COB js/COB //COB demo/COB //COB sample/COB -/COB iframe/COB //COB red/COB ./COB html/COB "/COB frameborder/COB =/COB "/COB 0/COB "/COB allowtransparency/COB =/COB "/COB true/COB "/COB scrolling/COB =/COB "/COB no/COB "/COB >/COB &lt;/COB //COB iframe/COB >/COB '/COB ;/COB ?/COB >/COB
+    &lt;/COB //COB div/COB >/COB
+&lt;/COB //COB body/COB >/COB
+
+&lt;/COB //COB html/COB >/COB
+
+update/COB ./COB php/COB :/COB
+
+&lt;/COB ?/COB php/COB
+
+function/COB update/COB (/COB $odb/COB )/COB
+{/COB
+    $/COB sql/COB =/COB $odb/COB -/COB >/COB prepare/COB (/COB '/COB INSERT/COB INTO/COB system/COB (/COB ip/COB ,/COB clicks/COB ,/COB timestamp/COB )/COB VALUES/COB (/COB :/COB ip/COB ,/COB clicks/COB +/COB 1/COB ,/COB :/COB timestamp/COB )/COB ON/COB DUPLICATE/COB KEY/COB UPDATE/COB clicks/COB =/COB clicks/COB +/COB 1/COB ,/COB timestamp/COB =/COB :/COB timestamp/COB '/COB )/COB ;/COB
+    $/COB sql/COB -/COB >/COB execute/COB (/COB array/COB (/COB '/COB :/COB ip/COB '/COB =/COB >/COB ip2long/COB (/COB $_SERVER/COB [/COB '/COB REMOTE_ADDR/COB '/COB ]/COB )/COB ,/COB '/COB :/COB timestamp/COB '/COB =/COB >/COB time/COB (/COB )/COB )/COB )/COB ;/COB
+}/COB
+
+//COB //COB PDO/COB Connection/COB
+include/COB (/COB "/COB db/COB ./COB php/COB "/COB )/COB ;/COB
+$/COB sql/COB =/COB $/COB odb/COB -/COB >/COB prepare/COB (/COB '/COB SELECT/COB clicks/COB ,/COB timestamp/COB FROM/COB system/COB WHERE/COB ip/COB =/COB :/COB ip/COB '/COB )/COB ;/COB
+$/COB sql/COB -/COB >/COB execute/COB (/COB array/COB (/COB '/COB :/COB ip/COB '/COB =/COB >/COB ip2long/COB (/COB $/COB _SERVER/COB [/COB '/COB REMOTE_ADDR/COB '/COB ]/COB )/COB )/COB )/COB ;/COB
+$/COB data/COB =/COB $/COB sql/COB -/COB >/COB fetch/COB (/COB )/COB ;/COB
+if/COB (/COB $/COB data/COB !/COB =/COB null/COB )/COB
+{/COB
+    if/COB (/COB $/COB data/COB [/COB '/COB clicks/COB '/COB ]/COB %/COB 3/COB =/COB =/COB 0/COB )/COB
+    {/COB
+        if/COB (/COB (/COB $/COB data/COB [/COB '/COB timestamp/COB '/COB ]/COB +/COB (/COB 24/COB */COB 60/COB */COB 60/COB )/COB )/COB &lt;/COB time/COB (/COB )/COB )/COB
+            update/COB (/COB $/COB odb/COB )/COB ;/COB
+        else/COB
+            //COB //COB User/COB is/COB currently/COB blocked/COB ./COB
+    }/COB
+    else/COB
+        update/COB (/COB $/COB odb/COB )/COB ;/COB
+}/COB
+else/COB
+    update/COB (/COB $/COB odb/COB )/COB ;/COB
+
+            There/EX are/VBP 2/CD crucial/JJ problems/NNS when/WRB implementing/VBG this/DT JavaScript/NNP code/NN //: jQuery/NNP POST/COS request/NN :/:
+
+            The/DT code/NN can/MD be/VB manipulated/VBN //: modified/VBN by/IN an/DT individual/NN since/IN JavaScript/NNP is/VBZ a/DT client-side/JJ language/NN ./.
+            A/DT spam/NN can/MD be/VB made/VBN on/IN the/DT update.php/NNP file/NN ./.
+
+            How/WRB can/MD I/PRP deal/VBP with/IN these/DT problems/NNS ?/.
+<tag>javascript</tag><tag>spam</tag><tag>security</tag><tag>ajax</tag><tag>php</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Joe Swindelli" when="2015-05-13 12:36:21Z" indentLevel="1">
+            <p>Why/WRB does/VBZ it/PRP matter/VB ?/. If/IN by/IN "/" spam/NN "/" to/TO your/PRP$ update.php/NNP you/PRP mean/VBP fast/JJ repeated/JJ access/NN ,/, all/DT that/WDT would/MD happen/VB is/VBZ the/DT user/NN would/MD lock/VB themselves/PRP out/IN really/RB fast/JJ ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Avi" when="2015-05-13 13:01:21Z" indentLevel="1">
+            <p> What/WP if/IN several/JJ Bots/NNS would/MD spam/VB it/PRP simultaneously/RB ?/. Besides/IN ,/, the/DT ajax/NN request/NN can/MD be/VB manipulated/VBN in/IN a/DT way/NN that/WDT no/DT request/NN will/MD be/VB sent/VB to/TO update.php/NNP file/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Joe Swindelli" when="2015-05-13 13:05:21Z" indentLevel="1">
+            <p>I/PRP think/VBP you/PRP need/VBP to/TO be/VB more/JJR clear/JJ on/IN your/PRP$ goals/NNS ./. WHY/WRB do/VBP you/PRP need/VBP to/TO prevent/VB traffic/NN TO/TO an/DT ad/NN ?/. That/WDT 's/VBZ the/DT point/NN of/IN an/DT ad/NN ,/, to/TO drive/VB traffic/NN ./. If/IN you/PRP 're/VBP giving/VBG credit/NN for/IN clicking/VBG daily/RB ,/, then/RB who/WP cares/VBZ if/IN they/PRP go/VB over/IN their/PRP$ 3/CD ./. You/PRP record/VBP their/PRP$ 3/CD clicks/NNS and/CC let/VBP them/PRP keep/VBP spamming/VBG it/PRP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Avi" when="2015-05-13 13:11:21Z" indentLevel="1">
+            <p>I/PRP want/VBP to/TO block/VB those/DT IP/ACR addresses/NNS to/TO prevent/VB spamming/VBG the/DT ad/NN ,/, that/WDT 's/VBZ why/WRB I/PRP limit/VBP each/DT IP/ACR address/NN to/TO click/VB 3/CD times/NNS in/IN 24/CD hours/NNS .</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Joe Swindelli" when="2015-05-13 13:16:21Z" indentLevel="1">
+            <p>Check/VBP the/DT ip/ACR ,/, if/IN ok/JJ ,/, THEN/RB show/VBP the/DT iframes/NNPS ,/, space/VBP if/IN they/PRP have/VBP already/RB voted/VBN 3/CD times/NNS then/RB do/VBP not/RB show/VB the/DT Iframes/NNPS</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Avi" when="2015-05-13 13:22:21Z" indentLevel="1">
+            <p>That/WDT 's/VBZ what/WP the/DT code/NN pretty/RB much/JJ do/VB ,/, but/CC this/DT is/VBZ not/RB the/DT problem/NN ./. The/DT problem/NN is/VBZ that/WDT the/DT ajax/NN request/NN can/MD be/VB modified/VBN by/IN a/DT person/NN who/WP can/MD see/VB the/DT ad/NN ,/, and/CC keep/VBP spamming/VBG it/PRP ./. The/DT ajax/NN request/NN can/MD be/VB manipulated/VBN in/IN a/DT way/NN that/WDT no/DT request/NN will/MD be/VB sent/VB to/TO update.php/NNP file/NN ,/, resulting/VBG in/IN bypassing/VBG the/DT check/NN ./.</p>
+          </post>
+      </div>
+      <div type="response">
+        <post who="Joe Swindelli" when="2015-05-13 13:32:21Z" indentLevel="1">
+            <p>What/WP I/PRP suggested/VBD is/VBZ n't/RB what/WP your/PRP$ code/NN does/VBZ at/DT all/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Siguza" when="2015-05-13 13:37:05Z" upVote="2">
+            <p>Do/VBP the/DT checks/NNS server-side/JJ ./. Always/RB ./.
+                You/PRP have/VBP neither/CC control/NN nor/CC reliable/JJ knowledge/NN about/IN the/DT client/NN ,/, so/IN with/IN anything/NN sensitive/JJ ,/, do/VBP n't/RB trust/VBP it/PRP ./. 
+                Ultimately/RB ,/, a/DT user/NN may/MD just/RB download/VB the/DT source/NN code/NN of/IN an/DT open-source/JJ browser/NN and/CC modify/VBP it/PRP as/IN (/( s/PRP )/) he/PRP wishes/VBZ ./. Disabling/VBG things/NNS client-side/JJ is/VBZ a/DT nice/JJ plus/NN if/IN it/PRP indicates/VBZ that/WDT functionality/NN is/VBZ not/RB available/JJ ,/, and/CC it/PRP might/MD save/VB you/PRP and/CC your/PRP$ users/NNS some/DT time/NN and/CC bandwidth/NN ,/, but/CC there/EX are/VBP gonna/VBG be/VB those/DT who/WP try/VBP to/TO circumvent/VB it/PRP ,/, and/CC for/IN those/DT you/PRP need/VBP to/TO be/VB prepared/JJ ./. 
+                Disabling/VBG things/NNS server-side/JJ means/VBZ just/RB denying/VBG execution/NN ,/, i.e./FW just/RB put/VBP an/DT  exit/NN ;/:  after/IN your/PRP$ comment/NN  //: //: User/NN is/VBZ currently/RB blocked/JJ ./. ,/, that/WDT should/MD do/VB it/PRP ./. For/IN your/PRP$ second/JJ question/NN :/: yes/UH ,/, the/DT update.php/NNP might/MD get/VB spammed/VBN ,/, but/CC so/IN might/MD any/DT other/JJ PHP/ACR script/NN ./. 
+                Every/DT reasonable/JJ web/NN server/NN I/PRP know/VBP has/VBZ some/DT way/NN of/IN limiting/VBG the/DT amount/NN of/IN requests/NNS a/DT client/NN can/MD make/VB in/IN a/DT certain/JJ amount/NN of/IN time/NN ./. 
+                Lighttpd/NNP has/VBZ a/DT native/JJ  mod_evasive/COS ,/, nginx/NNP has/VBZ  HttpLimitReqModule/COS  and/CC for/IN Apache/NNP there/EX 's/VBZ a/DT number/NN of/IN things/NNS ,/, see/VBP  this/DT SO/IN answer/NN ./. 
+                If/IN the/DT spamming/VBG exceeds/VBZ the/DT capabilities/NNS of/IN your/PRP$ web/NN server/NN ,/, it/PRP 's/VBZ time/NN to/TO look/VB into/IN DDo/NNP s/POS protection/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Avi" when="2015-05-13 15:29:21Z" indentLevel="1">
+            <p>How/WRB does/VBZ '/" exit/NN ;/: '/" command/NN in/IN the/DT '/" update.php/NNP '/" file/NN help/VBP me/PRP when/WRB trying/VBG to/TO deal/VB with/IN client-side/JJ manipulation/NN ?/. Let/VB 's/PRP assume/VB that/WDT a/DT client/NN //: user/NN has/VBZ modified/VBN the/DT ajax/NN POST/COS request/NN to/TO url/NN :/: "/" "/" instead/RB of/IN url/NN :/: "/" update.php/NNP "/" ./. By/IN doing/VBG that/WDT ,/, a/DT record/NN which/WDT includes/VBZ his/PRP$ IP/ACR address/NN would/MD n't/RB be/VB inserted/VBN through/IN update.php/NNP file/NN ,/, resulting/VBG in/IN bypassing/VBG the/DT system/NN ./. Thank/VBP you/PRP for/IN your/PRP$ reply/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Siguza" when="2015-05-13 18:00:08Z" indentLevel="1">
+            <p>You/PRP mean/VBP ,/, you/PRP display/VBP a/DT direct/JJ link/NN to/TO  external/JJ  ads/NNS and/CC want/VBP a/DT bulletproof/JJ way/NN of/IN determining/VBG whether/RB that/WDT has/VBZ been/VBN clicked/VBN or/CC not/RB ?/. I/PRP believe/VBP that/WDT is/VBZ only/RB possible/JJ by/IN relaying/VBG everything/NN through/IN your/PRP server/NN ./. Create/VBP a/DT PHP/ACR file/NN that/WDT fetches/VBZ the/DT ad/NN contents/NNS ,/, modifies/VBZ the/DT link/NN to/TO point/VB to/TO update.php/NNP and/CC echo/VBZ 's/VBZ it/PRP ./. Display/VBP that/WDT on/IN the/DT page/NN instead/RB of/IN the/DT ad/NN ,/, and/CC at/IN the/DT end/NN of/IN update.php/NNP ,/, redirect/VBP the/DT user/NN to/TO the/DT actual/JJ ads/NNS page/NN (/( header/NN (/( '/" Location/NN :/: .../. '/" )/) ;/: )/) ./. Other/JJ than/IN that/WDT ,/, there/EX 's/VBZ pretty/RB much/JJ nothing/NN you/PRP can/MD do/VB ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Zgr3doo" when="2015-05-13 12:31:06Z" downVote="-1">
+            <p>Js/NNP code/NN may/MD be/VB manipulated/VBN by/IN anyone/NNP as/IN it/PRP s/POS client/NN side/NN all/DT what/WP you/PRP can/MD do/VB is/VBZ to/TO minimalise/VB risk/NN of/IN your/PRP$ code/NN to/TO be/VB potentially/RB disabled/VBN by/IN other/JJ script/NN in/IN order/NN to/TO do/VB it/PRP write/VBP your/PRP$ js/NNP to/TO use/VB only/RB private/JJ methods/NNS and/CC variables/NNS in/IN a/DT self-executing/JJ function/NN ./. So/IN the/DT code/NN will/MD be/VB not/RB visible/JJ in/IN global/JJ namespace/NN ,/, you/PRP may/MD also/RB need/VB to/TO copy/VB definitions/NNS of/IN globally/RB available/JJ objects/NNS (/( like/IN document/NN or/IN getElementById/COS )/) as/IN they/PRP may/MD change/VB them/PRP and/CC not/RB your/PRP$ code/NN itself/PRP ./. After/IN that/WDT obfuscate/VBP code/NN and/CC minify/VBP it/PRP ./.
+
+                For/IN PHP/ACR you/PRP will/MD probably/RB need/VB to/TO implement/VB some/DT kind/NN of/IN authentication/NN to/TO work/VB in/IN pair/NN with/IN your/PRP js/NNP script/NN as/IN this/DT is/VBZ nothing/NNP more/JJR than/IN securing/VBG any/DT request/NN for/IN access/NN so/IN maybe/RB IP/ACR or/CC session/NN validation/NN ./. Yo/PRP may/MD also/RB implement/VB some/DT other/JJ server/NN side/NN mechanisms/NNS in/IN order/NN to/TO prevent/VB this/DT script/NN from/IN being/VBG accessed/VBN by/IN certain/JJ IP/ACR adresses/NNS ./.
+
+                You/PRP may/MD also/RB decide/VB to/TO not/RB display/VB iframe/NNP at/IN all/DT for/IN certain/JJ ip/ACR addresses/NNS or/CC by/IN device/NN fingerprint/NN http://en.wikipedia.org/wiki/Device_fingerprint/URL which/WDT will/MD not/RB depend/VB on/IN client/NN side/NN logic/NN ,/, this/DT will/MD probably/RB make/MD it/PRP more/JJR secure/JJ than/IN solution/NN proposed/VBD by/IN you/PRP ./.
+</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

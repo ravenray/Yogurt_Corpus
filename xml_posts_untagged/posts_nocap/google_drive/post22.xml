@@ -1,0 +1,72 @@
+<TEI >
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>SQL Vulnerability - mod_rewrite</title>
+        <author>oliverbj</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/26008593/sql-vulnerability-mod-rewrite</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="oliverbj" url="http://stackoverflow.com/users/989185/oliverbj">
+        <signatureContent>
+          <p>Reputation: <num>1,353</num>Number of Gold Badges: <num>10</num>Number of Silver Badges: <num>35</num>Number of Bronze Badges: <num>68</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="mario" url="http://stackoverflow.com/users/345031/mario">
+        <signatureContent>
+          <p>Reputation: <num>100,259</num>Number of Gold Badges: <num>12</num>Number of Silver Badges: <num>134</num>Number of Bronze Badges: <num>217</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2014-09-24 04:31:51Z" who="oliverbj" revisedWhen="2014-09-24 04:41:54Z" upVote="0" ><p>I have the following modrewrite written in my .htaccess file: 
+            
+            RewriteRule ^forum/read/([^/]*)-([^/]*)$ ?i=f&amp;p=t&amp;cat=$1&amp;id=$2 [L] 
+
+I've been getting reports that there is a SQL vulnerability to this:The read file looks like this:
+
+$topicname = $_GET['id'];
+$topicid = $_GET['id'];
+$cat = $_GET['cat'];
+$topicname = explode('-', $topicname);
+$id = $topicname[0];
+    //Get the data from the posts.
+    $p = $dbh->prepare("
+        SELECT 
+            p.*,
+            u.*,
+        FROM forum_posts p
+        JOIN users u on u.id = p.userid
+        WHERE topic_id=:id AND post_deleted='0'
+        ORDER BY post_time ASC 
+        LIMIT $offset, $rowsperpage");
+    $p->bindParam(':id', $id);
+    $p->execute();   
+            
+ The report was:
+            
+ You need to make the database not to get confused with the -> '
+            
+ How can there be a vulnerability, when I use the prepare() statement?<tag>php</tag><tag>mod-rewrite</tag><tag>.htaccess</tag><tag>apache</tag><tag>sql</tag></p></post>
+      </div>
+      <div type="response">
+            <post when="2014-09-24 04:39:00Z" who="mario" indentLevel="1" upVote="2">
+                <p>This has nothing to do with your RewriteRule, but with your variable interpolation, if anything.
+                </p>
+            </post>
+            </div>
+      <div type="response">
+            <post when="2014-09-24 04:42:00Z" who="oliverbj" indentLevel="1">
+                <p>@mario How so? Where is the vulnerability? I've updated the code so the $_GET; requests are there too.
+                </p>
+            </post>
+            </div>
+    </body>
+  </text>
+</TEI>

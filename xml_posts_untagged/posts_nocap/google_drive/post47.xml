@@ -1,0 +1,88 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>XSS Vulnerability in PHP scripts</title>
+        <author>cosmoba</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/8764696/xss-vulnerability-in-php-scripts</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="cosmoba" url="http://stackoverflow.com/users/1052433/cosmoba">
+        <signatureContent>
+          <p>Reputation: <num>88</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>0</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Umbrella" url="http://stackoverflow.com/users/1125513/umbrella">
+        <signatureContent>
+          <p>Reputation: <num>3,236</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>10</num>Number of Bronze Badges: <num>25</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="hakre" url="http://stackoverflow.com/users/367456/hakre">
+        <signatureContent>
+          <p>Reputation: <num>128k</num>Number of Gold Badges: <num>24</num>Number of Silver Badges: <num>193</num>Number of Bronze Badges: <num>357</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="dqhendricks" url="http://stackoverflow.com/users/512922/dqhendricks">
+        <signatureContent>
+          <p>Reputation: <num>12.9k</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>32</num>Number of Bronze Badges: <num>66</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2012-01-06 21:22:09Z" who="cosmoba" revisedWhen="2012-01-06 21:45:06Z" upVote="2" accepted="favorite"><p>I have been searching everywhere to try and find a solution to this. I have recently been running scans on our websites to find any vulnerabilities to XSS and SQL Injection. Some items have been brought to my attention.Any data which is user inputted is now validated and sanitized using filter_var(). My issue now is with XSS and persons manipulating the URL. The simple one which seems to be everywhere is:This then changes some of the $_SERVER variables and causes all of my relative paths to CSS, links, images, etc.. to be invalid and the page doesn't load correctly. I clean any variables that are used within the script, but I am not sure how I get around removing this unwanted data in the URL. Thanks in advance.Addition:
+        This then causes a simple link in a template file:to actually link to:"http://www.domainname.com/script.php/"&gt;&lt; script&gt;alert('xss');&lt; /script &gt;/anotherpage.php<tag>php</tag><tag>xss</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Adrian" when="2012-01-06 21:38:35Z" indentLevel="1">
+          <p>sanitize user input; never trust it</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cosmoba" when="2012-01-06 21:49:35Z" indentLevel="1">
+          <p>What exactly am I sanitizing, I am not taking this input in for any use. I just want it ignored if it is not a variable I want.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Umbrella" when="2012-01-07 03:39:58Z" upVote="0" accepted="accepted">
+          <p>To your concern about XSS: The altered URL won't get into your page unless you blindly use the related $_SERVER variables.  The fact that the relative links seem to include the URL injected script is a browser behavior that risks only breaking your relative links.  Since you are not blinding using the $_SERVER variables, you don't have to worry. To your concern about your relative paths breaking: Don't use relative paths.  Reference all your resources with at least a root-of-domain path (starting with a slash) and this sort of URL corruption will not break your site in the way you described.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="hakre" when="2012-01-06 21:26:42Z" upVote="2">
+          <p>This sounds you made a big mistake with your website and should re-think how you inject link-information from the input into your output. Filtering input alone does not help here, you need to filter the output as well. Often it's more easy if your application recieves a request that does not match the superset of allowed requests to return a 404 error. Actually, the request has been already send, so the URL is set. You can't "change" it. It's just the information what was requested. It's now your part to deal upon it, not to blindly pass it around any longer, e.g. into your output (and then your links are broken). Edit:  You now wrote more specifically what you're concerned about. I would go in one with  dqhendricks  here: Who cares? If you really feel uncomfortable with the fact that a user is just using her browser and enters any URL she feels free to do so, well, the technically correct response is: And return a page with no or only fully-qualified URIs (absolute URIs) or a redefinition of the  Base-URI , otherwise the browser will take the URI entered into it's address bar as the  Base-URI . See  Uniform Resource Identifier (URI): Generic Syntax RFC 3986;  Section 5. Reference Resolution ­Specs .</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cosmoba" when="2012-01-06 21:48:35Z" indentLevel="1">
+          <p>I don't actually use any of the input in my output. I do not use PHP_SELF, or any of the $_SERVER vars. Unless there is something I am missing on my server configuration. The script that is being called does exist, so I am unsure as to how I should give a 404 error. I modified my question to show how the links are modified.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="hakre" when="2012-01-06 22:25:42Z" indentLevel="1">
+          <p>@cosmoba: I edited the answer. To learn how you can make your scripts return a HTTP status code, please see  php.net/header  .</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="dqhendricks" when="2012-01-06 21:28:48Z" upVote="1">
+          <p>first, if someone adds that crap to their url, who cares if the page doesn't load images correctly? also if the request isn't valid, why would it load any page? why are you using SERVER vars to get paths anyways? second, you should also be escaping any user submitted database input with the appropriate method for your particular database to avoid sql injection. filter_var generally will not help. third, xss is simple to protect from. Any user submitted data that is to be displayed on any page needs to be escaped with htmlspecialchars(). this is easier to ensure if you use a view class that you can build this escaping in to.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cosmoba" when="2012-01-06 21:54:30Z" indentLevel="1">
+          <p>I am not using $_SERVER vars to get any paths. I do escape all user submitted data.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="dqhendricks" when="2012-01-09 18:43:54Z" indentLevel="1">
+          <p>@cosmoba you said in your post, "This then changes some of the $_SERVER variables and causes all of my relative paths to CSS, links, images, etc.. to be invalid and the page doesn't load correctly." $_SERVER vars should not affect relative paths in any way.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

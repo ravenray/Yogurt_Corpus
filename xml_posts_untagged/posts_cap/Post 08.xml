@@ -1,0 +1,1968 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>A potentially dangerous Request.Form value was detected from the client</title>
+				<author>Radu094</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/81991/a-potentially-dangerous-request-form-value-was-detected-from-the-client
+					On: April 2nd, 2015	
+					Created by: 
+					Rachael Duke
+					Department of Linguistics
+					University of California, Davis
+					Please email me with any questions, comments, or errors.
+					Email: rebrim @ ucdavis . edu			
+				</p>
+			<listPerson>
+				<person xml:id="Radu094">
+				<signatureContent>
+					<p>Reputation: <num>8,205</num></p>
+					<p> Page: http://stackoverflow.com/users/3263/radu094 </p>
+					<p>Number of Gold Badges: <num>10</num></p>
+					<p>Number of Silver Badges:<num>34</num></p>
+					<p>Number of Bronze Badges:<num>66</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="Drew Noakes">
+				<signatureContent>
+					<p>Reputation: <num>85,540</num></p>
+					<p> Number of Gold Badges: <num>58</num></p>
+					<p>Number of Silver Badges:<num>290</num></p>
+					<p>Number of Bronze Badges:<num>378</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="bambams">
+				<signatureContent>
+					<p>Reputation: <num>439</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>5</num></p>
+					<p>Number of Bronze Badges:<num>13</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="gofor.net">
+				<signatureContent>
+					<p>Reputation: <num>810</num></p>
+					<p> Number of Gold Badges: <num>3</num></p>
+					<p>Number of Silver Badges:<num>20</num></p>
+					<p>Number of Bronze Badges:<num>39</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="JacquesB">
+				<signatureContent>
+					<p>Reputation: <num>21.3k</num></p>
+					<p> Number of Gold Badges: <num>8</num></p>
+					<p>Number of Silver Badges:<num>39</num></p>
+					<p>Number of Bronze Badges:<num>59</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Ian Mercer">
+				<signatureContent>
+					<p>Reputation: <num>21,222</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>35</num></p>
+					<p>Number of Bronze Badges:<num>76</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="IEnumerator">
+				<signatureContent>
+					<p>Reputation: <num>1,487</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>19</num></p>
+					<p>Number of Bronze Badges:<num>29</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="MGOwen">
+				<signatureContent>
+					<p>Reputation: <num>609</num></p>
+					<p> Number of Gold Badges: <num>5</num></p>
+					<p>Number of Silver Badges:<num>28</num></p>
+					<p>Number of Bronze Badges:<num>48</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Brian">
+				<signatureContent>
+					<p>Reputation: <num>14,711</num></p>
+					<p> Number of Gold Badges: <num>7</num></p>
+					<p>Number of Silver Badges:<num>49</num></p>
+					<p>Number of Bronze Badges:<num>110</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Samuel">
+				<signatureContent>
+					<p>Reputation: <num>704</num></p>
+					<p> Number of Gold Badges: <num>3</num></p>
+					<p>Number of Silver Badges:<num>8</num></p>
+					<p>Number of Bronze Badges:<num>18</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Jeremy Holovacs">
+				<signatureContent>
+					<p>Reputation: <num>7,695</num></p>
+					<p> Number of Gold Badges: <num>7</num></p>
+					<p>Number of Silver Badges:<num>35</num></p>
+					<p>Number of Bronze Badges:<num>96</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Alex">
+				<signatureContent>
+					<p>Reputation: <num>4,417</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>15</num></p>
+					<p>Number of Bronze Badges:<num>39</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="LordScree">
+				<signatureContent>
+					<p>Reputation: <num>856</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>11</num></p>
+					<p>Number of Bronze Badges:<num>22</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Steve Wranovsky">
+				<signatureContent>
+					<p>Reputation: <num>3,262</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>19</num></p>
+					<p>Number of Bronze Badges:<num>38</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Adam K Dean">
+				<signatureContent>
+					<p>Reputation: <num>2,376</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>18</num></p>
+					<p>Number of Bronze Badges:<num>44</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Justin Skiles">
+				<signatureContent>
+					<p>Reputation: <num>3,566</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>18</num></p>
+					<p>Number of Bronze Badges:<num>37</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Vojtech B">
+				<signatureContent>
+					<p>Reputation: <num>436</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>5</num></p>
+					<p>Number of Bronze Badges:<num>22</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="CaZbaN">
+				<signatureContent>
+					<p>Reputation: <num>335</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>3</num></p>
+					<p>Number of Bronze Badges:<num>9</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="bostIT">
+				<signatureContent>
+					<p>Reputation: <num>368</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>1</num></p>
+					<p>Number of Bronze Badges:<num>8</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Dio Phung">
+				<signatureContent>
+					<p>Reputation: <num>831</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>5</num></p>
+					<p>Number of Bronze Badges:<num>16</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Zack Peterson">
+				<signatureContent>
+					<p>Reputation: <num>20.9k</num></p>
+					<p> Number of Gold Badges: <num>55</num></p>
+					<p>Number of Silver Badges:<num>165</num></p>
+					<p>Number of Bronze Badges:<num>258</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Lucas">
+				<signatureContent>
+					<p>Reputation: <num>11,401</num></p>
+					<p> Number of Gold Badges: <num>4</num></p>
+					<p>Number of Silver Badges:<num>30</num></p>
+					<p>Number of Bronze Badges:<num>35</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Shan Plourde">
+				<signatureContent>
+					<p>Reputation: <num>5,064</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>18</num></p>
+					<p>Number of Bronze Badges:<num>33</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Anthony Johnston">
+				<signatureContent>
+					<p>Reputation: <num>3,311</num></p>
+					<p> Number of Gold Badges: <num>4</num></p>
+					<p>Number of Silver Badges:<num>23</num></p>
+					<p>Number of Bronze Badges:<num>41</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Andiih">
+				<signatureContent>
+					<p>Reputation: <num>7,775</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>35</num></p>
+					<p>Number of Bronze Badges:<num>63</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="trailmax">
+				<signatureContent>
+					<p>Reputation: <num>8,009</num></p>
+					<p> Number of Gold Badges: <num>5</num></p>
+					<p>Number of Silver Badges:<num>25</num></p>
+					<p>Number of Bronze Badges:<num>74</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="beautifulcoder">
+				<signatureContent>
+					<p>Reputation: <num>4,772</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>6</num></p>
+					<p>Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Domi Alex">
+				<signatureContent>
+					<p>Reputation: <num>310</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>3</num></p>
+					<p>Number of Bronze Badges:<num>9</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="JordanC">
+				<signatureContent>
+					<p>Reputation: <num>2,658</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>13</num></p>
+					<p>Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Hosam Aly">
+				<signatureContent>
+					<p>Reputation: <num>16,510</num></p>
+					<p> Number of Gold Badges: <num>25</num></p>
+					<p>Number of Silver Badges:<num>99</num></p>
+					<p>Number of Bronze Badges:<num>143</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Filip">
+				<signatureContent>
+					<p>Reputation: <num>399</num></p>
+					<p> Number of Gold Badges: <num>3</num></p>
+					<p>Number of Silver Badges:<num>9</num></p>
+					<p>Number of Bronze Badges:<num>25</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Samuel">
+				<signatureContent>
+					<p>Reputation: <num>704</num></p>
+					<p> Number of Gold Badges: <num>3</num></p>
+					<p>Number of Silver Badges:<num>8</num></p>
+					<p>Number of Bronze Badges:<num>18</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Tom Redfern">
+				<signatureContent>
+					<p>Reputation: <num>13,315</num></p>
+					<p> Number of Gold Badges: <num>5</num></p>
+					<p>Number of Silver Badges:<num>24</num></p>
+					<p>Number of Bronze Badges:<num>58</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Carter">
+				<signatureContent>
+					<p>Reputation: <num>4,292</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>27</num></p>
+					<p>Number of Bronze Badges:<num>40</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="GlennG">
+				<signatureContent>
+					<p>Reputation: <num>1,064</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>11</num></p>
+					<p>Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Fernando68">
+				<signatureContent>
+					<p>Reputation: <num>493</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>5</num></p>
+					<p>Number of Bronze Badges:<num>15</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="gligoran">
+				<signatureContent>
+					<p>Reputation: <num>1,394</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>18</num></p>
+					<p>Number of Bronze Badges:<num>30</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Matt Greer">
+				<signatureContent>
+					<p>Reputation: <num>32,095</num></p>
+					<p> Number of Gold Badges: <num>6</num></p>
+					<p>Number of Silver Badges:<num>79</num></p>
+					<p>Number of Bronze Badges:<num>97</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="wilsjd">
+				<signatureContent>
+					<p>Reputation: <num>1,065</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>6</num></p>
+					<p>Number of Bronze Badges:<num>25</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Mrchief">
+				<signatureContent>
+					<p>Reputation: <num>31,797</num></p>
+					<p> Number of Gold Badges: <num>6</num></p>
+					<p>Number of Silver Badges:<num>54</num></p>
+					<p>Number of Bronze Badges:<num>111</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Pavel Chuchuva">
+				<signatureContent>
+					<p>Reputation: <num>13.3k</num></p>
+					<p> Number of Gold Badges: <num>4</num></p>
+					<p>Number of Silver Badges:<num>56</num></p>
+					<p>Number of Bronze Badges:<num>63</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="ranthonissen">
+				<signatureContent>
+					<p>Reputation: <num>812</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>9</num></p>
+					<p>Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="skeletank">
+				<signatureContent>
+					<p>Reputation: <num>1,617</num></p>
+					<p> Number of Gold Badges: <num>4</num></p>
+					<p>Number of Silver Badges:<num>17</num></p>
+					<p>Number of Bronze Badges:<num>46</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Dominic Pettifer">
+				<signatureContent>
+					<p>Reputation: <num></num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num></num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="BenMaddox">
+				<signatureContent>
+					<p>Reputation: <num>942</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>13</num></p>
+					<p>Number of Bronze Badges:<num>24</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="phillip">
+				<signatureContent>
+					<p>Reputation: <num>1,627</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>7</num></p>
+					<p>Number of Bronze Badges:<num>16</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Mahdi jokar">
+				<signatureContent>
+					<p>Reputation: <num>554</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>17</num></p>
+					<p>Number of Bronze Badges:<num>37</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="A.Dara">
+				<signatureContent>
+					<p>Reputation: <num>102</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>2</num></p>
+					<p>Number of Bronze Badges:<num>12</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="YORENGOY">
+				<signatureContent>
+					<p>Reputation: <num></num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num></num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="jbehren">
+				<signatureContent>
+					<p>Reputation: <num>600</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>4</num></p>
+					<p>Number of Bronze Badges:<num>11</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="blowdart">
+				<signatureContent>
+					<p>Reputation: <num>30.2k</num></p>
+					<p> Number of Gold Badges: <num>4</num></p>
+					<p>Number of Silver Badges:<num>55</num></p>
+					<p>Number of Bronze Badges:<num>110</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Piercy">
+				<signatureContent>
+					<p>Reputation: <num>137</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>5</num></p>
+					<p>Number of Bronze Badges:<num>16</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Cristian Nicoleta">
+				<signatureContent>
+					<p>Reputation: <num>85</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>1</num></p>
+					<p>Number of Bronze Badges:<num>11</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="TheAlbear">
+				<signatureContent>
+					<p>Reputation: <num>2,470</num></p>
+					<p> Number of Gold Badges: <num>5</num></p>
+					<p>Number of Silver Badges:<num>26</num></p>
+					<p>Number of Bronze Badges:<num>55</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="flakomalo">
+				<signatureContent>
+					<p>Reputation: <num>141</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>1</num></p>
+					<p>Number of Bronze Badges:<num>2</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Beska">
+				<signatureContent>
+					<p>Reputation: <num>7,025</num></p>
+					<p> Number of Gold Badges: <num>6</num></p>
+					<p>Number of Silver Badges:<num>58</num></p>
+					<p>Number of Bronze Badges:<num>94</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Chris Gillum">
+				<signatureContent>
+					<p>Reputation: <num>4,604</num></p>
+					<p> Number of Gold Badges: <num>3</num></p>
+					<p>Number of Silver Badges:<num>18</num></p>
+					<p>Number of Bronze Badges:<num>20</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Fernando68">
+				<signatureContent>
+					<p>Reputation: <num>493</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>5</num></p>
+					<p>Number of Bronze Badges:<num>15</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Sel">
+				<signatureContent>
+					<p>Reputation: <num>91</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>1</num></p>
+					<p>Number of Bronze Badges:<num>3</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Walden Leverich">
+				<signatureContent>
+					<p>Reputation: <num>2,946</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>12</num></p>
+					<p>Number of Bronze Badges:<num>22</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="woany">
+				<signatureContent>
+					<p>Reputation: <num>811</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>8</num></p>
+					<p>Number of Bronze Badges:<num>8</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="magritte">
+				<signatureContent>
+					<p>Reputation: <num>2,759</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>24</num></p>
+					<p>Number of Bronze Badges:<num>51</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Jaider">
+				<signatureContent>
+					<p>Reputation: <num>3,289</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>17</num></p>
+					<p>Number of Bronze Badges:<num>34</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Ryan">
+				<signatureContent>
+					<p>Reputation: <num>31</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num>1</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Shilpa Soni">
+				<signatureContent>
+					<p>Reputation: <num>123</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>3</num></p>
+					<p>Number of Bronze Badges:<num>16</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Leniel Macaferi">
+				<signatureContent>
+					<p>Reputation: <num>45.2k</num></p>
+					<p> Number of Gold Badges: <num>14</num></p>
+					<p>Number of Silver Badges:<num>171</num></p>
+					<p>Number of Bronze Badges:<num>266</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Trisped">
+				<signatureContent>
+					<p>Reputation: <num>2,986</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>17</num></p>
+					<p>Number of Bronze Badges:<num>22</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Paweł Hajdan">
+				<signatureContent>
+					<p>Reputation: <num>8,492</num></p>
+					<p> Number of Gold Badges: <num>5</num></p>
+					<p>Number of Silver Badges:<num>28</num></p>
+					<p>Number of Bronze Badges:<num>52</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Captain Toad">
+				<signatureContent>
+					<p>Reputation: <num>259</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>1</num></p>
+					<p>Number of Bronze Badges:<num>10</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Mike S.">
+				<signatureContent>
+					<p>Reputation: <num>1</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num>1</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Ady Levy">
+				<signatureContent>
+					<p>Reputation: <num>1</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num>1</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="bastos.sergio">
+				<signatureContent>
+					<p>Reputation: <num>3,756</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>12</num></p>
+					<p>Number of Bronze Badges:<num>27</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="LamonteCristo">
+				<signatureContent>
+					<p>Reputation: <num>11,684</num></p>
+					<p> Number of Gold Badges: <num>10</num></p>
+					<p>Number of Silver Badges:<num>87</num></p>
+					<p>Number of Bronze Badges:<num>283</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="PCPGMR">
+				<signatureContent>
+					<p>Reputation: <num>192</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>1</num></p>
+					<p>Number of Bronze Badges:<num>7</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Devendra Patel">
+				<signatureContent>
+					<p>Reputation: <num>54</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num>7</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Maverick">
+				<signatureContent>
+					<p>Reputation: <num>851</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>16</num></p>
+					<p>Number of Bronze Badges:<num>41</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="User 6675636b20796f7521">
+				<signatureContent>
+					<p>Reputation: <num>786</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>9</num></p>
+					<p>Number of Bronze Badges:<num>32</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="BraveNewMath">
+				<signatureContent>
+					<p>Reputation: <num>1,915</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>13</num></p>
+					<p>Number of Bronze Badges:<num>24</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Rob Sedgwick">
+				<signatureContent>
+					<p>Reputation: <num>707</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>6</num></p>
+					<p>Number of Bronze Badges:<num>18</num></p>
+				</signatureContent>
+				</person>
+			</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<front>
+			<div type="up vote">
+				<p>up vote  <num>799</num></p>
+			</div>
+			<div type="down vote">
+			<p>down vote
+          favorite <num>223</num></p>
+			</div>
+		</front>
+		<div type="forum">
+			<posting synch="Sep 17 '08 at 10:58" who="Radu094" revisedBy="community wiki" revisedWhen="Feb 12 '14 at 8:06">
+			<p>Everytime a user posts something containing &lt; or &gt; in a page in my webapp, I get this exception thrown.
+
+				I don't want to go into the discussion about the smartness of throwing an exception or crashing an entire webapp because somebody entered a character in a text box, but I am looking for an elegant way to handle this.
+
+				Trapping the exception and showing An error has occured please go back and re-type your entire form again, but this time please do not use &lt; doesn't seem professional enough to me
+
+				Disabling post validation ( validateRequest="false" ) will definitely avoid this error, but it will leave the page vulnerable to a number of attacks.
+
+					Ideally: when a post back occurs containing HTML restricted characters, that posted value in the Form collection will be automatically HTML encoded. So the .Text property of my text-box will be something &lt; html &gt;
+
+				Any way I can do this from a handler?
+				<tag>asp.net</tag> <tag>asp.net-mvc</tag> <tag>validation</tag> <tag>html-encode</tag>
+			</p>
+			</posting>	
+		</div>		
+		<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>33</num></p>
+					</div>
+				</front>    
+				<posting synch="Oct 14 '10 at 2:50" who="Drew Noakes" IndentLevel="1">  
+					<p>Note that you can get this error if you have HTML entity names (&amp;) or entity numbers (&#39;) in your input too. 
+					</p>				
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Mar 28 '12 at 15:40" who="gofor.net" IndentLevel="1">   
+					<p>check here    
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Sep 11 '14 at 9:15" who="Radu094" IndentLevel="1">       
+					<p>@bamccaig , kinda missing the point entirely    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>    
+				<posting synch="Sep 18 '14 at 16:13" who="bambams" IndentLevel="1">     
+					<p>@Radu094, the point is that angle brackets are not the least bit dangerous. Incompetent Web developers are. As emphasized by the fact that we can type them into our comments right here on SO and nothing bad is happening! ZOMG, how do they do it?! <script type="text/javascript">alert("Attack!");</script> Awww. 
+
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>    
+				<posting synch="Sep 18 '14 at 17:23" who="Radu094" IndentLevel="1">     
+					<p>Well, since it's my question I feel I can define what the point actually is: crashing an entire application process and returning a generic error message because somebody typed a '&lt;' is overkill. Especially since you know most people will just 'validateRequest=false' to get rid of it, thus re-opening the vulnerability   
+					</p>			
+				</posting>
+				</div>
+		<front>
+			<head>34 Answers</head>
+				<div type="up vote">
+				<p>up vote  <num>670</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="JacquesB" revisedWhen="Oct 23 '12 at 14:26" revisedBy="community wiki">
+			 	<p>I think you are attacking it from the wrong angle by trying to encode all posted data.
+
+					Note that a "&lt;" could also come from other outside sources, like a database field, a configuration, a file, a feed and so on.
+
+					Furthermore, "&lt;" is not inherently dangerous, its only dangerous in a specific context: when writing unencoded strings to HTML output (because of XSS). In other contexts different substrings are dangerous, e.g. if you write an user-provided URL into a link, the substring "javascript:" may be dangerous. The single quote character on the other hand is dangerous when interpolating strings in SQL queries, but perfectly safe if it is a part of a name submitted from a form or read from a database field.
+
+					The bottom line is: you can't filter random input for dangerous characters, because any charater may be dangerous under the right circumstances. You should encode at the point where some specific characters may become dangerous because they cross into a different sublanguage where they have special meaning. When you write a string to HTML, you should encode characters that have special meaning in HTML, using Server.HtmlEncode. If you pass a string to a dyamic SQL statement, you should encode different characters (or better, let the framework do it for you by using prepared statements or the like).
+
+					When you are sure you HTML-encode everywhere you pass strings to HTML, then set validateRequest="false".
+
+					In .NET 4 you may need to do a little more. Sometimes it's necessary to also add <httpRuntime requestValidationMode="2.0" /> to web.config (reference).
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>179</num></p>
+					</div>
+				</front>    
+				<posting synch="Mar 19 '10 at 19:57" who="Ian Mercer" IndentLevel="1">      
+				<p>In .NET 4 you may need to do a little more. Sometimes it's necessary to also add <httpRuntime requestValidationMode="2.0" /> to web.config. See asp.net/(S(ywiyuluxr3qb2dfva1z5lgeg))/learn/whitepapers/aspnet4/… 
+				</p>
+				</posting>
+				</div>
+				<div type="response">   
+				<posting synch="Apr 27 '10 at 15:21" who="IEnumerator" IndentLevel="1">         
+				<p>@Hightechrider thanks for that link. Simple setting validateRequest="false" doesn't work for a view in ASP.Net MVC @olavk - Nice. Joel took the time to comment on your answer. 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>36</num></p>
+					</div>
+				</front>    
+				<posting synch="Oct 20 '10 at 5:28" who="MGOwen" IndentLevel="1">        
+				<p>To those coming in late: validateRequest="false" goes in the Page directive (first line of your .aspx file) 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>33</num></p>
+					</div>
+				</front>     
+				<posting synch="May 17 '11 at 14:05" who="Brian" IndentLevel="1">      
+				<p>Tip: Put <httpRuntime requestValidationMode="2.0" /> in a location tag to avoid killing the useful protection provided by validation from the rest of your site.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">   
+				<posting synch="Jul 20 '11 at 18:17" who="Samuel" IndentLevel="1">         
+				<p>Looks like <httpRuntime requestValidationMode="2.0" /> works only when 2.0 framework is installed on the machine. What if 2.0 framework is not installed at all but only 4.0 framework is installed? 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>174</num></p>
+					</div>
+				</front>
+				<posting synch="Sep 9 '11 at 19:30" who="Jeremy Holovacs" IndentLevel="1">         
+				<p>In MVC3, this is [AllowHtml] on the model property.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">   
+				<posting synch="Jul 18 '12 at 11:14" who="Alex" IndentLevel="1">          
+				<p>To disable it globally for MVC 3 you also need GlobalFilters.Filters.Add(new ValidateInputAttribute(false)); in Application_Start(). 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>8</num></p>
+					</div>
+				</front>   
+				<posting synch="Jul 31 '12 at 9:56" who="LordScree" IndentLevel="1">          
+				<p>@MGOwen you can also add the page directive to the web.config via <pages validateRequest="false" /> in <system.web />. Doing so will apply the property to all pages. 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>     
+				<posting synch="Aug 8 '12 at 20:07" who="Steve Wranovsky" IndentLevel="1">          
+				<p>This answer to this question has a reference to setting the requestValidationMode="2.0" for only a single page on your site, which is definitely more secure than turning the validation off for an entire site. 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>4</num></p>
+					</div>
+				</front>
+				<posting synch="Jun 25 '13 at 12:21" who="Adam K Dean" IndentLevel="1">         
+				<p>In MVC4, [ValidateInput(false)] works.   
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Oct 24 '13 at 15:15" who="Justin Skiles" IndentLevel="1">         
+				<p>You can use CausesValidation="false" on specific controls in WebForms.   
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>  
+				<posting synch="May 24 '14 at 15:44" who="Vojtech B" IndentLevel="1">       
+				<p>I would like to point out that not only "javascript:" can be dangerous. Imagine what would "&lt;/div&gt;&lt;/div&gt;" do to your layout. 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Jun 30 '14 at 6:38" who="CaZbaN" IndentLevel="1">          
+				<p>Is there any method other than disabling validateRequest, since it threatens the security of the web site.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">   
+				<posting synch="Aug 29 '14 at 8:36" who="bostIT" IndentLevel="1">          
+				<p>I just want to point out that dynamic SQL running on SQL Server should always be executed using sp_executesql to reduce security risk. 
+				</p>
+				</posting> 
+				</div>
+				<div type="response">    
+				<posting synch="Sep 30 '14 at 3:01" who="Dio Phung" IndentLevel="1">        
+				<p>@Samuel: requestValidationMode="4.0" (or anything >= 4.0) means that the validation is done whenever a HTTP request data is accessed (url, cookies). requestValidationMode="2.0" (or anything less than 4.0) is to enable HTTP request validation for pages only. Take a look at the MSDN: msdn.microsoft.com/en-us/library/… 
+				</p>
+				</posting>
+				</div>
+				<front>
+				<div type="up vote">
+				<p>up vote  <num>325</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Zack Peterson" revisedWhen="Jan 9 '11 at 15:17" revisedBy="community wiki">
+			 	<p>There's a different solution to this error if you're using ASP.NET MVC:
+
+					ASP.NET MVC – pages validateRequest=false doesn’t work?
+					Why is ValidateInput(False) not working?
+					ASP.NET MVC RC1, VALIDATEINPUT, A POTENTIAL DANGEROUS REQUEST AND THE PITFALL
+					Visual Basic sample:
+
+					&lt;AcceptVerbs(HttpVerbs.Post), ValidateInput(False)&gt; _
+					Function Edit(ByVal collection As FormCollection) As ActionResult
+					    ...
+					End Function
+					C# sample:
+
+					[HttpPost, ValidateInput(false)]
+						public ActionResult Edit(FormCollection collection)
+						{
+ 					   // ...
+						}
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>18</num></p>
+					</div>
+				</front>    
+				<posting synch="Apr 8 '10 at 19:39" who="Lucas" IndentLevel="1">      
+				<p>the solution for ASP.NET MVC is just what i needed, thanks!    
+				</p>
+				</posting>
+				</div>
+				<div type="response">   
+				<posting synch="Dec 18 '10 at 6:03" who="Steven Spielberg" IndentLevel="1">         
+				<p>the problem may be come when it's need on one page of whole application   
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>      
+				<posting synch="May 29 '11 at 13:12" who="Shan Plourde" IndentLevel="1">        
+				<p>You can also add the [ValidateInput(false)] attribute at the class level. If you add it to your base controller class, it will apply to all controller method actions.  
+				</p>
+				</posting>
+				</div>	
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>184</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Anthony Johnston" revisedWhen="Jan 3 '14 at 20:54" revisedBy="community wiki">
+			 	<p>In ASP.NET MVC 3, you can add the AllowHtml attribute to a property on your model.
+
+				It allows a request to include HTML markup during model binding by skipping request validation for the property.
+
+					[AllowHtml]
+					public string Description { get; set; }
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>    
+				<posting synch="Mar 9 '12 at 9:03" who="Andiih" IndentLevel="1">      
+				<p>Much better to do this declarativly than in the controller!       
+				</p>
+				</posting>
+				</div>
+				<div type="response">   
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>6</num></p>
+					</div>
+				</front>     
+				<posting synch="Jan 30 '14 at 14:08" who="trailmax" IndentLevel="1">         
+				<p>The only correct answer! disabling validation on controller action is hacky. And for disabling validation on application level, devs must be hanged!   
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>      
+				<posting synch="Feb 20 at 2:59" who="beautifulcoder" IndentLevel="1">        
+				<p>Beautiful! This is the way it should be done.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">     
+				<posting synch="Mar 12 at 15:59 " who="Domi Alex" IndentLevel="1">        
+				<p>This is the correct answer.      
+				</p>
+				</posting>
+				</div>
+				<front>
+				<div type="up vote">
+				<p>up vote  <num>150</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="JordanC" revisedWhen="Mar 15 '11 at 0:01" revisedBy="community wiki">
+			 	<p>If you are on .net 4.0 make sure you add this in your web.config
+
+					&lt;httpRuntime requestValidationMode="2.0" / &gt;
+					Inside the &lt;system.web &gt; tags
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>25</num></p>
+					</div>
+				</front>    
+				<posting synch="Nov 4 '10 at 11:26" who="Hosam Aly" IndentLevel="1">      
+				<p>Inside the &lt;system.web&gt; tags.           
+				</p>
+				</posting>
+				</div>
+				<div type="response">   
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>6</num></p>
+					</div>
+				</front>      
+				<posting synch="Dec 12 '10 at 15:40" who="Filip" IndentLevel="1">         
+				<p>I've put this in the web.config, but still to the error "A potentially dangerous Request.Form value " 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>14</num></p>
+					</div>
+				</front>       
+				<posting synch="Jul 20 '11 at 18:18" who="Samuel" IndentLevel="1">        
+				<p>Looks like <httpRuntime requestValidationMode="2.0" /> works only when 2.0 framework is installed on the machine. What if 2.0 framework is not installed at all but only 4.0 framework is installed? 
+				</p>
+				</posting>
+				</div>
+				<div type="response">       
+				<posting synch="Oct 2 '12 at 10:53" who="Tom Redfern" IndentLevel="1">        
+				<p>This totally worked for me. None of the steps document in the other answers were necessary (including validateRequest="false")!      
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>55</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Nov 27 '12 at 17:22" who="Carter" revisedBy="community wiki">
+			 	<p>For ASP.Net 4.0, You can allow markup as input for specific pages instead of the whole site by putting it all in a &lt;location&gt; element. This will make sure all your other pages are safe. You do NOT need to put ValidateRequest="false" in your aspx page.
+
+					<configuration>
+					...
+					  <location path="MyFolder/.aspx">
+					    &lt;system.web&gt;
+					      &lt;pages validateRequest="false" /&gt;
+					      &lt;httpRuntime requestValidationMode="2.0" /&gt;
+					    &lt;/system.web&gt;
+					  </location>
+						...
+					</configuration>
+					It is safer to control this inside your web.config, because you can see at a site level which pages allow markup as input.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">  
+				<posting synch="Feb 13 at 8:30" who="GlennG" IndentLevel="1">      
+				<p>More info on requestValidationMode=2|4 here: msdn.microsoft.com/en-us/library/…              
+				</p>
+				</posting>
+				</div>
+				<div type="response">         
+				<posting synch="Mar 11 at 5:48" who="Fernando68" IndentLevel="1">         
+				<p>Sadly this won't work with ASP.net 2.0 as is. Remove the httpRuntime line and it will work.   
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>41</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Nov 6 '10 at 14:58" who="gligoran" revisedBy="community wiki">
+			 	<p>The answers above are great, but nobody said how to exclude a single field from being validated for html/js injections. I don't know about previous versions but in MVC3 Beta you can do this:
+
+					[HttpPost, ValidateInput(true, Exclude = "YourFieldName")]
+					public virtual ActionResult Edit(int id, FormCollection collection)
+					{
+					    ...
+					}
+					This still validates all the fields except for the excluded one. The nice thing about this is that your validation attributes still validate the field, you just don't get the "A potentially dangerous Request.Form value was detected from the client" exceptions.
+
+					I've used this for validating a RegularExpression. I've made my own ValidationAttribute to see if the regex is valid or not. As regexes can contain something that looks like a script I applied the above code - the regex is still being checked if it's valid or not, but not if it contains scripts or html.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>7</num></p>
+					</div>
+				</front>       
+				<posting synch="Mar 23 '11 at 16:18" who="Matt Greer" IndentLevel="1">        
+				<p>Sadly it looks like the Exclude feature was removed from MVC 3 RTW :(    
+				</p>
+				</posting>
+				</div>
+			<div type="response">  
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>  
+				<posting synch="Jun 27 '13 at 19:41" who="wilsjd" IndentLevel="1">      
+				<p>Nor was it included in MVC 4                
+				</p>
+				</posting>
+				</div>
+				<div type="response"> 
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>          
+				<posting synch="Mar 25 '14 at 17:07" who="Mrchief" IndentLevel="1">         
+				<p>Use [AllowHtml] on the model's properties instead of [ValidateInput] on the Action to achieve the same end result.    
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>34</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Pavel Chuchuva" revisedBy="community wiki" revisedWhen="Sep 17 '08 at 21:18">
+			 	<p>You can HtmlEncode text box content but unfortunately that won't stop the exception from happening. In my experience there is no way around and you have to disable page validation. By doing that you're saying: "I'll be careful, I promise."
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>27</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="ranthonissen" revisedBy="community wiki" revisedWhen="Dec 3 '10 at 10:17">
+			 	<p>In ASP.Net MVC you need to set requestValidationMode="2.0" and validateRequest="false" in web.config, and apply a ValidateInput attribute to your Controller action:
+
+					<httpRuntime requestValidationMode="2.0"/>
+
+					<configuration>
+					    <system.web>
+					        <pages validateRequest="false" />
+					    </system.web>
+					</configuration>
+						and
+
+						[Post, ValidateInput(false)]
+						public ActionResult Edit(string message) {
+					    ...
+						}
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>       
+				<posting synch="Oct 2 '12 at 10:54" who="Tom Redfern" IndentLevel="1">        
+				<p>For me, validateRequest="false" was not necessary, only requestValidationMode="2.0"       
+				</p>
+				</posting>
+				</div>
+			<div type="response">  
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>  
+				<posting synch="Jan 8 '13 at 15:50" who="skeletank" IndentLevel="1">      
+				<p>+1 for explicitly showing where where validateRequest="false" is located in the web.config.                   
+				</p>
+				</posting>
+				</div>
+				<front>
+				<div type="up vote">
+				<p>up vote  <num>23</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Dominic Pettifer" revisedBy="community wiki" revisedWhen="Nov 16 '10 at 22:52">
+			 	<p>Please bear in mind that some .NET controls will automatically HTML encode the output. For instance setting the .Text property on a TextBox control will automatically encode it, that specifically means converting &lt; into &lt;, &gt; into &gt; and &amp; into &amp;. So be wary of doing this...
+
+					myTextBox.Text = Server.HtmlEncode(myStringFromDatabase); // Pseudo code
+					However, the .Text property for HyperLink, Literal and Label won't HTML Encode things so wrapping Server.HtmlEncode(); around anything being set on these properties is a must if you want to prevent <script> window.location = "http://www.porn.com"; </script> from being output into your page and subsequently executed.
+
+					Do a little experimenting to see what gets Encoded and what doesn't.
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>22</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Oct 13 '09 at 22:37" who="BenMaddox" revisedBy="community wiki">
+			 	<p>You can catch that error in Global.asax. I still want to validate, but show an appropriate message. On the blog listed below, a sample like this was available.
+
+					    void Application_Error(object sender, EventArgs e)
+					    {
+ 					       Exception ex = Server.GetLastError();
+
+					        if (ex is HttpRequestValidationException)
+					        {
+					            Response.Clear();
+					            Response.StatusCode = 200;
+					            Response.Write(@"[html]");
+					            Response.End();
+						        }
+							    }
+						Redirecting to another page also seems like a reasonable response to the exception.
+
+						http://www.romsteady.net/blog/2007/06/how-to-catch-httprequestvalidationexcep.html
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">   
+				<posting synch="Nov 24 '14 at 17:54" who="phillip" IndentLevel="1">      
+				<p>seems a simple thing but has been difficult to find so I gave you a vote up...                      
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>15</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Mar 14 '12 at 22:20" who="Mahdi jokar" revisedBy="community wiki">
+			 	<p>In the web.config file, within the tags, insert the httpRuntime element with the attribute requestValidationMode="2.0". Also add the validateRequest="false" attribute in the pages element.
+
+					Example:
+
+					<configuration>
+ 						 <system.web>
+					   <httpRuntime requestValidationMode="2.0" />
+					  </system.web>
+					  <pages validateRequest="false">
+						  </pages>
+						</configuration>
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">   
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>  
+				<posting synch="Oct 2 '12 at 10:54" who="Tom Redfern" IndentLevel="1">      
+				<p>For me, validateRequest="false" was not necessary, only requestValidationMode="2.0"                       
+				</p>
+				</posting>
+				</div>
+			<div type="response">   
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>  
+				<posting synch="Nov 27 '12 at 17:13" who="Carter" IndentLevel="1">      
+				<p>The "pages" section must be within the "system.web" section.                           
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>11</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Jan 29 '14 at 9:40" who="A.Dara" revisedBy="community wiki">
+			 	<p>For MVC, ignore input validation by adding
+
+					[ValidateInput(false)]
+					above Action in Controllers.
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>9</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="YORENGOY" revisedBy="community wiki" revisedWhen="May 17 '11 at 11:40">
+			 	<p>If you don´t want to disable ValidateRequest you need to implement a javascript function in order to avoid the exception, is not the best option, but it´s works.
+
+					function AlphanumericValidation(evt)
+					{
+					    var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+					        ((evt.which) ? evt.which : 0));         
+					    //User type Enter key
+					    if (charCode == 13)
+					    {
+
+					        //Do something, set controls focus or do anything
+					        return false;
+				    }
+					    //User can not type non alphanumeric chacacters
+					    if ((charCode &lt; 48) || (charCode &gt; 122) ||  ((charCode &gt; 57) &amp;&amp; (charCode &lt;  65)) ||  ((charCode &gt; 90) &amp;&amp; (charCode &lt; 97))   )
+					    {
+					        //Show message or do something
+					            return false;
+					    }  
+					}
+						then in code behind, on PageLoad event, add the atribute to your control with the next code:
+
+						Me.TextBox1.Attributes.Add("OnKeyPress", "return AlphanumericValidation(event);")
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">   
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>     
+				<posting synch="Oct 26 '09 at 22:21" who="Radu094" IndentLevel="1">      
+				<p>This will still leave the app vulnerable from made-up POST requests. A regular user will have problems entering characters like , : or quotes, but a regular hacker will have no problems POSTing malformed data to the server. I'd vode this waaay down.                      
+				</p>
+				</posting>
+				</div>
+			<div type="response">   
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>8</num></p>
+					</div>
+				</front>    
+				<posting synch="Aug 17 '11 at 19:10" who="jbehren" IndentLevel="1">      
+				<p>@Radu094: This solution allows you to keep ValidateRequest=true, which means hackers will still hit that wall. Vote UP, since this leaves you less vulnerable than turning ValidateRequest off.                            
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>8</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 17 '08 at 11:26" who="blowdart" revisedBy="community wiki">
+			 	<p>I guess you could do it in a module; but that leaves open some questions; what if you want to save the input to a database? Suddenly because you're saving encoded data to the database you end up trusting input from it which is probably a bad idea, ideally you store raw unencoded data in the database and the encode every time.
+
+					Disabling the protection on a per page level and then encoding each time is a better option.
+
+					Rather than using Server.HtmlEncode you should look at the newer, more complete Anti-XSS library from the Microsoft ACE team.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>8</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="27 '12 at 15:01" who="Piercy" revisedBy="community wiki">
+			 	<p>Seems no one has mentioned the below yet but it fixes the issue for me. And before anyone says it yeah its VB... yuck. But I wanted a better job and now I have one ;)
+
+					&lt;%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Example.aspx.vb" Inherits="Example.Example" **ValidateRequest="false"** %&gt;
+					I dunno if theres any downsides but for me this worked amazing :)
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">   
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>7</num></p>
+					</div>
+				</front>       
+				<posting synch="Jul 9 '12 at 14:45" who="Piercy" IndentLevel="1">      
+				<p>lol, just had this issue again and googled for the answer... Found this. Scrolled though all answers, tried this one and it worked. Went to vote it up and realised it was mine... oops :D 
+				</p>
+				</posting>
+				</div>
+			<div type="response">       
+				<posting synch="Oct 13 '14 at 10:24" who="Cristian Nicoleta" IndentLevel="1">      
+				<p>:)) I can't believe you did that    
+				</p>
+				</posting>
+				</div>
+			<div type="response">       
+				<posting synch="Oct 22 '14 at 13:34" who="TheAlbear" IndentLevel="1">      
+				<p>Works for web forms c# or VB        
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>8</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="flakomalo" revisedBy="community wiki" revisedWhen="Apr 25 '13 at 21:13">
+			 	<p>The answer to this question is simple:
+
+					var varname = Request.Unvalidated["parameter_name"];
+					This would disable validation for the particular request.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">           
+				<posting synch="Nov 4 '14 at 20:00" who="Beska" IndentLevel="1">      
+				<p>Only applicable for ASP.NET 4.5 (and, presumably, whatever will come after it.) Pre 4.5 does not support this. 
+				</p>
+				</posting>
+				</div>
+			<div type="response">          
+				<posting synch="Nov 18 '14 at 19:26" who="Chris Gillum" IndentLevel="1">      
+				<p>I wish I could bump this way up. I'm using .NET 4.5 and this is exactly what I needed since I'm not using MVC and I cannot change the web.config.     
+				</p>
+				</posting>
+				</div>
+			<div type="response">       
+				<posting synch="Mar 18 at 4:12" who="Fernando68" IndentLevel="1">      
+				<p>Yeah but what if you're using .Net 2? Some of us have no choice          
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>6</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Dec 8 '13 at 5:39" who="Sel" revisedBy="community wiki">
+			 	<p>Аnother solution
+
+					protected void Application_Start()
+						{
+						   ...
+					   RequestValidator.Current = new MyRequestValidator();
+						}
+
+						public class MyRequestValidator: RequestValidator
+					    {
+				        protected override bool IsValidRequestString(HttpContext context, string value, RequestValidationSource requestValidationSource, string collectionKey, out int validationFailureIndex)
+					        {
+					            bool result = base.IsValidRequestString(context, value, requestValidationSource, collectionKey, out validationFailureIndex);
+	
+				            if (!result)
+				            { 
+				                //Write your validation here 
+				                if (requestValidationSource == RequestValidationSource.Form ||
+				                    requestValidationSource == RequestValidationSource.QueryString)
+				                    return true; //suppress error message
+				            }
+				            return result;
+					        }
+							    }
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">              
+				<posting synch="May 1 '14 at 20:01" who="Walden Leverich" IndentLevel="1">      
+				<p>Nice! Wasn't aware of the ability to replace the Request Validator. Instead of just saying "ok" like you do I extended this idea to not validate fields that end in "_NoValidation" as their name. Code below.  
+				</p>
+				</posting>
+				</div>
+			<div type="response">          
+				<posting synch="Jan 28 at 9:10" who="Sel" IndentLevel="1">      
+				<p>Walden Leverich, to do this see [AllowHtml] attribure    
+				</p>
+				</posting>
+				</div>
+			<div type="response">          
+				<posting synch="Jan 29 at 23:24" who="Walden Leverich" IndentLevel="1">      
+				<p>Sel, yes in an MVC environment that would work. But in a webforms application I don't have a model to do that on. :-)         
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>5</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 17 '08 at 11:32" who="woany" revisedBy="community wiki">
+			 	<p>Disable the page validation if you really need the special characters like &gt; and &lt; etc. Then ensure that when the user input is displayed, the data is HTML encoded.
+
+					There is a security vuln with the page validation, so it can be bypassed. Also the page validation shouldn't be solely relied on.
+
+					See: http://www.procheckup.com/PDFs/bypassing-dot-NET-ValidateRequest.pdf
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>5</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Mar 16 '12 at 14:34" who="magritte" revisedBy="community wiki">
+			 	<p>The other solutions here are nice, however it's a bit of a royal pain in the rear to have to apply [AllowHtml] to every single Model property especially if you have over 100 models on a decent sized site.
+
+				If like me, you want to turn this (imho pretty pointless) feature off site wide you can override the Execute() method in your base controller (if you don't already have a base controller I suggest you make one, they can be pretty useful for applying common functionality).
+
+					    protected override void Execute(RequestContext requestContext)
+					    {
+				        // Disable requestion validation (security) across the whole site
+				        ValidateRequest = false;
+				        base.Execute(requestContext);
+					    }
+						Just make sure that you are html encoding everything that is pumped out to the views that came from user input (it's default behaviour in MVC3 with Razor anyway so unless for some bizzare reason you are using Html.Raw() you shouldn't require this feature.
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Jul 17 '12 at 20:19" who="Jaider" revisedBy="community wiki">
+			 	<p>Personally, I prefer to work with ASP.Net Validation Request. You can catch the exception and do something about, such as display friendly message or redirect to other page... also there is a possibility that you can handle the validation by yourself...
+
+					Display Friendly Message:
+
+					protected override void OnError(EventArgs e)
+					{
+				    base.OnError(e);
+				    var ex = Server.GetLastError().GetBaseException();
+				    if (ex is System.Web.HttpRequestValidationException)
+				    {
+				        Response.Clear();
+				        Response.Write("Invalid characters."); //  Response.Write(HttpUtility.HtmlEncode(ex.Message));
+				        Response.StatusCode = 200;
+				        Response.End();
+				    }
+						}
+					http://www.jaider.net/archives/559-a-potentially-dangerous-request-form-value-was-detected-from-the-client/
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 3 '12 at 15:22" who="Ryan" revisedBy="community wiki">
+			 	<p>What I ended up doing was using javascript before each postback to check for the characters you didn't want such as...
+
+					&lt;asp:Button runat="server" ID="saveButton" Text="Save" CssClass="saveButton" OnClientClick="return checkFields()" /&gt;
+
+					function checkFields() {
+					        var tbs = new Array();
+					        tbs = document.getElementsByTagName("input");
+					        var isValid = true;
+					        for(i=0; i&lt;tbs.length; i++) {
+					            if (tbs(i).type == 'text') {
+						if (tbs(i).value.indexOf('&lt;') != -1 || tbs(i).value.indexOf('&gt;') != -1) {
+				                    alert('&lt;&gt; symbols not allowed.');
+			                    isValid = false;
+				                }
+				            }
+				        }
+					        return isValid;
+				    }
+				Granted my page is mostly data entry, and there are very few elements that do postbacks, but at least their data is retained.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">             
+				<posting synch="Sep 12 '14 at 5:18" who="Shilpa Soni" IndentLevel="1">      
+				<p>There should be big brackets instead of small brackets. Like ` if (tbs[i].type == 'text') {` in place of ` if (tbs(i).type == 'text') {` 
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 14 '12 at 15:27" who="Leniel Macaferi" revisedBy="community wiki">
+			 	<p>I was getting this error too.
+
+					In my case, a user entered an accented character á in a Role Name (regarding the ASP.NET membership provider).
+
+					I pass the role name to a method to grant Users to that role and the $.ajax post request was failing miserably...
+
+					I did this to solve the problem:
+
+					Instead of
+
+					data: { roleName: '@Model.RoleName', users: users }
+					Do this
+
+					data: { roleName: '@Html.Raw(@Model.RoleName)', users: users }
+					@Html.Raw did the trick.
+
+					I was getting the Role name as HTML value roleName="Cadastro b&#225;s". This value with HTML entity &#225; was being blocked by ASP.NET MVC. Now I get the roleName parameter value the way it should be: roleName="Cadastro Básico" and ASP.NET MVC engine won't block the request anymore.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Trisped" revisedBy="community wiki" revisedWhen="Sep 1 '12 at 1:24">
+			 	<p>You could also use JavaScript's escape(string) function to replace the special characters. Then server side use Server.URLDecode(string) to switch it back.
+
+					This way you don't have to turn off input validation and it will be more clear to other programmers that the string may have HTML content.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 17 '08 at 11:28" who="Paweł Hajdan" revisedBy="community wiki">
+			 	<p>As long as these are only "&lt;" and "&gt;" (and not the double quote itself) characters and you're using them in context like &lt;input value="this" /&gt;, you're safe (while for <textarea>this one</textarea> you would be vulnerable of course). That may simplify your situation, but for anything more use one of other posted solutions.
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 17 '08 at 11:41" who="Captain Toad" revisedBy="community wiki">
+			 	<p>If you're just looking to tell your users that &lt; and &gt; are not to be used BUT, you don't want the entire form processed/posted back (and lose all the input) before-hand could you not simply put in a validator around the field to screen for those (and maybe other potentially dangerous) characters?
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Feb 17 '13 at 19:40" who="Mike S." revisedBy="community wiki">
+			 	<p>None of the suggestions worked for me. I did not want to turn off this feature for the whole website anyhow because 99% time I do not want my users placing HTML on web forms. I just created my own work around method since I'm the only one using this particular application. I convert the input to HTML in the code behind and insert it into my database.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Ady Levy" revisedBy="community wiki" revisedWhen="Aug 13 '13 at 4:30">
+			 	<p>you can use something like:
+
+					var nvc = Request.Unvalidated().Form;
+					later nvc["yourKey"] should work.
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="May 1 '14 at 20:04" who="Walden Leverich" revisedBy="community wiki">
+			 	<p>As indicated in my comment to http://stackoverflow.com/a/20450300/2673770 this is our extension to a custom request validator.
+
+					public class SkippableRequestValidator : RequestValidator
+					{
+					    protected override bool IsValidRequestString(HttpContext context, string value, RequestValidationSource requestValidationSource, string collectionKey, out int validationFailureIndex)
+					    {
+					        if (collectionKey != null &amp;&amp; collectionKey.EndsWith("_NoValidation"))
+					        {
+					            validationFailureIndex = 0;
+					            return true;
+					        }
+
+ 					       return base.IsValidRequestString(context, value, requestValidationSource, collectionKey, out validationFailureIndex);
+					    }
+					}
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 17 '08 at 11:21" who="bastos.sergio" revisedBy="community wiki">
+			 	<p>You should use the Server.HtmlEncode method to protect your site from dangerous input.
+
+					More info here
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+				<div type="up vote">
+				<p> <num>2</num></p>
+				</div>
+				</front>             
+				<posting synch="Oct 21 '11 at 22:51" who="makerofthings7" IndentLevel="1">      
+				<p>Use the Anti-XSS Library to prevent this error... this is incomplete.    
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Feb 4 '14 at 14:14" who="PCPGMR" revisedBy="community wiki">
+			 	<p>@Drew "Note that you can get this error if you have HTML entity names (&amp;) or entity numbers (') in your input too. " Exactly what happened on our end.  See special character in data
+			 	</p>
+				</posting>
+			</div>
+				<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 16 '14 at 15:31" who="Jason Shuler" revisedBy="community wiki">
+			 	<p>I found a solution that uses javascript to encode the data, which is decoded in .NET (and doesn't require jquery)
+
+					Make the textbox an html element (like textarea) instead of an ASP one. Add a hidden field. Add the following javascript function to your header.
+
+					<script type="text/javascript">
+					    function boo() {
+				        targetText = document.getElementById("HiddenField1");
+				        sourceText = document.getElementById("userbox");
+				        targetText.value = escape(sourceText.innerText);
+					    }
+					</script>
+					In your textarea, include an onchange that calls boo()
+
+					Finally, in .NET, use string val = Server.UrlDecode(HiddenField1.Value);
+
+					I am aware that this is one-way - if you need two-way you'll have to get creative, but this provides a solution if you cannot edit the web.config
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">            
+				<posting synch="Mar 18 at 4:161" who="Fernando68" IndentLevel="1">      
+				<p>This is a good solution. It's a proper manual way to control it yourself and not invalidate the entire website or page    
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>0</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Mar 31 '15 at 10:50" who="Devendra Patel" revisedBy="community wiki">
+			 	<p>Try with
+
+					Server.Encode
+					and
+
+					Server.HtmlDecode while sending and receiving.		
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num></num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote <num>-4</num></p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Saurabh" revisedBy="community wiki" revisedWhen="Feb 15 '14 at 10:08">
+			 	<p>Put this below code :
+
+					ValidateRequestMode="Disabled"		
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">  
+			<front>
+				<div type="up vote">
+				<p> <num>6</num></p>
+				</div>
+				</front>          
+				<posting synch="Mar 5 '14 at 1:23" who="User 6675636b20796f7521" IndentLevel="1">      
+				<p>where to put this?    
+				</p>
+				</posting>
+				</div>
+		<div type="response">                
+				<posting synch="Feb 18 at 2:44" who="BraveNewMath" IndentLevel="1">      
+				<p>This can go in the directive at the top of your page &lt;%@ Control Language="C#" AutoEventWireup="true" CodeBehind="yourPage.ascx.cs" Inherits="yourPage" ValidateRequestMode="Disabled" %&gt;   
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num></num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote <num>-4</num></p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Nov 21 '14 at 17:04" who="Rob Sedgwick" revisedBy="community wiki">
+			 	<p>I got round this problem by changing my application pool from version 4 to version 2 of.net		
+			 	</p>
+				</posting>
+			</div>
+		</body>	
+	</text>
+</TEI>

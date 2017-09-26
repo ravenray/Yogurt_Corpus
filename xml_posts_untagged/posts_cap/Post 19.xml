@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Does this code from “The C++ Programming Language” 4th edition section 36.3.6 have well-defined behavior?</title>
+				<author>Shafik Yaghmour</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/27158812/does-this-code-from-the-c-programming-language-4th-edition-section-36-3-6-ha/27158813#27158813
+				On: June 1, 2015
+				Created by: 
+					Rachael Duke
+					Department of Linguistics
+					University of California, Davis
+					Please email me with any questions, comments, or errors.
+					Email: rebrim @ ucdavis . edu
+				</p>
+			<listPerson>
+				<person xml:id="Shafik Yaghmour">
+				<signatureContent>
+					<p>Reputation: <num>72.2k</num></p>
+					<p>Page: http://stackoverflow.com/users/1708801/shafik-yaghmour </p>
+					<p>Number of Gold Badges: <num>12</num></p>
+					<p>Number of Silver Badges:<num>148</num></p>
+					<p>Number of Bronze Badges:<num>216</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="Ben Voigt">
+				<signatureContent>
+					<p>Reputation: <num>178,430</num></p>
+					<p> Number of Gold Badges: <num>17</num></p>
+					<p>Number of Silver Badges:<num>190</num></p>
+					<p>Number of Bronze Badges:<num>367</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Karoly Horvath">
+				<signatureContent>
+					<p>Reputation: <num>52,141</num></p>
+					<p> Number of Gold Badges: <num>3</num></p>
+					<p>Number of Silver Badges:<num>44</num></p>
+					<p>Number of Bronze Badges:<num>106</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Oktalist">
+				<signatureContent>
+					<p>Reputation: <num>3,941</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>7</num></p>
+					<p>Number of Bronze Badges:<num>24</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Matt McNabb">
+				<signatureContent>
+					<p>Reputation: <num>39,779</num></p>
+					<p> Number of Gold Badges: <num>5</num></p>
+					<p>Number of Silver Badges:<num>32</num></p>
+					<p>Number of Bronze Badges:<num>73</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="T.C.">
+				<signatureContent>
+					<p>Reputation: <num>41,791</num></p>
+					<p> Number of Gold Badges: <num>6</num></p>
+					<p>Number of Silver Badges:<num>74</num></p>
+					<p>Number of Bronze Badges:<num>117</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<front>
+			<div type="up vote">
+				<p>up vote  <num>75</num></p>
+			</div>
+			<div type="down vote">
+			<p>down vote
+          favorite <num>16</num></p>
+			</div>
+		</front>
+		<div type="forum">
+			<posting synch="Nov 26 '14 at 21:02" who="Shafik Yaghmour" revisedWhen="Dec 1 '14 at 14:10">
+			<p>In Bjarne Stroustrup's The C++ Programming Language 4th edition section 36.3.6 STL-like Operations the following code is used as an example of chaining:
+
+			void f2()
+			{
+			    std::string s = "but I have heard it works even if you don't believe in it" ;
+			    s.replace(0, 4, "" ).replace( s.find( "even" ), 4, "only" )
+			        .replace( s.find( " don't" ), 6, "" );
+
+			    assert( s == "I have heard it works only if you believe in it" ) ;
+			}
+			The assert fails in gcc (see it live) and Visual Studio (see it live), but it does not fail when using Clang (see it live).
+
+			Why am I getting different results? Are any of these compilers incorrectly evaluating the chaining expression or does this code exhibit some form of unspecified or undefined behavior?
+
+			<tag>c++</tag> <tag>c++11</tag> <tag>language-lawyer</tag> <tag>order-of-evaluation</tag> <tag>unspecified-behavior</tag>
+			</p>
+			</posting>	
+		</div>
+			<div type="response">
+			<posting synch="Nov 27 '14 at 0:09" who="Ben Voigt" IndentLevel="1">  
+			<p>Better: s.replace( s.replace( s.replace(0, 4, "" ).find( "even" ), 4, "only" ).find( " don't" ), 6, "" );    
+						</p>				
+			</posting>
+					</div>
+					<div type="response">
+					<front>
+						<div type="up vote">
+							<p>up vote  <num>17</num></p>
+						</div>
+					</front>
+					<posting synch="Nov 27 '14 at 12:54" who="Karoly Horvath" IndentLevel="1">   
+						<p>bug aside, am I the only one who thinks ugly code like that shouldn't be in the book? –   
+						</p>			
+					</posting>
+					</div>
+					<div type="response">
+					<front>
+						<div type="up vote">
+							<p>up vote  <num>4</num></p>
+						</div>
+					</front>
+					<posting synch="Dec 1 '14 at 15:24" who="Oktalist" IndentLevel="1">       
+						<p>@KarolyHorvath Note that cout &lt;&lt; a &lt;&lt; b &lt;&lt; c ≡ operator&lt;&lt;(operator&lt;&lt;(operator&lt;&lt;(cout, a), b), c) is only marginally less ugly.    
+						</p>			
+					</posting>
+					</div>
+					<div type="response">
+					<posting synch="Dec 1 '14 at 15:41" who="Karoly Horvath" IndentLevel="1">      
+						<p>@Oktalist: :) at least I get the intention there. it teaches argument-dependent name lookup and operator syntax the same time in a terse format... and it doesn't give the impression you should actually write code like that.    
+						</p>			
+					</posting>
+					</div>
+		<front>
+			<head>1 Answers</head>
+				<div type="up vote">
+				<p>up vote  <num>83</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Nov 26 '14 at 21:02" who="Shafik Yaghmour" revisedWhen="Dec 22 '14 at 20:37">
+			 	<p>The code exhibits unspecified behavior due to unspecified order of evaluation of sub-expressions although it does not invoke undefined behavior since all side effects are done within functions which introduces a sequencing relationship between the side effects in this case.
+
+				This example is mentioned in the proposal N4228: Refining Expression Evaluation Order for Idiomatic C++ which says the following about the code in the question:
+
+				[...]This code has been reviewed by C++ experts world-wide, and published (The C++ Programming Language, 4th edition.) Yet, its vulnerability to unspecified order of evaluation has been discovered only recently by a tool[...]
+				Details
+
+				It may be obvious to many that arguments to functions have an unspecified order of evaluation but it is probably not as obvious how this behavior interacts with chained functions calls. It was not obvious to me when I first analyzed this case and apparently not to all the expert reviewers either.
+
+				At first glance it may appear that since each replace has to be evaluated from left to right that the corresponding function argument groups must be evaluated as groups from left to right as well.
+
+				This is incorrect, function arguments have an unspecified order of evaluation, although chaining function calls does introduce a left to right evaluation order for each function call, the arguments of each function call are only sequenced before with respect to the member function call they are part of. In particular this impacts the following calls:
+
+				s.find( "even" )
+				and:
+
+				s.find( " don't" )
+				which are indeterminately sequenced with respect to:
+
+				s.replace(0, 4, "" )
+				the two find calls could be evaluated before or after the replace, which matters since it has a side effect on s in a way that would alter the result of find, it changes the length of s. So depending on when that replace is evaluated relative to the two find calls the result will differ.
+
+				If we look at the chaining expression and examine the evaluation order of some of the sub-expressions:
+
+				s.replace(0, 4, "" ).replace( s.find( "even" ), 4, "only" )
+				^ ^       ^  ^  ^    ^        ^                 ^  ^
+				A B       |  |  |    C        |                 |  |
+				          1  2  3             4                 5  6
+				and:
+
+				.replace( s.find( " don't" ), 6, "" );
+				 ^        ^                   ^  ^
+				 D        |                   |  |
+				          7                   8  9
+				Note, we are ignoring the fact that 4 and 7 can be further broken down into more sub-expressions. So:
+
+				A is sequenced before B which is sequenced before C which is sequenced before D
+				1 to 9 are indeterminately sequenced with respect to other sub-expressions with some of the exceptions listed below
+				1 to 3 are sequenced before B
+				4 to 6 are sequenced before C
+				7 to 9 are sequenced before D
+				The key to this issue is that:
+
+				4 to 9 are indeterminately sequenced with respect to B
+				The potential order of evaluation choice for 4 and 7 with respect to B explains the difference in results between clang and gcc when evaluating f2(). In my tests clang evaluates B before evaluating 4 and 7 while gcc evaluates it after. We can use the following test program to demonstrate what is happening in each case:
+
+				#include &lt;iostream>
+				#include &lt;string>
+
+				std::string::size_type my_find( std::string s, const char *cs )
+				{
+				    std::string::size_type pos = s.find( cs ) ;
+				    std::cout &lt;&lt; "position " &lt;&lt; cs &lt;&lt; " found in complete expression: "
+				        &lt;&lt; pos &lt;&lt; std::endl ;
+
+				    return pos ;
+				}
+
+				int main()
+				{
+				   std::string s = "but I have heard it works even if you don't believe in it" ;
+				   std::string copy_s = s ;
+
+				   std::cout &lt;&lt; "position of even before s.replace(0, 4, \"\" ): " 
+				         &lt;&lt; s.find( "even" ) &lt;&lt; std::endl ;
+				   std::cout &lt;&lt; "position of  don't before s.replace(0, 4, \"\" ): " 
+				         &lt;&lt; s.find( " don't" ) &lt;&lt; std::endl &lt;&lt; std::endl;
+
+				   copy_s.replace(0, 4, "" ) ;
+
+				   std::cout &lt;&lt; "position of even after s.replace(0, 4, \"\" ): " 
+				         &lt;&lt; copy_s.find( "even" ) &lt;&lt; std::endl ;
+				   std::cout &lt;&lt; "position of  don't after s.replace(0, 4, \"\" ): "
+				         &lt;&lt; copy_s.find( " don't" ) &lt;&lt; std::endl &lt;&lt; std::endl;
+
+				   s.replace(0, 4, "" ).replace( my_find( s, "even" ) , 4, "only" )
+				        .replace( my_find( s, " don't" ), 6, "" );
+
+				   std::cout &lt;&lt; "Result: " &lt;&lt; s &lt;&lt; std::endl ;
+				}
+				Result for gcc (see it live)
+
+				position of even before s.replace(0, 4, "" ): 26
+				position of  don't before s.replace(0, 4, "" ): 37
+
+				position of even after s.replace(0, 4, "" ): 22
+				position of  don't after s.replace(0, 4, "" ): 33
+
+				position  don't found in complete expression: 37
+				position even found in complete expression: 26
+
+				Result: I have heard it works evenonlyyou donieve in it
+				Result for clang (see it live):
+
+				position of even before s.replace(0, 4, "" ): 26
+				position of  don't before s.replace(0, 4, "" ): 37
+
+				position of even after s.replace(0, 4, "" ): 22
+				position of  don't after s.replace(0, 4, "" ): 33
+
+				position even found in complete expression: 22
+				position don't found in complete expression: 33
+
+				Result: I have heard it works only if you believe in it
+				Result for Visual Studio (see it live):
+
+				position of even before s.replace(0, 4, "" ): 26
+				position of  don't before s.replace(0, 4, "" ): 37
+
+				position of even after s.replace(0, 4, "" ): 22
+				position of  don't after s.replace(0, 4, "" ): 33
+
+				position  don't found in complete expression: 37
+				position even found in complete expression: 26
+				Result: I have heard it works evenonlyyou donieve in it
+				Details from the standard
+
+				We know that unless specified the evaluations of sub-expressions are unsequenced, this is from the draft C++11 standard section 1.9 Program execution which says:
+
+				Except where noted, evaluations of operands of individual operators and of subexpressions of individual expressions are unsequenced.[...]
+				and we know that a function call introduces a sequenced before relationship of the function calls postfix expression and arguments with respect to the function body, from section 1.9:
+
+				[...]When calling a function (whether or not the function is inline), every value computation and side effect associated with any argument expression, or with the postfix expression designating the called function, is sequenced before execution of every expression or statement in the body of the called function.[...]
+				We also know that class member access and therefore chaining will evaluate from left to right, from section 5.2.5 Class member access which says:
+
+				[...]The postfix expression before the dot or arrow is evaluated;64 the result of that evaluation, together with the id-expression, determines the result of the entire postfix expression.
+				Note, in the case where the id-expression ends up being a non-static member function it does not specify the order of evaluation of the expression-list within the () since that is a separate sub-expression. The relevant grammar from 5.2 Postfix expressions:
+
+				postfix-expression:
+				    postfix-expression ( expression-listopt)       // function call
+				    postfix-expression . templateopt id-expression // Class member access, ends
+				                                                   // up as a postfix-expression
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>6</num></p>
+					</div>
+				</front>
+				<posting synch="Nov 26 '14 at 21:45" who="Matt McNabb" IndentLevel="1">      
+				<p>I'm a little surprised to see that "many experts" overlooked the problem, it's well known that evaluating the postfix-expression of a function call is not sequenced-before evaluating the arguments (in all versions of C and C++).    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Nov 26 '14 at 22:47" who="T.C." IndentLevel="1">         
+				<p>@ShafikYaghmour The function calls are indeterminately sequenced with respect to each other and everything else, with the exception of the sequenced-before relationships you noted. However, evaluation of 1, 2, 3, 5, 6, 8, 9, "even", "don't" and the several instances of s are unsequenced relative to each other.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>4</num></p>
+					</div>
+				</front>
+				<posting synch="Nov 26 '14 at 23:17" who="Matt McNabb" IndentLevel="1">        
+				<p>@TC no it isn't (which is how this "bug" arises). E.g. foo().func( bar() ) , it could call foo() either before or after calling bar(). The postfix-expression is foo().func . The arguments and postfix-expression are sequenced before the body of func(), but unsequenced relative to each other. 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Nov 26 '14 at 23:36" who="T.C." IndentLevel="1">      
+				<p>@MattMcNabb Ah, right, I misread. You are talking about the postfix-expression itself rather than the call. Yes, that's right, they are unsequenced (unless some other rule apply, of course).    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Nov 27 '14 at 4:34" who="Shafik Yaghmour" IndentLevel="1">         
+				<p>@MattMcNabb it is pity I did not find this code organically it is bit different when you know there is a problem with code versus seeing code you have no preconceived notions about. I have to say, it was not obvious where the specific issue was even though I knew what I was looking for, so I can see how it could have been missed.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>
+				<posting synch="Nov 27 '14 at 4:36" who="Matt McNabb" IndentLevel="1">         
+				<p>There's also the factor that one tends to assume code appearing in a B.Stroustrup book is correct otherwise someone would have surely noticed already! (related; SO users do still find new mistakes in K&amp;R)    
+				</p>
+				</posting>
+				</div>
+		</body>	
+	</text>
+</TEI>

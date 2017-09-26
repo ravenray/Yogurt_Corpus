@@ -1,0 +1,257 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>How to secure phpMyAdmin</title>
+        <author>Andrei</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/2631269/how-to-secure-phpmyadmin</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Andrei" url="http://stackoverflow.com/users/179581/andrei">
+        <signatureContent>
+          <p>Reputation: <num>4,233</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>41</num>Number of Bronze Badges: <num>78</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="rook" url="http://stackoverflow.com/users/183528/rook">
+        <signatureContent>
+          <p>Reputation: <num>40.7k</num>Number of Gold Badges: <num>24</num>Number of Silver Badges: <num>120</num>Number of Bronze Badges: <num>198</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jae Cho" url="http://stackoverflow.com/users/559009/jae-cho">
+        <signatureContent>
+          <p>Reputation: <num>241</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>7</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="MatW" url="http://stackoverflow.com/users/108147/matw">
+        <signatureContent>
+          <p>Reputation: <num>5,078</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>25</num>Number of Bronze Badges: <num>50</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="ppumkin" url="http://stackoverflow.com/users/706363/ppumkin">
+        <signatureContent>
+          <p>Reputation: <num>4,666</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>27</num>Number of Bronze Badges: <num>46</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="rightstuff" url="http://stackoverflow.com/users/766152/rightstuff">
+        <signatureContent>
+          <p>Reputation: <num>3,393</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>12</num>Number of Bronze Badges: <num>14</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="lexu" url="http://stackoverflow.com/users/31472/lexu">
+        <signatureContent>
+          <p>Reputation: <num>6,095</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>27</num>Number of Bronze Badges: <num>56</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="JJFS" url="http://stackoverflow.com/users/2318531/jjfs">
+        <signatureContent>
+          <p>Reputation: <num>1</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>1</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2010-04-13 16:22:31Z" who="Andrei" revisedWhen="2014-10-31 06:07:42Z" upVote="43" accepted="favorite"><p>I/PRP have/VBP noticed/VBN that/WDT there/EX are/VBP strange/JJ requests/NNS to/TO my/PRP$ website/NN trying/VBG to/TO find/VB phpmyadmin/COS ,/, like/IN
+
+            //COS phpmyadmin/COS //COS
+            //COS pma/COS /COS
+
+            etc/FW ./.
+
+            Now/RB I/PRP have/VBP installed/VBN PMA/ACR on/IN Ubuntu/NNP via/IN apt/NNP and/CC would/MD like/VB to/TO access/VB it/PRP via/IN webaddress/NN different/JJ from/IN //COS phpmyadmin/COS //COS ./. What/WDT can/MD I/PRP do/VBP to/TO change/VB it/PRP ?/.
+
+            Thanks/VBZ
+
+            Update/NN
+
+            For/IN Ubuntu/NNP 9.10/CD and/CC Apache2/NNP ,/, the/DT corresponding/JJ setting/NN is/VBZ located/VBN in/IN the/DT file/NN /etc/apache2/conf.d/phpmyadmin.conf/URL which/WDT is/VBZ a/DT link/NN to/TO /etc/phpmyadmin/apache.conf/URL ./. The/DT file/NN contains/VBZ
+
+            Alias/NNP //: phpmyadmin/NNP //: usr/NNP //: share/NNP //: phpmyadmin/NNP
+
+            where/WRB the/DT first/JJ /phpmyadmin/NNP should/MD be/VB changed/VBN to/TO something/NNP different/JJ if/IN one/CD wants/VBZ to/TO avoid/VB the/DT unnecessary/JJ activity/NN ,/, e.g./FW :/:
+
+            Alias/NNP //: secret/NNP  //: usr/NNP //: share/NNP //: phpmyadmin/NNP
+
+<tag>php</tag><tag>phpmyadmin</tag><tag>ubuntu</tag><tag>security</tag><tag>mysql</tag></p></post>
+      </div>
+      <div type="answer">
+        <post who="rook" when="2010-04-13 18:15:04Z" upVote="65" accepted="accepted">
+            <p>The/DT biggest/JJ threat/NN is/VBZ that/WDT an/DT attacker/NN could/MD leverage/VB a/DT vulnerability/NN such/IN as/IN ;/: directory/NN traversal/NN ,/, or/CC using/VBG SQL/ACR Injection/NN to/TO call/VB load_file/COS (/COS )/COS to/TO read/VB the/DT plain/JJ text/NN username/NN //: password/NN in/IN the/DT configuration/NN file/NN and/CC then/RB Login/VB using/VBG phpmyadmin/COS or/CC over/JJ tcp/NNP port/NN 3306/CD ./. As/IN a/DT pentester/NN I/PRP have/VBP used/VBN this/DT attack/NN pattern/NN to/TO compromise/VB a/DT system/NN ./.
+
+                Here/RB is/VBZ a/DT great/JJ way/NN to/TO lock/VB down/RP phpmyadmin/COS :/:
+
+                DO/VBP NOT/RB ALLOW/VBP REMOTE/NN ROOT/NN LOGINS/NNS !/. Instead/RB phpmyadmin/COS can/MD be/VB configured/VBN to/TO use/VB "/" Cookie/NNP Auth/NNP "/" to/TO limit/VB what/WDT user/NN can/MD access/VB the/DT system/NN ./. If/IN you/PRP need/VBP some/DT root/NN privileges/NNS ,/, create/VBP a/DT custom/JJ account/NN that/WDT can/MD add/VB //: drop/VB //: create/VB but/CC does/VBZ n't/RB have/VBP grant/NNP or/CC file_priv/COS ./.
+                Remove/VBP file_priv/COS permissions/NNS from/IN every/JJ account/NN ./. file_priv/COS is/VBZ one/CD of/IN the/DT most/JJS dangerous/JJ privileges/NNS in/IN MySQL/COS because/IN it/PRP allows/VBZ an/DT attacker/NN to/TO read/VB files/NNS or/CC upload/VBP a/DT backdoor/NN ./.
+                Whitelist/NNP IP/ACR address/NN who/WP have/VBP access/NN to/TO the/DT phpmyadmin/COS interface/NN ./. Here/RB is/VBZ an/DT example/NN ./. htaccess/COS reulset/NN :/:
+
+                Order/COB deny/COB ,/COB allow/COB
+    Deny/COB from/COB all/COB
+    allow/COB from/COB 199/COB ./COB 166/COB ./COB 210/COB ./COB 1/COB
+
+                Do/VBP not/RB have/VBP a/DT predictable/JJ file/NN location/NN like/IN :/: http://127.0.0.1/phpmyadmin/URL ./. Vulnerability/NN scanners/NNS like/IN Nessus/NNP //: Nikto/NNP //: Acunetix/NNP //: w3af/NNP will/MD scan/VB for/IN this/DT ./.
+
+                Firewall/NN off/IN tcp/NNP port/NN 3306/CD so/IN that/WDT it/PRP cannot/RB be/VB accessed/VBN by/IN an/DT attacker/NN ./.
+                Use/VBP HTTPS/ACR ,/, otherwise/RB data/NN and/CC passwords/NNS can/MD be/VB leaked/VBN to/TO an/DT attacker/NN ./. If/IN you/PRP do/VBP n't/RB want/VB to/TO fork/VB out/RP the/DT $/SYM 30/CD for/IN a/DT cert/NNP ,/, then/RB use/VBP a/DT self-signed/JJ ./. You/PRP 'll/MD accept/VB it/PRP once/RB ,/, and/CC even/RB if/IN it/PRP was/VBD changed/VBN due/JJ to/TO a/DT MITM/NNP you/PRP 'll/MD be/VB notified/VBN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="therealsix" when="2010-04-15 03:49:22Z" indentLevel="1">
+            <p>I/PRP do/VBP n't/RB mean/VB to/TO be/VB critical/JJ ,/, but/CC funny/JJ how/WRB you/PRP do/VBP n't/RB address/VB the/DT '/" biggest/JJS threat/NN '/" until/IN the/DT last/JJ step/NN ./. The/DT biggest/JJS threat/NN for/IN most/JJS people/NN is/VBZ being/VBG brute/JJ forced/VBN -/: which/WDT your/PRP$ other/JJ steps/NNS address/VBP ./.  Using/VBG a/DT decent/JJ password/NN is/VBZ also/RB a/DT good/JJ idea/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2010-04-15 06:26:30Z" indentLevel="1">
+            <p>@therealsix/ATS  you/PRP r/VBP right/JJ ,/,  but/CC i/PRP assumed/VBD that/WDT was/VBD obvious/JJ ./.  Brute/JJ force/NN for/IN mysql/COS is/VBZ less/JJS common/JJ than/IN mssql/COS becuase/IN you/PRP have/VBP xp_cmdshell/COS (/COS )/COS which/WDT calls/VBZ cmd/COS ./COS exe/COS ./. In/IN mysql/COS wormable/JJ code/NN execution/NN is/VBZ n't/RB straight/JJ forward/JJ ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="zmonteca" when="2011-12-10 00:41:03Z" indentLevel="1">
+            <p>We/PRP also/RB toggle/VBP AllowRoot/COS to/TO false/VB in/IN the/DT phpMyAdmin/COS config/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jonathan" when="2012-07-05 17:16:33Z" indentLevel="1">
+            <p>@Rook/ATS Thanks/VBZ for/IN these/DT recommendations/NNS !/. I/PRP 'm/VBP a/DT little/JJ confused/VBN though/IN ./. At/IN the/DT end/NN of/IN the/DT day/NN ,/, if/IN a/DT user/NN has/VBZ DELETE/COS privileges/NNS ,/, they/PRP can/MD empty/VB your/PRP$ whole/JJ database/NN ./. So/IN how/WRB does/VBZ disabling/VBG "/" grant/COS "/" or/CC "/" file_priv/COS "/" help/VBP protect/VB my/PRP$ database/NN ?/.</p>
+        </post>
+      </div>
+         <div type="response">
+        <post who="elect" when="2012-10-17 16:28:18Z" indentLevel="1">
+            <p>@Rook/ATS what/WP do/VBP you/PRP mean/VBP in/IN passage/NN 4/CD exactly/RB ?/.</p>
+        </post>
+      </div>
+          <div type="response">
+        <post who="rook" when="2012-10-17 16:30:36Z" indentLevel="1">
+            <p>@elect/ATS port/NN 3306/CD is/VBZ used/VBN by/IN mysql/COS</p>
+        </post>
+      </div>
+          <div type="response">
+        <post who="elect" when="2012-10-17 20:51:47Z" indentLevel="1">
+            <p>@Rook/ATS Ok/UH ,/, I/PRP know/VBP ./. But/CC what/WP you/PRP mean/VBP by/IN "/" firewall/NN it/PRP off/IN "/" ?/. Close/VBP it/PRP //: open/VBP it/PRP //: other/JJ ?/. </p>
+        </post>
+      </div>
+          <div type="response">
+        <post who="rook" when="2012-10-17 21:31:27Z" indentLevel="1">
+            <p>@elect/ATS If/IN you/PRP notice/VBP the/DT OP/NNP 's/POS question/NN has/VBZ a/DT "/" security/NN "/" tag/NN ,/, which/WDT means/VBZ that/WDT this/DT post/NN is/VBZ dealing/VBG with/IN attacks/NNS against/IN software/NN ./.</p>
+        </post>
+      </div>  
+      <div type="response">
+        <post who="elect" when="2012-10-18 06:43:37Z" indentLevel="1">
+            <p>@Rook/ATS Yep/UH ,/, I/PRP noticed/VBD ./. I/PRP have/VBP already/RB implemented/VBN the/DT '/" Cookie/NNP Auth/NNP '/" and/CC I/PRP moved/VBD pma/ACR on/IN a/DT custom/JJ port/NN ./. Right/JJ now/RB I/PRP am/VBP implementing/VBG also/RB your/PRP$ point/NN 5/CD ./. What/WDT I/PRP did/VBD nt/RB get/VBP it/PRP s/POS just/RB your/PRP$ point/NN 4/CD ./. What/WDT did/VBD you/PRP mean/VBP  technically/RB ?/.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Jae Cho" when="2012-06-21 02:57:58Z" upVote="8">
+            <p>One/CD of/IN my/PRP$ concerns/NNS with/IN phpMyAdmin/COS was/VBD that/WDT by/IN default/NN ,/, all/DT MySQL/COS users/NNS can/MD access/VB the/DT db/NNP ./. If/IN DB/NNP 's/POS root/NN password/NN is/VBZ compromised/VBN ,/, someone/NN can/MD wreck/VB havoc/NN on/IN the/DT db/NNP ./. I/PRP wanted/VBD to/TO find/VB a/DT way/NN to/TO avoid/VB that/WDT by/IN restricting/VBG which/WDT MySQL/COS user/NN can/MD login/VB to/TO phpMyAdmin/COS ./. I/PRP have/VBP found/VB using/VBG AllowDeny/COS configuration/NN in/IN PhpMyAdmin/COS to/TO be/VB very/RB useful/JJ ./. 
+                http://wiki.phpmyadmin.net/pma/Config#AllowDeny_.28rules.29/URL AllowDeny/COS lets/VBZ you/PRP configure/VBP access/NN to/TO phpMyAdmin/COS in/IN a/DT similar/JJ way/NN to/TO Apache/NNP ./. If/IN you/PRP set/VBP the/DT '/" order/NN '/" to/TO explicit/JJ ,/, it/PRP will/MD only/RB grant/VB access/NN to/TO users/NNS defined/VBD in/IN '/" rules/NNS '/" section/NN ./. In/IN the/DT rules/NNS ,/, section/NN you/PRP restrict/VBP MySql/COS users/NNS who/WP can/MD access/VB use/VBP the/DT phpMyAdmin/COS ./. $/COB cfg/COB [/COB '/COB Servers/COB '/COB ]/COB [/COB $/COB i/COB ]/COB [/COB '/COB AllowDeny/COB '/COB ]/COB [/COB '/COB order/COB '/COB ]/COB =/COB '/COB explicit/COB '/COB
+$/COB cfg/COB [/COB '/COB Servers/COB '/COB ]/COB [/COB $/COB i/COB ]/COB [/COB '/COB AllowDeny/COB '/COB ]/COB [/COB '/COB rules/COB '/COB ]/COB =/COB array/COB (/COB '/COB pma-user/COB from/COB allv/COB '/COB )/COB Now/RB you/PRP have/VBP limited/JJ access/NN to/TO the/DT user/NN named/JJ pma-user/NN in/IN MySQL/COS ,/, you/PRP can/MD grant/VB limited/JJ privilege/NN to/TO that/DT user/NN ./. grant/VBP select/NN on/IN db_name/COS ./COS some_table/COS to/TO '/" pma-user/NN '/" @/SYM '/" app-server/NN '/"</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jonathan" when="2012-07-05 17:26:57Z" indentLevel="1">
+            <p>Nice/JJ tip/NN !/. Just/RB a/DT small/JJ bug/NN in/IN your/PRP$ code/NN ,/, the/DT rules/NNS should/MD look/VB like/IN this/DT :/:  $/COB cfg/COB [/COB '/COB Servers/COB '/COB ]/COB [/COB $/COB i/COB ]/COB [/COB '/COB AllowDeny/COB '/COB ]/COB [/COB '/COB rules/COB '/COB ]/COB =/COB array/COB (/COB '/COB allow/COB pma-user/COB from/COB all/COB '/COB )/COB ;/COB</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="MatW" when="2010-04-13 16:39:41Z" upVote="3">
+            <p>Most/JJS likely/RB ,/, somewhere/RB on/IN your/PRP$ webserver/NN will/MD be/VB an/DT Alias/NN directive/NN like/IN this/DT ;/:
+
+                Alias/NN //: phpmyadmin/COS "/" c:/wamp/apps/phpmyadmin3.1.3.1//URL "/"
+
+                In/IN my/PRP$ wampserver/NNP //: localhost/NNP setup/NN ,/, it/PRP was/VBZ in/IN c:/wamp/alias/phpmyadmin.conf/URL ./.
+
+                Just/RB change/VBP the/DT alias/NN directive/NN and/CC you/PRP should/MD be/VB good/JJ to/TO go/VB ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="ppumkin" when="2013-01-21 12:38:05Z" upVote="3">
+            <p>Another/DT solution/NN is/VBZ to/TO use/VB the/DT config/NN file/NN without/IN any/DT settings/NNS ./. The/DT first/JJ time/NN you/PRP might/MD have/VBP to/TO include/VB your/PRP$ mysql/COS root/NN login/NN //: password/NN so/IN it/PRP can/MD install/VB all/DT it/PRP s/POS stuff/NN but/CC then/RB remove/VBP it/PRP ./.
+
+    $/COB cfg/COB [/COB '/COB Servers/COB '/COB ]/COB [/COB $/COB i/COB ]/COB [/COB '/COB auth_type/COB 'v ]/COB =/COB '/COB cookie/COB '/COB ;/COB
+
+    $/COB cfg/COB [/COB '/COB Servers/COB '/COB ]/COB [/COB $/COB i/COB ]/COB [/COB '/COB host/COB '/COB ]/COB =/COB '/COB localhost/COB '/COB ;/COB
+
+    $/COB cfg/COB [/COB '/COB Servers/COB '/COB ]/COB [/COB $/COB i/COB ]/COB [/COB '/COB connect_type/COB '/COB ]/COB =/COB '/COB tcp/COB '/COB ;/COB
+
+    $/COB cfg/COB [/COB '/COB Servers/COB '/COB ]/COB [/COB $/COB i/COB ]/COB [/COB '/COB compress/COB '/COB ]/COB =/COB false/COB ;/COB
+
+    $/COB cfg/COB [/COB '/COB Servers/COB '/COB ]/COB [/COB $/COB i/COB ]/COB [/COB '/COB extension/COB '/COB ]/COB =/COB '/COB mysql/COB '/COB ;/COB
+
+                Leaving/VBG it/PRP like/IN that/WDT without/IN any/DT apache/NNP //: lighhtpd/NNP aliases/NNS will/MD just/RB present/VBP to/TO you/PRP a/DT log/NN in/IN screen/NN ./. enter/VBP image/NN description/NN here/RB
+
+                You/PRP can/MD log/VBP in/IN with/IN root/NN but/CC it/PRP is/VBZ advised/VBN to/TO create/VB other/JJ users/NNS and/CC only/RB allow/VBP root/NN for/IN local/JJ access/NN ./. Also/RB remember/VBP to/TO use/VB string/NN passwords/NNS ,/, even/RB if/IN short/JJ but/CC with/IN a/DT capital/NN ,/, and/CC number/NN of/IN special/JJ character/NN ./. for/IN example/NN !/. 34sy2rmbr/NN !/. aka/FW "/" easy/JJ 2/CD remember/VBP "/"
+
+                -/: EDIT/NN :/: A/DT good/JJ password/NN now/RB a/DT days/NNS is/VBZ actually/RB something/NNP like/IN words/NNS that/WDT make/VBP no/DT grammatical/JJ sense/NN but/CC you/PRP can/MD remember/VB because/IN they/PRP funny/JJ ./. Or/CC use/VBP keepass/NN to/TO generate/VB strong/JJ randoms/NNS an/CC have/VBP easy/JJ access/NN to/TO them/PRP
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ytpillai" when="2016-02-03 04:03:31Z" indentLevel="1">
+            <p>Lastpass/NNP is/VBZ also/RB another/JJ great/JJ password/NN management/NN system/NN</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="rightstuff" when="2014-06-06 16:34:12Z" upVote="2">
+            <p>In/IN newer/JJ versions/NNS of/IN phpMyAdmin/COS access/NN permissions/NNS for/IN user-names/NNS +/SYM ip-addresses/NNS can/MD be/VB set/VB up/RP inside/IN the/DT phpMyAdmin/COS 's/POS config.inc.php/URL file/NN ./. This/DT is/VBZ a/DT much/RB better/JJR and/CC more/JJR robust/JJ method/NN of/IN restricting/VBG access/NN (/( over/IN hard-coding/NN URLs/NNS and/CC IP/NN addresses/NNS into/IN Apache/NNP 's/POS httpd.conf/URL )/) ./.
+
+                Here/RB is/VBZ a/DT full/JJ example/NN of/IN how/WRB to/TO switch/VB to/TO white-listing/JJ all/DT users/NNS (/( no/DT one/CD outside/IN this/DT list/NN will/MD be/VB allowed/VBN access/NN )/) ,/, and/CC also/RB how/WRB to/TO restrict/VB user/NN root/NN to/TO the/DT local/JJ system/NN and/CC network/NN only/RB ./.
+
+                $/COB cfg/COB [/COB '/COB Servers/COB '/COB ]/COB [/COB $/COB i/COB ]/COB [/COB '/COB AllowDeny/COB '/COB ]/COB [/COB '/COB order/COB '/COB ]/COB =/COB '/COB deny/COB ,/COB allow/COB '/COB ;/COB
+$cfg['Servers'][$i]['AllowDeny']['rules'] = array(
+                '/COB deny/COB %/COB from/COB all/COB '/COB ,/COB //COB //COB deny/VBP everyone/NN by/IN default/NN ,/, then/RB -/:
+
+                '/COB allow/COB %/COB from/COB 127.0.0.1/COB '/COB ,/COB //COB //COB allow/VBP all/DT local/JJ users/NNS
+    '/COB allow/COB %/COB from/COB :/COB :/COB 1/COB '/COB ,/COB
+
+                //COB //COB '/COB allow/COB %/COB from/COB SERVER_ADDRESS/COB '/COB ,/COB //COB //COB allow/VBP all/DT from/IN server/NN IP/ACR
+
+                //COB //COB allow/VBP user/NN :/: root/NN access/NN from/IN these/DT locations/NNS (/( local/JJ network/NN )/)
+    '/COB allow/COB root/COB from/COB localhost/COB '/COB ,/COB
+    '/COB allow/COB root/COB from/COB 127.0.0.1/COB '/COB ,/COB
+    '/COB allow/COB root/COB from/COB 10.0.0.0/COB //COB 8/COB '/COB ,/COB
+    '/COB allow/COB root/COB from/COB 172.16.0.0/COB //COB 12/COB '/COB ,/COB
+    '/COB allow/COB root/COB from/COB 192.168.0.0/COB //COB 16/COB '/COB ,/COB
+
+    '/COB allow/COB root/COB from/COB :/COB :/COB 1/COB '/COB ,/COB
+
+                //: //: add/VBP more/JJR usernames/NNS and/CC their/PRP$ IP/ACR (/( or/CC IP/ACR ranges/NNS )/) here/RB -/:    
+                );/EMO
+
+                Source/NN :/: How/WRB to/To Install/VB and/CC Secure/VB phpMyAdmin/COS on/IN localhost/NN for/IN Windows/NNP
+
+                This/DT gives/VBZ you/PRP much/RB more/JJR fine-grained/JJ access/NN restrictions/NNS than/IN Apache/NNP 's/POS URL/NN permissions/NNS or/CC an/DT .htaccess/NNP file/NN can/MD provide/VB ,/, at/IN the/DT MySQL/COS user/NN name/NN level/NN ./.
+
+                Make/VBP sure/JJ that/WDT the/DT user/NN you/PRP are/VBP login/VB in/IN with/IN ,/, has/VBZ its/PRP$ MySQL/COS Host/NN :/: field/NN set/VBP to/TO 127.0.0.1/CD or/CC :/: :/: 1/CD ,/, as/IN phpMyAdmin/COS and/CC MySQL/COS are/VBP on/IN the/DT same/JJ system/NN ./.
+</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="lexu" when="2010-04-13 16:30:26Z" upVote="1">
+            <p>The/DT simplest/JJ approach/NN would/MD be/VB to/TO edit/VB the/DT webserver/NN ,/, most/JJS likely/RB an/DT Apache2/NNP installation/NN ,/, configuration/NN and/CC give/VBP phpmyadmin/COS a/DT different/JJ name/NN ./. A/DT second/JJ approach/NN would/MD be/VB to/TO limit/VB the/DT IP/ACR addresses/NNS from/IN where/WRB phpmyadmin/COS may/MD be/VB accessed/VBN (/( e.g./FW only/RB local/JJ lan/NNP or/CC localhost/NNP )/) ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="JJFS" when="2016-01-05 12:06:36Z" upVote="0">
+            <p>If/IN you/PRP are/VBP running/VBG a/DT linux/NNP server/NN :/:
+
+                Using/VBG SSH/ACR you/PRP can/MD forbid/VB the/DT user/NN //: password/NN loging/NN and/CC only/RB accept/VBP a/DT public/JJ key/NN in/IN the/DT authorized_keys/COS file/NN
+                Use/VBP putty/NNP to/TO connect/VB to/TO your/PRP$ server/NN and/CC open/VBP a/DT remote/NN terminal/NN
+                Forward/VBP X11/NNP and/CC brings/VBZ localhost/NNP firefox/NNP //: iceweasel/NNP to/TO your/PRP$ desktop/NN (/( in/IN windows/NNS you/PRP need/VBP Xming/NNP software/NN installed/VBD )/)
+                Now/RB you/PRP secured/VBD your/PRP$ phpMyAdmin/COS throught/IN ssh/NNP
+
+                This/DT system/NN is/VBZ quite/RB secure/JJ //: handy/JJ for/IN homeservers/NNS -/: usually/RB with/IN all/DT ports/NNS blocked/VBD by/IN default/NN -/: ./. You/PRP only/RB have/VBP to/TO forward/VB the/DT SSH/NNP port/NN (/( do/VBP n't/RB use/VBP number/NN 22/CD )/) ./.
+
+                If/IN you/PRP like/VBP Microsoft/NNP Terminal/NN Server/NN you/PRP can/MD even/RB set/VBP a/DT SSH/NNP Tunneling/NN to/TO your/PRP$ computer/NN and/CC connect/VBP securely/RB to/TO your/PRP$ web/NN server/NN throught/IN it/PRP ./.
+
+                With/IN ssh/NNP tunneling/NN you/PRP even/RB can/MD forward/VB the/DT 3306/CD port/NN of/IN your/PRP$ remote/NN server/NN to/TO a/DT local/JJ port/NN and/CC connect/VBP using/VBG local/JJ phpMyAdmin/COS or/CC MySQL/COS Workbench/NNP ./.
+
+                I/PRP understand/VBP that/WDT this/DT option/NN is/VBZ an/DT overkill/NN ,/, but/CC is/VBZ as/IN secure/JJ as/IN the/DT access/NN of/IN your/PRP$ private/JJ key/NN ./.
+ </p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>
