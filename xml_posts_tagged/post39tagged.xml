@@ -1,0 +1,462 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>How to send email from Asp.net Mvc-3?</title>
+        <author>Disha</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/9629647/how-to-send-email-from-asp-net-mvc-3</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Disha" url="http://stackoverflow.com/users/1182538/disha">
+        <signatureContent>
+          <p>Reputation: <num>218</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>13</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Dmitry S." url="http://stackoverflow.com/users/395359/dmitry-s">
+        <signatureContent>
+          <p>Reputation: <num>5,133</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>17</num>Number of Bronze Badges: <num>29</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="David HAust" url="http://stackoverflow.com/users/242/david-haust">
+        <signatureContent>
+          <p>Reputation: <num>3,341</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>33</num>Number of Bronze Badges: <num>59</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Yasser" url="http://stackoverflow.com/users/1182982/yasser">
+        <signatureContent>
+          <p>Reputation: <num>18.6k</num>Number of Gold Badges: <num>23</num>Number of Silver Badges: <num>116</num>Number of Bronze Badges: <num>194</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Syed Salman Raza Zaidi" url="http://stackoverflow.com/users/1087087/syed-salman-raza-zaidi">
+        <signatureContent>
+          <p>Reputation: <num>1,302</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>19</num>Number of Bronze Badges: <num>47</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Akira" url="http://stackoverflow.com/users/891589/akira">
+        <signatureContent>
+          <p>Reputation: <num>3,759</num>Number of Gold Badges: <num>10</num>Number of Silver Badges: <num>35</num>Number of Bronze Badges: <num>56</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Sqalo" url="http://stackoverflow.com/users/3894572/sqalo">
+        <signatureContent>
+          <p>Reputation: <num>11</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>2</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="ankit rajput" url="http://stackoverflow.com/users/1156298/ankit-rajput">
+        <signatureContent>
+          <p>Reputation: <num>445</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>5</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Peter Monks" url="http://stackoverflow.com/users/982487/peter-monks">
+        <signatureContent>
+          <p>Reputation: <num>1,665</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>8</num>Number of Bronze Badges: <num>29</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Yannick Blondeau" url="http://stackoverflow.com/users/1374267/yannick-blondeau">
+        <signatureContent>
+          <p>Reputation: <num>5,647</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>21</num>Number of Bronze Badges: <num>50</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Arslan Sunny" url="http://stackoverflow.com/users/1543229/arslan-sunny">
+        <signatureContent>
+          <p>Reputation: <num>182</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>4</num>Number of Bronze Badges: <num>13</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Pham" url="http://stackoverflow.com/users/1033040/pham">
+        <signatureContent>
+          <p>Reputation: <num>141</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>1</num>Number of Bronze Badges: <num>3</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2012-03-09 06:04:15Z" who="Disha" revisedWhen="2013-08-26 19:28:38Z" upVote="37" accepted="favorite"><p>
+
+            How/WRB to/TO send/VB a/DT mail/NN through/IN mvc-3/NNP asp.net/URL using/VBG c#/NNP ?/.
+
+            I/PRP have/VBP to/TO send/VB a/DT forgot/JJ password/NN so/IN how/WRB can/MD I/PRP do/VBP this/DT ?/. My/PRP$ code/NN is/VBZ below/IN ./.
+
+            Model/JJ code/NN ../.
+
+            using/COB System/COB ;/COB 
+using/COB System/COB ./COB Collections/COB ./COB Generic/COB ;/COB
+using/COB System/COB ./COB Linq/COB ;/COB
+using/COB System/COB ./COB Web/COB ;/COB
+using/COB System/COB ./COB ComponentModel/COB ./COB DataAnnotations/COB ;/COB
+
+namespace/COB TelerikLogin/COB ./COB Models/COB ./COB ViewModels/COB
+{/COB
+    public/COB class/COB ForgotPassword/COB
+    {/COB
+        public/COB int/COB user_id/COB {/COB get/COB ;/COB  set/COB ;/COB }/COB
+        public/COB string/COB user_login_name/COB {/COB get/COB ;/COB set/COB ;/COB }/COB
+        public/COB string/COB user_password/COB {/COB get/COB ;/COB set/COB ;/COB }/COB
+
+        [/COB Required/COB ]/COB
+        [/COB Display/COB (/COB Name/COB =/COB "/COB Email/COB Address/COB :/COB "/COB )/COB ]/COB
+        public/COB string/COB user_email_address/COB {/COB get/COB ;/COB set/COB ;/COB }/COB
+    }/COB
+}/COB 
+
+            Controller/NN code/NN ../.
+
+  public/COB ActionResult/COB ForgotPassword/COB (/COB )/COB
+        {/COB
+            return/COB View/COB (/COB )/COB ;/COB
+        }/COB
+
+        [/COB HttpPost/COB ]/COB
+        public/COB ActionResult/COB ForgotPassword/COB (/COB string/COB user_email_address/COB )/COB
+        {/COB
+            SqlConnection/COB conn/COB =/COB new/COB SqlConnection/COB (/COB @/COB "/COB Data/COB Source/COB =/COB ./COB \/COB SQLEXPRESS/COB ;/COB AttachDbFilename/COB =/COB E/COB :/COB \/COB MVC3/COB \/COB TelerikLogin/COB \/COB TelerikLogin/COB \/COB App_Data/COB \/COB Login/COB ./COB mdf/COB ;/COB Integrated/COB Security/COB =/COB True/COB ;/COB User/COB Instance/COB =/COB True/COB "/COB )/COB ;/COB
+
+            DataTable/COB dt1/COB =/COB new/COB DataTable/COB (/COB )/COB ;/COB
+
+            string/COB strQuery/COB =/COB string/COB ./COB Format/COB (/COB "/COB SELECT /COB user_password/COB FROM/COB [/COB user_master/COB ]/COB WHERE/COB user_email_address/COB =/COB '/COB {/COB 0/COB }/COB '/COB "/COB ,/COB user_email_address/COB )/COB ;/COB
+            conn/COB ./COB Open/COB (/COB )/COB ;/COB
+            SqlDataAdapter/COB da1/COB =/COB new/COB SqlDataAdapter/COB (/COB strQuery/COB ,/COB conn/COB )/COB ;/COB
+            da1/COB ./COB Fill/COB (/COB dt1/COB )/COB ;/COB
+            conn/COB ./COB Close/COB (/COB )/COB ;/COB
+
+            if/COB (/COB dt1/COB ./COB Rows/COB ./COB Count/COB >/COB 0/COB )/COB
+            {/COB
+
+MailMessage/COB msg/COB =/COB new/COB MailMessage/COB (/COB )/COB ;/COB
+
+            msg/COB ./COB From/COB =/COB new/COB MailAddress/COB (/COB "/COB abc@gmail.com/URL "/COB )/COB ;/COB
+            msg/COB ./COB To/COB ./COB Add/COB (/COB user_email_address/COB )/COB ;/COB
+            msg/COB ./COB Subject/COB =/COB "/COB Password/COB "/COB ;/COB
+            msg/COB ./COB Body/COB =/COB "/COB Test1/COB "/COB ;/COB
+            msg/COB ./COB Priority/COB =/COB MailPriority/COB ./COB High/COB ;/COB
+
+            SmtpClient/COB client/COB =/COB new/COB SmtpClient/COB (/COB )/COB ;/COB
+
+
+
+
+            client/COB ./COB Credentials/COB =/COB new/COB NetworkCredential/COB (/COB "/COB abc@gmail.com/URL "/COB ,/COB "/COB disha/COB "/COB ,/COB "/COB smtp.gmail.com/URL "/COB )/COB ;/COB
+            client/COB ./COB Host/COB =/COB "/COB smtp.gmail.com/URL "/COB ;/COB
+            client/COB ./COB Port/COB =/COB 587/COB ;/COB
+            client/COB ./COB DeliveryMethod/COB =/COB SmtpDeliveryMethod/COB ./COB Network/COB ;/COB
+            client/COB ./COB EnableSsl/COB =/COB true/COB ;/COB
+            client/COB ./COB UseDefaultCredentials/COB =/COB true/COB ;/COB
+
+            client/COB ./COB Send/COB (/COB msg/COB )/COB ;/COB
+
+
+               return/COB RedirectToAction/COB (/COB "/COB About/COB "/COB ,/COB "/COB Home/COB "/COB )/COB ;/COB
+            }/COB
+            return/COB View/COB (/COB )/COB ;/COB
+        }/COB
+
+            Here/RB I/PRP fetched/VBD the/DT password/NN of/IN user/NN from/IN database/NN through/IN entered/JJ email/NN address/NN ../.
+
+            View/VBP code/NN ../.
+&lt;/COB %/COB using/COB (/COB Html/COB ./COB BeginForm/COB (/COB "/COB ForgotPassword/COB "/COB ,/COB "/COB Account/COB "/COB ,/COB FormMethod/COB ./COB Post/COB )/COB )/COB
+   {/COB %/COB >/COB
+
+   &lt;/COB %/COB :/COB Html/COB ./COB LabelFor/COB (/COB m/COB =/COB >/COB m/COB ./COB user_email_address/COB )/COB %/COB >/COB
+   &lt;/COB %/COB :/COB Html/COB ./COB TextBox/COB (/COB "/COB user_email_address/COB "/COB )/COB %/COB >/COB   
+      &lt;/COB %/COB :/COB Html/COB ./COB ValidationSummary/COB (/COB true/COB )/COB %/COB >/COB
+
+&lt;/COB input/COB type/COB =/COB "/COB submit/COB "/COB value/COB =/COB "/COB Submit/COB "/COB //COB >/COB
+
+   &lt;/COB %/COB }/COB  %/COB >/COB
+
+            It/PRP gives/VBZ me/PRP an/DT error/NN on/IN these/DT line/NN
+
+            client/COS ./COS Send/COS (/COS msg/COS )/COS ;/:
+
+            Error/NN messege/NN is/VBZ :/:
+
+            The/DT SMTP/ACR server/NN requires/VBZ a/DT secure/JJ connection/NN or/CC the/DT client/NN was/VBD not/RB authenticated/VBN ./. The/DT server/NN response/NN was/VBD :/: 5.7.0/CD Must/MD issue/VBP a/DT STARTTLS/NNP command/NN first/RB ./. x1sm1264662igc/FW ./. 16/CD
+
+            How/WRB to/TO solve/VB it/PRP ?/. thanks/VBZ in/IN advance/NN
+<tag>c#</tag><tag>asp.net-mvc-3</tag><tag>asp.net</tag></p></post>
+      </div>
+       <div type="response">
+        <post who="Mike Bailey" when="2012-03-09 06:12:35Z" indentLevel="1">
+            <p>Please/VB consider/VBP not/RB emailing/VBG a/DT recovery/NN password/NN ./. You/PRP should/MD provide/VBP a/DT link/NN to/TO reset/VB a/DT password/NN on/IN your/PRP$ website/NN</p>
+        </post>
+      </div>
+         <div type="response">
+        <post who="Akos Lukacs" when="2013-03-17 16:04:59Z" indentLevel="1">
+            <p>Yes/UH ,/, you/PRP should/MD store/VB passwords/NNS in/IN a/DT hashed/NN ,/, and/CC not/RB decipherable/JJ format/NN ./. Check/VBP out/RP Troy/NNP Hunt/NNP 's/POS Everything/NN you/PRP ever/RB wanted/VBD to/TO know/VB about/IN building/VBG a/DT secure/JJ password/NN reset/NN feature/NN article/NN ./.</p>
+        </post>
+      </div>
+          <div type="response">
+        <post who="gregmac" when="2013-08-07 19:15:54Z" indentLevel="1">
+            <p>OT/UH ,/, but/CC there/EX is/VBZ a/DT huge/JJ SQL/ACR injection/NN vulnerability/NN in/IN this/DT code/NN ./. Consider/VBP what/WP happens/VBZ when/WRB I/PRP POST/VBP with/IN user_email_address/COS =/COS my_address_not_in_your_database@domain.com/URL ,/, '/" OR/CC '/" admin@yoursite.com/URL ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Dmitry S." when="2012-03-09 06:09:16Z" upVote="65" accepted="accepted">
+            <p>Import/VBP the/DT System.Net.Mail/COS namespace/NN ./.
+
+                The/DT code/NN will/MD look/VB similar/JJ to/TO this/DT :/:
+
+          MailMessage/COB mail/COB =/COB new/COB MailMessage/COB (/COB )/COB ;/COB
+
+                SmtpClient/COB smtpServer/COB =/COB new/COB SmtpClient/COB (/COB "/COB smtp.gmail.com/URL "/COB )/COB ;/COB
+          smtpServer/COB ./COB Credentials/COB =/COB new/COB System/COB ./COB Net/COB ./COB NetworkCredential/COB (/COB "/COB userName/COB "/COB ,/COB "/COB password/COB "/COB )/COB ;/COB
+                smtpServer/COB ./COB Port/COB =/COB 587/COB ;/COB //COB //COB Gmail/NNP works/VBZ on/IN this/DT port/NN
+
+                mail/COB ./COB From/COB =/COB new/COB MailAddress/COB (/COB "/COB myemail@gmail.com/URL "/COB )/COB ;/COB
+                mail/COB ./COB To/COB ./COB Add/COB (/COB "/COB recepient@gmail.com/URL "/COB )/COB ;/COB
+          mail/COB ./COB Subject/COB =/COB "/COB Password/COB recovery/COB "/COB ;/COB
+          mail/COB ./COB Body/COB =/COB "/COB Recovering/COB the/COB password/COB "/COB ;/COB
+
+                smtpServer/COB ./COB Send/COB (/COB mail/COB )/COB ;/COB
+                P.S./FW You/PRP have/VBP a/DT SQL/ACR injection/NN vulnerability/NN in/IN the/DT sample/JJ code/NN ./. Use/VBP a/DT SqlCommand/COS object/NN with/IN parameters/NNS instead/RB of/IN String.Format/COS (/COS )/COS ./.
+
+                Using/VBG SqlDataReader/COS would/MD be/VB a/DT lot/NN more/JJR efficient/JJ to/TO check/VB for/IN a/DT record/NN instead/RB of/IN populating/VBG a/DT DataSet/COS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Disha" when="2012-03-09 06:35:22Z" indentLevel="1">
+            <p>Hey/UH ,/, @Dmitry/ATS I/PRP implement/VBP your/PRP$ code/NN but/CC it/PRP giving/VBG me/PRP an/DT error/NN on/IN line/NN smtpServer/COS ./COS send/COS (/COS mail/COS )/COS ;/: like/IN this/DT error/NN is/VBZ :/: The/DT SMTP/ACR server/NN requires/VBZ a/DT secure/JJ connection/NN or/CC the/DT client/NN was/VBD not/RB authenticated/VBN ./. The/DT server/NN response/NN was/VBD :/: 5.7.0/CD Must/MD issue/VB a/D STARTTLS/NNP command/NN first/RB ./. ub10sm724863igb/FW ./FW 7/CD</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Dmitry S." when="2012-03-09 17:46:40Z" indentLevel="1">
+            <p>You/PRP need/VB to/TO add/VB a/DT proper/JJ port/NN and/CC credentials/NNS for/IN some/DT servers/NNS ./. You/PRP would/MD need/VB the/DT following/JJ info/NN for/IN the/DT gmail/NNP smtp/ACR server/NN</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Dmitry S." when="2012-03-09 17:46:48Z" indentLevel="1">
+            <p>SmtpServer/COB ./COB Credentials/COB =/COB new/COB System/COB ./COB Net/COB ./COB NetworkCredential/COB (/COB userName/COB ,/COB password/COB )/COB ;/:             SmtpServer/COB ./COB Port/COB =/COB 587/COB ;/: //: //: Gmail/NNP works/VBZ on/IN this/DT port/NN</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Rohit" when="2014-03-10 18:31:12Z" indentLevel="1">
+            <p>And/CC I/PRP do/VB n't/RB understand/VB the/DT reviewers/NNS here/RB ./. I/PRP updated/VBD the/DT code/NN to/TO add/VB this/DT important/JJ information/NN about/IN network/NN credentials/NNS (/( which/WDT is/VBZ important/JJ as/IN it/PRP works/VBZ different/JJ for/IN an/DT individual/JJ e-mail/NN account/NN and/CC service/NN e-mail/NN acounts/NNS )/) ./. However/RB 3/CD reviewers/NNS rejected/VBD the/DT update/NN ./. @War10ck/ATS</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Auri Rahimzadeh" when="2014-08-31 23:10:29Z" indentLevel="1">
+            <p>You/PRP should/MD wrap/VB the/DT MailMessage/NNP and/CC SmtpClient/NNP variable/NN declarations/NNS in/IN using/COS (/COS )/COS statements/NNS to/TO properly/RB dispose/VB of/IN them/PRP when/WRB complete/JJ ./.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Auri Rahimzadeh" when="2014-08-31 23:11:47Z" indentLevel="1">
+            <p>With/IN regard/NN to/TO the/DT SQL/ACR Injection/NN .../. you/PRP should/MD use/VB a/DT parameterized/JJ query/NN AND/CC use/VBP ExecuteScalar/COS (/COS )/COS ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="David HAust" when="2012-03-09 06:09:32Z" upVote="16">
+            <p>Have/VBP a/DT look/NN at/IN MvcMailer/NNP
+
+                MvcMailer/NNP provides/VBZ you/PRP with/IN an/DT ActionMailer/NNP style/NN email/NN sending/VBG NuGet/NNP Package/NN for/IN ASP.NET/URL MVC/ACR 3/CD //: 4/CD ./. So/IN ,/, you/PRP can/MD produce/VB professional/JJ looking/JJ emails/NNS composed/VBD of/IN your/PRP$ MVC/ACR master/NN pages/NNS and/CC views/NNS with/IN ViewBag/NNP ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Yasser" when="2012-07-27 10:20:33Z" upVote="11">
+            <p>you/PRP can/MD use/VB this/DT .../.
+                public/COB void/COB SendEmail/COB (/COB string/COB address/COB ,/COB string/COB subject/COB ,/COB string/COB message/COB )/COB
+    {/COB
+                string/COB email/COB =/COB "/COB -/COB your-id-@gmail.com/COB "/COB ;/COB
+                string/COB password/COB =/COB "/COB put-your-GMAIL-password-here/COB "/COB ;/COB
+
+        var/COB loginInfo/COB =/COB new/COB NetworkCredential/COB (/COB email/COB ,/COB password/COB )/COB ;/COB
+        var/COB msg/COB =/COB new/COB MailMessage/COB (/COB )/COB ;/COB
+        var/COB smtpClient/COB =/COB new/COB SmtpClient/COB (/COB "/COB smtp.gmail.com/COB "/COB ,/COB 587/COB )/COB ;/COB
+
+        msg/COB ./COB From/COB =/COB new/COB MailAddress/COB (/COB email/COB )/COB ;/COB
+        msg/COB ./COB To/COB ./COB Add/COB (/COB new/COB MailAddress/COB (/COB address/COB )/COB )/COB ;/COB
+        msg/COB ./COB Subject/COB =/COB subject/COB ;/COB
+        msg/COB ./COB Body/COB =/COB message/COB ;/COB
+        msg/COB ./COB IsBodyHtml/COB =/COB true/COB ;/COB
+
+        smtpClient/COB ./COB EnableSsl/COB =/COB true/COB ;/COB
+        smtpClient/COB ./COB UseDefaultCredentials/COB =/COB false/COB ;/COB
+        smtpClient/COB ./COB Credentials/COB =/COB loginInfo/COB ;/COB
+        smtpClient/COB ./COB Send/COB (/COB msg/COB )/COB ;/COB
+    }/COB</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Syed Salman Raza Zaidi" when="2012-03-09 07:00:12Z" upVote="1">
+            <p>i/PRP am/VBP using/VBG this/DT for/IN sending/VBG email/NN ,/, in/IN ASP.net/URL MVC3/NNP
+          System/COB ./COB Web/COB ./COB Helpers/COB ./COB WebMail/COB ./COB SmtpServer/COB =/COB smtp_server/COB ;/COB
+            System/COB ./COB Web/COB ./COB Helpers/COB ./COB WebMail/COB ./COB SmtpPort/COB =/COB smtp_port/COB ;/COB
+            System/COB ./COB Web/COB ./COB Helpers/COB ./COB WebMail/COB ./COB EnableSsl/COB =/COB true/COB ;/COB
+            System/COB ./COB Web/COB ./COB Helpers/COB ./COB WebMail/COB ./COB From/COB =/COB "/COB fromaddress/COB "/COB ;/COB
+            StringBuilder/COB sb/COB =/COB new/COB StringBuilder/COB (/COB )/COB ;/COB
+            sb/COB ./COB Append/COB (/COB "/COB &lt;/COB table/COB >/COB &lt;/COB tr/COB >/COB &lt;/COB td/COB >/COB "/COB )/COB ;/COB            
+            sb/COB ./COB Append/COB (/COB msg/COB )/COB ;/COB                     
+            sb/COB ./COB Append/COB (/COB "/COB &lt;/COB //COB td/COB >/COB &lt;/COB //COB tr/COB >/COB &lt;/COB //COB table/COB >/COB "/COB )/COB ;/COB
+            string/COB body/COB =/COB sb/COB ./COB ToString/COB (/COB )/COB ;/COB
+            string/COB To/COB =/COB toemail/COB ;/COB
+                System/COB ./COB Web/COB ./COB Helpers/COB ./COB WebMail/COB ./COB Send/COB ( /COB To/COB ,/COB subject/COB ,/COB body/COB )/COB ;/COB</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Sqalo" revisedBy="Akira" when="2014-07-31 07:58:33Z" upVote="1">
+            <p>   Using/VBG Systems.Net.Mail/COS ;/:
+                //: //: POST/NN :/: //: Account/NN //: Register/NN
+                //: //: Here/RB 's/VBZ a/DT simple/JJ Mail/NN (/( MVC4/FW )/)
+
+                public/JJ async/NN Task/NN &lt;/COB ActionResult/COB >/COB Register/COB (/COB RegisterViewModel/COB model/COB )/COB
+                      {/COB
+                          Mail/COB email/COB =/COB new/COB Mail/COB (/COB )/COB ;/COB
+                          if/COB (/COB ModelState/COB ./COB IsValid/COB )/COB
+                          {/COB
+                              var/COB user/COB =/COB new/COB ApplicationUser/COB (/COB )/COB {/COB UserName/COB =/COB model/COB ./COB UserName/COB ,/COB Email/COB =/COB model/COB ./COB Email/COB }/COB ;/COB
+                              var/COB result/COB =/COB await/COB UserManager/COB ./COB CreateAsync/COB (/COB user/COB ,/COB model/COB ./COB Password/COB )/COB ;/COB
+                              if/COB (/COB result/COB ./COB Succeeded/COB )/COB
+                              {/COB
+                                  email/COB ./COB to/COB =/COB new/COB MailAddress/COB (/COB model/COB ./COB Email/COB )/COB ;/COB
+                                  email/COB ./COB body/COB =/COB "/COB Hello/COB "/COB +/COB model/COB ./COB Firstname/COB +/COB "/COB your/COB account/COB has/COB been/COB created/COB &lt;/COB br/COB //COB >/COB Username/COB :/COB "/COB +/COB model/COB ./COB UserName/COB +/COB "/COB &lt;/COB br/COB //COB >/COB Password/COB :/COB "/COB +/COB model/COB ./COB Password/COB ./COB ToString/COB (/COB )/COB +/COB "/COB &lt;/COB br/COB //COB >/COB change/COB it/COB on/COB first/COB loggin/COB "/COB ;/COB
+                                  ViewBag/COB ./COB Feed/COB =/COB email/COB ./COB reg/COB (/COB )/COB ;/COB
+
+
+                                  await/COB SignInAsync/COB (/COB user/COB ,/COB isPersistent/COB :/COB false/COB )/COB ;/COB
+
+
+                                   return/COB RedirectToAction/COB (/COB "/COB Index/COB "/COB ,/COB "/COB Home/COB "/COB )/COB ;/COB
+
+                              }/COB
+                              else/COB
+                              {/COB
+                                  AddErrors/COB (/COB result/COB )/COB ;/COB
+                              }/COB
+                          }/COB
+
+                //: //: If/IN we/PRP got/VBD this/DT far/JJ ,/, something/NNP failed/VBD ,/, redisplay/VBP form/NN
+                return/COB View/COB (/COB model/COB )/COB ;/COB
+                      }/COB
+
+
+
+
+                //: //: Business/NN Logic/NN (/( this/DT Is/VBZ you/PRP Email/NN Class/NN )/)
+
+
+
+
+                Using/VBG Systems/COS ./COS Net/COS ./COS Mail/COS ;/:
+
+
+                public/NN class/NN Mail/NN
+
+                  {/COB
+                      public/COB MailAddress/COB to/COB {/COB get/COB ;/COB set/COB ;/COB }/COB
+                      public/COB MailAddress/COB from/COB {/COB get/COB ;/COB set/COB ;/COB }/COB
+                      public/COB string/COB sub/COB {/COB get/COB ;/COB set/COB ;/COB }/COB
+                      public/COB string/COB body/COB {/COB get/COB ;/COB set/COB ;/COB }/COB
+
+
+
+
+                      public/COB string/COB reg/COB (/COB )/COB
+                      {/COB
+                          string/COB feed/COB =/COB "/COB Registration/COB Successful/COB "/COB ;/COB
+                          var/COB m/COB =/COB new/COB System/COB ./COB Net/COB ./COB Mail/COB ./COB MailMessage/COB (/COB )/COB
+                          {/COB
+                              Subject/COB =/COB "/COB "/COB ,/COB
+                              Body/COB =/COB body/COB ,/COB
+                              IsBodyHtml/COB =/COB true/COB
+                          }/COB ;/COB
+                m/COB ./COB From/COB =/COB new/COB MailAddress/COB (//COB "/COB Mxolisi@gmail.com/URL  "/COB ,/COB "/COB Administrator/COB "/COB )/COB ;/COB
+                          m/COB ./COB To/COB ./COB Add/COB (/COB to/COB )/COB ;/COB
+                          SmtpClient/COB smtp/COB =/COB new/COB SmtpClient/COB
+                          {/COB
+                              Host/COB =/COB "/COB pod51014.outlook.com/COB "/COB ,/COB
+                              //COB //COB Host/COB =/COB "/COB smtp-mail.outlook.com/COB "/COB ,/COB
+                              Port/COB =/COB 587/COB ,/COB
+                              Credentials/COB =/COB new/COB System/COB ./COB Net/COB ./COB NetworkCredential/COB (/COB "/COB Mxolisi@gmail.com/COB "/COB ,/COB "/COB Dut324232/COB "/COB )/COB ,/COB
+                              EnableSsl/COB =/COB true/COB
+                          }/COB ;/COB
+
+                try/VBP
+                          {/COB
+                              smtp/COB ./COB Send/COB (/COB m/COB )/COB ;/COB
+                              //COB //COB feed/COB =/COB "/COB "/COB ;/COB
+                          }/COB
+                          catch/COB (/COB Exception/COB e/COB )/COB
+                          {/COB
+
+                          }/COB
+
+                          return/COB feed/COB ;/COB
+
+                      }/COB
+                      public/COB string/COB fogot/COB (/COB )/COB
+                      {/COB
+                          string/COB feedback/COB =/COB "/COB "/COB ;/COB
+
+                          var/COB m/COB =/COB new/COB System/COB ./COB Net/COB ./COB Mail/COB ./COB MailMessage/COB (/COB )/COB
+                          {/COB
+                              Subject/COB =/COB "/COB Reset/COB Password/COB PIN/COB "/COB ,/COB
+                              Body/COB =/COB body/COB ,/COB
+                              IsBodyHtml/COB =/COB true/COB
+                          }/COB ;/COB
+                          m/COB ./COB From/COB =/COB new/COB MailAddress/COB (/COB "/COB Mxolisi@gmail.com/COB "/COB ,/COB "/COB Administrator/COB "/COB )/COB ;/COB
+                          m/COB ./COB To/COB ./COB Add/COB (/COB to/COB )/COB ;/COB
+                          SmtpClient/COB smtp/COB =/COB new/COB SmtpClient/COB
+                          {/COB
+                              Host/COB =/COB "/COB pod51014.outlook.com/COB "/COB ,/COB
+                              Port/COB =/COB 587/COB ,/COB
+                              Credentials/COB =/COB new/COB System/COB ./COB Net/COB ./COB NetworkCredential/COB (/COB "/COB Mxolisi@gmail.com/COB "/COB ,/COB "/COB Dut324232/COB "/COB )/COB ,/COB
+                              EnableSsl/COB =/COB true/COB
+                          }/COB ;/COB
+
+                try/VBP
+                          {/COB
+                              smtp/COB ./COB Send/COB (/COB m/COB )/COB ;/COB
+                              feedback/COB =/COB "/COB Check/COB your/COB email/COB for/COB PIN/COB "/COB ;/COB
+                          }/COB
+                          catch/COB (/COB Exception/COB e/COB )/COB
+                          {/COB
+                              feedback/COB =/COB "/COB Message/COB not/COB sent/COB "/COB +/COB e/COB ./COB Message/COB ;/COB
+                          }/COB
+                          return/COB feedback/COB ;/COB
+
+                      }/COB
+
+                  }/COB
+              }/COB</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="ankit rajput" when="2012-03-09 06:44:31Z" upVote="0">
+            <p>Use/VBP code/NN from/IN following/JJ Link/NN to/TO Send/VB Email/NN in/IN mvc3/FW :/: http://weblogs.asp.net/gunnarpeipman/archive/2010/10/20/asp-net-mvc-3-beta-using-webmail-helper-to-send-e-mail.aspx/URL</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Peter Monks" when="2012-03-09 10:52:28Z" upVote="0">
+            <p>It/PRP look/VB like/IN you/PRP are/VBP trying/VBG to/TO send/VB emails/NNS through/IN GMail/NNP 's/POS SMTP/ACR service/NN ,/, which/WDT this/DT SO/IN question/NN already/RB covers/VBZ :/:  Sending/VBG email/NN in/IN .NET/NNP through/IN Gmail/NNP The/DT only/RB thing/NN that/WDT looks/VBZ missing/VBG in/IN your/PRP$ code/NN is/VBZ that/WDT you/PRP 've/VBP set/VB  client/COS ./COS UseDefaultCredentials/COS =/COS true/COS ,/, I/PRP think/VBP you/PRP want/VBP to/TO set/VB this/DT to/TO  false/JJ  and/CC provide/VBP your/PRP$ own/JJ credentials/NNS ./. I/PRP 've/VBP never/RB tried/VBN using/VBG GMail/NNP to/TO send/VB through/IN emails/NNS ,/, but/CC I/PRP 'm/VBP guessing/VBG you/PRP 'll/MD need/VB to/TO use/VB a/DT GMail/NNP account/NN as/IN your/PRP$ credentials/NNS in/IN order/NN to/TO authenticate/VB properly/RB ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Arslan Sunny" revisedBy="Yannick Blondeau" when="2012-07-21 23:29:43Z" upVote="0">
+            <p>You/PRP should/MD turn/VB on/RP the/IN SMTP/ACR service/NN in/IN Window/NN 7/CD :/:
+                go/VBP to/TO Control/NN Panel/NN >/SYM Programs/NNS
+                click/VBP "/" Turn/VBP window/NN features/NNS ON/IN or/CC OFF/IN "/"
+                click/VBP Internet/NN Information/NN Service/NN and/CC click/VBP OK/NN</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ppumkin" when="2014-10-21 09:59:03Z" indentLevel="1">
+            <p>This/DT turns/VBZ on/RP SMTP/ACR server/NN and/CC has/VBZ nothring/NN to/TO do/VB with/IN ./. NET/COS ./. Besides/UH ,/, it/PRP is/VBZ most/JJS likely/RB that/WDT not/RB a/DT llot/ of/IN emails/NNS will/MD be/VB dleivered/VBN if/IN you/PRP sendt/VB emails/NNS from/IN home/NN or/CC an/DT uncofigured/JJ server/NN (/( ie/FW SPF/ACR ,/, rDNS/ACR ../. etc/FW etc/FW )/) This/DT answer/NN is/VBZ not/RB correct/JJ ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Pham" when="2012-12-18 07:16:13Z" upVote="0">
+            <p>when/WRB use/VB smtp/ACR for/IN gmail/NNP ,/, remember/VBP put/VBP
+
+                smtpClient/COS ./COS UseDefaultCredentials/COS =/COS false/COS ;/:
+
+                before/IN
+
+                smtpClient/COS ./COS Credentials/COS =/COS loginInfo/COS ;/COS</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,109 @@
+<TEI >
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Is this PostgreSQL query vulnerable?</title>
+        <author>user</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/13235664/is-this-postgresql-query-vulnerable</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="user" url="http://stackoverflow.com/users/1162541/user">
+        <signatureContent>
+          <p>Reputation: <num>315</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>22</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="StormByte" url="http://stackoverflow.com/users/739009/stormbyte">
+        <signatureContent>
+          <p>Reputation: <num>663</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>7</num>Number of Bronze Badges: <num>24</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Kami" url="http://stackoverflow.com/users/1603275/kami">
+        <signatureContent>
+          <p>Reputation: <num>12.3k</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>19</num>Number of Bronze Badges: <num>46</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2012-11-05 15:54:08Z" who="user" revisedWhen="2012-11-05 15:59:03Z" upVote="3" accepted="favorite"><p>
+
+            Using/VBG the/DT pg_escape_literal/COS PHP/ACR function/NN ,/, I/PRP 'm/VBP escaping/VBG my/PRP$ user/NN input/NN data/NN as/IN follows/VBZ :/:
+
+             ?/COB //COB php/COB
+  $/COB dbconn/COB =/COB pg_connect/COB (/COB '/COB dbname=foo/COB '/COB )/COB ;/COB
+  $/COB escaped/COB =/COB pg_escape_literal/COB (/COB $_GET/COB [/COB '/COB name/COB '/COB ]/COB )/COB ;/COB
+  pg_query/COB (/COB "/COB INSERT/COB INTO/COB participants/COB (/COB name/COB )/COB  VALUES/COB (/COB {/COB $/COB escaped/COB }/COB )/COB "/COB )/COB ;/COB
+  ?/COB >/COB
+
+            Being/VBG new/JJ to/TO PostgreSQL/NNP ,/, my/PRP$ questions/NNS are/VBP :/:
+
+            Is/VBZ there/EX a/DT way/NN to/TO achieve/VB an/DT SQL/ACR injection/NN given/VBN this/DT code/NN ?/.
+            Is/VBZ there/EX any/DT other/JJ vulnerability/NN that/WDT is/VBZ left/RB untreated/JJ in/IN this/DT code/NN ?/.
+
+            Using/VBG PHP/ACR 5.4/CD and/CC PostgreSQL/NNP 9.2/CD ./.
+<tag>php</tag><tag>postgresql</tag><tag>security</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Craig Ringer" when="2012-11-06 00:30:04Z" indentLevel="1">
+            <p>Thanks/VBZ for/IN showing/VBG the/DT code/NN ,/, the/DT versions/NNS ,/, and/CC providing/VBG a/DT clear/JJ question/NN ./. Much/RB appreciated/VBN</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="StormByte" when="2012-11-05 15:59:03Z" upVote="5" accepted="accepted">
+            <p>Since/RB you/PRP do/VBP not/RB trust/VB any/DT user/NN input/NN and/CC you/PRP escape/VBP it/PRP accordingly/RB ,/, there/EX is/VBZ no/DT injection/NN in/IN there/EX ./.
+                Furthermore/RB ,/, you/PRP can/MD use/VB  prepared/JJ statements/NNS  to/TO ensure/VB you/PRP do/VBP n't/RB forget/VBP any/DT escape/NN ,/, and/CC you/PRP take/VBP correct/JJ data/NN types/NNS for/IN the/DT sentence/NN ./. Remember/VBP that/WDT if/IN you/PRP forget/VBP only/RB 1/CD escape/NN ,/, your/PRP$ whole/JJ system/NN is/VBZ compromised/VBN despite/IN it/PRP may/MD be/VB escaped/VBN all/ the/DT rest/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Craig Ringer" when="2012-11-06 00:30:04Z" indentLevel="1">
+            <p>For/IN this/DT reason/NN it/PRP 's/VBZ also/RB a/DT good/JJ idea/NN to/TO weed/VB out/RP obvious/JJ SQL/ACR injection/NN attempts/NNS ./. Find/VBP the/DT string/NN  ');/EMO  in/IN a/DT username/NN ?/. It/PRP 's/VBZ probably/RB worth/JJ rejecting/VBG ./. See/VBP comment/NN on/IN other/JJ post/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="StormByte" when="2012-11-08 11:52:03Z" indentLevel="1">
+            <p>Yes/UH ,/, but/CC since/RB  prepared/JJ statements/NNS  are/VBP not/RB affected/VBN by/IN any/DT attempt/NN like/IN that/DT ,/, it/PRP is/VBZ the/DT safest/JJS way/NN ./. Also/RB ,/, it/PRP would/MD be/VB faster/JJR as/IN you/PRP will/MD not/RB need/VB to/TO check/VB any/DT attempt/NN via/IN any/DT regexp/COS or/CC so/RB ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Craig Ringer" when="2012-11-08 12:22:38Z" indentLevel="1" upVote="1">
+            <p>I/PRP agree/VBP that/WDT prepared/JJ statements/NNS (/( or/CC parameterized/JJ statements/NNS ,/, really/RB )/) are/VBP crucial/JJ ./. I/PRP 'm/VBP just/RB saying/VBG that/WDT some/DT data/NN cleaning/VBG is/VBZ n't/RB necessarily/RB a/DT bad/JJ idea/NN  in/IN addition/NN ,/, since/RB it/PRP 'll/MD help/VB stop/VBP attackers/NNS using/VBG one/CD part/NN of/IN an/DT app/NN to/TO insert/VB data/NN that/WDT 's/VBZ then/RB used/VBN by/IN another/DT (/( //: (/( perhaps/RB supposedly/RB internal-only/JJ )/) part/NN with/IN weaker/JJR security/NN ,/, exploiting/VBG the/DT weaker/JJR app/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Kami" when="2012-11-05 15:58:01Z" upVote="1">
+            <p>That/WDT is/VBZ the/DT recomended/JJ method/NN for/IN escaping/VBG queries/NNS and/CC ensuring/VBG sql/COS injection/NN attacks/NNS do/VBP not/RB work/VB ./. If/IN you/PRP are/VBP extra/JJ paranoid/JJ ,/, or/CC just/RB want/VBP to/TO be/VB safe/JJ ,/, you/PRP can/MD also/RB do/VB regex/COS to/TO weed/VB out/RP unwanted/JJ characters/NNS and/CC length/NN checks/NNS of/IN the/DT data/NN before/IN you/PRP escape/VBP it/PRP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Frank Heikens" when="2012-11-05 16:11:45Z" indentLevel="1">
+            <p>What/WP problem/NN would/MD a/DT regex/COS solve/VBP what/WDT escaping/VBG can/MD 't/RB solve/VB ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Kami" when="2012-11-05 16:42:01Z" indentLevel="1">
+            <p>Like/IN I/PRP pointed/VBD out/RP ,/, escaping/VBG should/MD prevent/VB sql/COS injection/NN ./.  However/RB ,/, it/PRP will/MD still/RB result/VBP in/IN an/DT erroneous/JJ query/NN ./.  As/IN such/RB is/VBZ a/DT good/JJ idea/NN to/TO add/VB a/DT regular/JJ expression/NN check/NN prior/RB to/TO the/DT query/NN ,/, to/TO ensure/VB that/DT name/NN field/NN in/IN this/DT instance/NN or/CC any/DT other/JJ value/NN generally/RB ,/, contains/VBZ only/RB the/DT characters/NNS your/PRP$ application/NN is/VBZ expecting/VBG ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Frank Heikens" when="2012-11-05 17:57:42Z" indentLevel="1" upVote="1">
+            <p>In/IN that/DT case/NN ,/, add/VBP a/DT check/NN constraint/NN as/IN well/RB ,/, that/DT makes/VBZ it/PRP impossible/JJ to/TO forget/VB this/DT check/NN anywhere/RB in/IN your/PRP$ code/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Craig Ringer" when="2012-11-06 00:25:24Z" indentLevel="1">
+            <p>@FrankHeikens/ATS It/PRP 's/VBZ actually/RB a/DT really/RB good/JJ idea/NN ,/, because/IN one/CD app/NN or/CC part/NN of/IN an/DT app/NN can/MD carefully/RB handle/VB untrusted/JJ data/NN ,/, thus/RB merrily/RB inserting/VBG the/DT user/NN named/JJ  '/" )/) ;/: DELETE/COS FROM/COS users/NNS ;/: -/: -/: ./. A/DT sloppier/JJ app/NN or/CC part/NN of/IN the/DT app/NN might/MD then/RB read/VB the/DT data/NN and/CC interpolate/VBP it/PRP into/IN another/DT string/NN -/: "/" because/IN it/PRP came/VBD from/IN the/DT DB/ACR so/RB it/PRP 's/VBZ trustworthy/JJ "/" ./. Splat/UH ./. Excluding/VBG obviously/RB suspicious/JJ strings/NNS where/WRB there/EX 's/VBZ no/DT genuine/JJ reason/NN for/IN them/PRP to/TO exist/VB is/VBZ in/IN this/DT case/NN valuable/JJ extra/JJ protection/NN ,/, IMO/ACR ,/, though/IN no/DT substitute/NN for/IN just/RB not/RB coding/VBG security/NN holes/NNS in/IN the/DT 1st/CD place/NN ./. It/PRP 's/VBZ helping/VBG block/VB XSS/COS SQL/COS injection/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Craig Ringer" when="2012-11-06 00:28:24Z" indentLevel="1">
+            <p>@Kami/ATS While/RB I/PRP agree/VBP that/WDT a/DT regex/COS check/NN is/VBZ actually/RB a/DT good/JJ idea/NN ,/, I/PRP also/RB think/VBP Frank/NNP is/VBZ right/JJ -/: it/PRP should/MD be/VB done/VBN as/IN a/DT  CHECK/COS  constraint/NN ,/, not/RB in/IN the/DT application/NN ./. More/JJR importantly/RB I/PRP  strongly/RB disagree/VBP that/WDT  pg_escape_literal/COS  is/VBZ the/DT recommended/JJ method/NN for/IN handling/VBG untrusted/JJ parameters/NNS ./. Use/VBP parameterized/JJ queries/NNS (/( "/" prepared/JJ statements/NNS "/" )/) ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

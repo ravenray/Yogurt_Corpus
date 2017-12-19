@@ -1,0 +1,720 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Exploitable C# Functions [closed]</title>
+				<author>rook</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source?</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/3940576/exploitable-c-sharp-functions
+				On: May 05, 2015
+				</p>
+			<listPerson>
+				<person xml:id="rook" url="http://stackoverflow.com/users/183528/rook">
+				<signatureContent>
+					<p>Reputation: <num>36,691</num>
+					Number of Gold Badges: <num>16</num>
+					Number of Silver Badges:<num>99</num>
+					Number of Bronze Badges:<num>184</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="Lucero" url="http://stackoverflow.com/users/88558/lucero">
+				<signatureContent>
+					<p>Reputation: <num>40,570</num>
+					Number of Gold Badges: <num>4</num>
+					Number of Silver Badges:<num>56</num>
+					Number of Bronze Badges:<num>108</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="IWriteApps" url="http://stackoverflow.com/users/463878/iwriteapps">
+				<signatureContent>
+					<p>Reputation: <num>403</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>6</num>
+					Number of Bronze Badges:<num>20</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Kobi" url="http://stackoverflow.com/users/7586/kobi">
+				<signatureContent>
+					<p>Reputation: <num>72,738</num>
+					Number of Gold Badges: <num>21</num>
+					Number of Silver Badges:<num>146</num>
+					Number of Bronze Badges:<num>194</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Simon Mourier" url="http://stackoverflow.com/users/403671/simon-mourier">
+				<signatureContent>
+					<p>Reputation: <num>55,548</num>
+					Number of Gold Badges: <num>5</num>
+					Number of Silver Badges:<num>81</num>
+					Number of Bronze Badges:<num>134</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="SilverlightFox" url="http://stackoverflow.com/users/413180/silverlightfox">
+				<signatureContent>
+					<p>Reputation: <num>7,903</num>
+					Number of Gold Badges: <num>3</num>
+					Number of Silver Badges:<num>18</num>
+					Number of Bronze Badges:<num>43</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Abe Miessler" url="http://stackoverflow.com/users/226897/abe-miessler">
+				<signatureContent>
+					<p>Reputation: <num>Abe Miessler</num>
+					Number of Gold Badges: <num>27</num>
+					Number of Silver Badges:<num>141</num>
+					Number of Bronze Badges:<num>270</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="George Stocker♦" url="http://stackoverflow.com/users/16587/george-stocker">
+				<signatureContent>
+					<p>Reputation: <num>33,929</num>
+					Number of Gold Badges: <num>21</num>
+					Number of Silver Badges:<num>116</num>
+					Number of Bronze Badges:<num>188</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Jeff Mercado" url="http://stackoverflow.com/users/390278/jeff-mercado">
+				<signatureContent>
+					<p>Reputation: <num>50,000</num>
+					Number of Gold Badges: <num>7</num>
+					Number of Silver Badges:<num>88</num>
+					Number of Bronze Badges:<num>130</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Lasse V. Karlsen" url="http://stackoverflow.com/users/267/lasse-v-karlsen">
+				<signatureContent>
+					<p>Reputation: <num>172,439</num>
+					Number of Gold Badges: <num>50</num>
+					Number of Silver Badges:<num>362</num>
+					Number of Bronze Badges:<num>555</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="jilles" url="http://stackoverflow.com/users/298656/jilles">
+				<signatureContent>
+					<p>Reputation: <num>4,766</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>12</num>
+					Number of Bronze Badges:<num>28</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="lothar" url="http://stackoverflow.com/users/44434/lothar">
+				<signatureContent>
+					<p>Reputation: <num>12,952</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>27</num>
+					Number of Bronze Badges:<num>51</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Pieter van Ginkel" url="http://stackoverflow.com/users/446261/pieter-van-ginkel">
+				<signatureContent>
+					<p>Reputation: <num>18,391</num>
+					Number of Gold Badges: <num>3</num>
+					Number of Silver Badges:<num>34</num>
+					Number of Bronze Badges:<num>69</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="laindir" url="http://stackoverflow.com/users/1257631/laindir">
+				<signatureContent>
+					<p>Reputation: <num>846</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>5</num>
+					Number of Bronze Badges:<num>12</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Oded♦" url="http://stackoverflow.com/users/1583/oded">
+				<signatureContent>
+					<p>Reputation: <num>293,805</num>
+					Number of Gold Badges: <num>40</num>
+					Number of Silver Badges:<num>444</num>
+					Number of Bronze Badges:<num>654</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="kyndigs" url="http://stackoverflow.com/users/437759/kyndigs">
+				<signatureContent>
+					<p>Reputation: <num>2,472</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>7</num>
+					Number of Bronze Badges:<num>18</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="jgauffin" url="http://stackoverflow.com/users/70386/jgauffin">
+				<signatureContent>
+					<p>Reputation: <num>56,903</num>
+					Number of Gold Badges: <num>19</num>
+					Number of Silver Badges:<num>117</num>
+					Number of Bronze Badges:<num>226</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Goblyn27" url="http://stackoverflow.com/users/80164/goblyn27">
+				<signatureContent>
+					<p>Reputation: <num>1,346</num>
+					Number of Gold Badges: <num></num>
+				    Number of Silver Badges:<num>7</num>
+					Number of Bronze Badges:<num>18</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="GvS" url="http://stackoverflow.com/users/11492/gvs">
+				<signatureContent>
+					<p>Reputation: <num>31,719</num>
+					Number of Gold Badges: <num>8</num>
+				    Number of Silver Badges:<num>60</num>
+					Number of Bronze Badges:<num>109</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Xaqron" url="http://stackoverflow.com/users/313421/xaqron">
+				<signatureContent>
+					<p>Reputation: <num>6,956</num>
+					Number of Gold Badges: <num>14</num>
+					Number of Silver Badges:<num>79</num>
+					Number of Bronze Badges:<num>145</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="jachguate" url="http://stackoverflow.com/users/255257/jachguate">
+				<signatureContent>
+					<p>Reputation: <num>13,307</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>27</num>
+					Number of Bronze Badges:<num>62</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Ben Voigt" url="http://stackoverflow.com/users/103167/ben-voigt">
+				<signatureContent>
+					<p>Reputation: <num>176,817</num>
+					Number of Gold Badges: <num>17</num>
+					Number of Silver Badges:<num>188</num>
+					Number of Bronze Badges:<num>365</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Nir" url="http://stackoverflow.com/users/3509/nir">
+				<signatureContent>
+					<p>Reputation: <num>19,409</num>
+					Number of Gold Badges: <num>5</num>
+					Number of Silver Badges:<num>38</num>
+					Number of Bronze Badges:<num>73</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Jon Hanna" url="http://stackoverflow.com/users/400547/jon-hanna">
+				<signatureContent>
+					<p>Reputation: <num>47,296</num>
+					Number of Gold Badges: <num>4</num>
+					Number of Silver Badges:<num>56</num>
+					Number of Bronze Badges:<num>113</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="ta.speot.is" url="http://stackoverflow.com/users/242520/ta-speot-is">
+				<signatureContent>
+					<p>Reputation: <num>16,726</num>
+					Number of Gold Badges: <num>4</num>
+					Number of Silver Badges:<num>28</num>
+					Number of Bronze Badges:<num>57</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="jasper" url="http://stackoverflow.com/users/472232/jasper">
+				<signatureContent>
+					<p>Reputation: <num>1,875</num>
+					Number of Gold Badges: <num></num>
+                    Number of Silver Badges:<num>7</num>
+					Number of Bronze Badges:<num>29</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="BigBlackDog" url="http://stackoverflow.com/users/43565/bigblackdog">
+				<signatureContent>
+					<p>Reputation: <num>184</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>2</num>
+					Number of Bronze Badges:<num>10</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<div type="forum">
+			<post synch="Oct 15 '10 at 8:21" who="rook" revisedWhen="Nov 6 '10 at 18:28" upVote="65" accepted="favorite">
+			<p>This question is similar to Exploitable PHP Functions.
+
+			Tainted data comes from the user, or more specifically an attacker. When a tainted variable reaches a sink function, then you have a vulnerability. For instance a function that executes a sql query is a sink, and GET/POST variables are sources of taint.
+
+			What are all of the sink functions in C#? I am looking for functions that introduce a vulnerability or software weakness. I am particularly interested in Remote Code Execution vulnerabilities. Are there whole classes/libraries that contain nasty functionally that a hacker would like to influence? How do people accidentally make dangerous C# code?
+
+			<tag>c#</tag> <tag>security</tag>
+			</p>
+			</post>	
+		</div>		
+		<div type="moderator">
+			<head>closed as too broad by Bill the Lizard Feb 18 at 18:37</head>
+			<post synch="Feb 18 at 18:37" who="Bill the Lizard">
+			 	<p>There are either too many possible answers, or good answers would be too long for this format. Please add details to narrow the answer set or to isolate an issue that can be answered in a few paragraphs.
+				If this question can be reworded to fit the rules in the help center, please edit the question.
+			 	</p>
+			</post>
+			</div>
+			<div type="response">
+				<post synch="Oct 15 '10 at 8:28" who="Lucero" IndentLevel="1" upVote="4">  
+					<p>It's a little bit vague. A lot of the danger comes from applications running under full trust instead of a lower trust level; the lower the trust, the harder it gets to do something malicious.    
+					</p>				
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Oct 15 '10 at 16:08" who="rook" IndentLevel="1">   
+					<p>@Lucero I liked the php question, I think this applies to C# quite well.    
+					</p>			
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Oct 26 '10 at 18:13" who="IWriteApps" IndentLevel="1" upVote="1">       
+					<p>wow, the software weakness link is a huuuuge page.   
+					</p>			
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Oct 26 '10 at 18:14" who="rook" IndentLevel="1">      
+					<p>@Gio yep took a while to put together ;)    
+					</p>			
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Dec 29 '13 at 10:31" who="Kobi" IndentLevel="1" upVote="3">   
+					<p>What exactly do you expect here? A huge list of functions? I'm not sure how that is useful... Also, to be pedant, you are talking about the .Net Base Class Library, or maybe Asp.Net, not C# functions (I'm not sure there are "C# functions").
+					</p>			
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Dec 29 '13 at 10:43" who="rook" IndentLevel="1">     
+					<p>@Kobi My post for PHP functions was pretty useful and more than just a dumb list. There are families of functions, and unintended functionality.    
+					</p>			
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Dec 29 '13 at 11:07" who="Simon Mourier" IndentLevel="1">     
+					<p>To add to @Kobi's remarks, no answer below is in fact related to C# as a language. They apply to probably all .NET languages (VB, F#, etc.). You should widen the question to BCL or .NET IMHO.    
+					</p>			
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Jan 3 '14 at 12:32" who="SilverlightFox" revisedWhen="Feb 25 '14 at 8:54" upVote="15" accepted="favorite">
+			 	<p>On the web based side of things, C# (and more generally, ASP.NET) is commonly vulnerable to the following (items listed by OWASP Top 10 2013). I realise you were mainly interested in sink functions, of which I cover some, however you did ask how people accidentally make dangerous C# code so hopefully I've provided some insight here.
+
+				A1-Injection
+
+				SQL Injection
+
+				Generating queries by string concatenation.
+
+				var sql = "SELECT * FROM UserAccount WHERE Username = '" + username "'";
+				SqlCommand command = new SqlCommand(sql , connection);
+				SqlDataReader reader = command.ExecuteReader();
+				This can often be solved by parameterised queries, but if you are using an IN condition it currently isn't possible without string concatenation.
+
+				LDAP Injection
+
+				Code such as
+
+				searcher.Filter = string.Format("(sAMAccountName={1})", loginName);
+				can make the application vulnerable. More information here.
+
+				OS Command Injection
+
+				This code is vulnerable to command injection because the second parameter to Process.Start can have extra commands passed to it using the &amp; character to batch multiple commands
+
+				string strCmdText= @"/C dir c:\files\" + Request.QueryString["dir"];
+				ProcessStartInfo info = new ProcessStartInfo("CMD.exe", strCmdText);
+				Process.Start(info);
+				e.g. foldername &amp;&amp; ipconfig
+
+				A2-Broken Authentication and Session Management
+
+				Sign Out
+
+				The default Forms Authentication SignOut method does not update anything server side, allowing a captured auth token to be continued to be used.
+
+				Calling the SignOut method only removes the forms authentication cookie. The Web server does not store valid and expired authentication tickets for later comparison. This makes your site vulnerable to a replay attack if a malicious user obtains a valid forms authentication cookie.
+				Using Session State for Authentication
+
+				A session fixation vulnerability could be present if a user has used session state for authentication.
+
+				A3-Cross-Site Scripting (XSS)
+
+				Response.Write (and the shortcut &lt;%= =>) vulnerable by default, unless the developer has remembered to HTML encode the output. The more recent shortcut &lt;%: HTML encodes by default, although some developers may use this to insert values into JavaScript where they can still be escaped by an attacker. Even using the modern Razor engine it is difficult to get this right:
+
+				var name = '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Name))';
+				ASP.NET by default enables Request Validation, which will block any input from cookies, the query string and from POST data that could potentially be malicious (e.g. HTML tags). This appears to cope well with input coming through the particular app, but if there is content in the database that is inserted from other sources like from an app written using other technologies, then it is possible that malicious script code could still be output.
+
+				In old versions of .NET it was a bit of a mine-field for a developer to ensure that their output was correctly encoded using some of the default web controls.
+
+				Unfortunately, the data-binding syntax doesn’t yet contain a built-in encoding syntax; it’s coming in the next version of ASP.NET
+				e.g. not vulnerable:
+
+				  &lt;asp:Repeater ID="Repeater1" runat="server">
+				    &lt;ItemTemplate>
+				      &lt;asp:TextBox ID="txtYourField" Text='&lt;%# Bind("YourField") %>'
+				        runat="server">&lt;/asp:TextBox>
+				    &lt;/ItemTemplate>
+				  &lt;/asp:Repeater>
+				vulnerable:
+
+				&lt;asp:Repeater ID="Repeater2" runat="server">
+				  &lt;ItemTemplate>
+				    &lt;%# Eval("YourField") %>
+				  &lt;/ItemTemplate>
+				&lt;/asp:Repeater>
+				A4-Insecure Direct Object References
+
+				MVC model binding can allow parameters added to POST data to be mapped onto the a data model. This can happen unintentionally as the developer hasn't realised that a malicious user may amend parameters in this way. The Bind attribute can be used to prevent this.
+
+				A5-Security Misconfiguration
+
+				There are many configuration options that can weaken the security of an application. For example setting customErrors to On or enabling trace.
+
+				Scanners such as ASafaWeb can check for this common misconfigurations.
+
+				A6-Sensitive Data Exposure
+
+				Default Hashing
+
+				The default password hashing methods in ASP.NET are sometimes not the best.
+
+				HashPasswordForStoringInConfigFile() - this could also be bad if it is used to hash a plain password with no added salt.
+				Article "Our password hashing has no clothes" regarding the ASP.NET membership provider in .NET 4.
+				A7-Missing Function Level Access Control
+
+				Failure to Restrict URL Access
+
+				In integrated pipeline mode .NET can see every request and handles can authorise each request, even to non .NET resources (e.g. .js and images). However, if the application i running in classic mode, .NET only sees requests to files such as .aspx so other files may be accidentally unsecured. See this answer for more detail on the differences.
+
+				e.g. www.example.com/images/private_photograph_user1.jpg is more likely to be vulnerable in an application that runs in classic mode, although there are workarounds.
+
+				A8-Cross-Site Request Forgery (CSRF)
+
+				Although the legacy web forms applications are usually more secure against CSRF due to requiring the attacker to forge the View State and Event Validation values, newer MVC applications could be vulnerable unless the developer has manually implemented anti forgery tokens. Note I am not saying that web forms is not vulnerable, just that it is more difficult that simply passing on a few basic parameters - there are fixes though, such as integrating the user key into the View State value.
+
+				When the EnableEventValidation property is set to true, ASP.NET validates that a control event originated from the user interface that was rendered by that control. A control registers its events during rendering and then validates the events during postback or callback handling. For example, if a list control includes options numbered 1, 2, or 3 when the page is rendered, and if a postback request is received specifying option number 4, ASP.NET raises an exception. All event-driven controls in ASP.NET use this feature by default.
+
+				[EnableEventValidation] feature reduces the risk of unauthorized or malicious postback requests and callbacks. It is strongly recommended that you do not disable event validation.
+				A10-Unvalidated - Redirects and Forwards
+
+				Adding code such as
+
+				Response.Redirect(Request.QueryString["Url"]);
+				will make your site vulnerable. The attack could be initiated by sending a phishing email to a user containing a link. If the user is vigilant they may have double checked the domain of the URL before clicking. However, as the domain will match your domain which the user trusts, they will click the link unaware that the page will redirect the user to the attacker's domain.
+
+				Validation should take place on Url to ensure that it is either a relative, allowed URL or an absolute URL to one of your own allowed domains and pages. You may want to check someone isn't redirecting your users to /Logout.aspx for example. Although there may be nothing stopping an attacker from directly linking to http://www.example.com/Logout.aspx, they could use the redirect to hide the URL so it is harder for a user to understand which page is being accessed (http://www.example.com/Redirect.aspx?Url=%2f%4c%6f%67%6f%75%74%2e%61%73%70%78).
+
+				Others
+
+				The other OWASP categories are:
+
+				A9-Using Components with Known Vulnerabilities
+				of which I can't think of any to mind that are specific to C#/ASP.NET. I'll update my answer if I think of any (if you think they are relevant to your question).
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Feb 18 '15 at 13:39" who="rook" IndentLevel="1">      
+				<p>I should have read this more carefully.   
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Oct 26 '10 at 14:50" who="Abe Miessler" revisedWhen="Dec 29 '13 at 15:05" revisedBy="George Stocker♦" upVote="54" accepted="favorite">
+			 	<p>Anything that uses regular expressions (particularly the RegularExpressionValidator). To see this, run a RegularExpressionValidator with the regex ^(\d+)+$ and give it 30 digits and an alpha character to validate against.
+
+				Some posts:
+
+				http://msdn.microsoft.com/en-us/magazine/ff646973.aspx
+				http://www.abemiester.com/abemiester/post/RegEx-DOS-attack-Regular-Expressions-Now-you-have-3-problems.aspx (this is a blog post from my own blog going into more detail about the MSDN article).
+				This is called a Regular Expression Denial of Service attack and it can bring a website to its knees.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Oct 28 '10 at 23:52" who="Jeff Mercado" IndentLevel="1" upVote="3">      
+				<p>Oh, that's a good one. And applies to any language with regex support.       
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Oct 30 '10 at 19:29" who="rook" IndentLevel="1" upVote="2">      
+				<p>Interesting oddity, but this is a far reach from the complete answer.   
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 6 '10 at 18:33" who="Lasse V. Karlsen" IndentLevel="1" upVote="2">      
+				<p>All regular expressions won't cause such problems. This one is particularly crafted to have this kind of problem.      
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 6 '10 at 18:44" who="Abe Miessler" IndentLevel="1">      
+				<p>I'm aware of that. Did you look at either of the links I posted?       
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 6 '10 at 19:52" who="Lasse V. Karlsen" IndentLevel="1" upVote="3">      
+				<p>Yes, I did, and I fully agree. If you use regular expressions that you haven't vetted, and you know a lot about regular expressions, you're opening up all sorts of cans of worms.       
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 10 '10 at 22:23" who="jilles" IndentLevel="1" upVote="1">      
+				<p>By using a smart algorithm and removing support for some exotic features, regex can be done safely. Examples: TRE, Google's RE2.      
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 11 '10 at 0:08" who="Abe Miessler" IndentLevel="1">      
+				<p>Regex can be done safely with out that. You just need to write it in a safe way.       
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 11 '10 at 23:38" who="lothar" IndentLevel="1">      
+				<p>is that a specific problem with the MS regex implementation? it did not take that long with a simple grep on the command line: $ time echo "123456789012345678901234567890" | grep "\([0-9]\+\)\+" 123456789012345678901234567890 real 0m0.007s user 0m0.020s sys 0m0.010s      
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 12 '10 at 1:34" who="Abe Miessler" IndentLevel="1">      
+				<p>No its not specific to .NET regex. Try adding a "z" to the end of your string of numbers. Only languages that use an NFA regex engine are vulnerable.        
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Jan 6 '14 at 11:17" who="Pieter van Ginkel" IndentLevel="1">      
+				<p>As a side note: .NET 4.5 has the option of limiting the execution time of a regular expression. Use the constructor with the TimeSpan. msdn.microsoft.com/en-us/library/hh160196(v=vs.110).aspx      
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Mar 12 '14 at 13:26" who="laindir" IndentLevel="1">      
+				<p>Just a note about the cause of this. This is not a problem with NFA regex engines--it is a problem with backtracking. An example of a non-backtracking NFA is the Thompson NFA, commonly used in implementations of ed, grep, awk, and sed.      
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Oct 15 '10 at 8:23" who="Oded♦" revisedWhen="Oct 15 '10 at 8:37" upVote="18">
+			 	<p>Process.Start is the first one to come to mind.
+
+				I am sure that WindowsIdentity and much of System.Security can also be used for evil.
+
+				Of course, there are SQL injection attacks, but I don't think that's what you mean (though remote execution can occur through SQL Server).	
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Oct 15 '10 at 8:32" who="kyndigs" IndentLevel="1" upVote="2">      
+				<p>Things like connection strings that have a username and password for SQL are a bit dodgy, when you use static strings they are typically found in decompilers, so its always best not to use them if they contain private information.           
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch=" Oct 23 '10 at 18:20" who="jgauffin" IndentLevel="1">      
+				<p>Please describe the problems with WindowsIdentity     
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Oct 29 '10 at 21:50" who="Goblyn27" IndentLevel="1">      
+				<p>Whereas I prefer connectionstring with usernames and password, but then tightly control the database permissions so that the username and password cant do anything I didnt explicitly give it permission to do on a case by case basis.   
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Oct 15 '10 at 8:45" who="Jeff Mercado" upVote="17" accepted="favorite">
+			 	<p>Aside from the obvious Process.Start() already mentioned, I can see a couple of ways of potential indirect exploitation.
+
+				WinAPI calls via PInvoke to CreateProcess() and whatnot.
+				Any sort of dynamic assembly loading mechanism using Assembly.Load() and other such overloads. If a compromised assembly made it to the system and loaded.
+				If running in full trust in general.
+				With the right permissions, any registry operations could put you at risk.
+				That's all that comes to mind right now.
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Oct 15 '10 at 8:45" who="GvS" revisedWhen="Oct 15 '10 at 12:32" upVote="12">
+			 	<p>IMO: The nr 1 exploitable functions, are innocent looking, but very dangerously when used without thought.
+
+				In ASP.Net Response.Write or the shortcut:
+
+				  &lt;%= searchTermFromUser %>
+				In ADO.Net:
+
+				The string + operator:
+				var sql = "SELECT * FROM table WHERE name = '" + searchTermFromUser + "'"	
+			</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Oct 23 '10 at 20:15" who="jgauffin" IndentLevel="1" upVote="4">      
+				<p>Never ever do SQL statements like that. Use Command.AddParameter and parameter names in queries.   
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Oct 23 '10 at 21:41" who="GvS" IndentLevel="1" upVote="1">      
+				<p>Yes, that's what I mean. These are examples of exploitable code.    
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Oct 30 '10 at 1:55" who="Xaqron" IndentLevel="1">      
+				<p>What's wrong with response.write for the website using that ?    
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Oct 30 '10 at 19:57" who="GvS" IndentLevel="1">      
+				<p>@Xaqron: Because it is common to forget HtmlEncode    
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 10 '10 at 3:27" who="jachguate" IndentLevel="1" upVote="2">      
+				<p>@Xaqron: that is one path to allow [cross site scripting ](en.wikipedia.org/wiki/Cross-site_scripting)     
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 10 '10 at 8:29" who="Xaqron" IndentLevel="1">      
+				<p>It's more clear to write Response.Write(UserData)    
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Jul 1 '11 at 1:45" who="Ben Voigt" IndentLevel="1">      
+				<p>@Xaqron: That would be equally wrong.    
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Oct 26 '10 at 14:46" who="Nir" upVote="11">
+			 	<p>Any piece of data you get from the user (or any other external source) and pass to another system or another user is a potential exploit.
+
+				If you get a string from the user and display it to another user without using HtmlEncode it's a potential exploit.
+
+				If you get a string from the user and use it to construct SQL it's a potential SQL injection.
+
+				If you get a string from the user and use it to contract a file name for Process.Start or Assembly.Load it's a remote execution vulnerability
+
+				You get the point, the danger comes from using unsanitized data, if you never pass user input to external system without sanitizing it (example: HtmlEncode) or using injection-safe interfaces (example: SQL parameters) you are relatively safe - the minute you forget to sanitize something the most innocent-looking method can become a security vulnerability.
+
+				Note: cookies, html headers and anything else that passes over a network is also data from the user, in most cases even data in your database is data from the user.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Oct 26 '10 at 16:25" who="rook" IndentLevel="1">      
+				<p>Yes data from the user is called tainted data. When tainted data reaches a "sink" function, then you have a vulnerability. Look at the list of PHP sink functions i posted at the top.    
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Oct 27 '10 at 10:01" who="Nir" IndentLevel="1" upVote="1">      
+				<p>@Rook - You can't possibly list all the "sink" functions, any code that is not explicitly designed to deal with possibly malicious data is a sink function - also, any code that is designed to deal with malicious data in a diffract context that you use it is a sink function (example: XmlDocument.Load is designed to detect and reject malformed or malicious XML, but if you let the user control the file you load it can be used to load your configuration files and create a really bad information disclosure vulnerability)       
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Oct 27 '10 at 16:44" who="rook" IndentLevel="1">      
+				<p>did you see my PHP link at the top? Or have you come across static analysis tools like RATS (fortify.com/ssa-elements/threat-intelligence/rats.html)    
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Oct 15 '10 at 9:26" who="Jon Hanna" upVote="8">
+			 	<p>Plenty of things in the System.Net, System.XML, System.IO, (anything that takes a URI and/or file path and actually deals with the resource they identify) System.Reflection, System.Security, System.Web, System.Data and System.Threading namespaces can be dangerous, as in they can be used to do bad things that go further than just messing up the current execution. So much that it would be time consuming to try to identify each.
+
+				Of course, every method in all third party assemblies will have to assumed to be dangerous until shown otherwise. More time consuming again.
+
+				Nor do I think it's a particularly fruitful approach. Producing a checklist of functions only really works with a limited library, or with a large-language where a lot of what would be in a library with a language like C# is in the language itself.
+
+				There are some classically dangerous examples like Process.Start() or anything that executes another process directly, but they are balanced by being quite obviously dangerous. Even a relatively foolhardy and incompetent coder may take care when they use that, while leaving data that goes to other methods unsanitised.
+
+				That sanitation of data is a more fruitful thing to look at than any list of functions. Is data validated to remove obviously incorrect input (which may be due to an attack, or may simply be a mistake) and is it encoded and escaped in the appropriate way for a given layer (there is too much talk about "dangerous" character sequences, ' never hurt anyone, it's ' not correctly escaped for SQL, that can hurt when it is indeed at a SQL layer - the job required to make sure the data gets in there correctly is the same as that to avoid exploits). Are the layers at which communication with something outside of the code solid. Are URIs constructed using unexamined input, for example - if not you can turn some of the more commonly used System.Net and System.XML methods into holes.
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Oct 23 '10 at 18:20" who="jgauffin" revisedWhen="Oct 23 '10 at 20:17" upVote="7">
+			 	<p>Reflection.Emit and CodeDom
+
+				Edit:
+
+				Allowing plugins or third party libraries that uses threading can bring your whole application down unless you load those libraries/plugins in a separate appdomain.
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Oct 15 '10 at 8:35" who="kyndigs" upVote="7">
+			 	<p>Using any type of unsafe code can cause problems such as pointers. Microsoft provided a good article about unsafe code here: http://msdn.microsoft.com/en-us/library/aa288474(VS.71).aspx
+			 	</p>
+				</post>
+			</div>	
+			<div type="response">
+				<post synch="Oct 30 '10 at 4:25" who="ta.speot.is" IndentLevel="1" upVote="4">      
+				<p>"Problems such as pointers"    
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 10 '10 at 3:24" who="jachguate" IndentLevel="1" upVote="2">      
+				<p>-1 for qualifying pointers as problems... what kind of problem they are?    
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 10 '10 at 9:38" who="kyndigs" IndentLevel="1">      
+				<p>They are unsafe, pretty obvious if used incorrectly they can be exploited hence they can be a problem, doesnt take einstein to figure that one out does it?    
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 10 '10 at 21:31" who="jachguate" IndentLevel="1">      
+				<p>if used incorrectly. Your car is unsafe if used incorrectly, a kitchen knife is unsafe if used incorrectly, but they are not inherently unsafe for someone who knows what are doing and how to properly use them.    
+				</p>
+				</post>
+				</div>
+			<div type="response">
+				<post synch="Nov 11 '10 at 10:15" who="kyndigs" IndentLevel="1">      
+				<p>Which is exactly why I said "can cause" in my post... I didnt say "will cause".         
+				</p>
+				</post>
+				</div>	
+			<div type="answer">
+				<post synch="Oct 29 '10 at 20:58" who="jasper" upVote="7">
+			 	<p>even a simple string comparison can be an issue.
+
+				If an application makes a trust decision based on the results of this String.Compare operation, the result of that decision could be subverted by changing the CurrentCulture
+				Take a look at the example. Fairly easy to miss
+			 	</p>
+				</post>
+			</div>	
+			<div type="answer">
+				<post synch="Oct 26 '10 at 18:08" who="Pieter van Ginkel" upVote="7">
+			 	<p>Probably half the framework contains very scary functions. I myself think that File.WriteAllText() is very scary since it can overwrite any file the current user has access to.
+
+				A different approach to this question would be how you can manage security. The article at http://ondotnet.com/pub/a/dotnet/2003/02/18/permissions.html contains a basic description concerning the .NET security system, with the System.Security.Permissions namespace containing all permissions .NET makes available. You can also take a look at http://msdn.microsoft.com/en-us/library/5ba4k1c5.aspx for more information.
+
+				In short, .NET allows you to limit the permissions a process can have, for example denying methods that change data on disk. You can then check these permissions and act on whether the process has them or not.
+			 	</p>
+				</post>
+			</div>		
+			<div type="answer">
+				<post synch="Oct 15 '10 at 8:27" who="BigBlackDog" upVote="3">
+			 	<p>I've seen code where the user could set the name and parameters for a function call in a database. The system would then execute the named function through Reflection without checking anything ...
+			 	</p>
+				</post>
+			</div>		
+		</body>	
+	</text>
+</TEI>

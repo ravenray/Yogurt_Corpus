@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Is this vulnerable for XSS? [closed]</title>
+				<author>user2488578</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/18376401/is-this-vulnerable-for-xss
+					On: Date Unknown 2015
+				Created by: 
+					Rachael Duke
+					Department of Linguistics
+					University of California, Davis
+					Please email me with any questions, comments, or errors.
+					Email: rebrim @ ucdavis . edu</p>
+				<listPerson>
+				<person xml:id="user2488578">
+				<signatureContent>
+					<p>Reputation: <num>86</num></p>
+					<p>Page: http://stackoverflow.com/users/2488578/user2488578 </p>
+					<p>Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>2</num></p>
+					<p>Number of Bronze Badges:<num>9</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="SilverlightFox">
+				<signatureContent>
+					<p>Reputation: <num>6,075</num></p>
+					<p> Number of Gold Badges: <num>3</num></p>
+					<p>Number of Silver Badges:<num>14</num></p>
+					<p>Number of Bronze Badges:<num>39</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Quentin">
+				<signatureContent>
+					<p>Reputation: <num>355k</num></p>
+					<p> Number of Gold Badges: <num>36</num></p>
+					<p>Number of Silver Badges:<num>422</num></p>
+					<p>Number of Bronze Badges:<num>586</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="dnet">
+				<signatureContent>
+					<p>Reputation: <num>716</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>3</num></p>
+					<p>Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+	<body>
+		<front>
+			<div type="up vote">
+				<p>up vote  <num>0</num></p>
+			</div>
+			<div type="down vote">
+			<p>down vote
+          favorite</p>
+			</div>
+		</front>
+		<div type="forum">
+			<posting synch="Aug 22 '13 at 9:21" who="user2488578">
+			<p>Is below Java Script code vulnerable for XSS? This is invoked from login page. If error is found in the page, again login page will be hit with the error message.
+			if(userName.length==0)
+			{ 
+			 initialMsg="Please enter a User Name"; 
+			 errorMessage+=encodeHTML(initialMsg);
+			 document.writeln("&lt;form name=\"errForm\" method=\"POST\" action=\"http://loginPageURLGoesHere\">");
+			 document.writeln("&lt;input type=\"hidden\" name=\"errorMessage\" value=\"" + errorMessage + "\">"); 
+ 			document.writeln("&lt;/form>"); 
+ 			document.errForm.submit();
+			 return false;
+				}
+
+			function encodeHTML(s)
+			{
+  			return s.replace(/&amp;/g, '&amp;').replace(/&lt;/g, '&lt;').replace(/&quot;/g, '&quot;').replace(/>/g, '&gt;');
+			}
+			Doing all checks at server side is a solution for fixing XSS. But, I want to know if above encoding will help to prevent XSS.
+
+			<tag>javascript</tag> <tag>security</tag> <tag>xss</tag>
+			</p>
+			</posting>	
+		</div>		
+		<div type="moderator">
+			<head>closed as off-topic by Quentin, David Smith, Chris, uthark, Frank van Puffelen Aug 22 '13 at 20:06</head>
+			<posting synch="Aug 22 '13 at 20:06" who="Quentin">
+			 	<p>This question does not appear to be about programming within the scope defined in the help center.
+				If this question can be reworded to fit the rules in the help center, please edit the question.
+			 	</p>
+			 	</posting>
+			 	</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+					<p>up vote  <num>4</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 22 '13 at 9:34" who="Quentin" IndentLevel="1">
+				<p>This question appears to be off-topic because it belongs on codereview.stackexchange.com
+				</p>				
+				</posting>
+		</div>
+		<front>
+			<head>3 Answers</head>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          	</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 22 '13 at 9:48" who="SilverlightFox">
+			 	<p>It depends on the initial value of errorMessage. As you are appending to it, it is not possible to see from your code what it already contains. The encoding should be done when output to guard against any possible DOM Based XSS.
+
+				i.e. document.writeln("&lt;input type=\"hidden\" name=\"errorMessage\" value=\"" + encodeHTML(errorMessage) + "\">");
+
+				Also, don't forget to encode single quote.
+
+				You should make sure that http://loginPageURLGoesHere correctly sanitises the errorMessage POSTed to it before output to guard against regular XSS.
+			 	</p>
+			 	</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 22 '13 at 10:32" who="user2488578" IndentLevel="1"> 
+				<p>So, instead of errorMessage+=encodeHTML(initialMsg); I should do this document.writeln("&lt;input type=\"hidden\" name=\"errorMessage\" value=\"" + encodeHTML(errorMessage) + "\">"); ?
+				</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 22 '13 at 10:41" who="SilverlightFox" IndentLevel="1">  
+				<p>Yes - I always encode at point of output, or name my variable in such as way to indicate that it has already been encoded.
+				</p>
+				</posting>
+			</div>
+		<front>
+			<div type="up vote">
+				<p>up vote  <num>0</num></p>
+			</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+		<div type="answer">
+				<posting synch="Aug 22 '13 at 9:36" who="Quentin">
+			 	<p>Yes, it does, especially, since nothing used in the string concatenation comes from user input, so even without encodeHTML, it couldn't be exploited in a useful way.
+			 	</p>
+				</posting>
+		</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>0</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 22 '13 at 9:33" who="dnet">
+			 	<p>No, it won't help. An attacker can bypass the page that runs that JS entirely and send the victim directly to http://loginPageURLGoesHere.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 22 '13 at 10:30" who="user2488578" IndentLevel="1"> 
+				<p>In case an attacker doesn't bypass but he tampers with the output (errorMessage)... Does the above code will be able to prevent it?
+				</p>
+				</posting>
+			</div>
+	</body>
+	</text>
+</TEI> 	

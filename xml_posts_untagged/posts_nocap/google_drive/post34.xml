@@ -1,0 +1,119 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Vulnerability with MySQL error</title>
+        <author>Cyclone</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/8651454/vulnerability-with-mysql-error</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Cyclone" url="http://stackoverflow.com/users/989749/cyclone">
+        <signatureContent>
+          <p>Reputation: <num>3,287</num>Number of Gold Badges: <num>17</num>Number of Silver Badges: <num>50</num>Number of Bronze Badges: <num>90</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Marc B" url="http://stackoverflow.com/users/118068/marc-b">
+        <signatureContent>
+          <p>Reputation: <num>256k</num>Number of Gold Badges: <num>22</num>Number of Silver Badges: <num>206</num>Number of Bronze Badges: <num>325</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Virendra" url="http://stackoverflow.com/users/387247/virendra">
+        <signatureContent>
+          <p>Reputation: <num>2,162</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>12</num>Number of Bronze Badges: <num>31</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-12-28 03:13:19Z" who="Cyclone" revisedWhen="2011-12-28 03:24:17Z" upVote="0"><p>I have no idea about PHP security, but if I add an ' to the input in my POST method form.
+
+I'm getting the following message:
+
+Warning: mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /usr/local/www/login.php
+
+Is that a SQL injection? If so, how it can be abused by the "hackers" ?
+<tag>php</tag><tag>sql-injection</tag><tag>security</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Aurelio De Rosa" when="2011-12-28 03:15:00Z" indentLevel="1">
+          <p>possible duplicate of Best way to stop SQL Injection in PHP</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="outis" when="2011-12-28 03:18:00Z" indentLevel="1">
+          <p>There's not enough information to answer this question without guessing. What's lacking is minimal sample code, which every SO question should have.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Marc B" when="2011-12-28 03:16:26Z" upVote="4" accepted="accepted">
+          <p>
+
+That means you're vulnerable to SQL injection, and your code is not doing sufficient checking for errors.
+
+An absolute barebones "safe" bit of code would be:
+
+&lt;?php
+... connect to db ...
+$stringval = mysql_real_escape_string($_GET['param']);
+$sql = "SELECT somefield FROM sometable WHERE otherfield='$stringval'";
+$result = mysql_query($sql) or die(mysql_error());
+
+better yet is to stop using the mysql functions and switch to PDO and parameterized queries. They handle the injection problems for you automatically.
+
+The root cause of your error message is that your query has caused a syntax error. When a query fails outright like that, mysql_query() returns a boolean FALSE value, not a statement handle.
+
+Since you lack any kind of error checking, you blindly took that boolean false and passed it on to the fetch function, which has rightfully complained that you didn't provide a result handle.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Cyclone" when="2011-12-28 03:23:00Z" indentLevel="1">
+          <p>Thank you. But I've read much about this thing, and seems like there is no way to get the access to the database or something. I've tried to inject it in a few ways and seems like it's not possible, so my question is about 'how to inject it', because I wan't to learn some about the security against SQL injection and understand, how it works. Thank you 1+'d for now. :)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Marc B" when="2011-12-28 03:27:04Z" indentLevel="1">
+          <p>classical injection problems, such as the  Bobby Tables  aren't possible in PHP/MySQL as the driver doesn't allow multiple queries in a single call. But injection attacks can STILL be used to do things like subvert login/permissions systems.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Virendra" when="2011-12-28 03:15:40Z" revisedWhen="2011-12-28 03:24:40Z" upVote="0">
+          <p>You should escape any user input before passing it to mysql. Use the PHP function mysql_real_escape_string() to escape any user input before adding it to your query. Here is the link to PHP manual for mysql_real_escape_string()
+
+Update: Yes, what others are saying about using prepared statements or mysqli is much better that using the mysql extension.
+
+Here are a few links on MySQL Injection which I found:
+
+    http://www.php.net/manual/en/security.database.sql-injection.php
+    http://25yearsofprogramming.com/blog/2011/20110205.htm
+    https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aurelio De Rosa" when="2011-12-28 03:16:43Z" indentLevel="1">
+          <p>Actually the best way to be safe from SQL injection is to use prepared statement.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="outis" when="2011-12-28 03:17:25Z" indentLevel="1">
+          <p>The mysql extension is outdated and on its way to deprecation. New code should use mysqli or PDO, both of which have important advantages, such as support for prepared statements, which is the modern way of preventing injection attacks.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Virendra" when="2011-12-28 03:25:13Z" indentLevel="1">
+          <p>I have updated my answer to provide some links on more details about SQL Injection, prepared statements and mysqli.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Your Common Sense" when="2012-01-03 01:59:56Z" indentLevel="1">
+          <p>a classic delusion. as a mater of fact, "escape any user input" is wrong and doesn't prevent injections. -1</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

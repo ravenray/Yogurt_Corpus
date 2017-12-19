@@ -1,0 +1,168 @@
+<TEI >
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>JSON security best practices?</title>
+        <author>cletus</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/395592/json-security-best-practices</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="cletus" url="http://stackoverflow.com/users/18393/cletus">
+        <signatureContent>
+          <p>Reputation: <num>385k</num>Number of Gold Badges: <num>113</num>Number of Silver Badges: <num>754</num>Number of Bronze Badges: <num>855</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Chase Seibert" url="http://stackoverflow.com/users/7679/chase-seibert">
+        <signatureContent>
+          <p>Reputation: <num>9,831</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>36</num>Number of Bronze Badges: <num>50</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Mike Samuel" url="http://stackoverflow.com/users/20394/mike-samuel">
+        <signatureContent>
+          <p>Reputation: <num>71.2k</num>Number of Gold Badges: <num>16</num>Number of Silver Badges: <num>130</num>Number of Bronze Badges: <num>174</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Oli" url="http://stackoverflow.com/users/12870/oli">
+        <signatureContent>
+          <p>Reputation: <num>86.9k</num>Number of Gold Badges: <num>39</num>Number of Silver Badges: <num>157</num>Number of Bronze Badges: <num>220</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2008-12-27 23:40:07Z" who="cletus" revisedWhen="2015-06-25 08:23:59Z" upVote="61" accepted="favorite"><p>While researching the issue of JSON vs XML, I came across this question. Now one of the reasons to prefer JSON was listed as the ease of conversion in Javascript, namely with the eval(). Now this immediately struck me as potentially problematic from a security perspective.
+
+So I started doing some research into the security aspects of JSON and across this blog post about how JSON is not as safe as people think it is. This part stuck out:
+
+    Update: If you are doing JSON 100% properly, then you will only have objects at the top level. Arrays, Strings, Numbers, etc will all be wrapped. A JSON object will then fail to eval() because the JavaScript interpreter will think it's looking at a block rather than an object. This goes a long way to protecting against these attacks, however it's still best to protect your secure data with un-predictable URLs.
+
+Ok, so that's a good rule to start with: JSON objects at the top level should always be objects and never arrays, numbers or strings. Sounds like a good rule to me.
+
+Is there anything else to do or avoid when it comes to JSON and AJAX related security?
+
+The last part of the above quote mentions unpredictable URLs. Does anyone have more information on this, especially how you do it in PHP? I'm far more experienced in Java than PHP and in Java it's easy (in that you can map a whole range of URLs to a single servlet) whereas all the PHP I've done have mapped a single URL to the PHP script.
+
+Also, how exactly do you use unpredictable URLs to increase security?
+<tag>javascript</tag><tag>json</tag><tag>security</tag><tag>ajax</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="James" when="2008-12-28 00:38:12Z" indentLevel="1">
+          <p>I don't get this at all! Surely any request made by the browser (to any URL - unpredictable or not) can be reported to the user, either using a console or some fancy GM script</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="inf" when="2015-04-19 Apr 19 '15 15:39:34Z" indentLevel="1">
+          <p>"JSON is not as safe as people think it is" is dead</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Chase Seibert" when="2008-12-28 04:48:43Z" upVote="15" accepted="accepted">
+          <p>The main security hole from the blog (CSRF), is not JSON specific. It's just as big a hole using XML instead. Indeed, it's just as bad with no asynchronous calls at all; regular links are just as vulnerable.
+
+When people talk about unique URLs, they generally DON'T mean http://yourbank.com/json-api/your-name/big-long-key-unique-to-you/statement. Instead, it's more common to make something else about the request unique; namely a value in the FORM post, or a URL parameter.
+
+Usually this involves a random token inserted into the FORM on the server side, and then checked when a request is made.
+
+The array/object thing is news to me:
+
+    Script-Tags: The attacker can embed a script tag pointing at a remote server and the browser will effectively eval() the reply for you, however it throws away the response and since JSON is all response, you're safe.
+
+In that case, your site doesn't need to use JSON at all to be vulnerable. But yeah, if an attacker can insert random HTML into your site, you're toast.
+</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Mike Samuel" when="2009-01-09 23:56:59Z" upVote="46">
+          <p>
+
+        There are a number of security attacks against JSON, especially XSRF.
+
+        The vulnerability occurs when a web service uses cookies for authentication, and responds with a JSON array containing sensitive data in response to a GET request.
+
+        If an attacker can trick a user who is logged into a service, naive-webapp.com, into visiting their site (or any site that embeds an IFRAME they control, e.g. via embedded ads) then they can insert a &lt;script> tag with a SRC to the naive-webapp.com, and potentially steal the user's data. This depends on a javascript quirk with the JavaScript Array constructor like this:
+
+         &lt;script>
+           // Overload the Array constructor so we can intercept data
+           var stolenArrays = [];
+           var RealArray = Array;
+           Array = function () {
+             var arr = RealArray.apply(arguments);
+             stolenArrays.push(arr);
+             return arr;
+           }
+         &lt;/script>
+         &lt;!-- even though the attacker can't access the cookies,
+           - he can cause the browser to send them to naive-webapp.com -->
+         &lt;script src="//naive-webapp.com/...">&lt;/script>
+         &lt;script>
+           // now stolenArrays contains any data from the parsed JSON
+         &lt;/script>
+
+        EcmaScript 5 has fixed the confusing behavior that caused [] to look up Array on the global object and many modern browsers are no longer susceptible to this attack.
+
+        Incidentally, Oil is wrong about unpredictable URLs. Cryptographically secure random identifiers in URLs are a fine way to protect resources. Identity based security is not a panacea as Oil suggests. See http://waterken.sourceforge.net/ for an example of a secure distributed application scheme based on cryptographically secure identifiers in URLs that does not require a concept of identity.
+
+        EDIT:
+
+        When considering JSON vs XML, you should be aware of XML specific attack vectors as well.
+
+        XXE, XML External entities attacks, use crafted XML to access file system and network resources through the firewall.
+
+            &lt;!DOCTYPE root 
+            [
+            &lt;!ENTITY foo SYSTEM "file:///c:/winnt/win.ini">
+            ]>
+            ...
+            &lt;in>&amp;foo; &lt;/in>
+
+            The Application embeds the input (parameter "in", which contains the win.ini file) to the web service response.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="thomasrutter" when="2010-04-11 02:22:45Z" indentLevel="1">
+          <p>I see, so if the web server is sending out data intended only for a logged in user in response to a GET request, even if that data is JSON, it should keep in mind that an attacker can get and parse that data using a &lt;script&gt; tag.  So what's the solution?  Your web app should be careful not to send anything out that could be parsed as Javascript, even JSON, in response to a GET request.  It should be POST-only (perhaps with a token matching a cookie set by the server).  I think that's a similar solution to some other threats isn't it, like GIFAR?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="thomasrutter" when="2010-04-11 02:41:34Z" indentLevel="1">
+          <p>Or how secure would be it be just to rely on the outermost layer being an object and the parser breaking because {} is interpreted as a block?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mike Samuel" when="2010-04-29 03:51:08Z" indentLevel="1">
+          <p>If you know the outermost layer is always an object, and you properly quote property names then the parser should break.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Ta Sas" when="2010-07-25 08:45:13Z" indentLevel="1">
+          <p>+1 for your positive remark about random identifiers in URLs</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Oli" when="2008-12-28 00:00:14Z" upVote="2">
+          <p>it's still best to protect your secure data with un-predictable URLs. Emphasis mine. What nonsense! It's  best  to protect your secure data with some proper authentication and possibly some encryption on top of that. JSON exchanges can still use existing authentication techniques (eg sessions through cookies) and SSL. Relying on somebody not guessing a URL (what they're effectively talking about) will only be a reasonable technique (and even then, only just) when you're using JSON to export data to an anonymous third party (eg a web service). One example is Google's various web service API where anonymous users access Google-data through other websites. They use domain-referrer and API keys to make sure the man-in-the-middle website is allowed to provide Gooogle data. If you're just using JSON to send private data to and from a direct, known user agent, use some real authentication and encryption. If you're trying to provide a webservice, then it really depends on how  "secure"  this data is going to be. If it's just public data and you don't mind who can read it, I don't see the point in making a hashy URL. Edit: to demonstrate what they mean, consider this. Imagine your bank provided a JSON API for getting statements. If I could just type  http://yourbank.com/json-api/your-name/statement , you probably wouldn't be best pleased. They could generate a unique string for your account that was required in any JSON request though, eg:  http://yourbank.com/json-api/your-name/big-long-key-unique-to-you/statement I would have far less chance of being able to guess that. But would you really want that being the only buffer between your genuinely secure data and potential identity thieves? No.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="cletus" when="2008-12-28 00:40:46Z" indentLevel="1">
+          <p>I think you need to read the rest of the blog: he doesn't advocate no security other than unpredictable URLs.  What he says is that security through cookies is NOT ENOUGH and he demonstrates why.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jo Liss" when="2010-12-20 15:47:48Z" indentLevel="1">
+          <p>Authentication doesn't help -- that's the point of the question.  For example, If the user is logged into target.com (i.e. they have a session cookie), attacker.com might try something like  &lt;script type="text/javascript" src="http://target.com/secret-data-with-predictable-url.json"/&gt;  and use the Array constructor trick described by Mike to get at the data, if the top-level element is an array.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mike Samuel" when="2013-01-17 16:59:21Z" indentLevel="1">
+          <p>Two problems -- you confuse authentication with authorization, and then you incorrectly assume that passwords are less easily guessed.  Which is easier to guess: a randomly generated identifier which usually has between 128 bits and 1024 bits of entropy, or a human generated password that has, on average, 18 bits of entry?  The main problem with URLs is that users are not as used to keeping URLs secret and some work has to be done to prevent leakage via referrer and the like.  Waterken attempts to address both problems.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,3056 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>How can I prevent SQL-injection in PHP?</title>
+				<author>Andrew G. Johnson</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php
+					On: Date Unknown 2015
+				Created by: 
+					Rachael Duke
+					Department of Linguistics
+					University of California, Davis
+					Please email me with any questions, comments, or errors.
+					Email: rebrim @ ucdavis . edu</p>
+			<listPerson>
+				<person xml:id="Andrew G. Johnson">
+				<signatureContent>
+					<p>Reputation: <num>9,932</num></p>
+					<p>Page: http://stackoverflow.com/users/428190/andrew-g-johnson </p>
+					<p>Number of Gold Badges: <num>20</num></p>
+					<p>Number of Silver Badges:<num>67</num></p>
+					<p>Number of Bronze Badges:<num>112</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="Theo">
+				<signatureContent>
+					<p>Reputation: <num>66.2k</num></p>
+					<p> Number of Gold Badges: <num>7</num></p>
+					<p>Number of Silver Badges:<num>82</num></p>
+					<p>Number of Bronze Badges:<num>118</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Matt Sheppard">
+				<signatureContent>
+					<p>Reputation: <num>35.5k</num></p>
+					<p> Number of Gold Badges: <num>32</num></p>
+					<p>Number of Silver Badges:<num>86</num></p>
+					<p>Number of Bronze Badges:<num>104</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Kibbee">
+				<signatureContent>
+					<p>Reputation: <num>37.9k</num></p>
+					<p> Number of Gold Badges: <num>22</num></p>
+					<p>Number of Silver Badges:<num>105</num></p>
+					<p>Number of Bronze Badges:<num>152</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Your Common Sense">
+				<signatureContent>
+					<p>Reputation: <num>1</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num></num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Imran">
+				<signatureContent>
+					<p>Reputation: <num>21.8k</num></p>
+					<p> Number of Gold Badges: <num>11</num></p>
+					<p>Number of Silver Badges:<num>60</num></p>
+					<p>Number of Bronze Badges:<num>99</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Zaffy">
+				<signatureContent>
+					<p>Reputation: <num>5,150</num></p>
+					<p> Number of Gold Badges: <num>4</num></p>
+					<p>Number of Silver Badges:<num>17</num></p>
+					<p>Number of Bronze Badges:<num>48</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="rahularyansharma">
+				<signatureContent>
+					<p>Reputation: <num>4,447</num></p>
+					<p> Number of Gold Badges: <num>5</num></p>
+					<p>Number of Silver Badges:<num>36</num></p>
+					<p>Number of Bronze Badges:<num>79</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Tanerax">
+				<signatureContent>
+					<p>Reputation: <num>2,876</num></p>
+					<p> Number of Gold Badges: <num>4</num></p>
+					<p>Number of Silver Badges:<num>18</num></p>
+					<p>Number of Bronze Badges:<num>22</num></p>
+				</signatureContent> 
+				</person>
+				<person xml:id="Rob">
+				<signatureContent>
+					<p>Reputation: <num>33k</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>44</num></p>
+					<p>Number of Bronze Badges:<num>82</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Cedric">
+				<signatureContent>
+					<p>Reputation: <num>1,432</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>8</num></p>
+					<p>Number of Bronze Badges:<num>11</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Johannes Fahrenkrug">
+				<signatureContent>
+					<p>Reputation: <num>14.5k</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>46</num></p>
+					<p>Number of Bronze Badges:<num>78</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Manish Shrivastava">
+				<signatureContent>
+					<p>Reputation: <num>5,246</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>33</num></p>
+					<p>Number of Bronze Badges:<num>58</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Nikhil">
+				<signatureContent>
+					<p>Reputation: <num>2,088</num></p>
+					<p> Number of Gold Badges: <num>0</num></p>
+					<p>Number of Silver Badges:<num>13</num></p>
+					<p>Number of Bronze Badges:<num>24</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="devOp">
+				<signatureContent>
+					<p>Reputation: <num>1,461</num></p>
+					<p> Number of Gold Badges: <num>0</num></p>
+					<p>Number of Silver Badges:<num>5</num></p>
+					<p>Number of Bronze Badges:<num>17</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Xeoncross">
+				<signatureContent>
+					<p>Reputation: <num>14.8k</num></p>
+					<p> Number of Gold Badges: <num>23</num></p>
+					<p>Number of Silver Badges:<num>131</num></p>
+					<p>Number of Bronze Badges:<num>232</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="imRcH">
+				<signatureContent>
+					<p>Reputation: <num>2,240</num></p>
+					<p> Number of Gold Badges: <num>22</num></p>
+					<p>Number of Silver Badges:<num>9</num></p>
+					<p>Number of Bronze Badges:<num>16</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="nbari">
+				<signatureContent>
+					<p>Reputation: <num>958</num></p>
+					<p> Number of Gold Badges: <num>0</num></p>
+					<p>Number of Silver Badges:<num>7</num></p>
+					<p>Number of Bronze Badges:<num>13</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Nicolas Finelli">
+				<signatureContent>
+					<p>Reputation: <num>694</num></p>
+					<p> Number of Gold Badges: <num>0</num></p>
+					<p>Number of Silver Badges:<num>5</num></p>
+					<p>Number of Bronze Badges:<num>5</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="user1646111">
+				<signatureContent>
+					<p>Reputation: <num></num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num></num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Danijel">
+				<signatureContent>
+					<p>Reputation: <num>5,709</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>11</num></p>
+					<p>Number of Bronze Badges:<num>25</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Soumalya Banerjee">
+				<signatureContent>
+					<p>Reputation: <num>675</num></p>
+					<p> Number of Gold Badges: <num>0</num></p>
+					<p>Number of Silver Badges:<num>8</num></p>
+					<p>Number of Bronze Badges:<num>18</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="apurv nerlekar">
+				<signatureContent>
+					<p>Reputation: <num>653</num></p>
+					<p> Number of Gold Badges: <num>0</num></p>
+					<p>Number of Silver Badges:<num>6</num></p>
+					<p>Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Peter Mortensen">
+				<signatureContent>
+					<p>Reputation: <num>8,488</num></p>
+					<p> Number of Gold Badges: <num>10</num></p>
+					<p>Number of Silver Badges:<num>57</num></p>
+					<p>Number of Bronze Badges:<num>94</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Servant">
+				<signatureContent>
+					<p>Reputation: <num>686</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>12</num></p>
+					<p>Number of Bronze Badges:<num>30</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Chintan Gor">
+				<signatureContent>
+					<p>Reputation: <num>643</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>8</num></p>
+					<p>Number of Bronze Badges:<num>22</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Thomas Ahle">
+				<signatureContent>
+					<p>Reputation: <num>12,796</num></p>
+					<p> Number of Gold Badges: <num>7</num></p>
+					<p>Number of Silver Badges:<num>44</num></p>
+					<p>Number of Bronze Badges:<num>73</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Rakesh Sharma">
+				<signatureContent>
+					<p>Reputation: <num>10,629</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>14</num></p>
+					<p>Number of Bronze Badges:<num>25</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Calmarius">
+				<signatureContent>
+					<p>Reputation: <num>3,422</num></p>
+					<p> Number of Gold Badges: <num>5</num></p>
+					<p>Number of Silver Badges:<num>41</num></p>
+					<p>Number of Bronze Badges:<num>81</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<front>
+			<div type="up vote">
+				<p>up vote  <num>2792</num></p>
+			</div>
+			<div type="down vote">
+			<p>down vote
+          favorite <num>1949</num></p>
+			</div>
+		</front>
+		<div type="forum">
+			<posting synch="Sep 12 '08 at 23:55" who="Andrew G. Johnson" revisedWhen="May 14 '14 at 22:53">
+			<p>If user input is inserted without modification into an SQL query, then the application becomes vulnerable to SQL injection, like in the following example:
+
+				$unsafe_variable = $_POST['user_input']; 
+
+				mysql_query("INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')");
+				That's because the user can input something like value'); DROP TABLE table;--, and the query becomes:
+
+				INSERT INTO `table` (`column`) VALUES('value'); DROP TABLE table;--')
+				What can be done to prevent this from happening?
+
+				<tag>php</tag> <tag>mysql</tag> <tag>sql</tag> <tag>security</tag> <tag>sql-injection</tag>
+			</p>
+			</posting>	
+		</div>		
+		<div type="moderator">
+			<head>locked by Robert Harvey♦ May 20 '14 at 21:30</head>
+			<posting synch="May 20 '14 at 21:30" who="Robert Harvey♦">
+			 	<p>This question's answer is a collaborative effort: if you see something that can be improved, just edit to improve it! No additional answers can be added here
+			 	</p>
+			</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>181</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 19 '12 at 14:08" who="Johan" IndentLevel="1">  
+					<p>Note that that particular example will not work, because the mysql_ lib does not allow executing 2 queries in one statement. As long as you keep the manipulation in a single statement the injection will work.
+					</p>				
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>27</num></p>
+					</div>
+				</front>
+				<posting synch="Nov 29 '12 at 12:15" who="VBAssassin" IndentLevel="1">   
+					<p>It also shouldn't work if you have given proper permissions to the user and assuming that the average sql user should not be granted permissions to drop tables it shouldn't work. 
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>312</num></p>
+					</div>
+				</front>
+				<posting synch="Dec 20 '12 at 17:47" who="Neal" IndentLevel="1">       
+					<p>Please, don't use mysql_* functions in new code. They are no longer maintained and are officially deprecated. See the red box? Learn about prepared statements instead, and use PDO or MySQLi - this article will help you decide which. If you choose PDO, here is a good tutorial. 
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>
+				<posting synch="Feb 24 '13 at 22:09" who="Nicholas Pickering" IndentLevel="1">      
+					<p>Here's an article I wrote on how to convert your mysql_ scripts to mysqli_, and get started using prepared statements: stackoverflow.com/a/15055993/1270996  
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>9</num></p>
+					</div>
+				</front>
+				<posting synch="Mar 6 '13 at 10:46" who="Techie" IndentLevel="1">   
+					<p>SQL Injection ---> php.net/manual/en/security.database.sql-injection.php    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>9</num></p>
+					</div>
+				</front>
+				<posting synch="Jun 7 '13 at 11:22" who="vlzvl" IndentLevel="1">     
+					<p>..when comes to mysql_* people tend to overreact and paste stuff over &amp; over and getting upvotes for saying the same thing again &amp; again. The really simple solution to above injection problem is mysql_real_escape_string();. And thats all. Question had mysql tags, you see that? Period. A simple reference to PDO is welcomed, whole answers that describes mysql to PDO conversion is not.     
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Jul 31 '13 at 7:20" who="Gordon♦" IndentLevel="1">     
+					<p>useful article: troyhunt.com/2013/07/…    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>16</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 2 '13 at 7:29" who="Basic" IndentLevel="1">     
+					<p>@vlzvl m_r_e_s() is never sufficient. Proof of concept where it fails: ilia.ws/archives/…    
+					</p>			
+				</posting>
+				<posting synch="Dec 23 '13 at 6:53" who="James" IndentLevel="1">     
+					<p>Related: security.stackexchange.com/questions/14142/…    
+					</p>			
+				</posting>
+				<posting synch="Apr 24 '14 at 7:42" who="Gowtham" IndentLevel="1">     
+					<p>Here's a good tutorial on it.   
+					</p>			
+				</posting>
+				<posting synch="May 9 '14 at 11:07" who="lastbyte" IndentLevel="1">      
+					<p>Using PDO is right. But sometimes necessary prepare variable before send into sql. You can use filter_var. Example: $data = $_GET['data']; $data = filter_var($data, FILTER_SANITIZE_STRING); $data = filter_var($data, FILTER_SANITIZE_MAGIC_QUOTES); This example sanitize string and prevent sql injection.   
+					</p>			
+				</posting>
+			</div>
+		<front>
+			<head>28 Answers</head>
+				<div type="up vote">
+				<p>up vote  <num>3500</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted <num>50+</num></p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 13 '08 at 12:30" who="Theo" revisedWhen="Dec 19 '14 at 9:05" revisedBy="PeeHaa">
+			 	<p>Use prepared statements and parameterized queries. These are SQL statements that are sent to and parsed by the database server separately from any parameters. This way it is impossible for an attacker to inject malicious SQL.
+
+					You basically have two options to achieve this:
+
+					Using PDO:
+
+					$stmt = $pdo->prepare('SELECT * FROM employees WHERE name = :name');
+
+					$stmt->execute(array('name' => $name));
+
+					foreach ($stmt as $row) {
+			    // do something with $row
+					}
+					Using MySQLi:
+
+					$stmt = $dbConnection->prepare('SELECT * FROM employees WHERE name = ?');
+					$stmt->bind_param('s', $name);
+
+					$stmt->execute();
+
+					$result = $stmt->get_result();
+					while ($row = $result->fetch_assoc()) {
+				    // do something with $row
+					}
+					Correctly setting up the connection
+
+					Note that when using PDO to access a MySQL database real prepared statements are not used by default. To fix this you have to disable the emulation of prepared statements. An example of creating a connection using PDO is:
+
+					$dbConnection = new PDO('mysql:dbname=dbtest;host=127.0.0.1;charset=utf8', 'user', 'pass');
+
+					$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+					$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					In the above example the error mode isn't strictly necessary, but it is advised to add it. This way the script will not stop with a Fatal Error when something goes wrong. And it gives the developer the chance to catch any error(s) which are thrown as PDOExceptions.
+
+					What is mandatory however is the first setAttribute() line, which tells PDO to disable emulated prepared statements and use real prepared statements. This makes sure the statement and the values aren't parsed by PHP before sending it to the MySQL server (giving a possible attacker no chance to inject malicious SQL).
+
+					Although you can set the charset in the options of the constructor, it's important to note that 'older' versions of PHP (&lt; 5.3.6) silently ignored the charset parameter in the DSN.
+
+					Explanation
+
+					What happens is that the SQL statement you pass to prepare is parsed and compiled by the database server. By specifying parameters (either a ? or a named parameter like :name in the example above) you tell the database engine where you want to filter on. Then when you call execute, the prepared statement is combined with the parameter values you specify.
+
+					The important thing here is that the parameter values are combined with the compiled statement, not an SQL string. SQL injection works by tricking the script into including malicious strings when it creates SQL to send to the database. So by sending the actual SQL separately from the parameters, you limit the risk of ending up with something you didn't intend. Any parameters you send when using a prepared statement will just be treated as strings (although the database engine may do some optimization so parameters may end up as numbers too, of course). In the example above, if the $name variable contains 'Sarah'; DELETE FROM employees the result would simply be a search for the string "'Sarah'; DELETE FROM employees", and you will not end up with an empty table.
+
+					Another benefit with using prepared statements is that if you execute the same statement many times in the same session it will only be parsed and compiled once, giving you some speed gains.
+
+					Oh, and since you asked about how to do it for an insert, here's an example (using PDO):
+
+					$preparedStatement = $db->prepare('INSERT INTO table (column) VALUES (:column)');
+
+					$preparedStatement->execute(array('column' => $unsafeValue));
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>32</num></p>
+					</div>
+				</front>
+				<posting synch="Jan 5 '10 at 21:31" who="JD Isaacks" IndentLevel="1">      
+				<p>This make sense, However, PDO is an extension right? meaning it needs to be installed? Is there a way I can check to see if it is installed? Also I am using a shared hosting, so if it is not installed and my hosting provider cannot/will not install it, is there an alternative to using a PDO? Thank You!! 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>162</num></p>
+					</div>
+				</front>
+				<posting synch="Jan 6 '10 at 12:29" who="Theo" IndentLevel="1">         
+				<p>php.net/manual/en/pdo.installation.php PDO is bundled by default since PHP 5.1. Not all drivers for all databases may be installed, but if your host supports MySQL and PHP later than 5.1 it would be very surprising if it didn't have the MySQL PDO driver installed. Create a page with <?php phpinfo(); ?> and view it in a browser, look for PDO and you will see info on which drivers are installed.
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>70</num></p>
+					</div>
+				</front>
+				<posting synch="Oct 3 '11 at 10:53" who="Quentin" IndentLevel="1">        
+				<p>The protection comes from using bound parameters, not from using prepared statement (it is just that people tend to switch to using prepared statements at the same time as bound parameters, so the two ideas get conflated). 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Oct 3 '11 at 14:06" who="Theo" IndentLevel="1">      
+				<p>Can you even use bound parameters without using prepared statements?   
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>16</num></p>
+					</div>
+				</front>
+				<posting synch="Nov 22 '11 at 15:48" who="Quentin" IndentLevel="1">         
+				<p>With the postgres extension: $result = pg_query_params( $dbh, 'SELECT * FROM users WHERE email = $1', array($email) ); 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>12</num></p>
+					</div>
+				</front>
+				<posting synch="Nov 22 '11 at 16:08" who="Caltor" IndentLevel="1">         
+				<p>It's worth stating here that the benefits of prepared statements (parameterised queries) are available with mysqli as well as PDO. 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>
+				<posting synch="Jan 3 '12 at 4:08" who="PlexQ" IndentLevel="1">          
+				<p>As a later answer indicates, prepared statements only solve the problem for parameters. I've too often see things akin to: $query = "select * from ".$_GET['table']." where ".$_GET['condition_column']."='".$_GET['condition_value']."'" 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>4</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 30 '12 at 9:52" who="cmbuckley" IndentLevel="1">          
+				<p>While mysqli supports bound parameters, it does not support named parameters — so you'll need to use the WHERE name = ? form. 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>4</num></p>
+					</div>
+				</front>
+				<posting synch="May 1 '12 at 6:53" who="nico" IndentLevel="1">          
+				<p>A dumb question: am I 100% safe with parametrized queries or should I "just in case" still sanitize the inputs (e.g. casting numbers to int etc) 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="May 5 '12 at 11:31 " who="therefromhere" IndentLevel="1">         
+				<p>@nico yes, you'll be safe from SQL injection, but don't forget about other threats such as XSS, CRSF. see stackoverflow.com/questions/2119083/… 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Nov 22 '12 at 5:07" who="Praveen Kumar" IndentLevel="1">         
+				<p>If we are using mysql_* functions, say for a huge application, is mysql_real_escape_string() good to this extent? 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>
+				<posting synch="Dec 5 '12 at 10:55" who="Synchro" IndentLevel="1">       
+				<p>Using prepared statements just so you can use parameterised queries is incredibly dumb from a performance point of view; any app that's repeatedly issuing the same query clearly has problems, especially in PHP where there is no continuity between requests (i.e. time spent in prepare is nearly always time wasted). What's really needed is a generic mechanism for escaping &amp; sanitizing named placeholders in general (not just parameters, as PlexQ says, and Your Common Sense below), but I've not found such a thing to date - it's certainly not in PDO. Anyone got one? 
+				</p>
+				</posting>
+				<posting synch="Feb 19 '13 at 17:37" who="WordPress Developer" IndentLevel="1">          
+				<p>Additionally to PDO and MYSQLI, most PHP frameworks have overlaying database connection libraries that support variable parameterizing and escaping. Make sure you take advantage of those. These are real time savers. 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Feb 22 '13 at 21:57" who="Tiberiu-Ionuț Stan" IndentLevel="1">          
+				<p>"This way the script will not stop with a Fatal Error when something goes wrong" is the exact oposite of the intended meaning. My edit was rejected. 
+				</p>
+				</posting> 
+				<posting synch="Jun 12 '13 at 7:27" who="rineez" IndentLevel="1">        
+				<p>Use parametrized queries; but that doesn't mean you can let user inputs go in without some basic sanitizing. You may find [PHP filter_var][1] useful in many places apart from preventing SQL injection. [1]: php.net/manual/en/filter.filters.sanitize.php "filter_var" 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 13 '13 at 20:19" who="Mattygabe" IndentLevel="1">         
+				<p>It's worth noting (from the PHP manual: php.net/manual/en/pdo.prepare.php) that the ATTR_EMULATE_PREPARES option is set to TRUE by default for MySQL because it offers significant performance benefits (since MySQL doesn't support prep stmts), yet it exposes a limited security risk for situations that use table name placeholders, for instance. Like everything, weigh the pros and cons before you just blindly disable this option. 
+				</p>
+				</posting>
+				<posting synch="Sep 12 '13 at 13:33" who="user1646111" IndentLevel="1">         
+				<p>regarding to optimization by prepared statement, the only thing that SQL server will do is (Escaping the string at server side) nothing else, in other words, if you can escape properly, its similar to prepared statement but without optimization. 
+				</p>
+				</posting>
+				<posting synch="Nov 12 '13 at 8:19" who="imperium2335" IndentLevel="1">        
+				<p>@Quentin Is there a difference in using $r->execute(array($param1, $param2)) to binding each variable separately? i.e. bind_param 
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Nov 28 '13 at 10:06" who="Loenix" IndentLevel="1">          
+				<p>I don't agree with the precept "Use prepared statements and parameterized queries." ... NO !!! DON'T USED IT ! (For this reason) Prepared statements are made for re-used queries but the real solution (the ultimate one) is to check that the variable contains that you are expecting, check type, check contents, if you are expecting for an email, check if this is an email, you should always tell to the user "Wrong ! Your input is not an email, try again.". This is YOUR JOB !
+				</p>
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>9</num></p>
+					</div>
+				</front>
+				<posting synch="Nov 29 '13 at 15:35" who="Theo" IndentLevel="1">        
+				<p>There is no contradiction. Validate input, and use parameterized queries. You don't have to choose either or. 
+				</p>
+				</posting>
+				<posting synch="Feb 3 '14 at 17:29" who="Jack Tuck" IndentLevel="1">          
+				<p>@Theo PDO Prepared statements aren't protected against 3rd order + attacks though is it? Making it injectable in some applications. 
+				</p>
+				</posting>
+				<posting synch="Mar 24 '14 at 22:11" who="OrangeFrog" IndentLevel="1">           
+				<p>As Mattygabe suggested, you do NOT need to use real prepared statements with the attribute flag: ATTR_EMULATE_PREPARES set to false. There are very specific vulnerabilities where ATTR_EMULATE_PREPARES should be set to false (e.g. using a table name with a substituted value). The verbage above noting this is "mandatory" is incorrect -- slightly safer? yes. But only in some situations. 
+				</p>
+				</posting>
+				<posting synch="Jun 8 '14 at 10:32" who="Yekhezkel Yovel" IndentLevel="1">         
+				<p>How about combining prepared statements with the filter_input function? uk3.php.net/manual/en/function.filter-input.php 
+				</p>
+				</posting>
+				<posting synch="Jul 9 '14 at 7:18" who="Rajlaksh" IndentLevel="1">          
+				<p>Mysqli has mysqli_real_escape_string too. It need 2 values. 1 link of connection and 2nd is input. so mysqli code for is mysqli_real_escape_string($link,$_POST['id']); I use it like trim(mysqli_real_escape_string($link,$_POST['id']); 
+				</p>
+				</posting>
+				<posting synch="Sep 1 '14 at 2:05" who="Keith Park" IndentLevel="1">          
+				<p>The question &amp; answer you wrote are so great to know!! I translated them to share with Korean developers at ctrlaltdel. If you mind it, please let me know and it will be deleted. 
+				</p>
+				</posting>
+				<posting synch="Nov 6 '14 at 14:37" who="Bojan Hrnkas" IndentLevel="1">         
+				<p>For more general knowledge, check OWASP Website: owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet 
+				</p>
+				</posting>
+				<posting synch="Dec 25 '14 at 3:34" who="Jeff Clayton" IndentLevel="1">      
+				<p>Good examples +1!    
+				</p>
+				</posting>
+				<posting synch="Dec 25 '14 at 10:05" who="Yazid" IndentLevel="1">          
+				<p>For me i use filter_input functions and it's works fine here is an example : <?php if (!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) { echo "E-Mail is not valid"; } else { echo "E-Mail is valid"; } ?> 
+				</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>653</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 13 '08 at 9:48" who="Matt Sheppard" revisedBy="Denys Vitali" revisedWhen="Mar 31 '14 at 21:44">
+			 	<p>You've got two options - escaping the special characters in your unsafe_variable, or using a parameterized query. Both would protect you from SQL injection. The parameterized query is considered the better practice, but escaping characters in your variable will require fewer changes.
+
+					We'll do the simpler string escaping one first.
+
+					//Connect
+
+					$unsafe_variable = $_POST["user-input"];
+					$safe_variable = mysql_real_escape_string($unsafe_variable);
+
+					mysql_query("INSERT INTO table (column) VALUES ('" . $safe_variable . "')");
+
+					//Disconnect
+					See also, the details of the mysql_real_escape_string function.
+
+					Warning:
+
+					As of PHP 5.5.0 mysql_real_escape_string and the mysql extension are deprecated. Please use mysqli extension and mysqli::escape_string function instead
+
+					To use the parameterized query, you need to use MySQLi rather than the MySQL functions. To rewrite your example, we would need something like the following.
+
+					<?php
+    				$mysqli = new mysqli("server", "username", "password", "database_name");
+
+    				// TODO - Check that connection was successful.
+
+    				$unsafe_variable = $_POST["user-input"];
+
+    				$stmt = $mysqli->prepare("INSERT INTO table (column) VALUES (?)");
+
+    				// TODO check that $stmt creation succeeded
+
+    				// "s" means the database expects a string
+    				$stmt->bind_param("s", $unsafe_variable);
+
+    				$stmt->execute();
+
+    				$stmt->close();
+
+    				$mysqli->close();
+					?>
+					The key function you'll want to read up on there would be mysqli::prepare.
+
+					Also, as others have suggested, you may find it useful/easier to step up a layer of abstraction with something like PDO.
+
+					Please note that the case you asked about is a fairly simple one, and that more complex cases may require more complex approaches. In particular:
+
+					If you want to alter the structure of the SQL based on user input, parameterised queries are not going to help, and the escaping required is not covered by mysql_real_escape_string. In this kind of case you would be better off passing the user's input through a whitelist to ensure only 'safe' values are allowed through.
+					If you use integers from user input in a condition and take the mysql_real_escape_string approach, you will suffer from the problem described by Polynomial in the comments below. This case is trickier because integers would not be surrounded by quotes, so you could deal with by validating that the user input contains only digits.
+					There are likely other cases I'm not aware of. You might find http://webappsec.org/projects/articles/091007.txt a useful resource on some of the more subtle problems you can encounter.
+			 	</p>
+				</posting>
+			</div>
+		<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>18</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 29 '11 at 14:57" who="Cawas" IndentLevel="1">  
+					<p>I like this much better than the accepted answer! But is mysql_real_escape_string really as safe as parameterization?
+					</p>				
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>39</num></p>
+					</div>
+				</front>
+				<posting synch="May 2 '11 at 0:33" who="Matt Sheppard" IndentLevel="1">   
+					<p>Something is very wrong in PHP land if mysql_real_escape_string doesn't appropriately escape all special characters. That said, it's easier to look at code using parameterization and know that it's correct than code using escaping functions.
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '11 at 17:00" who="Chris L." IndentLevel="1">       
+					<p>I've always used mysql_real_escape_string
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>206</num></p>
+					</div>
+				</front>
+				<posting synch="Dec 5 '11 at 12:25" who="Polynomial " IndentLevel="1">      
+					<p>-1 because concatenation-style query building is always a bad idea. The mysql_real_escape_string function is not a catch-all. It only escapes special characters, so SELECT * FROM users WHERE score = $var is still vulnerable to $var = "1 OR 1 = 1".
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>8</num></p>
+					</div>
+				</front>
+				<posting synch="Dec 7 '11 at 2:20" who="Matt Sheppard" IndentLevel="1">   
+					<p>I can't think of an example where they are, but haven't looked into it deeply. Cedric below pointed out webappsec.org/projects/articles/091007.txt which may provide some useful info.    
+					</p>			
+				</posting>
+				<posting synch="Feb 2 '12 at 9:08" who="Matt Sheppard" IndentLevel="1">   
+					<p>See the section about "ORDER BY" in the webappsec link, which applies to strings if they are being inserted as column names. See also Cedric's answer below stackoverflow.com/a/6565763/797    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Feb 5 '12 at 17:15" who="Your Common Sense" IndentLevel="1">   
+					<p>Don't you understand that strings has nothing to do with both these cases? Can you tell a string from the identifier? Do you realise the SQL query structure at all?    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>
+				<posting synch="Feb 5 '12 at 17:21" who="Your Common Sense" IndentLevel="1">   
+					<p>And whole your idea of "malicious characters". The best thing you can do is to delete whole answer, or at least parts with explanations. Because you have no idea how it actually works and what to explain. No offence, mate, but you really do.    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Feb 6 '12 at 6:36" who="Matt Sheppard" IndentLevel="1">   
+					<p>Fair enough - Sorry my answer wasn't useful to you. In the context of the original user's question I believe it provides a good intro but I've no intention of arguing the point.    
+					</p>			
+				</posting>
+				<posting synch="Apr 26 '12 at 14:56" who="TRiG" IndentLevel="1">   
+					<p>Note that mysql_real_escape_string() will return false if you don't already have a currently open connection to the database. I have a function called $db->escape(), which checks that a connection is open, opens it if not, and then returns the call to mysql_real_escape_string().    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>49</num></p>
+					</div>
+				</front>
+				<posting synch="Jul 3 '12 at 22:20" who="BryanH" IndentLevel="1">   
+					<p>-1 escaping parameters is a form of blacklisting: any failure results in a vulnerability. As @polynomial stated, this is a bad idea. Ideally, mysql_real_escape_string and its ilk would be removed from PHP (given their track record, I won't hold my breath), so as to prevent that false sense of security. Parameterize or be pnwed.    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Oct 24 '12 at 17:20" who="singhspk" IndentLevel="1">   
+					<p>Here's a very simple wrapper around mysqli: blog.vjeux.com/2009/php/…    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>7</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 12 '13 at 15:14" who="BryanH " IndentLevel="1">   
+					<p>Update - mysql_real_escape_string HAS BEEN DEPRECATED as of PHP 5.5.0 and thus will someday be removed. I was wrong and there was much rejoicing!    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>4</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 13 '13 at 16:06" who="Kitsune" IndentLevel="1">   
+					<p>@BryanH Unfortunately only because mysql_ set of functions have been deprecated. Notice how they recommend mysqli_real_escape_string() and PDO::quote(), not parameterized queries. Security isn't a major concern for the PHP developers, based on their continuing track record.    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 16 '13 at 16:02" who="doliver" IndentLevel="1">   
+					<p>@Polynomial can't that issue be resolved by just putting $var into quotations in the SQL statement? Are there other such instances where you can get around mysql_real_escape_string, or is it pretty much only when you put a raw variable in SQL without quotes? Wouldn't any quoted string then be forced to close those quotes to inject which would then be escaped by mysql_real_escape_string?    
+					</p>			
+				</posting>
+				<posting synch="Apr 16 '13 at 18:01" who="Polynomial" IndentLevel="1">   
+					<p>@doliver Traditionally, yes. However, it's a big risk to assume that developers will always know/remember to do that. Also, it's a blacklisting approach - there may well be Unicode tricks that break it. Add that to the fact that the mysql_ functions are deprecated, and it's just a bad decision. By using PDO or MySQLi with parameterised queries you get a solution that is a) invulnerable to SQL injection as long as it is properly used, and b) not deprecated.    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>6</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 22 '13 at 15:28" who="BryanH" IndentLevel="1">   
+					<p>@doliver - It doesn't matter how many ways one tries to wriggle out of the fact; concatenation-style query building using user-supplied values results in vulnerable code. select * from foo where bar = "$var"; then $var = "1\" OR \"2\" = \"2" => select * from foo where bar = "1" or "2" = "2"; Game over. If you're still trying to figure out the magic function to escape everything, you've already lost.    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 22 '13 at 15:51" who="doliver" IndentLevel="1">   
+					<p>@BryanH Sorry for my ignorance here, but I don't see it... I just ran that query against a test table in my db and it returns 0 rows/looks in table foo for entries where bar='1\" OR \"2\" = \"2'. What's the idea here? that somehow some of the quotes go unescaped because they're escaped once for php and then interped literally in SQL? I'm not trying to be a smartass here, just trying to learn.
+					</p>			
+				</posting>
+				<posting synch="Apr 22 '13 at 16:29" who="BryanH" IndentLevel="1">   
+					<p>@doliver no worries - the point is that it is possible to "break out" of the quotes and make the condition evaluate to true (or false, as needed). If $var = "1' OR '2' = '2";, then when it is concatenated in to "select * from foo where bar = '" . $var . "';" the result will be select * from foo where bar = '1' OR '2' = '2'; which will always succeed since '2' = '2'. This is why DB nerds laugh at Bobby Tables ;)   
+					</p>			
+				</posting>
+				<posting synch="Apr 22 '13 at 16:36" who="BryanH" IndentLevel="1">   
+					<p>@doliver - I created a fiddle to show this: sqlfiddle.com/#!2/870826/7 The first query returns nothing (no score matches); the second query returns everything, even though the 'score' value is the same.    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>8</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 22 '13 at 17:46" who="doliver" IndentLevel="1">   
+					<p>I see the injection, but if we have a query that looks like this: select * from foo where bar = ' " . mysql_real_escape_string ($unsafe_var) . " ';" then how do you inject into that? Any quotes, backslashes, or anything else will be escaped, correct? I understand that even if that's the case, best practice is to use Mysqli. I'm just wondering if this injection is actually possible...    
+					</p>			
+				</posting>
+				<posting synch="Jun 4 '13 at 7:02" who="Mathieu Amiot" IndentLevel="1">   
+					<p>@BryanH What about vsprintf (for forcing type) + mysqli escaping ?   
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Jun 4 '13 at 16:11" who="BryanH" IndentLevel="1">   
+					<p>@Mathieu'OtaK'Amiot Honestly, if you are going to waste your time twisting yourself into contortions in order to avoid parameterized queries, then you're better off just admitting that you're willing to accept the risk that your code is going to be insecure and go with that. Why spend a lot of time on ineffective workarounds just to give yourself a false sense of security?    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Jun 4 '13 at 16:40" who="BryanH" IndentLevel="1">   
+					<p>I also found a great answer on security SE.    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>4</num></p>
+					</div>
+				</front>
+				<posting synch="Jun 5 '13 at 12:29" who="Mathieu Amiot" IndentLevel="1">   
+					<p>@BryanH For the sake of understanding how stuff is made. And also, performance. Offloading a DB server by leveraging escaping on front servers is better if you have a single DB + several fronts.    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="Jul 17 '13 at 9:40" who="Cees Timmerman" IndentLevel="1">   
+					<p>@BryanH, you probably meant this great answer that says % and _ are unaffected by mysql_real_escape_string and mess up SQL's LIKE input. Even if PHP knew it was a value meant for a LIKE input, and that the wildcards were unwanted, then SQL still has different escapes for that depending on the server. Then again, prepared statements also pass them.    
+					</p>			
+				</posting>
+				<posting synch="Jul 17 '13 at 9:49" who="Cees Timmerman" IndentLevel="1">   
+					<p>Cases like this one are why manual escaping is discouraged.    
+					</p>			
+				</posting>
+				<posting synch="Jul 25 '13 at 21:14" who="griffin" IndentLevel="1">   
+					<p>@Cees the linked case has nothing to do with mysql*_real_escape_string vs parameterized queries, it's got to do with the OP not understanding when / where one should escape. Really, SQL was made for humans, so it sucks anyway when used to talk to a machine, so there really shouldn't be any arguing about "which is more secure", because if you use SQL with user input (no matter if parameterized or escaped), you probably don't care that much about real security.    
+					</p>			
+				</posting>
+				<posting synch="Jul 26 '13 at 5:27" who="Zafta" IndentLevel="1">   
+					<p>what if we have to insert multiple values into table,using above prepared statement, when we use $stmt->bind_param("s", $unsafe_variable); ??   
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Oct 31 '13 at 4:24" who="Blaisorblade" IndentLevel="1">   
+					<p>A post discussing some problems with escaping and charsets: ilia.ws/archives/…. It was linked above, but this bears repeating in this subdiscussion.    
+					</p>			
+				</posting>
+				<posting synch="Dec 18 '13 at 11:29" who="Suhosin" IndentLevel="1">   
+					<p>@Blaisorblade This requires the attacker to have access to your configuration or source code (or that you haven't defined character set on your table right). Likelihood is if he has that, he's got your database anyway. A similar bug existed with PDO a while back.    
+					</p>			
+				</posting>
+				<posting synch="Feb 11 '14 at 19:51" who="Fred -ii-" IndentLevel="1">   
+					<p>I can't believe nobody picked up on the missing semi-colon at the end of $unsafe_variable = $_POST["user-input"] - How it went undetected for so long, I'll never know (lol) - I picked up on it while borrowing those lines for an answer given, and noticed it missing inside "my" answer. So I quickly edited mine, and this one as well.    
+					</p>			
+				</posting>
+				<posting synch="Mar 10 '14 at 15:46" who="Rosamunda" IndentLevel="1">   
+					<p>I´ve tried your solution (loved it!), but I´ve used mysqli instead, and as mysqli_real_escape_string() requires 2 parameters I have to put the connection as the first one and it worked.    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Mar 12 '14 at 12:19" who="Matt Sheppard" IndentLevel="1">   
+					<p>If you're already using mysqli then you've got access to the parametrized query stuff - I'd really encourage you to use that if you can.    
+					</p>			
+				</posting>
+				<posting synch="Mar 22 '14 at 22:04" who="Basic" IndentLevel="1">   
+					<p>@SuhosinPony or that an attacker can change the character set after the connection is established...    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 25 '14 at 14:48" who="eggyal" IndentLevel="1">   
+					<p>WARNING! mysql_real_escape_string() is not infallible.    
+					</p>			
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 5 '14 at 8:03" who="Morg." IndentLevel="1">   
+					<p>It is perfectly safe to escape strings if you do it right. Using prepared statements to escape strings is just a way to slow down your application. If you want to use parameters, there's something called stored procedure, which can be used as a long-term prepared statement that does not incur an overhead every time you call prepare(). Depending on your DBMS, a prepared statement could also be unsafe. And with the code quality of MySQL, it's perfectly possible to write a safer string escape in PHP. Lastly, if you care about security, why use MySQL at all.    
+					</p>			
+				</posting>
+				<posting synch="Aug 23 '14 at 23:49" who="cartbeforehorse" IndentLevel="1">   
+					<p>I agree with the general sentiment of other posters: Regardless of whether deprecation of the function is an issue, the principle of relying on the infallibility of escaping characters is a bad one. Much better to use the database's own parametrised methodologies (such as :var) to attach your variables. It means that you're not relying on a third party (i.e. the people who created the PHP code) to secure your database problems.   
+					</p>			
+				</posting>
+				<posting synch="Oct 2 '14 at 18:18" who="Basic" IndentLevel="1">   
+					<p>@Morg. Can you let us know what software you develop so we can avoid it in secure environments? ilia.ws/archives/…    
+					</p>			
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>312</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 13 '08 at 0:02" who="Kibbee" revisedBy="Amarnath Balasubramanian" revisedWhen="Mar 7 '14 at 6:12">
+			 	<p> I'd recommend using PDO (PHP Data Objects) to run parameterized SQL queries.
+
+					Not only does this protect against SQL injection, it also speeds up queries.
+
+					And by using PDO rather than mysql_, mysqli_, and pgsql_ functions, you make your app a little more abstracted from the database, in the rare occurrence that you have to switch database providers.
+			 	</p>
+				</posting>
+			</div>
+		<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>11</num></p>
+					</div>
+				</front>
+				<posting synch="Jul 8 '11 at 17:27" who="Michael Mior" IndentLevel="1">  
+					<p>In MySQL, this can actually make performance worse since prepared statements aren't cached and also, the query cache won't be used for prepared statements. This blog post is old, but I believe still up-to-date with respect to caching info mysqlperformanceblog.com/2006/08/02/mysql-prepared-statements
+					</p>				
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>
+				<posting synch="Jul 8 '11 at 17:29" who="Michael Mior" IndentLevel="1">  
+					<p>This can be (somewhat) solved via $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, true); to emulate prepared statements client(PHP)-side.
+					</p>				
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>45</num></p>
+					</div>
+				</front>
+				<posting synch="Jul 8 '11 at 17:45" who="Justin ᚅᚔᚈᚄᚒᚔ" IndentLevel="1">  
+					<p>I'm pretty sure that prepared statements are cached since MySQL 5.1.17.
+					</p>				
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Mar 22 '14 at 22:05" who="Basic" IndentLevel="1">  
+					<p>@MichaelMior Just the opposite. Parameterised queries aren't cached but prepared statements are. In fact, they're used to boost performance as the execution plan can be reused
+					</p>				
+				</posting>
+				<posting synch="Mar 24 '14 at 2:22" who="Michael Mior" IndentLevel="1">  
+					<p>@Basic Do you have a reference that?
+					</p>				
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Mar 24 '14 at 8:06" who="Basic" IndentLevel="1">  
+					<p>@MichaelMior php.net/manual/en/pdo.prepare.php "Calling PDO::prepare() and PDOStatement::execute() for statements that will be issued multiple times with different parameter values optimizes the performance of your application by allowing the driver to negotiate client and/or server side caching of the query plan and meta information" - Although I admit there's some knowledge bleed-through happening with other Dbs as I'm not sure you can do it cross-request in PHP. Mysql is able to cache: dev.mysql.com/doc/refman/5.6/en/statement-caching.html
+					</p>				
+				</posting>
+				<posting synch="Mar 24 '14 at 14:04" who="Michael Mior" IndentLevel="1">  
+					<p>Thanks @Basic! Although I believe this exists only as of MySQL 5.6 which was not around when this question was answered :)
+					</p>				
+				</posting>
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="Mar 24 '14 at 14:04" who="Michael Mior" IndentLevel="1">  
+					<p>@Justinᚅᚔᚈᚄᚒᚔ Prepared statements can make use of the query cache as of MySQL 5.1.17. But prepared statements themselves were not cached until 5.6 as noted in another comment.
+					</p>				
+				</posting>
+		</div>
+	
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>293</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Nov 24 '11 at 9:50" who="Your Common Sense">
+			 	<p>Every answer here covers only part of the problem.
+					In fact, there are four different query parts which we can add to it dynamically:
+
+					a string
+					a number
+					an identifier
+					a syntax keyword.
+					and prepared statements covers only 2 of them
+
+					But sometimes we have to make our query even more dynamic, adding operators or identifiers as well.
+					So, we will need different protection techniques.
+
+					In general, such a protection approach is based on whitelisting. In this case every dynamic parameter should be hardcoded in your script and chosen from that set.
+					For example, to do dynamic ordering:
+
+					$orders  = array("name","price","qty"); //field names
+					$key     = array_search($_GET['sort'],$orders)); // see if we have such a name
+					$orderby = $orders[$key]; //if not, first one will be set automatically. smart enuf :)
+					$query   = "SELECT * FROM `table` ORDER BY $orderby"; //value is safe
+					However, there is another way to secure identifiers - escaping. As long as you have an identifier quoted, you can escape backticks inside by doubling them.
+
+					As a further step we can borrow a truly brilliant idea of using some placeholder (a proxy to represent the actual value in the query) from the prepared statements and invent a placeholder of another type - an identifier placeholder.
+
+					So, to make long story short: it's a placeholder, not prepared statement can be considered as a silver bullet.
+
+					So, a general recommendation may be phrased as
+					As long as you are adding dynamic parts to the query using placeholders (and these placeholders properly processed of course), you can be sure that your query is safe.
+
+					Still there is an issue with SQL syntax keywords (such as AND, DESC and such) but whitelisting seems the only approach in this case. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>7</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Dec 5 '12 at 10:59" who="Synchro">
+			 	<p>What we could really do with is a clean, simple library to implement this - it's certainly not in PDO, and I really don't want the wasteful overhead of prepared queries just to get half-baked parameter binding.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>8</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="response">
+				<posting synch="Feb 15 '13 at 18:11" who="Your Common Sense">
+			 	<p>@Synchro Finally I am done with it, and I have to say that I'm proud of my work, as I've got it easy, fast and lightweight. You can find the link in my profile.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>7</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="response">
+				<posting synch="Aug 21 '13 at 8:54" who="jancha">
+			 	<p>Your example above would immediately generate problem, is SORT flag is not found in the orders. YOu would end up with query "Select * from 'table' order by"; and in mysql case that would render error: "ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1" so, make proper examples not to confuse the developers.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>7</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="response">
+				<posting synch="Aug 21 '13 at 8:56" who="jancha">
+			 	<p>also, as array_search suggests, $key would be false, if not found, so relaying on $orders[false] is very nasty and should be discouraged.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Feb 16 '14 at 17:12" who="Your Common Sense">
+			 	<p>Your two comments contradicts with each other :)
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="May 30 '14 at 10:23" who="rjmunro">
+			 	<p>@Synchro prepared queries should never be a "wasteful overhead". Internally, all queries need to be prepared at some point. If there is a way that preparing a query before running it is significantly slower than running it, that's a bug.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="May 31 '14 at 11:43" who="Synchro">
+			 	<p>@rjmunro It will always be slower because preparing a query requires a additional round-trip to the server. An unprepared query does not incur that overhead, but takes marginally longer. Running a previously prepared query may indeed be faster, but because of PHP's tear-down nature, that will happen only very rarely.
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>200</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 13 '08 at 13:20" who="Imran">
+			 	<p> Use PDO and prepared queries.
+
+					($conn is a PDO object)
+
+					$stmt = $conn->prepare("INSERT INTO tbl VALUES(:id, :name)");
+					$stmt->bindValue(':id', $id);
+					$stmt->bindValue(':name', $name);
+					$stmt->execute();
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Sep 12 '14 at 16:59" who="RN Kushwaha">
+			 	<p>Although question has accepted an answer, I want to mention a nice tutorial on PDO. It may help others to learn PDO. a2znotes.blogspot.in/2014/09/introduction-to-pdo.html
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>169</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Oct 3 '12 at 14:07" who="Zaffy" revisedBy="Peter Mortensen" revisedWhen="Jul 16 '14 at 2:19">
+			 	<p> As you can see, people suggest you to use prepared statements at the most. It's not wrong, but when your query is executed just once per process, there would be a slightly performance penalty.
+
+					I was facing this issue, but I think I solved it in very sophisticated way - the way hackers use to avoid using quotes. I used this in conjuction with emulated prepared statements. I use it to prevent all kinds of possible SQL injection attacks.
+
+					My approach:
+
+					If you expect input to be integer make sure it's really integer. In a variable-type language like PHP it is this very important. You can use for example this very simple but powerful solution: sprintf("SELECT 1,2,3 FROM table WHERE 4 = %u", $input);
+
+					If you expect anything else from integer hex it. If you hex it, you will perfectly escape all input. In C/C++ there's a function called mysql_hex_string(), in PHP you can use bin2hex().
+
+					Don't worry about that the escaped string will have 2x size of its original length because even if you use mysql_real_escape_string, PHP has to allocate same capacity ((2*input_length)+1), which is the same.
+
+					This hex method is often used when you transfer binary data, but I see no reason why not use it on all data to prevent SQL injection attacks. Note that you have to prepend data with 0x or use the MySQL function UNHEX instead.
+
+					So for example the query:
+
+					SELECT password FROM users WHERE name = 'root'
+					Will become:
+
+					SELECT password FROM users WHERE name = 0x726f6f74
+					or
+
+					SELECT password FROM users WHERE name = UNHEX('726f6f74')
+					Hex is the perfect escape. No way to inject.
+
+					Difference between UNHEX function and 0x prefix
+
+					There was some discussion in comments, so I finally want to make it clear. These two approaches are very similar, but they are a little different in some ways:
+
+					0x prefix can only be used on data columns such as char, varchar, text, block, binary, etc.
+					Also its use is a little complicated if you are about to insert an empty string. You'll have to entirely replace it with '', or you'll get an error.
+
+					UNHEX() works on any column; you do not have to worry about the empty string.
+
+					Hex methods are often used as attacks
+
+					Note that this hex method is often used as an SQL injection attack where integers are just like strings and escaped just with mysql_real_escape_string. Then you can avoid use of quotes.
+
+					For example, if you just do something like this:
+
+					"SELECT title FROM article WHERE id = " . mysql_real_escape_string($_GET["id"])
+					an attack can inject you very easily. Consider the following injected code returned from your script:
+
+					SELECT ... WHERE id = -1 union all select table_name from information_schema.tables
+
+					and now just extract table structure:
+
+					SELECT ... WHERE id = -1 union all select column_name from information_schema.column where table_name = 0x61727469636c65
+
+					And then just select whatever data ones want. Cool isn't it?
+
+					But if the coder of injectable site would hex it, no injection would be possible because the query would look like this: SELECT ... WHERE id = UNHEX('2d312075...3635')
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Mar 6 '13 at 19:31" who="dadinck">
+			 	<p>For a numeric (decimal) argument, don't add '0x' to the beginning and use unhex('$coded').
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Mar 6 '13 at 22:56" who="Zaffy">
+			 	<p>@dadinck If it is numeric, you dont need to hex it.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>8</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Mar 11 '13 at 12:57" who="Khez">
+			 	<p>@Zaffy got to admit, the two proposed solutions are elegant beyond any solution I've seen to date. You sir and your answer deserve much more recognition!
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Mar 19 '13 at 7:31" who="Your Common Sense">
+			 	<p>@Khez as a matter of fact this hexing solution is worse than usual quoting/escaping. For the very example provided, it will FAIL for the legit values: as it was pointed out in the other comment, "SELECT title FROM article WHERE id = 0x" . bin2hex($_GET["id"]) won't find anything for the honest number of 42. While quoted/escaped value would be both safe and fruitful.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Mar 19 '13 at 8:49" who="Zaffy">
+			 	<p>@YourCommonSense You are wrong! Number 42 are two bytes 4 and 2 so the result will be 0x3432. Also be aware of using it like that because if id doesnt contain anything you will get id = 0x and end up with an error.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="May 4 '13 at 18:35" who="asim-ishaq">
+			 	<p>Apart from the security. One thing I am not clear about. Are we storing HEX codes in database instead of strings and numbers. if that is the case then its not the right approach, at-least for me because I have to write a lot of complex queries, procedures and function on the database side to format, extract and present data. For big systems it will increase the development costs. I would prefer the previous approach that is using prepared statements.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="May 4 '13 at 21:02" who="Zaffy">
+			 	<p>@asim-ishaq No. Hex is decoded by mysql. Its just transfer-encoding. Data representation is the same. You can try it yourself :)
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Jun 1 '13 at 12:48" who="Sumit Gupta">
+			 	<p>@Zaffy, I like the idea, but what about performance, I mean if you have 1 million records and 1000 users searching does it slow down as compare to prepare solution ?
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Jun 1 '13 at 12:53" who="Sumit Gupta">
+			 	<p>I just test SELECT * FROM tblproducts WHERE product_code LIKE ( '%42%') does find record but SELECT * FROM tblproducts WHERE product_code LIKE ('%' +0x3432 +'%') doesn't, so it simply doesn't work or I did something wrong ?
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Jun 1 '13 at 23:49" who="Zaffy">
+			 	<p>@SumitGupta Yea, you did. MySQL doesnt concatenate with + but with CONCAT. And to the performance: I dont think it affects performance because mysql has to parse data and it doesnt matter if origin is string or hex
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Jun 3 '13 at 4:18" who="Sumit Gupta">
+			 	<p>oops my bad. But that for good information. I will test this method more for performance myself :).
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Jul 1 '13 at 13:52" who="Zaffy">
+			 	<p>@YourCommonSense What errors do you encounter? Be specific.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Jul 1 '13 at 13:59" who="Zaffy">
+			 	<p>@YourCommonSense Your 0x . $_GET["id"] for id 42 will result in byte with ascii code 42. Try SELECT 0x42 and you'll see what you are at.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Jul 1 '13 at 14:00" who="Your Common Sense">
+			 	<p>Please, please please PLEASE read my code! There is no 0x . $_GET["id"] there. But anyway, it won't find a number 42 too
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Jul 1 '13 at 14:07" who="Zaffy">
+			 	<p>@YourCommonSense You dont understand the concept... If you want to have string in mysql you quote it like this 'root' or you can hex it 0x726f6f74 BUT if you want a number and send it as string you will probably write '42' not CHAR(42) ... '42' in hex would be 0x3432 not 0x42
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Jul 1 '13 at 14:08" who="Your Common Sense">
+			 	<p>Neither 0x3432 nor 0x42 won't find a thing. That is the point. This is why your "solution" is worse than regular formatting and thus not a solution at all.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>13</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Jul 1 '13 at 14:18" who="Your Common Sense">
+			 	<p>A note to readers who still can't get the point: This answer contradicts with itself. It cannot solve the very problem query that posted as a bad example. This answer is wrong and deceiving. The approach is even worse than regular manual formatting, not to mention prepared statements.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Jul 1 '13 at 14:24" who="Zaffy">
+			 	<p>@YourCommonSense I have nothing to say... just lol... if you still want to try hex on numeric fields, see second comment. I bet with you that it'll work.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 1 '13 at 6:23" who="Your Common Sense">
+			 	<p>@griffin I beg my pardon, did you try to run the very proposed solution yourself? "SELECT title FROM article WHERE id = 0x" . bin2hex($_GET["id"])? What is wrong with representation here?
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 1 '13 at 9:06" who="griffin">
+			 	<p>The answer clearly states that it won't work that way with integer values, the reason being that bin2hex converts the passed value to a string (and thus bin2hex(0) is 0x30, and not 0x03) - that's probably the part which confuses you. If you follow that, it works perfectly (at least on my site, tested with 4 different mysql versions on debian machines, 5.1.x to 5.6.x). After all, hexadecimal is only the way of representation, not the value ;)
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 1 '13 at 10:53" who="Your Common Sense">
+			 	<p>"SELECT title FROM article WHERE id = ?" can do it for either string and number. And we will have slightly unreadable but reliable query. "SELECT title FROM article WHERE id = '" . mysql_real_escape_string($_GET["id"])."'" can do it for either string and number. And we will have readable and reliable query. "SELECT title FROM article WHERE id = 0x" . bin2hex($_GET["id"]) can do it for the string only and we will have unreadable and unreliable query. And "representation" has nothing to do here.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Aug 1 '13 at 12:33" who="Zaffy">
+			 	<p>@YourCommonSense you still dont understand ? You cannot use 0x and concat because if the string is empty you will end with an error. If you want simple alternative to your query try this one SELECT title FROM article WHERE id = UNHEX(' . bin2hex($_GET["id"]) . ')
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 1 '13 at 12:37" who="Your Common Sense">
+			 	<p>Why should I try anything beside two conventional approaches I listed above? Why should I fight whatever troubles absent in the other methods?
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 1 '13 at 12:51" who="Zaffy">
+			 	<p>@YourCommonSense If you dont want to do that you dont have to do that. I'm not forcing you :)
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Aug 1 '13 at 13:51" who="griffin">
+			 	<p>@YourCommonSense hex+unhex can be implemented by fixed entry size tables (even for utf8), which can even be parallelized easily - the same is not true for mysql_real_escape_string, as 1 byte does not always translate to 2 bytes in the output (and the other way around with unhex), so one could argument that the hex solution can be potentially faster - in reality I also think there is no reason to prefer one solution over the other, but this one is certainly more uncommon, and most developers always strife to broaden their horizon ;)
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 1 '13 at 13:55" who="Your Common Sense">
+			 	<p>@griffin what? What does hexing to do with table size? Are you sure you understand the difference between data and it's representation?
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 1 '13 at 14:01" who="griffin">
+			 	<p>@YourCommonSense read "(fixed entry size)-tables" - each entry is a fixed size. And it's about transforming uint8_t to uint16_t, which can easily be parallelized using (fixed entry size)-tables in a programming language like c. Also, as I said, the real reason to use this would just be to do something different, as any kind of performance difference of the different methods would be so small that it (probably) wouldn't matter in reality.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 1 '13 at 14:12" who="Your Common Sense">
+			 	<p>Ah, I see now. Well, it gone too far from the initial topic of SQL injection. Too bad, none of your abstract musings proved this method in question useful or reliable, nor provided any reason to prefer it over prepared statements.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Aug 5 '13 at 8:37" who="griffin">
+			 	<p>Prepared statements are slower than string concatenation based sql queries in a scenario where queries are not applied multiple times, at a factor of up to 2:1 (you can execute 2 times as many string based queries than prepared statements in the same time) when using locally hosted mysql 5.x connected through local unix socket. That's the reason for me to prefer string based sql over prepared statements (though sql is painfully slow anyway compared to in-memory kv stores). Also it (=posted answer) is reliable by concept - understand how it works, and you will see why.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Oct 12 '13 at 12:25" who="Your Common Sense">
+			 	<p>This answer is still pointless and rather a swindle than a solution. First of all, proposed method is just another way to format strings. There is nothing new or special about this method. Yet it's advertised as a silver bullet. While it's actually less reliable, because it requires special treatment for numbers, while regular quoting/escaping doesn't. Not to mention all the widely known flaws of manual formatting which proved the method unreliable and unsafe, while prepared statements proved to be safe. It's a shame this answer is still here, advertising wrong practice as a silver bullet.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Apr 23 '14 at 18:15" who="MKaama">
+			 	<p>Excellent method, HEXing is the most reliable escaping method of all that are discussed on this page, also simple and fast, and it is perfectly sufficient to solve SQL injection. "Your Common Sense" is doing great disservice to the public by slandering it. Of course, prepared statements are a different solution and conceptually alter the interaction with database.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">
+				<posting synch="Jun 20 '14 at 8:02" who="Quicker">
+			 	<p>Zaffy - man, you are a STAR. Hurray, hurray, hurray. If you look at programming as a multi layer data interaction there are good reasons to treat variable base types (float, integer, string, boolean) differently 'accross the board'. In such a context it is more than valid to hex strings in sql statements. The quotes in quotes are a pain in the ass anyway and not only a security risk. The 0x/unhex issue is a no-brainer. Stick to varchar for string, use surrogate keys over char keys -> issue gone. Btw. the shortcut-force-INT-method in php works like this: $guarantueedInt=$meanttobeInt+0 
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Jul 14 '14 at 17:59" who="Cypher">
+			 	<p>This is a really clever approach. Is this something that will work with other database servers (Oracle, Microsoft, etc), or specific to MySQL?
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Jul 16 '14 at 15:51" who="Zaffy">
+			 	<p>@Cypher You will have to check for your provider's documentation. It's usually linked with raw binary data.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>139</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+			</front>
+			<div type="answer">
+				<posting synch="Jun 17 '11 at 4:00" who="rahularyansharma" revisedBy="Peter Mortensen" revisedWhen="May 30 '14 at 18:31">
+			 	<p>Injection prevention - mysql_real_escape_string()
+
+					PHP has a specially-made function to prevent these attacks. All you need to do is use the mouthful of a function, mysql_real_escape_string.
+
+					mysql_real_escape_string takes a string that is going to be used in a MySQL query and return the same string with all SQL injection attempts safely escaped. Basically, it will replace those troublesome quotes(') a user might enter with a MySQL-safe substitute, an escaped quote \'.
+
+					NOTE: you must be connected to the database to use this function!
+
+						// Connect to MySQL
+
+						$name_bad = "' OR 1'"; 
+
+						$name_bad = mysql_real_escape_string($name_bad);
+
+						$query_bad = "SELECT * FROM customers WHERE username = '$name_bad'";
+					echo "Escaped Bad Injection: <br />" . $query_bad . "<br />";
+
+
+						$name_evil = "'; DELETE FROM customers WHERE 1 or username = '"; 
+
+						$name_evil = mysql_real_escape_string($name_evil);
+
+						$query_evil = "SELECT * FROM customers WHERE username = '$name_evil'";
+					echo "Escaped Evil Injection: <br />" . $query_evil;
+					You can find more details in MySQL - SQL Injection Prevention. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+			<div type="up vote">
+				<p>up vote  <num>11</num></p>
+				</div>
+			</front>
+			<div type="response">    
+			<posting synch="Feb 26 '13 at 12:42" who="Álvaro G. Vicario">
+			 	<p>This is the best you can do with legacy mysql extension. For new code, you're advised to switch to mysqli or PDO. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+			<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">       
+			<posting synch="Jul 9 '13 at 5:01" who="sectus">
+			 	<p>I am not agree with this 'a specially-made function to prevent these attacks'. I think that mysql_real_escape_string purpose is in allow to build correct SQL query for every input data-string. Prevention sql-injection is the side-effect of this function. 
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">          
+			<posting synch="Mar 12 '14 at 22:38" who="Nazca">
+			 	<p>you dont use functions to write correct input data-strings. You just write correct ones that don't need escaping or have already been escaped. mysql_real_escape_string() may have been designed with the purpose you mention in mind, but its only value is preventing injection.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+			<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">       
+			<posting synch="Apr 25 '14 at 14:50" who="eggyal">
+			 	<p>WARNING! mysql_real_escape_string() is not infallible.   
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">          
+			<posting synch="Jun 16 '14 at 14:58" who="Wayne Whitty">
+			 	<p>@eggyal Especially if you're messing around with different charsets. 
+			 	</p>
+				</posting>
+			</div>
+		  <front>
+				<div type="up vote">
+				<p>up vote  <num>134</num></p>
+				</div>
+		  </front>
+			<div type="answer">
+				<posting synch="Sep 13 '08 at 0:15" who="Tanerax" revisedBy="Peter Mortensen" revisedWhen="Sep 17 '12 at 22:17">
+			 	<p>You could do something basic like this:
+
+					$safe_variable = mysql_real_escape_string($_POST["user-input"]);
+					mysql_query("INSERT INTO table (column) VALUES ('" . $safe_variable . "')");
+					This won't solve every problem, but it's a very good stepping stone. I left out obvious items such as checking the variable's existence, format (numbers, letters, etc.).
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>11</num></p>
+				</div>
+			</front>
+			<div type="response">            
+			<posting synch="Apr 22 '12 at 20:31" who="Chinook">
+			 	<p>I have tried your example and it's work fine for me.Could you clear "this won't solve every problem" 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>5</num></p>
+				</div>
+			</front>
+			<div type="response">              
+			<posting synch="Apr 16 '13 at 18:06" who="Polynomial">
+			 	<p>If you don't quote the string, it's still injectable. Take $q = "SELECT col FROM tbl WHERE x = $safe_var"; for example. Setting $safe_var to 1 UNION SELECT password FROM users works in this case because of the lack of quotes. It's also possible to inject strings into the query using CONCAT and CHR. 
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">             
+			<posting synch="Jul 10 '13 at 7:30" who="glglgl">
+			 	<p>@Polynomial Completely right, but I'd see this merely as wrong usage. As long as you use it correctly, it will definitely work. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">            
+			<posting synch=" Jul 10 '13 at 9:05" who="Polynomial">
+			 	<p>@glglgl That's fine, if you're willing to accept the risk of someone forgetting a quote somewhere in your entire application. Bad development practices keep me in a job ;) 
+			 	</p>
+				</posting>
+			</div>		
+			<div type="response">              
+			<posting synch="Dec 3 '13 at 13:30" who="DjOnce">
+			 	<p>so, if I write these codes, db is still unprotected? mysql_query("INSERT INTO table (column) VALUES ('$safe_variable')"); 
+			 	</p>
+				</posting>
+			</div>		
+			<div type="response">          
+			<posting synch="Mar 25 '14 at 6:32" who="Arvind Bhardwaj">
+			 	<p>Does not prevent '1 OR 1=1'    
+			 	</p>
+				</posting>
+			</div>		
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">          
+			<posting synch="Apr 25 '14 at 14:46" who="eggyal">
+			 	<p>WARNING! mysql_real_escape_string() is not infallible.    
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>133</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Dec 8 '08 at 5:26" who="Rob">
+			 	<p> Whatever you do end up using, make sure that you check your input hasn't already been mangled by magic_quotes or some other well-meaning rubbish, and if necessary, run it through stripslashes or whatever to sanitise it.
+			 	</p>
+				</posting>
+			</div>	
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>6</num></p>
+				</div>
+			</front>
+			<div type="response">            
+			<posting synch="Apr 24 '11 at 17:04 " who="Rob">
+			 	<p>Indeed; running with magic_quotes switched on just encourages poor practice. However, sometimes you can't always control the environment to that level - either you don't have access to manage the server, or your application has to coexist with applications that (shudder) depend on such configuration. For these reasons, it's good to write portable applications - though obviously the effort is wasted if you do control the deployment environment, e.g. because it's an in-house application, or only going to be used in your specific environment. 
+			 	</p>
+				</posting>
+			</div>			
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>9</num></p>
+				</div>
+			</front>
+			<div type="response">             
+			<posting synch="Jan 16 '13 at 22:45" who="BryanH">
+			 	<p>As of PHP 5.4, the abomination known as 'magic quotes' has been killed dead. And good riddance to bad rubbish. 
+			 	</p>
+				</posting>
+			</div>	
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>121</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Jul 3 '11 at 21:50" who="Cedric" revisedBy="Peter Mortensen" revisedWhen="May 30 '14 at 18:33">
+			 	<p>Parameterized query AND input validation is the way to go. There is many scenarios under which SQL injection may occur, even though mysql_real_escape_string() has been used.
+
+				Those examples are vulnerable to SQL injection:
+
+				$offset = isset($_GET['o']) ? $_GET['o'] : 0;
+				$offset = mysql_real_escape_string($offset);
+				RunQuery("SELECT userid, username FROM sql_injection_test LIMIT $offset, 10");
+				or
+
+				$order = isset($_GET['o']) ? $_GET['o'] : 'userid';
+				$order = mysql_real_escape_string($order);
+				RunQuery("SELECT userid, username FROM sql_injection_test ORDER BY `$order`");
+				In both cases, you can't use ' to protect the encapsulation.
+
+				Source: The Unexpected SQL Injection (When Escaping Is Not Enough) 
+			 	</p>
+				</posting>
+			</div>	
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+			</front>
+			<div type="response">                
+			<posting synch="Feb 12 '14 at 17:02" who="Your Common Sense">
+			 	<p>-1. Input validation has absolutely nothing to do with SQL. This is one of many delusions connected to the problem. You cannot validate input by the time when SQL query have to be executed. So, you just cannot tell which input data have to be formatted and which way. That's just completely different realms. Not to mention that input validation rules may change, to reflect business logic change... and thus leave SQL open. One have to format their SQL always, despite of any business or validation logic 
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>89</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Jul 3 '12 at 10:14" who="Johannes Fahrenkrug" revisedBy="Peter Mortensen" revisedWhen="Jul 16 '14 at 2:05">
+			 	<p>In my opinion, the best way to generally prevent SQL injection in your PHP application (or any web application, for that matter) is to think about your application's architecture. If the only way to protect against SQL injection is to remember to use a special method or function that does The Right Thing every time you talk to the database, you are doing it wrong. That way, it's just a matter of time until you forget to correctly format your query at some point in your code.
+
+				Adopting the MVC pattern and a framework like CakePHP or CodeIgniter is probably the right way to go: Common tasks like creating secure database queries have been solved and centrally implemented in such frameworks. They help you to organize your web application in a sensible way and make you think more about loading and saving objects than about securely constructing single SQL queries.
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>87</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Jul 23 '12 at 10:19" who="Manish Shrivastava" revisedBy="Peter Mortensen" revisedWhen="Sep 17 '12 at 22:12">
+			 	<p> There are many ways of preventing SQL injections and other SQL hacks. You can easily find it on the Internet (Google Search). Of course PDO is one of the good solution. But I would like to suggest you some good links prevention from SQL Injection.
+
+					What is SQL injection and how to prevent
+
+					PHP manual for SQL injection
+
+					Microsoft explanation of SQL injection and prevention in PHP
+
+					and some other like Preventing SQL injection with MySQL and PHP
+
+					Now, why you do you need to prevent your query from SQL injection?
+
+					I would like to let you know: Why do we try for preventing SQL injection with a short example below:
+
+					Query for login authentication match:
+
+					$query="select * from users where email='".$_POST['email']."' and password='".$_POST['password']."' ";
+					Now, if someone (a hacker) puts
+
+					$_POST['email']= admin@emali.com' OR '1=1
+					and password anything....
+
+					The query will be parsed in the system only upto:
+
+						$query="select * from users where email='admin@emali.com' OR '1=1';
+					The other part will be discarded. So, what will happen? A non-authorized user (hacker) will be able to login as admin without having his password. Now, he can do anything what admin/email person can do. See, it's very dangerous if SQL injection is not prevented.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                   
+			<posting synch="May 31 '13 at 18:13" who="Dan Lugg">
+			 	<p>Just for pedantry; given "SELECT * FROM users WHERE email = '" . $_POST['email'] . "'"; the malicious user would likely foo@bar' or '1' = '1 thus creating an altogether new expression of '1' = '1' 
+			 	</p>
+				</posting>
+			</div>		
+			<div type="response">                
+			<posting synch="Aug 20 '14 at 7:45" who="Manish Shrivastava">
+			 	<p>I think, its best described here :)    
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>87</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+			</front>
+			<div type="answer">
+				<posting synch="Nov 3 '09 at 18:05" who="Nikhil" revisedBy="Peter Mortensen" revisedWhen="May 30 '14 at 18:29">
+			 	<p> I favor stored procedures (MySQL has had stored procedures support since 5.0) from a security point of view - the advantages are -
+
+					Most databases (including MySQL) enable user access to be restricted to executing stored procedures. The fine grained security access control is useful to prevent escalation of privileges attacks. This prevents compromised applications from being able to run SQL directly against the database.
+					They abstract the raw SQL query from the application so less information of the database structure is available to the application. This makes it harder for people to understand the underlying structure of the database and design suitable attacks.
+					They accept only parameters, so the advantages of parameterized queries are there. Of course - IMO you still need to sanitize your input - especially if you are using dynamic SQL inside the stored procedure.
+					The disadvantages are -
+
+					They (stored procedures) are tough to maintain and tend to multiply very quickly. This makes managing them an issue.
+					They are not very suitable for dynamic queries - if they are built to accept dynamic code as parameters then a lot of the advantages are negated.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+			</front>
+			<div type="response">                  
+			<posting synch="Mar 2 '11 at 9:16" who="Nikhil">
+			 	<p>I have noticed a lot of down-votes to this answer but no comments or any reasons as to why. I would appreciate the courtesy of letting me know why you think this answer deserves a down-vote so i have an opportunity to respond.     
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>18</num></p>
+				</div>
+			</front>
+			<div type="response">                   
+			<posting synch="Apr 10 '11 at 8:58" who="NikiC">
+			 	<p>I haven't downvoted, but stored procedures are generally frowned upon, because you put business logic, which belongs into your PHP scripts, into the database, making maintainance a nightmare.    
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">                  
+			<posting synch="Apr 20 '11 at 17:07" who="greyfade">
+			 	<p>@Nikhil: Stored procedures themselves do little to protect against SQL injection. Unless you use parametrized queries to run the stored procedure, an attacker can still inject malicious SQL into a query. The only real benefit that you've cited is that it hides the database structure, but that doesn't mean that attacks are very much more difficult. The rest of the benefits you claim are just so much nonsense.     
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">                  
+			<posting synch="Apr 25 '11 at 5:54" who="Nikhil">
+			 	<p>@nikic - Yes, using stored procedures may encourage people to put business logic in them when it is not appropriate. But IMO that is a code smell which should be caught in your code review.     
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                   
+			<posting synch="Apr 25 '11 at 6:39" who="Nikhil">
+			 	<p>@greyfade Your argument is not clear to me - it looks like you are saying that somehow malicous SQL can be injected into SP through its parameters and once it does it can harm the database. First of all if you are using SP parameters that are properly typed malicous injection will be limited to only those parameters that accept strings. If you pass a piece of text to a sp parameter of type integer the DB will not execute it. This particular problem is valid for parameterized queries as well if you do not sanitize the string that you assign to the parameters.     
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">                   
+			<posting synch="Apr 25 '11 at 6:39" who="Nikhil">
+			 	<p>Sanitizing the input is of of the points I made in my answer - point three. In this point I mention that sps are not suitable for dynamic queries and this is one of the reasons why. Assuming for a moment one is able to compromise a stored procedure using SQL injection (becuase the sql injection happened through a string parameter and was then used in the query). In this case the limited access privileges of the stored procedure (assuming you have set it up correctly) will limit the damage to the parts of the database the sp has access to.     
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                    
+			<posting synch="Apr 25 '11 at 6:40" who="Nikhil">
+			 	<p>Assuming for a moment one is able to compromise a stored procedure using SQL injection. In this case the limited access privileges of the stored procedure (link on mySQL sp access privileges) will limit the damage to the parts of the database the sp has access to.     
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">                   
+			<posting synch="Apr 25 '11 at 16:00" who="greyfade">
+			 	<p>@Nikhil: Then I apologize for not being clearer: Stored procedures are still vulnerable to the same kinds of injection by a knowledgable attacker that a plain query is. Types be damned if you're concatenating strings to make the query. The only sure protection is a parametrized call to the SP (by which it is technically infeasible to inject SQL), negating the whole argument completely. I contend that it is still possible for an attacker to pass dummy arguments to the SP if you don't use a parametrized call, and in doing so gain an injection vector. SPs themselves do not protect you.     
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                     
+			<posting synch="Apr 26 '11 at 0:08" who="Nikhil">
+			 	<p>@greyfade: So what you are saying is that by using parameterised calls to the SP it is impossible to inject malicious SQL even if you are concatenating strings inside the SP. I did not know that parameterisation had that particular advantage and I am curious to know how this is done - technically. Does making the data input a parameter automatically sanitise it ? Is this specific to PHP and mySQL? Can you link to any article or post I could read regarding this?     
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                   
+			<posting synch="Apr 26 '11 at 0:12" who="Nikhil">
+			 	<p>Concatenating strings to make a query i.e. using dynamic queries - inside an SP will negate the advantages of using the SP in the first place. I have mentioned this in the disadvantages of using an SP section of my answer above.     
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                 
+			<posting synch="Apr 26 '11 at 0:57" who="greyfade">
+			 	<p>@Nikhil: When you use prepared queries from, e.g., PHP, you often have the opportunity to pass parameters to the prepared query when you execute it. For example, call mysqli_prepare($query) where $query contains one or more ? in place of parameters, then call mysqli_execute() with an array containing the values and variables to be passed to the query. Because the query is compiled by the DB driver, and the driver reads the data directly from the passed values, there's never any opportunity for an SQL injection to take place. This assumes that no portion of $query comes from users.    
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                   
+			<posting synch="Apr 26 '11 at 1:08" who="greyfade">
+			 	<p>@Nikhil: To be clear, I have not once been talking about what goes on inside the SP, as it's quite irrelevant to SQL injection concerns (unless, as you point out, it builds a dynamic query from input). I've only been speaking off the call site, where the query is initiated from PHP.     
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                   
+			<posting synch="Apr 26 '11 at 5:13" who="Nikhil">
+			 	<p>@greyfade OK - I get that you are using mysqli_prepare($query) to parse the command you are going to send in and it is going to use ? to pull in the data from the passed values as data. This is what happens in an SP as well, it accepts parameters as input and treats the passed in values as data. You can call the SP using the same mysqli_prepare($query) and pass in the parameters using ?.     
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                   
+			<posting synch="Apr 26 '11 at 5:16" who="Nikhil">
+			 	<p>As far as passing dummy parameters is concerned, if you are using SPs you can disable access permission to do direct operations on the db for the application. This way trying to squeeze extra SQL commands after the SP parameters will throw an exception. The only data that will be considered will be what is passed into the SP and that will be treated as variables with data values assuming you aren't building a dynamic query.     
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                  
+			<posting synch="Apr 26 '11 at 15:46" who="greyfade">
+			 	<p>@Nikhil: Yes, that's what I was trying to say: That the SP should be called with a prepared query. But your point about disabling access is a complete non-issue as far as prepared statements are concerned. Again, it is impossible to inject SQL into a parametric query, completely obviating the need to set up distinct permissions. Parametric queries eliminate concerns about injection; it's not merely protection.     
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                   
+			<posting synch="Apr 27 '11 at 1:59" who="Nikhil">
+			 	<p>Personally I would use a combination of mysqli_prepare and stored procedures. I believe in defense in depth and do not favor providing the application adhoc access to the schema. However, I think a combination of using SPs along with the layered access (like I have suggested in my answer) provides an alternative to using prepared statements that solves the problem posed in the question.     
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                    
+			<posting synch="Apr 13 '13 at 5:24" who="bobobobo">
+			 	<p>@NikiC I beg to differ. Maintenence only becomes a nightmare if the database columns and relationships are allowed to be changed willy-nilly. Then again, flippant changing of database columns will break PHP scripts just as well. The only concern I'd give salt to about not using SP's too much is the performance concern of loading the database server with too many logic computations.     
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                  
+			<posting synch="Jul 11 '14 at 5:20" who="Sagar Chavan">
+			 	<p>Store Procedure is best way avoid SQL injection, If you are good SP developer then always use SP. We can say SP is middle-ware between SQL DB and your application. Its Creates separation of work and it is very helpful in big applications.     
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                   
+			<posting synch="Aug 29 '14 at 12:40" who="jere_hr">
+			 	<p>To see how to protect from SQL injection inside stored procedure go to this link    
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>76</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Jun 12 '12 at 8:03" who="devOp">
+			 	<p>Type cast if possible your parameters. But it's only working on simple types like int, bool and float.
+
+					$unsafe_variable = $_POST['user_id'];
+
+				$safe_variable = (int)$unsafe_variable ;
+
+				mysql_query("INSERT INTO table (column) VALUES ('" . $safe_variable . "')"); 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>7</num></p>
+				</div>
+			</front>
+			<div type="response">                    
+			<posting synch="Jun 25 '12 at 3:53" who="Tõnu Samuel">
+			 	<p>This is often used way which is not too good. I am been penetration tester and usually used this to pass arguments like 999999999999999999 which go smoothly through cast and later cause huge error message when passed to 4 bytes integer storage. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                   
+			<posting synch="Jul 20 '12 at 7:38" who="devOp">
+			 	<p>using intval() should prevent this behavior, right?      
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">                     
+			<posting synch="Jul 23 '12 at 9:14" who="Tõnu Samuel">
+			 	<p>Not exactly. Manual says "The maximum value depends on the system. 32 bit systems have a maximum signed integer range of -2147483648 to 2147483647. So for example on such a system, intval('1000000000000') will return 2147483647. The maximum signed integer value for 64 bit systems is 9223372036854775807.". I think it is not clever idea to have PHP app which uses 4 byte ints in MySQL to rely on this "feature". It breaks on 64 bit systems. I think web apps should check for values to remain in some range to be sure.   
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                     
+			<posting synch="Apr 12 '13 at 23:22" who="bobobobo">
+			 	<p>Well the easy solution is substr( $unsafe_variable, 0, 10 ) (keep only first 10 characters of post variable)     
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                      
+			<posting synch="Sep 13 '14 at 14:48" who="Rolf">
+			 	<p>My int very seldom go beyond 100. It's usually an automatically iterated id, and in some cases something else but never huge numbers, as I don't write scientific or financial software. If I did, then it would be a concern. I think this applies to most PHP developers.    
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>72</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 19 '12 at 18:10" who="Xeoncross">
+			 	<p>For those unsure of how to use PDO (coming from the mysql_ functions), I made a very, very simple PDO wrapper that is a single file. It exists to show how easy it is to do all the common things applications need done. Works with PostgreSQL, MySQL, and SQLite.
+
+				Basically, read it while you read the manual to see how to put the PDO functions to use in real life to make it simple to store and retrieve values in the format you want.
+
+				I want a single column
+
+				$count = DB::column('SELECT COUNT(*) FROM `user`);
+				I want an array(key => value) results (i.e. for making a selectbox)
+
+				$pairs = DB::pairs('SELECT `id`, `username` FROM `user`);
+				I want a single row result
+
+				$user = DB::row('SELECT * FROM `user` WHERE `id` = ?', array($user_id));
+				I want an array of results
+
+				$banned_users = DB::fetch('SELECT * FROM `user` WHERE `banned` = ?', array(TRUE)); 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                        
+			<posting synch="Apr 7 '13 at 22:07" who="dynamic">
+			 	<p>using static methods as a namespace isn't generally a good solution 
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                        
+			<posting synch="Apr 8 '13 at 2:22" who="Xeoncross">
+			 	<p>@yes123, there is no namespacing in my example. It is simply a static class. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                       
+			<posting synch="Apr 9 '13 at 23:09" who="dynamic">
+			 	<p>you are using it as a namespace and it's not so good. Anyway I gave you a +1. For other information look at stackoverflow.com/questions/4690478/functions-vs-static-methods 
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                         
+			<posting synch="Apr 10 '13 at 15:20" who="Xeoncross">
+			 	<p>I think you're confused about the difference between namespaces and proper inheritance design. If it was named something like Micro_DB (part of a Micro library) then I would need to update it to \Micro\DB in order to be PHP 5.3+ compliant and maintain the correct form of class segregation. However, it is merely a single class without any form of project/library designation. Perhaps you see all static classes as a namespace of sorts, however the class does maintain state and shared variables even though it's not initialized like an object, which means it's not just a namespaced wrapper.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                         
+			<posting synch="Apr 10 '13 at 15:39" who="dynamic">
+			 	<p>I am not confused. I am saying that your way to use a class like that is a smell of bad design. Not to mention how bad are static methods, for more information: misko.hevery.com/code-reviewers-guide/… to be honest. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                        
+			<posting synch="Apr 10 '13 at 15:47" who="Xeoncross">
+			 	<p>Oh yes, static methods are generally always a sign of bad design. I was just saying that it had nothing to do with namespacing. However, I believe my tiny library is an exception since the point was simply an illustrative library which 1) would never be extended and 2) would never have unit tests (do to the target audience and size of the codebase). My real database/ORM libraries are all namespace classes which are to be used as real and extendable objects as they should be. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">                       
+			<posting synch="Aug 17 '13 at 6:17" who="Kris">
+			 	<p>I'd still take static class over free functions. If there was ever a name class I could use \DB as XDB. not so much with free functions. While a purely static class may be a code smell, it is not a guarantee that the design is bad; life is not black and white, neither is code. 
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>71</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Oct 10 '12 at 14:53" who="imRcH" revisedBy="Peter Mortensen" revisedWhen="Jul 16 '14 at 2:27">
+			 	<p>I think if someone wants to use PHP and MySQL or some other dataBase server:
+
+				Think about learning PDO (PHP Data Objects) – it is a database access layer providing a uniform method of access to multiple databases.
+				Think about learning MySQLi
+				Use native PHP functions like: strip_tags, mysql_real_escape_string or if variable numeric, just (int)$foo. Read more about type of variables in PHP here. If you're using libraries such as PDO or MySQLi, always use PDO::quote() and mysqli_real_escape_string().
+				Libraries examples:
+
+				---- PDO
+
+				----- No placeholders - ripe for SQL injection! It's bad
+
+				$request = $pdoConnection->("INSERT INTO parents (name, addr, city) values ($name, $addr, $city)");
+				----- Unnamed placeholders
+
+				$request = $pdoConnection->("INSERT INTO parents (name, addr, city) values (?, ?, ?);
+				----- Named placeholders
+
+				$request = $pdoConnection->("INSERT INTO parents (name, addr, city) value (:name, :addr, :city)");
+				--- MySQLi
+
+				$request = $mysqliConnection->prepare('
+       			SELECT * FROM trainers
+      			 WHERE name = ?
+       				AND email = ?
+       				AND last_login > ?');
+
+    				$query->bind_param('first_param', 'second_param', $mail, time() - 3600);
+    				$query->execute();
+				P.S:
+
+				PDO wins this battle with ease. With support for twelve different database drivers and named parameters, we can ignore the small performance loss, and get used to its API. From a security standpoint, both of them are safe as long as the developer uses them the way they are supposed to be used
+
+				But while both PDO and MySQLi are quite fast, MySQLi performs insignificantly faster in benchmarks – ~2.5% for non-prepared statements, and ~6.5% for prepared ones.
+
+				And please test every query to your database - it's a better way to prevent injection. 
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>68</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+			</front>
+			<div type="answer">
+				<posting synch="Oct 15 '12 at 13:52" who="nbari" revisedBy="Peter Mortensen" revisedWhen="Jul 16 '14 at 2:31">
+			 	<p> If you want to take advantage of cache engines, like Redis or Memcached, maybe DALMP could be a choice. It uses pure MySQLi. Check this: DALMP Database Abstraction Layer for MySQL using PHP.
+
+				Also you can 'prepare' your arguments before preparing your query so that you can build dynamic queries and at the end have a full prepared statements query. DALMP Database Abstraction Layer for MySQL using PHP.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                         
+			<posting synch="Aug 21 '14 at 18:47" who="Zevi Sternlicht">
+			 	<p>Preparing is important, thanks!    
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>54</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+			</front>
+			<div type="answer">
+				<posting synch="Aug 3 '12 at 19:59" who="Nicolas Finelli" revisedBy="Fluffeh" revisedWhen="Aug 5 '12 at 12:42">
+			 	<p> Using this PHP function mysql_escape_string() you can get a good prevention in a fast way.
+
+				For example:
+
+				SELECT * FROM users WHERE name = '".mysql_escape_string($name_from_html_form)."'
+				mysql_escape_string — Escapes a string for use in a mysql_query
+
+				For more prevention you can add at the end ...
+
+				wHERE 1=1   or  LIMIT 1
+				Finally you get:
+
+				SELECT * FROM users WHERE name = '".mysql_escape_string($name_from_html_form)."' LIMIT 1
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>5</num></p>
+				</div>
+			</front>
+			<div type="response">                         
+			<posting synch="Apr 28 '13 at 11:10" who="Craig Ringer">
+			 	<p>WHERE 1=1 or LIMIT 1 does you no good if they inject ');DROP TABLE users;-- . It's beyond me why people just don't use parameterized ("prepared") statements for this and be done with it. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">                       
+			<posting synch="Apr 25 '14 at 14:51" who="eggyal">
+			 	<p>WARNING! mysql_real_escape_string() is not infallible.   
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>48</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+			</front>
+			<div type="answer">
+				<posting synch="" who="user1646111" revisedBy="community wiki" revisedWhen="Mar 24 '14 at 21:05">
+			 	<p>Regarding to many useful answers, I hope to add some values to this thread. SQL injection is type of attack that can be done through user inputs (Inputs that filled by user and then used inside queries), The SQL injection patterns are correct query syntax while we can call it: bad queries for bad reasons, we assume that there might be bad person that try to get secret information (by passing access control) that affect the three principles of security (Confidentiality, Integrity, Availability).
+
+				Now, our point is to prevent security threats such as SQL injection attacks, the question asking (How to prevent SQL injection attack using PHP), be more realistic, data filtering or clearing input data is the case when using user-input data inside such query, using PHP or any other programming language is not the case, or as recommended by more people to use modern technology such as prepared statement or any other tools that currently supporting SQL injection prevention, consider that these tools not available anymore? how you secure your application?
+
+				My approach against SQL injection is: clearing user-input data before sending it to database (before using it inside any query).
+
+				Data filtering for (Converting unsafe data to safe data) Consider that PDO and MySQLi not available, how can you secure your application? do you force me to use them? what about other languages other than PHP? I prefer to provide general ideas as it can be used for wider border not just for specific language.
+
+				SQL user (limiting user privilege): most common SQL operations are (SELECT, UPDATE, INSERT), then, why giving UPDATE privilege to a user that not require it? for example: login, and search pages are only using SELECT, then, why using db users in these pages with high privileges? RULE: do not create one database user for all privileges, for all SQL operations, you can create your scheme like (deluser, selectuser, updateuser) as usernames for easy usage.
+				see Principle of least privilege
+
+				Data filtering: before building any query user input should be validated and filtered, for programmers, it's important to define some properties for each user-input variables: data type, data pattern, and data length. a field that is a number between (x and y) must be exactly validated using exact rule, for a field that is a string (text): pattern is the case, for example: username must contain only some characters lets say [a-zA-Z0-9_-.] the length vary between (x and n) where x and n (integers, x &lt;=n ). Rule: creating exact filters and validation rules are best practice for me.
+
+				Use other tools: Here, I will also agree with you that prepared statement (parametrized query) and Stored procedures, the disadvantages here is these ways requires advanced skills which are not exist in most users, the basic idea here is to distinguish between SQL query and the data that being used inside, both approach can be used even with unsafe data, because the user-input data here not add anything to the original query such as (any or x=x). for more information please read OWASP SQL Injection Prevention Cheat Sheet.
+
+				Now, if you are an advanced user, start using these defense as you like, but, for beginners, if they can't quickly implement stored procedure and prepared statement, it's better to filter input data as much they can.
+
+				Finally, let's consider that user sends this text below instead of entering his username:
+
+				[1] UNION SELECT IF(SUBSTRING(Password,1,1)='2',BENCHMARK(100000,SHA1(1)),0) User,Password FROM mysql.user WHERE User = 'root'
+				This input can be checked early without any prepared statement and stored procedures, but to be on safe side, using them starts after user-data filtering and validation.
+
+				Last point is detecting unexpected behavior which requires more effort and complexity, it's not recommended for normal web applications. Unexpected behavior in above user input is: SELECT, UNION, IF, SUBSTRING, BENCHMARK, SHA, root once these words detected, you can avoid the input.
+
+				UPDATE1:
+
+				A user commented that this post is useless, OK! Here is what OWASP.ORG provided:
+
+				Primary defenses: 
+
+				Option #1: Use of Prepared Statements (Parameterized Queries) 
+				Option #2: Use of Stored Procedures 
+				Option #3: Escaping all User Supplied Input 
+
+				Additional defenses: 
+
+				Also Enforce: Least Privilege 
+				Also Perform: White List Input Validation 
+
+				As you may knew, claiming on any article should be supported by valid argument, at least one reference! Otherwise it's considered as attack and bad claim!
+
+				Update2:
+
+				From the PHP manual, PHP: Prepared Statements - Manual:
+
+				Escaping and SQL injection 
+
+				Bound variables will be escaped automatically by the server. The server inserts their escaped values at the appropriate places into the statement template before execution. A hint must be provided to the server for the type of bound variable, to create an appropriate conversion. See the mysqli_stmt_bind_param() function for more information. 
+
+				The automatic escaping of values within the server is sometimes considered a security feature to prevent SQL injection. The same degree of security can be achieved with non-prepared statements, if input values are escaped correctly. 
+
+				Update3:
+
+				I created test cases for knowing how PDO and MySQLi sends the query to MySQL server when using prepared statement:
+
+				PDO:
+
+				$user = "''1''"; //Malicious keyword
+				$sql = 'SELECT * FROM awa_user WHERE userame =:username';
+				$sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+				$sth->execute(array(':username' => $user));
+				Query Log:
+
+   				 189 Query SELECT * FROM awa_user WHERE userame ='\'\'1\'\''
+    				189 Quit
+				MySQLi:
+
+				$stmt = $mysqli->prepare("SELECT * FROM awa_user WHERE username =?")) {
+				$stmt->bind_param("s", $user);
+				$user = "''1''";
+				$stmt->execute();
+				Query Log:
+
+				    188 Prepare   SELECT * FROM awa_user WHERE username =?
+				    188 Execute   SELECT * FROM awa_user WHERE username ='\'\'1\'\''
+				    188 Quit
+				It's clear that a prepared statement is also escaping the data, nothing else.
+
+				As also mentioned in above statement The automatic escaping of values within the server is sometimes considered a security feature to prevent SQL injection. The same degree of security can be achieved with non-prepared statements, if input values are escaped correctly, therefore, this proves that data validation such as intval() is a good idea for integer values before sending any query, in addition, preventing malicious user data before sending the query is correct and valid approach.
+
+				Please see this question for more detail: PDO sends raw query to MySQL while Mysqli sends prepared query, both produce the same result
+
+				References:
+
+				SQL Injection Cheat Sheet
+				SQL Injection
+				Information security
+				Security Principles
+				Data validation 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>23</num></p>
+				</div>
+			</front>
+			<div type="response">                           
+			<posting synch="Mar 19 '13 at 6:08" who="Your Common Sense">
+			 	<p>This is absolutely pointless answer. 1. SELECT-based injection is a disaster alone. So, #1 is quite useless. 2. Data filtering won't help for the most of real life usage. Imagine one were used on Stack Overflow - this answer just were unable to happen, as it's full of "evil" words like SELECT, UNION and even complete "malicious" BENCHMARK query. Thus, #2 is inapplicable too. 3. "Use other tools" is not a protection measure at all. So, #3 is as pointless as other two. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>8</num></p>
+				</div>
+			</front>
+			<div type="response">                        
+			<posting synch="Jun 14 '13 at 6:19" who="Brad">
+			 	<p>This answer is bad! YourCommonSense outlined most of the reasons, but I'm throwing a downvote in for the thought that beginners can't use a prepared statement. Ridiculous. I would argue that it's probably easier to use prepared statements than concatenate garbage into a query in the first place. You should delete your answer.  
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">                           
+			<posting synch="Sep 12 '13 at 14:16" who="Kobi">
+			 	<p>"It's clear that prepared statement also escaping the data, nothing else" - not really. What about formatting for different types? How do you write a date, or a boolean? Even if SQL injection wasn't an issue, I'd still use parameterized queries.    
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                         
+			<posting synch="Sep 12 '13 at 14:18" who="user1646111">
+			 	<p>@Kobi: I am here talking abour prepared statement for preventing SQL injection.    
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">                           
+			<posting synch="Sep 12 '13 at 14:23" who="Kobi">
+			 	<p>I got it. But: you said "beginners, if they can't quickly implement [...] prepared statement". I'm arguing that Brad is right in his (little rude) comment - SQL parameters are much easier than building an SQL string - even ignoring security. Another benefit is that the query can easily be configured, or a const somewhere.    
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>45</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Danijel" revisedBy="community wiki" revisedWhen="Jul 16 '14 at 2:47">
+			 	<p>A few guidelines for escaping special characters in SQL statements.
+
+				Don't use MySQL, this extension is deprecated, use MySQLi or PDO.
+
+				MySQLi
+
+				For manually escaping special characters in a string you can use the mysqli_real_escape_string function. The function will not work properly unless the correct character set is set with mysqli_set_charset.
+
+				Example:
+
+				$mysqli = new mysqli( 'host', 'user', 'password', 'database' );
+				$mysqli->set_charset( 'charset');
+
+				$string = $mysqli->real_escape_string( $string );
+				$mysqli->query( "INSERT INTO table (column) VALUES ('$string')" );
+				For automatic escaping of values with prepared statements, use mysqli_prepare, and mysqli_stmt_bind_param where types for the corresponding bind variables must be provided for an appropriate conversion:
+
+				Example:
+
+				$stmt = $mysqli->prepare( "INSERT INTO table ( column1, column2 ) VALUES (?,?)" );
+
+				$stmt->bind_param( "is", $integer, $string );
+
+				$stmt->execute();
+				No matter if you use prepared statements or mysqli_real_escape_string, you always have to know the type of input data you're working with.
+
+				So if you use a prepared statement, you must specify the types of the variables for mysqli_stmt_bind_param function.
+
+				And use of mysqli_real_escape_string is for, as the name says, escaping special characters in a string, so it will not make integers safe. The purpose of this function is to prevent breaking the strings in SQL statements, and the damage to the database that it could cause. mysqli_real_escape_string is a useful function when used properly, especially when combined with sprintf.
+
+				Example:
+
+				$string = "x' OR name LIKE '%John%";
+				$integer = '5 OR id != 0';
+
+				$query = sprintf( "SELECT id, email, pass, name FROM members WHERE email ='%s' AND id = %d", $mysqli->real_escape_string( $string ), $integer );
+
+				echo $query;
+				// SELECT id, email, pass, name FROM members WHERE email ='x\' OR name LIKE \'%John%' AND id = 5
+
+				$integer = '99999999999999999999';
+				$query = sprintf( "SELECT id, email, pass, name FROM members WHERE email ='%s' AND id = %d", $mysqli->real_escape_string( $string ), $integer );
+
+				echo $query;
+				// SELECT id, email, pass, name FROM members WHERE email ='x\' OR name LIKE \'%John%' AND id = 2147483647 
+			 	</p>
+				</posting>
+			</div>
+			
+			
+			<div type="response">                     
+			<posting synch="Mar 29 '14 at 9:24" who="vp_arth">
+			 	<p>should not last example throw exception? I don't want much MAX_INT values in my data...     
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>42</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 14 '12 at 14:37" who="Soumalya Banerjee" revisedWhen="Jun 12 '14 at 5:29">
+			 	<p>I use three different ways to prevent my web application from being vulnerable to SQL injection.
+
+				Use of mysql_real_escape_string(), which is a pre-defined function in PHP, and this code add backslashes to the following characters: \x00, \n, \r, \, ', " and \x1a. Pass the input values as parameters to minimize the chance of SQL injection.
+				The most advanced way is to use PDOs.
+				I hope this will help you.
+
+				Consider the following query:
+
+				$iId = mysql_real_escape_string("1 OR 1=1");
+ 				$sSql = "SELECT * FROM table WHERE id = $iId";
+
+				mysql_real_escape_string() will not protect here. If you use single quotes (' ') around your variables inside your query is what protects you against this. Here is an solution below for this:
+
+				$iId = (int) mysql_real_escape_string("1 OR 1=1");
+ 				$sSql = "SELECT * FROM table WHERE id = $iId";
+
+				This question has some good answers about this.
+
+				I suggest, using PDO is the best option. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">                     
+			<posting synch="Apr 25 '14 at 14:52" who="eggyal">
+			 	<p>WARNING! mysql_real_escape_string() is not infallible.
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                        
+			<posting synch="Jun 12 '14 at 5:37" who="Your Common Sense">
+			 	<p>I really love this kind of answers, which become a set of contradicting statements after desperate attempt to salvage it without having the proper knowledge.    
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>35</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Oct 25 '12 at 8:07" who="apurv nerlekar" revisedWhen="Jul 23 '14 at 9:17">
+			 	<p>The simple alternative to this problem could be solved by granting appropriate permissions in the database itself. For example: if you are using mysql database. then enter into the database through terminal or the ui provided and just follow this command:
+
+				 GRANT SELECT, INSERT, DELETE ON database TO username@'localhost' IDENTIFIED BY 'password';
+					This will restrict the user to only get confined with the specified query's only. Remove the delete permission and so the data would never get deleted from the query fired from the php page. The second thing to do is to flush the privileges so that the mysql refreshes the permissions and updates.
+
+				FLUSH PRIVILEGES; 
+				more information about flush.
+
+				To see the current privileges for the user fire the following query.
+
+				    select * from mysql.user where User='username';
+				Learn more about GRANT. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>14</num></p>
+				</div>
+			</front>
+			<div type="response">                        
+			<posting synch="Feb 18 '13 at 6:36" who="Your Common Sense">
+			 	<p>It does not solve injection problem, not even slightest. Even only SELECT rights are harmful. This is not a solution but rather a placebo. One could use it for whatever else purpose but isql injection protection. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>15</num></p>
+				</div>
+			</front>
+			<div type="response">                           
+			<posting synch="Apr 28 '13 at 11:06" who="Craig Ringer">
+			 	<p>Operating with minimum privileges is a useful damage control strategy to make life harder for the attacker and limit the damage they can do, but it's a bit like saying "my house is on fire, but it's fine, I keep the kerosene locked safely in the garage." Your house is still on fire. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">                         
+			<posting synch="Aug 1 '13 at 6:56" who="Your Common Sense">
+			 	<p>@CraigRinger My house is not on fire. I have no damage and thus no need to "minimize" it. Anyway, the question is "How to prevent a fire", not "How to let my house in fire but minimize the damage". 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">                           
+			<posting synch="Oct 6 '13 at 9:57" who="Kemal Dag">
+			 	<p>Nevertheless, this is not the exact solution to the question yet it is a must. Never give a client privileges more than needed. And you can never know that at some point, someone in your team creates a vulnerability and you realize that client that interacts with the db had full query privileges. 
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>25</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Peter Mortensen" revisedBy="community wiki" revisedWhen="Jul 16 '14 at 2:48">
+			 	<p>A simple way would be to use a PHP framework like CodeIgniter or Laravel which have in-built features like filtering and active-record, so that you don't have to worry about these nuances. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+			</front>
+			<div type="response">                           
+			<posting synch="Jun 25 '13 at 19:36" who="Your Common Sense">
+			 	<p>It fits for basic CRUD operations only.    
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                           
+			<posting synch="Jun 25 '13 at 23:45" who="Steve Muster">
+			 	<p>Im using Active Record with CI too. No problems so far (3 years)    
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                             
+			<posting synch="Jul 21 '13 at 5:37" who="Your Common Sense">
+			 	<p>@SteveMuster well, that's good for you. Unfortunately, I have to use full SQL, not such a limited subset offered by CI. Say, sometimes I have run not just insert-and-forget but INSERT IGNORE or INSERT DELAYED. Not just selects but index hinting and such. And so on. 
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                            
+			<posting synch="Jul 26 '13 at 23:40" who="Steve Muster">
+			 	<p>Yes you are right. Btw -> I switched to larvel last 2 weeks. (Prepared statements) 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                           
+			<posting synch="Oct 4 '13 at 7:01" who="Ganesh Babu . T. Y">
+			 	<p>Add Cake PHP to it.   
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>15</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Servant" revisedBy="community wiki" revisedWhen="Jul 16 '14 at 2:44">
+			 	<p>If the attackers are trying to hack with the form via PHP's $_GET variable or with the URL's query string, you would be able to catch them if they're not secure.
+
+				RewriteCond %{QUERY_STRING} ([0-9]+)=([0-9]+)
+				RewriteRule ^(.*) ^/track.php
+				Because 1=1, 2=2, 1=2, 2=1, 1+1=2, etc... are the common questions to an SQL database of an attacker. Maybe also it's used by many hacking applications.
+
+				But you must be careful, that you must not rewrite a safe query from your site. The code above is giving you a tip, to rewrite or redirect (it depends on you) that hacking-specific dynamic query string into a page that will store the attacker's IP address, or EVEN THEIR COOKIES, history, browser, or any other sensitive information, and try to hack them back for security purposes. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>9</num></p>
+				</div>
+			</front>
+			<div type="response">                               
+			<posting synch="Apr 4 '13 at 10:27" who="Your Common Sense">
+			 	<p>I am afraid that admin would rather just delete this answer. This approach is just impractical. it's impossible to catch ALL the patterns using mod_rewrite rules. Not to mention that some of them can be perfectly legit. And what about POST requests?    
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                             
+			<posting synch="Apr 4 '13 at 11:31" who="Servant">
+			 	<p>I'm referring to a query string that's often used by search engines, and giving some tips to catch the hacker tools that are looking for SQL vulnerability via query string. And mostly, to catch their sensitive informations. About POST requests? Let the PHP language do the job..  
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+			</front>
+			<div type="response">                              
+			<posting synch="Apr 4 '13 at 11:35" who="Your Common Sense">
+			 	<p>that's the point. As PHP the language will do the job anyway, all this mod_rewrite unreliable magic become useless.   
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                               
+			<posting synch="Apr 4 '13 at 11:42" who="Servant">
+			 	<p>I'm just trying to answer what the user's asking.. At least RewriteEngine can able to catch it.   
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+			</front>
+			<div type="response">                              
+			<posting synch="Apr 21 '13 at 15:11" who="Gabor Garami">
+			 	<p>Hacking back attacker is a not acceptable approach, especially on this site - and impractical, as @YourCommonSense says. I recommend to modify your answer to something "try to ban them out from your site". Because that is more acceptable purpose.    
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                                  
+			<posting synch="Apr 21 '13 at 16:00" who="Servant">
+			 	<p>@GaborGarami Yes I agreed.. But the scenario is to catch the hacker, to track it, mostly to get their private information with their account. You can even edit the answer, for it is in community wiki..  
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>13</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Chintan Gor" resivedBy="community wiki" revisedWhen="Jul 16 '14 at 2:53">
+			 	<p>There are so many answers for PHP and MySQL, but here is code for PHP and Oracle for preventing SQL injection as well as regular use of oci8 drivers:
+
+					$c = oci_connect($userName, $password, "(DESCRIPTION=(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST =$serverName)(PORT = 1521)))(CONNECT_DATA=(SID=$databaseName)))");
+					$strQuery = "UPDATE table SET field = :xx WHERE ID = 123"
+					$stmt = OCIParse($c, $strQuery);
+
+					OCIBindByName($stmt, ':xx', $fieldval);
+
+					$ok = OCIExecute($stmt); 
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                                  
+			<posting synch="Jan 30 '14 at 11:11" who="Chintan Gor">–   
+			 	<p>@cryptic? this code is for Oracle PHP connection simple update query using help of query parse which is used to privent sq-Injection Used in Oci8 driver php.net/manual/en/function.oci-parse.php 
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>5</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Thomas Ahle" revisedWhen="Mar 24 '14 at 20:56" revisedBy="community wiki">
+			 	<p>A good idea is to use an 'object-relational mapper' like Idiorm:
+
+				$user = ORM::for_table('user')
+				->where_equal('username', 'j4mie')
+				->find_one();
+
+				$user->first_name = 'Jamie';
+				$user->save();
+
+				$tweets = ORM::for_table('tweet')
+				    ->select('tweet.*')
+				    ->join('user', array(
+				        'user.id', '=', 'tweet.user_id'
+				    ))
+				    ->where_equal('user.username', 'j4mie')
+				    ->find_many();
+
+				foreach ($tweets as $tweet) {
+				    echo $tweet->text;
+				}
+				It not only saves you from SQL injections, but from syntax errors too! 
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Rakesh Sharma" revisedBy="community wiki" revisedWhen="Jul 16 '14 at 2:51">
+			 	<p>Using PDO and MYSQLi is a good practice to prevent SQL injections, but if you really want to work with MySQL functions and queries, it would be better to use
+
+				mysql_real_escape_string
+
+				$unsafe_variable = mysql_real_escape_string($_POST['user_input']);
+				There are more ability to prevent this: like identify - if the input is a string, number, char or array, there are so many inbuilt functions to detect this. Also it would be better to use these functions to check input data.
+
+				is_string
+
+				$unsafe_variable = (is_string($_POST['user_input']) ? $_POST['user_input'] : '');
+				is_numeric
+
+				$unsafe_variable = (is_numeric($_POST['user_input']) ? $_POST['user_input'] : '');
+				And it is so much better to use those functions to check input data with mysql_real_escape_string. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                              
+			<posting synch="Jan 18 '14 at 7:06" who="Your Common Sense">
+			 	<p>Also, there is absolutely no point in checking $_POST array members with is_string()  
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+			</front>
+			<div type="response">                              
+			<posting synch="Apr 25 '14 at 14:54" who="eggyal">
+			 	<p>WARNING! mysql_real_escape_string() is not infallible.    
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                              
+			<posting synch="May 8 '14 at 8:38" who="Rakesh Sharma">
+			 	<p>@YourCommonSense you need to believe so what you want to update    
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="" who="Calmarius" revisedBy="community wiki" revisedWhen="Jun 29 '14 at 22:30">
+			 	<p>I've written this little function several years ago:
+
+				function sqlvprintf($query, $args)
+				{
+				    global $DB_LINK;
+				    $ctr = 0;
+				    ensureConnection(); // Connect to database if not connected already.
+				    $values = array();
+				    foreach ($args as $value)
+				    {
+				        if (is_string($value))
+				        {
+				            $value = "'" . mysqli_real_escape_string($DB_LINK, $value) . "'";
+				        }
+				        else if (is_null($value))
+				        {
+				            $value = 'NULL';
+				        }
+				        else if (!is_int($value) &amp;&amp; !is_float($value))
+ 			       {
+				            die('Only numeric, string, array and NULL arguments allowed in a query. Argument '.($ctr+1).' is not a basic type, it\'s type is '. gettype($value). '.');
+				        }
+				        $values[] = $value;
+				        $ctr++;
+				    }
+				    $query = preg_replace_callback(
+ 				       '/{(\\d+)}/', 
+				        function($match) use ($values)
+				        {
+				            if (isset($values[$match[1]]))
+				            {
+				                return $values[$match[1]];
+ 			           }
+ 			           else
+ 			           {
+ 			               return $match[0];
+  			          }
+  			      },
+   		     $query
+ 			  		 );
+  				  return $query;
+					}
+
+					function runEscapedQuery($preparedQuery /*, ...*/)
+					{
+				    $params = array_slice(func_get_args(), 1);
+				    $results = runQuery(sqlvprintf($preparedQuery, $params)); // Run query and fetch results.   
+				    return $results;
+				}
+				This allows running statements in an one-liner C#-ish String.Format like:
+
+				runEscapedQuery("INSERT INTO Whatever (id, foo, bar) VALUES ({0}, {1}, {2})", $numericVar, $stringVar1, $stringVar2);
+				It escapes considering the variable type. If you try to parameterize table, column names, it would fail as it puts every string in quotes which is invalid syntax.
+
+				SECURITY UPDATE: The previous str_replace version allowed injections by adding {#} tokens into user data. This preg_replace_callback version doesn't cause problems if the replacement contains these tokens.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                             
+			<posting synch="Feb 18 '14 at 20:45" who="Your Common Sense">
+			 	<p>A hint. You could use sprintf() function which will not only parse a query for you, but also let you choose format manually (say, your function will fail if LIMIT clause parameter will be passed from request query string). In fact, you shouldn't trust to variable type. That's why your approach will never get any followers. 
+			 	</p>
+				</posting>
+			</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+			</front>
+			<div type="response">                              
+			<posting synch="Feb 18 '14 at 22:05" who="Calmarius">    
+			 	<p>@YourCommonSense Hmmm sprintf is useful. But not necessarily here, as strings need to be properly escaped and wrapped with quotes. If the caller casts the parameter to int it won't get quoted so it can be used with the LIMIT clause as well..    
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                                
+			<posting synch="Feb 18 '14 at 22:19" who="Your Common Sense">
+			 	<p>So, it's the problem - "if caller casts". that's what I am talking about - what's the use of the function that require whatever extra actions?    
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                                    
+			<posting synch="Jun 11 '14 at 9:32" who="Kermani">
+			 	<p>Did you test this way?
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                                   
+			<posting synch="Jun 14 '14 at 10:07" who="Calmarius">
+			 	<p>@YourCommonSense Whatever SQL preparing library you use you'll need to tell it somehow how to handle the supplied parameters. If it maps to the SQL prepare statement, you still need to tell it whether it should quote the value or not (string or number). Otherwise it will need to parse the statement and decide based on that. Anyway MySQL is happy if you quote everything. 
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                                  
+			<posting synch="Jun 14 '14 at 10:08" who="Calmarius">
+			 	<p>@Kermani It escapes quotes correctly. If you can find a security hole in it, let me know. 
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">                                
+			<posting synch="Jun 14 '14 at 10:15" who="Your Common Sense">
+			 	<p>not everything, as I said above.
+			 	</p>
+				</posting>
+			</div>
+			<div type="moderator">
+			<head>protected by AVD Jun 6 '12 at 9:59</head>
+			<posting synch="Jun 6 '12 at 9:59" who="AVD">
+			 	<p>Thank you for your interest in this question. Because it has attracted low-quality answers, posting an answer now requires 10 reputation on this site. 
+
+					Would you like to answer one of these unanswered questions instead?
+			 	</p>
+			</posting>
+			</div>
+		</body>	
+	</text>
+</TEI>

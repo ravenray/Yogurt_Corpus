@@ -1,0 +1,147 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>PHP form name security vulnerability?</title>
+        <author>jskidd3</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/21405515/php-form-name-security-vulnerability</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="jskidd3" url="http://stackoverflow.com/users/2273902/jskidd3">
+        <signatureContent>
+          <p>Reputation: <num>1,444</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>19</num>Number of Bronze Badges: <num>52</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Your Common Sense" url="http://stackoverflow.com/users/285587/your-common-sense">
+        <signatureContent>
+          <p>Reputation: <num>104k</num>Number of Gold Badges: <num>18</num>Number of Silver Badges: <num>91</num>Number of Bronze Badges: <num>161</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Dimi" url="http://stackoverflow.com/users/2564703/dimi">
+        <signatureContent>
+          <p>Reputation: <num>179</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>4</num>Number of Bronze Badges: <num>17</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Agha Umair Ahmed" url="http://stackoverflow.com/users/3202307/agha-umair-ahmed">
+        <signatureContent>
+          <p>Reputation: <num>767</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>9</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="DarkBee" url="http://stackoverflow.com/users/446594/darkbee">
+        <signatureContent>
+          <p>Reputation: <num>2,772</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>15</num>Number of Bronze Badges: <num>25</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="sevenseacat" url="http://stackoverflow.com/users/560215/sevenseacat">
+        <signatureContent>
+          <p>Reputation: <num>16,300</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>34</num>Number of Bronze Badges: <num>60</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="DanFromGermany" url="http://stackoverflow.com/users/1948292/danfromgermany">
+        <signatureContent>
+          <p>Reputation: <num>13,122</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>26</num>Number of Bronze Badges: <num>60</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="DCoder" url="http://stackoverflow.com/users/1233508/dcoder">
+        <signatureContent>
+          <p>Reputation: <num>10,160</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>22</num>Number of Bronze Badges: <num>45</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Stan" url="http://stackoverflow.com/users/2298902/stan">
+        <signatureContent>
+          <p>Reputation: <num>170</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>11</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Gumbo" url="http://stackoverflow.com/users/53114/gumbo">
+        <signatureContent>
+          <p>Reputation: <num>376,264</num>Number of Gold Badges: <num>64</num>Number of Silver Badges: <num>525</num>Number of Bronze Badges: <num>648</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2014-01-28 12:18:46Z" who="jskidd3" revisedWhen="2014-01-28 12:37:16Z" upVote="1" accepted="favorite"><p>I'm a junior PHP developer currently working on a project with a small team. It's the first time I've worked in a team on a project so I'm learning lots and building team working skills.There is one specific thing I noticed that my fellow developers do and I believe could be a large security risk. When creating forms they will give the input name the column name in the database. This means that wherever the data is posted they can use a nifty for each loop going through the POST array. Sure, it's pretty and easy, but do I want users to see the names of columns?I'm not sure if it does pose a security risk (first thing I think of is SQL injection) but if it does what can be done?I suppose you could possibly hash the names of the inputs? Still, that's not totally 100% secure. What if in the form page the names are things like 'apple64', 'banana99', 'chickens' and then in the PHP file they're converted to their corresponding column names?The point of my question is to find general practice for this (possible) security vulnerability.<tag>php</tag><tag>sql-injection</tag><tag>security</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Agha Umair Ahmed" when="2014-01-28 12:34:53Z" indentLevel="1">
+          <p>when you are inserting password into db it will be base64_encoded or use md5 so your password will be secure.Check if it is not empty or html special character or html entities this all are sql injection</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="DarkBee" when="2014-01-28 12:35:53Z" indentLevel="1" upVote="2">
+          <p>imho if u keep in mind not trusting user input and validating the input than there is no problem with naming the fields like the columns. Further more I think this is good practise. This is a good way for new members in the team to integrate fast into the code. Imagine if every field was provided with a hashed name, then u would need to translate every hash for yourself to be able to know which is what.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="jskidd3" when="2014-01-28 12:36:53Z" indentLevel="1">
+          <p>@DarkBee Sure, that's definitely the case but security should always come first IMO. If it doesn't pose a threat however I totally agree with you (which I think you're suggesting)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="DarkBee" when="2014-01-28 12:36:53Z" indentLevel="1" upvote="2">
+          <p>@AghaUmairAhmed MD5 and base64 are not secure... use the password_hash function available in >= 5.5.0 (php.net/manual/en/function.password-hash.php)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="DanFromGermany" when="2014-01-28 12:40:53Z" indentLevel="1">
+          <p>They just foreach the POST and insert? What library do you use? If multi queries are enabled and someone inserts something like "1234';DROP DATABASE what not be nice</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="DCoder" when="2014-01-28 12:43:53Z" indentLevel="1">
+          <p>@AghaUmairAhmed: base64_encode for password storage?! Why would you ever do that?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="sevenseacat" when="2014-01-28 12:49:53Z" indentLevel="1" upVote="1">
+          <p>Having names of columns in your code is in no way insecure. If you were obfuscating them just for the sake of it, that would be classic security through obscurity.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Your Common Sense" when="2014-01-28 18:59:49Z" upVote="1" accepted="accepted">
+          <p>Such a general practice is called "whitelisting".  You are positively right about this vulnerability. And for a junior developer you have a very good eye. As a matter of fact, most people who call themselves "professionals" never bother themselves with such questions. So, to prevent an ordinary SQL injection and also to prevent random access to table fields (a user may be disallowed to some of them), you have to verify your post data against a pre-written whitelist. Here you can see  my approach for either classic mysql or PDO  as an example.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Dimi" when="2014-01-28 12:37:16Z" upVote="-1">
+          <p>When you develop, you have to give to user the minimal informations. 
+          Headers / DB name / Column name etc.. The risk of the sql injection exist if your form treatments are not secure.
+          To control your sql requests, you have to prepare them and check if the variable have special chars. Documentation about pdo
+           http://php.net/manual/en/pdo.prepare.php A nice "how to" about the sql injection:
+           http://www.unixwiz.net/techtips/sql-injection.html
+         </p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="jskidd3" when="2014-01-28 12:38:53Z" indentLevel="1">
+          <p>I do prepare them! This isn't really an answer to what I'm asking (not being rude). I'm asking if it's a threat for users to know the column names via viewing the source code and looking at the name attribute value for an input field. Preparing them etc is all basic practice to me :)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Stan" when="2014-01-28 13:31:27Z" indentLevel="1">
+          <p>But you cannot parameterize column names with PDO , Dimi.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Gumbo" when="2014-01-28 19:35:11Z" indentLevel="1">
+          <p>@jskidd3 How do you âprepareâ the column names?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Stan" when="2014-01-29 13:09:42Z" indentLevel="1">
+          <p>@Gumbo You cannot prepare them.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Gumbo" when="2014-01-29 16:08:49Z" indentLevel="1">
+          <p>@Stan No, you can't prepare them with DBMS prepared statements. But you could escape them.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

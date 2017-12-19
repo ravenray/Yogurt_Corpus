@@ -1,0 +1,105 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Code vulnerability</title>
+        <author>thechico</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/29109870/code-vulnerability</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="thechico" url="http://stackoverflow.com/users/4559651/thechico">
+        <signatureContent>
+          <p>Reputation: <num>6</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>0</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="duskwuff" url="http://stackoverflow.com/users/149341/duskwuff">
+        <signatureContent>
+          <p>Reputation: <num>101k</num>Number of Gold Badges: <num>12</num>Number of Silver Badges: <num>113</num>Number of Bronze Badges: <num>159</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="John Bollinger" url="http://stackoverflow.com/users/2402272/john-bollinger">
+        <signatureContent>
+          <p>Reputation: <num>31.6k</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>14</num>Number of Bronze Badges: <num>40</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2015-03-17 21:16:35Z" who="thechico" revisedBy="Jonathan Leffler" revisedWhen="2015-03-17 22:35:57Z" upVote="0" accepted="favorite"><p>As/IN a/DT learning/NN exercise/NN ,/, I/PRP am/VBP trying/VBG to/TO find/VB a/DT weakness/NN in/IN the/DT following/JJ code/NN snippet/NN to/TO gain/VB access/NN as/IN the/DT owner/NN of/IN the/DT executable/NN ./.
+
+            setresuid/COB (/COB geteuid/COB (/COB )/COB ,/COB geteuid/COB (/COB )/COB ,/COB geteuid/COB (/COB )/COB )/COB ;/COB
+system/COB (/COB "/COB /COB usr/COB //COB bin/COB //COB id/COB "/COB )/COB ;/COB
+
+            FWIW/ACR ,/, I/PRP can/MD 't/RB see/VB any/DT ./. I/PRP know/VBP setresuid/COS will/MD set/VB the/DT uid/COS to/TO the/DT owner/NN of/IN the/DT file/NN ,/, but/CC I/PRP can/MD 't/RB change/VB the/DT owner/NN to/TO anyone/NN but/CC myself/PRP ./. I/PRP thought/VBD about/IN trying/VBG to/TO redirect/VB the/DT id/ACR command/NN by/IN altering/VBG the/DT PATH/COS ,/, but/CC since/IN it/PRP uses/VBZ an/DT absolute/JJ path/COS ,/, that/DT trick/NN does/VBZ n't/RB work/VB ./. Hints/NNS ?/.
+<tag>c</tag><tag>exploit</tag><tag>unix</tag><tag>security</tag><tag>linux</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="John Bollinger" when="2015-03-17 21:25:05Z" indentLevel="1" upVote="1">
+            <p>What/WP makes/VBZ you/PRP think/VBP there/EX 's/VBZ a/DT vulnerability/NN to/TO be/VB found/VBN ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="John Bollinger" when="2015-03-17 21:48:05Z" indentLevel="1">
+            <p>If/IN there/EX were/VBD a/DT vulnerability/NN of/IN that/DT type/NN ,/, it/PRP would/MD depend/VB on/IN the/DT executable/NN being/VBG installed/VBN with/IN it/PRP s/POS suid/COS bit/NN set/NN ./. In/IN particular/JJ ,/, only/RB if/IN the/DT program/NN has/VBZ it/PRP s/POS suid/COS bit/NN set/NN will/MD it/PRP s/POS effective/JJ UID/COS equal/VB to/TO the/DT file/NN owner/NN 's/POS UID/COS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="John Bollinger" when="2015-03-17 22:11:05Z" indentLevel="1">
+            <p>Furthermore/RB ,/, if/IN there/EX were/VBD a/DT vulnerability/NN then/RB it/PRP would/MD rely/VB either/RB on/IN the/DT fact/NN that/WDT the/DT system/COS (/COS )/COS function/NN uses/VBZ //COS bin/COS //COS sh/COS -/COS c/COS to/TO run/VB the/DT command/NN ,/, or/CC on/IN some/DT behavior/NN of/IN the/DT //COS usr/COS //COS bin/COS //COS id/COS command/NN that/WDT depended/VBD on/IN the/DT real/JJ UID/COS of/IN the/DT process/NN ./. As/IN far/JJ as/IN I/PRP know/VBP ,/, id/ACR works/VBZ the/DT same/JJ regardless/RB of/IN real/JJ and/CC effective/JJ UIDs/NNPS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Ben Voigt" when="2015-03-17 22:48:05Z" indentLevel="1">
+            <p>manpage/NNP says/VBZ "/" Do/VBP not/RB use/VB system/COS (/COS )/COS from/IN a/DT program/NN with/IN set-user-ID/NN or/CC set-group-ID/NN privileges/NNS ,/, because/IN strange/JJ values/NNS for/IN some/DT environment/NN variables/NNS might/MD be/VB used/VBN to/TO subvert/VB system/NN integrity/NN ./. Use/VBP the/DT exec/COS (/COS 3/COS )/COS family/NN of/IN functions/NNS instead/RB ,/, but/CC not/RB execlp/COS (/COS 3/COS )/COS or/CC execve/COS (/COS 3/COS )/COS ./. system/COS (/COS )/COS will/MD not/RB ,/, in/IN fact/NN ,/, work/VB properly/RB from/IN programs/NNS with/IN set-user-ID/NN or/CC set-group-ID/NN privileges/NNS on/IN systems/NNS on/IN which/WDT //COS bin/COS //COS sh/COS is/VBZ bash/NNP version/NN 2/CD ,/, since/IN bash/NNP 2/CD drops/VBZ privileges/NNS on/IN startup/NN ./. (/( Debian/NNS uses/VBZ a/DT modified/JJ bash/NNP which/WDT does/VBZ not/RB do/VB this/DT when/WRB invoked/VBD as/IN sh/COS ./COS )/) "/"</p>
+        </post>
+      </div>
+       <div type="answer">
+        <post who="John Bollinger" when="2015-03-17 22:56:03Z" upVote="1">
+            <p>The/DT system/COS (/COS )/COS function/NN executes/VBZ the/DT command/NN given/VBN as/IN it/PRP s/POS argument/NN by/IN passing/VBG it/PRP to/TO //COS bin/COS //COS sh/COS -/COS c/COS ./. I/PRP think/VBP the/DT //COS usr/COS //COS bin/COS //COS id/COS program/NN is/VBZ not/RB particularly/RB relevant/JJ ;/: it/PRP is/VBZ the/DT shell/NN 's/POS behavior/NN that/WDT is/VBZ key/JJ ./. In/IN particular/JJ ,/, note/VBP that/WDT the/DT shell/NN 's/POS startup/NN behavior/NN is/VBZ different/JJ when/WRB the/DT real/JJ and/CC effective/JJ UIDs/NNPS differ/VB :/:
+
+                If/IN the/DT shell/NN is/VBZ started/VBN with/IN the/DT effective/JJ user/NN (/( group/NN )/) id/ACR not/RB equal/JJ to/TO the/DT real/JJ user/NN (/( group/NN )/) id/ACR [/[ .../. ]/] no/DT startup/NN files/NNS are/VBP read/VBN ,/, shell/NN functions/NNS are/VBP not/RB inherited/VBN from/IN the/DT environment/NN ,/, the/DT SHELLOPTS/COS ,/, BASHOPTS/COS ,/, CDPATH/COS ,/, and/CC GLOBIGNORE/COS variables/NNS ,/, if/IN they/PRP appear/VB in/IN the/DT environment/NN ,/, are/VBP ignored/VBN ,/, and/CC the/DT effective/JJ user/NN id/ACR is/VBZ set/VB to/TO the/DT real/JJ user/NN id/ACR ./.
+
+                -/: -/: BASH/NNP 4/CD ./. 1/CD manual/NN
+
+                In/IN the/DT event/NN that/WDT a/DT program/NN containing/VBG the/DT code/NN you/PRP presented/VBD is/VBZ installed/VBN suid/COS ,/, the/DT code/NN prevents/VBZ the/DT condition/NN given/VBN in/IN that/DT paragraph/NN from/IN applying/VBG by/IN setting/VBG real/JJ ,/, effective/JJ ,/, and/CC saved/JJ UIDs/NNPS all/DT equal/VB to/TO the/DT effective/JJ UID/COS (/( which/WDT will/MD be/VB the/DT UID/COS of/IN the/DT owner/NN of/IN the/DT executable/NN )/) ./.
+
+                Exploits/NNS typically/RB revolve/VB around/IN unsafe/JJ use/NN of/IN untrustworthy/JJ data/NN ,/, with/IN environment/NN variables/NNS being/VBG a/DT frequent/JJ offender/NN ./. The/DT ENV/ACR environment/NN variable/NN in/IN particular/JJ names/VBZ a/DT file/NN that/WDT under/IN some/DT circumstances/NNS the/DT shell/NN will/MD execute/VB at/IN startup/NN ./. bash/NNP will/MD not/RB run/VB it/PRP when/WRB the/DT real/JJ and/CC effective/JJ UIDs/NNPS differ/VB ,/, as/IN documented/VBD in/IN the/DT excerpt/NN above/IN ,/, but/CC otherwise/RB will/MD do/VB so/IN when/WRB invoked/VBN interactively/RB in/IN POSIX/COS compatibility/NN mode/NN or/CC as/IN sh/COS ./.
+
+                That/DT does/VBZ n't/RB help/VB for/IN non-interactive/JJ invocation/NN ,/, as/IN applies/VBZ here/RB ,/, so/IN now/RB I/PRP have/VBP to/TO go/VB speculative/JJ ./. I/PRP suspect/VBP ,/, but/CC cannot/RB currently/RB document/VB ,/, that/WDT some/DT other/JJ past/JJ -/: -/: and/CC maybe/RB even/RB present/JJ -/: -/: versions/NNS of/IN the/DT shell/NN do/VB read/VB and/CC execute/VB commands/NNS from/IN the/DT file/NN named/VBD by/IN ENV/ACR when/WRB invoked/VBN non-interactively/RB ./. That/WDT would/MD provide/VB a/DT vector/NN for/IN executing/VBG arbitrary/JJ commands/NNS as/IN the/DT owner/NN of/IN the/DT setuid/COS program/NN ./.
+
+                In/IN weak/JJ support/NN of/IN that/DT speculation/NN I/PRP direct/VBP your/PRP$ attention/NN to/TO the/DT BASH_ENV/COS variable/NN ,/, which/WDT is/VBZ analogous/JJ to/TO ENV/ACR ,/, but/CC is/VBZ used/VBN when/WRB bash/NNP is/VBZ invoked/VBN noninteractively/RB ,/, as/IN bash/NNP ./. I/PRP am/VBP supposing/VBG that/WDT once/RB these/DT two/CD variables/NNS were/VBD more/JJR parallel/JJ ,/, applicable/JJ to/TO both/DT interactive/JJ and/CC non-interactive/JJ modes/NNS ,/, but/CC the/DT non-interactive/JJ use/NN of/IN ENV/ACR and/CC the/DT interactive/JJ use/NN of/IN BASH_ENV/COS were/VBD removed/VBN at/IN different/JJ times/NNS ./. for/IN different/JJ reasons/NNS ./. Quite/RB possibly/RB the/DT non-interactive/JJ use/NN of/IN ENV/ACR was/VBD removed/VBN to/TO plug/VB exactly/RB the/DT hole/NN that/WDT you/PRP are/VBP looking/VBG for/IN ./.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="John Bollinger" when="2015-03-18 15:58:45Z" indentLevel="1">
+            <p>Note/NN :/:  online/NN sources/NNS  seem/VB to/TO confirm/VB that/WDT the/DT attack/NN via/IN  ENV/ACR  did/VBD ,/, indeed/RB ,/, work/VB at/IN one/CD time/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="duskwuff" when="2015-03-17 22:35:57Z" upVote="1">
+            <p>It/PRP is/VBZ possible/JJ to/TO exploit/VB an/DT obscure/JJ (/( and/CC now/RB patched/JJ )/) issue/NN involving/VBG the/DT unchecked/JJ usage/NN of/IN setresuid/COS (/COS )/COS :/:
+
+                Under/IN Linux/NNP 2/CD ./. 6/CD and/CC later/RB ,/, setresuid/COS (/COS )/COS can/MD fail/VB if/IN the/DT process/NN is/VBZ running/VBG with/IN an/DT RLIMIT_NPROC/COS (/( that/WDT is/VBZ ,/, a/DT limit/NN on/IN the/DT number/NN of/IN processes/NNS as/IN set/VB by/IN ulimit/COS -/COS n/COS )/) such/JJ that/WDT the/DT target/NN UID/COS would/MD have/VBP too/RB many/JJ processes/NNS if/IN the/DT setresuid/COS (/COS )/COS succeeded/VBD ./.
+
+                However/RB ,/, under/IN Linux/NNP 3/CD ./. 1/CD and/CC later/RB ,/, failing/VBG a/DT setresuid/COS (/COS )/COS sets/VBZ a/DT flag/NN on/IN a/DT process/NN such/JJ that/WDT any/DT subsequent/JJ execve/COS (/COS )/COS calls/NNS will/MD fail/VB ./. This/DT would/MD prevent/VB the/DT system/COS (/COS )/COS from/IN running/VBG on/IN any/DT modern/JJ Linux/NNP if/IN the/DT setresuid/COS (/COS )/COS failed/VBD ./.
+
+                Unless/IN there/EX is/VBZ some/DT larger/JJR context/NN which/WDT has/VBD been/VBN omitted/VBN ,/, it/PRP may/MD be/VB possible/JJ to/TO set/VB environment/NN variables/NNS (/( e.g/FW ,/, LD_PRELOAD/COS )/) which/WDT cause/VB code/NN to/TO be/VB injected/VBN into/IN //COS usr/COS //COS bin/COS //COS id/COS ./. These/DT variables/NNS are/VBP ignored/VBN for/IN setuid/COS executables/NNS ,/, but/CC will/MD not/RB be/VB ignored/VBN for/IN executables/NNS launched/VBD by/IN a/DT setuid/COS executable/NN ,/, as/IN is/VBZ occurring/VBG here/RB ./.
+
+                If/IN you/PRP are/VBP on/IN a/DT vulnerable/JJ system/NN (/( Linux/NNP 2/CD ./. 6/CD through/IN 3/CD ./. 0/CD )/) ,/, you/PRP may/MD be/VB able/JJ to/TO exploit/VB this/DT vulnerability/NN by/IN setting/VBG environment/NN variables/NNS and/CC causing/VBG the/DT setresuid/COS (/COS )/COS to/TO fail/VB ,/, so/IN that/WDT //COS usr/COS //COS bin/COS //COS id/COS runs/VBZ user-specified/JJ code/NN as/IN root/NN ./.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="John Bollinger" when="2015-03-18 14:23:05Z" indentLevel="1">
+            <p>Does/VBZ that/DT apply/VB to/TO this/DT case/NN ,/, since/IN the/DT program/NN modifies/VBZ only/RB it/PRP s/POS real/JJ and/CC saved/JJ UIDs/NNPS ,/, not/RB it/PRP s/POS effective/JJ UID/COS ?/.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

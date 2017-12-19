@@ -1,0 +1,119 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Vulnerability with MySQL error</title>
+        <author>Cyclone</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/8651454/vulnerability-with-mysql-error</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Cyclone" url="http://stackoverflow.com/users/989749/cyclone">
+        <signatureContent>
+          <p>Reputation: <num>3,287</num>Number of Gold Badges: <num>17</num>Number of Silver Badges: <num>50</num>Number of Bronze Badges: <num>90</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Marc B" url="http://stackoverflow.com/users/118068/marc-b">
+        <signatureContent>
+          <p>Reputation: <num>256k</num>Number of Gold Badges: <num>22</num>Number of Silver Badges: <num>206</num>Number of Bronze Badges: <num>325</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Virendra" url="http://stackoverflow.com/users/387247/virendra">
+        <signatureContent>
+          <p>Reputation: <num>2,162</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>12</num>Number of Bronze Badges: <num>31</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-12-28 03:13:19Z" who="Cyclone" revisedWhen="2011-12-28 03:24:17Z" upVote="0"><p>I/PRP have/VBP no/DT idea/NN about/IN PHP/ACR security/NN ,/, but/CC if/IN I/PRP add/VB an/DT '/" to/TO the/DT input/NN in/IN my/PRP$ POST/COS method/NN form/NN ./.
+
+            I/PRP 'm/VBP getting/VBG the/DT following/JJ message/NN :/:
+
+            Warning/NN :/: mysql_fetch_object/COS (/COS )/COS :/: supplied/JJ argument/NN is/VBZ not/RB a/DT valid/JJ MySQL/COS result/NN resource/NN in/IN /usr/local/www/login.php/URL
+
+            Is/VBZ that/WDT a/DT SQL/ACR injection/NN ?/. If/IN so/IN ,/, how/WRB it/PRP can/MD be/VB abused/VBN by/IN the/DT "/" hackers/NNS "/" ?/.
+<tag>php</tag><tag>sql-injection</tag><tag>security</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Aurelio De Rosa" when="2011-12-28 03:15:00Z" indentLevel="1">
+            <p>possible/JJ duplicate/NN of/IN Best/JJ way/NN to/TO stop/VB SQL/ACR Injection/NN in/IN PHP/ACR</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="outis" when="2011-12-28 03:18:00Z" indentLevel="1">
+            <p>There/EX 's/VBZ not/RB enough/JJ information/NN to/TO answer/VB this/DT question/NN without/IN guessing/VBG ./. What/WP 's/VBZ lacking/VBG is/VBZ minimal/JJ sample/JJ code/NN ,/, which/WDT every/JJ SO/IN question/NN should/MD have/VB ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Marc B" when="2011-12-28 03:16:26Z" upVote="4" accepted="accepted">
+          <p>
+
+              That/WDT means/VBZ you/PRP 're/VBP vulnerable/JJ to/TO SQL/ACR injection/NN ,/, and/CC your/PRP$ code/NN is/VBZ not/RB doing/VBG sufficient/JJ checking/VBG for/IN errors/NNS ./.
+
+              An/DT absolute/JJ barebones/JJ "/" safe/JJ "/" bit/NN of/IN code/NN would/MD be/VB :/:
+
+              &lt;/COB php/COB
+              .../COB connect/COB to/COB db/COB .../COB
+$/COB stringval/COB =/COB mysql_real_escape_string/COB (/COB $/COB _GET/COB [/COB '/COB param/COB '/COB ]/COB )/COB ;/COB
+$/COB sql/COB =/COB "/COB SELECT/COB somefield/COB FROM/COB sometable/COB WHERE/COB otherfield/COB =/COB '/COB $/COB stringval/COB '/COB "/COB ;/COB
+$/COB result/COB =/COB mysql_query/COB (/COB $/COB sql/COB )/COB or/COB die/COB (/COB mysql_error/COB (/COB )/COB )/COB ;/COB
+
+              better/JJR yet/RB is/VBZ to/TO stop/VB using/VBG the/DT mysql/COS functions/NNS and/CC switch/VBP to/TO PDO/ACR and/CC parameterized/JJ queries/NNS ./. They/PRP handle/VBP the/DT injection/NN problems/NNS for/IN you/PRP automatically/RB ./.
+
+              The/DT root/JJ cause/NN of/IN your/PRP$ error/NN message/NN is/VBZ that/WDT your/PRP$ query/NN has/VBZ caused/VBN a/DT syntax/NN error/NN ./. When/WRB a/DT query/NN fails/VBZ outright/RB like/IN that/WDT ,/, mysql_query/COS (/COS )/COS returns/VBZ a/DT boolean/JJ FALSE/COS value/NN ,/, not/RB a/DT statement/NN handle/NN ./.
+
+              Since/IN you/PRP lack/VBP any/DT kind/NN of/IN error/NN checking/NN ,/, you/PRP blindly/RB took/VBD that/WDT boolean/JJ false/COS and/CC passed/VBD it/PRP on/IN to/TO the/DT fetch/JJ function/NN ,/, which/WDT has/VBZ rightfully/RB complained/VBN that/WDT you/PRP did/MD n't/RB provide/VB a/DT result/NN handle/NN ./.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Cyclone" when="2011-12-28 03:23:00Z" indentLevel="1">
+            <p>Thank/VBP you/PRP ./. But/CC I/PRP 've/VBP read/VB much/RB about/IN this/DT thing/NN ,/, and/CC seems/VBZ like/IN there/EX is/VBZ no/DT way/NN to/TO get/VB the/DT access/NN to/TO the/DT database/NN or/CC something/NN ./. I/PRP 've/VBP tried/VBN to/TO inject/VB it/PRP in/IN a/DT few/JJ ways/NNS and/CC seems/VBZ like/IN it/PRP 's/VBZ not/RB possible/JJ ,/, so/IN my/PRP$ question/NN is/VBZ about/IN '/" how/WRB to/TO inject/VB it/PRP '/" ,/, because/IN I/PRP want/VBP to/TO learn/VB some/NN about/IN the/DT security/NN against/IN SQL/ACR injection/NN and/CC understand/VBP ,/, how/WRB it/PRP works/VBZ ./. Thank/VBP you/PRP 1/CD +/SYM '/" d/NNP for/IN now/RB ./. :)/EMO</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Marc B" when="2011-12-28 03:27:04Z" indentLevel="1">
+            <p>classical/JJ injection/NN problems/NNS ,/, such/IN as/IN the/DT  Bobby/NNP Tables/NNPS  are/VBP n't/RB possible/JJ in/IN PHP/ACR //: MySQL/COS as/IN the/DT driver/NN does/VBZ n't/RB allow/VBP multiple/JJ queries/NNS in/IN a/DT single/JJ call/NN ./. But/CC injection/NN attacks/NNS can/MD STILL/RB be/VB used/VBN to/TO do/VB things/NNS like/IN subvert/JJ login/NN //: permissions/NNS systems/NNS ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Virendra" when="2011-12-28 03:15:40Z" revisedWhen="2011-12-28 03:24:40Z" upVote="0">
+            <p>You/PRP should/MD escape/VB any/DT user/NN input/NN before/IN passing/VBG it/PRP to/TO mysql/COS ./. Use/VBP the/DT PHP/ACR function/NN mysql_real_escape_string/COS (/COS )/COS to/TO escape/VB any/DT user/NN input/NN before/IN adding/VBG it/PRP to/TO your/PRP$ query/NN ./. Here/RB is/VBZ the/DT link/NN to/TO PHP/ACR manual/NN for/IN mysql_real_escape_string/COS (/COS )/COS
+
+                Update/NN :/: Yes/UH ,/, what/WDT others/NNS are/VBP saying/VBG about/IN using/VBG prepared/JJ statements/NNS or/IN mysqli/COS is/VBZ much/RB better/JJR that/WDT using/VBG the/DT mysql/COS extension/NN ./.
+
+                Here/RB are/VBP a/DT few/JJ links/NNS on/IN MySQL/COS Injection/NN which/WDT I/PRP found/VBP :/:
+
+                http://www.php.net/manual/en/security.database.sql-injection.php/URL
+                http://25yearsofprogramming.com/blog/2011/20110205.htm/URL
+                https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet/URL</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aurelio De Rosa" when="2011-12-28 03:16:43Z" indentLevel="1">
+            <p>Actually/RB the/DT best/JJ way/NN to/TO be/VB safe/JJ from/IN SQL/ACR injection/NN is/VBZ to/TO use/VB prepared/JJ statement/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="outis" when="2011-12-28 03:17:25Z" indentLevel="1">
+            <p>The/DT mysql/COS extension/NN is/VBZ outdated/JJ and/CC on/IN its/PRP$ way/NN to/TO deprecation/NN ./. New/JJ code/NN should/MD use/VB mysqli/COS or/CC PDO/ACR ,/, both/DT of/IN which/WDT have/VBP important/JJ advantages/NNS ,/, such/RB as/IN support/NN for/IN prepared/JJ statements/NNS ,/, which/WDT is/VBZ the/DT modern/JJ way/NN of/IN preventing/VBG injection/NN attacks/NNS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Virendra" when="2011-12-28 03:25:13Z" indentLevel="1">
+            <p>I/PRP have/VBP updated/VBN my/PRP$ answer/NN to/TO provide/VB some/DT links/NNS on/IN more/JJR details/NNS about/IN SQL/ACR Injection/NN ,/, prepared/JJ statements/NNS and/CC mysqli/COS ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Your Common Sense" when="2012-01-03 01:59:56Z" indentLevel="1">
+            <p>a/DT classic/JJ delusion/NN ./. as/IN a/DT mater/NN of/IN fact/NN ,/, "/" escape/VBP any/DT user/NN input/NN "/" is/VBZ wrong/JJ and/CC does/VBZ n't/RB prevent/VB injections/NNS ./. -/SYM 1/CD</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

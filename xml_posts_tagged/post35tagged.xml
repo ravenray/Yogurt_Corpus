@@ -1,0 +1,239 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Sending mail via sendmail from python</title>
+        <author>Nate</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/73781/sending-mail-via-sendmail-from-python</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Nate" url="http://stackoverflow.com/users/12779/nate">
+        <signatureContent>
+          <p>Reputation: <num>1,769</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>15</num>Number of Bronze Badges: <num>28</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="igaurav" url="http://stackoverflow.com/users/2174742/igaurav">
+        <signatureContent>
+          <p>Reputation: <num>1,165</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>8</num>Number of Bronze Badges: <num>21</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jim" url="http://stackoverflow.com/users/8427/jim">
+        <signatureContent>
+          <p>Reputation: <num>48.6k</num>Number of Gold Badges: <num>9</num>Number of Silver Badges: <num>73</num>Number of Bronze Badges: <num>87</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Pieter" url="http://stackoverflow.com/users/5822/pieter">
+        <signatureContent>
+          <p>Reputation: <num>11.4k</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>33</num>Number of Bronze Badges: <num>71</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="amcgregor" url="http://stackoverflow.com/users/211827/amcgregor">
+        <signatureContent>
+          <p>Reputation: <num>558</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>16</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="tovare" url="http://stackoverflow.com/users/12677/tovare">
+        <signatureContent>
+          <p>Reputation: <num>1,939</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>19</num>Number of Bronze Badges: <num>28</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="MEI" url="http://stackoverflow.com/users/5351807/mei">
+        <signatureContent>
+          <p>Reputation: <num>31</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>1</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="elec3647" url="http://stackoverflow.com/users/1842416/elec3647">
+        <signatureContent>
+          <p>Reputation: <num>192</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>5</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="meagar" url="http://stackoverflow.com/users/229044/meagar">
+        <signatureContent>
+          <p>Reputation: <num>126k</num>Number of Gold Badges: <num>19</num>Number of Silver Badges: <num>188</num>Number of Bronze Badges: <num>229</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Frank Wiles" url="http://stackoverflow.com/users/12568/frank-wiles">
+        <signatureContent>
+          <p>Reputation: <num>1,251</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>7</num>Number of Bronze Badges: <num>11</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2008-09-16 15:46:43Z" who="Nate" revisedWhen="2008-09-16 16:03:56Z" upVote="43" accepted="favorite"><p>If/IN I/PRP want/VBP to/TO send/VB mail/NN not/RB via/IN SMTP/ACR ,/, but/CC rather/RB via/IN sendmail/NNP ,/, is/VBZ there/EX a/DT library/NN for/IN python/NNP that/WDT encapsulates/VBZ this/DT process/NN ?/. Better/JJR yet/RB ,/, is/VBZ there/EX a/DT good/JJ library/NN that/WDT abstracts/VBZ the/DT whole/JJ '/" sendmail/NNP -/: versus/CC -/: smtp/ACR '/" choice/NN ?/. I/PRP 'll/MD be/VB running/VBG this/DT script/NN on/IN a/DT bunch/NN of/IN unix/NNP hosts/NNS ,/, only/RB some/DT of/IN which/WDT are/VBP listening/VBG on/IN localhost/COS :/COS 25/COS ;/: a/DT few/JJ of/IN these/DT are/VBP part/NN of/IN embedded/JJ systems/NNS and/CC can/MD 't/RB be/VB set/VB up/RP to/TO accept/VB SMTP/ACR ./. As/IN part/NN of/IN Good/JJ Practice/NN ,/, I/PRP 'd/MD really/RB like/VB to/TO have/VB the/DT library/NN take/VB care/NN of/IN header/NN injection/NN vulnerabilities/NNS itself/PRP -/: -/: so/IN just/RB dumping/VBG a/DT string/NN to/TO popen/COS (/COS '/COS //COS usr/COS //COS bin/COS //COS sendmail/COS '/COS ,/, '/COS w/COS '/COS )/) is/VBZ a/DT little/JJ closer/JJ to/TO the/DT metal/NN than/IN I/PRP 'd/MD like/VB ./. If/IN the/DT answer/NN is/VBZ '/" go/VBP write/VB a/DT library/NN ,/, '/" so/IN be/VB it/PRP ;-)/EMO<tag>python</tag><tag>sendmail</tag><tag>email</tag></p></post>
+      </div>
+      <div type="answer">
+        <post revisedBy="igaurav" who="Jim" when="2008-09-16 16:12:37Z" upVote="74" accepted="accepted">
+            <p>Header/NN injection/NN is/VBZ n't/RB a/DT factor/NN in/IN how/WRB you/PRP send/VBP the/DT mail/NN ,/, it/PRP 's/VBZ a/DT factor/NN in/IN how/WRB you/PRP construct/VBP the/DT mail/NN ./. Check/VBP the/DT email/NN package/NN ,/, construct/VBP the/DT mail/NN with/IN that/DT ,/, serialise/VB it/PRP ,/, and/CC send/VBP it/PRP to/TO //COS usr/COS //COS sbin/COS //COS sendmail/COS using/VBG the/DT subprocess/NN module/NN :/:
+
+                from/COB email/COB ./COB mime/COB ./COB text/COB import/COB MIMEText/COB
+from/COB subprocess/COB import/COB Popen/COB ,/COB PIPE/COB
+
+msg/COB =/COB MIMEText/COB (/COB "/COB Here/COB is/COB the/COB body/COB of/COB my/COB message/COB "/COB )/COB
+msg/COB [/COB "/COB From/COB "/COB ]/COB =/COB "/COB me@example.com/COB "/COB
+msg/COB [/COB "/COB To/COB "/COB ]/COB =/COB "/COB you@example.com/COB "/COB
+msg/COB [/COB "/COB Subject/COB "/COB ]/COB =/COB "/COB This/COB is/COB the/COB subject/COB ./COB "/COB
+p/COB =/COB Popen/COB (/COB [/COB "/COB //COB usr/COB //COB sbin/COB //COB sendmail/COB "/COB ,/COB "/COB -/COB t/COB "/COB ,/COB "/COB -/COB oi/COB "/COB ]/COB ,/COB stdin/COB =/COB PIPE/COB )/COB
+p/COB ./COB communicate/COB (/COB msg/COB ./COB as_string/COB (/COB )/COB )/COB</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Nate" when="2008-09-16 16:16:57Z" indentLevel="1">
+            <p>Perfect/UH ./. My/PRP$ conceptual/JJ problem/NN was/VBD separating/VBG the/DT construction/NN and/CC sending/VBG of/IN email/NN ./. Thanks/VBZ !/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Peter" when="2013-04-08 07:23:28Z" indentLevel="1">
+            <p>nice/UH ,/, it/PRP helped/VBD me/PRP today/NN ,/, after/IN 5/CD years/NNS of/IN the/DT answer/NN :)/EMO</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Robie Basak" when="2013-07-01 11:34:35Z" indentLevel="1">
+            <p>You/PRP should/MD also/RB use/VB the/DT  -oi/COS  parameter/NN to/TO sendmail/COS ./. This/DT stops/VBZ a/DT single/JJ  ./.  in/IN your/PRP$ message/NN from/IN prematurely/RB terminating/VBG the/DT email/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Pieter" when="2008-09-16 15:51:40Z" upVote="24">
+            <p>This/DT is/VBZ a/DT simple/JJ python/NNP function/NN that/WDT uses/VBZ the/DT unix/NNP sendmail/COS to/TO deliver/VB a/DT mail/NN ./. def/COB sendMail/COB (/COB )/COB :/COB
+    sendmail_location/COB =/COB "/COB //COB usr/COB //COB sbin/COB //COB sendmail/COB "/COB #/COB sendmail/COB location/COB
+    p/COB =/COB os/COB ./COB popen/COB (/COB "/COB %/COBs -/COB t/COB "/COB %/COB sendmail_location/COB ,/COB "/COB w/COB "/COB )/COB
+    p/COB ./COB write/COB (/COB "/COB From/COB :/COB %/COB s/COB \/COB n/COB "/COB %/COB "/COB from@somewhere.com/COB "/COB )/COB
+    p/COB ./COB write/COB (/COB "/COB To/COB :/COB %/COB s/COB \/COB n/COB "/COB %/COB "/COB to@somewhereelse.com/COB "/COB )/COB
+    p/COB ./COB write/COB (/COB "/COB Subject/COB :/COB thesubject/COB \/COB n/COB "/COB )/COB
+    p/COB ./COB write/COB (/COB "/COB \/COB n/COB "/COB )/COB  #/COB blank/COB line/COB separating/COB headers/COB from/COB body/COB
+    p/COB ./COB write/COB (/COB "/COB body/COB of/COB the/COB mail/COB "/COB )/COB
+    status/COB =/COB p/COB ./COB close/COB (/COB )/COB
+    if/COB status/COB !/COB =/COB 0/COB :/COB
+           print/COB "/COB Sendmail/COB exit/COB status/COB "/COB ,/COB status/COB</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="aphex" when="2012-06-19 20:36:42Z" indentLevel="1">
+            <p>really/RB nice/JJ python/NNP function/NN !/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Steve Folly" when="2012-06-24 10:31:03Z" indentLevel="1">
+            <p>+/SYM 1/CD -/: just/RB what/WP I/PRP 'm/VBP looking/VBG for/IN !/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Michael Franze" when="2012-06-28 14:47:19Z" indentLevel="1">
+            <p>excellent/UH ,/, simple/JJ example/NN +SYM 1/CD</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jim" when="2012-08-02 20:26:34Z" indentLevel="1">
+            <p>They/PRP specifically/RB said/VBD they/PRP did/VBD n't/RB want/VB  popen/COS -/: style/NN solutions/NNS ./.  Worse/JJR ,/, the/DT reason/NN given/VBN was/VBD to/TO avoid/VB things/NNS like/IN header/NN injection/NN vulnerabilities/NNS ./.  If/IN the/DT user/NN supplies/VBZ either/RB the/DT from/IN or/CC to/TO address/NN ,/, this/DT code/NN is/VBZ vulnerable/JJ to/TO header/NN injection/NN attacks/NNS ./.  This/DT is/VBZ exactly/RB what/WP they/PRP did/VBD n't/RB want/VB ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Pieter" when="2012-08-04 12:58:51Z" indentLevel="1">
+            <p>@Jim/ATS yes/UH ,/, they/PRP specifically/RB edited/VBD that/WDT part/NN in/IN after/IN my/PRP$ answer/NN was/VBD given/VBN (/( check/VBP edit/NN dates/NNS )/) ,/, in/IN response/NN to/TO my/PRP$ answer/NN I/PRP suppose/VB ./.</p>
+        </post>
+      </div>
+      
+      <div type="answer">
+        <post who="tovare" when="2008-09-16 15:49:06Z" upVote="3">
+            <p>It/PRP 's/VBZ quite/RB common/JJ to/TO just/RB use/VB the/DT sendmail/COS command/NN from/IN Python/NNP using/VBG os/COS ./COS popen/COS Personally/RB ,/, for/IN scripts/NNS i/PRP did/VBD n't/RB write/VB myself/PRP ,/, I/PRP think/VBP just/RB using/VBG the/DT SMTP-protocol/NN is/VBZ better/JJR ,/, since/RB it/PRP would/MD n't/RB require/VB installing/VBG say/VB an/DT sendmail/COS clone/NN to/TO run/VB on/IN windows/NNP ./. https://docs.python.org/library/smtplib.html/URL</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="MEI" when="2015-09-19 21:38:31Z" upVote="3">
+            <p>Jim/NNP 's/POS answer/NN did/VBD not/RB work/VB for/IN me/PRP in/IN Python/NNP 3/CD ./. 4/CD ./. I/PRP had/VBD to/TO add/VB an/DT additional/JJ universal_newlines/COS =/COS True/COS argument/NN to/TO subrocess/COS ./COS Popen/COS (/COS )/COS
+
+                from/COB email/COB ./COB mime/COB ./COB text/COB import/COB MIMEText/COB
+from/COB subprocess/COB import/COB Popen/COB ,/COB PIPE/COB
+
+msg/COB =/COB MIMEText/COB (/COB "/COB Here/COB is/COB the/COB body/COB of/COB my/COB message/COB "/COB )/COB
+msg/COB ["/COB From/COB "/COB ]/COB =/COB "/COB me@example.com/COB "/COB
+msg/COB [/COB "/COB To/COB "/COB ]/COB =/COB "/COB you@example.com/COB "/COB
+msg/COB [/COB "/COB Subject/COB "/COB ]/COB =/COB "/COB This/COB is/COB the/COB subject/COB ./COB "/COB
+p/COB =/COB Popen/COB (/COB [/COB "//COB usr/COB //COB sbin/COB //COB sendmail/COB "/COB ,/COB "/COB -/COB t/COB "/COB ,/COB "/COB -/COB oi/COB "/COB ]/COB ,/COB stdin/COB =/COB PIPE/COB ,/COB universal_newlines/COB =/COB True/COB )/COB
+p/COB ./COB communicate/COB (/COB msg/COB ./COB as_string/COB (/COB )/COB )/COB 
+
+                Without/IN the/DT universal_newlines/COS =COS True/COS I/PRP get/VBP
+
+                TypeError/COB :/COB '/COB str/COB '/COB does/COB not/COB support/COB the/COB buffer/COB interface/COB</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="amcgregor" when="2011-04-04 23:24:04Z" upVote="3">
+            <p>This/DT question/NN is/VBZ very/RB old/JJ ,/, but/CC it/PRP 's/VBZ worthwhile/JJ to/TO note/VB that/WDT there/EX is/VBZ a/DT message/NN construction/NN and/CC e-mail/NN delivery/NN system/NN called/VBD  TurboMail/NNP  which/WDT has/VBZ been/VBN available/JJ since/IN before/IN this/DT message/NN was/VBD asked/VBN ./. It/PRP 's/VBZ now/RB being/VBG ported/VBN to/TO support/VB Python/NNP 3/CD and/CC updated/VBD as/IN part/NN of/IN the/DT  Marrow/NNP  suite/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="TankorSmash" when="2012-05-28 00:36:06Z" indentLevel="1">
+            <p>The/DT turboMail/NNP link/NN is/VBZ no/RB go/VB ,/, a/DT year/NN later/RB</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="amcgregor" when="2012-08-27 14:46:50Z" indentLevel="1">
+            <p>It/PRP 's/VBZ now/RB called/VBN marrow.mailer/NNP ./.   github.com/marrow/marrow.mailer/URL</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="tjklemz" when="2012-12-14 19:46:23Z" indentLevel="1">
+            <p>+/SYM 1/CD for/IN Marrow/NNP Mailer/NNP ./. I/PRP tried/VBD it/PRP out/RP ,/, and/CC it/PRP makes/VBZ it/PRP very/RB easy/JJ to/TO send/VB mail/NN through/IN smpt/COS ,/, sendmail/COS ,/, etc./FW ,/, and/CC also/RB provides/VBZ very/RB good/JJ validation/NN ./. Because/IN Marrow/NNP Mailer/NNP is/VBZ "/" a/DT good/JJ library/NN that/WDT abstracts/VBZ the/DT whole/JJ '/" sendmail/COS -/: versus/CC -/: smtp/COS '/" choice/NN "/" ,/, I/PRP feel/VBP this/DT answers/VBZ the/DT original/JJ question/NN the/DT best/JJS ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="elec3647" when="2013-06-27 13:49:32Z" downVote="-2">
+            <p>I/PRP was/VBD just/RB searching/VBG around/IN for/IN the/DT same/JJ thing/NN and/CC found/VBD a/DT good/JJ example/NN on/IN the/DT Python/NNP website/NN :/: http://docs.python.org/2/library/email-examples.html/URL
+
+                From/IN the/DT site/NN mentioned/VBD :/:
+
+                #/SYM Import/VBP smtplib/COS for/IN the/DT actual/JJ sending/JJ function/NN
+                import/COS smtplib/COS
+
+                #/SYM Import/VBP the/DT email/NN modules/NNS we/PRP 'll/MD need/VB
+from/COB email/COB ./COB mime/COB ./COB text/COB import/COB MIMEText/COB
+
+                #/SYM Open/VBP a/DT plain/JJ text/NN file/NN for/IN reading/VBG ./.  For/IN this/DT example/NN ,/, assume/VBP that/WDT
+                #/SYM the/DT text/NN file/NN contains/VBZ only/RB ASCII/NNP characters/NNS ./.
+fp/COB =/COB open/COB (/COB textfile/COB ,/COB '/COB rb/COB '/COB )/COB
+                #/SYM Create/VBP a/DT text/NN //: plain/JJ message/NN
+msg/COB =/COB MIMEText/COB (/COB fp/COB ./COB read/COB (/COB )/COB )/COB 
+fp/COB ./COB close/COB (/COB )/COB
+
+                #/SYM me/PRP =/SYM =/SYM the/DT sender/NN 's/POS email/NN address/NN
+                #/SYM you/PRP =/SYM =/SYM the/DT recipient/NN 's/POS email/NN address/NN
+                msg/COS [/COS '/COS Subject/COS '/COS ]/COS =/SYM '/" The/DT contents/NNS of/IN %/SYM s/POS '/" %/SYM textfile/COS
+msg/COB [/COB '/COB From/COB '/COB ]/COB =/COB me/COB
+msg/COB [/COB '/COB To/COB '/COB ]/COB =/COB you/COB
+
+                #/SYM Send/VBP the/DT message/NN via/IN our/PRP$ own/JJ SMTP/NNP server/NN ,/, but/CC do/VBP n't/RB include/VB the/DT
+                #/SYM envelope/NN header/NN ./.
+s/COB =/COB smtplib/COB ./COB SMTP/COB (/COB '/COB localhost/COB '/COB )/COB
+s/COB ./COB sendmail/COB (/COB me/COB ,/COB [/COB you/COB ]/COB ,/COB msg/COB ./COB as_string/COB (/COB )/COB )/COB
+s/COB ./COB quit/COB (/COB )/COB
+
+                Note/VBP that/WDT this/DT requires/VBZ that/WDT you/PRP have/VB sendmail/COS //: mailx/COS set/VB up/RP correctly/RB to/TO accept/VB connections/NNS on/IN "/" localhost/COS "/" ./. This/DT works/VBZ on/IN my/PRP$ Mac/NNP ,/, Ubuntu/NNP and/CC Redhat/NNP servers/NNS by/IN default/NN ,/, but/CC you/PRP may/MD want/VB to/TO double-check/VB if/IN you/PRP run/VB into/IN any/DT issues/NNS ./. 
+</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Frank Wiles" revisedBy="meagar" when="2013-06-27 13:49:32Z" downVote="-4">
+            <p>The/DT easiest/JJS answer/NN is/VBZ the/DT smtplib/COS ,/, you/PRP can/MD find/VB docs/NNS on/IN it/PRP here/RB ./.
+
+                All/DT you/PRP need/VBP to/TO do/VB is/VBZ configure/VB your/PRP$ local/JJ sendmail/COS to/TO accept/VB connection/NN from/IN localhost/COS ,/, which/WDT it/PRP probably/RB already/RB does/VBZ by/IN default/NN ./. Sure/UH ,/, you/PRP 're/VBP still/RB using/VBG SMTP/NNP for/IN the/DT transfer/NN ,/, but/CC it/PRP 's/VBZ the/DT local/JJ sendmail/COS ,/, which/WDT is/VBZ basically/RB the/DT same/JJ as/IN using/VBG the/DT commandline/COS tool/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="S19N" when="2012-05-31 10:41:23Z" indentLevel="1" upVote="6">
+            <p>Question/NN says/VBZ "/" If/IN I/PRP want/VB to/TO send/VB mail/NN not/RB via/IN SMTP/NNP ,/, but/CC rather/RB via/IN sendmail/COS .../. "/"</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Denis Barmenkov" when="2012-10-12 13:20:23Z" indentLevel="1" upVote="1">
+            <p>Your/PRP$ program/NN will/MD delay/VB in/IN case/NN there/EX are/VBP no/DT connection/NN or/CC lag/VB to/TO SMTP/NNP server/NN ./. Using/VBG sendmail/COS you/PRP pass/VB message/NN to/TO MTA/ACR and/CC your/PRP$ program/NN continues/VBZ ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

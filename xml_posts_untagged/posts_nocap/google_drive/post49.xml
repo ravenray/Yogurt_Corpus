@@ -1,0 +1,167 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Is strip_tags() vulnerable to scripting attacks?</title>
+        <author>Pekka</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/5788527/is-strip-tags-vulnerable-to-scripting-attacks</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Pekka" url="http://stackoverflow.com/users/187606/pekka-%ec%9b%83">
+        <signatureContent>
+          <p>Reputation: <num>292k</num>Number of Gold Badges: <num>91</num>Number of Silver Badges: <num>667</num>Number of Bronze Badges: <num>881</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Lekensteyn" url="http://stackoverflow.com/users/427545/lekensteyn">
+        <signatureContent>
+          <p>Reputation: <num>31.3k</num>Number of Gold Badges: <num>7</num>Number of Silver Badges: <num>82</num>Number of Bronze Badges: <num>119</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Matthew" url="http://stackoverflow.com/users/259778/matthew">
+        <signatureContent>
+          <p>Reputation: <num>31.9k</num>Number of Gold Badges: <num>6</num>Number of Silver Badges: <num>57</num>Number of Bronze Badges: <num>73</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="kemus" url="http://stackoverflow.com/users/725152/kemus">
+        <signatureContent>
+          <p>Reputation: <num>29</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>1</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Damon" url="http://stackoverflow.com/users/572743/damon">
+        <signatureContent>
+          <p>Reputation: <num>37,679</num>Number of Gold Badges: <num>10</num>Number of Silver Badges: <num>70</num>Number of Bronze Badges: <num>115</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Lekensteyn" url="http://stackoverflow.com/users/427545/lekensteyn">
+        <signatureContent>
+          <p>Reputation: <num>31,584</num>Number of Gold Badges: <num>7</num>Number of Silver Badges: <num>82</num>Number of Bronze Badges: <num>119</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="mario" url="http://stackoverflow.com/users/345031/mario">
+        <signatureContent>
+          <p>Reputation: <num>101,066</num>Number of Gold Badges: <num>12</num>Number of Silver Badges: <num>131</num>Number of Bronze Badges: <num>214</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Gordon" url="http://stackoverflow.com/users/208809/gordon">
+        <signatureContent>
+          <p>Reputation: <num>204,655</num>Number of Gold Badges: <num>49</num>Number of Silver Badges: <num>380</num>Number of Bronze Badges: <num>442</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Gordon" url="http://stackoverflow.com/users/208809/gordon">
+        <signatureContent>
+          <p>Reputation: <num>204,655</num>Number of Gold Badges: <num>49</num>Number of Silver Badges: <num>380</num>Number of Bronze Badges: <num>442</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-04-26 09:40:14Z" who="Pekka" revisedWhen="2011-04-26 10:11:19Z" upVote="30" accepted="favorite"><p>Is there a known XSS or other attack that makes it past a
+
+        $content = "some HTML code";
+        $content = strip_tags($content);
+
+        echo $content;
+        ?
+
+        The manual has a warning:
+
+        This function does not modify any attributes on the tags that you allow using allowable_tags, including the style and onmouseover attributes that a mischievous user may abuse when posting text that will be shown to other users.
+        but that is related to using the allowable_tags parameter only.
+
+        With no allowed tags set, is strip_tags() vulnerable to any attack?
+
+        Chris Shiflett seems to say it's safe:
+
+        Use Mature Solutions
+
+        When possible, use mature, existing solutions instead of trying to create your own. Functions like strip_tags() and htmlentities() are good choices.
+        is this correct? Please if possible, quote sources.
+
+        I know about HTML purifier, htmlspecialchars() etc.- I am not looking for the best method to sanitize HTML. I just want to know about this specific issue. This is a theoretical question that came up here.
+
+        Reference: strip_tags() implementation in the PHP source code<tag>php</tag><tag>strip-tags</tag><tag>xss</tag><tag>security</tag><tag>html</tag></p></post>
+      </div>
+       <div type="response">
+        <post who="Damon" when="2011-04-26 09:46:01Z" indentLevel="1" upVote="1">
+          <p>Well, no arguments given, it strips out all tags, so I don't see how there could be any exploit. The worst thing to happen would be someone feeding you invalid markup (no closing tags), but this worst case will simply mean that strip_tags strips out a lot more text.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Pekka" when="2011-04-26 09:46:01Z" indentLevel="1">
+          <p>@Gordon thanks, but I mean a whole chunk of HTML data only, so no injected file names etc. (which if I understand it right, is what the forum entry is discussing.) as far as I can see, the thread doesn't prove a vulnerability in strip_tags(), but goes on to recommend htmlspecialchars() - which is what I usually do as well, but I want to know whether it's really necessary</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Lekensteyn" when="2011-04-26 09:47:01Z" indentLevel="1">
+          <p>You can check the way strip_tags works by looking at the implementation.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Pekka" when="2011-04-26 09:47:01Z" indentLevel="1">
+          <p>@Lekensteyn thanks, I'll add that to the question</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="mario" when="2011-04-26 09:50:01Z" indentLevel="1" upVote="2">
+          <p>htmlpurifier.org/comparison#striptags is a bit more dismissive. It probably goes without saying, but needs repeating for the newcomers: If striptags is safe depends on the context. If the output ends up in attributes, then no. Only if the stripped content goes into a page body, then it's okay. (And for that it's indeed sufficient.)</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Gordon" when="2011-04-26 09:59:01Z" indentLevel="1">
+          <p>possible duplicate of PHP: Prevent XSS with strip_tags() ?</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Pekka" when="2011-04-26 10:10:01Z" indentLevel="1">
+          <p>@Gordon thanks for the dupe, but the question isn't answered in that one, either :)</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Gordon" when="2011-04-26 10:16:01Z" indentLevel="1">
+          <p>@Pekka well, what do you expect in an answer? You basically asked a Yes/No question, to which at least I would only be able to reply: "To my knowledge strip_tags is secure." but who am I to claim that I know each and every XSS attack out there. @Lekensteyn probably answered it best by telling you to look at the implementation and draw conclusions from that.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Pekka" when="2011-04-26 10:16:01Z" indentLevel="1">
+          <p>@Gordon fair enough. I guess if there were known vulnerabilities, they would be fixed - at least there was one in 2004 that seems to have been fixed right away.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Gordon" when="2011-04-26 10:16:01Z" indentLevel="1">
+          <p>@Pekka packetstormsecurity.org/search/?q=strip_tags</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Lekensteyn" when="2011-04-26 16:35:12Z" upVote="27" accepted="accepted">
+          <p>As its name may suggest,  strip_tags  should remove all HTML tags. The only way we can proof it is by analyzing the source code. The next analysis applies to a  strip_tags('...')  call, without a second argument for whitelisted tags. First at all, some theory about HTML tags: a tag starts with a  &lt;  followed by non-whitespace characters. If this string starts with a  ? , it  should not be parsed . If this string starts with a  !-- , it's considered a comment and the following text should neither be parsed. A comment is terminated with a  --&gt; , inside such a comment, characters like  &lt;  and  &gt;  are allowed. Attributes can occur in tags, their values may optionally be surrounded by a quote character ( '  or  " ). If such a quote exist, it must be closed, otherwise if a  &gt;  is encountered, the tag is not closed. The code  &lt;a href="example&gt;xxx&lt;/a&gt;&lt;a href="second"&gt;text&lt;/a&gt;  is interpreted in Firefox as: The PHP function  strip_tags  is referenced in  line 4036 of ext/standard/string.c . That function calls the  internal function php_strip_tags_ex . Two buffers exist, one for the output, the other for "inside HTML tags". A counter named  depth  holds the number of open angle brackets ( &lt; ). 
+          The variable  in_q  contains the quote character ( '  or  " ) if any, and  0  otherwise. The last character is stored in the variable  lc . The functions holds five states, three are mentioned in the description above the function. Based on this information and the function body, the following states can be derived: We need just to be careful that no tag can be inserted. That is,  &lt;  followed by a non-whitespace character.  Line 4326  checks an case with the  &lt;  character which is described below: If  &gt;  is met while the tag is open ( state == 1 ),  in_q  becomes  0  ("not in a quote") and  state  becomes  0  ("not in a tag").  The tag buffer is discarded. Attribute checks (for characters like  '  and  " ) are done on the tag buffer which is discarded. So the conclusion is:   By "outside tags", I mean not in tags as in  &lt;a href="in tag"&gt;outside tag&lt;/a&gt; . Text may contain  &lt;  and  &gt;  though, as in  &gt;&lt; a&gt;&gt; . The result is not valid HTML though,  &lt; ,  &gt;  and  &amp;  need still to be escaped, especially the  &amp; . That can be done with  htmlspecialchars() . The description for  strip_tags  without an whitelist argument would be:</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Matthew" when="2011-04-26 16:54:11Z" upVote="5">
+          <p>I cannot predict future exploits, especially since I haven't looked at the PHP source code for this. However, there have been exploits in the past due to browsers accepting seemingly invalid tags (like &lt;s\0cript>). So it's possible that in the future someone might be able to exploit odd browser behavior.
+
+          That aside, sending the output directly to the browser as a full block of HTML should never be insecure:
+
+          echo '&lt;div>'.strip_tags($foo).'&lt;/div>'
+          However, this is not safe:
+
+          echo '&lt;input value="'.strip_tags($foo).'" />';
+          because one could easily end the quote via " and insert a script handler.
+
+          I think it's much safer to always convert stray &lt; into &lt; (and the same with quotes).</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="kemus" when="2011-04-26 10:08:48Z" upVote="2">
+          <p>Strip tags is perfectly safe - if all that you are doing is outputting the text to the html body. It is not necessarily safe to put it into mysql or url attributes.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

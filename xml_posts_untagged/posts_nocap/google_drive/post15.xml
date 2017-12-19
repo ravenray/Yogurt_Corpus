@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>ASP.NET MVC security patch to version 3.0.0.1 breaks build [duplicate]</title>
+        <author>usr</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Open Source?</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/26406877/asp-net-mvc-security-patch-to-version-3-0-0-1-breaks-build
+        On: June 1, 2015
+        </p>
+      <listPerson>
+        <person xml:id="usr" url="http://stackoverflow.com/users/122718/usr">
+        <signatureContent>
+          <p>Reputation: <num>95.8k</num>
+          Number of Gold Badges: <num>17</num>
+          Number of Silver Badges:<num>102</num>
+          Number of Bronze Badges:<num>187</num></p>  
+        </signatureContent>
+        </person>
+        <person xml:id="Art" url="http://stackoverflow.com/users/62194/art">
+        <signatureContent>
+          <p>Reputation: <num>6,279</num>
+          Number of Gold Badges: <num>12</num>
+          Number of Silver Badges:<num>55</num>
+          Number of Bronze Badges:<num>90</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="Oliver" url="http://stackoverflow.com/users/490282/oliver">
+        <signatureContent>
+          <p>Reputation: <num>3,864</num>
+          Number of Gold Badges: <num>1</num>
+          Number of Silver Badges:<num>12</num>
+          Number of Bronze Badges:<num>34</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="Stijn" url="http://stackoverflow.com/users/247702/stijn">
+        <signatureContent>
+          <p>Reputation: <num>7,973</num>
+          Number of Gold Badges: <num>6</num>
+          Number of Silver Badges:<num>40</num>
+          Number of Bronze Badges:<num>73</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="Eric Brown - Cal" url="http://stackoverflow.com/users/86431/eric-brown-cal">
+        <signatureContent>
+          <p>Reputation: <num>3,499</num>
+          Number of Gold Badges: <num>5</num>
+          Number of Silver Badges:<num>32</num>
+          Number of Bronze Badges:<num>56</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="Danny Tuppeny" url="http://stackoverflow.com/users/25124/danny-tuppeny">
+        <signatureContent>
+          <p>Reputation: <num>12,991</num>
+          Number of Gold Badges: <num>9</num>
+          Number of Silver Badges:<num>57</num>
+          Number of Bronze Badges:<num>151</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="Guffa" url="http://stackoverflow.com/users/69083/guffa">
+        <signatureContent>
+          <p>Reputation: <num>365,454</num>
+          Number of Gold Badges: <num>46</num>
+          Number of Silver Badges:<num>313</num>
+          Number of Bronze Badges:<num>599</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="TK1" url="http://stackoverflow.com/users/1946707/tk1">
+        <signatureContent>
+          <p>Reputation: <num>136</num>
+          Number of Gold Badges: <num></num>
+          Number of Silver Badges:<num>3</num>
+          Number of Bronze Badges:<num>15</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="Wouter" url="http://stackoverflow.com/users/1669081/wouter">
+        <signatureContent>
+          <p>Reputation: <num>58</num>
+          Number of Gold Badges: <num></num>
+          Number of Silver Badges:<num></num>
+          Number of Bronze Badges:<num>4</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="gunnerz" url="http://stackoverflow.com/users/1414575/gunnerz">
+        <signatureContent>
+          <p>Reputation: <num>734</num>
+          Number of Gold Badges: <num>2</num>
+          Number of Silver Badges:<num>8</num>
+          Number of Bronze Badges:<num>23</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="Matt Sanders" url="http://stackoverflow.com/users/1362146/matt-sanders">
+        <signatureContent>
+          <p>Reputation: <num>221</num>
+          Number of Gold Badges: <num></num>
+          Number of Silver Badges:<num>2</num>
+          Number of Bronze Badges:<num>10</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="David Martin" url="http://stackoverflow.com/users/1035521/david-martin">
+        <signatureContent>
+          <p>Reputation: <num>4,965</num>
+          Number of Gold Badges: <num>1</num>
+          Number of Silver Badges:<num>12</num>
+          Number of Bronze Badges:<num>34</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="Julian" url="http://stackoverflow.com/users/201303/julian">
+        <signatureContent>
+          <p>Reputation: <num>1,164</num>
+          Number of Gold Badges: <num></num>
+          Number of Silver Badges:<num>10</num>
+          Number of Bronze Badges:<num>26</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="Nicholas Piasecki" url="http://stackoverflow.com/users/32187/nicholas-piasecki">
+        <signatureContent>
+          <p>Reputation: <num>15,214</num>
+          Number of Gold Badges: <num>1</num>
+          Number of Silver Badges:<num>46</num>
+          Number of Bronze Badges:<num>69</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="Pol" url="http://stackoverflow.com/users/682111/pol">
+        <signatureContent>
+          <p>Reputation: <num>2,958</num>
+          Number of Gold Badges: <num>1</num>
+          Number of Silver Badges:<num>17</num>
+          Number of Bronze Badges:<num>34</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="emcor" url="">
+        <signatureContent>
+          <p>Reputation: <num>134</num>
+          Number of Gold Badges: <num></num>
+          Number of Silver Badges:<num></num>
+          Number of Bronze Badges:<num>12</num></p>
+        </signatureContent>
+        </person>
+        <person xml:id="George Stocker♦" url="http://stackoverflow.com/users/16587/george-stocker">
+        <signatureContent>
+          <p>Reputation: <num>34,342</num>
+          Number of Gold Badges: <num>21</num>
+          Number of Silver Badges:<num>116</num>
+          Number of Bronze Badges:<num>188</num></p>
+        </signatureContent>
+        </person>
+        </listPerson>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+    <div type="forum">
+      <post synch="Oct 16 '14 at 14:27" who="usr" revisedWhen="Oct 17 '14 at 3:07" revisedby="Art" upVote="89" accepted="favorite">
+      <p>After installing the ASP.NET MVC 3 security update KB2990942 it appears the MVC version increased from 3.0.0.0 to 3.0.0.1. This causes Visual Studio to no longer find the reference.
+
+      <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+      Resharper does not show any problems but the build fails with lots of unresolved MVC types and a warning:
+
+      Warning: Could not resolve this reference. Could not locate the assembly "System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors.
+      This kind of makes sense. This version no longer exists on my machine.
+
+      I cannot guarantee the exact MVC version on dev machines, build servers and production servers. They might have 3.0.0.0 or 3.0.0.1 and this might change at any time. Windows Update might release new MVC versions at any time. Also, I don't want to increase the version number in all *.csproj files whenever an MVC update is released.
+
+      Multiple versions are affected by the update:
+
+      KB 2993939: Security Update for Microsoft ASP.NET MVC 2
+      KB 2993937: Security Update for Microsoft ASP.NET MVC 3
+      KB 2993928: Security Update for Microsoft ASP.NET MVC 4.0
+      KB 2992080: Security Update for Microsoft ASP.NET MVC 5.0
+      The security bulletin: MS14-059: Vulnerability in ASP.NET MVC Could Allow Security Feature Bypass (2990942)
+
+      What's the best way to deal with this situation? How can I unbreak build and production and be safe regarding future MVC updates?
+
+      <tag>.net</tag> <tag>asp.net-mvc</tag> <tag>versioning</tag> <tag>assembly-references</tag> <tag>assembly-binding-redirect</tag>
+      </p>
+      </post>  
+    </div>    
+    <div type="moderator">
+      <head>marked as duplicate by George Stocker♦ Nov 12 '14 at 23:22</head>
+      <post synch="Nov 12 '14 at 23:22" who="George Stocker♦">
+        <p>This question has been asked before and already has an answer. If those answers do not fully address your question, please ask a new question.
+        </p>
+      </post>
+      </div>
+      <div type="response">
+        <post synch="Oct 16 '14 at 14:31" who="Oliver" IndentLevel="1" upVote="6">  
+          <p>Same issue today with 4.0.0.1, we just re-referenced System.Web.Mvc. Would be nice to have a more robust referencing solution.   
+          </p>        
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 14:45" who="Stijn" IndentLevel="1">   
+          <p>You should at least be able to guarantee that your build servers and production servers run in an identical environment. Dev machines can run out of sync, but you can deal with such problems when they arise. Your build servers should uncover any issues.     
+          </p>      
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 14:46" who="usr" IndentLevel="1" upVote="2">       
+          <p>@Stijn I plan to do that but I cannot guarantee that updates happen at the exact same time. The development process must work on its own for a few weeks without manual attention.    
+          </p>      
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 14:57" who="Stijn" IndentLevel="1">      
+          <p>That being said, this could be an annoying issue. The updates haven't hit our machines yet, do you know if it breaks production? And I see in Windows Update that MVC 2, 3, 4 and 5 are affected.    
+          </p>      
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 15:27" who="usr" IndentLevel="1" upVote="3">   
+          <p>It did not break production with MVC 3. In the GAC I found a "System.Web.Mvc.dll.config" that has a binding redirect. Apparently, this file is being used by the CLR.    
+          </p>      
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 19:12" who="Eric Brown- Cal" IndentLevel="1">     
+          <p>We had the exact same behavior, but none of the patches listed are installed on our machines...odd.. patches were installed just not those numbers listed.     
+          </p>      
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 19:48" who="Stijn" IndentLevel="1">     
+          <p>@Eric those patch numbers are for a Windows 7 x64 system, they may be different for other systems.    
+          </p>      
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 20:13" who="Eric Brown - Cal" IndentLevel="1">     
+          <p>Not the issue, (I'm on w7 64, btw), it does not show up under installed updates at all, turns out it shows up as reinstalling asp.net mvc #.. the installed date and file version # change.    
+          </p>      
+        </post>
+        </div>
+      <div type="answer">
+        <post synch="Oct 16 '14 at 16:15" who="Guffa" revisedWhen="Oct 16 '14 at 16:20" upVote="54">
+        <p>I fixed this by:
+
+        Removing the MVC reference and add the correct reference to the project.
+        Changing the Copy Local property of the reference to true.
+        Update the bindingRedirect setting in web.config:
+        web.config runtime section:
+
+        &lt;runtime&gt;
+            &lt;assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1"&gt;
+                &lt;dependentAssembly&gt;
+                    &lt;assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" /&gt;
+                    &lt;bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.1" /&gt;
+                &lt;/dependentAssembly&gt;
+            ...
+        Changing the Copy Local setting will include the System.Web.MVC.dll file in the bin folder when you publish the project, so that it works even if the server is not updated with the new version.
+
+        Note that updates like this rarely happens. This is the first time that MVC 3 has been patched since it was released. You should be able to change Copy Local back to false once the servers has been updated. The next time Microsoft makes an update like this, they will probably know to fix issues like this first.
+        </p>
+        </post>
+      </div>
+      <div type="response">
+        <post synch="Oct 16 '14 at 16:32" who="TK1" IndentLevel="1" upVote="1">      
+        <p>I did the same apart from changing the copy local property of the reference. This seems to make my project work.    
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 20:11" who="Eric Brown - Cal" IndentLevel="1">         
+        <p>Be aware, these patches do not show up as installed updates, you have to go look at the Asp.Net MVC # shown under normal add remove programs, it will have a date of install when the patch was applied (for me 10.15.2014)   
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 23:42" who="Guffa" IndentLevel="1">        
+        <p>@EricBrown-Cal: Do you mean the server version update? On my computer it shows up as an installed update.    
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 20 '14 at 14:16" who="Danny Tuppeny" IndentLevel="1">      
+        <p>Setting CopyLocal=true did not help us; see: System.Web.MVC not copied to bin folder since MS14-059   
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 22 '14 at 13:57" who="Eric Brown - Cal" IndentLevel="1">         
+        <p>For me, if you open add remove programs/features and click on view installed updates, the KBs don't show up. If you go back to add remove, goto asp.net MVC (3 in my case) it will show it installed with a new date (in my case 10/15/14). That was the only way to detect it on my machine except file/path compares.    
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 22 '14 at 16:16" who="Guffa" IndentLevel="1">         
+        <p>@EricBrown-Cal: Yes, that list doesn't show all updates for some reason. If I open PC Settings, go to Update and recovery, and click View your update history, it shows all updates.    
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 23 '14 at 7:30" who="Wouter" IndentLevel="1" upVote="1">          
+        <p>This partially solved the problem for me as in that my solution buids once again. However, it now shows me several warnings: Assuming assembly reference 'System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' matches 'System.Web.Mvc, Version=3.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35', you may need to supply runtime policy    
+        </p>
+        </post>
+        </div>
+      <div type="answer">
+        <post synch="Oct 21 '14 at 15:33" who="gunnerz" upVote="17">
+        <p>I installed Microsoft.AspNet.Mvc package in my project using Nuget.
+
+        Install-Package Microsoft.AspNet.Mvc -Version &lt;version> -Project PROJECTNAME 
+
+        MVC 4 version: 4.0.40804.0
+
+        MVC 3 version: 3.0.50813.1
+        This fixed the problem. Details here: http://blogs.msdn.com/b/webdev/archive/2014/10/16/microsoft-asp-net-mvc-security-update-broke-my-build.aspx
+        </p>
+        </post>
+      </div>
+      <div type="response">
+        <post synch="Apr 23 at 20:01" who="Matt Sanders" IndentLevel="1">      
+        <p>Thank you, this was the best solution for us and it removed the dependency of the correct version in the GAC on build agents       
+        </p>
+        </post>
+        </div>
+      <div type="answer">
+        <post synch="Oct 17 '14 at 8:26" who="David Martin" revisedwhen="Oct 17 '14 at 8:43" upVote="10">
+        <p>Your production system should be fine as the hotfix delivers a config file (System.Web.Mvc.dll.config) into the following folder:
+
+        %SystemRoot%\assembly\GAC_MSIL\policy.3.0.System.Web.Mvc\3.0.0.1__31bf3856ad364e35
+        The config file contains an assembly redirect to the new version, this will override anything you have in your web.config:
+
+        &lt;?xml version="1.0"?>
+        &lt;!-- http://msdn.microsoft.com/en-us/library/7wd6ex19.aspx#BKMK_Redirectingassemblyversionsbyusingpublisherpolicy -->
+        &lt;configuration>
+            &lt;runtime>
+                &lt;assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+                    &lt;dependentAssembly>
+                        &lt;assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+                        &lt;bindingRedirect oldVersion="3.0.0.0-3.0.0.1" newVersion="3.0.0.1"/>
+                    &lt;/dependentAssembly>
+                &lt;/assemblyBinding>
+            &lt;/runtime>
+        &lt;/configuration>
+        Follow the advice by @Guffa for your build system, or use nuget to update. I believe the solution which works depends on how you deliver the MVC binaries to your system (either bin deploy or GAC).
+        </p>
+        </post>
+      </div>
+      <div type="response">
+        <post synch="Oct 17 '14 at 20:22 " who="Julian" IndentLevel="1">      
+        <p>Can't find this file on my system. Any reference for this information?       
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 18 '14 at 6:59" who="David Martin" IndentLevel="1" upVote="1">         
+        <p>@julian as it's the gac you might have to traverse the directory using an elevated command prompt. Also I believe this only applies if you installed mvc, if you nuget (bin deploy) mvc this may not be present on your system.     
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 28 '14 at 18:17" who="Nicholas Piasecki" IndentLevel="1" upVote="1">         
+        <p>What's interesting is that one can (1) apply the update and get this config file, then (2a) go back and update his NuGet package to the newest version and (2b) forget or fail (such as from a bad revert) to update the binding redirect in your web.config file. The result? The existing serveris fine, but if you try to deploy to a new server that doesn't have the update installed (and it wouldn't be offered till it sees the old version loaded), you'll bomb because your bindingRedirect was wrong all along and you didn't realize it -- you were saved by this extra redirect supplied by the update.       
+        </p>
+        </post>
+        </div>
+      <div type="answer">
+        <post synch="Nov 12 '14 at 19:35" who="Pol" revisedwhen="Nov 12 '14 at 19:4" upVote="0">
+        <p>What worked in my case was to change the Reference element in project file so Version=3.0.0.0 is now Version=3.0.0.1. I also updated the System.Web.Mvc.dll file sitting in _bin_deployableAssemblies folder to the new version and added a HintPath element in the Reference element pointing to said dll so it's picked up even when in GAC we still have version 3.0.0.0.
+
+        The tricky part is to not forget to update reference in all projects referencing System.Web.Mvc (e.g. including test project).
+        </p>
+        </post>
+      </div>
+      <div type="answer">
+        <post synch="Oct 16 '14 at 14:34" who="emcor" upVote="0">
+        <p>You could reference to the warning "Version=3.0.0.0" and increase the version string until it fits
+        </p>
+        </post>
+      </div>
+      <div type="response">
+        <post synch="Oct 16 '14 at 14:35" who="usr" IndentLevel="1">      
+        <p>That would need to happen any time an update is installed.       
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 15:36" who="emcor" IndentLevel="1">      
+        <p>@usr No because the next update always has higher version. So the next version will require one more increase, but code stays same.        
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post synch="Oct 16 '14 at 15:38" who="usr" IndentLevel="1">      
+        <p>I don't want to increase anything. I want this fixed once and for all. There might not even be a human present at the time a build is failing. It might be an automated nightly build that stops working after an automatic Windows Update.         
+        </p>
+        </post>
+        </div>
+    </body> 
+  </text>
+</TEI>

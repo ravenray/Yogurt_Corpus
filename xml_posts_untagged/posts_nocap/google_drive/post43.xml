@@ -1,0 +1,121 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Degrees of JS vulnerability</title>
+        <author>CodeMoose</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/20051011/degrees-of-js-vulnerability</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="CodeMoose" url="http://stackoverflow.com/users/524399/codemoose">
+        <signatureContent>
+          <p>Reputation: <num>1,353</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>17</num>Number of Bronze Badges: <num>41</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="MrKWatkins" url="http://stackoverflow.com/users/320508/mrkwatkins">
+        <signatureContent>
+          <p>Reputation: <num>1,952</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>13</num>Number of Bronze Badges: <num>23</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Esailija" url="http://stackoverflow.com/users/995876/esailija">
+        <signatureContent>
+          <p>Reputation: <num>95.1k</num>Number of Gold Badges: <num>8</num>Number of Silver Badges: <num>146</num>Number of Bronze Badges: <num>218</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Aurand" url="http://stackoverflow.com/users/1760609/aurand">
+        <signatureContent>
+          <p>Reputation: <num>4,184</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>25</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2013-11-18 14:46:38Z" who="CodeMoose" revisedWhen="2013-11-18 15:11:00Z" upVote="1" accepted="favorite"><p>Never trust the client. It's my coding mantra. All javascript can, with enough effort, be overwritten or compromised. The thing I want to understand is how.Let's say I wrote a function checkStep() for a game - each time the player moves one space, it polls the server to check for any events: HP regeneration, enter random battle, move to next map, etc. I asked myself "self, how would I go about rewriting or disabling this function?" Research turned up some conflicting results. Some sources say functions can be directly redefined from the console, others say it would be a much more involved process.My question is this: what would a player have to do to rewrite or disable my checkStep() function? Can they simply redefine it from the console? Would they have to rip, modify, and re-host my code? How would you do it?Please note, I'm not asking how to make this function secure.
+  The first person to leave an answer/comment along the lines of "you
+  can try minifying it, but it still wont be secure" or "put in some
+  server-side checks" is getting bludgeoned with a semicolon, as an
+  example to the rest.<tag>javascript</tag><tag>security</tag></p></post>
+      </div>
+      <div type="moderator">
+        <head>migrated  from  gamedev.stackexchange.com Nov 18 '13 at 15:05</head>
+        <post when="2013-11-18 15:05:45Z" who="gamedev.stackexchange.com">This question came from our site for professional and independent game developers.</post>
+      </div>
+      <div type="response">
+        <post who="adeneo" when="2013-11-18 15:13:30Z" indentLevel="1" upVote="2">
+          <p>A player doesn't have to rewrite anything, or use the console at all. The browser runs the javascript on the users computer, sending POST or GET requests to your server, and any computer, even one from 1996 running DOS 3.0 can send a GET or POST request containing anything they well like, the same goes for any Linux command line, and even some calculators. So, if I where to figure out that you're using MySQL to store whatever is sent to the server, and that there's no filtering going on, I could, from the command line, send a request containing a simple SQL command that deletes the entire DB.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:18:34Z" indentLevel="1">
+          <p>@adeneo good thing I'm not that stupid.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="adeneo" when="2013-11-18 15:21:05Z" indentLevel="1">
+          <p>Ah, but you'd be suprised at how little it takes, just a small error in validating a form or even leaving something open in a server that generates pages can lead to someone figuring out a way to do damage or get access to things they shouldn't have access to.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:27:35Z" indentLevel="1">
+          <p>That's why I'm circumventing it altogether =) The JS is really just a rendering engine, it has no power to decide when events are triggered. All  checkStep  does is submit two integer coordinates, and accepts in return a list of validated events to display. If the user disables the script that processes these instructions, then they don't get any battles or regen, and can't leave the current map.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:28:21Z" indentLevel="1">
+          <p>The server also validates that these two coordinates are integers, and nukes any other values sent over in the request.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="MrKWatkins" when="2013-11-18 15:04:12Z" upVote="2" accepted="accepted">
+          <p>You could use a web debugging proxy like  Fiddler  to do this for your local machine. Programs like this allow you to intercept content you download and fiddle with it. So you could write a new version of the function, then use the program to replace it with your version when the file is downloaded from the server. Then, for your local machine, the code would run with the new function in place. The  web session manipulation  page on the Fiddler site has a few more details.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:17:28Z" indentLevel="1">
+          <p>Exactly what I was looking for. Thanks!</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Esailija" when="2013-11-18 15:05:12Z" upVote="0">
+          <p>There is no reason to use any Javascript or browser a even.  If a normal user can use their browser to play the game then any user can use any program to communicate with the server and send it anything they want. The server is not able to know if someone is using a browser to connect to it or not. This applies to anything. A game server doesn't know if the user is connecting to it through the official game client. Since the official game is closed source it would be easy to fall into trusting it even though it is possible to reverse engineer the protocols used and use anything to connect to the server.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:22:23Z" indentLevel="1">
+          <p>That's good to know, but I'm not exposing any kind of event-controlling code to the client.  checkStep  doesn't submit anything but the current map position to the server - and the server nukes any data it receives in that request other than the position. All the server returns is instruction on what events have been validated and should be displayed. The JS is basically just a rendering engine. At the worst, the player can falsify their location and skip to the other end of the map, and in this case that isn't game-breaking.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Esailija" when="2013-11-18 15:30:34Z" indentLevel="1">
+          <p>@CodeMoose All the code running on client side is worthless. The only thing that matters is  how  the client communicates with the server - and that can be done without using any of the client code or even a browser.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="CodeMoose" when="2013-11-18 15:34:08Z" indentLevel="1">
+          <p>I understand that. Even if the user successfully hijacks the session token and matching cookie, the most the server will accept is repeated firing of the  checkstep()  function - and all that's going to get them is various tiny responses like  {battle: 0, hp: 45} {battle: 1, hp: 47} {error: 'battle engaged'}  If they rip apart the client-side code, all they're going to do is ruin the game for themselves.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Aurand" when="2013-11-18 15:24:27Z" upVote="0">
+          <p>Complex things like creating a malicious game client, or using a proxy to alter content before it makes it to the browser are technically valid points, however that seems like a lot of effort for something which is very simple to do.
+
+var checkStep = function() {
+  ... // your original function
+}
+
+// later on
+checkStep = function() {
+  alert('foo');
+}
+
+It is perfectly valid in JavaScript to change what function a variable holds. Any function you define can be redefined on the client side. This can be done by other script files loaded by the browser which use conflicting variable names, scripts injected via XSS, or by the user bringing up the console.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

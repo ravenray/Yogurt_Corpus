@@ -1,0 +1,386 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Best Practices: Salting &amp; peppering passwords?</title>
+        <author>Silent Echo</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/16891729/best-practices-salting-peppering-passwords</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Silent Echo" url="http://stackoverflow.com/users/2294775/silent-echo">
+        <signatureContent>
+          <p>Reputation: <num>7,972</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>22</num>Number of Bronze Badges: <num>47</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="ircmaxell" url="http://stackoverflow.com/users/338665/ircmaxell">
+        <signatureContent>
+          <p>Reputation: <num>106k</num>Number of Gold Badges: <num>20</num>Number of Silver Badges: <num>199</num>Number of Bronze Badges: <num>264</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="martinstoeckli" url="http://stackoverflow.com/users/575765/martinstoeckli">
+        <signatureContent>
+          <p>Reputation: <num>11.9k</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>20</num>Number of Bronze Badges: <num>42</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="foochow" url="http://stackoverflow.com/users/896075/foochow">
+        <signatureContent>
+          <p>Reputation: <num>377</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>20</num></p>
+        </signatureContent>
+      </person>
+       <person xml:id="Agmlauncher" url="http://stackoverflow.com/users/945775/agmlauncher">
+        <signatureContent>
+          <p>Reputation: <num>2,478</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>22</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="PriceChild" url="http://stackoverflow.com/users/601779/pricechild">
+        <signatureContent>
+          <p>Reputation: <num>224</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>2</num>Number of Bronze Badges: <num>18</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Perseids" url="http://stackoverflow.com/users/371137/perseids">
+        <signatureContent>
+          <p>Reputation: <num>3,607</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>14</num>Number of Bronze Badges: <num>33</num></p>
+        </signatureContent>
+      </person>
+       <person xml:id="Richard" url="http://stackoverflow.com/users/163495/richard">
+        <signatureContent>
+          <p>Reputation: <num>16,022</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>39</num>Number of Bronze Badges: <num>81</num></p>
+        </signatureContent>
+      </person>
+       <person xml:id="Aron" url="http://stackoverflow.com/users/1808494/aron">
+        <signatureContent>
+          <p>Reputation: <num>9,730</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>13</num>Number of Bronze Badges: <num>41</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Sven" url="http://stackoverflow.com/users/1434613/sven">
+        <signatureContent>
+          <p>Reputation: <num>1,167</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>10</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2013-06-03 07:15:47Z" who="Silent Echo" revisedWhen="2015-03-28 02:08:06Z" revisedBy="Charles" upVote="89" accepted="favorite"><p>I came across a discussion in which I learned that what I'd been doing wasn't in fact salting passwords but peppering them, and I've since begun doing both with a function like:
+
+hash_function($salt.hash_function($pepper.$password)) [multiple iterations]
+
+Ignoring the chosen hash algorithm (I want this to be a discussion of salts &amp; peppers and not specific algorithms but I'm using a secure one), is this a secure option or should I be doing something different? For those unfamiliar with the terms:
+
+    A salt is a randomly generated value usually stored with the string in the database designed to make it impossible to use hash tables to crack passwords. As each password has its own salt, they must all be brute-forced individually in order to crack them; however, as the salt is stored in the database with the password hash, a database compromise means losing both.
+
+    A pepper is a site-wide static value stored separately from the database (usually hard-coded in the application's source code) which is intended to be secret. It is used so that a compromise of the database would not cause the entire application's password table to be brute-forceable.
+
+Is there anything I'm missing and is salting &amp; peppering my passwords the best option to protect my user's security? Is there any potential security flaw to doing it this way?
+
+Note: Assume for the purpose of the discussion that the application &amp; database are stored on separate machines, do not share passwords etc. so a breach of the database server does not automatically mean a breach of the application server.
+<tag>security</tag><tag>password-hash</tag><tag>salt</tag><tag>passwords</tag><tag>hash</tag></p></post>
+      </div>
+         <div type="response">
+        <post who="irmaxell" when="2013-06-03 11:14:08Z" indentLevel="1" upVote="3">
+          <p>Not quite a duplicate, but extremely related: stackoverflow.com/questions/16594613/</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="ircmaxell" when="2013-06-03 11:59:06Z" revisedWhen="2015-03-28 11:59:06Z" upVote="201" accepted="accepted">
+          <p>Ok. Seeing as I need to write about this over and over, I'll do one last canonical answer on pepper alone.
+The Apparent Upside Of Peppers
+
+It seems quite obvious that peppers should make hash functions more secure. I mean, if the attacker only gets your database, then your users passwords should be secure, right? Seems logical, right?
+
+That's why so many people believe that peppers are a good idea. It "makes sense".
+The Reality Of Peppers
+
+In the security and cryptography realms, "make sense" isn't enough. Something has to be provable and make sense in order for it to be considered secure. Additionally, it has to be implementable in a maintainable way. The most secure system that can't be maintained is considered insecure (because if any part of that security breaks down, the entire system falls apart).
+
+And peppers fit neither the provable or the maintainable models...
+Theoretical Problems With Peppers
+
+Now that we've set the stage, let's look at what's wrong with peppers.
+
+    Feeding one hash into another can be dangerous.
+
+    In your example, you do hash_function($salt . hash_function($pepper . $password)).
+
+    We know from past experience that "just feeding" one hash result into another hash function can decrease the overall security. The reason is that both hash functions can become a target of attack.
+
+    That's why algorithms like PBKDF2 use special operations to combine them (hmac in that case).
+
+    The point is that while it's not a big deal, it is also not a trivial thing to just throw around. Crypto systems are designed to avoid "should work" cases, and instead focus on "designed to work" cases.
+
+    While this may seem purely theoretical, it's in fact not. For example, Bcrypt cannot accept arbitrary passwords. So passing bcrypt(hash(pw), salt) can indeed result in a far weaker hash than bcrypt(pw, salt) if hash() returns a binary string.
+
+    Working Against Design
+
+    The way bcrypt (and other password hashing algorithms) were designed is to work with a salt. The concept of a pepper was never introduced. This may seem like a triviality, but it's not. The reason is that a salt is not a secret. It is just a value that can be known to an attacker. A pepper on the other hand, by very definition is a cryptographic secret.
+
+    The current password hashing algorithms (bcrypt, pbkdf2, etc) all are designed to only take in one secret value (the password). Adding in another secret into the algorithm hasn't been studied at all.
+
+    That doesn't mean it is not safe. It means we don't know if it is safe. And the general recommendation with security and cryptography is that if we don't know, it isn't.
+
+    So until algorithms are designed and vetted by cryptographers for use with secret values (peppers), current algorithms shouldn't be used with them.
+
+    Complexity Is The Enemy Of Security
+
+    Believe it or not, Complexity Is The Enemy Of Security. Making an algorithm that looks complex may be secure, or it may be not. But the chances are quite significant that it's not secure.
+
+Significant Problems With Peppers
+
+    It's Not Maintainable
+
+    Your implementation of peppers precludes the ability to rotate the pepper key. Since the pepper is used at the input to the one way function, you can never change the pepper for the lifetime of the value. This means that you'd need to come up with some wonky hacks to get it to support key rotation.
+
+    This is extremely important as it's required whenever you store cryptographic secrets. Not having a mechanism to rotate keys (periodically, and after a breach) is a huge security vulnerability.
+
+    And your current pepper approach would require every user to either have their password completely invalidated by a rotation, or wait until their next login to rotate (which may be never)...
+
+    Which basically makes your approach an immediate no-go.
+
+    It Requires You To Roll Your Own Crypto
+
+    Since no current algorithm supports the concept of a pepper, it requires you to either compose algorithms or invent new ones to support a pepper. And if you can't immediately see why that's a really bad thing:
+
+        Anyone, from the most clueless amateur to the best cryptographer, can create an algorithm that he himself can't break.
+
+        Bruce Schneier
+
+    NEVER roll your own crypto...
+
+The Better Way
+
+So, out of all the problems detailed above, there are two ways of handling the situation.
+
+    Just Use The Algorithms As They Exist
+
+    If you use bcrypt or scrypt correctly (with a high cost), all but the weakest dictionary passwords should be statistically safe. The current record for hashing bcrypt at cost 5 is 71k hashes per second. At that rate even a 6 character random password would take years to crack. And considering my minimum recommended cost is 10, that reduces the hashes per second by a factor of 32. So we'd be talking only about 2200 hashes per second. At that rate, even some dictionary phrases or modificaitons may be safe.
+
+    Additionally, we should be checking for those weak classes of passwords at the door and not allowing them in. As password cracking gets more advanced, so should password quality requirements. It's still a statistical game, but with a proper storage technique, and strong passwords, everyone should be practically very safe...
+
+    Encrypt The Output Hash Prior To Storage
+
+    There exists in the security realm an algorithm designed to handle everything we've said above. It's a block cipher. It's good, because it's reversible, so we can rotate keys (yay! maintainability!). It's good because it's being used as designed. It's good because it gives the user no information.
+
+    Let's look at that line again. Let's say that an attacker knows your algorithm (which is required for security, otherwise it's security through obscurity). With a traditional pepper approach, the attacker can create a sentinel password, and since he knows the salt and the output, he can brute force the pepper. Ok, that's a long shot, but it's possible. With a cipher, the attacker gets nothing. And since the salt is randomized, a sentinel password won't even help him/her. So the best they are left with is to attack the encrypted form. Which means that they first have to attack your encrypted hash to recover the encryption key, and then attack the hashes. But there's a lot of research into the attacking of ciphers, so we want to rely on that.
+
+TL/DR
+
+Don't use peppers. There are a host of problems with them, and there are two better ways: not using any server-side secret (yes, it's ok) and encrypting the output hash using a block cipher prior to storage.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 12:03:56Z" indentLevel="1" upVote="9">
+          <p>Thank you for this very complete answer.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="martinstoeckli" when="2013-06-03 13:21:16Z" indentLevel="1" upVote="1">
+          <p>Thanks for including that last part of encrypting the hash-value, this is an answer i can fully agree with. If the encryption would become part of your  password api , there would be no reason not to use it, so maybe... (i would love to write the documentation for it)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ircmaxell" when="2013-06-04 14:56:21Z" indentLevel="1" upVote="1">
+          <p>@martinstoeckli: I would not agree to add the encryption step to the simplified hashing API. The reason is that the storage of secrets (keys) is a lot harder than people realize, and it's quite easy to shoot yourself in the foot. For 99.9% of the users out there, raw bcrypt is more than sufficient for all but the simplest passwords...</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="martinstoeckli" when="2013-06-04 20:14:10Z" indentLevel="1" upVote="7">
+          <p>@ircmaxell - On the other side, you would loose nothing. In the worst case, when the key becomes known, an attacker must still crack the BCrypt hash (same situation as without encryption). This is not the same as storing a key for encrypting data, this is about adding a server-side secret. Even a hardcoded key would protect those weak passwords, as long as the attacker has no control over the server/code. This situation is not uncommon: aside from SQL-injection, also thrown away backups, discarded serversâ¦ can lead to this situation. A lot of PHP users work on hosted servers.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="foochow" when="2013-06-27 19:51:31Z" indentLevel="1" upVote="2">
+          <p>@martinstoeckli I would have to agree with ircmaxwell here, I dont think that encryption belongs in the password api. Although, it could be noted that for maximum security encrypting your hashes is an additional provision that can be used.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="AgmLauncher" when="2015-01-15 3:51:28Z" indentLevel="1">
+          <p>I have a question regarding the encryption of output prior to storage. If I'm not mistaken, encryption keys are generally used to encrypt messages uniquely, or transiently. If however you have 200,000 user passwords all encrypted with the same key and stored together, doesn't that make it easier to attack the key? You now have 200,000 messages, compared to just 1 or 2.</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="PriceChild" when="2015-03-27 21:01:59Z" indentLevel="1" upVote="1">
+          <p>Can't tell if "modificaitons" is intentional</p>
+        </post>
+      </div> 
+       <div type="response">
+        <post who="Perseids" when="2015-03-28 0:38:05Z" indentLevel="1">
+          <p>We know from past experience that "just feeding" one hash result into another hash function can decrease the overall security.""" - Tell me just one real world attack that is remotely relevant to the case described by Suhosin. Of course, doing stuff like Sha256(MD5(m)) basically nulls its collision resistance, but for password hashing even that would not be a problem. Regarding "Working Against Design": While it might be good to refer to bcrypt and scrypt, because that is what people are likely using, you ignore the original question</p>
+        </post>
+      </div>
+              <div type="response">
+        <post who="Perseids" when="2015-03-28 00:52:21Z" indentLevel="1">
+          <p>Suhosin's hash_function only had one input and Suhosin referred to it as a secure hash function, which implies something like Sha256. And for secure hash function onewayness is an explicit design goal. You won't get a formal reduction proof, but it is absurd to believe that $password |-> hash_function($salt.hash_function($pepper.$password)) would be any less oneway than password |-> hash_function($salt.$password). And, referring to authority, Cryptography Engineering advises the use of Sha256(Sha256(m)) instead of a single application to counter the length extension property. </p>
+        </post>
+      </div>
+               <div type="response">
+        <post who="Perseids" when="2015-03-28 01:10:36Z" indentLevel="1">
+          <p>I do much like your argument, though, that encryption is better for the job, because it allows easier management and is a tool that was simply made for the task of keeping data confidential. Also, for the case of password hashing, you have to try really hard to apply the encryption primitive wrongly. Even ECB mode would be fine. Regarding your complexity argument: I would still argue that statically prepending pepper to the password in e.g. a PHP 5.5 password_hash has much less complexity than using a library like mcrypt to encrypt the password afterwards. </p>
+        </post>
+      </div>       
+       <div type="response">
+        <post who="ircmaxell" when="2015-03-28 02:10:07Z" indentLevel="1">
+          <p>@Perseids I edited in a reference to a very real-world and practical attack from combining hash functions (specifically bcrypt(hash()) when hash() returns raw bytes). I'm definitely not saying you can never safely combine hash functions. I'm saying you shoudn't do it willy-nilly without research. As far as prepending a pepper to the password, that can cause issues (both with null bytes, and reducing available password space since bcrypt is limited to 72 character passwords). Why not just encrypt and be done with it rather than rolling more custom schemes?</p>
+        </post>
+      </div>
+               <div type="response">
+        <post who="Perseids" when="2015-03-28 08:34:06Z" indentLevel="1">
+          <p>Oh, silly me, I recognized that you call bcrypt a hash function for the purpose of this article in the very next bullet point, but didn't realize its use there. It's unfortunate that we call bcrypt a "password hash function" while it bears next to no resemblance to a cryptographic hash function (no arbitrary input values, no arbitrary input length). Again (like in "Working Against Design"), it's probably better to leave the paragraph like it is because many readers are quite likely to confuse bcrypt with a secure hash function. And with the added link the rest knows what you are talking about.</p>
+        </post>
+      </div>
+               <div type="response">
+        <post who="Perseids" when="2015-03-28 09:02:41Z" indentLevel="1">
+          <p>Re why not just use encryption: Because with encryption people are as likely to roll their own custom schemes (not in the sense of inventing their own cipher, but in the sense of plugging together components they know nothing about). While we would like to think encryption should be just as easy as password hashing, the dire reality is that most libraries are horrible. I've already alluded to PHP's mcrypt, but even the Java documentation is outright dangerous: Cipher.getInstance("DES/CBC/PKCS5Padding");</p>
+        </post>
+      </div>
+               <div type="response">
+        <post who="Perseids" when="2015-03-28 09:22:32Z" indentLevel="1">
+          <p>Now, as I've said above, encrypting hashed passwords is especially forgiving. But if it wasn't for bcrypts 72 bytes limit, I would gladly suggest prepending pepper to the password as the least complex (and thus more secure) and theoretically sound solution. And yes, I know you probably do not agree that preventing key rollover is worth the lessened complexity. I for one, are more afraid of all the ways the encryption code can go wrong than of the threat of a disclosed pepper.</p>
+        </post>
+      </div>
+        <div type="answer">
+        <post who="martinstoeckli" when="2013-06-03 09:05:14Z" revisedWhen="2013-06-03 09:48:14Z" upVote="12">
+          <p>Fist we should talk about the exact advantage of a pepper:
+
+    The pepper can protect weak passwords from a dictionary attack, in the special case, where the attacker has read-access to the database (containing the hashes) but does not have access to the source code with the pepper.
+
+A typical scenario would be SQL-injection, thrown away backups, discarded servers... These situations are not as uncommon as it sounds, and often not under your control (server-hosting). If you use...
+
+    A unique salt per password
+    A slow hashing algorithm like BCrypt
+
+...strong passwords are well protected. It's nearly impossible to brute force a strong password under those conditions, even when the salt is known. The problem are the weak passwords, that are part of a brute-force dictionary or are derivations of them. A dictionary attack will reveal those very fast, because you test only the most common passwords.
+
+The second question is how to apply the pepper ?
+
+An often recommended way to apply a pepper, is to combine the password and the pepper before passing it to the hash function:
+
+$pepperedPassword = hash_hmac('sha512', $password, $pepper);
+$passwordHash = bcrypt($pepperedPassword);
+
+There is another even better way though:
+
+$passwordHash = bcrypt($password);
+$encryptedHash = encrypt($passwordHash, $serverSideKey);
+
+This not only allows to add a server side secret, it also allows to exchange the $serverSideKey, should this be necessary. This method involves a bit more work, but if the code once exists (library) there is no reason not to use it.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 09:24:35Z" indentLevel="1">
+          <p>So you'd say a pepper does add security over just a salt, in short? Thanks for the help on how to implement.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="martinstoeckli" when="2013-06-03 09:28:58Z" indentLevel="1" upVote="1">
+          <p>@LightningDust - Yes it does, for weak passwords, as long as the pepper stays secret. It mitigates some well defined types of threats.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 09:30:22Z" indentLevel="1">
+          <p>Will probably accept this answer but I'll wait to see what else is posted. Have upvoted.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="foochow" when="2013-06-27 19:40:28Z" indentLevel="1">
+          <p>@martinstoeckli definitely a good way to implement this. Good to see that someone with some security experience supports this method. Would a MySQL  AES_ENCRYPT($passwordHash, $serverSideKey)  call also be an appropriate way of implementing this?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="martinstoeckli" when="2013-06-27 20:14:02Z" indentLevel="1" upVote="1">
+          <p>@Foo_Chow - I don't know the implementation of the MySQL function, but it seems that they used the EBC mode, to avoid the IV-vector. Together with the known plaintext (hash-values always start with the same characters), this could be a problem. On my  homepage  i published an example implementation, that handles this encryption.</p>
+        </post>
+      </div>
+          <div type="response">
+        <post who="foochow" when="2013-06-27 22:08:09Z" indentLevel="1">
+          <p>@martinstoeckli interesting, not too familiar with the concepts; however seems like an IV would be desirable for the most robust results. Doesnt seem to add much overhead for the added benefit. </p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Aron" when="2013-06-03 07:32:12Z" upVote="2">
+          <p>The point of salt and pepper is to increase the cost of a pre-computed password lookup, called a rainbow table. In general trying to find a collision for a single hash is hard (assuming the hash is secure). However, with short hashes, it is possible to use computer to generate all possible hashes into a lookup onto a hard disk. This is called a Rainbow Table. If you create a rainbow table you can then go out into the world and quickly find plausable passwords for any (unsalted unpeppered) hash. The point of a pepper is to make the rainbow table needed to hack your password list unique. Thus wasting more time on the attacker to construct the rainbow table. The point of the salt however is to make the rainbow table for each user be unique to the user, further increasing the complexity of the attack. Really the point of computer security is almost never to make it (mathematically) impossible, just mathematically and physically impractical (for example in secure systems it would take all the entropy in the universe (and more) to compute a single user's password).</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 07:34:17Z" indentLevel="1">
+          <p>So does a salt+pepper offer any more security than just a salt? Or would I be better off dropping the pepper and running more iterations of scrypt?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Richard" when="2013-06-03 07:34:31Z" indentLevel="1" upVote="2">
+          <p>The main thing about a rainbow table is that you don't create one for a specific attack, you download a pre-existing one.  There are lengthy rainbow tables available for popular hash algorithms just a google away!</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aron" when="2013-06-03 07:36:14Z" indentLevel="1" upVote="1">
+          <p>@LightningDust I can't think of any reason myself. However Richard in the other thread came up with one. You can hide the pepper in your source code, which means another place your attacker needs to get access to, just to get a rainbow table together.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 07:38:07Z" indentLevel="1">
+          <p>@Aron - Well that's what I thought, since we have application servers separate from database servers (that is, if you get  root  on our db server, you still have no access to our application server), that hiding pepper in the source code (in our config file) would provide additional security.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Sven" when="2013-06-03 07:23:06Z" upVote="1">
+          <p>Can't see storing a hardcoded value in your source code as having any security relevance. It's security through obscurity.  If a hacker acquires your database, he will be able to start brute forcing your user passwords. It won't take long for that hacker to identify your pepper if he manages to crack a few passwords.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aron" when="2013-06-03 07:24:33Z" indentLevel="1">
+          <p>It would make a precomputed rainbow table for an unsalted password table useless. In short, even if the attacker knew your pepper he would need to create a new rainbow table.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Richard" when="2013-06-03 07:25:41Z" indentLevel="1" upVote="1">
+          <p>It strengthens the hash based on data not available in the database, which is a good thing.  Things in the database can be potentially revealed in vulnerabilities - it's less likely that a value in the code will be accessed in the same way.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 07:30:15Z" indentLevel="1">
+          <p>Salts are one way functions, even successfully brute-forcing a password would only give you that password, and would not help you to get the pepper value itself.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 07:31:15Z" indentLevel="1">
+          <p>MD5 example here using md5($pepper.$password) (note: I know not to use MD5 on a live site, this is for example purposes), my password is cat, my hash is 2d1ec2609e8265e64f2dbf6a697ebbfe. What is my pepper? At very best here, all you can do is try to brute force my (typically 64-character) pepper.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aron" when="2013-06-03 07:36:15Z" indentLevel="1" upVote="1">
+          <p>@LightningDust I think you mean "Hashes are trapdoor functions". Yes it is impossible to figure out your salt and/or pepper from a secure hash (in fact that is the definition of a secure hash).</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Sven" when="2013-06-03 07:42:15Z" indentLevel="1">
+          <p>Interesting discussion. Never did suggest you could gather the password from the hash though. I think peppers generate more complexity, but not more security.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Silent Echo" when="2013-06-03 08:23:15Z" indentLevel="1">
+          <p>@SvenAndersRobbestad - You did say "won't take long for that hacker to identify your pepper", which I believe to be factually incorrect. Even with 100 correct passwords and their resulting hashes, you wouldn't be left with any idea what the pepper is.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aron" when="2013-06-03 08:56:15Z" indentLevel="1">
+          <p>@SvenAndersRobbestad actually complexity is security. We are talking about huge complexity numbers here. When all is said and done, with a good salt and a good pepper, even if you could magically convert every single proton in the universe into a hard disk, you couldn't store the resultant rainbow table..</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Aron" when="2013-06-03 09:04:43Z" indentLevel="1">
+          <p>@SvenAndersRobbestad actually I think you are misunderstanding a key piece of security advise (security through obscurity is bad). This advise is not the whole truth. The correct workings is that all obscurity should be concentrated into a key and it is then a problem of securing your key. In this case a pepper is in a sense a cryptography key. </p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ircmaxell" when="2013-06-03 12:03:29Z" indentLevel="1" upvote="3">
+          <p>@Aron Security Through Obscurity can be a valid technique used as a layer of defense. The point is that it should  never  be relied upon as a defense, but instead used to "slow an attacker down". If that was not the case, something like a honeypot would not be used. Instead, we can effectively make use of security through obscurity to help slow attackers down, as long as we're not relying on it for the security of our application.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,309 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>How does the JPEG of Death vulnerability operate?</title>
+        <author>Rafa</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/28369097/how-does-the-jpeg-of-death-vulnerability-operate</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Rafa" url="http://stackoverflow.com/users/3043261/rafa">
+        <signatureContent>
+          <p>Reputation: <num>417</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>5</num>Number of Bronze Badges: <num>10</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Neitsa" url="http://stackoverflow.com/users/507028/neitsa">
+        <signatureContent>
+          <p>Reputation: <num>3,530</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>10</num>Number of Bronze Badges: <num>25</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="MichaelCMS" url="http://stackoverflow.com/users/746569/michaelcms">
+        <signatureContent>
+          <p>Reputation: <num>3,256</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>8</num>Number of Bronze Badges: <num>22</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2015-02-06 15:26:02Z" who="Rafa" revisedWhen="2015-03-01 00:21:49Z" upVote="93" accepted="favorite"><p>I’ve been reading about an older exploit against GDI+ on Windows XP and Windows Server 2003 called the JPEG of death for a project I’m working on.
+
+The exploit is well explained in the following link: http://www.infosecwriters.com/text_resources/pdf/JPEG.pdf
+
+Basically, a JPEG file contains a section called COM containing a (possibly empty) comment field, and a two byte value containing the size of COM. If there are no comments, the size is 2. The reader (GDI+) reads the size, subtracts two, and allocates a buffer of the appropriate size to copy the comments in the heap. The attack involves placing a value of 0 in the field. GDI+ subtracts 2, leading to a value of -2 (0xFFFe) which gets converted to the unsigned integer 0XFFFFFFFE by memcpy.
+
+Sample code:
+
+unsigned int size;
+size = len - 2;
+char *comment = (char *)malloc(size + 1);
+memcpy(comment, src, size);
+
+Observe that malloc(0) on the third line should return a pointer to unallocated memory on the heap. How can writing 0XFFFFFFFE bytes (4GB!!!!) possibly not crash the program? Does this write beyond the heap area and into the space of other programs and the OS? What happens then?
+
+As I understand memcpy, it simply copies n characters from the destination to the source. In this case, the source should be on the stack, the destination on the heap, and n is 4GB.
+<tag>c++</tag><tag>malware</tag><tag>memcpy</tag><tag>security</tag></p></post>
+      </div>
+        <div type="response">
+        <post who="iedoc" when="2015-02-06 16:01:53Z" indentLevel="1">
+          <p>malloc will allocate memory from the heap. i think the exploit was done before memcpy and after the memory was allocated </p>
+        </post>
+      </div>
+        <div type="response">
+        <post who="AcidShout" when="2015-02-06 18:24:37Z" indentLevel="1">
+          <p>just as a side note: it's not memcpy what promotes the value to an unsigned integer (4 bytes), but rather the subtraction.</p>
+        </post>
+      </div>
+        <div type="response">
+        <post who="Neitsa" when="2015-02-15 15:04:00Z" indentLevel="1">
+          <p>Updated my previous answer with a live example. The malloced size is only 2 bytes rather than 0xFFFFFFFE. This enormous size is only used for the copy size, not for the allocation size</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Neitsa" when="2015-02-06 17:00:28Z" upVote="89">
+          <p>
+
+This vulnerability was definitely a heap overflow.
+
+    How can writing 0XFFFFFFFE bytes (4 GB!!!!) possibly not crash the program?
+
+It probably will, but on some occasions you got time to exploit before the crash happens (sometimes, you can get the program back to its normal execution and avoid the crash).
+
+When the memcpy() starts, the copy will overwrite either some other heap blocks or some parts of the heap management structure (e.g free list, busy list, etc.).
+
+At some point the copy will encounter a non allocated page and trigger an AV (Access Violation) on write. GDI+ will then try to allocate a new block in the heap (see ntdll!RtlAllocateHeap) ... but the heap structures are now all messed up.
+
+At that point, by carefully crafting your JPEG image you can overwrite the heap management structures with controlled data. When the system tries to allocate the new block, it will probably unlink a (free) block from the free list.
+
+Block are managed with (notably) a flink (Forward link ; the next block in the list) and blink (Backward link; the previous block in the list) pointers. If you control both of the flink and blink, you might have a possible WRITE4 (write What/Where condition) where you control what you can write and where you can write.
+
+At that point you can overwrite a function pointer (SEH [Structured Exception Handlers] pointers were a target of choice at that time back in 2004) and gain code execution.
+
+See blog post Heap Corruption: A Case Study.
+
+Note: although I wrote about the exploitation using the freelist, an attacker might choose another path using other heap metadata ("heap metadata" are structures used by the system to manage the heap ; flink and blink are part of the heap metadata), but the unlink exploitation is probably the "easiest" one. A google search for "heap exploitation" will return numerous studies about this.
+
+    Does this write beyond the heap area and into the space of other programs and the OS?
+
+Never. Modern OS are based on the concept of virtual address space so each process on has its own virtual address space that enables addressing up to 4 gigabytes of memory on a 32-bit system (in practice you only got half of it in user-land, the rest is for the kernel).
+
+In short, a process can't access the memory of another process (except if it asks the kernel for it through some service / API, but the kernel will check if the caller has the right to do so).
+
+I decided to test this vulnerability this week-end, so we could get a good idea on what was going on rather than pure speculation. The vulnerability is now 10 years old, so I thought it was OK to write about it, although I haven't explained the exploitation part in this answer.
+
+Planning
+
+The most difficult task was to find a Windows XP with only SP1, as it was in 2004 :)
+
+Then, I downloaded a JPEG image composed only of a single pixel, as shown below (cut for brevity):
+
+File 1x1_pixel.JPG
+Address   Hex dump                                         ASCII
+00000000  FF D8 FF E0|00 10 4A 46|49 46 00 01|01 01 00 60| ÿØÿà JFIF  `
+00000010  00 60 00 00|FF E1 00 16|45 78 69 66|00 00 49 49|  `  ÿá Exif  II
+00000020  2A 00 08 00|00 00 00 00|00 00 00 00|FF DB 00 43| *          ÿÛ C
+[...]
+
+A JPEG picture is composed of binary markers (which intrduce segments). In the above image, FF D8 is the SOI (Start Of Image) marker, while FF E0, for example, is an application marker.
+
+The first parameter in a marker segment (except some markers like SOI) is a two-byte length parameter which encodes the number of bytes in the marker segment, including the length parameter and excluding the two-byte marker.
+
+I simply added a COM marker (0xFFFE) right after the SOI, since markers have no strict order.
+
+File 1x1_pixel_comment_mod1.JPG
+Address   Hex dump                                         ASCII
+00000000  FF D8 FF FE|00 00 30 30|30 30 30 30|30 31 30 30| ÿØÿþ  0000000100
+00000010  30 32 30 30|30 33 30 30|30 34 30 30|30 35 30 30| 0200030004000500
+00000020  30 36 30 30|30 37 30 30|30 38 30 30|30 39 30 30| 0600070008000900
+00000030  30 61 30 30|30 62 30 30|30 63 30 30|30 64 30 30| 0a000b000c000d00
+[...]
+
+The length of the COM segment is set to 00 00 to trigger the vulnerability. I also injected 0xFFFC bytes right after the COM marker with a recurring pattern, a 4 bytes number in hex, which will become handy when "exploiting" the vulnerability.
+
+Debugging
+
+Double clicking the image will immediately trigger the bug in the Windows shell (aka "explorer.exe"), somewhere in gdiplus.dll, in a function named GpJpegDecoder::read_jpeg_marker().
+
+This function is called for each marker in the picture, it simply: reads the marker segment size, allocates a buffer whose length is the segment size and copy the content of the segment into this newly allocated buffer.
+
+Here the start of the function :
+
+.text:70E199D5  mov     ebx, [ebp+arg_0] ; ebx = *this (GpJpegDecoder instance)
+.text:70E199D8  push    esi
+.text:70E199D9  mov     esi, [ebx+18h]
+.text:70E199DC  mov     eax, [esi]      ; eax = pointer to segment size
+.text:70E199DE  push    edi
+.text:70E199DF  mov     edi, [esi+4]    ; edi = bytes left to process in the image
+
+eax register points to the segment size and edi is the number of bytes left in the image.
+
+The code then proceeds to read the segment size, starting by the most significant byte (length is a 16-bits value):
+
+.text:70E199F7  xor     ecx, ecx        ; segment_size = 0
+.text:70E199F9  mov     ch, [eax]       ; get most significant byte from size --> CH == 00
+.text:70E199FB  dec     edi             ; bytes_to_process --
+.text:70E199FC  inc     eax             ; pointer++
+.text:70E199FD  test    edi, edi
+.text:70E199FF  mov     [ebp+arg_0], ecx ; save segment_size
+
+And the least significant byte:
+
+.text:70E19A15  movzx   cx, byte ptr [eax] ; get least significant byte from size --> CX == 0
+.text:70E19A19  add     [ebp+arg_0], ecx   ; save segment_size
+.text:70E19A1C  mov     ecx, [ebp+lpMem]
+.text:70E19A1F  inc     eax             ; pointer ++
+.text:70E19A20  mov     [esi], eax
+.text:70E19A22  mov     eax, [ebp+arg_0] ; eax = segment_size
+
+Once this is done, the segment size is used to allocate a buffer, following this calculation:
+
+alloc_size = segment_size + 2
+
+This is done by the code below:
+
+.text:70E19A29  movzx   esi, word ptr [ebp+arg_0] ; esi = segment size (cast from 16-bit to 32-bit)
+.text:70E19A2D  add     eax, 2 
+.text:70E19A30  mov     [ecx], ax 
+.text:70E19A33  lea     eax, [esi+2] ; alloc_size = segment_size + 2
+.text:70E19A36  push    eax             ; dwBytes
+.text:70E19A37  call    _GpMalloc@4     ; GpMalloc(x)
+
+In our case, as the segment size is 0, the allocated size for the buffer is 2 bytes.
+
+The vulnerability is right after the allocation:
+
+.text:70E19A37  call    _GpMalloc@4     ; GpMalloc(x)
+.text:70E19A3C  test    eax, eax
+.text:70E19A3E  mov     [ebp+lpMem], eax ; save pointer to allocation
+.text:70E19A41  jz      loc_70E19AF1
+.text:70E19A47  mov     cx, [ebp+arg_4]   ; low marker byte (0xFE)
+.text:70E19A4B  mov     [eax], cx         ; save in alloc (offset 0)
+;[...]
+.text:70E19A52  lea     edx, [esi-2]      ; edx = segment_size - 2 = 0 - 2 = 0xFFFFFFFE!!!
+;[...]
+.text:70E19A61  mov     [ebp+arg_0], edx
+
+The code simply subtracts the segment_size size (segment length is a 2 bytes value) from the whole segment size (0 in our case) and ends up with an integer underflow: 0 - 2 = 0xFFFFFFFE
+
+The code then checks is there are bytes left to parse in the image (which is true), and then jumps to the copy:
+
+.text:70E19A69  mov     ecx, [eax+4]  ; ecx = bytes left to parse (0x133)
+.text:70E19A6C  cmp     ecx, edx      ; edx = 0xFFFFFFFE
+.text:70E19A6E  jg      short loc_70E19AB4 ; take jump to copy
+;[...]
+.text:70E19AB4  mov     eax, [ebx+18h]
+.text:70E19AB7  mov     esi, [eax]      ; esi = source = points to segment content ("0000000100020003...")
+.text:70E19AB9  mov     edi, dword ptr [ebp+arg_4] ; edi = destination buffer
+.text:70E19ABC  mov     ecx, edx        ; ecx = copy size = segment content size = 0xFFFFFFFE
+.text:70E19ABE  mov     eax, ecx
+.text:70E19AC0  shr     ecx, 2          ; size / 4
+.text:70E19AC3  rep movsd               ; copy segment content by 32-bit chunks
+
+The above snippet shows that copy size is 0xFFFFFFFE 32-bits chunks. The source buffer is controlled (content of the picture) and the destination is a buffer on the heap.
+
+Write condition
+
+The copy will trigger an access violation (AV) exception when it reaches the end of the memory page (this could be either from the source pointer or destination pointer). When the AV is triggered, the heap is already in a vulnerable state because the copy has already overwritten all following heap blocks until a non-mapped page was encountered.
+
+What makes this bug exploitable is that 3 SEH (Structured Exception Handler; this is try / except at low level) are catching exceptions on this part of the code. More precisely, the 1st SEH will unwind the stack so it gets back to parse another JPEG marker, thus completely skipping the marker that triggered the exception.
+
+Without an SEH the code would have just crashed the whole program. So the code skips the COM segment and parses another segment. So we get back to GpJpegDecoder::read_jpeg_marker() with a new segment and when the code allocates a new buffer:
+
+.text:70E19A33  lea     eax, [esi+2] ; alloc_size = semgent_size + 2
+.text:70E19A36  push    eax             ; dwBytes
+.text:70E19A37  call    _GpMalloc@4     ; GpMalloc(x)
+
+The system will unlink a block from the free list. It happens that metadata structures were overwritten by the content of the image; so we control the unlink with controlled metadata. The below code in somewhere in the system (ntdll) in the heap manager:
+
+CPU Disasm
+Address   Command                                  Comments
+77F52CBF  MOV ECX,DWORD PTR DS:[EAX]               ; eax points to '0003' ; ecx = 0x33303030
+77F52CC1  MOV DWORD PTR SS:[EBP-0B0],ECX           ; save ecx
+77F52CC7  MOV EAX,DWORD PTR DS:[EAX+4]             ; [eax+4] points to '0004' ; eax = 0x34303030
+77F52CCA  MOV DWORD PTR SS:[EBP-0B4],EAX
+77F52CD0  MOV DWORD PTR DS:[EAX],ECX               ; write 0x33303030 to 0x34303030!!!
+
+Now we can write what we want, where we want...
+</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="MichaelCMS" when="2015-02-06 16:12:03Z" upVote="3">
+          <p>Since I don't know the code from GDI, what's below is just speculation.
+
+Well, one thing that pops into mind is one behavior that I've noticed on some OSes (I don't know if Windows XP had this) was when allocating with new / malloc, you can actually allocate more than your RAM, as long as you don't write to that memory.
+
+This is actually a behavior of the linux Kernel.
+
+From www.kernel.org :
+
+    Pages in the process linear address space are not necessarily resident in memory. For example, allocations made on behalf of a process are not satisfied immediately as the space is just reserved within the vm_area_struct.
+
+To get into resident memory a page fault must be triggered.
+
+Basically you need to make the memory dirty before it actually gets allocated on the system:
+
+  unsigned int size=-1;
+  char* comment = new char[size];
+
+Sometimes it won't actually make a real allocation in RAM (your program will still not use 4 GB). I know I've seen this behavior on a Linux, but I cannot however replicate it now on my Windows 7 installation.
+
+Starting from this behavior the following scenario is possible.
+
+In order to make that memory existing in RAM you need to make it dirty (basically memset or some other write to it):
+
+  memset(comment, 0, size);
+
+However the vulnerability exploits a buffer overflow, not an allocation failure.
+
+In other words, if I'd were to have this:
+
+ unsinged int size =- 1;
+ char* p = new char[size]; // Will not crash here
+ memcpy(p, some_buffer, size);
+
+This will lead to a write after buffer, because there's no such thing as a 4 GB segment of continuous memory.
+
+You didn't put anything in p to make the whole 4 GB of memory dirty, and I don't know if memcpy makes memory dirty all at once, or just page by page (I think it's page by page).
+
+Eventually it will end up overwriting the stack frame (Stack Buffer Overflow).
+
+Another more possible vulnerability was if the picture was kept in memory as a byte array (read whole file into buffer), and the sizeof comments was used just to skip ahead non-vital information.
+
+For example
+
+     unsigned int commentsSize = -1;
+     char* wholePictureBytes; // Has size of file
+     ...
+     // Time to start processing the output color
+     char* p = wholePictureButes;
+     offset = (short) p[COM_OFFSET];
+     char* dataP = p + offset;
+     dataP[0] = EvilHackerValue; // Vulnerability here
+
+As you mentioned, if the GDI didn't allocates that size, the program will never crash.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rodrigo" when="2015-02-06 16:24:29Z" indentLevel="1">
+          <p>That could be with a 64-bit system, where 4GB is not a big deal (speaking about addess space). But in a 32-bit system, (they appear to be vulnerable too) you cannot reserve 4GB of address space, because that would be all there is! So a  malloc(-1U)  will surely fail, return  NULL  and  memcpy()  will crash.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="chue x" when="2015-02-06 19:49:28Z" indentLevel="1">
+          <p>I don't think this line is true: "Eventually it will end up writing into another process address." Normally one process cannot access another's memory. See  MMU Benefits .</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="MichaelCMS" when="2015-02-11 11:19:04Z" indentLevel="1">
+          <p>@MMU Benefits yes, you are right. I was meant to say that will go over the normal heap boundaries and start overwriting the stack frame. I will edit my answer, thanks for pointing it out.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

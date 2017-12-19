@@ -1,0 +1,616 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Jenkins on OS X: xcodebuild gives Code Sign error</title>
+				<author>edelaney05</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source?</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/9245149/jenkins-on-os-x-xcodebuild-gives-code-sign-error
+				On: May 04, 2015
+				</p>
+			<listPerson>
+				<person xml:id="edelaney05" url="http://stackoverflow.com/users/492847/edelaney05">
+				<signatureContent>
+					<p>Reputation: <num>2,305</num>
+					Number of Gold Badges: <num>4</num>
+					Number of Silver Badges:<num>20</num>
+					Number of Bronze Badges:<num>38</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="Zsub" url="http://stackoverflow.com/users/178363/zsub">
+				<signatureContent>
+					<p>Reputation: <num>996</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>7</num>
+					Number of Bronze Badges:<num>21</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Jonny" url="http://stackoverflow.com/users/129202/jonny">
+				<signatureContent>
+					<p>Reputation: <num>4,535</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>43</num>
+					Number of Bronze Badges:<num>89</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Julian" url="http://stackoverflow.com/users/1041122/julian-f-weinert">
+				<signatureContent>
+					<p>Reputation: <num>2,541</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>21</num>
+					Number of Bronze Badges:<num>51</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Simon Urbanek" url="http://stackoverflow.com/users/1031175/simon-urbanek">
+				<signatureContent>
+					<p>Reputation: <num>8,488</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>20</num>
+					Number of Bronze Badges:<num>29</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Luke" url="http://stackoverflow.com/users/389159/luke">
+				<signatureContent>
+					<p>Reputation: <num>1,798</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>8</num>
+					Number of Bronze Badges:<num>24</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Gili" url="http://stackoverflow.com/users/14731/gili">
+				<signatureContent>
+					<p>Reputation: <num>18,244</num>
+					Number of Gold Badges: <num>29</num>
+                    Number of Silver Badges:<num>151</num>
+					Number of Bronze Badges:<num>293</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="kuba" url="http://stackoverflow.com/users/1091195/kuba">
+				<signatureContent>
+					<p>Reputation: <num>4,571</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>14</num>
+					Number of Bronze Badges:<num>32</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Ivo Dancet" url="http://stackoverflow.com/users/1124157/ivo-dancet">
+				<signatureContent>
+					<p>Reputation: <num>61</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num>2</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="lxt" url="http://stackoverflow.com/users/197143/lxt">
+				<signatureContent>
+					<p>Reputation: <num>24,754</num>
+					Number of Gold Badges: <num>3</num>
+					Number of Silver Badges:<num>53</num>
+					Number of Bronze Badges:<num>69</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="CMVR" url="http://stackoverflow.com/users/2370215/cmvr">
+				<signatureContent>
+					<p>Reputation: <num>375</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>2</num>
+					Number of Bronze Badges:<num>9</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="brianestey" url="http://stackoverflow.com/users/591801/brianestey">
+				<signatureContent>
+					<p>Reputation: <num>3,586</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>15</num>
+					Number of Bronze Badges:<num>36</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Santthosh" url="http://stackoverflow.com/users/115278/santthosh">
+				<signatureContent>
+					<p>Reputation: <num>648</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>7</num>
+					Number of Bronze Badges:<num>24</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="ganoro" url="http://stackoverflow.com/users/152968/ganoro">
+				<signatureContent>
+					<p>Reputation: <num>364</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>3</num>
+					Number of Bronze Badges:<num>10</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="sti" url="http://stackoverflow.com/users/1287080/sti">
+				<signatureContent>
+					<p>Reputation: <num>5,178</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>10</num>
+					Number of Bronze Badges:<num>15</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Mike S" url="http://stackoverflow.com/users/358980/mike-s">
+				<signatureContent>
+					<p>Reputation: <num>1,462</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>22</num>
+					Number of Bronze Badges:<num>54</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Feasoron" url="http://stackoverflow.com/users/241617/feasoron">
+				<signatureContent>
+					<p>Reputation: <num>681</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>4</num>
+					Number of Bronze Badges:<num>17</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="biolinh" url="http://stackoverflow.com/users/1920536/biolinh">
+				<signatureContent>
+					<p>Reputation: <num>311</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>2</num>
+					Number of Bronze Badges:<num>7</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="jazzcat" url="http://stackoverflow.com/users/149663/jazzcat">
+				<signatureContent>
+					<p>Reputation: <num>295</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>3</num>
+					Number of Bronze Badges:<num>11</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="mpechner" url="http://stackoverflow.com/users/588569/mpechner">
+				<signatureContent>
+					<p>Reputation: <num>151</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num>10</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="scotopic" url="http://stackoverflow.com/users/3464443/scotopic">
+				<signatureContent>
+					<p>Reputation: <num>3</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num>2</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<div type="forum">
+			<post synch="Feb 11 '12 at 23:57" who="edelaney05" revisedWhen="Aug 9 '13 at 15:20" upVote="80" accepted="favorite">
+			<p>Summary:
+
+				Setting up Jenkins on OS X has been made significantly easier with the most recent installer (as of 1.449 - March 9, 2012), however managing the process of code signing is still very difficult with no straightforward answer.
+
+				Motivation:
+
+				Run a headless CI server that follows common best practices for running services on OS X (Some of which is explained here in plain language).
+
+				Background:
+
+				October 12, 2009 - How to automate your iPhone app builds with Hudson
+				June 15, 2011 - Jenkins on Mac OS X; git w/ ssh public key
+				June 23, 2011 - Continuous Deployment of iOS Apps with Jenkins and TestFlight
+				July 26, 2011 - Missing certificates and keys in the keychain while using Jenkins/Hudson as Continuous Integration for iOS and Mac development
+				August 30, 2011 - Xcode Provisioning File not found with Jenkins
+				September 20, 2011 - How to set up Jenkins CI on a Mac
+				September 14, 2011 - Getting Jenkins Running on a Mac
+				November 12, 2011 - Howto: Install Jenkins on OS X and make it build Mac stuff
+				January 23, 2012 - Upcoming Jenkins OSX installer changes
+				March 7, 2012 - Thanks for using OSX Installer
+				Process:
+
+				Install Jenkins CI via OS X installer package. For the "Installation Type" step, click the Customize button, and choose "Start at boot as 'jenkins.'"
+
+				Discussion:
+
+				The naive expectation at this point was that a free-style project with the build script xcodebuild -target MyTarget -sdk iphoneos should work. As indicated by the title of this post, it does not and fails with:
+
+				Code Sign error: The identity 'iPhone Developer' doesn't match any valid certificate/private key pair in the default keychain
+
+				It is obvious enough what needs to happen - you need to add a valid code signing certificate and a private key into the default keychain. In researching how to accomplish this, I have not found a solution that doesn't open up the system to some level of vulnerability.
+
+				Problem 1: No default keychain for jenkins daemon
+
+				sudo -u jenkins security default-keychain ...yields "A default keychain could not be found"
+
+				As pointed out below by Ivo Dancet, the UserShell is set to /usr/bin/false for the jenkins daemon by default (I think this is a feature, not a bug); follow his answer to change the UserShell to bash. You can then use sudo su jenkins to get logged in as the jenkins user and get a bash prompt.
+
+				sudo su jenkins
+				cd ~/Library
+				mkdir Keychains
+				cd Keychains
+				security create-keychain &lt;keychain-name>.keychain
+				security default-keychain -s &lt;keychain-name>.keychain
+				Okay, great. We've got a default keychain now; let's move on right? But, first why did we even bother making a default keychain?
+
+				Almost all answers, suggestions, or conversation I read throughout researching suggest that one should just chuck their code signing certs and keys into the system keychain. If you run security list-keychains as a free-style project in Jenkins, you see that the only keychain available is the system keychain; I think that's where most people came up with the idea to put their certificate and key in there. But, this just seems like a very bad idea - especially given that you'll need to create a plain text script with the password to open the keychain.
+
+				Problem 2: Adding code signing certs and private key
+
+				This is where I really start to get squeamish. I have a gut feeling that I should create a new public / private key unique for use with Jenkins. My thought process is if the jenkins daemon is compromised, then I can easily revoke the certificate in Apple's Provisioning Portal and generate another public / private key. If I use the same key and certificate for my user account and Jenkins, then it means more hassle (damage?) if the jenkins service is attacked.
+
+				Pointing to Simon Urbanek's answer you'll be unlocking the keychain from a script with a plain text password. It seems irresponsible to keep anything but "disposable" certificates and keys in the jenkins daemon's keychain.
+
+				I am very interested in any discussion to the contrary. Am I being overly cautious?
+
+				To make a new CSR as the jenkins daemon in Terminal I did the following...
+
+				sudo su jenkins
+				certtool r CertificateSigningRequest.certSigningRequest You'll be prompted for the following (most of these I made educated guesses at the correct answer; do you have better insight? Please share.)...
+				Enter key and certificate label:
+				Select algorithm: r (for RSA)
+				Enter key size in bits: 2048
+				Select signature algorithm: 5 (for MD5)
+				Enter challenge string:
+				Then a bunch of questions for RDN
+				Submit the generated CSR file (CertificateSigningRequest.certSigningRequest) to Apple's Provisioning Portal under a new Apple ID
+				Approve the request and download the .cer file
+				security unlock-keychain
+				security add-certificate ios_development.cer
+				This takes us one step closer...
+
+				Problem 3: Provisioning profile and Keychain unlocking
+
+				I made a special provisioning profile in the Provisioning Portal just for use with CI in hopes that if something bad happens I've made the impact a little smaller. Best practice or overly cautious?
+
+				sudo su jenkins
+				mkdir ~/Library/MobileDevice
+				mkdir ~/Library/MobileDevice/Provisioning\ Profiles
+				Move the provisioning profile that you setup in the Provisioning Portal into this new folder. We're now two short steps away from being able to run xcodebuild from the the command line as jenkins, and so that means we're also close to being able to get the Jenkins CI running builds.
+				security unlock-keychain -p &lt;keychain password>
+				xcodebuild -target MyTarget -sdk iphoneos
+				Now we get a successful build from a command line when logged in as the jenkins daemon, so if we create a free-style project and add those final two steps (#5 and #6 above) we will be able to automate the building of our iOS project!
+
+				It might not be necessary, but I felt better setting jenkins UserShell back to /usr/bin/false after I'd successfully gotten all this setup. Am I being paranoid?
+
+				Problem 4: Default keychain still not available!
+
+				(EDIT: I posted the edits to my question, rebooted to make sure my solution was 100%, and of course, I'd left out a step)
+
+				Even after all the steps above, you'll need to modify the Launch Daemon plist at /Library/LaunchDaemons/org.jenkins-ci.plist as stated in this answer. Please note this is also an openrdar bug.
+
+				It should look like this:
+
+				&lt;?xml version="1.0" encoding="UTF-8"?>
+				&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+				<plist version="1.0">
+				<dict>
+				        <key>EnvironmentVariables</key>
+				        <dict>
+				                <key>JENKINS_HOME</key>
+				                <string>/Users/Shared/Jenkins/Home</string>
+				        </dict>
+				        <key>GroupName</key>
+				        <string>daemon</string>
+				        <key>KeepAlive</key>
+				        <true/>
+				        <key>Label</key>
+				        <string>org.jenkins-ci</string>
+				        <key>ProgramArguments</key>
+				        <array>
+				                <string>/bin/bash</string>
+				                <string>/Library/Application Support/Jenkins/jenkins-runner.sh</string>
+				        </array>
+				        <key>RunAtLoad</key>
+				        <true/>
+				        <key>UserName</key>
+				        <string>jenkins</string>
+				        <!-- **NEW STUFF** -->
+				        <key>SessionCreate</key>
+				        <true />
+				</dict>
+				</plist>
+				With this setup, I would also recommend the Xcode plugin for Jenkins, which makes setting up the xcodebuild script a little bit easier. At this point, I'd also recommend reading the man pages for xcodebuild - hell you made it this far in Terminal, right?
+
+				This setup is not perfect, and any advice or insight is greatly appreciated.
+
+				I have had a hard time selecting a "correct" answer since what I've come to use to solve my problem was a collection of just about everyone's input. I've tried to give everyone at least an up vote, but award the answer to Simon because he mostly answered the original question. Furthermore, Sami Tikka deserves a lot of credit for his efforts getting Jenkins to work through AppleScript as a plain ol' OS X app. If you're only interested in getting Jenkins up and going quickly within your user session (i.e. not as a headless server) his solution is much more Mac-like.
+
+				I hope that my efforts spark further discussion, and help the next poor soul who comes along thinking they can get Jenkins CI setup for their iOS projects in a weekend because of all the wonderful things they've heard about it.
+
+				Update: August 9, 2013
+
+				With so many upvotes and favorites, I thought I would come back to this 18 months later with some brief lessons learned.
+
+				Lesson 1: Don't expose Jenkins to the public internet
+
+				At the 2012 WWDC I took this question to the Xcode and OS X Server engineers. I received a cacophony of "don't do that!" from anyone I asked. They all agreed that an automated build process was great, but that the server should only be accessible on the local network. The OS X Server engineers suggested allowing remote access via VPN.
+
+				Lesson 2: There are new install options now
+
+				I recently gave a CocoaHeads talk about my Jenkins experience, and much to my surprise I found some new install methods - Homebrew and even a Bitnami Mac App Store version. These are definitely worth checking out. Jonathan Wright has a gist detailing getting Homebrew Jenkins working.
+
+				Lesson 3: No, seriously, don't expose your build box to the internet
+
+				It's pretty clear from the original post that I'm neither a system administrator nor security expert. Common sense about private-y stuff (keychains, credentials, certificates, etc) left me feeling pretty uneasy about putting my Jenkins box on the internet. Nick Arnott at Neglected Potential was able to confirm my heebie-jeebies pretty easily in this article.
+
+				TL;DR
+
+				My recommendation to others looking to automate their build process has changed over the past year and a half. Make sure your Jenkins machine is behind your firewall. Install and set Jenkins up as a dedicated Jenkins user either using the installer, Bitnami Mac App Store version, Sami Tikka's AppleScript, etc; this resolves most of the headache I detail above. If you need remote access, setting up VPN services in OS X Server takes ten minutes tops. I've been using this setup for over a year and am very happy with it. Good luck!
+
+				<tag>osx</tag> <tag>jenkins</tag>
+			</p>
+			</post>	
+		</div>		
+			<div type="response">
+				<post synch="Jul 18 '12 at 10:47" who="Zsub" IndentLevel="1" upVote="9">  
+					<p>I am sad I can only give one upvote to this concise and complete question-with-answers-edited-in :)    
+					</p>				
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Aug 11 '14 at 2:00" who="Jonny" IndentLevel="1">   
+					<p>Something broke the launch of Jenkins on OS X Yosemite - used the installer of Jenkins.   
+					</p>			
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Mar 17 '15 at 23:17" who="Julian" IndentLevel="1">       
+					<p>Move your certificate to the System keychain and be happy ;)    
+					</p>			
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Feb 12 '12 at 3:59" who="Simon Urbanek" upVote="18">
+			 	<p>Keychains need to be unlocked before they can be used. You can use security unlock-keychain to unlock. You can do that interactively (safer) or by specifying the password on the command line (unsafe), e.g.:
+
+				security unlock-keychain -p mySecretPassword...
+				Obviously, putting this into a script compromises the security of that keychain, so often people setup an individual keychain with only the signing credentials to minimize such damage.
+
+				Typically in Terminal the keychain is already unlocked by your session, since the default keychain is unlocked on login, so you don't need to do that. However, any process not run in your session won't have unlocked keychain even if it has you as the user (most commonly this affects ssh, but also any other process).
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Feb 12 '12 at 6:02" who="edelaney05" IndentLevel="1">      
+				<p>But, I'm also having difficulties getting any keychain beyond the system keychain to load.security unlock-keychain -p password -k /path/codesign.keychain doesn't work.     
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Feb 12 '12 at 16:30" who="Simon Urbanek" IndentLevel="1">         
+				<p>Have you used the default keychain as in my example above? Note that for custom keychains you need to set them up to be on the search path first, so try the default keychain first. Also note that there is no -k argument to unlock-keychain so whatever you're trying to do doesn't seem right (see security help unlock-keychain).    
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Feb 13 '12 at 16:31" who="edelaney05" IndentLevel="1">        
+				<p>I've tried something a little different, but ultimately have wound up back at the same spot. I edited my question, hopefully it's a bit clearer?   
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Feb 13 '12 at 22:04" who="Simon Urbanek" IndentLevel="1">      
+				<p>It's entirely different from the original question ... To start with, you should login as jenkins (e.g. via sudo -u jenkins bash) and check that you have the permissions on the whole path right. You did a lot of things you didn't say (like using dscl to create the user) so you're really on your own. You will also want to check the home setting (depending whether you set the shell or not you can use sudo -u jenkins -i to get corresponding login settings). 
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Jul 18 '12 at 10:05" who="Zsub" revisedWhen="Jul 18 '12 at 10:44" upVote="8">
+			 	<p>Suppose you also want to do ad hoc distribution through Jenkins, this necessitates that Jenkins has access to a Distribution certificate, and the team admin identity, in addition to the provisioning profiles.
+
+				Using an exported identity in a .cer file, you can programmatically import it like so, the -A switch is to allow all programs access to this entry. Alternatively, you could use several -T /path/to/program switches to allow codesign and xcodebuild access.:
+
+				$ security import devcertificate.cer -k jenkins.keychain -A
+				Of course, we should also have the Apple WWDCRA certificate, imported in pretty much the same way:
+
+				$ security import AppleWWDRCA.cer -k jenkins.keychain -A
+				However, we also need the private key for the devcertificate.cer. To do this, you need to export the corresponding private key as a .p12 key and set a password. Put it somewhere you can access it from your Jenkins shell, unlock the keychain, and import it:
+
+				$ security unlock-keychain -p YourKeychainPass jenkins.keychain
+				$ security import devprivatekey.p12 -k login.keychain -P ThePasswordYouSetWhenExporting -A
+				Importing the distribution certificate works the same way. I don't know why you need to unlock the keychain for importing a .p12 and not for a .cer, but well.
+
+				You will also need access to the provisioning profiles, I will edit those instructions into this post shortly.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Dec 4 '12 at 5:27" who="Luke" IndentLevel="1" upVote="1">      
+				<p>Could you please update with the provisioning profile access instructions?    
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Aug 22 '13 at 3:13" who="Gili" IndentLevel="1">         
+				<p>See modeset.com/what-we-know/2013/03/11/jenkins_keychain_timeouts for a related approach.    
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Oct 19 '13 at 9:48" who="kuba" IndentLevel="1" upVote="1">        
+				<p>thanks a lot, the "-A" did the trick!      
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Mar 7 '12 at 8:41" who="Ivo Dancet" upVote="5">
+			 	<p>To change the password you can use sudo passwd jenkins &lt;new-pw>. However I think it would be better to use the dscl command to change the password.
+
+				In my install jenkins (official installer) had a user shell /usr/bin/false. Changing it to bash solved the problem of not being able to login:
+
+				sudo dscl . -change /Users/jenkins UserShell /usr/bin/false /bin/bash
+				You should now be able to login with su jenkins.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Mar 9 '12 at 15:48" who="lxt" IndentLevel="1">      
+				<p>This was very helpful to me - I had a similar problem with the create-keychain command not working with the jenkins user. Running this command seemed to fix the problem.  
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Nov 4 '13 at 15:18" who="CMVR" IndentLevel="1">         
+				<p>When I run the command to change the jenkins user password, I get asked for the current password. I have no idea what this is and I cannot hit enter. Any suggestions?   
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Feb 28 '12 at 5:52" who="brianestey" upVote="3">
+			 	<p>I've had the same issue and have been searching around for some time for an answer. Here's one thing that I've learned.
+
+					I am running jenkins as the jenkins user, user created by the installer, and as everyone else has mentioned he doesn't have access to the same keychain that your normal user does. Instead of trying to login as the jenkins user, I created a second build project that simply has one build step that is "Execute Shell" in which I run commands I want to test as the jenkins user.
+
+					Once I had that set up, I could run the command
+
+					security list-keychains
+
+					And this revealed to me that the only thing that jenkins could see was the system keychain.
+
+					+ security list-keychains
+					    "/Library/Keychains/System.keychain"
+					    "/Library/Keychains/System.keychain"
+					With that knowledge, I then opened the Keychain Access app and copied my "iPhone Developer: xxxx" certificate into the System keychain (Right-click, copy from the "login" keychain).
+
+					This got me passed the certificate/private key pair code sign error but opened up another one with the provisioning profile (seems like a similar, but different, issue).
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Apr 10 '12 at 22:25" who="Santthosh" IndentLevel="1">      
+				<p>I'm running into the same provision profile issue, any thoughts on how to solve this?   
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Apr 11 '12 at 8:26" who="brianestey" IndentLevel="1" upVote="2">         
+				<p>I found that the provisioning profiles for the Jenkins user are stored in '/Users/Shared/Jenkins/Library/MobileDevice/Provisioning Profiles' and so put a step into my build to copy a provisioning profile from inside my git repo to that location. This allows me to update the provisioning profile and push it into SCM and Jenkins automatically picks up that change.     
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="May 26 '12 at 7:51" who="ganoro" IndentLevel="1">      
+				<p>if you copy the login.keychain to your jenkins Keychain library you will need to chown it so the jenkins user can security unlock it       
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Mar 27 '12 at 20:41" who="sti" upVote="3">
+			 	<p>For people having problems with keychains, I would recommend you try my alternative Jenkins installer at https://github.com/stisti/jenkins-app, downloads at https://github.com/stisti/jenkins-app/downloads
+
+				Jenkins.app runs Jenkins in your user session, so keychain access issues are not an issue :)
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Mar 29 '12 at 19:28" who="edelaney05" IndentLevel="1">      
+				<p>The concern is that this Jenkins user is in user space not daemon space... so if an attacker were able to compromise your Jenkins user, they would have full access to your computer.    
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Apr 23 '12 at 5:27" who="Mike S" IndentLevel="1">         
+				<p>This might solve the issues I've been getting. The problem is I have an existing Jenkins installation (done the other way) and I don't want to lose all my builds - etc. What will happen in my casE?         
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Feb 15 '12 at 21:07" who="Feasoron" upVote="2">
+			 	<p>If you have sudo, you can use passwd to change the Jenkins user's password. Then you can get the Jenkins password.
+
+				Also, I'm not sure if this is the issue for you, but the ANT Script I use via Jenkins has this :
+
+				<target name="unlock_keychain">
+				    <exec executable="security">
+				        &lt;arg value="-v"/>
+				        &lt;arg value="unlock-keychain"/>          
+				        &lt;arg value="-p"/>
+				        &lt;arg value="&lt;My Password>"/>
+				        &lt;arg value="/Users/macbuild/Library/Keychains/login.keychain"/>
+				    </exec>
+				</target>
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Feb 21 '12 at 14:39" who="edelaney05" IndentLevel="1" upVote="1">      
+				<p>It seems like you have Jenkins setup under a "macbuild" user; I'm assuming that this user is a user and not daemon. I definitely understand (now) that the keychain will need to be unlocked via command line args (see Simon Urbanek's comments), but I'm still unsure how to create a default keychain for the jenkins daemon.    
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Aug 1 '14 at 8:00" who="biolinh" revisedWhen="Aug 13 '14 at 4:23" upVote="2">
+			 	<p>I have used Xcode plugin to build iOS app. In configuration of a project.
+
+					choose Add build step > Xcode > code signing &amp; OS X keychain options.
+
+					tick Unlock keychain box and add as follow (for examples) enter image description here
+
+					somtimes, if I get the error
+
+					Code Sign error: ...
+					I will reopen Jenkins and enter password again to unlock
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Jul 24 '12 at 16:22" who="jazzcat" upVote="1">
+			 	<p>For some reason, "security" utility wasn't working for me on Lion with fresh Jenkins install.
+
+					After "sudo su jenkins" it was able to create new keychain, but silently ignored all "default-keychain -s ..." or "unlock" commands returning zero exit status and printing nothing to the console. Listing default or login keychains gave nothing, keychains search list was containing only system keychain, and I couldn't change this whatever I type.
+
+					After I logged in to that user's desktop and launched Keychain Utility, it did show my created keychain and after that everything worked as described in upper posts.
+
+					I am wondering whether some of initial keychains behavior changed in Lion, or am I missing something?
+			 	</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="Jul 24 '12 at 20:13" who="edelaney05" IndentLevel="1">      
+				<p>I performed the above steps on a "clean" install of Lion, so maybe there was an issue with security before you jumped in? Another possibility is that there's been a security / OS X update since I initially posted?
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Aug 28 '13 at 22:50" who="mpechner" upVote="0">
+			 	<p>I added the private and public key for the company to the keychain. I added the provision profiles for the production I will be building.
+
+					Since this user did not have an account I logged into devcenter with my account. Downloaded the provisioning certs and loaded them into Xcode.
+
+					I did not add a cert specifically for the build role account, ex. jenkins.
+
+					I did add this to the build script: security unlock-keychain -p mySecretPassword as above, but...
+
+					I created a file ~/.ssh/mypass and add the password to the file.
+
+					Then the command becomes: security unlock-keychain -p cat ~/.ssh/mypass
+
+					Builds are working like a champ. I get the ipa file, it loads on app central and works on the device.
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Mar 26 '14 at 15:37" who="scotopic" upVote="0">
+			 	<p>Could also install &amp; launch JenkinsCI as a OS X user instead of a daemon:
+
+					install jenkins using the official installer (https://jenkins-ci.org/)
+					Click next
+					Click "Customize"
+					Unselect "Start at boot as 'jenkins'" - * IMPORTANT * this option normally allows a headless jenkins which doesn't work well with keychain access
+					Launch http://127.0.0.1:8080
+					verify it DOESN'T launch
+					may need to stop jenkins sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+					Double click /Applications/Jenkins/jenkins.war
+					of course this should be automated to start @ start up
+					Open http://127.0.0.1:8080
+					verify it's now running
+			 	</p>
+				</post>
+			</div>
+		</body>	
+	</text>
+</TEI>

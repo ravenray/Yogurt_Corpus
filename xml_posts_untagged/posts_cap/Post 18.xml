@@ -1,0 +1,863 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Which cryptographic hash function should I choose?</title>
+				<author>Sam Saffron</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/800685/which-cryptographic-hash-function-should-i-choose
+				On: May 08, 2015
+				Created by: 
+					Rachael Duke
+					Department of Linguistics
+					University of California, Davis
+					Please email me with any questions, comments, or errors.
+					Email: rebrim @ ucdavis . edu
+				</p>
+			<listPerson>
+				<person xml:id="Sam Saffron">
+				<signatureContent>
+					<p>Reputation: <num>62,520</num></p>
+					<p>Page: http://stackoverflow.com/users/17174/sam-saffron </p>
+					<p>Number of Gold Badges: <num>44</num></p>
+					<p>Number of Silver Badges:<num>222</num></p>
+					<p>Number of Bronze Badges:<num>417</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="icktoofay">
+				<signatureContent>
+					<p>Reputation: <num>68,400</num></p>
+					<p> Number of Gold Badges: <num>8</num></p>
+					<p>Number of Silver Badges:<num>110</num></p>
+					<p>Number of Bronze Badges:<num>145</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Barry Wark">
+				<signatureContent>
+					<p>Reputation: <num>81,267</num></p>
+					<p> Number of Gold Badges: <num>19</num></p>
+					<p>Number of Silver Badges:<num>140</num></p>
+					<p>Number of Bronze Badges:<num>182</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="dbkk">
+				<signatureContent>
+					<p>Reputation: <num>5,779</num></p>
+					<p> Number of Gold Badges: <num>9</num></p>
+					<p>Number of Silver Badges:<num>37</num></p>
+					<p>Number of Bronze Badges:<num>53</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="CodesInChaos">
+				<signatureContent>
+					<p>Reputation: <num>65,326</num></p>
+					<p> Number of Gold Badges: <num>7</num></p>
+					<p>Number of Silver Badges:<num>105</num></p>
+					<p>Number of Bronze Badges:<num>159</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Andrey Tarantsov">
+				<signatureContent>
+					<p>Reputation: <num>5,052</num></p>
+					<p> Number of Gold Badges: <num>3</num></p>
+					<p>Number of Silver Badges:<num>38</num></p>
+					<p>Number of Bronze Badges:<num>48</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="user2332868">
+				<signatureContent>
+					<p>Reputation: <num>92</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num>11</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Eric Burnett">
+				<signatureContent>
+					<p>Reputation: <num>1,242</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>12</num></p>
+					<p>Number of Bronze Badges:<num>10</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="tanascius">
+				<signatureContent>
+					<p>Reputation: <num>26,556</num></p>
+					<p> Number of Gold Badges: <num>12</num></p>
+					<p>Number of Silver Badges:<num>72</num></p>
+					<p>Number of Bronze Badges:<num>106</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Brian Campbell">
+				<signatureContent>
+					<p>Reputation: <num>121,477</num></p>
+					<p> Number of Gold Badges: <num>28</num></p>
+					<p>Number of Silver Badges:<num>209</num></p>
+					<p>Number of Bronze Badges:<num>262</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Robert K">
+				<signatureContent>
+					<p>Reputation: <num>16,835</num></p>
+					<p> Number of Gold Badges: <num>6</num></p>
+					<p>Number of Silver Badges:<num>42</num></p>
+					<p>Number of Bronze Badges:<num>70</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="jcmcbeth">
+				<signatureContent>
+					<p>Reputation: <num>418</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>6</num></p>
+					<p>Number of Bronze Badges:<num>15</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Ethan Heilman">
+				<signatureContent>
+					<p>Reputation: <num>4,765</num></p>
+					<p> Number of Gold Badges: <num>7</num></p>
+					<p>Number of Silver Badges:<num>46</num></p>
+					<p>Number of Bronze Badges:<num>78</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Desolator">
+				<signatureContent>
+					<p>Reputation: <num>4,061</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>17</num></p>
+					<p>Number of Bronze Badges:<num>47</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="annakata">
+				<signatureContent>
+					<p>Reputation: <num>45,859</num></p>
+					<p> Number of Gold Badges: <num>8</num></p>
+					<p>Number of Silver Badges:<num>77</num></p>
+					<p>Number of Bronze Badges:<num>160</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Bwooce">
+				<signatureContent>
+					<p>Reputation: <num>1,297</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>14</num></p>
+					<p>Number of Bronze Badges:<num>27</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Cocowalla">
+				<signatureContent>
+					<p>Reputation: <num>4,853</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num></num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Paŭlo Ebermann">
+				<signatureContent>
+					<p>Reputation: <num>39,790</num></p>
+					<p> Number of Gold Badges: <num>7</num></p>
+					<p>Number of Silver Badges:<num>69</num></p>
+					<p>Number of Bronze Badges:<num>127</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Mike Boers">
+				<signatureContent>
+					<p>Reputation: <num>4,281</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>15</num></p>
+					<p>Number of Bronze Badges:<num>32</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Steven Westbrook">
+				<signatureContent>
+					<p>Reputation: <num>1,164</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>11</num></p>
+					<p>Number of Bronze Badges:<num>17</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="rlbond">
+				<signatureContent>
+					<p>Reputation: <num>26,439</num></p>
+					<p> Number of Gold Badges: <num>23</num></p>
+					<p>Number of Silver Badges:<num>112</num></p>
+					<p>Number of Bronze Badges:<num>173</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="mafu">
+				<signatureContent>
+					<p>Reputation: <num>10,108</num></p>
+					<p> Number of Gold Badges: <num>15</num></p>
+					<p>Number of Silver Badges:<num>70</num></p>
+					<p>Number of Bronze Badges:<num>162</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Warty">
+				<signatureContent>
+					<p>Reputation: <num>4,758</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>13</num></p>
+					<p>Number of Bronze Badges:<num>27</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="tvanfosson">
+				<signatureContent>
+					<p>Reputation: <num>296,562</num></p>
+					<p> Number of Gold Badges: <num>49</num></p>
+					<p>Number of Silver Badges:<num>483</num></p>
+					<p>Number of Bronze Badges:<num>647</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="mquander">
+				<signatureContent>
+					<p>Reputation: <num>36,017</num></p>
+					<p> Number of Gold Badges: <num>9</num></p>
+					<p>Number of Silver Badges:<num>72</num></p>
+					<p>Number of Bronze Badges:<num>112</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Rex M">
+				<signatureContent>
+					<p>Reputation: <num>86,969</num></p>
+					<p> Number of Gold Badges: <num>19</num></p>
+					<p>Number of Silver Badges:<num>205</num></p>
+					<p>Number of Bronze Badges:<num>269</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Unknown">
+				<signatureContent>
+					<p>Reputation: <num>25,006</num></p>
+					<p> Number of Gold Badges: <num>12</num></p>
+					<p>Number of Silver Badges:<num>92</num></p>
+					<p>Number of Bronze Badges:<num>155</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="blueintegral">
+				<signatureContent>
+					<p>Reputation: <num>698</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>12</num></p>
+					<p>Number of Bronze Badges:<num>26</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<front>
+			<div type="up vote">
+				<p>up vote  <num>80</num></p>
+			</div>
+			<div type="down vote">
+			<p>down vote
+          favorite <num>51</num></p>
+			</div>
+		</front>
+		<div type="forum">
+			<posting synch="Apr 29 '09 at 2:47" who="Sam Saffron" revisedWhen="Mar 11 '13 at 0:39" revisedBy="icktoofay">
+			<p>The .NET framework ships with 6 different hashing algorithms:
+
+			MD5: 16 bytes (Time to hash 500MB: 1462 ms)
+			SHA1: 20 bytes (1644 ms)
+			SHA256: 32 bytes (5618 ms)
+			SHA384: 48 bytes (3839 ms)
+			SHA512: 64 bytes (3820 ms)
+			RIPEMD: 20 bytes (7066 ms)
+			Each of these functions performs differently; MD5 being the fastest and RIPEMD being the slowest.
+
+			MD5 has the advantage that it fits in the built-in Guid type. Which makes it really easy to use for identification.
+
+			MD5 however is vulnerable to collision attacks, SHA1 is also vulnerable but to a lesser degree.
+
+			Under what conditions should I use which hashing algorithm?
+
+			Particular questions I'm really curious to see answered are:
+
+			Is MD5 not to be trusted? Under normal situations when you use the MD5 algorithm with no malicious intent and no third party has any malicious intent would you expect ANY collisions (meaning two arbitrary byte[] producing the same hash)
+
+			How much better is RIPEMD than SHA1? (if its any better) its 5 times slower to compute but the hash size is the same as SHA1.
+
+			What are the odds of getting non-malicious collisions when hashing file-names (or other short strings)? (Eg. 2 random file-names with same MD5 hash) (with MD5 / SHA1 / SHA2xx) In general what are the odds for non-malicious collisions?
+
+			This is the benchmark I used:
+
+			    static void TimeAction(string description, int iterations, Action func) {
+			        var watch = new Stopwatch();
+			        watch.Start();
+			        for (int i = 0; i &lt; iterations; i++) {
+			            func();
+			        }
+			        watch.Stop();
+			        Console.Write(description);
+			        Console.WriteLine(" Time Elapsed {0} ms", watch.ElapsedMilliseconds);
+			    }
+
+			    static byte[] GetRandomBytes(int count) {
+			        var bytes = new byte[count];
+			        (new Random()).NextBytes(bytes);
+			        return bytes;
+			    }
+
+
+			    static void Main(string[] args) {
+
+			        var md5 = new MD5CryptoServiceProvider();
+			        var sha1 = new SHA1CryptoServiceProvider();
+			        var sha256 = new SHA256CryptoServiceProvider();
+			        var sha384 = new SHA384CryptoServiceProvider();
+			        var sha512 = new SHA512CryptoServiceProvider();
+			        var ripemd160 = new RIPEMD160Managed();
+
+			        var source = GetRandomBytes(1000 * 1024);
+
+			        var algorithms = new Dictionary&lt;string,HashAlgorithm>();
+			        algorithms["md5"] = md5;
+			        algorithms["sha1"] = sha1;
+			        algorithms["sha256"] = sha256;
+			        algorithms["sha384"] = sha384;
+			        algorithms["sha512"] = sha512;
+			        algorithms["ripemd160"] = ripemd160;
+
+			        foreach (var pair in algorithms) {
+			            Console.WriteLine("Hash Length for {0} is {1}", 
+			                pair.Key, 
+			                pair.Value.ComputeHash(source).Length);
+			        }
+
+			        foreach (var pair in algorithms) {
+			            TimeAction(pair.Key + " calculation", 500, () =>
+			            {
+			                pair.Value.ComputeHash(source);
+			            });
+			        }
+
+			        Console.ReadKey();
+			    }
+			<tag>c#</tag> <tag>.net</tag> <tag>hash</tag> <tag>cryptography</tag> <tag>cryptographichashfunction</tag>
+			</p>
+			</posting>	
+		</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>11</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 29 '09 at 5:33" who="Barry Wark" IndentLevel="1">  
+					<p>The fact that you mention md5 fits in the GUID (16 byte) format suggests a fundamental misunderstanding. A hash is not guaranteed to be unique, but is rare (and hard to fake if used in a cryptographic sense) and derived from the thing of which it is a hash while a GUID is, well, unique but unrelated to the content of the thing it identifies. They are used for very different purposes.  
+					</p>				
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Apr 29 '09 at 5:43" who="Sam Saffron" IndentLevel="1">   
+					<p>Correct its unrelated, its just a handy implementation specific fact. I understand that you can not fit infinity into a 16 bytes. You can get collisions with ANY hashing algorithm –   
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 29 '09 at 5:44" who="Sam Saffron" IndentLevel="1">       
+					<p>Also a Guid is just in-practice unique, in theory if you kept on generating Guids eventually you would get duplicates.    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Sep 13 '11 at 14:13" who="dbkk" IndentLevel="1">      
+					<p>You really should not stuff a hash into a GUID, even if it fits. Simplest example: two copies of the same file should have different GUIDs, but same hash. First 8 letters of a person's name also fit quite nicely into 16 bytes.    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Apr 1 '12 at 17:51" who="CodesInChaos" IndentLevel="1">   
+					<p>If performance is important, using third party libraries can be a good idea. For example when hashing short messages, OpenSSL is about 10 times as fast as .net's build in MD5.    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Oct 28 '12 at 18:01" who="CodesInChaos" IndentLevel="1">     
+					<p>I don't think .net has a RIPEMD implementation, I can only find a RIPEMD-160 implementation. RIPEMD is broken, RIPEMD-160 is not.   
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Feb 12 '13 at 3:15" who="Andrey Tarantsov" IndentLevel="1">     
+					<p>@BarryWark I think I should point out that the entire Git source control system depends on SHA1 (or is it SHA256?) hashes being unique for every file, every directory and every commit in the entire repository. The chance of an accidental collision is so small that you can rely on it happening after our planet is no longer habitable. :-) So for many use cases, hash = GUID.    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">					
+				<posting synch="Apr 2 '14 at 19:43" who="user2332868" IndentLevel="1">     
+					<p>@Andrey Tarantsov, I think you are right but you are also underestimating the speed crypto science and most of all computer science is progressing at. Probably in no more than 1 or 2 years SHA-1 will be broken (SHA-256 will probably stay secure for another 5 or 6 years) 
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 3 '14 at 9:00" who="Andrey Tarantsov" IndentLevel="1">     
+					<p>@user2332868 Breaking of SHA-1 has no effect on probability of accidental collisions. When a malicious intent is a threat for your usage, I think blindly picking any hash function is wrong, and you need to spend time doing risk/cost analysis for your specific case.    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Apr 4 '14 at 6:56" who="user2332868" IndentLevel="1">     
+					<p>But it's still safer to keep to the secure standards.
+					</p>			
+				</posting>
+				</div>
+		<front>
+			<head>9 Answers</head>
+				<div type="up vote">
+				<p>up vote  <num>85</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Apr 29 '09 at 6:30" who="Eric Burnett">
+			 	<p>In cryptography, hash functions provide three separate functions.
+
+				Collision resistance: How hard is it for someone to find two messages (any two messages) that hash the same.
+				Preimage Resistance: Given a hash, how hard is it to find another message that hashes the same? Also known as a one way hash function.
+				Second preimage resistance: Given a message, find another message that hashes the same.
+				These properties are related but independent. For example, collision resistance implies second preimage resistance, but not the other way around. For any given application, you will have different requirements, needing one or more of these properties. A hash function for securing passwords on a server will usually only require preimage resistance, while message digests require all three.
+
+				It has been shown that MD5 is not collision resistant, however, that does not preclude its use in applications that do not require collision resistance. Indeed, MD5 is often still used in applications where the smaller key size and speed are beneficial. That said, due to its flaws, researchers recommend the use of other hash functions in new scenarios.
+
+				SHA1 has a flaw that allows collisions to be found in theoretically far less than the 2^80 steps a secure hash function of its length would require. The attack is continually being revised and currently can be done in ~2^63 steps - just barely within the current realm of computability. For this reason NIST is phasing out the use of SHA1, stating that the SHA2 family should be used after 2010.
+
+				SHA2 is a new family of hash functions created following SHA1. Currently there are no known attacks against SHA2 functions. SHA256, 384 and 512 are all part of the SHA2 family, just using different key lengths.
+
+				RIPEMD I can't comment too much on, except to note that it isn't as commonly used as the SHA families, and so has not been scrutinized as closely by cryptographic researchers. For that reason alone I would recommend the use of SHA functions over it. In the implementation you are using it seems quite slow as well, which makes it less useful.
+
+				In conclusion, there is no one best function - it all depends on what you need it for. Be mindful of the flaws with each and you will be best able to choose the right hash function for your scenario.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Apr 29 '09 at 6:38" who="Sam Saffron" IndentLevel="1">      
+				<p>+1 thank you for the thoughtful answer   
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>70</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="May 3 '09 at 13:59" who="Sam Saffron" revisedWhen="Sep 13 '11 at 13:56" revisedBy="tanascius">
+			 	<p>All hash functions are "broken"
+
+				The pigeonhole principle says that try as hard as you will you can not fit more than 2 pigeons in 2 holes (unless you cut the pigeons up). Similarly you can not fit 2^128 + 1 numbers in 2^128 slots. All hash functions result in a hash of finite size, this means that you can always find a collision if you search through "finite size" + 1 sequences. It's just not feasible to do so. Not for MD5 and not for Skein.
+
+				MD5/SHA1/Sha2xx have no chance collisions
+
+				All the hash functions have collisions, its a fact of life. Coming across these collisions by accident is the equivalent of winning the intergalactic lottery. That is to say, no one wins the intergalactic lottery, its just not the way the lottery works. You will not come across an accidental MD5/SHA1/SHA2XXX hash, EVER. Every word in every dictionary, in every language, hashes to a different value. Every path name, on every machine in the entire planet has a different MD5/SHA1/SHA2XXX hash. How do I know that, you may ask. Well, as I said before, no one wins the intergalactic lottery, ever.
+
+				But ... MD5 is broken
+
+				Sometimes the fact that its broken does not matter.
+
+				As it stands there are no known pre-image or second pre-image attacks on MD5.
+
+				So what is so broken about MD5, you may ask? It is possible for a third party to generate 2 messages, one of which is EVIL and another of which is GOOD that both hash to the same value. (Collision attack)
+
+				Nonetheless, the current RSA recommendation is not to use MD5 if you need pre-image resistance. People tend to err on the side of caution when it comes to security algorithms.
+
+				So what hash function should I use in .NET?
+
+				Use MD5 if you need the speed/size and don't care about birthday attacks or pre-image attacks.
+				Repeat this after me, there are no chance MD5 collisions, malicious collisions can be carefully engineered. Even though there are no known pre-image attacks to date on MD5 the line from the security experts is that MD5 should not be used where you need to defend against pre-image attacks. SAME goes for SHA1.
+
+				Keep in mind, not all algorithms need to defend against pre-image or collision attacks. Take the trivial case of a first pass search for duplicate files on your HD.
+
+				Use SHA2XX based function if you want a cryptographically secure hash function.
+				No one ever found any SHA512 collision. EVER. They have tried really hard. For that matter no one ever found any SHA256 or 384 collision ever. .
+
+				Don't use SHA1 or RIPEMD unless its for an interoperability scenario.
+				RIPMED has not received the same amount of scrutiny that SHAX and MD5 has received. Both SHA1 and RIPEMD are vulnerable to birthday attacks. They are both slower than MD5 on .NET and come in the awkward 20 byte size. Its pointless to use these functions, forget about them.
+
+				SHA1 collision attacks are down to 2^52, its not going to be too long until SHA1 collisions are out in the wild.
+
+				For up to date information about the various hash functions have a look at the hash function zoo.
+
+				But wait there is more
+
+				Having a fast hash function can be a curse. For example: a very common usage for hash functions is password storage. Essentially, you calculate hash of a password combined with a known random string (to impede rainbow attacks) and store that hash in the database.
+
+				The problem is, that if an attacker gets a dump of the database, he can, quite effectively guess passwords using brute-force. Every combination he tries only takes a fraction of millisecond, and he can try out hundreds of thousands of passwords a second.
+
+				To work around this issue, the bcrypt algorithm can be used, it is designed to be slow so the attacker will be heavily slowed down if attacking a system using bcrypt. Recently scrypt has made some headline and is considered by some to be more effective than bcrypt but I do not know of a .Net implementation.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="May 4 '09 at 4:48" who="Brian Campbell" IndentLevel="1">      
+				<p>While both MD5 and SHA-1 have been weakened, MD5 is much weaker than SHA-1, while only slightly faster. Actual MD5 collisions have been found and used for real-world exploits (forging CA certificates), but as far as I know no actual SHA-1 collisions have been found (though the number of operations has been reduced considerably from brute-force). And given how much weaker MD5 is, I would not be surprised if second preimage attacks appeared sooner for MD5 than for SHA-1. Thus, I think you should use SHA-1 if you need speed and not collision resistance, and otherwise use one of the SHA-2 family.       
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="May 4 '09 at 5:04" who="Sam Saffron" IndentLevel="1">     
+					<p>@Brian its fairly clear that within the next few years people will be able to run collision attacks on SHA1, this effectively will make SHA1 as useful as MD5, The CA certificate thing is a collision attack, similarly in a few years people will be able to run the same attack on SHA1 CA certificates. The attack depends on a malicious party creating an EVIL and a GOOD certificate. There are no known primage attacks on MD5 and the fact that there are collision attacks does not make pre-image attacks more or less likely.        
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="May 4 '09 at 15:45" who="Robert K" IndentLevel="1">     
+					<p>It's far less about which hash you use for passwords, than it is what is hashed. If your salt is known then your database is immediately vulnerable to a dictionary attack; if your salt is procedural, and your filesystem is compromised, you are (again) vulnerable; if your salt is omitted you are again compromised. The security at issue is, no matter what, WHAT is hashed. Certificates, I won't address because I've not dealt with them in as a programmer (IE, creating, understanding, etc).        
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Apr 2 '14 at 17:14" who="jcmcbeth" IndentLevel="1">     
+					<p>The term broken has a specific meaning in the context of hashing, and it isn't the meaning this answer puts emphasis on. All this answer will do is cause confusion.
+					</p>			
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>25</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="May 1 '09 at 1:45" who="Ethan Heilman" revisedWhen="Mar 14 '14 at 7:20" revisedBy="Desolator">
+			 	<p>Update:
+
+				Times have changed, we have a SHA3 winner. I would recommend using keccak (aka SHA3) winner of the SHA3 contest.
+
+				Original Answer:
+
+				In order of weakest to strongest I would say:
+
+				RIPEMD BROKEN, Should never be used as can be seen in this pdf
+				MD-5 BROKEN, Should never be used, can be broken in 2 minutes with a laptop
+				SHA-1 BROKEN, Should never be used, is broken in principal, attacks are getting better by the week
+				SHA-2 WEAK, Will probably be broken in the next few years. A few weaknesses have been found. Note that generally the higher key size, the harder the hash function is to break. While key size = strength is not always true, it is mostly true. So SHA-256 is probably weaker than SHA-512.
+				Skein NO KNOWN WEAKNESSES, is a candidate for SHA-3. It is fairly new and thus untested. It has been implemented in a bunch of languages.
+				MD6 NO KNOWN WEAKNESSES, is another a candidate for SHA-3. Probably stronger than Skien, but slower on single core machines. Like Skien it is untested. Some security minded developers are using it, in mission critical roles.
+				Personally I'd use MD6, because one can never been too paranoid. If speed is a real concern I'd look at Skein, or SHA-256.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>
+				<posting synch="May 8 '09 at 8:45" who="annakata" IndentLevel="1">      
+				<p>A little black and white but +1 for informative          
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>4</num></p>
+					</div>
+				</front>
+				<posting synch="May 25 '09 at 21:56" who="Eric Burnett" IndentLevel="1">     
+					<p>I wouldn't put Skein and MD6 that high in the list; there is a reason that the SHA-3 competition won't be finished till the end of 2012. It takes a long time and a lot of eyes to be convinced that a hash function is actually likely to be secure, and neither of these functions have been around long enough for that yet. 
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="May 26 '09 at 12:29" who="Ethan Heilman" IndentLevel="1">     
+					<p>I agree with your sentiments, but I think the community is in a strange position. All the hash functions in use are dangerously close to being broken (maybe, maybe, not SHA2 256-512) and yet we have to wait to 2012 to choose a replacement. choose your poison: weak/broken or untested (most NIST candidates have not been public for more than 6 months)? Tough choice. 
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>
+				<posting synch="Feb 27 '11 at 8:02" who="Bwooce" IndentLevel="1">     
+					<p>RIPEMD is broken, but RIPEMD-128/160/256 are different, and not broken.   
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Aug 22 '12 at 7:53" who="Cocowalla" IndentLevel="1">     
+					<p>I'm not aware of any performant implementations of Skein for .NET. I've come across SkeinFish and nskein, and both were very slow.    
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Aug 27 '12 at 19:11" who="Ethan Heilman" IndentLevel="1">     
+					<p>@Cocowalla I don't think we are likely to see full support any contestants, until one of them is announced the winner.    
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Jun 1 '13 at 19:07" who="Paŭlo Ebermann" IndentLevel="1">     
+					<p>I would wait with using SHA-3 until the actual standard is out there, at least if you want to actually follow a standard. The algorithm itself has too many options.  
+					</p>			
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Apr 29 '09 at 2:53" who="Mike Boers">
+			 	<p>I would like to chime in (before md5 gets torn apart) that I do still use md5 extensively despite its overwhelming brokenness for a lot of crypto.
+
+				As long as you don't care to protect against collisions (you are still safe to use md5 in an hmac as well) and you do want the speed (sometimes you want a slower hash) then you can still use md5 confidently.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Apr 29 '09 at 2:58" who="Sam Saffron" IndentLevel="1">      
+				<p>@Mike I'm with you on that, that was kind of what I was digging for with this question, is something about the weaker hash functions so fundamentally broken that they should never be used.             
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="May 8 '09 at 8:48" who="annakata" IndentLevel="1">     
+					<p>Further to this, if the data or required security of the data has a lifespan shorter than the crack period (a few minutes these days iirc) MD5 is absolutely fine. Situationally useful but still useful is the point.     
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="May 7 '13 at 14:24" who="Steven Westbrook" IndentLevel="1">     
+					<p>@annakata - Keep in mind that you would also have to avoid reusing keys across multiple messages for it to be usable under those circumstances.     
+					</p>			
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Apr 29 '09 at 5:10" who="rlbond">
+			 	<p>In MD5's defense, there is no known way to produce a file with an arbitrary MD5 hash. The original author must plan in advance to have a working collision. Thus if the receiver trusts the sender, MD5 is fine. MD5 is broken if the signer is malicious, but it is not known to be vulnerable to man-in-the-middle attacks.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 2 '12 at 10:20" who="mafu" IndentLevel="1">      
+				<p>While I'm by no means an expert in this field, isn't it close to possible to compute arbitrary MD5 hashes by brute force nowadays?                
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Dec 2 '13 at 2:37" who="Warty" IndentLevel="1">     
+					<p>@mafu: Late response here, but it is possible to compute any hash via brute force. It just might take a really long time.        
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Dec 2 '13 at 18:37" who="mafu" IndentLevel="1">     
+					<p>@ItzWarty I was specifically referring to the time needed - since MD5 is pretty short, I figured it might be possible to simply throw a reasonable computing source on it (E3, or a cheap computer grid a few machines with a few graphics cards, something along those lines) and be able to compute an arbitrary MD5 hash within, say, a few days.        
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Mar 14 '14 at 11:06" who="CodesInChaos" IndentLevel="1">     
+					<p>@mafu A pre-image attack costs 2^127 hash invocations for a 128 bit hash. This is far from feasible. 2^80 invocations is feasible but already very expensive.
+					</p>			
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Apr 29 '09 at 2:53" who="tvanfosson">
+			 	<p>Which one you use really depends on what you are using it for. If you just want to make sure that files don't get corrupted in transit and aren't that concerned about security, go for fast and small. If you need digital signatures for multi-billion dollar federal bailout agreements and need to make sure they aren't forged, go for hard to spoof and slow.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 29 '09 at 2:56" who="Sam Saffron" IndentLevel="1">      
+				<p>Lots of times when discussing solutions to problem I mention I use MD5 for quick identity (hashing a string), they say "but md5 is broken ... dont use it, use sha1" ... I dont really subscribe to this was wondering if anything is so fundamentally broken with some of the weaker hashs that they should be avoided ... eg real works cases where normal data produces collisions                 
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Apr 29 '09 at 3:01" who="mquander" IndentLevel="1">     
+					<p>Seeing as MD5 worked fine for millions of people for fifteen years, I suspect that it's OK for you if hash security isn't crucial.           
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 29 '09 at 3:02" who="Rex M" IndentLevel="1">     
+					<p>@sambo MD5 works just fine for almost any case except when the actual security/integrity of your system depends on preventing collisions.         
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="May 4 '09 at 2:46" who="Sam Saffron" IndentLevel="1">     
+					<p>@tvanfosson, see my answer    
+					</p>			
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Apr 29 '09 at 2:57" who="mquander">
+			 	<p>I don't really understand the question. You measured all the algorithms and researched how secure they are, so you already know under what conditions to use each. Use a fast one where performance is important and a secure one where reliability is important.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Apr 29 '09 at 3:03" who="Sam Saffron" IndentLevel="1">      
+				<p>Im hoping for things like, "dont ever use algorithm XYZ cause its broken", "always use the most secure one cause the performance difference is negligible" eg. if RIPEMD is more secure than SHA1 and CPU cycles are not concern should it not always be preferred ?                   
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Apr 29 '09 at 3:06" who="mquander" IndentLevel="1">     
+					<p>You measured exactly what the performance difference is, although it might vary slightly on different data. I don't think I've ever written anything where CPU cycles were literally of no concern at all, but if they're of no concern to you, then I suppose you should not use a hash algorithm at all in this instance and just compare two files bit-for-bit instead. (Unless you're hashing sensitive data.)           
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 29 '09 at 3:07" who="mquander" IndentLevel="1">     
+					<p>Seriously, though, you know the performance difference, and you understand that some are more secure than others when it comes to manufacturing artificial collisions, so I don't think there's anything else to mention.         
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Apr 29 '09 at 5:39" who="Sam Saffron" IndentLevel="1">     
+					<p>Updated my question with the 2 subquestions I really want answered      
+					</p>			
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="May 4 '09 at 2:47" who="Sam Saffron" IndentLevel="1">     
+					<p>@mquander, see my answer ...     
+					</p>			
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>0</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Apr 29 '09 at 2:57" who="Unknown" revisedWhen="Apr 30 '09 at 20:22">
+			 	<p>Here are my suggestions for you:
+
+					You should probably forget MD5 if you anticipate attacks. There are many rainbow tables for them online, and corporations like the RIAA have been known to be able to produce sequences with equivalent hashes.
+					Use a salt if you can. Including the message length in the message can make it very difficult to make a useful hash collision.
+					As a general rule of thumb, more bits means less collisions (by pigeonhole principle) and slower, and maybe more secure (unless you are a math genius who can find vulnerabilities).
+					See here for a paper detailing an algorithm to create md5 collisions in 31 seconds with a desktop Intel P4 computer.
+
+					http://eprint.iacr.org/2006/105
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>0</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Apr 29 '09 at 2:54" who="blueintegral">
+			 	<p>I am not an expert at this sort of thing, but I keep up with the security community and a lot of people there consider the md5 hash broken. I would say that which one to use depends on how sensitive the data is and the specific application. You might be able to get away with a slightly less secure hash as long as the key is good and strong.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="May 8 '09 at 15:00" who="Ethan Heilman" IndentLevel="1">     
+					<p>hash functions typically don't use keys         
+					</p>			
+				</posting>
+				</div>
+		</body>	
+	</text>
+</TEI>

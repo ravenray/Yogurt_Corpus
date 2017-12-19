@@ -1,0 +1,147 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>PHP form name security vulnerability?</title>
+        <author>jskidd3</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/21405515/php-form-name-security-vulnerability</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="jskidd3" url="http://stackoverflow.com/users/2273902/jskidd3">
+        <signatureContent>
+          <p>Reputation: <num>1,444</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>19</num>Number of Bronze Badges: <num>52</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Your Common Sense" url="http://stackoverflow.com/users/285587/your-common-sense">
+        <signatureContent>
+          <p>Reputation: <num>104k</num>Number of Gold Badges: <num>18</num>Number of Silver Badges: <num>91</num>Number of Bronze Badges: <num>161</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Dimi" url="http://stackoverflow.com/users/2564703/dimi">
+        <signatureContent>
+          <p>Reputation: <num>179</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>4</num>Number of Bronze Badges: <num>17</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Agha Umair Ahmed" url="http://stackoverflow.com/users/3202307/agha-umair-ahmed">
+        <signatureContent>
+          <p>Reputation: <num>767</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>9</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="DarkBee" url="http://stackoverflow.com/users/446594/darkbee">
+        <signatureContent>
+          <p>Reputation: <num>2,772</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>15</num>Number of Bronze Badges: <num>25</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="sevenseacat" url="http://stackoverflow.com/users/560215/sevenseacat">
+        <signatureContent>
+          <p>Reputation: <num>16,300</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>34</num>Number of Bronze Badges: <num>60</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="DanFromGermany" url="http://stackoverflow.com/users/1948292/danfromgermany">
+        <signatureContent>
+          <p>Reputation: <num>13,122</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>26</num>Number of Bronze Badges: <num>60</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="DCoder" url="http://stackoverflow.com/users/1233508/dcoder">
+        <signatureContent>
+          <p>Reputation: <num>10,160</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>22</num>Number of Bronze Badges: <num>45</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Stan" url="http://stackoverflow.com/users/2298902/stan">
+        <signatureContent>
+          <p>Reputation: <num>170</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>11</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Gumbo" url="http://stackoverflow.com/users/53114/gumbo">
+        <signatureContent>
+          <p>Reputation: <num>376,264</num>Number of Gold Badges: <num>64</num>Number of Silver Badges: <num>525</num>Number of Bronze Badges: <num>648</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2014-01-28 12:18:46Z" who="jskidd3" revisedWhen="2014-01-28 12:37:16Z" upVote="1" accepted="favorite"><p>I/PRP 'm/VBP a/DT junior/JJ PHP/ACR developer/NN currently/RB working/VBG on/IN a/DT project/NN with/IN a/DT small/JJ team/NN ./. It/PRP 's/VBZ the/DT first/JJ time/NN I/PRP 've/VBP worked/VBN in/IN a/DT team/NN on/IN a/DT project/NN so/IN I/PRP 'm/VBP learning/VBG lots/NNS and/CC building/VBG team/NN working/VBG skills/NNS ./. There/EX is/VBZ one/CD specific/JJ thing/NN I/PRP noticed/VBN that/WDT my/PRP$ fellow/JJ developers/NNS do/VBP and/CC I/PRP believe/VBP could/MD be/VB a/DT large/JJ security/NN risk/NN ./. When/WRB creating/VBG forms/NNS they/PRP will/MD give/VB the/DT input/NN name/NN the/DT column/NN name/NN in/IN the/DT database/NN ./. This/DT means/VBZ that/WDT wherever/WRB the/DT data/NN is/VBZ posted/VBN they/PRP can/MD use/VB a/DT nifty/NN for/IN each/DT loop/NN going/VBG through/IN the/DT POST/COS array/NN ./. Sure/UH ,/, it/PRP 's/VBZ pretty/JJ and/CC easy/JJ ,/, but/CC do/VBP I/PRP want/VBP users/NNS to/TO see/VB the/DT names/NNS of/IN columns/NNS ?/. I/PRP 'm/VBP not/RB sure/JJ if/IN it/PRP does/VBZ pose/VB a/DT security/NN risk/NN (/( first/RB thing/NN I/PRP think/VBP of/IN is/VBZ SQL/ACR injection/NN )/) but/CC if/IN it/PRP does/VBZ what/WP can/MD be/VB done/VBN ?/. I/PRP suppose/VBP you/PRP could/MD possibly/RB hash/VB the/DT names/NNS of/IN the/DT inputs/NNS ?/. Still/RB ,/, that/WDT 's/VBZ not/RB totally/RB 100/CD %/SYM secure/JJ ./. What/WP if/IN in/IN the/DT form/NN page/NN the/DT names/NNS are/VBP things/NNS like/IN '/" apple64/NNP '/" ,/, '/" banana99/NNP '/" ,/, '/" chickens/NNS '/" and/CC then/RB in/IN the/DT PHP/ACR file/NN they/PRP 're/VBP converted/VBN to/TO their/PRP$ corresponding/JJ column/NN names/NNS ?/. The/DT point/NN of/IN my/PRP$ question/NN is/VBZ to/TO find/VB general/JJ practice/NN for/IN this/DT (/( possible/JJ )/) security/NN vulnerability/NN ./.<tag>php</tag><tag>sql-injection</tag><tag>security</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Agha Umair Ahmed" when="2014-01-28 12:34:53Z" indentLevel="1">
+            <p>when/WRB you/PRP are/VBP inserting/VBG password/NN into/IN db/ACR it/PRP will/MD be/VB base64_encoded/COS or/CC use/VB md5/COS so/IN your/PRP$ password/NN will/MD be/VB secure/JJ ./. Check/VBP if/IN it/PRP is/VBZ not/RB empty/JJ or/CC html/NNP special/JJ character/NN or/CC html/NN entities/NNS this/DT all/DT are/VBP sql/ACR injection/NN</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="DarkBee" when="2014-01-28 12:35:53Z" indentLevel="1" upVote="2">
+            <p>imho/FW if/IN u/PRP keep/VBP in/IN mind/NN not/RB trusting/VBG user/NN input/NN and/CC validating/VBG the/DT input/NN than/IN there/EX is/VBZ no/DT problem/NN with/IN naming/VBG the/DT fields/NNS like/IN the/DT columns/NNS ./. Further/RB more/JJR I/PRP think/VBP this/DT is/VBZ good/JJ practise/NN ./. This/DT is/VBZ a/DT good/JJ way/NN for/IN new/JJ members/NNS in/IN the/DT team/NN to/TO integrate/VB fast/JJ into/IN the/DT code/NN ./. Imagine/VBP if/IN every/DT field/NN was/VBD provided/VBN with/IN a/DT hashed/JJ name/NN ,/, then/RB u/PRP would/MD need/VB to/TO translate/VB every/DT hash/NN for/IN yourself/PRP to/TO be/VB able/JJ to/TO know/VB which/WDT is/VBZ what/WP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="jskidd3" when="2014-01-28 12:36:53Z" indentLevel="1">
+            <p>@DarkBee/ATS Sure/UH ,/, that/WDT 's/VBZ definitely/RB the/DT case/NN but/CC security/NN should/MD always/RB come/VB first/JJ IMO/FW ./. If/IN it/PRP does/VBZ n't/RB pose/VB a/DT threat/NN however/RB I/PRP totally/RB agree/VBP with/IN you/PRP (/( which/WDT I/PRP think/VBP you/PRP 're/VBP suggesting/VBG )/)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="DarkBee" when="2014-01-28 12:36:53Z" indentLevel="1" upvote="2">
+            <p>@AghaUmairAhmed/ATS MD5/NNP and/CC base64/NNP are/VBP not/RB secure/JJ .../. use/VBP the/DT password_hash/COS function/NN available/JJ in/IN >/SYM =/SYM 5.5.0/CD (/( php.net/manual/en/function.password-hash.php/URL )/)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="DanFromGermany" when="2014-01-28 12:40:53Z" indentLevel="1">
+            <p>They/PRP just/RB foreach/VB the/DT POST/COS and/CC insert/VB ?/. What/WP library/NN do/VB you/PRP use/VBP ?/. If/IN multi/JJ queries/NNS are/VBP enabled/VBN and/CC someone/NNP inserts/VBZ something/NNP like/IN "/" 1234/CD '/" ;/: DROP/COS DATABASE/COS what/WP not/RB be/VB nice/JJ</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="DCoder" when="2014-01-28 12:43:53Z" indentLevel="1">
+            <p>@AghaUmairAhmed/ATS :/: base64_encode/COS for/IN password/NN storage/NN ?/. !/. Why/WRB would/MD you/PRP ever/RB do/VBP that/DT ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="sevenseacat" when="2014-01-28 12:49:53Z" indentLevel="1" upVote="1">
+            <p>Having/VBG names/NNS of/IN columns/NNS in/IN your/PRP$ code/NN is/VBZ in/IN no/DT way/NN insecure/JJ ./. If/IN you/PRP were/VBD obfuscating/VBG them/PRP just/RB for/IN the/DT sake/NN of/IN it/PRP ,/, that/DT would/MD be/VB classic/JJ security/NN through/IN obscurity/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Your Common Sense" when="2014-01-28 18:59:49Z" upVote="1" accepted="accepted">
+            <p>Such/RB a/DT general/JJ practice/NN is/VBZ called/VBN "/" whitelisting/NN "/" ./.  You/PRP are/VBP positively/RB right/JJ about/IN this/DT vulnerability/NN ./. And/CC for/IN a/DT junior/JJ developer/NN you/PRP have/VBP a/DT very/RB good/JJ eye/NN ./. As/IN a/DT matter/NN of/IN fact/NN ,/, most/JJS people/NN who/WP call/VB themselves/NNS "/" professionals/NNS "/" never/RB bother/VB themselves/NNS with/IN such/RB questions/NNS ./. So/IN ,/, to/TO prevent/VB an/DT ordinary/JJ SQL/ACR injection/NN and/CC also/RB to/TO prevent/VB random/JJ access/NN to/TO table/NN fields/NNS (/( a/DT user/NN may/MD be/VB disallowed/JJ to/TO some/NNP of/IN them/PRP )/) ,/, you/PRP have/VBP to/TO verify/VB your/PRP$ post/NN data/NN against/IN a/DT pre-written/JJ whitelist/NN ./. Here/RB you/PRP can/MD see/VB  my/PRP$ approach/NN for/IN either/DT classic/JJ mysql/COS or/CC PDO/ACR  as/IN an/DT example/NN ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Dimi" when="2014-01-28 12:37:16Z" upVote="-1">
+            <p>When/WRB you/PRP develop/VBP ,/, you/PRP have/VBP to/TO give/VB to/TO user/NN the/DT minimal/JJ informations/NNS ./. 
+                Headers/NNS //: DB/ACR name/NN //: Column/NN name/NN etc/FW ../. The/DT risk/NN of/IN the/DT sql/ACR injection/NN exist/VB if/IN your/PRP$ form/NN treatments/NNS are/VBP not/RB secure/JJ ./.
+                To/TO control/VB your/PRP$ sql/ACR requests/NNS ,/, you/PRP have/VBP to/TO prepare/VB them/PRP and/CC check/VBP if/IN the/DT variable/NN have/VBP special/JJ chars/NNS ./. Documentation/NN about/IN pdo/ACR
+                http://php.net/manual/en/pdo.prepare.php/URL A/DT nice/JJ "/" how/WRB to/TO "/" about/IN the/DT sql/ACR injection/NN :/:
+                http://www.unixwiz.net/techtips/sql-injection.html/URL
+         </p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="jskidd3" when="2014-01-28 12:38:53Z" indentLevel="1">
+            <p>I/PRP do/VB prepare/VBP them/PRP !/. This/DT is/VBZ n't/RB really/RB an/DT answer/NN to/TO what/WP I/PRP 'm/VBP asking/VBG (/( not/RB being/VBG rude/JJ )/) ./. I/PRP 'm/VBP asking/VBG if/IN it/PRP 's/VBZ a/DT threat/NN for/IN users/NNS to/TO know/VB the/DT column/NN names/NNS via/IN viewing/VBG the/DT source/NN code/NN and/CC looking/VBG at/IN the/DT name/Nn attribute/NN value/NN for/IN an/DT input/NN field/NN ./. Preparing/VBG them/PRP etc/FW is/VBZ all/DT basic/JJ practice/NN to/TO me/PRP :)/EMO</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Stan" when="2014-01-28 13:31:27Z" indentLevel="1">
+            <p>But/CC you/PRP cannot/RB parameterize/VBP column/NN names/NNS with/IN PDO/COS ,/, Dimi/NNP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Gumbo" when="2014-01-28 19:35:11Z" indentLevel="1">
+            <p>@jskidd3/ATS How/WRB do/VB you/PRP â€˜prepareâ€™/FW the/DT column/NN names/NNS ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Stan" when="2014-01-29 13:09:42Z" indentLevel="1">
+            <p>@Gumbo/ATS You/PRP cannot/RB prepare/VBP them/PRP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Gumbo" when="2014-01-29 16:08:49Z" indentLevel="1">
+            <p>@Stan/ATS No/UH ,/, you/PRP can/MD 't/RB prepare/VBP them/PRP with/IN DBMS/ACR prepared/JJ statements/NNS ./. But/CC you/PRP could/MD escape/VB them/PRP ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

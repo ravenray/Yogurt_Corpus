@@ -1,0 +1,180 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>How can a Format-String vulnerability be exploited?</title>
+        <author>Atul Goyal</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/7459630/how-can-a-format-string-vulnerability-be-exploited</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Atul Goyal" url="http://stackoverflow.com/users/489852/atul-goyal">
+        <signatureContent>
+          <p>Reputation: <num>1,918</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>29</num>Number of Bronze Badges: <num>48</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Mateen Ulhaq" url="http://stackoverflow.com/users/365102/mateen-ulhaq">
+        <signatureContent>
+          <p>Reputation: <num>6,399</num>Number of Gold Badges: <num>7</num>Number of Silver Badges: <num>32</num>Number of Bronze Badges: <num>65</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Michael Foukarakis" url="http://stackoverflow.com/users/149530/michael-foukarakis">
+        <signatureContent>
+          <p>Reputation: <num>19.4k</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>47</num>Number of Bronze Badges: <num>81</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Mehrdad" url="http://stackoverflow.com/users/541686/mehrdad">
+        <signatureContent>
+          <p>Reputation: <num>98.1k</num>Number of Gold Badges: <num>57</num>Number of Silver Badges: <num>297</num>Number of Bronze Badges: <num>589</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jonathan Leffler" url="http://stackoverflow.com/users/15168/jonathan-leffler">
+        <signatureContent>
+          <p>Reputation: <num>414k</num>Number of Gold Badges: <num>57</num>Number of Silver Badges: <num>459</num>Number of Bronze Badges: <num>765</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Mehrdad" url="http://stackoverflow.com/users/541686/mehrdad">
+        <signatureContent>
+          <p>Reputation: <num>98.1k</num>Number of Gold Badges: <num>57</num>Number of Silver Badges: <num>297</num>Number of Bronze Badges: <num>589</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="AndreyP" url="http://stackoverflow.com/users/1100913/andreyp">
+        <signatureContent>
+          <p>Reputation: <num>94</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>11</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Hermani" url="http://stackoverflow.com/users/2355640/hermani">
+        <signatureContent>
+          <p>Reputation: <num>7</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>0</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Eran Zimmerman" url="http://stackoverflow.com/users/855395/eran-zimmerman">
+        <signatureContent>
+          <p>Reputation: <num>2,707</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>18</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-09-18 05:17:56Z" who="Atul Goyal" revisedWhen="2011-09-18 05:41:22Z" upVote="44" accepted="favorite"><p>I was reading about vulnerabilities in code and came across this Format-String Vulnerability. Wikipedia says:Format string bugs most commonly appear when a programmer wishes to
+  print a string containing user supplied data. The programmer may
+  mistakenly write printf(buffer) instead of printf("%s", buffer). The
+  first version interprets buffer as a format string, and parses any
+  formatting instructions it may contain. The second version simply
+  prints a string to the screen, as the programmer intended.I got the problem with printf(buffer) version, but I still didn't get how this vulnerability can be used by attacker to execute harmful code. Can someone please tell me how this vulnerability can be exploited by an example?<tag>c</tag><tag>format-string</tag><tag>security</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Mysticial" when="2011-9-18 05:31:03Z" indentLevel="1">
+            <p>For reference, the buffer overflow attack question is here: stackoverflow.com/questions/7344226/buffer-overflow-attack </p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Eran Zimmerman" when="2011-9-18 05:33:40Z" indentLevel="1">
+            <p>possibly related: stackoverflow.com/questions/5672996/</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Atul Goyal" when="2011-9-18 05:34:21Z" indentLevel="1">
+            <p>Thanks, I'm familiar with buffer overflow attack, I'm still trying to understand how attacker gains control of return address using printf. Meanwhile if possible, someone plz post an example to make it more clear.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mehrad" when="2011-9-18 05:35:29Z" indentLevel="1">
+            <p>@Mehrdad: Why should printf pop anything off the stack? It's not like it knows (or cares) how many arguments (or even how big) were originally pushed</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="quasiverse" when="2011-9-18 05:37:17Z" indentLevel="1">
+            <p>I thought you guys were talking to yourselves for a second there</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mehrdad Afshari" when="2011-9-18 05:37:20Z" indentLevel="1">
+            <p>@Mehrdad Now you've got me thinking... seems you're right. It definitely reads more data from stack, but that doesn't necessarily imply popping as it reads</p>    
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mehrdad" when="2011-9-18 05:38:06Z" indentLevel="1">
+            <p>@quasiverse: lol</p>    
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Mateen Ulhaq" when="2011-09-18 05:54:25Z" upVote="64" accepted="accepted">
+          <p>You may be able to exploit a format string vulnerability in many ways, directly or indirectly. Let's use the following as an example (assuming no relevant OS protections, which is very rare anyways): The basis of this vulnerability is the behaviour of functions with variable arguments. A function which implements handling of a variable number of parameters has to read them from the stack, essentially. If we specify a format string that will make  printf()  expect two integers on the stack, and we provide only one parameter, the second one will have to be something else on the stack. By extension, and if we have control over the format string, we can have the two most fundamental primitives: [EDIT]  IMPORTANT:  I'm making some assumptions about the stack frame layout here. You can ignore them if you understand the basic premise behind the vulnerability, and they vary across OS, platform, program and configuration anyways. It's possible to use the  %s  format parameter to read data. You can read the data of the original format string in  printf(text) , hence you can use it to read anything off the stack: You can use the  %n  format specifier to write to an arbitrary address (almost). Again, let's assume our vulnerable program above, and let's try changing the value of  some_value , which is located at  0x08049794 , as seen above: We've overwritten  some_value  with the number of bytes written before the  %n  specifier was encountered ( man printf ). We can use the format string itself, or field width to control this value: There are many possibilities and tricks to try (direct parameter access, large field width making wrap-around possible, building your own primitives), and this just touches the tip of the iceberg. I would suggest reading more articles on fmt string vulnerabilities (Phrack has some mostly excellent ones, although they may be a little advanced) or a book which touches on the subject. Disclaimer: the examples are taken [although not verbatim] from the book  Hacking: The art of exploitation (2nd ed)  by Jon Erickson.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="user3109672" when="2014-01-09 09:25:35Z" indentLevel="1">
+          <p>hi, I'm wondering how  $(printf "\x94\x97\x04\x08")%08x.%08x.%08x.%n  works? why is "??" printed out for the whole lot in front? How did it reach the memory address 0x09049794? Thanks a lot</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Freek Kalter" when="2014-01-24 19:56:28Z" indentLevel="1">
+          <p>The ?? is printed becuase $(printf "\x94\x97\x04\x08") will try to convert these values into characters. Because these values are not printable characters, your terminal will print a ? instead. (try printf "\x41\x42\x43\x44", wich will print ABCD because these are valid ascii values)</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Mehrdad" when="2011-09-18 05:41:22Z" upVote="7">
+          <p>This is because  %n causes  printf  to  write  data to a variable , which is on the stack. But that means it could write to something arbitrarily. All you need is for someone to use that variable (it's relatively easy if it happens to be a function pointer, whose value you just figured out how to control) and they can make you execute anything arbitrarily. Take a look at the links in the article; they  look interesting .</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="David Heffernan" when="2011-09-18 05:47:00Z" indentLevel="1">
+          <p>should be an edit to your other answer</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Jonathan Leffler" when="2011-09-19 05:12:26Z" upVote="3">
+          <p>It is interesting that no-one has mentioned the  n$  notation supported by POSIX.  If you can control the format string as the attacker, you can use notations such as: to read the 200 th  item on the stack (if there is one).  The intention is that you should list all the  n$  numbers from 1 to the maximum, and it provides a way of resequencing how the parameters appear in a format string, which is handy when dealing with I18N (L10N, G11N, M18N * ). However, some (probably most) systems are somewhat lackadaisical about how they validate the  n$  values and this can lead to abuse by attackers who can control the format string.  Combined with the  %n  format specifier, this can lead to writing at pointer locations. *  The acronyms I18N, L10N, G11N and M18N are for internationalization, localization, globalization, and multinationalization respectively.  The number represents the number of omitted letters.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Mehrdad" when="2011-09-18 05:28:09Z" upVote="0">
+          <p>AFAIK it's mainly because it can crash your program, which is considered to be a denial-of-service attack. All you need is to give an invalid address (practically  anything  with a few  %s 's is guaranteed to work), and it becomes a simple denial-of-service (DoS) attack. Now, it's theoretically  possible  for that to trigger anything in the case of an exception/signal/interrupt handler, but figuring out how to do that is beyond me -- you need to figure out how to  write  arbitrary data to memory as well. But why does anyone care if the program crashes, you might ask? Doesn't that just inconvenience the user (who deserves it anyway)? The problem is that some programs are accessed by multiple users, so crashing them has a non-negligible cost. Or sometimes they're critical to the running of the system (or maybe they're in the middle of doing something very critical), in which case this can be damaging to your data. Of course, if you crash Notepad then no one might care, but if you crash CSRSS (which I believe actually had a similar kind of bug -- a double-free bug, specifically) then yeah, the entire system is going down with you. See  this link  for the CSRSS bug I was referring to. Take note that  reading arbitrary data can be just as dangerous  as executing arbitrary code! If you read a password, a cookie, etc. then it's just as serious as an arbitrary code execution -- and this is  trivial  if you just have enough time to try enough format strings.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Atul Goyal" when="2011-09-18 05:37:58Z" indentLevel="1">
+          <p>Thanks Mehrdad, I think crashing a program would still be generally easier than being able to run your own code. So, specifically I'm looking for an answer to execution of attacker's code. But still I must upvote for a good answer :)</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mehrdad" when="2011-09-18 05:38:55Z" indentLevel="1">
+          <p>@Atul: Haha thanks. :) Yeah, if anyone can come up with an actual arbitrary code execution example then I'd DEFINITELY want to see it!</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mehrdad" when="2011-09-18 05:41:55Z" indentLevel="1">
+          <p>@Atul: I posted another answer, from the article itself. If I manage to write the code then I'll do that, too -- but that one is a direct attack of the kind you're looking for.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Gabe" when="2011-09-18 05:48:12Z" indentLevel="1">
+          <p>This answer is nonsense. You should delete it in light of your  correct  answer.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Mehrdad" when="2011-09-18 05:49:02Z" indentLevel="1">
+          <p>@Gabe: Why is it nonsense? DoS is an attack, isn't it? Also, an exception handler that tries to handle an access violation (by calling a function through a pointer or something) could cause this to execute unintended code, right? It's not likely, but still possible.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="AndreyP" when="2013-03-31 09:14:23Z" upVote="0">
+          <p>I would recommend reading  this  lecture note about format string vulnerability.
+It describes in details what happens and how, and has some images that might help you to understand the topic.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Hermani" when="2013-05-06 17:55:48Z" downVote="-2">
+          <p>An easy "Do it yourself" example : ( I know it works on winxp-win7 , don't know about win8)
+open a command prompt in windows  When there is no file found , The program echo's the first argument 
+and it replaces the %s with some value from the stack...</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

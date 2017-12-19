@@ -1,0 +1,1365 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Why do salts make dictionary attacks 'impossible'?</title>
+				<author>Tom Gullen</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/3566504/why-do-salts-make-dictionary-attacks-impossible
+				On: May 06, 2015
+				Created by: 
+					Rachael Duke
+					Department of Linguistics
+					University of California, Davis
+					Please email me with any questions, comments, or errors.
+					Email: rebrim @ ucdavis . edu
+				</p>
+			<listPerson>
+				<person xml:id="Tom Gullen">
+				<signatureContent>
+					<p>Reputation: <num>22,029</num></p>
+					<p>Page: http://stackoverflow.com/users/356635/tom-gullen </p>
+					<p>Number of Gold Badges: <num>39</num></p>
+					<p>Number of Silver Badges:<num>166</num></p>
+					<p>Number of Bronze Badges:<num>313</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="user195488">
+				<signatureContent>
+					<p>Reputation: <num></num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num></num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Sam">
+				<signatureContent>
+					<p>Reputation: <num>3,266</num></p>
+					<p> Number of Gold Badges: <num>7</num></p>
+					<p>Number of Silver Badges:<num>19</num></p>
+					<p>Number of Bronze Badges:<num>38</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="BeRecursive">
+				<signatureContent>
+					<p>Reputation: <num>4,588</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>9</num></p>
+					<p>Number of Bronze Badges:<num>32</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="tarrasch">
+				<signatureContent>
+					<p>Reputation: <num>400</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>11</num></p>
+					<p>Number of Bronze Badges:<num>41</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="T.E.D.">
+				<signatureContent>
+					<p>Reputation: <num>28,298</num></p>
+					<p> Number of Gold Badges: <num>3</num></p>
+					<p>Number of Silver Badges:<num>39</num></p>
+					<p>Number of Bronze Badges:<num>98</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="FrustratedWithFormsDesigner">
+				<signatureContent>
+					<p>Reputation: <num>16,070</num></p>
+					<p> Number of Gold Badges: <num>12</num></p>
+					<p>Number of Silver Badges:<num>64</num></p>
+					<p>Number of Bronze Badges:<num>128</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Damien_The_Unbeliever">
+				<signatureContent>
+					<p>Reputation: <num>114,303</num></p>
+					<p> Number of Gold Badges: <num>12</num></p>
+					<p>Number of Silver Badges:<num>109</num></p>
+					<p>Number of Bronze Badges:<num>173</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="erickson">
+				<signatureContent>
+					<p>Reputation: <num>144,903</num></p>
+					<p> Number of Gold Badges: <num>30</num></p>
+					<p>Number of Silver Badges:<num>222</num></p>
+					<p>Number of Bronze Badges:<num>338</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Boris">
+				<signatureContent>
+					<p>Reputation: <num>2,624</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>25</num></p>
+					<p>Number of Bronze Badges:<num>56</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="dmckee">
+				<signatureContent>
+					<p>Reputation: <num>56,138</num></p>
+					<p> Number of Gold Badges: <num>14</num></p>
+					<p>Number of Silver Badges:<num>92</num></p>
+					<p>Number of Bronze Badges:<num>169</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="blaze">
+				<signatureContent>
+					<p>Reputation: <num>3,058</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>6</num></p>
+					<p>Number of Bronze Badges:<num>14</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="rook">
+				<signatureContent>
+					<p>Reputation: <num>36,711</num></p>
+					<p> Number of Gold Badges: <num>16</num></p>
+					<p>Number of Silver Badges:<num>99</num></p>
+					<p>Number of Bronze Badges:<num>184</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Powerlord">
+				<signatureContent>
+					<p>Reputation: <num>49,200</num></p>
+					<p> Number of Gold Badges: <num>6</num></p>
+					<p>Number of Silver Badges:<num>82</num></p>
+					<p>Number of Bronze Badges:<num>133</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Ian Boyd">
+				<signatureContent>
+					<p>Reputation: <num>62,310</num></p>
+					<p> Number of Gold Badges: <num>11</num></p>
+					<p>Number of Silver Badges:<num>407</num></p>
+					<p>Number of Bronze Badges:<num>730</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="rmeador">
+				<signatureContent>
+					<p>Reputation: <num>15,959</num></p>
+					<p> Number of Gold Badges: <num>12</num></p>
+					<p>Number of Silver Badges:<num>38</num></p>
+					<p>Number of Bronze Badges:<num>78</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Malfist">
+				<signatureContent>
+					<p>Reputation: <num>11,582</num></p>
+					<p> Number of Gold Badges: <num>36</num></p>
+					<p>Number of Silver Badges:<num>124</num></p>
+					<p>Number of Bronze Badges:<num>228</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Joe Philllips">
+				<signatureContent>
+					<p>Reputation: <num>16,428</num></p>
+					<p> Number of Gold Badges: <num>15</num></p>
+					<p>Number of Silver Badges:<num>57</num></p>
+					<p>Number of Bronze Badges:<num>107</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Colin DeClue">
+				<signatureContent>
+					<p>Reputation: <num>1,135</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>10</num></p>
+					<p>Number of Bronze Badges:<num>30</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Michael Mrozek">
+				<signatureContent>
+					<p>Reputation: <num>51,017</num></p>
+					<p> Number of Gold Badges: <num>9</num></p>
+					<p>Number of Silver Badges:<num>96</num></p>
+					<p>Number of Bronze Badges:<num>121</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="GregS">
+				<signatureContent>
+					<p>Reputation: <num>17,984</num></p>
+					<p> Number of Gold Badges: <num>4</num></p>
+					<p>Number of Silver Badges:<num>30</num></p>
+					<p>Number of Bronze Badges:<num>62</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Dirk Vollmar - 0xA3">
+				<signatureContent>
+					<p>Reputation: <num>83,130</num></p>
+					<p> Number of Gold Badges: <num>25</num></p>
+					<p>Number of Silver Badges:<num>153</num></p>
+					<p>Number of Bronze Badges:<num>215</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Michael Borgwardt">
+				<signatureContent>
+					<p>Reputation: <num>202,226</num></p>
+					<p> Number of Gold Badges: <num>33</num></p>
+					<p>Number of Silver Badges:<num>284</num></p>
+					<p>Number of Bronze Badges:<num>537</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Incognito">
+				<signatureContent>
+					<p>Reputation: <num>11,648</num></p>
+					<p> Number of Gold Badges: <num>6</num></p>
+					<p>Number of Silver Badges:<num>44</num></p>
+					<p>Number of Bronze Badges:<num>95</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Jerry Coffin">
+				<signatureContent>
+					<p>Reputation: <num>267,597</num></p>
+					<p> Number of Gold Badges: <num>26</num></p>
+					<p>Number of Silver Badges:<num>274</num></p>
+					<p>Number of Bronze Badges:<num>600</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="snemarch">
+				<signatureContent>
+					<p>Reputation: <num>3,489</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>13</num></p>
+					<p>Number of Bronze Badges:<num>25</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="khaled_webdev">
+				<signatureContent>
+					<p>Reputation: <num>924</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>4</num></p>
+					<p>Number of Bronze Badges:<num>12</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Dominik Weber">
+				<signatureContent>
+					<p>Reputation: <num>501</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>3</num></p>
+					<p>Number of Bronze Badges:<num>12</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Andy">
+				<signatureContent>
+					<p>Reputation: <num>511</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>6</num></p>
+					<p>Number of Bronze Badges:<num>17</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Eugene Mayevski 'EldoS Corp">
+				<signatureContent>
+					<p>Reputation: <num>30,502</num></p>
+					<p> Number of Gold Badges: <num>6</num></p>
+					<p>Number of Silver Badges:<num>29</num></p>
+					<p>Number of Bronze Badges:<num>78</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="supercat">
+				<signatureContent>
+					<p>Reputation: <num>31,447</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>41</num></p>
+					<p>Number of Bronze Badges:<num>73</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="cyber-guard">
+				<signatureContent>
+					<p>Reputation: <num>1,219</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>8</num></p>
+					<p>Number of Bronze Badges:<num>22</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Cory House">
+				<signatureContent>
+					<p>Reputation: <num>5,595</num></p>
+					<p> Number of Gold Badges: <num>5</num></p>
+					<p>Number of Silver Badges:<num>36</num></p>
+					<p>Number of Bronze Badges:<num>60</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<front>
+			<div type="up vote">
+				<p>up vote  <num>79</num></p>
+			</div>
+			<div type="down vote">
+			<p>down vote
+          favorite <num>42</num></p>
+			</div>
+		</front>
+		<div type="forum">
+			<posting synch="Aug 25 '10 at 13:50" who="Tom Gullen" revisedWhen="Aug 17 '14 at 21:07" revisedBy="Sam">
+			<p>Possible Duplicate:
+			Need some help understanding password salt
+			Update: Please note I am not asking what a salt is, what a rainbow table is, what a dictionary attack is, or what the purpose of a salt is. I am querying: If you know the users salt and hash, isn't it quite easy to calculate their password?
+
+			I understand the process, and implement it myself in some of my projects.
+
+			s =  random salt
+			storedPassword = sha1(password + s)
+			In the database you store:
+
+			username | hashed_password | salt
+			Every implementation of salting I have seen adds the salt either at the end of the password, or beginning:
+
+			hashed_Password = sha1(s + password )
+			hashed_Password = sha1(password + s)
+			Therfore, a dictionary attack from a hacker who is worth his salt (ha ha) would simply run each keyword against the stored salts in the common combinations listed above.
+
+			Surely the implementation described above simply adds another step for the hacker, without actually solving the underlying issue? What alternatives are there to step around this issue, or am I misunderstanding the problem?
+
+			The only thing I can think to do is have a secret blending algorithm that laces the salt and password together in a random pattern, or adds other user fields to the hashing process meaning the hacker would have to have access to the database AND code to lace them for a dictionary attack to prove fruitful. (Update, as pointed out in comments it's best to assume the hacker has access to all your information so this probably isn't best).
+
+			Let me give an example of how I propose a hacker would hack a user database with a list of passwords and hashes:
+
+			Data from our hacked database:
+
+			RawPassword (not stored)  |  Hashed   |     Salt
+			--------------------------------------------------------
+			letmein                       WEFLS...       WEFOJFOFO...
+			Common password dictionary:
+
+			   Common Password
+			   --------------
+			   letmein
+			   12345
+			   ...
+			For each user record, loop the common passwords and hash them:
+
+			for each user in hacked_DB
+
+			    salt = users_salt
+			    hashed_pw = users_hashed_password
+
+			    for each common_password
+
+			        testhash = sha1(common_password + salt)
+			        if testhash = hashed_pw then
+			           //Match!  Users password = common_password
+			           //Lets visit the webpage and login now.
+			        end if
+
+			    next
+
+			next
+			I hope this illustrates my point a lot better.
+
+			Given 10,000 common passwords, and 10,000 user records, we would need to calculate 100,000,000 hashes to discover as many user passwords as possible. It might take a few hours, but it's not really an issue.
+
+			Update on Cracking Theory
+
+			We will assume we are a corrupt webhost, that has access to a database of SHA1 hashes and salts, along with your algorithm to blend them. The database has 10,000 user records.
+
+			This site claims to be able to calculate 2,300,000,000 SHA1 hashes per second using the GPU. (In real world situation probably will be slower, but for now we will use that quoted figure).
+
+			(((95^4)/2300000000)/2)*10000 = 177 seconds
+			Given a full range of 95 printable ASCII characters, with a maximum length of 4 characters, divided by the rate of calculation (variable), divided by 2 (assuming the average time to discover password will on average require 50% of permutations) for 10,000 users it would take 177 seconds to work out all users passwords where the length is &lt;= 4.
+
+			Let's adjust it a bit for realism.
+
+			(((36^7)/1000000000)/2)*10000 = 2 days
+			Assuming non case sensitivity, with a password length &lt;= 7, only alphanumeric chars, it would take 4 days to solve for 10,000 user records, and I've halved the speed of the algorithm to reflect overhead and non ideal circumstance.
+
+			It is important to recognise that this is a linear brute force attack, all calculations are independant of one another, therfore it's a perfect task for multiple systems to solve. (IE easy to set up 2 computers running attack from different ends that would half the exectution time).
+
+			Given the case of recursively hashing a password 1,000 times to make this task more computationally expensive:
+
+			(((36^7) / 1 000 000 000) / 2) * 1000 seconds = 10.8839117 hours
+			This represents a maximum length of 7 alpha-numeric characters, at a less than half speed execution from quoted figure for one user.
+
+			Recursively hashing 1,000 times effectively blocks a blanket attack, but targetted attacks on user data are still vulnerable.
+
+			<tag>security</tag> <tag>hash</tag> <tag>salt</tag> <tag>dictionary-attack</tag>
+			</p>
+			</posting>	
+		</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>11</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 13:54" who="BeRecursive" IndentLevel="1">  
+					<p>The whole point in salting is to prevent you from being able to look at the hashed password and see that multiple users have the same hash (and thus the same password). Without salting you could just use the hashing algorithm and generate every possible hash and then do a brute search for that hash. Since the algorithm never changes it makes it predictable for attackers, salting just makes it that much more difficult.    
+					</p>				
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 13:55" who="tarrasch" IndentLevel="1">   
+					<p>here it is discussed in detail : stackoverflow.com/questions/420843/…    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 13:58" who="Tom Gullen" IndentLevel="1">       
+					<p>Thanks @be, I suppose the point I am trying to make is that it is presented as an extremely secure method when actually it isn't, it just obscures the data enough to make the hackers job a little more irritating    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:02" who="BeRecursive" IndentLevel="1">      
+					<p>Yes but if you use a complicated enough hashing algorithm with a good pseudo random salt then you can push the complexity of solving the problem into the realms of physical impossibility on any modern/future hardware. 2^128 is a really big number!    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:04" who="Tom Gullen" IndentLevel="1">   
+					<p>If a hacker has access to the salt + the hashed password, they simply run all the salt + dictionary password combinations, for n dictionary passwords you need to perform n hashing calculations per user account, a lot more computationally expensive, but perfectly easy for a laptop to perform over a few hours or so. I'm not sure if my question is clear enough?    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>24</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:04" who="T.E.D." IndentLevel="1">     
+					<p>Because crackers are like slugs, and the salt dries up the mucous on their skin and kills them.    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:06" who="FrustratedWithFormsDesigner" IndentLevel="1">     
+					<p>@T.E.D.: I rather like salted crackers. Salted slugs, not so much.    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:27" who="Damien_The_Unbeliever" IndentLevel="1">     
+					<p>@Tom - in your example attack. If there isn't salt, then the attacker can do "for each common password, hash the password. Does this match one or more users? Yes, I have their password" - the attacker is able to attack all passwords "in parallel", at no extra cost.    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:27" who="erickson" IndentLevel="1">     
+					<p>@Tom Gullen - you only have half the picture. Without salt, an attacker wouldn't use the method you demonstrate in "Update 2". He'd simply do a lookup in a table and get the password in O(1) or O(log n) time (n being the number of candidate passwords). Salt is what prevents that and forces him to use the O(n) approach you demonstrate. Another technique (key-strengthening) can cause each attempt in your loop to take a full second, meaning that it will take 3 years to perform those tests... and with only 10k passwords, you're likely to crack zero passwords in that time.    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:27" who="BeRecursive" IndentLevel="1">     
+					<p>I didn't realize you were assuming the salt had been compromised as well. Whilst technically you are correct the real issue is that the hacker has compromised the entire database before we begin. This is a much larger issue than the fact he can crack common passwords in 3 days ;) Salting is not meant to prevent what you are talking about, but instead to prevent the hacker from gaining access to every password in your database in one go. It is - as is every form of encryption - merely a method to INCONVENIENCE the attacker    
+					</p>			
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:29" who="BeRecursive" IndentLevel="1">      
+					<p>@erickson key stengthening is another good point. Make the hashing algorithm computationally expensive and you again make cracking less likely.    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 14:29" who="Tom Gullen" IndentLevel="1">      
+					<p>Thank you, when in the real world has a list of passwords been hacked without having access to the salt values? It might be more common than I assume, just wondering.    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 14:31" who="Tom Gullen" IndentLevel="1">      
+					<p>Thank you also erickson, do you mean rehashing the result say 100 times to make it computationally expensive? Or using a heavier hash algorithm? I could see that working well, but no article or guide I have read online has ever suggested that.    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:48" who="erickson" IndentLevel="1">      
+					<p>@Tom Gullen - I mean re-hashing the result say 2000 times (you have to consider that an attacker is going to use something fast, not PHP), so that it takes a good fraction of a second to compute the hash for a single password. This is found in the standard key derivation algorithms PBKDF1 and PBKDF2, from PKCS #5, which make great password obfuscation algorithms (the "derived key" is the "hash"). A lot of users on SO refer to this article because it was a response to Jeff Atwood.    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 14:51" who="Boris" IndentLevel="1">      
+					<p>@Tom: Generally, always assume that both your code and your database may become public knowledge. This means that having a secret way of blending the salt with the password, as you mention, is a bad idea, in essence being security by obscurity. Not that I see you advertising for it, but I would just mention it for clarification.    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 14:53" who="erickson" IndentLevel="1">      
+					<p>BTW, of course you assume the attacker has everything. Assume the attacker is a corrupt hosting company employee who dumped the user table on your myprettypony.com fansite so that he can recover passwords and see if they work on people's citibank.com accounts. With a well-designed password scheme, it will be impossible for this guy to recover any passwords.    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 14:53" who="Tom Gullen" IndentLevel="1">      
+					<p>Thanks Boris, but lots of security is security through obscurity isn't it? That's essentially what a hash is?   
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 14:54" who="Tom Gullen" IndentLevel="1">      
+					<p>@Erickson thanks for clarification, you should put it in an answer it's exactly what I was after.   
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 14:55" who="Tom Gullen" IndentLevel="1">      
+					<p>@Erickson, excellent article thanks for the link    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 19:04" who="user195488" IndentLevel="1">      
+					<p>See also: stackoverflow.com/questions/213380/… and stackoverflow.com/questions/1645161/… and stackoverflow.com/questions/536584/…     
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 3:30" who="dmckee" IndentLevel="1">      
+					<p>@Tom: Concerning security through obscurity: No, it's not. Security Through Obscurity is using a weak method and assuming you can prevent people from learning what that method is. The point of salt is to drive the mean cost (in time, processing power, disk space, electric bills, whatever) of the attack higher than the expected value to be gained by success or to push the expected time to success far enough into the future that it does not matter (say, beyond the next mandatory password change).    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 10:05" who="Tom Gullen" IndentLevel="1">      
+					<p>@dmckee, thanks but I was under the impression the definition of security through obscurity doesn't cover the 'weakness' of the solution? IE, it's not by definition necesserially weak. Your point about it meaning a secret method is correct though, my point is for example, is public key encryption STO because you method is combining a 'secret key'?     
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 11:36" who="Tom Gullen" IndentLevel="1">      
+					<p>I've updated the question with some figures on crack times for various scenarios, so far I have learnt that recursive hashing protects about blanket cracks and I hope I have proved that, but the interesting question now is how can we protect from targetted attacks? This comes down to the user, and if you require a 9 character password with a special char, and case sensitivity you will be looking at (((95^9) / 1000000000) / 2) * 1000 seconds in years = 10,000 years to crack.    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 12:37" who="Tom Gullen" IndentLevel="1">      
+					<p>Sorry, but this question is not a duplicate, so I've voted to reopen. A lot of the responses seem to describe what a salt is, why it's there, which doesn't address the question. This question is more specific than that.    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 13:07" who="Tom Gullen" IndentLevel="1">      
+					<p>Plus we are generating interesting discussion so it would be nice to keep it open!    
+					</p>			
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 17:41" who="dmckee" IndentLevel="1">      
+					<p>"Avoid asking questions that [...] require extended discussion." -- The FAQ   
+					</p>			
+				</posting>
+			</div>
+		<front>
+			<head>11 Answers</head>
+				<div type="up vote">
+				<p>up vote  <num>26</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 25 '10 at 15:00" who="blaze">
+			 	<p>Yes, you need just 3 days for sha1(salt | password). That's why good password storage algorithms use 1000-iteration hashing: you will need 8 years.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 15:01" who="Tom Gullen" IndentLevel="1">      
+				<p>+1, most concise and to the point answer so far, I wasn't aware this was an option.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Feb 21 '11 at 18:50" who="rook" IndentLevel="1">         
+				<p>Apparently you've never done a hash benchmark on your system. You can do MANY MILLIONS of sha1 calculations per seconds. A 1,000 rounds is meaningless to an attacker. Also -1 because sha1 is a broken hash function.     
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Feb 22 '11 at 11:29" who="blaze" IndentLevel="1">        
+				<p>Apparently I'm using names and numbers from question. If you ever heard about such thing as topic and clarity... oh, it's Rook. Never mind.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Jun 24 '11 at 16:00" who="Tom Gullen" IndentLevel="1">      
+				<p>@Rook, 1,000 rounds means it will take 1,000 times longer to brute force. Seems like a good feature to me.
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Jan 7 '13 at 14:51" who="khaled_webdev" IndentLevel="1">        
+				<p>if an attacker can guess a password, is this the same for login (or something escaped to me ? lol)    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Feb 27 '14 at 4:58" who="Anti-weakpasswords" IndentLevel="1">         
+				<p>Note that in the 2013/2014 timeframe, PBKDF2 iteration counts should be in the tens of thousands to hundreds of thousands, not just 1000 (WPA2 itself is merely 4096 iterations of PBKDF2-HMAC-SHA-1).    
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>59</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 25 '10 at 13:57" who="Powerlord" revisedWhen="Aug 25 '10 at 15:06">
+			 	<p>It doesn't stop dictionary attacks.
+
+				What it does is stop someone who manages to get a copy of your password file from using a rainbow table to figure out what the passwords are from the hashes.
+
+				Eventually, it can be brute-forced, though. The answer to that part is to force your users to not use dictionary words as passwords (minimum requirements of at least one number or special character, for example).
+
+				Update:
+
+				I should have mentioned this earlier, but some (most?) password systems use a different salt for each password, likely stored with the password itself. This makes a single rainbow table useless. This is how the UNIX crypt library works, and modern UNIX-like OSes have extended this library with new hash algorithms.
+
+				I know for a fact that support for SHA-256 and SHA-512 were added in newer versions of GNU crypt.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>14</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:00" who="Ian Boyd" IndentLevel="1">      
+				<p>+1 Salt prevents pre-computed lists of hashes (rainbow tables) from being useful. The attacker must start all over again.       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:17" who="rmeador" IndentLevel="1">         
+				<p>@Tom: then it's not a rainbow table anymore, it's just a password list. the entire value of a rainbow table is that someone spent a lot of computation time calculating the hashes, so you can reverse them instantly.         
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:20" who="Tom Gullen" IndentLevel="1">        
+				<p>@rmeador thanks, but my point is that the salt doesn't really solve anything because using a password list is perfectly feasable        
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:31" who="rmeador" IndentLevel="1">      
+				<p>@Tom: the point is brute forcing isn't feasible if you use a good hash algorithm and reasonably complex passwords. SHA1 may not be a good choice for a password hash algorithm because it is designed to be fast. You want something designed to be slow. Sadly, I can't find the article I read recently on this, but I believe blowfish was one of the recommended algorithms.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:38" who="Tom Gullen" IndentLevel="1">        
+				<p>Thanks for your comments, it's an interesting topic. Every article and guide I have read suggests to just md5/sha the salt + password, and leave it at that consider it secure. Are these articles just out of date or not written by people thinking about the problem enough?       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:42" who="Malfist" IndentLevel="1">         
+				<p>In PHP, you can use the mcrypt or bcrypt libraries for better encryption than md5 or sha1. If you're stuck with md5 or sha1 you should to 'stretching', where you hash the password 1000's of times before you arrive at whatever is stored in the database. This keeps the entropy the same, but increases the time to compute the hash.       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:43" who="Malfist" IndentLevel="1">         
+				<p>@Tom Gullen, what articles are you reading? Self-professed experts or peer reviewed articles in a scientific journal?       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:47" who="Tom Gullen" IndentLevel="1">         
+				<p>No, but your average Joe developer is just going to read a tutorial from any of the thousands of developer help guides out there. I think it's unfair to expect people to read scientific journals on network security when writing a login script for their blog or whatever small site they are developing.
+				</p>    
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>7</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 15:00" who="Malfist" IndentLevel="1">         
+				<p>And it's your average Joe developer making those blog/help posts on how to write a "secure" system. Security isn't something you can pick up on the side, it requires extensive knowledge. Is it unfair? Probably. Is it safe? To a degree. There are reasons there are security experts. But then again, not everything has to be as secure as Fort Knox. The best policy here is to use a prebuilt system designed by those experts, and modify it to meet your needs.       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 15:04" who="Powerlord" IndentLevel="1">         
+				<p>@rmeador: This is why GNU crypt makes multiple passes with it. I know it was 1000 for MD5, I'm not sure how many it is for newer algorithms.        
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 15:08" who="rmeador" IndentLevel="1">         
+				<p>@R. Bemrose: exactly, you can use that technique for key strengthening, or you can use an algorithm that is inherently slow. I found an article (not the one I read originally) on how blowfish is used this way, since it has a peculiar property that changing keys is very slow. openwall.com/crypt       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 16:11" who="Tom Gullen" IndentLevel="1">         
+				<p>I think it's important to note that prebuilt systems are exposed on-mass to discovered flaws in their architecture or supporting architecture, although I completely agree that they are highly advisable.       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 17:22" who="Joe Philllips" IndentLevel="1">         
+				<p>Why does a salt make rainbow tables useless?         
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 17:43" who="Powerlord" IndentLevel="1">         
+				<p>@Joe: rainbow tables are precompiled tables. If you use a salt, generally there won't be a rainbow table with that particular salt value.        
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 18:00" who="Joe Philllips" IndentLevel="1">         
+				<p>@R. Bemrose Why wouldn't there be a rainbow table with that particular salt value? Doesn't that completely rely on what you use as a salt? The current explanation is not sitting well with me because I feel like there are a LOT of assumptions       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 18:46" who="Powerlord" IndentLevel="1">         
+				<p>@Joe: Because a salt can be practically anything. Jeff Atwood talks about it a bit on his blog: codinghorror.com/blog/2007/09/rainbow-hash-cracking.html       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 19:00" who="Joe Philllips" IndentLevel="1">         
+				<p>@R. Bemrose So I believe what you're saying is that the benefit that a salt provides is simply to lengthen the password. In which case, having a salt of 'a' is going to be nearly useless?        
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 19:06" who="Joe Philllips" IndentLevel="1">         
+				<p>Ok, I see now. If a password is salted and you don't know the salt, then you would have to do a lot of educated guessing to figure out what the password is because SHA1(stored salt + user entered password) == stored hash. But I would think that if you're able to get the stored hash then you could also easily get the salt. This just doesn't seem anywhere close to impossible to me. And what's to stop you from generating rainbow tables for large strings?    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 19:40" who="Colin DeClue" IndentLevel="1">         
+				<p>@Joe: With large enough salts, the size of the rainbow tables makes it infeasible to use them for current or future hardware.       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 20:22" who="Joe Philllips" IndentLevel="1">         
+				<p>@Colin In that case I think it is an important distinction to make. Size plays an important part (depending on your salting algorithm)       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 22:41" who="Michael Mrozek" IndentLevel="1">         
+				<p>Salt size has absolutely nothing to do with it. The point is to modify the user's password to be something that won't show up in a rainbow table. The rainbow table might have every dictionary word in it. If the user uses the password "apple", it's going to show up in the table. If you salt with "a" to make their password "aapple", now it doesn't show up in the table. It's not any more difficult to make a custom table for the salt "a" than it is for a 30-character salt         
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 26 '10 at 14:08" who="Colin DeClue" IndentLevel="1">         
+				<p>@Michael: With a longer salt, you need to precompute all possible salt values, for it to show up in the rainbow table. The point is you don't keep the same salt for all passwords, you choose it randomly for each password, and store it in the database next to the stored hashed-salted password. So, a hacker would need an entry in the rainbow table for each possible large-valued salt, causing the table to be too large to be feasible, which is the point.        
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Sep 6 '10 at 21:58" who="GregS" IndentLevel="1">         
+				<p>@Michael: It is enormously more difficult to make a table for all 30 character salts than it is for all single character salts. Salt size is critical.       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Mar 8 '11 at 20:57" who="user195488" IndentLevel="1">         
+				<p>@GregS: Just as a real-world example, PCI does not require a salt length only that there is a salt. It can be generated with srand (time(NULL)); for instance.      
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Mar 9 '11 at 0:13" who="GregS" IndentLevel="1">         
+				<p>@0A0D: So? I certainly don't consider PCI to be the first or final word in security.       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Mar 9 '11 at 1:46" who="user195488" IndentLevel="1">         
+				<p>@GregS: My point is that significant enforcers of security do not consider salt length to be important, just that it is added.        
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>30</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 25 '10 at 13:54" who="Dirk Vollmar - 0xA3" revisedWhen="Aug 27 '10 at 11:08">
+			 	<p>To be more precise, a dictionary attack, i.e. an attack where all words in an exhaustive list are tried, gets not "impossible", but it gets impractical: each bit of salt doubles the amount of storage and computation required. Of course, this is only true if the salt is not known to the attacker.
+
+				This is different from pre-computed dictionary attacks like attacks involving rainbow tables where it does not matter whether the salt is secret or not.
+
+				Example: With a 64-bit salt (i.e. 8 bytes) you need to check 264 additional password combinations in your dictionary attack. With a dictionary containing 200,000 words you will have to make
+
+				200,000 * 264 = 3.69 * 1024
+				tests in the worst case - instead of 200,000 tests without salt.
+
+				An additional benefit of using salt is that an attacker cannot pre-compute the password hashes from his dictionary. It would simply take too much time and/or space.
+
+				Update
+
+				Your update assumes that an attacker already knows the salt (or has stolen it). This is of course a different situation. Still it is not possible for the attacker to use a pre-computed rainbow table. What matters here a lot is the speed of the hashing function. To make an attack impractical, the hashing function needs to be slow. MD5 or SHA are not good candidates here because they are designed to be fast, better candidates for hashing algorithms are Blowfish or some variations of it.
+
+				Update 2
+
+				A good read on the matter of securing your password hashes in general (going much beyond the original question but still interesting):
+
+				Enough With The Rainbow Tables: What You Need To Know About Secure Password Schemes
+				Corollary of the article: Use salted hashes created with bcrypt (based on Blowfish) or Eksblowfish that allows you to use a configurable setup time to make hashing slow.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 13:56" who="Tom Gullen" IndentLevel="1">      
+				<p>I would argue that it doesn't become impractical, only trivially more difficult, as a dictionary of a size of thousands of passwords against tens of thousands user records is perfectly calculable on a normal desktop computer.            
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:00" who="erickson" IndentLevel="1">         
+				<p>@Tom Gullen - With proper password choice policies (at least nine characters, including numbers, mixed case, and symbols), you won't crack many accounts by trying a few thousand passwords.            
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:05" who="Tom Gullen" IndentLevel="1">        
+				<p>With proper password choice policies you don't need a salt at all would we? Maybe I misunderstand the problem. 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:13" who="Tom Gullen" IndentLevel="1">      
+				<p>Please refer to my 2nd update example, is this relevant?       
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:20" who="erickson" IndentLevel="1">        
+				<p>@Tom Gullen - even with reasonable strong password policies, a dictionary of hundreds of millions or a few billion candidates is likely to get some hits, because all passwords are not equally likely (because people use mnemonics, rather than RNGs, to choose them). A dictionary of that size is precomputable on commodity systems if salt is not used. If salt is used, the attacker has to recompute hashes every time, and if enough iterations of the hash are performed, the attacker's rate of attack can be slowed to a few attempts per second.           
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 14:48" who="Dirk Vollmar - 0xA3" IndentLevel="1">         
+				<p>Downvoter, could you explain? Especially if there is something incorrect it would be good to know.        
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 15:05" who="Malfist" IndentLevel="1">         
+				<p>I was the downvoter, I misread it though so I removed my downvote. However, I would like to point out that if they user has access to the database storing the password (as you seem to assume), the salt is probably known (they are typically stored in plaintext alongside the hashed password). If they are attacking it from the front-end, bruteforce or dictionary attacks will not be affected by the presence of the salt (unless the salt is computationally expensive). The goal on the front end should be delay and/or prevent blind guessing, and the backend to salt securely.        
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 15:22" who="Michael Borgwardt" IndentLevel="1">         
+				<p>-1 from me: being kept secret is totally not the point of salts. You need them accessible for checking passwords anyway, so any attempt to keep them secret is likely to make the system more vulnerable through added complexity rather than actually succeed. 
+				</p>      
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 15:32" who="Dirk Vollmar - 0xA3" IndentLevel="1">         
+				<p>@Michael Borgwart: You probably misread my answer. I was referring to the fact that the computational amount for checking the items in your word list is actually increased if the salt is unknown to the attacker, namely doubled for each bit of salt. And you want the computation to be expensive.            
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 15:37" who="Tom Gullen" IndentLevel="1">         
+				<p>Great answer and discussion. Thanks to all answers I have learnt a lot.           
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 17:36" who="Michael Borgwardt" IndentLevel="1">         
+				<p>@0xA3: again: being unknown to an attacker is not the point of a salt. Your machine needs to access it in some way, so an attacker who breaks into the machine can get it too. Any scenario where the attacker does not know the salt is a red herring.          
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 17:46" who="Incognito" IndentLevel="1">         
+				<p>Salt does not need to be secret. stackoverflow.com/questions/3347035/…          
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 17:53" who="Jerry Coffin" IndentLevel="1">         
+				<p>I think it's worth mentioning that the linked article mis-describes rainbow tables. What he describes is a simple dictionary attach. Rainbow tables are really quite different (and somewhat more complex). There's a pretty decent explanation of how rainbow tables really work at: kestas.kuliukas.com/RainbowTables            
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 27 '10 at 10:28" who="snemarch" IndentLevel="1">         
+				<p>-1 for "Of course the salt needs to be kept secret". If an attacker has access to your password hashes, he will have your salts as well - what you need are per-user salts, not the security through obscurity of a "hidden" salt.           
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Jan 7 '13 at 14:56" who="khaled_webdev" IndentLevel="1">         
+				<p>I'm asking about guessing login too, is it easy than password or it's not a problem for attacker from the beginning?           
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>15</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 25 '10 at 13:57" who="erickson" revisedWhen="Aug 25 '10 at 15:08">
+			 	<p>A dictionary is a structure where values are indexed by keys. In the case of a pre-computed dictionary attack, each key is a hash, and the corresponding value is a password that results in the hash. With a pre-computed dictionary in hand, an attacker can "instantly" lookup a password that will produce the necessary hash to log in.
+
+				With salt, the space required to store the dictionary grows rapidly… so rapidly, that trying to pre-compute a password dictionary soon becomes pointless.
+
+				The best salts are randomly chosen from a cryptographic random number generator. Eight bytes is a practical size, and more than 16 bytes serves no purpose.
+
+				Salt does much more than just "make an attacker's job more irritating." It eliminates an entire class of attack—the use of precomputed dictionaries.
+
+				Another element is necessary to completely secure passwords, and that is "key-strengthening." One round of SHA-1 is not good enough: a safe password hashing algorithm should be very slow computationally.
+
+				Many people use PBKDF2, a key derivation function, that feeds back results to the hash function thousands of times. The "bcrypt" algorithm is similar, using an iterative key derivation that is slow.
+
+				When the hashing operation is very slow, a precomputed table becomes more and more desirable to an attacker. But proper salt defeats that approach.
+
+				Comments
+
+				Below are the comments I made on the question.
+
+				Without salt, an attacker wouldn't use the method demonstrated in "Update 2". He'd simply do a lookup in a pre-computed table and get the password in O(1) or O(log n) time (n being the number of candidate passwords). Salt is what prevents that and forces him to use the O(n) approach shown in "Update 2".
+
+				Once reduced to an O(n) attack, we have to consider how long each attempt takes. Key-strengthening can cause each attempt in the loop to take a full second, meaning that the time needed to test 10k passwords on 10k users will stretch from 3 days to 3 years… and with only 10k passwords, you're likely to crack zero passwords in that time.
+
+				You have to consider that an attacker is going to use the fastest tools he can, not PHP, so thousands of iterations, rather than 100, would be a good parameter for key-strengthening. It should take a large fraction of a second to compute the hash for a single password.
+
+				Key-strengthening is part of the standard key derivation algorithms PBKDF1 and PBKDF2, from PKCS #5, which make great password obfuscation algorithms (the "derived key" is the "hash").
+
+				A lot of users on StackOverflow refer to this article because it was a response to Jeff Atwood's post about the dangers of rainbow tables. It's not my favorite article, but it does discuss these concepts in more detail.
+
+				Of course you assume the attacker has everything: salt, hash, user name. Assume the attacker is a corrupt hosting company employee who dumped the user table on your myprettypony.com fansite. He's trying recover these passwords because he's going to turn around and see if your pony fans used the same password on their citibank.com accounts.
+
+				With a well-designed password scheme, it will be impossible for this guy to recover any passwords.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 15:17" who="Tom Gullen" IndentLevel="1">      
+				<p>+1 great answer thank you.          
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 15:18" who="Michael Borgwardt" IndentLevel="1">         
+				<p>I think that by "dictionary attack", Tom refers to trying out known weak passwords (i.e. straight out of a human language dictionary), not precomputed hash-plaintext tables - this is also what I first think of when I read "dictionary" in this context.              
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 15:33" who="Dirk Vollmar - 0xA3" IndentLevel="1">        
+				<p>@Michael Borgwardt: I agree, @erickson refers to pre-computed dictionary attacks.     
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 15:41" who="erickson" IndentLevel="1">      
+				<p>Salt stops pre-computed dictionary attacks. Key-strengthening stops dictionary attacks. Both must be used together for secure password authentication.
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Aug 25 '10 at 16:08" who="Tom Gullen" IndentLevel="1">        
+				<p>I do mean plain english tables yes. The question aims to tackle the problem of how to stop a hacker working out all possible combinations of hashes for each user account             
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>7</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 25 '10 at 15:15" who="Michael Borgwardt" revisedWhen="Aug 25 '10 at 15:26">
+			 	<p>The point of salting is to prevent the amortization of the attacker's effort.
+
+				With no salt, a single table of precomputed hash-password entries (e.g. MD5 of all alphanumeric 5 character strings, easy to find online) can be used on every user in every database in the world.
+
+				With a site-specific salt, the attacker has to compute the table himself and can then use it on all users of the site.
+
+				With a per-user salt, the attacker has to expend this effort for every user separately.
+
+				Of course, this doesn't do much to protect really weak passwords straight out of a dictionary, but it protects reasonably strong passwords against this amortization.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 27 '10 at 10:31" who="snemarch" IndentLevel="1">      
+				<p>Short and precise answer - worth adding that without salt or with site-wide salt, you can easily spot users with the same password, and will only need to brute-force one. With per-user salts, you can't do that.
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 25 '10 at 19:22" who="Dominik Weber" revisedWhen="Aug 27 '10 at 15:07">
+			 	<p>Also - one more imporatant point - using a USER-specific salt prevents the detection of two users with the SAME password - their hashes would match. That's why many times the hash is hash(salt + username + password)
+
+				If you try and keep the hash secret the attacker also can not verify the hashes.
+
+				Edit- just noticed the main point was made in a comment above.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 9:25" who="Tom Gullen" IndentLevel="1">      
+				<p>+1 I missed this point, but it is an excellent consideration    
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 27 '10 at 10:33" who="snemarch" IndentLevel="1">      
+				<p>You should edit to specify per-user salt; sites using a site-wide salt will still allow you to detect identical passwords. 
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 15:08" who="Dominik Weber" IndentLevel="1">      
+				<p>@snemarch - Yes- thank you very much for this important distinction!    
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>4</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 25 '10 at 17:40" who="Incognito">
+			 	<p>Salts are implemented to prevent rainbow table attacks. A rainbow table is a list of pre-calculated hashes, which makes translating a hash into it's phrase much more simple. You need to understand that salting isn't effective as a modern prevention to cracking a password unless we have a modern hashing algo.
+
+				So lets say we're working with SHA1, taking advantage of recent exploits discovered with this algo, and lets say we have a computer running at 1,000,000 hashes/second, it would take 5.3 million million million years to find a collision, so yeah php can work 300 a second, big woop, doesn't really matter. The reason we salt is because if someone did bother to generate all common dictionary phrases, (2^160 people, welcome to 2007 era exploits).
+
+				So here's an actual database, with 2 users I use for testing and admin purposes.
+
+				RegistrationTime        UserName        UserPass    
+				1280185359.365591       briang      a50b63e927b3aebfc20cd783e0fc5321b0e5e8b5
+				1281546174.065087       test        5872548f2abfef8cb729cac14bc979462798d023
+				In fact, the salting scheme is your sha1(registration time + user name). Go ahead, tell me my password, these are real passwords in production. You can even sit there and hash out a word list in php. Go wild.
+
+				I'm not crazy, I just know that this is secure. For fun sake, test's password is test. sha1(sha1(1281546174.065087 + test) + test) = 5872548f2abfef8cb729cac14bc979462798d023
+
+				You would need to generate an entire rainbow table perpended with 27662aee8eee1cb5ab4917b09bdba31d091ab732 for just this user. That means I can actually allow my passwords to not all be compromised by a single rainbow table, the hacker needs to generate an entire rainbow table for 27662aee8eee1cb5ab4917b09bdba31d091ab732 for test, and again f3f7735311217529f2e020468004a2aa5b3dee7f for briang. Think back to the 5.3 million million million years for all hashes. Think of the size of storing just the 2^80 hashes (that's well over 20 yottabytes), it's not going to happen.
+
+				Don't confuse salting as a means of making a hash something you can't ever decode, it's a means of preventing a rainbow table from translating all your user passwords. It's imposable at this level of technology.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 26 '10 at 8:20" who="Tom Gullen" IndentLevel="1">      
+				<p>I understand what a rainbow table is, but you are missing the point of my question. If you provided me with your salting algorithm, a hashed password and the salt, then yes I probably could tell you what your password was within a few minutes.   
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Aug 26 '10 at 12:03" who="Incognito" IndentLevel="1">      
+				<p>Put your money where your mouth is?       
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 9:25" who="Tom Gullen" IndentLevel="1">      
+				<p>Sure, but you just told me what the password is in your example, give me a salt, hashed password and how you combine the salt + password (non recursive) and as long as the password &lt;= 5 lowercase alphanumeric chars (no whitespace/special chars) I'll let you know what it is in this box. If you want me to put money on it as you suggest, let me know, although my comment of a few minutes is probably a gross underestimation, but within hours yes.      
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 27 '10 at 9:48" who="Tom Gullen" IndentLevel="1">      
+				<p>Maybe seconds actually, see golubev.com/hashgpu.htm which uses GPU to calculate as quoted "2300M/s SHA1 hashes per second". With a full range of 95 ASCII characters ranging from 1-6 chars we can crack it in &lt;6 minutes. If we have only lowercase alphanumeric chars, up to 8 chars in length &lt;25 minutes. With a database of 10,000 user records, we could find all 4 char full ASCII passwords in &lt;200 seconds ((((95^4)/2300000000)/2)*10000). (More overhead than quoted, and quoted GPU speeds are probably ideal situations).   
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 15:28" who="Incognito" IndentLevel="1">      
+				<p>Yes, salting doesn't prevent you from being able to brute force that password. It makes it harder for you to generate the ((10^5)*(94^10))=10^24 if users have around 10-character passwords, which is much harder than the 10^19 without hashes. Again, it's not to make breaking one password hard, it's to make breaking all the passwords unfeasible with a pre-processed rainbow table. (and check my math here, but I believe 10^25/2300000000/60/60/24/365/1000 = 137 869~ milinea for everyone's password). If we want stronger passwords we don't salt them, we use things like Diffie–Hellman key exchange.         
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Aug 27 '10 at 15:30" who="Incognito" IndentLevel="1">      
+				<p>Breaking 4-character passwords is nothing new. Salting doesn't make them harder to crack, it makes the database harder to crack.        
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="May 12 '11 at 16:11" who="Andy" IndentLevel="1">      
+				<p>So, did anyone ever crack his password?       
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="May 12 '11 at 16:24" who="Incognito" IndentLevel="1">      
+				<p>To be fair, I've actually learned more, and standard PKCS #5 section 4.2 says I should have run at least 1000 iterations of my hash function, not one. There's other considerations I neglected since then also. docs.google.com/…        
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>3</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 25 '10 at 13:55" who="Eugene Mayevski 'EldoS Corp">
+			 	<p>The idea behind dictionary attack is that you take a hash and find the password, from which this hash was calculated, without hash calculation. Now do the same with salted password - you can't.
+
+				Not using a salt makes password search as easy as lookup in the database. Adding a salt make attacker perform hash calculation of all possible passwords (even for dictionary attach this significantly increases time of attack).
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 13:56" who="FrustratedWithFormsDesigner" IndentLevel="1">      
+				<p>In the OP's scenario, the attacker has the salts from the database, and will have to try every salt with every entry in the "dictionary". ...I think.        
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 13:57" who="Eugene Mayevski 'EldoS Corp" IndentLevel="1">      
+				<p>See my updated answer.          
+				</p>
+				</posting>
+				</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>2</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 25 '10 at 15:04" who="supercat">
+			 	<p>In simplest terms: without salting, each candidate password need only be hashed once to check it against every user, anywhere in the "known universe" (collection of compromised databases), whose password is hashed via the same algorithm. With salting, if the number of possible salt values substantially exceeds the number of users in the "known universe", each candidate password must be hashed separately for each user against whom it will be tested.
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Nov 18 '10 at 17:55" who="cyber-guard">
+			 	<p>Simply put salting does not prevent a hash from attack (bruteforce or dictionary), it only makes it harder; the attacker will either need to find the salting algorithm (which if implemented properly will make use of more iterations) or bruteforce the algo, which unless very simple, is nearly impossible. Salting also almost completely discards the option of rainbow table lookups...
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>1</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          		 </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 25 '10 at 14:01" who="Cory House" revisedWhen="Aug 25 '10 at 14:21">
+			 	<p>Salt makes Rainbow table attacks much more difficult since it makes a single password hash much harder to crack. Imagine you have a horrid password of just the number 1. A rainbow table attack would crack this immediately.
+
+				Now imagine each password in the db is salted with a long random value of many random characters. Now your lousy password of "1" is stored in the db as a hash of 1 plus a bunch of random characters (the salt), so in this example the rainbow table needs to have the hash for something like: 1.
+
+				So assuming your salt is something secure and random, say ()%ISLDGHASKLU(%#%#, the hacker's rainbow table would need to have an entry for 1*()%ISLDGHASKLU(*%#%#. Now using a rainbow table on even this simple password is no longer practical.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<posting synch="Aug 25 '10 at 14:27" who="Tom Gullen" IndentLevel="1">      
+				<p>Please see update #2, you would simply have raw passwords and calculate all hashes against the salts for each user record.        
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 25 '10 at 14:47" who="Cory House" IndentLevel="1">      
+				<p>Sure Tom, I agree, but the point is the hacker has to do that ugly time-consuming process once for each password if salt is used. Thus, salt does make using a rainbow table harder.           
+				</p>
+				</posting>
+				</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 27 '10 at 10:39" who="snemarch" IndentLevel="1">      
+				<p>@Tom Gullen: generating salted rainbow tables is only feasible if site-wide salts are used; per-user salting makes rainbow table attacks pretty much useless.
+				</p>
+				</posting>
+				</div>
+		</body>	
+	</text>
+</TEI>

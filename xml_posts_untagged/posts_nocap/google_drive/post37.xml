@@ -1,0 +1,149 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Node.js Express Framework Security Issues [closed]</title>
+        <author>D.Deriso</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/14612143/node-js-express-framework-security-issues</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="D.Deriso" url="http://stackoverflow.com/users/1438550/d-deriso">
+        <signatureContent>
+          <p>Reputation: <num>1,409</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>13</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Emre" url="http://stackoverflow.com/users/1928926/emre">
+        <signatureContent>
+          <p>Reputation: <num>495</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>5</num>Number of Bronze Badges: <num>9</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Adam Baldwin" url="http://stackoverflow.com/users/1450341/adam-baldwin">
+        <signatureContent>
+          <p>Reputation: <num>561</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>5</num>Number of Bronze Badges: <num>4</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="zemirco" url="http://stackoverflow.com/users/1256496/zemirco">
+        <signatureContent>
+          <p>Reputation: <num>8,722</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>30</num>Number of Bronze Badges: <num>55</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="andrewrk" url="http://stackoverflow.com/users/432/andrewrk">
+        <signatureContent>
+          <p>Reputation: <num>9,448</num>Number of Gold Badges: <num>18</num>Number of Silver Badges: <num>62</num>Number of Bronze Badges: <num>85</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Eric Elliott" url="http://stackoverflow.com/users/1043390/eric-elliott">
+        <signatureContent>
+          <p>Reputation: <num>2,116</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>12</num>Number of Bronze Badges: <num>19</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2013-01-30 19:30:07Z" who="D.Deriso" revisedWhen="2015-05-24 23:28:27Z" upVote="52" accepted="favorite"><p>I'm looking for modules that should be added to a Node/Express app that address the general security concerns listed below:
+
+    Injection Vulnerabilities (JavaScript, SQL, Mongo, HTML)
+    Session fixation and hijacking
+    Cross-Site Vulnerabilities (Scripting, Request Forgery)
+    Mass Assignment
+    insert relevant concern here
+
+Thanks for your help!
+----------
+
+Some resources I've found:
+
+    Excellent talk (11/2012): http://lanyrd.com/2012/asfws/sxzbm/ (see slides)
+
+    ServerFault question (2011-2012): http://serverfault.com/questions/285123/is-node-js-mature-for-enterprise-security
+
+    Blog post on topic (9/2012): http://codefol.io/posts/29-Why-Rails-and-not-Sinatra-or-Node-js-
+
+    Exploit tester: https://code.google.com/p/skipfish/
+
+    Passport Module: https://github.com/jaredhanson/passport
+
+    EveryAuth Module: https://github.com/bnoguchi/everyauth
+<tag>security</tag><tag>express</tag><tag>node.js</tag></p></post>
+      </div>
+      <div type="moderator">
+        <head>closed  as too broad by  Ryan O'Hara ♦ Dec 6 '13 at 0:50</head>
+        <post when="2013-12-06 00:50:49Z" who="Ryan O'Hara">There are either too many possible answers, or good answers would be too long for this format.   Please add details to narrow the answer set or to isolate an issue that can be answered in a few paragraphs. If this question can be reworded to fit the rules in the  help center , please  edit the question .</post>
+      </div>
+      <div type="answer">
+        <post who="Adam Baldwin" revisedBy="Emre" when="2013-01-31 03:11:12Z" upVote="43" accepted="accepted">
+          <p>I wrote a blog post that gives a great starting point on Writing Secure Express.js Apps. It covers a few other things beyond csrf and helmet as was mentioned by zeMirco.
+
+The other thing is you can't compare express.js to rails. They are apples and oranges. For example, there is no ORM that is bundled with Express, that implementation or use of a third party module is up to you.
+
+I'll try and give a breakdown of each of your concerns.
+
+-Injection Vulnerabilities (JavaScript, SQL, Mongo, HTML)
+
+Again, these are things not built into express. The closest thing would be XSS worries over injection in templates. Jade or EJS templates that are commonly used with express output encode &lt; > " ' and &amp; by default, but remember there are other contexts like user input into JavaScript or CSS that you would need to worry about.
+
+-Session fixation and hijacking
+
+Again see the blog post above, but Express is based on and uses most of the connect middleware one of these is the session middleware. Biggest thing here is to properly set your cookie flags.
+
+-Cross-Site Vulnerabilities (Scripting, Request Forgery)
+
+See above. It also comes with express.csrf() middleware. The blog post mentioned shows how to implement it.
+
+-Mass Assignment
+
+Not an issue with express.js as it has no concepts in which this type of vulnerable would be applicable, however the custom logic you write may be in fact vulnerable to this problem, so again it's a problem of verifying if your code is vulnerable or if the third party module you used is...
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="D.Deriso" when="2013-02-01 23:00:37Z" indentLevel="1">
+          <p>Wow, thanks for this detailed response and the excellent blog post! I'll try to get these up and running!</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jesse Clark" when="2013-12-09 18:41:09Z" indentLevel="1">
+          <p>Blog post link seems to be dead. Here is another resource for some common Express.js security concerns:  gist.github.com/cerebrl/6487587</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Luc Morin" when="2014-01-04 21:19:03Z" indentLevel="1">
+          <p>@AdamBaldiwn: could you post a new link to your blog post ?</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Emre" when="2014-02-14 20:15:50Z" indentLevel="1">
+          <p>Fixed the blog post link.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="zemirco" when="2013-01-30 19:47:12Z" upVote="8">
+          <p>Two modules I can immediately think of:
+
+    csrf: CRSF protection middleware.
+    helmet: Middleware that implement various security headers</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="D.Deriso" when="2013-01-30 19:56:18Z" indentLevel="1">
+          <p>Thanks for sharing, I'll check these out!</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="andrewrk" when="2013-09-06 23:23:26Z" upVote="6">
+          <p>One thing to be wary of is bodyParser. See  http://andrewkelley.me/post/do-not-use-bodyparser-with-express-js.html</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Eric Elliott" when="2013-10-21 09:21:19Z" upVote="1">
+          <p>You should be aware that if you specify a catch-all error handler, you should NOT restart the server or do anything blocking in that handler in response to USER errors (the  4xx  range) because it could lead to a DOS vulnerability. This vulnerability is addressed automatically in  express-error-handler , and the service will shut down as soon as it can (when active connections are drained or a timeout occurs) so restarts shouldn't be a big deal. Implementing this behavior made a really big difference in my exploit tests. BTW, it's NOT safe to simply ignore all unhandled errors. That would leave your application in an undefined state, which just presents another type of DOS vulnerability.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

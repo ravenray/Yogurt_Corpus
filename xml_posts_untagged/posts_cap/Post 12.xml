@@ -1,0 +1,917 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Are PDO prepared statements sufficient to prevent SQL injection?</title>
+				<author>Mark Biek</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/134099/are-pdo-prepared-statements-sufficient-to-prevent-sql-injection
+				On: May 03, 2015
+				Created by: 
+					Rachael Duke
+					Department of Linguistics
+					University of California, Davis
+					Please email me with any questions, comments, or errors.
+					Email: rebrim @ ucdavis . edu
+				</p>
+			<listPerson>
+				<person xml:id="Mark Biek">
+				<signatureContent>
+					<p>Reputation: <num>49,825</num></p>
+					<p>Page: http://stackoverflow.com/users/305/mark-biek </p>
+					<p>Number of Gold Badges: <num>38</num></p>
+					<p>Number of Silver Badges:<num>114</num></p>
+					<p>Number of Bronze Badges:<num>172</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="Patrick Hofman">
+				<signatureContent>
+					<p>Reputation: <num>44,690</num></p>
+					<p> Number of Gold Badges: <num>12</num></p>
+					<p>Number of Silver Badges:<num>41</num></p>
+					<p>Number of Bronze Badges:<num>67</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="NullPoiиteя">
+				<signatureContent>
+					<p>Reputation: <num>27,138</num></p>
+					<p> Number of Gold Badges: <num>11</num></p>
+					<p>Number of Silver Badges:<num>58</num></p>
+					<p>Number of Bronze Badges:<num>94</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Joel Coehoorn">
+				<signatureContent>
+					<p>Reputation: <num>210,939</num></p>
+					<p> Number of Gold Badges: <num>72</num></p>
+					<p>Number of Silver Badges:<num>396</num></p>
+					<p>Number of Bronze Badges:<num>601</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="cjm">
+				<signatureContent>
+					<p>Reputation: <num>46,570</num></p>
+					<p> Number of Gold Badges: <num>5</num></p>
+					<p>Number of Silver Badges:<num>85</num></p>
+					<p>Number of Bronze Badges:<num>134</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="troelskn">
+				<signatureContent>
+					<p>Reputation: <num>58,456</num></p>
+					<p> Number of Gold Badges: <num>17</num></p>
+					<p>Number of Silver Badges:<num>79</num></p>
+					<p>Number of Bronze Badges:<num>116</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="ircmaxell">
+				<signatureContent>
+					<p>Reputation: <num>88,134 </num></p>
+					<p> Number of Gold Badges: <num>18</num></p>
+					<p>Number of Silver Badges:<num>163</num></p>
+					<p>Number of Bronze Badges:<num>234</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="MikeMurko">
+				<signatureContent>
+					<p>Reputation: <num>1,257</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>13</num></p>
+					<p>Number of Bronze Badges:<num>39</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="jduncanator">
+				<signatureContent>
+					<p>Reputation: <num>666</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>6</num></p>
+					<p>Number of Bronze Badges:<num>19</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="StormByte">
+				<signatureContent>
+					<p>Reputation: <num>673</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>6</num></p>
+					<p>Number of Bronze Badges:<num>21</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="DanRedux">
+				<signatureContent>
+					<p>Reputation: <num>3,325</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>12</num></p>
+					<p>Number of Bronze Badges:<num>31</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Awal Garg">
+				<signatureContent>
+					<p>Reputation: <num>1,578</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>7</num></p>
+					<p>Number of Bronze Badges:<num>20</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Brad">
+				<signatureContent>
+					<p>Reputation: <num>72,271</num></p>
+					<p> Number of Gold Badges: <num>16</num></p>
+					<p>Number of Silver Badges:<num>108</num></p>
+					<p>Number of Bronze Badges:<num>213</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Pacerier">
+				<signatureContent>
+					<p>Reputation: <num>20,756</num></p>
+					<p> Number of Gold Badges: <num>20</num></p>
+					<p>Number of Silver Badges:<num>108</num></p>
+					<p>Number of Bronze Badges:<num>203</num></p>
+				</signatureContent>
+				</person> 
+				<person xml:id="eggyal">
+				<signatureContent>
+					<p>Reputation: <num>66,692</num></p>
+					<p> Number of Gold Badges: <num>8</num></p>
+					<p>Number of Silver Badges:<num>64</num></p>
+					<p>Number of Bronze Badges:<num>103</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="StaticVariable">
+				<signatureContent>
+					<p>Reputation: <num>4,197</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>10</num></p>
+					<p>Number of Bronze Badges:<num>34</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Timo Huovinen">
+				<signatureContent>
+					<p>Reputation: <num>12,013</num></p>
+					<p> Number of Gold Badges: <num>12</num></p>
+					<p>Number of Silver Badges:<num>63</num></p>
+					<p>Number of Bronze Badges:<num>79</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="nico gawenda">
+				<signatureContent>
+					<p>Reputation: <num>1,273</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>9</num></p>
+					<p>Number of Bronze Badges:<num>19</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="BernardA">
+				<signatureContent>
+					<p>Reputation: <num>320</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>1</num></p>
+					<p>Number of Bronze Badges:<num>9</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="progfa">
+				<signatureContent>
+					<p>Reputation: <num>71</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num>8</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Tek">
+				<signatureContent>
+					<p>Reputation: <num>308</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>16</num></p>
+					<p>Number of Bronze Badges:<num>37</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Jason">
+				<signatureContent>
+					<p>Reputation: <num>558</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>7</num></p>
+					<p>Number of Bronze Badges:<num>20</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Mayhem">
+				<signatureContent>
+					<p>Reputation: <num>1,271</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>5</num></p>
+					<p>Number of Bronze Badges:<num>12</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Qeremy">
+				<signatureContent>
+					<p>Reputation: <num>3,780</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>11</num></p>
+					<p>Number of Bronze Badges:<num>32</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Tower">
+				<signatureContent>
+					<p>Reputation: <num>24,183</num></p>
+					<p> Number of Gold Badges: <num>44</num></p>
+					<p>Number of Silver Badges:<num>187</num></p>
+					<p>Number of Bronze Badges:<num>369</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Olivier">
+				<signatureContent>
+					<p>Reputation: <num></num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num></num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Rob Forrest">
+				<signatureContent>
+					<p>Reputation: <num>1,846 </num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>20</num></p>
+					<p>Number of Bronze Badges:<num>39</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Félix Gagnon-Grenier">
+				<signatureContent>
+					<p>Reputation: <num>2,368</num></p>
+					<p> Number of Gold Badges: <num>4</num></p>
+					<p>Number of Silver Badges:<num>14</num></p>
+					<p>Number of Bronze Badges:<num>29</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="RN Kushwaha">
+				<signatureContent>
+					<p>Reputation: <num>569</num></p>
+					<p> Number of Gold Badges: <num>1</num></p>
+					<p>Number of Silver Badges:<num>4</num></p>
+					<p>Number of Bronze Badges:<num>21</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="ZiggyTheHamster">
+				<signatureContent>
+					<p>Reputation: <num>491</num></p>
+					<p> Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num>4</num></p>
+					<p>Number of Bronze Badges:<num>9</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="cHao">
+				<signatureContent>
+					<p>Reputation: <num>46,331</num></p>
+					<p> Number of Gold Badges: <num>9</num></p>
+					<p>Number of Silver Badges:<num>64</num></p>
+					<p>Number of Bronze Badges:<num>109</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="PeeHaa">
+				<signatureContent>
+					<p>Reputation: <num>34,657 </num></p>
+					<p> Number of Gold Badges: <num>25</num></p>
+					<p>Number of Silver Badges:<num>110</num></p>
+					<p>Number of Bronze Badges:<num>190</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="JimmyJ">
+				<signatureContent>
+					<p>Reputation: <num>1,523</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>16</num></p>
+					<p>Number of Bronze Badges:<num>21</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="alecail">
+				<signatureContent>
+					<p>Reputation: <num>1,429</num></p>
+					<p> Number of Gold Badges: <num>2</num></p>
+					<p>Number of Silver Badges:<num>15</num></p>
+					<p>Number of Bronze Badges:<num>40</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<front>
+			<div type="up vote">
+				<p>up vote  <num>266</num></p>
+			</div>
+			<div type="down vote">
+			<p>down vote
+          favorite <num>208</num></p>
+			</div>
+		</front>
+		<div type="forum">
+			<posting synch="Sep 25 '08 at 15:43" who="Mark Biek" revisedWhen="Jun 22 '14 at 17:15" revisedBy="Patrick Hofman">
+			<p>Let's say I have code like this:
+
+				$dbh = new PDO("blahblah");
+
+				$stmt = $dbh->prepare('SELECT * FROM users where username = :username');
+				$stmt->execute( array(':username' => $_REQUEST['username']) );
+				The PDO documentation says:
+
+				The parameters to prepared statements don't need to be quoted; the driver handles it for you.
+				Is that truly all I need to do to avoid SQL injections? Is it really that easy?
+
+				You can assume MySQL if it makes a difference. Also, I'm really only curious about the use of prepared statements against SQL injection. In this context, I don't care about XSS or other possible vulnerabilities.
+
+				<tag>php</tag> <tag>security</tag> <tag>pdo</tag> <tag>sql-injection</tag>
+			</p>
+			</posting>	
+		</div>		
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Dec 29 '12 at 18:468" who="NullPoiиteя" IndentLevel="1">  
+					<p>better approach 7th number answer stackoverflow.com/questions/134099/…    
+					</p>				
+				</posting>
+				</div>
+		<front>
+			<head>7 Answers</head>
+				<div type="up vote">
+				<p>up vote  <num>287</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted </p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 25 '08 at 15:50" who="Joel Coehoorn" revisedWhen="Mar 8 at 23:18">
+			 	<p>Prepared statements / parameterized queries are sufficient to prevent 1st order injection on that statement. If you use un-checked dynamic sql anywhere else in your application you are still vulnerable to 2nd order injection.
+
+				2nd order injection means data has been cycled through the database once before being included in a query, and is much harder to pull off. AFAIK, you almost never see real 2nd order attacks, as it is usually easier for attackers to social-engineer their way in.
+
+				You can accomplish a 2nd order injection attack when you can cause a value to be stored in a database that is later used as a literal in a query. As an example, let's say you enter the following information as your new username when creating an account on a web site (assuming MySQL DB for this question):
+
+				' + (SELECT UserName + '_' + Password FROM Users LIMIT 1) + '
+				If there are no other restrictions on the username, a prepared statement would still make sure that the above embedded query doesn't execute at the time of insert, and store the value correctly in the database. However, imagine that later the application retrieves your username from the database, and uses string concatenation to include that value a new query. You might get to see someone else's password. Since the first few names in users table tend to be admins, you may have also just given away the farm. (Also note: this is one more reason not to store passwords in plain text!)
+
+				We see, then, that prepared statements are enough for a single query, but by themselves they are not sufficient to protect against sql injection attacks throughout an entire application, because they lack a mechanism to enforce that all access to a database within the application uses safe code. However, used as part of good application design — which may include practices such as code review or use of an ORM, data layer, or service layer that limits dynamic sql — prepared statements are the primary tool for solving the Sql Injection problem. If you follow good application design principles, such that your data access is separated from the rest of your program, it becomes easy to enforce or audit that every query correctly uses parameterization. In this case, sql injection (both first and second order) is completely prevented.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Sep 25 '08 at 15:54" who="Mark Biek" IndentLevel="1">      
+				<p>That's interesting. I wasn't aware of 1st order vs. 2nd order. Can you elaborate a little more on how 2nd order works?    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>113</num></p>
+					</div>
+				</front>
+				<posting synch="Sep 25 '08 at 16:00" who="cjm" IndentLevel="1">         
+				<p>If ALL your queries are parametrized, you're also protected against 2nd order injection. 1st order injection is forgetting that user data is untrustworthy. 2nd order injection is forgetting that database data is untrustworthy (because it came from the user originally). 
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>4</num></p>
+					</div>
+				</front>
+				<posting synch="Sep 25 '08 at 16:03" who="Mark Biek" IndentLevel="1">        
+				<p>Thanks cjm. I also found this article helpful in explaining 2nd order injections: codeproject.com/KB/database/SqlInjectionAttacks.aspx    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>22</num></p>
+					</div>
+				</front>
+				<posting synch="Jun 28 '11 at 10:05" who="troelskn" IndentLevel="1">      
+				<p>Ah, yes. But what about third order injection. Have to be aware of those.   
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Aug 30 '12 at 17:23" who="ircmaxell" IndentLevel="1">         
+				<p>Yes, except that PDO doesn't use real prepared statements by default ;-). See my answer below for a demonstration and explanation of an attack...   
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>41</num></p>
+					</div>
+				</front>
+				<posting synch="Nov 3 '12 at 2:03" who="MikeMurko" IndentLevel="1">         
+				<p>@troelskn that must be where the developer is the source of untrustworthy data    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>3</num></p>
+					</div>
+				</front>
+				<posting synch="May 26 '13 at 3:24" who="Joel Coehoorn" IndentLevel="1">          
+				<p>Six new votes today, almost 5 years later. I'd really love to be able to see referrer info on my answers.     
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Sep 29 '13 at 5:24" who="jduncanator" IndentLevel="1">          
+				<p>@JoelCoehoorn Think you'll find most are coming from here ;) google.com.au/search?q=pdo+prepared+statements     
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Feb 7 '14 at 9:11" who="StormByte" IndentLevel="1">          
+				<p>But if you use 100% static prepared statements in your whole program, I mean, all SQL hardcoded into prepared statements, then you avoid all levels of injection, right?    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="May 5 '14 at 16:41" who="DanRedux" IndentLevel="1">         
+				<p>@StormByte Yes, you do, but you're simply avoiding client data.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="May 12 '14 at 13:17" who="Awal Garg" IndentLevel="1">         
+				<p>I wasn't aware of the order thingy. Reading this I thought What about 3rd and 4th and even more of 5th?? And 6th must be so deadly...  
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Mar 8 '15 at 17:40" who="Brad" IndentLevel="1">       
+				<p>Nearly 7 years later, this answer is still wrong and still misleading. @JoelCoehoorn your intentions with this post are good, and while you are getting at the right things, the way it's worded makes people believe that there is some sort of difference between injection and injection. As you know, the issue is about bringing data into the correct context, which when done correctly removes any chance of SQL injection attacks. Data from user or no, separating the data from the command is required for an application that functions correctly.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Apr 11 '15 at 13:18" who="Pacerier" IndentLevel="1">          
+				<p>@Brad, Do an edit.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Apr 11 '15 at 16:18" who="Brad" IndentLevel="1">          
+				<p>@Pacerier Joel made an edit after my comment on March 8th, emphasizing a sentence in what he already wrote. It's clear that the post has the content he intends. I'm not going to edit someone's post to change the meaning of it, and other answers already answer the question.    
+				</p>
+				</posting> 
+				</div>
+				<div type="response">
+				<posting synch="Apr 12 '15 at 13:21" who="Pacerier" IndentLevel="1">        
+				<p>@Brad, Hey SO is like Wikipedia. There's no your post or my post, just edit it.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Apr 12 '15 at 16:45" who="Brad" IndentLevel="1">         
+				<p>@Pacerier I disagree with you there. The system is set up in a way that we can edit everone's posts, yes, but it is good etiquette and rule to not drastically change the original meaning.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Apr 12 '15 at 18:25" who="Pacerier" IndentLevel="1">         
+				<p>@Brad, That's provided the "original meaning" isn't wrong. If it's wrong, feel free to edit it to make it right.     
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>338</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 30 '12 at 17:22" who="ircmaxell" revisedWhen="Apr 26 '14 at 18:27" revisedBy="eggyal">
+			 	<p>The short answer is NO, PDO prepares will not defend you from all possible SQL-Injection attacks. For certain obscure edge-cases.
+
+				I'm adapting this answer to talk about PDO...
+
+				The long answer isn't so easy. It's based off an attack demonstrated here.
+
+				The Attack
+
+				So, let's start off by showing the attack...
+
+				$pdo->query('SET NAMES gbk');
+				$var = "\xbf\x27 OR 1=1 /*";
+				$query = 'SELECT * FROM test WHERE name = ? LIMIT 1';
+				$stmt = $pdo->prepare($query);
+				$stmt->execute(array($var));
+				In certain circumstances, that will return more than 1 row. Let's dissect what's going on here:
+
+				Selecting a Character Set
+
+				$pdo->query('SET NAMES gbk');
+				For this attack to work, we need the encoding that the server's expecting on the connection both to encode ' as in ASCII i.e. 0x27 and to have some character whose final byte is an ASCII \ i.e. 0x5c. As it turns out, there are 5 such encodings supported in MySQL 5.6 by default: big5, cp932, gb2312, bgk and sjis. We'll select gbk here.
+
+				Now, it's very important to note the use of SET NAMES here. This sets the character set ON THE SERVER. There is another way of doing it, but we'll get there soon enough.
+
+				The Payload
+
+				The payload we're going to use for this injection starts with the byte sequence 0xbf27. In gbk, that's an invalid multibyte character; in latin1, it's the string ¿'. Note that in latin1 and gbk, 0x27 on its own is a literal ' character.
+
+				We have chosen this payload because, if we called addslashes() on it, we'd insert an ASCII \ i.e. 0x5c, before the ' character. So we'd wind up with 0xbf5c27, which in gbk is a two character sequence: 0xbf5c followed by 0x27. Or in other words, a valid character followed by an unescaped '. But we're not using addslashes(). So on to the next step...
+
+				$stmt->execute()
+
+				The important thing to realize here is that PDO by default does NOT do true prepared statements. It emulates them (for MySQL). Therefore, PDO internally builds the query string, calling mysql_real_escape_string() (the MySQL C API function) on each bound string value.
+
+				The C API call to mysql_real_escape_string() differs from addslashes() in that it knows the connection character set. So it can perform the escaping properly for the character set that the server is expecting. However, up to this point, the client thinks that we're still using latin1 for the connection, because we never told it otherwise. We did tell the server we're using gbk, but the client still thinks it's latin1.
+
+				Therefore the call to mysql_real_escape_string() inserts the backslash, and we have a free hanging ' character in our "escaped" content! In fact, if we were to look at $var in the gbk character set, we'd see:
+
+				縗' OR 1=1 /*
+				Which is exactly what the attack requires.
+
+				The Query
+
+				This part is just a formality, but here's the rendered query:
+
+				SELECT * FROM test WHERE name = '縗' OR 1=1 /*' LIMIT 1
+				Congratulations, you just successfully attacked a program using PDO Prepared Statements...
+
+				The Simple Fix
+
+				Now, it's worth noting that you can prevent this by disabling emulated prepared statements:
+
+				$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+				This will usually result in a true prepared statement (i.e. the data being sent over in a separate packet from the query). However, be aware that PDO will silently fallback to emulating statements that MySQL can't prepare natively: those that it can are listed in the manual, but beware to select the appropriate server version).
+
+				The Correct Fix
+
+				The problem here is that we didn't call the C API's mysql_set_charset() instead of SET NAMES. If we did, we'd be fine provided we are using a MySQL release since 2006.
+
+				If you're using an earlier MySQL release, then a bug in mysql_real_escape_string() meant that invalid multibyte characters such as those in our payload were treated as single bytes for escaping purposes even if the client had been correctly informed of the connection encoding and so this attack would still succeed. The bug was fixed in MySQL 4.1.20, 5.0.22 and 5.1.11.
+
+				But the worst part is that PDO didn't expose the C API for mysql_set_charset() until 5.3.6, so in prior versions it cannot prevent this attack for every possible command! It's now exposed as a DSN parameter, which should be used instead of SET NAMES...
+
+				The Saving Grace
+
+				As we said at the outset, for this attack to work the database connection must be encoded using a vulnerable character set.  utf8mb4 is not vulnerable and yet can support every Unicode character: so you could elect to use that instead—but it has only been available since MySQL 5.5.3. An alternative is utf8, which is also not vulnerable and can support the whole of the Unicode Basic Multilingual Plane.
+
+				Alternatively, you can enable the NO_BACKSLASH_ESCAPES SQL mode, which (amongst other things) alters the operation of mysql_real_escape_string(). With this mode enabled, 0x27 will be replaced with 0x2727 rather than 0x5c27 and thus the escaping process cannot create valid characters in any of the vulnerable encodings where they did not exist previously (i.e. 0xbf27 is still 0xbf27 etc.)—so the server will still reject the string as invalid. However, see @eggyal's answer for a different vulnerability that can arise from using this SQL mode (albeit not with PDO).
+
+				Safe Examples
+
+				The following examples are safe:
+
+				mysql_query('SET NAMES utf8');
+				$var = mysql_real_escape_string("\xbf\x27 OR 1=1 /*");
+				mysql_query("SELECT * FROM test WHERE name = '$var' LIMIT 1");
+				Because the server's expecting utf8...
+
+				mysql_set_charset('gbk');
+				$var = mysql_real_escape_string("\xbf\x27 OR 1=1 /*");
+				mysql_query("SELECT * FROM test WHERE name = '$var' LIMIT 1");
+				Because we've properly set the character set so the client and the server match.
+
+				$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+				$pdo->query('SET NAMES gbk');
+				$stmt = $pdo->prepare('SELECT * FROM test WHERE name = ? LIMIT 1');
+				$stmt->execute(array("\xbf\x27 OR 1=1 /*"));
+				Because we've turned off emulated prepared statements.
+
+				$pdo = new PDO('mysql:host=localhost;dbname=testdb;charset=gbk', $user, $password);
+				$stmt = $pdo->prepare('SELECT * FROM test WHERE name = ? LIMIT 1');
+				$stmt->execute(array("\xbf\x27 OR 1=1 /*"));
+				Because we've set the character set properly.
+
+				$mysqli->query('SET NAMES gbk');
+				$stmt = $mysqli->prepare('SELECT * FROM test WHERE name = ? LIMIT 1');
+				$param = "\xbf\x27 OR 1=1 /*";
+				$stmt->bind_param('s', $param);
+				$stmt->execute();
+				Because MySQLi does true prepared statements all the time.
+
+				Wrapping Up
+
+				If you:
+
+				Use Modern Versions of MySQL (late 5.1, all 5.5, 5.6, etc) AND PDO's DSN charset parameter (in PHP ≥ 5.3.6)
+				OR
+
+				Don't use a vulnerable character set for connection encoding (you only use utf8 / latin1 / ascii / etc)
+				OR
+
+				Enable NO_BACKSLASH_ESCAPES SQL mode
+				You're 100% safe.
+
+				Otherwise, you're vulnerable even though you're using PDO Prepared Statements...
+
+				Addendum
+
+				I've been slowly working on a patch to change the default to not emulate prepares for a future version of PHP. The problem that I'm running into is that a LOT of tests break when I do that. One problem is that emulated prepares will only throw syntax errors on execute, but true prepares will throw errors on prepare. So that can cause issues (and is part of the reason tests are borking).
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>13</num></p>
+					</div>
+				</front>
+				<posting synch="Sep 30 '12 at 17:37" who="StaticVariable" IndentLevel="1">      
+				<p>This is the best answer that i found ..can you provide a link for more reference?    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>6</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 8 '13 at 18:48" who="Timo Huovinen" IndentLevel="1">         
+				<p>I wasn't aware of emulated prepared statements. Great work +1    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Apr 17 '13 at 12:23" who="nico gawenda" IndentLevel="1">        
+				<p>I think "The Saving Grace" was this MySQL 5.0.22 fix: dev.mysql.com/doc/relnotes/mysql/5.0/en/news-5-0-22.html    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Apr 17 '13 at 14:10" who="ircmaxell" IndentLevel="1">      
+				<p>@nicogawenda: that was a different bug. Prior to 5.0.22, mysql_real_escape_string wouldn't properly handle cases where the connection was properly set to BIG5/GBK. So actually even calling mysql_set_charset() on mysql &lt; 5.0.22 would be vulnerable to this bug! So no, this post is still applicable to 5.0.22 (because mysql_real_escape_string is only charset away to calls from mysql_set_charset(), which is what this post is talking about bypassing)...   
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Dec 21 '13 at 17:29" who="BernardA" IndentLevel="1">         
+				<p>@ircmaxell. Thanks, this is great stuff. One question left for me, concerning the setting the emulation to false. Do I need to have that $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); in every query or should it be enough once in a script? Thanks.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Jul 14 '14 at 9:03" who="progfa" IndentLevel="1">         
+				<p>@ircmaxell Your solution also prevents XSS attacks?    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Jul 31 '14 at 17:33" who="Tek" IndentLevel="1">          
+				<p>@progfa Whether it does or not you should always validate your input on the server before doing anything with user data.     
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Sep 22 '14 at 12:01" who="Jason" IndentLevel="1">          
+				<p>I am finding that the simple fix PDO::ATTR_EMULATE_PREPARES = false can cause dropped DB connections when preparing some SQL statements. I've not identified the exact circumstances yet (it happens to me when using lots of joins and selecting from a custom DB function) but it is something to be aware of when using this option.   
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Feb 8 '15 at 3:46" who="Mayhem" IndentLevel="1">          
+				<p>Why does SQL always hurt my head over any other language?    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Feb 10 '15 at 21:56" who="Qeremy" IndentLevel="1">         
+				<p>I was scrolling down and wondering about who will appear under that great post, and as you guess.. :)    
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>27</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Apr 21 '10 at 9:00" who="Tower" revisedWhen="Sep 27 '12 at 13:20">
+			 	<p>No, they are not always.
+
+				It depends on whether you allow user input to be placed within the query itself. For example:
+
+				$dbh = new PDO("blahblah");
+
+				$tableToUse = $_GET['userTable'];
+
+				$stmt = $dbh->prepare('SELECT * FROM ' . $tableToUse . ' where username = :username');
+				$stmt->execute( array(':username' => $_REQUEST['username']) );
+				would be vulnerable to SQL injections and using prepared statements in this example won't work, because the user input is used as an identifier, not as data. The right answer here would be to use some sort of filtering/validation like:
+
+				$dbh = new PDO("blahblah");
+
+				$tableToUse = $_GET['userTable'];
+				$allowedTables = array('users','admins','moderators');
+				if (!in_array($tableToUse,$allowedTables))    
+				 $tableToUse = 'users';
+
+				$stmt = $dbh->prepare('SELECT * FROM ' . $tableToUse . ' where username = :username');
+				$stmt->execute( array(':username' => $_REQUEST['username']) );
+				Note: you can't use PDO to bind data that goes outside of DDL (Data Definition Language), i.e. this does not work:
+
+				$stmt = $dbh->prepare('SELECT * FROM foo ORDER BY :userSuppliedData');
+				The reason why the above does not work is because DESC and ASC are not data. PDO can only escape for data. Secondly, you can't even put ' quotes around it. The only way to allow user chosen sorting is to manually filter and check that it's either DESC or ASC.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>6</num></p>
+					</div>
+				</front>
+				<posting synch="Sep 25 '12 at 14:29" who="Rob Forrest" IndentLevel="1">      
+				<p>Am I missing something here but isn't the whole point of prepared statements to avoid treating sql like a string? Wouldn't something like $dbh->prepare('SELECT * FROM :tableToUse where username = :username'); get around your problem?    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Sep 26 '12 at 16:25" who="Tower" IndentLevel="1">         
+				<p>@RobForrest yes you are missing :). The data you bind only works for DDL (Data Definition Language). You need those quotes and proper escaping. Placing quotes for other parts of the query breaks it with a high probability. For example, SELECT * FROM 'table' can be wrong as it should be SELECT * FROM `table` or without any backsticks. Then some things like ORDER BY DESC where DESC comes from the user can't be simply escaped. So, practical scenarios are rather unlimited.     
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>2</num></p>
+					</div>
+				</front>
+				<posting synch="Apr 30 '14 at 14:08" who="Félix Gagnon-Grenier" IndentLevel="1">        
+				<p>I wonder how 6 people could upvote a comment proposing a plainly wrong use of a prepared statement. Had they even tried it once, they'd have discovered right away that using named parameter in place of a table name will not work.    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Sep 12 '14 at 17:08" who="RN Kushwaha" IndentLevel="1">      
+				<p>Here is a great tutorial on PDO if you want to learn it. a2znotes.blogspot.in/2014/09/introduction-to-pdo.html    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+					<front>
+					<div type="up vote">
+						<p>up vote  <num>1</num></p>
+					</div>
+				</front>
+				<posting synch="Sep 26 '14 at 17:17" who="ZiggyTheHamster" IndentLevel="1">         
+				<p>You should never use a query string/POST body to pick the table to use. If you don't have models, at least use a switch to derive the table name.    
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>15</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 25 '08 at 15:55" who="troelskn">
+			 	<p>Yes, it is sufficient. The way injection type attacks work, is by somehow getting an interpreter (The database) to evaluate something, that should have been data, as if it was code. This is only possible if you mix code and data in the same medium (Eg. when you construct a query as a string).
+
+				Parameterised queries work by sending the code and the data separately, so it would never be possible to find a hole in that.
+
+				You can still be vulnerable to other injection-type attacks though. For example, if you use the data in a HTML-page, you could be subject to XSS type attacks.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>5</num></p>
+					</div>
+				</front>
+				<posting synch="Jul 18 '12 at 8:31" who="cHao" IndentLevel="1">      
+				<p>"Never" is way overstating it, to the point of being misleading. If you are using prepared statements incorrectly, it's not much better than not using them at all. (Of course, a "prepared statement" that has had user input injected into it defeats the purpose...but i've actually seen it done. And prepared statements can't handle identifiers (table names etc) as parameters.) Add to that, some of the PDO drivers emulate prepared statements, and there's room for them to do so incorrectly (for instance, by half-assedly parsing the SQL). Short version: never assume it is that easy.    
+				</p>
+				</posting>
+				</div>
+			<front>
+				<div type="up vote">
+				<p>up vote  <num>13</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Aug 30 '12 at 17:00" who="PeeHaa" revisedWhen="Aug 30 '12 at 17:06">
+			 	<p>No this is not enough (in some specific cases)! By default PDO uses emulated prepared statements when using MySQL as a database driver. You should always disable emulated prepared statements when using MySQL and PDO:
+
+				$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+				Another thing that always should be done it set the correct encoding of the database:
+
+				$dbh = new PDO('mysql:dbname=dbtest;host=127.0.0.1;charset=utf8', 'user', 'pass');
+				Also see this related question: Best way to prevent SQL Injection in PHP
+
+				Also note that that only is about the database side of the things you would still have to watch yourself when displaying the data. E.g. by using htmlspecialchars() again with the correct encoding and quoting style.
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num>5</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Sep 25 '08 at 15:50" who="JimmyJ">
+			 	<p>Personally I would always run some form of sanitation on the data first as you can never trust user input, however when using placeholders / parameter binding the inputted data is sent to the server separately to the sql statement and then binded together. The key here is that this binds the provided data to a specific type and a specific use and eliminates any opportunity to change the logic of the SQL statement.
+			 	</p>
+				</posting>
+			</div>
+		<front>
+				<div type="up vote">
+				<p>up vote  <num></num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote <num> -1</num></p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Jul 30 '09 at 14:25" who="Olivier">
+			 	<p>As JimmyJ said, you still have to sanitize your data ! With PDO, you can still save something like <?php phpinfo();?> in your database. Ok, this example won't harm anything, but it could be anything else instead of phpinfo.
+			 	</p>
+				</posting>
+			</div>
+			<div type="response">
+				<front>
+					<div type="up vote">
+						<p>up vote  <num>10</num></p>
+					</div>
+				</front>
+				<posting synch="Jul 18 '12 at 21:05" who="cHao" IndentLevel="1">      
+				<p>You could have &lt;?= $GLOBALS['my_bank_account_number'] ?> in there, and it wouldn't matter. By the time PHP code from the DB is spit out into a page, the parser's already done -- so PHP won't even see it, let alone run it, without you making it do so (eg: by writing the code to a file and including it, or passing it to a function like eval, or what have you).   
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="Feb 7 '14 at 9:15" who="StormByte" IndentLevel="1">      
+				<p>Well, that could make sense with some horrible programming skills I saw out there (for example, making use of eval with data obtained from DB. Of course it is not good doing that, but believe me, there is code like that, just to make things "faster" for that developer...    
+				</p>
+				</posting>
+				</div>
+				<div type="response">
+				<posting synch="May 24 '14 at 14:57" who="alecail" IndentLevel="1">      
+				<p>@StormByte See Client Side PHP thedailywtf.com/Articles/Client-side_PHP.aspx. I hope this was fictional, but well.. who knows ?     
+				</p>
+				</posting>
+				</div>	
+		</body>	
+	</text>
+</TEI>

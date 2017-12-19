@@ -1,0 +1,57 @@
+<TEI >
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Can I use my iPad to test my application instead of only the iOS simulator bundled with XCode? [duplicate]</title>
+        <author>Rola Masrie</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/20323973/can-i-use-my-ipad-to-test-my-application-instead-of-only-the-ios-simulator-bundl/</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Rola Masrie" url="http://stackoverflow.com/users/3035985/rola-masrie">
+        <signatureContent>
+          <p>Reputation: <num>38</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>1</num>Number of Bronze Badges: <num>7</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Pierre Arlaud" url="http://stackoverflow.com/users/1146585/pierre-arlaud">
+        <signatureContent>
+          <p>Reputation: <num>2,131</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>14</num>Number of Bronze Badges: <num>24</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="jessehouwing" url="http://stackoverflow.com/users/736079/jessehouwing">
+        <signatureContent>
+          <p>Reputation: <num>38,544</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>83</num>Number of Bronze Badges: <num>136</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Amar" url="http://stackoverflow.com/users/1407017/amar">
+        <signatureContent>
+          <p>Reputation: <num>10,297</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>33</num>Number of Bronze Badges: <num>52</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2013-12-02 08:40:44Z" who="Rola Masrie" revisedWhen="2013-12-02 08:44:06Z" revisedBy="gavdotnet" upVote="0">
+         <p>Is this possible or do I have to create a prepaid account for $99?<tag>ios</tag><tag>xcode4.5</tag></p></post>
+      </div>
+      <div type="moderator">
+        <head>marked  as duplicate by  jessehouwing ,  Amar ,  Wain ,  David Rönnqvist ,  woz Feb 28 '14 at 16:51</head>
+        <post when="2014-02-28 16:51:02Z" who="jessehouwing"> <p>This question has been asked before and already has an answer. If those answers do not fully address your question, please  ask a new question .</p></post>
+      </div>
+      <div type="response">
+        <post who="Amar" when="2013-12-05 09:13:05Z" indentLevel="1">
+          <p>See also  stackoverflow.com/questions/4952820/…</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Pierre Arlaud" when="2013-12-02 08:44:06Z" upVote="2">
+          <p>I think you need a prepaid account indeed to deploy anything on an apple device. Otherwise it would mean anybody could hack a non-accepted application to people's devices, which would make iPhones and iPads pretty vulnerable toâ€¦ well basically anything so I guess the answer is common sense.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

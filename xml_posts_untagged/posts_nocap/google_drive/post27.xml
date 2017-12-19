@@ -1,0 +1,254 @@
+<TEI >
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>How can sanitation that escapes single quotes be defeated by SQL injection in SQL Server?</title>
+        <author>GBleaney</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/15537368/how-can-sanitation-that-escapes-single-quotes-be-defeated-by-sql-injection-in-sq</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="GBleaney" url="http://stackoverflow.com/users/577829/gbleaney">
+        <signatureContent>
+          <p>Reputation: <num>681</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>25</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="rook" url="http://stackoverflow.com/users/183528/rook">
+        <signatureContent>
+          <p>Reputation: <num>40.7k</num>Number of Gold Badges: <num>24</num>Number of Silver Badges: <num>120</num>Number of Bronze Badges: <num>198</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="StrayCatDBA" url="http://stackoverflow.com/users/1874012/straycatdba">
+        <signatureContent>
+          <p>Reputation: <num>1,492</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>12</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Bill Karwin" url="http://stackoverflow.com/users/20860/bill-karwin">
+        <signatureContent>
+          <p>Reputation: <num>267k</num>Number of Gold Badges: <num>49</num>Number of Silver Badges: <num>371</num>Number of Bronze Badges: <num>548</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Gumbo" url="http://stackoverflow.com/users/53114/gumbo">
+        <signatureContent>
+          <p>Reputation: <num>373k</num>Number of Gold Badges: <num>61</num>Number of Silver Badges: <num>523</num>Number of Bronze Badges: <num>646</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="George Wesley" url="http://stackoverflow.com/users/2160463/george-wesley">
+        <signatureContent>
+          <p>Reputation: <num>79</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>3</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Rob Kraft" url="http://stackoverflow.com/users/37749/rob-kraft">
+        <signatureContent>
+          <p>Reputation: <num>274</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>6</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2013-03-21 00:31:08Z" who="GBleaney" revisedWhen="2013-03-24 08:05:58Z" upVote="40" accepted="favorite"><p>To start this off, I am well aware that parameterized queries are the best option, but I am asking what makes the strategy I present below vulnerable. People insist the below solution doesn't work, so I am look for an example of why it wouldn't.
+
+If dynamic SQL is built in code using the following escaping before being sent to a SQL Server, what kind of injection can defeat this?
+
+string userInput= "N'" + userInput.Replace("'", "''") + "'"
+
+A similar question was answered here, but I don't believe any of the answers are applicable here.
+
+Escaping the single quote with a "\" isn't possible in SQL Server.
+
+I believe SQL Smuggling with Unicode (outlined here) would be thwarted by the fact that the string being produced is marked as Unicode by the N preceding the single quote. As far as I know, there are no other character sets that SQL Server would automatically translate to a single quote. Without an unescaped single quote, I don't believe injection is possible.
+
+I don't believe String Truncation is a viable vector either. SQL Server certainly won't be doing the truncating since the max size for an nvarchar is 2GB according to microsoft. A 2 GB string is unfeasible in most situations, and impossible in mine.
+
+Second Order Injection could be possible, but is it possible if:
+
+    All data going into the database is sanitized using the above method
+    Values from the database are never appended into dynamic SQL (why would you ever do that anyways, when you can just reference the table value in the static part of any dynamic SQL string?).
+
+I'm not suggesting that this is better than or an alternative to using parameterized queries, but I want to know how what I outlined is vulnerable. Any ideas?
+<tag>sql-server</tag><tag>sanitization</tag><tag>sql-injection</tag><tag>tsql</tag><tag>security</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Yuck" when="2013-03-21 00:37:04Z" indentLevel="1">
+          <p>No. You're still susceptible to attacks in the form: "SELECT * FROM MyTable WHERE Field = " + userInput when userInput is 0; DROP TABLE OhNo;.</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="GBleaney" when="2013-03-21 00:38:26Z" indentLevel="1">
+          <p>This makes no sense. In the above example, your user input would be sanitized to N'0; DROP TABLE OhNo;' before ever being executed.</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="GBleaney" when="2013-03-21 00:44:13Z" indentLevel="1">
+          <p>This if for sanitizing string variables only. Things like "int" don't need to be sanitized if they are cast as an int before being added to the query. Regardless, I'm only asking about sanitizing strings right now. Also, there is no need rude here. If you can think of a way that this isn't secure, I'd love to know.</p>
+        </post>
+      </div>
+            <div type="response">
+        <post who="Kenneth Fisher" when="2013-03-21 01:40:12Z" indentLevel="1">
+          <p>Ok, how about userinput = "test'; drop table ohno; print '"</p>
+        </post>
+      </div>
+              <div type="response">
+        <post who="GBleaney" when="2013-03-21 01:47:31Z" indentLevel="1">
+          <p>The single quores are turned into two single quotes (that's how you escape single quotes), renderign them harmless. Your user input then becomes: N'test''; drop table ohno; print ''' which is harmless</p>
+        </post>
+      </div>
+              <div type="response">
+        <post who="StrayCatDBA" when="2013-03-29 16:51:47Z" indentLevel="1">
+          <p>Not an interesting question as there are zero advantages of your approach vs using a parameterized query. There are several disadvantages which include excessive compilations and plan cache bloat</p>
+        </post>
+      </div>
+              <div type="response">
+        <post who="StrayCatDBA" when="2013-03-29 18:03:12Z" indentLevel="1">
+          <p>Also, if the column in the table isn't unicode, you'll prevent the use of indexes on those columns due to implicit casting. </p>
+        </post>
+      </div>
+              <div type="response">
+        <post who="Nikola Radosavljević" when="2013-03-29 18:51:51Z" indentLevel="1">
+          <p>There is absolutely no scenario where it you would be able to do full input sanitation, and not be able to write parametrized query. If you know enough about database schema to be able to sanitize input yourself, then you know enough to write parametrized query. Obvious choice is parametrized query because resulting code will be cleaner, less prone to errors and accidental security issues when code maintainer isn't careful</p>
+        </post>
+      </div>
+              <div type="response">
+        <post who="GBleaney" when="2013-03-30 22:10:48Z" indentLevel="1">
+          <p>Would this not be a good choice when dynamic SQL is unavoidable?</p>
+        </post>
+      </div>      <div type="response">
+        <post who="Rob" when="2014-01-28 11:36:10Z" indentLevel="1">
+          <p>There are reasons when literal parsing is required. Imagine you are processing a list of strings of unknown length and need to generate a SQL statement to do it: SELECT x from y where text in ('A', 'B', 'C', ...) The only way to write this statement dynamically and efficiently is with literals. GBleaney's method is safe, it looks like he is writing C# code which is unicode, the .Net driver is unicode and there is nothing wrong with it.</p>
+        </post>
+      </div>      <div type="response">
+        <post who="Jens Schauder" when="2014-06-17 10:29:00Z" indentLevel="1">
+          <p>@Rob I can still create the sql with the required ? for the parameters and provide the parameters separately. Especially since I have to do some parsing anyway since the length of an "in" clause is limited in many RDBMS.</p>
+        </post>
+      </div>      <div type="response">
+        <post who="Rob" when="2014-07-11 22:20:35Z" indentLevel="1">
+          <p>Yes you can create a dynamic query string and place parameter markers instead of literals</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="rook" when="2013-03-24 07:52:01Z" upVote="26" accepted="accepted">
+          <p>There are a few cases where this escape function will fail. The most obvious is when a single quote isn't used:
+
+string table= "\"" + table.Replace("'", "''") + "\""
+string var= "`" + var.Replace("'", "''") + "`"
+string index= " " + index.Replace("'", "''") + " "
+string query = "select * from `"+table+"` where name=\""+var+"\" or id="+index
+
+In this case, you can "break out" using a double-quote, a back-tick. In the last case there is nothing to "break out" of, so you can just write 1 union select password from users-- or whatever sql payload the attacker desires.
+
+The next condition where this escape function will fail is if a sub-string is taken after the string is escaped (and yes I have found vulnerabilities like this in the wild):
+
+string userPassword= userPassword.Replace("'", "''")
+string userName= userInput.Replace("'", "''")
+userName = substr(userName,0,10)
+string query = "select * from users where name='"+userName+"' and password='"+userPassword+"'";
+
+In this case a username of abcdefgji' will be turned into abcdefgji'' by the escape function and then turned back into abcdefgji' by taking the sub-string. This can be exploited by setting the password value to any sql statement, in this case or 1=1-- would be interpreted as sql and the username would be interpreted as abcdefgji'' and password=. The resulting query is as follows:
+
+select * from users where name='abcdefgji'' and password=' or 1=1-- 
+
+T-SQL and other advanced sql injection techniques where already mentioned. Advanced SQL Injection In SQL Server Applications is a great paper and you should read it if you haven't already.
+
+The final issue is unicode attacks. This class of vulnerabilities arises because the escape function is not aware of mulit-byte encoding, and this can be used by an attacker to "consume" the escape character. Prepending an "N" to the string will not help, as this doesn't affect the value of multi-byte chars later in the string. However, this type of attack is very uncommon because the database must be configured to accept GBK unicode strings (and I'm not sure that MS-SQL can do this).
+
+Second-Order code injection is still possible, this attack pattern is created by trusting attacker-controlled data sources. Escaping is used to represent control characters as their character literal. If the developer forgets to escape a value obtained from a select and then uses this value in another query then bam the attacker will have a character literal single quote at their disposal.
+
+Test everything, trust nothing.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Nikola RadosavljeviÄ" when="2013-03-29 18:59:04Z" indentLevel="1">
+          <p>While I agree playing with security instead parametrizing query is bad, if you read his question carefully he noted several steps he would take to "ensure" safety. 1) he's making sure an numeric value is actually a numeric value so id injection in your example would fail 2) he's asking about SQL Server which only accepts  '  as string delimiter. Using tick or double quote wouldn't help the attacker</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2013-03-29 19:52:48Z" indentLevel="1">
+          <p>@Nikola RadosavljeviÄ yes,  but back-tics and lack of quotes can still be a problem depending how he implanted this check.   Clearly this post is from the standpoint of an attacker not a defender.  The defense is well known and uninteresting.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Rob" when="2014-01-28 12:09:02Z" indentLevel="1">
+          <p>The code in the question is not vulnerable to attack. This is a good answer as a general guide to escaping string literals and it is both correct and interesting; but the scenarios listed would not be able to compromise the line of code in the original question.  Regarding 2nd hand attacks, it could happen whether the text was originally inserted with a parameter or as a literal if it contains a quote character.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="StrayCatDBA" when="2013-03-29 19:18:47Z" upVote="13">
+          <p>With some additional stipulations, your approach above is not vulnerable to SQL injection. The main vector of attack to consider is SQL Smuggling. SQL Smuggling occurs when similiar unicode characters are translated in an unexpected fashion (e.g. ` changing to ' ). There are several locations where an application stack could be vulnerable to SQL Smuggling.
+
+    Does the Programming language handle unicode strings appropriately? If the language isn't unicode aware, it may mis-identify a byte in a unicode character as a single quote and escape it.
+
+    Does the client database library (e.g. ODBC, etc) handle unicode strings appropriately? System.Data.SqlClient in the .Net framework does, but how about old libraries from the windows 95 era? Third party ODBC libraries actually do exist. What happens if the ODBC driver doesn't support unicode in the query string?
+
+    Does the DB handle the input correctly? Modern versions of SQL are immune assuming you're using N'', but what about SQL 6.5? SQL 7.0? I'm not aware of any particular vulnerabilities, however this wasn't on the radar for developers in the 1990's.
+
+    Buffer overflows? Another concern is that the quoted string is longer than the original string. In which version of Sql Server was the 2GB limit for input introduced? Before that what was the limit? On older versions of SQL, what happened when a query exceeded the limit? Do any limits exist on the length of a query from the standpoint of the network library? Or on the length of the string in the programming language?
+
+    Are there any language settings that affect the comparison used in the Replace() function? .Net always does a binary comparison for the Replace() function. Will that always be the case? What happens if a future version of .NET supports overriding that behavior at the app.config level? What if we used a regexp instead of Replace() to insert a single quote? Does the computer's locale settings affect this comparison? If a change in behavior did occur, it might not be vulnerable to sql injection, however, it may have inadvertently edited the string by changing a uni-code character that looked like a single quote into a single quote before it ever reached the DB.
+
+So, assuming you're using the System.String.Replace() function in C# on the current version of .Net with the built-in SqlClient library against a current (2005-2012) version of SQL server, then your approach is not vulnerable. As you start changing things, then no promises can be made. The parameterized query approach is the correct approach for efficiency, for performance, and (in some cases) for security.
+
+WARNING The above comments are not an endorsement of this technique. There are several other very good reasons why this the wrong approach to generating SQL. However, detailing them is outside the scope for this question.
+
+DO NOT USE THIS TECHNIQUE FOR NEW DEVELOPMENT.
+
+DO NOT USE THIS TECHNIQUE FOR NEW DEVELOPMENT.
+
+DO NOT USE THIS TECHNIQUE FOR NEW DEVELOPMENT.
+</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Bill Karwin" when="2013-03-21 00:50:55Z" upVote="7">
+          <p>Using query parameters  is better, easier, and faster than escaping quotes. Re your comment, I see that you acknowledged parameterization, but it deserves emphasis.  Why would you want to use escaping when you could parameterize?   In  Advanced SQL Injection In SQL Server Applications , search for the word "replace" in the text, and from that point on read some examples where developers inadvertently allowed SQL injection attacks even after escaping user input. There is an edge case where escaping quotes with  \  results in a vulnerability, because the  \  becomes half of a valid multi-byte character in some character sets.  But this is not applicable to your case since  \  isn't the escaping character. As others have pointed out, you may also be adding dynamic content to your SQL for something other than a string literal or date literal.  Table or column identifiers are delimited by  "  in SQL, or  [ ]  in Microsoft/Sybase.  SQL keywords of course don't have any delimiters.  For these cases, I recommend  whitelisting  the values to interpolate. Bottom line is that escaping  is  an effective defense, if you can ensure that you do it consistently.  That's the risk:  that one of the team of developers on your application could omit a step and do some string interpolation unsafely. Of course, the same is true of other methods, like parameterization.  They're only effective if you do them consistently.  But I find it's easier to quicker to use parameters, than to figure out the right type of escaping.  And developers are more likely to use a method that is convenient and doesn't slow them down.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="GBleaney" when="2013-03-21 00:54:36Z" indentLevel="1">
+          <p>As I state in the first line of my post, I am well aware of this. I am just asking if there is some specific reason that what I outlined is not safe.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="GBleaney" when="2013-03-21 01:56:11Z" indentLevel="1">
+          <p>That is a great resource, but the possible issues suggested in there are not really an issue here. Firstly, constructing quotes using the "char(0x63)" method is useless, because that statement will be interpreted as a string and not be executed. As for the second order SQL injection, I already addressed that in the original post.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Gumbo" when="2013-03-21 06:27:00Z" upVote="3">
+          <p>SQL injection occur if user supplied inputs are interpreted as commands. Here command means anything that is not interpreted as a recognized  data type  literal. Now if youâre using the userâs input only in data literals, specifically only in string literals, the user input would only be interpreted as something different than string data if it would be able to leave the string literal context. For character string or Unicode string literals, itâs the single quotation mark that encloses the literal data while embedded single quotation mark need to be represented with two single quotation marks. So to leave a string literal context, one would need to supply a single single quotation mark (sic) as two single quotation marks are interpreted as string literal data and not as the string literal end delimiter. So if youâre replacing any single quotation mark in the user supplied data by two single quotation marks, it will be impossible for the user to leave the string literal context.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="George Wesley" when="2013-03-21 10:14:47Z" upVote="2">
+          <p>There is probably no 100% safe way if you are doing string concatenation. What you can do is try to check data type for each parameter and if all parameters pass such validation then go ahead with execution. For example, if your parameter should be type int and youâre getting something that canât be converted to int then just reject it. This doesnât work though if youâre accepting nvarchar parameters. As others already pointed out. Safest way is to use parameterized query.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Rob Kraft" when="2015-07-30 14:24:37Z" upVote="1">
+          <p>SQL Injection can occur via unicode. If the web app has a URL like this:
+
+http://mywebapp/widgets/?Code=ABC
+
+which generates SQL like select * from widgets where Code = 'ABC'
+
+but a hacker enters this:
+
+http://mywebapp/widgets/?Code=ABC%CA%BC;drop table widgets--
+
+the SQL will look like select * from widgets where Code = 'ABC’;drop table widgets--'
+
+and SQL Server will run two SQL Statements. One to do the select and one to do the drop. Your code probably converts the url-encoded %CA%BC into unicode U02BC which is a "Modifier letter apostrophe". The Replace function in .Net will NOT treat that as a single quote. However Microsoft SQL Server treats it like a single quote. Here is an example that will probably allow SQL Injection:
+
+string badValue = ((char)0x02BC).ToString();
+badValue = badValue + ";delete from widgets--";
+string sql = "SELECT * FROM WIDGETS WHERE ID=" + badValue.Replace("'","''");
+TestTheSQL(sql);</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

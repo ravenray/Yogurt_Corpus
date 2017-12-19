@@ -1,0 +1,47 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Block bots searching for vulnerabilities</title>
+        <author>Kevin Burke</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/7368818/block-bots-searching-for-vulnerabilities</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Kevin Burke" url="http://stackoverflow.com/users/329700/kevin-burke">
+        <signatureContent>
+          <p>Reputation: <num>10.2k</num>Number of Gold Badges: <num>21</num>Number of Silver Badges: <num>83</num>Number of Bronze Badges: <num>174</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="someone" url="http://stackoverflow.com/users/902654/someone">
+        <signatureContent>
+          <p>Reputation: <num>1,352</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>5</num>Number of Bronze Badges: <num>9</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="rook" url="http://stackoverflow.com/users/183528/rook">
+        <signatureContent>
+          <p>Reputation: <num>40.7k</num>Number of Gold Badges: <num>24</num>Number of Silver Badges: <num>120</num>Number of Bronze Badges: <num>198</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-09-10 00:32:56Z" who="Kevin Burke" revisedWhen="2011-09-10 00:42:39Z" upVote="2" accepted="favorite"><p>I downloaded a Wordpress plugin that emails me any time my site serves a 404 error. Last night I got about 1000 emails from bots searching for /wp-content/plugins/(X name of popular plugin)/timthumb.phpwhere timthumb.php is a popular plugin that had a zero-day vulnerability a few weeks ago, so the traffic is searching my site for vulnerabilities that can be hacked. I don't have timthumb installed, but I really don't want this traffic - is there an easy way to block it? <tag>security</tag><tag>bots</tag><tag>wordpress</tag></p></post>
+      </div>
+      <div type="answer">
+        <post who="someone" when="2011-09-10 00:50:32Z" upVote="0" accepted="accepted">
+          <p>Use  this  and  this  page to blacklist all the bots that were logged through your .htaccess file.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="rook" when="2011-09-10 16:10:36Z" upVote="0">
+          <p>This is really not something that can be fully stopped.   Instead you should focus on making sure your system is fully updated,  and configured correctly. Some vulnerability scans and exploits can be stopped using a Web Application Firewall like  PHPIDS  or  mod_security .  However these security measures won't stop bots from looking for vulnerable files like,  phpmyadmin, fckeditor or the new timthumb.php remote code execution vulnerability.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

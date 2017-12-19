@@ -1,0 +1,1072 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>C++: do you (really) write exception safe code? [closed]</title>
+				<author>Frunsi</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source?</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from http://stackoverflow.com/questions/1853243/c-do-you-really-write-exception-safe-code
+				On: April 30, 2015
+				</p>
+			<listPerson>
+				<person xml:id="Frunsi" url="http://stackoverflow.com/users/206247/frunsi">
+				<signatureContent>
+					<p>Reputation: <num>5,017</num>
+					Number of Gold Badges: <num>4</num>
+					Number of Silver Badges:<num>19</num>
+					Number of Bronze Badges:<num>39</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="user195488">
+				<signatureContent>
+					<p>Reputation: <num></num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num></num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="interjay" url="http://stackoverflow.com/users/189205/interjay">
+				<signatureContent>
+					<p>Reputation: <num>56,310</num>
+				    Number of Gold Badges: <num>10</num>
+					Number of Silver Badges:<num>117</num>
+					Number of Bronze Badges:<num>150</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="rlbond" url="http://stackoverflow.com/users/72631/rlbond">
+				<signatureContent>
+					<p>Reputation: <num>26,389</num>
+					Number of Gold Badges: <num>23</num>
+					Number of Silver Badges:<num>112</num>
+					Number of Bronze Badges:<num>173</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Thomas Padron-McCarthy" url="http://stackoverflow.com/users/15727/thomas-padron-mccarthy">
+				<signatureContent>
+					<p>Reputation: <num>15,161</num>
+					Number of Gold Badges: <num>4</num>
+					Number of Silver Badges:<num>27</num>
+					Number of Bronze Badges:<num>54</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="David Thornley" url="http://stackoverflow.com/users/14148/david-thornley">
+				<signatureContent>
+					<p>Reputation: <num>40,771</num>
+					Number of Gold Badges: <num>8</num>
+					Number of Silver Badges:<num>60</num>
+					Number of Bronze Badges:<num>125</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Vite Falcon" url="http://stackoverflow.com/users/210634/vite-falcon">
+				<signatureContent>
+					<p>Reputation: <num>3,731</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>12</num>
+					Number of Bronze Badges:<num>31</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="bames53" url="http://stackoverflow.com/users/365496/bames53">
+				<signatureContent>
+					<p>Reputation: <num>46,048</num>
+					Number of Gold Badges: <num>4</num>
+					Number of Silver Badges:<num>61</num>
+					Number of Bronze Badges:<num>121</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="paercebal" url="http://stackoverflow.com/users/14089/paercebal">
+				<signatureContent>
+					<p>Reputation: <num>43,472</num>
+					Number of Gold Badges: <num>27</num>
+					Number of Silver Badges:<num>95</num>
+					Number of Bronze Badges:<num>132</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="nobar" url="http://stackoverflow.com/users/86967/nobar">
+				<signatureContent>
+					<p>Reputation: <num>7,764</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>40</num>
+					Number of Bronze Badges:<num>43</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Mehrdad" url="http://stackoverflow.com/users/541686/mehrdad">
+				<signatureContent>
+					<p>Reputation: <num>81,512</num>
+					Number of Gold Badges: <num>41</num>
+					Number of Silver Badges:<num>233</num>
+					Number of Bronze Badges:<num>506</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Malcolm" url="http://stackoverflow.com/users/45668/malcolm">
+				<signatureContent>
+					<p>Reputation: <num>16,900</num>
+					Number of Gold Badges: <num>5</num>
+					Number of Silver Badges:<num>38</num>
+					Number of Bronze Badges:<num>54</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="zahir" url="http://stackoverflow.com/users/311618/zahir">
+				<signatureContent>
+					<p>Reputation: <num>670</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>5</num>
+					Number of Bronze Badges:<num>17</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="ESRogs" url="http://stackoverflow.com/users/88/esrogs">
+				<signatureContent>
+					<p>Reputation: <num>1,461</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>10</num>
+					Number of Bronze Badges:<num>11</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Jeroen Dirks" url="http://stackoverflow.com/users/7743/jeroen-dirks">
+				<signatureContent>
+					<p>Reputation: <num>2,724</num>
+					Number of Gold Badges: <num>7</num>
+					Number of Silver Badges:<num>30</num>
+					Number of Bronze Badges:<num>54</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="gha.st" url="http://stackoverflow.com/users/65678/gha-st">
+				<signatureContent>
+					<p>Reputation: <num>7,050</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>18</num>
+				    Number of Bronze Badges:<num>41</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="kfmfe04" url="http://stackoverflow.com/users/975129/kfmfe04">
+				<signatureContent>
+					<p>Reputation: <num>5,874</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>24</num>
+					Number of Bronze Badges:<num>61</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Lennart Rolland" url="http://stackoverflow.com/users/1035897/lennart-rolland#">
+				<signatureContent>
+					<p>Reputation: <num>1,249</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>10</num>
+					Number of Bronze Badges:<num>21</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Joh" url="http://stackoverflow.com/posts/1853383/revisions">
+				<signatureContent>
+					<p>Reputation: <num>1,848</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>12</num>
+					Number of Bronze Badges:<num>24</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="jk." url="http://stackoverflow.com/users/207716/jk">
+				<signatureContent>
+					<p>Reputation: <num>8,641</num>
+					Number of Gold Badges: <num>2</num>
+					Number of Silver Badges:<num>21</num>
+					Number of Bronze Badges:<num>44</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Raedwald" url="http://stackoverflow.com/users/545127/raedwald">
+				<signatureContent>
+					<p>Reputation: <num>11,616</num>
+					Number of Gold Badges: <num>9</num>
+					Number of Silver Badges:<num>42</num>
+					Number of Bronze Badges:<num>82</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="bmargulies" url="http://stackoverflow.com/posts/1853281/revisions">
+				<signatureContent>
+					<p>Reputation: <num>54.8k</num>
+					Number of Gold Badges: <num>20</num>
+					Number of Silver Badges:<num>93</num>
+					Number of Bronze Badges:<num>185</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="D.Shawley" url="http://stackoverflow.com/posts/1853449/revisions">
+				<signatureContent>
+					<p>Reputation: <num>33.6k</num>
+					Number of Gold Badges: <num>6</num>
+					Number of Silver Badges:<num>49</num>
+					Number of Bronze Badges:<num>66</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="mabraham" url="http://stackoverflow.com/users/334142/mabraham">
+				<signatureContent>
+					<p>Reputation: <num>527</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>4</num>
+					Number of Bronze Badges:<num>13</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="anon">
+				<signatureContent>
+					<p>Reputation: <num></num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num></num>
+					Number of Bronze Badges:<num></num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Matt Joiner" url="http://stackoverflow.com/users/149482/matt-joiner">
+				<signatureContent>
+					<p>Reputation: <num>33,299</num>
+					Number of Gold Badges: <num>28</num>
+					Number of Silver Badges:<num>165</num>
+					Number of Bronze Badges:<num>322</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Miles Rout" url="http://stackoverflow.com/users/575229/miles-rout">
+				<signatureContent>
+					<p>Reputation: <num>510</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>6</num>
+					Number of Bronze Badges:<num>15</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="AnT" url="http://stackoverflow.com/users/187690/ant">
+				<signatureContent>
+					<p>Reputation: <num>162,584</num>
+					Number of Gold Badges: <num>16</num>
+					Number of Silver Badges:<num>127</num>
+					Number of Bronze Badges:<num>440	</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Mark Bessey" url="http://stackoverflow.com/users/17826/mark-bessey">
+				<signatureContent>
+					<p>Reputation: <num>14.1k</num>
+					Number of Gold Badges: <num>3</num>
+					Number of Silver Badges:<num>29</num>
+					Number of Bronze Badges:<num>52</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Mr. Boy" url="http://stackoverflow.com/users/197229/mr-boy">
+				<signatureContent>
+					<p>Reputation: <num>13.2k</num>
+					Number of Gold Badges: <num>29</num>
+					Number of Silver Badges:<num>141</num>
+					Number of Bronze Badges:<num>310</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Crowe T. Robot" url="http://stackoverflow.com/users/191942/crowe-t-robot">
+				<signatureContent>
+					<p>Reputation: <num>1,838</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>11</num>
+					Number of Bronze Badges:<num>16</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="David Rodríguez - dribeas" url="http://stackoverflow.com/users/36565/david-rodr%C3%ADguez-dribeas">
+				<signatureContent>
+					<p>Reputation: <num>133,690</num>
+					Number of Gold Badges: <num>7</num>
+					Number of Silver Badges:<num>135</num>
+					Number of Bronze Badges:<num>334</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="jalf" url="http://stackoverflow.com/users/33213/jalf">
+				<signatureContent>
+					<p>Reputation: <num>156,299</num>
+					Number of Gold Badges: <num>31</num>
+					Number of Silver Badges:<num>223</num>
+					Number of Bronze Badges:<num>461</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="David R Tribble" url="http://stackoverflow.com/users/170383/david-r-tribble">
+				<signatureContent>
+					<p>Reputation: <num>5,284</num>
+					Number of Gold Badges: <num>1</num>
+					Number of Silver Badges:<num>15</num>
+					Number of Bronze Badges:<num>34</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="avakar" url="http://stackoverflow.com/users/89847/avakar">
+				<signatureContent>
+					<p>Reputation: <num>21,035</num>
+					Number of Gold Badges: <num>4</num>
+					Number of Silver Badges:<num>39</num>
+					Number of Bronze Badges:<num>81</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Charles Eli Cheese" url="http://stackoverflow.com/users/204739/charles-eli-cheese">
+				<signatureContent>
+					<p>Reputation: <num>609</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>3</num>
+					Number of Bronze Badges:<num>6</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="ima" url="http://stackoverflow.com/users/5733/ima">
+				<signatureContent>
+					<p>Reputation: <num>5,053</num>
+					Number of Gold Badges: <num>3</num>
+					Number of Silver Badges:<num>12</num>
+					Number of Bronze Badges:<num>17</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Kristopher Johnson" url="http://stackoverflow.com/users/1175/kristopher-johnson">
+				<signatureContent>
+					<p>Reputation: <num>37,741</num>
+					Number of Gold Badges: <num>36</num>
+					Number of Silver Badges:<num>178</num>
+					Number of Bronze Badges:<num>256</num></p>
+				</signatureContent>
+				</person>
+				<person xml:id="Jimbo" url="http://stackoverflow.com/users/35589/jimbo">
+				<signatureContent>
+					<p>Reputation: <num>167</num>
+					Number of Gold Badges: <num></num>
+					Number of Silver Badges:<num>3</num>
+					Number of Bronze Badges:<num>13</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<div type="forum">
+			<post synch="unknown" who="Frunsi" revisedWhen="Oct 30 '14 at 20:04" revisedBy="community wiki" upVote="205" accepted="favorite">
+			<p>Exception handling (EH) seems to be the current standard, and by searching the web, I can not find any novel ideas or methods that try to improve or replace it (well, some variations exist, but nothing novel).
+
+				Though most people seem to ignore it or just accept it, EH has some huge drawbacks: exceptions are invisible to the code and it creates many, many possible exit points. Joel on software wrote an article about it. The comparison to goto fits perfect, it made me think again about EH.
+
+				I try to avoid EH and just use return values, callbacks or whatever fits the purpose. But when you have to write reliable code, you just can't ignore EH these days: It starts with the new, which may throw an exception, instead of just returning 0 (like in the old days). This makes about any line of C++ code vulnerable to an exception. And then more places in the C++ foundational code throw exceptions... std lib does it, and so on.
+
+				This feels like walking on shaky grounds.. So, now we are forced to take care about exceptions!
+
+				But its hard, its really hard. You have to learn to write exception safe code, and even if you have some experience with it, it will still be required to double check any single line of code to be safe! Or you start to put try/catch blocks everywhere, which clutters the code until it reaches a state of unreadability.
+
+				EH replaced the old clean deterministical approach (return values..), which had just a few but understandable and easily solveable drawbacks with an approach that creates many possible exit points in your code, and if you start writing code that catches exceptions (what you are forced to do at some point), then it even creates a multitude of paths through your code (code in the catch blocks, think about a server program where you need logging facilities other than std::cerr ..). EH has advantages, but that's not the point.
+
+				My actual questions:
+
+				Do you really write exception safe code?
+				Are you sure your last "production ready" code is exception safe?
+				Can you even be sure, that it is?
+				Do you know and/or actually use alternatives that work?
+				<tag>c++</tag> <tag>exception-handling</tag>
+			</p>
+			</post>	
+		</div>		
+		<div type="moderator">
+			<head>closed as not constructive by interjay, Nicholas Wilson, Peter Ritchie, mensi, Graviton Apr 17 '13 at 8:35</head>
+			<post synch="Apr 17 '13 at 8:35" who="interjay">
+			 	<p>As it currently stands, this question is not a good fit for our Q&amp;A format. We expect answers to be supported by facts, references, or expertise, but this question will likely solicit debate, arguments, polling, or extended discussion. If you feel that this question can be improved and possibly reopened, visit the help center for guidance.
+					If this question can be reworded to fit the rules in the help center, please edit the question.
+			 	</p>
+			</post>
+			</div>
+			<div type="response">   
+				<post synch="Dec 5 '09 at 20:12" who="Frunsi" IndentLevel="1">  
+					<p>Alright, my fault. That does not mean I am confused, let me explain: In german it is sometimes (inaccurately) called "Strukturierte Ausnahmebehandlung" (translates to "structured exception handling") to avoid confusion with what is usually called "error handling". The term "exception handling" on its own is not very precise, it could mean anything ;) 
+					</p>				
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Dec 5 '09 at 21:06" who="rlbond" IndentLevel="1" upVote="24">   
+					<p>"EH replaced the old clean deterministical approach (return values..)" What? Exceptions are just as deterministic as return codes. There's nothing random about them. 
+					</p>			
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Dec 5 '09 at 22:00" who="user195488" IndentLevel="1">       
+					<p>EH has been the standard for a long time (since Ada even!)   
+					</p>			
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Dec 5 '09 at 22:09" who="Thomas Padron-McCarthy" IndentLevel="1" upVote="4">      
+					<p>Is "EH" an established abbreviation for exception handling? I've never seen it before.    
+					</p>			
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Dec 6 '09 at 2:33" who="Frunsi" IndentLevel="1">   
+					<p>@Thomas Padron-McCarthy: how else would you abbreviate _E_xception _H_andling? My question is long, and I did not want to discourage people from reading it, so I abbreviated the term that was used most of the time.. well, I used a wrong term first, but then.. hey, why do I answer this anyway, you're just trying to confuse me, aren't you? :D    
+					</p>			
+				</post>
+				</div>
+				<div type="response">   
+				<post synch="Dec 6 '09 at 4:43" who="David Thornley" IndentLevel="1" upVote="2">     
+					<p>Newton's laws are applicable today for most things. The fact that they have predicted a very wide range of phenomena for centuries is significant. 
+					</p>			
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Dec 6 '09 at 5:35" who="Frunsi" IndentLevel="1">     
+					<p>@David Thornley: yes, true, return-error-code and exception handling worked for years, whats next?       
+					</p>			
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Dec 9 '09 at 5:16" who="Thomas Padron-McCarthy" IndentLevel="1" upVote="2">     
+					<p>@frunsi: Heh, sorry for confusing you! But I think that, if anything, a strange and unexplained acronym or abbreviation will discourage people more than not.    
+					</p>			
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Jul 12 '12 at 0:03" who="Vite Falcon" IndentLevel="1">     
+					<p>There's a really good video about exception safe coding in C++ at exceptionsafecode.com      
+					</p>			
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Dec 5 '12 at 16:53" who="bames53" IndentLevel="1">     
+					<p>Exception Safe Coding in C++ — Jon Kalb; this talk even specifically references Joel's article and shows where his example goes wrong.   
+					</p>			
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="" who="paercebal" revisedWhen="May 31 '13 at 9:20" revisedBy="community wiki" upVote="366">
+			 	<p>Your question makes an assertion, that "Writing exception safe code is very hard". I will answer your questions first, and then, answer the hidden question behind them.
+
+				Answering questions
+
+				Do you really write exception safe code?
+				Of course I do.
+
+				This is the reason Java lost a lot of its appeal to me as a C++ programmer (lack of RAII semantics), but I am digressing: This is a C++ question.
+
+				It is in fact necessary when you need to work with STL or Boost code. For example, C++ threads (boost::thread or std::thread) will throw an exception to exit gracefully.
+
+				Are you sure your last "production ready" code is exception safe?
+
+				Can you even be sure, that it is?
+				Writing exception-safe code is like writing bug-free code.
+
+				You can't be 100% sure your code is exception safe. But then, you strive for it, using well known patterns, and avoiding well known anti-patterns.
+
+				Do you know and/or actually use alternatives that work?
+				There are no viable alternatives in C++ (i.e. you'll need to revert back to C, and avoid C++ libraries, as well as external surprises like Windows SEH).
+
+				Writing exception safe code
+
+				To write exception safe code, you must know first what level of exception safety each instruction you write is.
+
+				For example, a new can throw an exception, but assigning a built-in (e.g. an int, or a pointer) won't fail. A swap will never fail (don't ever write a throwing swap), a std::list::push_back can throw...
+
+				Exception guarantee
+
+				The first thing to understand is that you must be able to evaluate the exception guarantee offered by all of your functions:
+
+				none : Your code should never offer that. This code will leak everything, and break down at the very first exception thrown.
+				basic : This is the guarantee you must at the very least offer, that is, if an exception is thrown, no resources are leaked, and all objects are still whole
+				strong : The processing will either succeed, or throw an exception, but if it throws, then the data will be in the same state as if the processing had not started at all (this gives a transactional power to C++)
+				nothrow/nofail : The processing will succeed.
+				Example of code
+
+				The following code seems like correct C++, but in truth, offers the "none" guarantee, and thus, it is not correct:
+
+				void doSomething(T &amp; t)
+				{
+				   if(std::numeric_limits&lt;int&gt;::max() > t.integer)  // 1.   nothrow/nofail
+				      t.integer += 1 ;                              // 1'.  nothrow/nofail
+				   X * x = new X() ;                // 2. basic : can throw with new and X constructor
+				   t.list.push_back(x) ;            // 3. strong : can throw
+				   x->doSomethingThatCanThrow() ;   // 4. basic : can throw
+				}
+				I write all my code with this kind of analysis in mind.
+
+				The lowest guarantee offered is basic, but then, the ordering of each instruction makes the whole function "none", because if 3. throws, x will leak.
+
+				The first thing to do would be to make the function "basic", that is putting x in a smart pointer until it is safely owned by the list:
+
+				void doSomething(T &amp; t)
+				{
+				   if(std::numeric_limits&lt;int&gt;::max() > t.integer)  // 1.   nothrow/nofail
+				      t.integer += 1 ;                              // 1'.  nothrow/nofail
+				   std::auto_ptr&lt;X&gt; x(new X()) ;    // 2.  basic : can throw with new and X constructor
+				   X * px = x.get() ;               // 2'. nothrow/nofail
+				   t.list.push_back(px) ;           // 3.  strong : can throw
+				   x.release() ;                    // 3'. nothrow/nofail
+				   px->doSomethingThatCanThrow() ;  // 4.  basic : can throw
+				}
+				Now, our code offers a "basic" guarantee. Nothing will leak, and all objects will be in a correct state. But we could offer more, that is, the strong guarantee. This is where it can become costly, and this is why not all C++ code is strong. Let's try it:
+
+				void doSomething(T &amp; t)
+				{
+				   // we create "x"
+				   std::auto_ptr&lt;X&gt; x(new X()) ;    // 1. basic : can throw with new and X constructor
+				   X * px = x.get() ;               // 2. nothrow/nofail
+				   px->doSomethingThatCanThrow() ;  // 3. basic : can throw
+
+				   // we copy the original container to avoid changing it
+				   T t2(t) ;                        // 4. strong : can throw with T copy-constructor
+
+				   // we put "x" in the copied container
+				   t2.list.push_back(px) ;          // 5. strong : can throw
+				   x.release() ;                    // 6. nothrow/nofail
+				   if(std::numeric_limits&lt;int&gt;::max() > t2.integer)  // 7.   nothrow/nofail
+				      t2.integer += 1 ;                              // 7'.  nothrow/nofail
+
+ 				  // we swap both containers
+				   t.swap(t2) ;                     // 8. nothrow/nofail
+				}
+				We re-ordered the operations, first creating and setting X to its right value. If any operation fails, then t is not modified, so, operation 1 to 3 can be considered "strong": If something throws, t is not modified, and X will not leak because it's owned by the smart pointer.
+
+				Then, we create a copy t2 of t, and work on this copy from operation 4 to 7. If something throws, t2 is modified, but then, t is still the original. We still offer the strong guarantee.
+
+				Then, we swap t and t2. Swap operations should be nothrow in C++, so lets hope the swap you wrote for T is nothrow (if it isn't, rewrite it so it is nothrow).
+
+				So, if we reach the end of the function, everything succeeded (No need of a return type) and t has its excepted value. If it fails, then t has still its original value.
+
+				Now, offering the strong guarantee could be quite costly, so don't strive to offer the strong guarantee to all your code, but if you can do it without a cost (and C++ inlining and other optimization could make all the code above costless), then do it. The function user will thank you for it.
+
+				Conclusion
+
+				It takes some habit to write exception-safe code. You'll need to evaluate the guarantee offered by each instruction you'll use, and then, you'll need to evaluate the guarantee offered by a list of instructions.
+
+				Of course, the C++ compiler won't back up the guarantee (in my code, I offer the guarantee as a @warning doxygen tag), which is kinda sad, but it should not stop you from trying to write exception safe code.
+
+				Normal failure vs. bug
+
+				How can a programmer guarantee that a nofail function will always succeed? After all, the function could have a bug.
+
+				This is true. The exception guarantees are supposed to be offered by bug-free code. But then, in any language, calling a function supposes the function is bug-free. No sane code protects itself against the possibility of it having a bug. Write code the best you can, and then, offer the guarantee with the supposition it is bug free. And if there is a bug, correct it.
+
+				Exceptions are for exceptional processing failure, not for code bugs.
+
+				Last words
+
+				Now, the question is "Is this worth it ?".
+
+				Of course it is. Having a "nothrow/nofail" function knowing that the function won't fail is a great boon. The same can be said for a "strong" function, which enables you to write code with transactional semantics, like databases, with commit/rollback features, the commit being normal execution of the code, throwing exceptions being the rollback.
+
+				Then, the "basic" is the very least guarantee you should offer. C++ is a very strong language there, with its scopes, enabling you to avoid any resource leaks (something a garbage collector would find it difficult to offer for database, connection or file handles).
+
+				So, as far as I see it, it is worth it.
+
+				Edit 2010-01-29: About non-throwing swap
+
+				nobar made a comment that, I believe, is quite relevant, because it is part of "how do you write exception safe code":
+
+				[me] A swap will never fail (don't even write a throwing swap)
+				[nobar] This is a good recommendation for custom-written swap() functions. It should be noted, however, that std::swap() can fail based on the operations that it uses internally
+				the default std::swap will make copies and assignments, which, for some objects, can throw. Thus, the default swap could throw, either used for your classes, or even for STL classes. As far as the C++ standard is concerned, the swap operation for vector, deque, and list won't throw, whereas it could for map if the comparison functor can throw on copy construction (See The C++ Programming Language, Special Edition, appendix E, E.4.3.Swap).
+
+				Looking at Visual C++ 2008 implementation of the vector's swap, the vector's swap won't throw if the two vectors have the same allocator (i.e., the normal case), but will make copies if they have different allocators. And thus, I assume it could throw in this last case.
+
+				So, the original text still holds: Don't even write a throwing swap, but nobar's comment must be remembered: Be sure the objects you're swapping have a non-throwing swap.
+
+				Edit 2011-11-06: Interesting article
+
+				Dave Abrahams, who gave us the basic/strong/nothrow guarantees, described in an article his experience about making the STL exception safe:
+
+				http://www.boost.org/community/exception_safety.html
+
+				Look at the 7th point (Automated testing for exception-safety), where he relies on automated unit testing to make sure every case is tested. I guess this part is an excellent answer to the question author's "Can you even be sure, that it is?".
+
+				Edit 2013-05-31: Comment from dionadar
+
+				t.integer += 1; is without the guarantee that overflow will not happen NOT exception safe, and in fact may technically invoke UB! (Signed overflow is UB: C++11 5/4 "If during the evaluation of an expression, the result is not mathematically defined or not in the range of representable values for its type, the behavior is undefined.") Note that unsigned integer do not overflow, but do their computations in an equivalence class modulo 2^#bits.
+				Dionadar is refering to the following line, which indeed has undefined behaviour.
+
+				   t.integer += 1 ;                 // 1. nothrow/nofail
+				The solution here is to verify if the integer is already at its max value (using std::numeric_limits&lt;T&gt;::max()) before doing the addition.
+
+				My error would go in the "Normal failure vs. bug" section, that is, a bug. It doesn't invalidate the reasoning, and it does not mean exception safe code is useless because impossible to attain. You can't protect yourself against the computer switching off, or compiler bugs, or even your bugs, or other errors. You can't attain perfection, but you can try to get as near as possible.
+
+				I corrected the code with Dionadar's comment in mind.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">   
+				<post synch="Dec 6 '09 at 2:50" who="Frunsi" IndentLevel="1" upVote="4">      
+				<p>Thanks a lot! I still hoped for something different. But I accept your answer for sticking to C++ and for your detailed explanation. You even disproved my "This makes about any line of C++ code vulnerable to an exception"-offense. This line by line analysis makes sense after all... I have to think about it. 
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Dec 6 '09 at 4:40" who="Frunsi" IndentLevel="1">         
+				<p>Just writing down an idea, before I'll forget it: wouldn't it then be nice and comfortable to annotate each single line of code with 1) the guarantee level and 2) a term of "what" to do if a given exception occurs in that given line? Maybe like a second layer of code, that will be executed whenever the program leaves the "usual code path". This would provide a complete separation of code and error handling, and in practice one could write code, and write error handling in a second step (without intermingling them too much). 
+				</p>
+				</post>
+				</div>
+				<div type="response"> 
+				<post synch="Dec 6 '09 at 4:45" who="David Thornley" IndentLevel="1" upVote="1">        
+				<p>@frunsi: Sounds like a good learning exercise, but not practical in general. Once you've learned exception safety (and the above is a very good answer), you start seeing safe and unsafe constructs for yourself. 
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Dec 6 '09 at 4:48" who="Frunsi" IndentLevel="1">      
+				<p>... this separation of code and error handling is somehow similar to what EH promises (besides other things, I can imagine that the initial IDEA of it was to remove the burden of error handling from application code). Maybe the removal should be more explicit - line-by-line in a second code layer or something similar. Well, forget text editors then, but the idea is interesting...   
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Dec 6 '09 at 4:50" who="Frunsi" IndentLevel="1">         
+				<p>@David Thornley: I know exception safety (at least the basics and some practice applying it). But I still do not like it.  
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Dec 6 '09 at 5:05" who="Frunsi" IndentLevel="1">         
+				<p>.. one more note: when exception handling was meant as a replacement for error-return-codes, then it was meant to (plainly speaking) remove error-handling code from application code. So, it was (also plainly speaking) invented to separate error-handling code from application code. So, maybe the current concept of EH works and is matured, but there could be completely different solutions (that are still to be developed). 
+				</p>
+				</post>
+				</div>
+				<div type="response"> 
+				<post synch="Dec 11 '09 at 12:56" who="PlexQ" IndentLevel="1" upVote="1">          
+				<p>@frunsi: Thanks for the comment. The try/catch block already separate the normal code and the error handling code, but I don't believe it should be more separated: error handling code must sometimes access normal code (i.e. local variables) to retrieve useful data (perhaps to try again the processing, or try it differently, etc.). Now, of course you're right: When I wrote "it's the only viable for C++", it's because it is the only viable for current C++ language specification. Research could well lead to other error handling means. 
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Dec 11 '09 at 13:10" who="paercebal" IndentLevel="1" upVote="3">          
+				<p>@frunsi: Exception safety has funny effects. For example, when you have a function calling only nofail/nothrow code, and when you realize that as a whole, the function is nofail/nothrow, too, there is a little moment of "shining" that somehow makes your day brighter. The same can be said for strong functions. When you have a function that seems to do a lot, and you can offer a strong/commit/rollback guarantee, you see your code from a new viewpoint. I started wrapping SQLite3 C code into C++ code, and offering strong/nothrow guarantees to transactional concept was both fun and rewarding. 
+				</p>
+				</post>
+				</div>
+				<div type="response"> 
+				<post synch="Jan 20 '10 at 4:47" who="nobar" IndentLevel="1" upVote="4">          
+				<p>"A swap will never fail". This is a good recommendation for custom-written swap() functions. It should be noted, however, that std::swap() can fail based on the operations that it uses internally. 
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Jan 29 '10 at 10:24" who="paercebal" IndentLevel="1">         
+				<p>@nobar: +1 for the comment. I'll edit my answer to add your contribution.    
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Jul 23 '12 at 9:05" who="Mehrdad" IndentLevel="1">         
+				<p>Doesn't Java have try/finally?    
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Jul 23 '12 at 9:27" who="Malcolm" IndentLevel="1">       
+				<p>@Mehrdad Exactly, in Java the same effect is achieved not through finalizers, but through try-finally blocks. Really, this answer made me appreciate Java more. It's much harder to leak memory, exceptions have been placed into several groups by their function, and also there are checked and unchecked exceptions, which are (with proper use!) helping a lot to not forget to handle the exceptions. 
+				</p>
+				</post>
+				</div>
+				<div type="response">     
+				<post synch="Jul 23 '12 at 10:01" who="paercebal" IndentLevel="1" upVote="1">          
+				<p>@Malcolm : Really, this answer made me appreciate Java more : You'd be wrong to believe that. Java makes it harder than C++ to have exception safe code. For example, there is no finally in C++, and this is not an error... See my question stackoverflow.com/questions/194261 for an example of how Java fails, when compared to C# and (of course) C++. 
+				</p>
+				</post>
+				</div>
+				<div type="response">     
+				<post synch="Jul 23 '12 at 11:34" who="Mehrdad" IndentLevel="1">          
+				<p>@paercebal: Could you tell me what part of that is "failure", exactly? The syntax is different, sure, but it seems like finally does exactly what you were trying to achieve. The garbage collection model is simply different from C++ -- if you need destruction, you use a finalizer; if you need execution at a particular time, you use a finally block. Just because it doesn't match your taste (RAII doesn't match mine, since it needs a new struct every single darn time, which is tedious sometimes) doesn't mean it's "failing". 
+				</p>
+				</post> 
+				</div>
+				<div type="response">  
+				<post synch="Jul 23 '12 at 14:59" who="paercebal" IndentLevel="1" upVote="1">        
+				<p>@Mehrdad : "finally" does exactly what you were trying to achieve : Of course it does. And because it is easy to produce brittle code with finally, the "try-with-resource" notion was finally introduced in Java 7 (that is, 10 years after C#'s using and 3 decades after C++ destructors). This is this brittleness I criticize. As for Just because [finally] doesn't match your taste (RAII doesn't match mine, [...]) doesn't mean it's "failing" : In this, the industry disagree with your taste, as Garbage Collected languages tend to add RAII-inspired statements (C#'s using and Java's try). 
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Jul 23 '12 at 15:01" who="Mehrdad" IndentLevel="1">         
+				<p>@paercebal: The [...] part that you omitted shows you completely missed the point of my comment. I never said I don't like using or the new try block. Read my comment again about why I said I don't like RAII in C++. 
+				</p>
+				</post>
+				</div>
+				<div type="response">   
+				<post synch="Jul 23 '12 at 15:01" who="paercebal" IndentLevel="1" upVote="1">         
+				<p>@Mehrdad : As for See my question http://stackoverflow.com/questions/194261 for an example of how Java fails, please, again, refer to the linked question, and how it is almost impossible to produce robust code when multiple resources are used in the same function in Java without using the Java 7 try-with-resource pattern. 
+				</p>
+				</post>
+				</div>
+				<div type="response">   
+				<post synch="Jul 23 '12 at 15:03" who="paercebal" IndentLevel="1" upVote="2">        
+				<p>@Mehrdad : RAII doesn't match mine, since it needs a new struct every single darn time, which is tedious sometimes : No, it doesn't. You can use smart pointers or utility classes to "protect" resources. 
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Jul 23 '12 at 15:05" who="Mehrdad" IndentLevel="1">          
+				<p>@paercebal: it is almost impossible to produce robust code when multiple resources are used. No, it's pretty easy. Just 1 'finally' block per resource does the trick. Regarding your second comment: Note the word "sometimes". Obviously, if someone wrote the code for you already then it doesn't apply. But the whole point of my comment is that it forces you to make a wrapper for something you may not need a wrapper for, which like I said, I find tedious. I'm not trying to show you I'm right regarding that; I'm just telling you it's a matter of taste in both languages, not correctness.  
+				</p>
+				</post>
+				</div>
+				<div type="response">     
+				<post synch="Jul 23 '12 at 15:17" who="Mehrdad" IndentLevel="1">        
+				<p>@paercebal: I should also note that having a good IDE makes things a heck of a lot easier with try/finally. (E.g. C#'s tryf snippet basically writes the thing for you when you press TAB.) Also, realize that I'm not a Java fan at all... if anything, I like C++ better than Java in general. But I don't feel like try/finally is insufficient for writing correct code; it's just tedious. (It's really easy to put an extra set of braces outside the resource acquisition code to signal to the reader that he shouldn't do anything before the try block starts, if necessary.) 
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Jul 23 '12 at 19:47" who="paercebal" IndentLevel="1" upVote="1">          
+				<p>@Mehrdad : Ok, no need to discuss you tastes, then.    
+				</p>
+				</post>
+				</div>
+				<div type="response">   
+				<post synch="Jan 30 '13 at 1:22" who="Frunsi" IndentLevel="1" upVote="2">           
+				<p>@Mehrdad: "it forces you to make a wrapper for something you may not need a wrapper for" - when coding in RAII fashion, you will not need any kind of wrappers: the ressource is the object, and objects lifetime is resource lifetime. However, me coming from a C++ world, I currently struggle with a Java project. Compared to RAII in C++, that "manual resource management" in Java IS A MESS! My Opinion, but Java long ago traded "automatic memory mgmt" for "automatic resource mgmt". 
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Apr 15 '13 at 6:20" who="zahir" IndentLevel="1">         
+				<p>About using auto_ptr and relying on the stack unwinding; C++ standard leaves it undefined if your stack is not covered with a try-catch block. And to my knowledge if you don't enable compiler switches both GCC ans VisualC++ don't do stack unwinding after an exception without a try block. This is not a problem for single threaded applications (there will eventually be a try block at the main method) but after introduction of C++11 MT structures (std::thread, std::async) stack unwinding can be a problem to watch out. 
+				</p>
+				</post>
+				</div>
+				<div type="response">
+				<post synch="Apr 15 '13 at 7:48" who="ESRogs" IndentLevel="1">          
+				<p>"t.integer += 1; // 1. nothrow/nofail" Wouldn't this throw an exception if t is null?   
+				</p>
+				</post>
+				</div>
+				<div type="response">     
+				<post synch="Apr 15 '13 at 14:12" who="Jeroen Dirks" IndentLevel="1">          
+				<p>In practice find that it is easier to just never throw exceptions from constructors and assignment operators on your code. Memory allocation only starts failing once the whole OS is already thrashing and does not seem to be something to worry about in most cases. 
+				</p>
+				</post>
+				</div>
+				<div type="response">   
+				<post synch="Apr 15 '13 at 15:37" who="paercebal" IndentLevel="1" upVote="1">         
+				<p>@ESRogs : "t.integer += 1; // 1. nothrow/nofail" Wouldn't this throw an exception if t is null? : t was passed as reference, so it is a value, not a pointer. And in C++, dereferenced NULL pointers don't throw exceptions, but instead have undefined behaviour (usually it will crash at first true use) 
+				</p>
+				</post>
+				</div>
+				<div type="response">  
+				<post synch="Apr 15 '13 at 15:42" who="paercebal" IndentLevel="1" upVote="1">      
+				<p>@Jeroen Dirks : Usually, memory allocation failures will be thrown by the new operator, so no need to manually throw them yourself from your constructor. Now, in some cases (you are using malloc for an allocation, for example), if you want to behave correctly, you'll need to manually throw the exception. Usually, there are greater problems, but if you are writing a library, then you just CAN'T write code with assumptions like "If it goes there, then sorry, my code only works on normal cases". So, even if the OS is thrashing, throwing an exception is still the right thing to go IMHO.    
+				</p>
+				</post>
+				</div>
+				<div type="response">   
+				<post synch="May 15 '13 at 13:21" who="gha.st" IndentLevel="1" upVote="2">          
+				<p>t.integer += 1; is without the guarantee that overflow will not happen NOT exception safe, and in fact may technically invoke UB! (Signed overflow is UB: C++11 5/4 "If during the evaluation of an expression, the result is not mathematically defined or not in the range of representable values for its type, the behavior is undefined.") Note that unsigned integer do not overflow, but do their computations in an equivalence class modulo 2^#bits. 
+				</p>
+				</post>
+			</div>
+			<div type="response">     
+				<post synch="May 31 '13 at 4:09" who="kfmfe04" IndentLevel="1">          
+				<p>+1 best practical explanation I've seen so far, but I don't know how I can implement safe EH in my code. Just looking at the 3 examples, only the first one is easy to comprehend. Without comments, my head is spinning as to what is the main-code-logic and what is the EH in the last two examples: the code no longer passes the rubber-ducky test. IMHO, this unintended obfuscation can easily lead to broken code. Is there any way to write EH code that is easier to read/maintain? I am afraid that if I do not do EH right, it will lead to brittle/half-failing code rather than one that fails loudly. 
+				</p>
+				</post>
+			</div>
+			<div type="response">    
+				<post synch="May 31 '13 at 8:57" who="paercebal" IndentLevel="1">          
+				<p>@kfmfe04 : It's easier than it seems, but like everything, it takes a little work to get familiar: I worked on a full library (a STL-like tree structure) to become at ease with the concept. My advice: Keep functions small and simple (and have them do ONE thing), assume nothing (but basic guarantee, that is RAII), and learn to recognize the guarantees for each line. With simple functions, you will be able to recognize the level of guarantee... Now, for larger functions, it will be more complicated, but this is ok as the basic guarantee is almost automatic with C++.
+				</p>
+				</post>
+			</div>
+			<div type="response">
+				<post synch="May 31 '13 at 8:59" who="paercebal" IndentLevel="1">          
+				<p>@dionadar : +1 : Thanks for the input. I'll update my answer.    
+				</p>
+				</post>
+			</div>
+			<div type="response">    
+				<post synch="Oct 9 '14 at 21:31" who="Lennart Rolland" IndentLevel="1">          
+				<p>"No sane code protects itself against the possibility of it having a bug." I guess my code is insane then :) 
+				</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Dec 5 '09 at 20:37" who="Joh" revisedBy="community wiki" upVote="23">
+			 	<p>Writing exception-safe code in C++ is not so much about using lots of try { } catch { } blocks. It's about documenting what kind of guarantees your code provides.
+
+				I recommend reading Herb Sutter's Guru Of The Week series, in particular installments 59, 60 and 61.
+
+					To summarize, there are three levels of exception safety you can provide:
+
+				Basic: When your code throws an exception, your code does not leak resources, and objects remain destructible.
+				Strong: When your code throws an exception, it leaves the state of the application unchanged.
+				No throw: Your code never throws exceptions.
+				Personally, I discovered these articles quite late, so much of my C++ code is definitely not exception-safe.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">   
+				<post synch="Dec 5 '09 at 20:50" who="Frunsi" IndentLevel="1" upVote="1">      
+				<p>His book "Exceptional C++" is also a good read. But I still try to question the concept of EH...  
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Jan 29 '10 at 11:18" who="jk." IndentLevel="1" upVote="5">         
+				<p>+1 OP conflates handling exceptions (catching them) with exception safety (usually more about RAII)    
+				</p>
+				</post>
+				</div>
+				<div type="response">    
+				<post synch="Mar 31 '11 at 12:43" who="Raedwald" IndentLevel="1">        
+				<p>I suspect that very little production C++ code is exception safe.   
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Dec 5 '09 at 20:03" who="bmargulies" revisedBy="community wiki" upVote="14">
+			 	<p>Some of us have been using exception for over 20 years. PL/I has them, for example. The premise that they are a new and dangerous technology seems questionable to me.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">      
+				<post synch="Dec 5 '09 at 20:29" who="Frunsi" IndentLevel="1">      
+				<p>Please don't get me wrong, I am (or am trying to) questioning EH. And especially C++ EH. And I am searching for alternatives. Maybe I have to accept it (and I will if its the only way), but I think there could be better alternatives. Its not that I think that the concept is new, but yes, I think it can be more dangerous than explicit error handling with return codes... 
+				</p>
+				</post>
+				</div>
+				<div type="response">      
+				<post synch="Dec 5 '09 at 20:36" who="bmargulies" IndentLevel="1">         
+				<p>If you don't like it, don't use it. Put try blocks around things you need to call that can throw, and reinvent ye-olde-error-code, and suffer with the problems it has, which in some cases are tolerable. 
+				</p>
+				</post>
+				</div>
+				<div type="response">       
+				<post synch="Dec 5 '09 at 20:44" who="Frunsi" IndentLevel="1">        
+				<p>Ok, perfect, I will just use EH and error-codes, and live with it. I'm a nitwit, I should have come to that solution on my own! ;)   
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Dec 5 '09 at 21:00" who="D.Shawley" revisedBy="community wiki" upVote="11">
+			 	<p>First of all (as Neil stated), SEH is Microsoft's Structured Exception Handling. It is similar to but not identical to exception processing in C++. In fact, you have to enable C++ Exception Handling if you want it in Visual Studio - the default behavior does not guarantee that local objects are destroyed in all cases! In either case, Exception Handling is not really harder it is just different.
+
+				Now for your actual questions.
+
+				Do you really write exception safe code?
+				Yes. I strive for exception safe code in all cases. I evangelize using RAII techniques for scoped access to resources (e.g., boost::shared_ptr for memory, boost::lock_guard for locking). In general, consistent usage of RAII and scope guarding techniques will make exception safe code much easier to write. The trick is to learn what exists and how to apply it.
+
+				Are you sure your last "production ready" code is exception safe?
+				No. It is as safe as it is. I can say that I haven't seen a process fault due to an exception in several years of 24/7 activity. I don't expect perfect code, just well-written code. In addition to providing exception safety, the techniques above guarantee correctness in a way that is near impossible to achieve with try/catch blocks. If you are catching everything in your top control scope (thread, process, etc.), then you can be sure that you will continue to run in the face of exceptions (most of the time). The same techniques will also help you continue to run correctly in the face of exceptions without try/catch blocks everywhere.
+
+				Can you even be sure that it is?
+				Yes. You can be sure by a thorough code audit but no one really does that do they? Regular code reviews and careful developers go a long way to getting there though.
+
+				Do you know and/or actually use alternatives that work?
+				I have tried a few variations over the years such as encoding states in the upper bits (ala HRESULTs) or that horrible setjmp() ... longjmp() hack. Both of these break down in practice though in completely different ways.
+
+				In the end, if you get into the habit of applying a few techniques and carefully thinking about where you can actually do something in response to an exception, you will end up with very readable code that is exception safe. You can sum this up by following these rules:
+
+				You only want to see try/catch when you can do something about a specific exception
+				You almost never want to see a raw new or delete in code
+				Eschew std::sprintf, snprintf, and arrays in general - use std::ostringstream for formatting and replace arrays with std::vector and std::string
+				When in doubt, look for functionality in Boost or STL before rolling your own
+				I can only recommend that you learn how to use exceptions properly and forget about result codes if you plan on writing in C++. If you want to avoid exceptions, you might want to consider writing in another language that either does not have them or makes them safe. If you want to really learn how to fully utilize C++, read a few books from Herb Sutter, Nicolai Josuttis, and Scott Meyers.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">          
+				<post synch="Mar 31 '11 at 12:45" who="Raedwald" IndentLevel="1">      
+				<p>"the default behavior does not guarantee that local objects are destroyed in all cases" You are saying that the default setting of the Visual Studio C++ compiler produces code that is incorrect in the face of exceptions. Is that really so? 
+				</p>
+				</post>
+				</div>
+				<div type="response">         
+				<post synch="Mar 31 '11 at 12:47" who="Raedwald" IndentLevel="1">         
+				<p>"You almost never want to see a raw new or delete in code": by raw I guess you mean outside a constructor or destructor. 
+				</p>
+				</post>
+				</div>
+				<div type="response">         
+				<post synch="Apr 2 '11 at 13:10" who="D.Shawley" IndentLevel="1">        
+				<p>@Raedwald - re: VC++: the VS2005 edition of VC++ will not destroy local objects when an SEH exception is thrown. Read the "enable C++ Exception Handling". In VS2005, SEH exceptions do not call the destructors of C++ objects by default. If you call Win32 functions or anything defined in a C-interface DLL, then you have to worry about this since they can (and will on occasion) throw an SEH exception your way. 
+				</p>
+				</post>
+				</div>
+				<div type="response">          
+				<post synch="Apr 2 '11 at 13:16" who="D.Shawley" IndentLevel="1">        
+				<p>@Raedwald: re: raw: basically, delete should never be used outside of the implementation of tr1::shared_ptr and the like. new can be used provided that its usage is something like tr1::shared_ptr&lt;X&gt; ptr(new X(arg, arg));. The important part is that the result of new goes directly into a managed pointer. The page on boost::shared_ptr Best Practices describes the best. 
+				</p>
+				</post>
+				</div>
+				<div type="response">          
+				<post synch="Jul 16 '14 at 19:42" who="mabraham" IndentLevel="1">        
+				<p>Why do you refer to std::sprintf (et al) in your set of rules for exception safety? These do not document that they throw any exceptions, e.g. en.cppreference.com/w/cpp/io/c/fprintf 
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Dec 5 '09 at 20:09" who="anon" revisedBy="community wiki" upVote="7">
+			 	<p>Do you really write exception safe code?
+				Well, I certainly intend to.
+
+				Are you sure your last "production ready" code is exception safe?
+				I'm sure that my 24/7 servers built using exceptions run 24/7 and don't leak memory.
+
+				Can you even be sure, that it is?
+				It's very difficult to be sure that any code is correct. Typically, one can only go by results
+
+				Do you know and/or actually use alternatives that work?
+				No. Using exceptions is cleaner and easier than any of the alternatives I've used over the last 30 years in programming.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">         
+				<post synch="Oct 11 '10 at 14:46" who="Matt Jattoiner" IndentLevel="1" upVote="23">      
+				<p>This answer has no value.   
+				</p>
+				</post>
+				</div>
+				<div type="response">      
+				<post synch="Jun 27 '14 at 3:47" who="Miles Rout" IndentLevel="1" upVote="2">         
+				<p>@MattJoiner Then the question has no value.    
+				</p>
+				</post>
+				</div>
+				<div type="response">         
+				<post synch="Oct 9 '14 at 21:36" who="Lennart Rolland" IndentLevel="1">        
+				<p>There is no spoon    
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Dec 5 '09 at 21:09" who="AnT" revisedBy="community wiki" upVote="7">
+			 	<p>It is not possible to write exception-safe code under the assumption that "any line can throw". The design of exception-safe code relies critically on certain contracts/guarantees that you are supposed to expect, observe, follow and implement in your code. It is absolutely necessary to have code that is guaranteed to never throw. There are other kinds of exception guarantees out there.
+
+				In other words, creating exception-safe code is to a large degree a matter of program design not just a matter of plain coding.
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Dec 5 '09 at 20:10" who="Mark Bessey" revisedBy="community wiki" upVote="4">
+			 	<p>Leaving aside the confusion between SEH and C++ exceptions, you need to be aware that exceptions can be thrown at any time, and write your code with that in mind. The need for exception-safety is largely what drives the use of RAII, smart pointers, and other modern C++ techniques.
+
+					If you follow the well-established patterns, writing exception-safe code is not particularly hard, and in fact it's easier than writing code that handles error returns properly in all cases.
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Jan 29 '10 at 10:59" who="Mr. Boy" revisedBy="community wiki" upVote="3">
+			 	<p>EH is good, generally. But C++'s implementation is not very friendly as it's really hard to tell how good your exception catching coverage is. Java for instance makes this easy, the compiler will tend to fail if you don't handle possible exceptions .
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Dec 5 '09 at 20:11" who="Crowe T. Robot" revisedBy="community wiki" upVote="1">
+			 	<p>I really like working with Eclipse and Java though (new to Java), because it throws errors in the editor if you are missing an EH handler. That makes things a LOT harder to forget to handle an exception...
+
+					Plus, with the IDE tools, it adds the try / catch block or another catch block automatically.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">            
+				<post synch="Dec 5 '09 at 22:19" who="David Rodríguez- dribeas" IndentLevel="1" upVote="5">         
+				<p>That is the difference between checked(Java) and unchecked(c++) exceptions (Java has a few of those too). The advantage of checked exceptions is what you wrote, but there it has its own disadvantages. Google for the difference approaches and the different problems they have. 
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Dec 6 '09 at 10:52" who="jalf" revisedBy="community wiki" upVote="1">
+			 	<p>I try my darned best to write exception-safe code, yes.
+
+				That means I take care to keep an eye on which lines can throw. Not everyone can, and it is critically important to keep that in mind. The key is really to think about, and design your code to satisfy, the exception guarantees defined in the standard.
+
+				Can this operation be written to provide the strong exception guarantee? Do I have to settle for the basic one? Which lines may throw exceptions, and how can I ensure that if they do, they don't corrupt the object?
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Dec 5 '09 at 20:12" who="David R Tribble" revisedBy="community wiki" upVote="0">
+			 	<p>Some of us prefer languages like Java which force us to declare all the exceptions thrown by methods, instead of making them invisible as in C++ and C#.
+
+					When done properly, exceptions are superior to error return codes, if for no other reason than you don't have to propagate failures up the call chain manually.
+
+					That being said, low-level API library programming should probably avoid exception handling, and stick to error return codes.
+
+					It's been my experience that it's difficult to write clean exception handling code in C++. I end up using new(nothrow) a lot.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">            
+				<post synch="Dec 5 '09 at 22:49" who="avakar" IndentLevel="1" upVote="3">         
+				<p>And you're avoiding most of the standard library as well? Using new(std::nothrow) is not enough. By the way, it's easier to write exception-safe code in C++ than in Java: en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization 
+				</p>
+				</post>
+				</div>
+				<div type="response">              
+				<post synch="Dec 5 '09 at 23:13" who="paercebal" IndentLevel="1" upVote="3">         
+				<p>The Java checked exception usability is highly exagerated. In fact, non-Java languages, they are NOT considered a success. This is why the "throw" statement in C++ is now considered obsolete, and C# never seriously considered implementing them (this was a design choice). For Java, the following document could be enlightning: googletesting.blogspot.com/2009/09/… 
+				</p>
+				</post>
+				</div>
+				<div type="response">                
+				<post synch="Dec 6 '09 at 4:48" who="David Thornley" IndentLevel="1" upVote="2">         
+				<p>It's my experience that writing exception-safe code in C++ is not that hard, and that it tends to lead to cleaner code in general. Of course, you do have to learn to do it. 
+				</p>
+				</post>
+				</div>
+			<div type="answer">
+				<post synch="Dec 7 '09 at 2:27" who="Charles Eli Cheese" revisedBy="community wiki" upVote="0">
+			 	<p>Do you really write exception safe code? [There's no such thing. Exceptions are a paper shield to errors unless you have a managed environment. This applies to first three questions.]
+
+					Do you know and/or actually use alternatives that work? [Alternative to what? The problem here is people don't separate actual errors from normal program operation. If it's normal program operation (ie a file not found), it's not really error handling. If it's an actual error, there is no way to 'handle' it or it's not an actual error. Your goal here is to find out what went wrong and either stop the spreadsheet and log an error, restart the driver to your toaster, or just pray that the jetfighter can continue flying even when it's software is buggy and hope for the best.]
+			 	</p>
+				</post>
+			</div>
+			<div type="answer">
+				<post synch="Dec 6 '09 at 18:53" who="ima" revisedBy="community wiki" downVote="-2">
+			 	<p>A lot (I would even say most) people do.
+
+				What's really important about exceptions, is that if you don't write any handling code - the result is perfectly safe and well-behaved. Too eager to panic, but safe.
+
+				You need to actively make mistakes in handlers to get something unsafe, and only catch(...){} will compare to ignoring error code.
+			 	</p>
+				</post>
+			</div>
+			<div type="response">                   
+				<post synch="Dec 6 '09 at 19:00" who="Kristopher Johnson" IndentLevel="1" upVote="2">         
+				<p>Not true. It's very easy to write code that is not exception-safe. For example: f = new foo(); f->doSomething(); delete f; If the doSomething method throws an exception, then you have a memory leak. 
+				</p>
+				</post>
+				</div>
+				<div type="response">                  
+				<post synch="Dec 6 '09 at 19:06" who="ima" IndentLevel="1">         
+				<p>It wouldn't matter when you program terminates, right? To continue execution, you'll have to actively swallow exceptions. Well, there are some specific cases where termination without clean-up is still unacceptable, but such situations needs special care in any programming language and style. 
+				</p>
+				</post>
+				</div>
+				<div type="response">                      
+				<post synch="Dec 6 '09 at 21:04" who="Frunsi" IndentLevel="1">         
+				<p>You just can't ignore exceptions (and not write handling code), neither in C++ nor in managed code. It will be unsafe, and it will not well-behave. Except for maybe some toy code. 
+				</p>
+				</post>
+				</div>
+				<div type="response">               
+				<post synch="Dec 6 '09 at 21:20" who="ima" IndentLevel="1">         
+				<p>Did I say you can? Now read again what I wrote and try to understand.    
+				</p>
+				</post>
+				</div>
+				<div type="response">                 
+				<post synch="Dec 6 '09 at 21:21" who="ima" IndentLevel="1">         
+				<p>With exceptions, unsafe code results from you making mistakes in handling code. With error codes, unsafe code results from you not writing handling code. The difference is huge. 
+				</p>
+				</post>
+				</div>
+				<div type="response">                     
+				<post synch="Dec 6 '09 at 23:41" who="Frunsi" IndentLevel="1">         
+				<p>You wrote "[..] if you don't write any handling code - the result is perfectly safe and well-behaved [..]". So, this sounds like "you can write perfectly safe and well-behaved code even if you ignore exceptions". not handling exceptions = ignoring them. Of course its similar situation with error codes. But that's not the point. You just wrote that ignoring exceptions results is safe and well-behaved code ;-) But yes, I understand your intention.
+				</p>
+				</post>
+				</div>
+				<div type="response">               
+				<post synch="Dec 6 '09 at 23:49" who="Frunsi" IndentLevel="1" upVote="1">         
+				<p>If you ignore exceptions in application code, the program may still NOT behave well when external ressources are involved. True, the OS cares about closing file handles, locks, sockets and so on. But not everything is handled, e.g. it may leave unnecessary files or damage files while writing to them and so on. If you ignore exceptions, you have a problem in Java, in C++ you can work with RAII (but when you use RAII technique, you most probably use them because you care about exceptions)... 
+				</p>
+				</post>
+				</div>
+				<div type="response">               
+				<post synch="Dec 7 '09 at 5:37" who="ima" IndentLevel="1" upVote="1">         
+				<p>Please, don't twist my words. I wrote "if you don't write any handling code " - and I meant exactly that. To ignore exceptions, you need to write code. 
+				</p>
+				</post>
+				</div>
+				<div type="response">                      
+				<post synch="Apr 22 '13 at 21:20" who="Jimbo" IndentLevel="1">         
+				<p>The problem with your comment is that errors in exception safety can occur well before the handling code. Kristopher's example is just that. 
+				</p>
+				</post>
+				</div>
+		</body>	
+	</text>
+</TEI>

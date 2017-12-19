@@ -1,0 +1,84 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Fixing XSS vulnerability in ASP.NET</title>
+        <author>Gezim</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/26637439/fixing-xss-vulnerability-in-asp-net</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Gezim" url="http://stackoverflow.com/users/32495/gezim">
+        <signatureContent>
+          <p>Reputation: <num>2,596</num>Number of Gold Badges: <num>6</num>Number of Silver Badges: <num>28</num>Number of Bronze Badges: <num>56</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="SilverlightFox" url="http://stackoverflow.com/users/413180/silverlightfox">
+        <signatureContent>
+          <p>Reputation: <num>12.9k</num>Number of Gold Badges: <num>4</num>Number of Silver Badges: <num>25</num>Number of Bronze Badges: <num>57</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2014-10-29 17:54:59Z" who="Gezim" revisedWhen="2014-10-30 21:07:17Z" upVote="0" accepted="favorite"><p>In/IN my/PRP$ Page_Load/COS method/NN for/IN an/DT ASP.NET/URL page/NN ,/, I/PRP have/VBP this/DT :/:
+            BtnUploadDocument/COB ./COB Attributes/COB ./COB Add/COB (/COB "/COB onclick/COB "/COB ,/COB
+                String/COB ./COB Format/COB (/COB "/COB Javascript/COB :/COB var/COB PopUpWin/COB =/COB window/COB ./COB open/COB (/COB '/COB {/COB 0/COB }/COB '/COB ,/COB '/COB _blank/COB '/COB ,/COB '/COB scrollbars/COB =/COB yes/COB ,/COB title/COB =/COB yes/COB ,/COB toolbar/COB =/COB no/COB ,/COB location/COB =/COB no/COB ,/COB resizable/COB =/COB yes/COB ,/COB status/COB =/COB no/COB '/COB )/COB ;/COB return/COB false/COB ;/COB "/COB ,
+              SQLManager/COB ./COB GetUploadDocumentLink/COB (/COB poid/COB ,/COB pono/COB )/COB )/COB )/COB
+            );/EMO
+            How/WRB do/VBP I/PRP ensure/VBP that/WDT this/DT is/VBZ not/RB vulnerable/JJ to/TO an/DT XSS/ACR attack/NN ?/.<tag>asp.net</tag><tag>xss</tag><tag>security</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Chris Marisic" when="2014-10-29 21:48:35Z" indentLevel="1">
+            <p>Stop/VBP using/VBG pop/JJ ups/NNS every/DT single/JJ person/NN in/IN the/DT world/NN hates/VBZ them/PRP ./.</p>
+        </post>
+      </div>
+      <div type="response">
+          <post who="guildsbounty" when="2014-10-14 18:05:35Z" indentLevel="1">
+            <p>XSS/ACR attacks/NNS are/VBP generated/VBN by/IN user/NN input/NN through/IN the/DT URL/NNP ,/, or/CC by/IN toying/VBG with/IN a/DT POST/COS object/NN ./. If/IN '/" GetUploadDocumentLink/COS '/" does/VBZ n't/RB ever/RB look/VB at/DT something/NNP passed/VBN in/IN via/IN the/DT Request/COS object/NN ,/, then/RB as/IN long/JJ as/IN GetUploadDocumentLink/COS only/RB retrieves/VBZ data/NN that/WDT is/VBZ not/RB provided/VBN by/IN the/DT user/NN ,/, it/PRP should/MD be/VB reasonably/RB safe/JJ ./. Obviously/RB ,/, a/DT user/NN could/MD use/VB a/DT Developer/NNP Tool/NNP to/TO alter/VB the/DT results/NNS after/IN they/PRP are/VBP loaded/VBN to/TO the/DT screen/NN ,/, but/CC that/WDT 's/VBZ a/DT different/JJ matter/NN</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Gezim" when="2014-10-29 18:06:35Z" indentLevel="1" upVote="2">
+            <p>@ChrisMarisic/ATS ,/, I/PRP think/VBP you/PRP 're/VBP rounding/VBG up/RP and/CC this/DT adds/VBZ nothing/NN to/TO my/PRP question/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Gezim" when="2014-10-29 18:07:35Z" indentLevel="1">
+            <p>@guildsbounty/ATS ,/, I/PRP should/MD have/VB clarified/VBN that/WDT GetUploadDocumentLink/COS definitely/RB returns/VBZ results/NNS that/WDT were/VBD input/NN by/IN user/NN at/IN one/CD point/NN ./. So/IN can/MD 't/RB rely/VB on/IN that/DT being/VBG safe/JJ ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="guildsbounty" when="2014-10-29 18:10:35Z" indentLevel="1">
+            <p>Could/MD you/PRP post/VB details/NNS of/IN how/WRB that/WDT information/NN is/VBZ stored/VBN ?/. Because/IN you/PRP would/MD want/VB to/TO intercept/VP XSS-dangerous/JJ data/NN before/IN it/PRP is/VBZ stored/VBN into/IN your/PRP$ DB/ACR ,/, not/RB on/IN retrieval/NN of/IN it/PRP from/IN the/DT DB/ACR ./. Ultimately/RB ,/, I/PRP 'd/MD suggest/VB validating/VBG the/DT data/NN as/IN it/PRP is/VBZ input/NN to/TO ensure/VB that/WDT it/PRP is/VBZ a/DT pure/JJ URL/NN that/WDT does/VBZ n't/RB contain/VB a/DT certain/JJ selection/NN of/IN characters/NNS ,/, or/CC the/DT characters/NNS are/VBP safely/RB URL-encoded/VBN</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="guildsbounty" when="2014-10-29 18:16:35Z" indentLevel="1">
+            <p>Just/RB to/TO clarify/VB ,/, the/DT '/" characters/NNS '/" you/PRP generally/RB need/VB to/TO worry/VB about/IN being/VBG in/IN a/DT URL/NN are/VBP single/JJ quotes/NNS ,/, double/JJ quotes/NNS ,/, and/CC ,/, in/IN unusual/JJ cases/NNS ,/, semi-colons/NNS ./. You/PRP can/MD either/RB URL-escape/VB those/DT characters/NNS ,/, or/CC simply/RB ban/VB them/PRP from/IN being/VBG in/IN the/DT url/NN string/NN altogether/RB ./. Now/RB ,/, what/WP happens/VBZ on/IN the/DT receiving/JJ end/NN of/IN that/DT URL/NN is/VBZ on/IN the/DT head/NN of/IN the/DT person/NN who/WP controls/VBZ that/DT link/NN ../.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="SilverlightFox" when="2014-10-30 17:43:21Z" upVote="0">
+            <p>If/IN you/PRP follow/VBP the/DT OWASP/ACR XSS/ACR (/( Cross/JJ Site/NN Scripting/NN )/) Prevention/NN Cheat/NN Sheet/NN ,/, the/DT rule/NN JavaScript/NNP Escape/NN Before/IN Inserting/VBG Untrusted/JJ Data/NN into/IN JavaScript/NNP Data/NN Values/NNS applies/VBZ here/RB ./.
+
+                This/DT is/VBZ defined/VBN as/IN :/:
+
+                Except/IN for/IN alphanumeric/JJ characters/NNS ,/, escape/VBP all/DT characters/NNS less/JJS than/IN 256/CD with/IN the/DT \/COS xHH/COS format/NN to/TO prevent/VB switching/VBG out/RP of/IN the/DT data/NN value/NN into/IN the/DT script/NN context/NN or/CC into/IN another/DT attribute/NN
+                so/IN you/PRP will/MD need/VB to/TO JSEncode/VB using/VBG a/DT function/NN ./. Note/VBP you/PRP should/MD adapt/VB this/DT to/TO follow/VB the/DT OWASP/ACR recommendation/NN and/CC encode/VBP all/DT non/JJ alphanumerics/NNS otherwise/RB there/EX will/MD be/VB ways/NNS for/IN an/DT attacker/NN to/TO break/VB out/RP and/CC cause/VB XSS/ACR ./.
+
+                Your/PRP$ code/NN will/MD then/RB become/VB :/:
+
+                BtnUploadDocument/COB ./COB Attributes/COB ./COB Add/COB (/COB "/COB onclick/COB "/COB ,/COB
+                      String/COB ./COB Format/COB (/COB "/COB Javascript/COB :/COB var/COB PopUpWin/COB =/COB window/COB ./COB open/COB (/COB '/COB {/COB 0/COB }/COB '/COB ,/COB '/COB _blank/COB '/COB ,/COB '/COB scrollbars/COB =/COB yes/COB ,/COB title/COB =/COB yes/COB ,/COB toolbar/COB =/COB no/COB ,/COB location/COB =/COB no/COB ,/COB resizable/COB =/COB yes/COB ,/COB status/COB =/COB no/COB '/COB )/COB ;/COB return/COB false/COB ;/COB "/COB ,/COB
+                    JSEncode/COB ./COB EncodeJsString/COB (/COB SQLManager/COB ./COB GetUploadDocumentLink/COB (/COB poid/COB ,/COB pono/COB )/COB )/COB )/COB )/COB
+                )/COB ;/COB</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

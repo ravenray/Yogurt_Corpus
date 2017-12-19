@@ -1,0 +1,463 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>How to send email from Asp.net Mvc-3?</title>
+        <author>Disha</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/9629647/how-to-send-email-from-asp-net-mvc-3</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Disha" url="http://stackoverflow.com/users/1182538/disha">
+        <signatureContent>
+          <p>Reputation: <num>218</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>6</num>Number of Bronze Badges: <num>13</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Dmitry S." url="http://stackoverflow.com/users/395359/dmitry-s">
+        <signatureContent>
+          <p>Reputation: <num>5,133</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>17</num>Number of Bronze Badges: <num>29</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="David HAust" url="http://stackoverflow.com/users/242/david-haust">
+        <signatureContent>
+          <p>Reputation: <num>3,341</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>33</num>Number of Bronze Badges: <num>59</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Yasser" url="http://stackoverflow.com/users/1182982/yasser">
+        <signatureContent>
+          <p>Reputation: <num>18.6k</num>Number of Gold Badges: <num>23</num>Number of Silver Badges: <num>116</num>Number of Bronze Badges: <num>194</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Syed Salman Raza Zaidi" url="http://stackoverflow.com/users/1087087/syed-salman-raza-zaidi">
+        <signatureContent>
+          <p>Reputation: <num>1,302</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>19</num>Number of Bronze Badges: <num>47</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Akira" url="http://stackoverflow.com/users/891589/akira">
+        <signatureContent>
+          <p>Reputation: <num>3,759</num>Number of Gold Badges: <num>10</num>Number of Silver Badges: <num>35</num>Number of Bronze Badges: <num>56</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Sqalo" url="http://stackoverflow.com/users/3894572/sqalo">
+        <signatureContent>
+          <p>Reputation: <num>11</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>2</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="ankit rajput" url="http://stackoverflow.com/users/1156298/ankit-rajput">
+        <signatureContent>
+          <p>Reputation: <num>445</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>5</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Peter Monks" url="http://stackoverflow.com/users/982487/peter-monks">
+        <signatureContent>
+          <p>Reputation: <num>1,665</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>8</num>Number of Bronze Badges: <num>29</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Yannick Blondeau" url="http://stackoverflow.com/users/1374267/yannick-blondeau">
+        <signatureContent>
+          <p>Reputation: <num>5,647</num>Number of Gold Badges: <num>5</num>Number of Silver Badges: <num>21</num>Number of Bronze Badges: <num>50</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Arslan Sunny" url="http://stackoverflow.com/users/1543229/arslan-sunny">
+        <signatureContent>
+          <p>Reputation: <num>182</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>4</num>Number of Bronze Badges: <num>13</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Pham" url="http://stackoverflow.com/users/1033040/pham">
+        <signatureContent>
+          <p>Reputation: <num>141</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>1</num>Number of Bronze Badges: <num>3</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2012-03-09 06:04:15Z" who="Disha" revisedWhen="2013-08-26 19:28:38Z" upVote="37" accepted="favorite"><p>
+
+How to send a mail through mvc-3 asp.net using c#?
+
+I have to send a forgot password so how can I do this? My code is below.
+
+Model code..
+
+ using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
+
+namespace TelerikLogin.Models.ViewModels
+{
+    public class ForgotPassword
+    {
+        public int user_id { get; set; }
+        public string user_login_name { get; set; }
+        public string user_password { get; set; }
+
+        [Required]
+        [Display(Name="Email Address : ")]
+        public string user_email_address { get; set; }
+    }
+}
+
+Controller code..
+
+  public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(string user_email_address)
+        {
+            SqlConnection conn = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=E:\MVC3\TelerikLogin\TelerikLogin\App_Data\Login.mdf;Integrated Security=True;User Instance=True");
+
+            DataTable dt1 = new DataTable();
+
+            string strQuery = string.Format("SELECT user_password FROM [user_master] WHERE user_email_address='{0}'",user_email_address);
+            conn.Open();
+            SqlDataAdapter da1 = new SqlDataAdapter(strQuery, conn);
+            da1.Fill(dt1);
+            conn.Close();
+
+            if (dt1.Rows.Count > 0)
+            {
+
+MailMessage msg = new MailMessage();
+
+            msg.From = new MailAddress("abc@gmail.com");
+            msg.To.Add(user_email_address);
+            msg.Subject = "Password";
+            msg.Body = "Test1";
+            msg.Priority = MailPriority.High;
+
+            SmtpClient client = new SmtpClient();
+
+
+
+
+            client.Credentials = new NetworkCredential("abc@gmail.com", "disha", "smtp.gmail.com");
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.EnableSsl = true;
+            client.UseDefaultCredentials = true;
+
+            client.Send(msg);
+
+
+               return RedirectToAction("About", "Home");
+            }
+            return View();
+        }
+
+Here I fetched the password of user from database through entered email address..
+
+View code..
+
+&lt; % using (Html.BeginForm("ForgotPassword", "Account", FormMethod.Post))
+   { %>
+
+   &lt; %: Html.LabelFor(m => m.user_email_address) %>
+   &lt; %: Html.TextBox("user_email_address")%>
+      &lt; %: Html.ValidationSummary(true) %>
+
+&lt; input type="submit" value="Submit"/>
+
+   &lt; %} %>
+
+It gives me an error on these line
+
+ client.Send(msg);
+
+Error messege is:
+
+The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Must issue a STARTTLS command first. x1sm1264662igc.16
+
+How to solve it? thanks in advance
+<tag>c#</tag><tag>asp.net-mvc-3</tag><tag>asp.net</tag></p></post>
+      </div>
+       <div type="response">
+        <post who="Mike Bailey" when="2012-03-09 06:12:35Z" indentLevel="1">
+          <p>Please consider not emailing a recovery password. You should provide a link to reset a password on your website</p>
+        </post>
+      </div>
+         <div type="response">
+        <post who="Akos Lukacs" when="2013-03-17 16:04:59Z" indentLevel="1">
+          <p>Yes, you should store passwords in a hashed, and not decipherable format. Check out Troy Hunt's Everything you ever wanted to know about building a secure password reset feature article.</p>
+        </post>
+      </div>
+          <div type="response">
+        <post who="gregmac" when="2013-08-07 19:15:54Z" indentLevel="1">
+          <p>OT, but there is a huge SQL injection vulnerability in this code. Consider what happens when I POST with user_email_address= my_address_not_in_your_database@domain.com,' OR 'admin@yoursite.com.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Dmitry S." when="2012-03-09 06:09:16Z" upVote="65" accepted="accepted">
+          <p>Import the System.Net.Mail namespace.
+
+          The code will look similar to this:
+
+          MailMessage mail = new MailMessage();
+
+          SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+          smtpServer.Credentials = new System.Net.NetworkCredential("userName", "password");
+          smtpServer.Port = 587; // Gmail works on this port
+
+          mail.From = new MailAddress("myemail@gmail.com");
+          mail.To.Add("recepient@gmail.com");
+          mail.Subject = "Password recovery";
+          mail.Body = "Recovering the password";
+
+          smtpServer.Send(mail);
+          P.S. You have a SQL injection vulnerability in the sample code. Use a SqlCommand object with parameters instead of String.Format().
+
+          Using SqlDataReader would be a lot more efficient to check for a record instead of populating a DataSet.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Disha" when="2012-03-09 06:35:22Z" indentLevel="1">
+          <p>Hey, @Dmitry I implement your code but it giving me an error on line  smtpServer.send(mail); like this error is :The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Must issue a STARTTLS command first. ub10sm724863igb.7</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Dmitry S." when="2012-03-09 17:46:40Z" indentLevel="1">
+          <p>You need to add a proper port and credentials for some servers. You would need the following info for the gmail smtp server</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Dmitry S." when="2012-03-09 17:46:48Z" indentLevel="1">
+          <p>SmtpServer.Credentials = new System.Net.NetworkCredential(userName, password);             SmtpServer.Port = 587; // Gmail works on this port</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Rohit" when="2014-03-10 18:31:12Z" indentLevel="1">
+          <p>And I don't understand the reviewers here. I updated the code to add this important information about network credentials (which is important as it works different for an individual e-mail account and service e-mail acounts). However 3 reviewers rejected the update. @War10ck</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Auri Rahimzadeh" when="2014-08-31 23:10:29Z" indentLevel="1">
+          <p>You should wrap the MailMessage and SmtpClient variable declarations in using() statements to properly dispose of them when complete.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Auri Rahimzadeh" when="2014-08-31 23:11:47Z" indentLevel="1">
+          <p>With regard to the SQL Injection... you should use a parameterized query AND use ExecuteScalar().</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="David HAust" when="2012-03-09 06:09:32Z" upVote="16">
+          <p>Have a look at MvcMailer
+
+          MvcMailer provides you with an ActionMailer style email sending NuGet Package for ASP.NET MVC 3/4. So, you can produce professional looking emails composed of your MVC master pages and views with ViewBag.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Yasser" when="2012-07-27 10:20:33Z" upVote="11">
+          <p>you can use this...
+              public void SendEmail(string address, string subject, string message)
+    {
+        string email = "-your-id-@gmail.com";
+        string password = "put-your-GMAIL-password-here";
+
+        var loginInfo = new NetworkCredential(email, password);
+        var msg = new MailMessage();
+        var smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+        msg.From = new MailAddress(email);
+        msg.To.Add(new MailAddress(address));
+        msg.Subject = subject;
+        msg.Body = message;
+        msg.IsBodyHtml = true;
+
+        smtpClient.EnableSsl = true;
+        smtpClient.UseDefaultCredentials = false;
+        smtpClient.Credentials = loginInfo;
+        smtpClient.Send(msg);
+    }</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Syed Salman Raza Zaidi" when="2012-03-09 07:00:12Z" upVote="1">
+          <p>i am using this for sending email, in ASP.net MVC3
+          System.Web.Helpers.WebMail.SmtpServer = smtp_server;
+            System.Web.Helpers.WebMail.SmtpPort = smtp_port;
+            System.Web.Helpers.WebMail.EnableSsl = true;
+            System.Web.Helpers.WebMail.From = "fromaddress";
+            StringBuilder sb = new StringBuilder();
+            sb.Append("&lt; table>&lt; tr>&lt; td>");            
+            sb.Append(msg);                     
+            sb.Append("&lt; /td>&lt; /tr>&lt; /table>");
+            string body = sb.ToString();
+            string To = toemail;
+            System.Web.Helpers.WebMail.Send(To,subject, body);</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Sqalo" revisedBy="Akira" when="2014-07-31 07:58:33Z" upVote="1">
+          <p>   Using Systems.Net.Mail;
+              // POST: /Account/Register
+              //Here's a simple Mail(MVC4)
+
+                      public async Task&lt;ActionResult> Register(RegisterViewModel model)
+                      {
+                          Mail email= new Mail();
+                          if (ModelState.IsValid)
+                          {
+                              var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
+                              var result = await UserManager.CreateAsync(user, model.Password);
+                              if (result.Succeeded)
+                              {
+                                  email.to = new MailAddress(model.Email);
+                                  email.body = "Hello " + model.Firstname + " your account has been created &lt;br/> Username: " + model.UserName + " &lt;br/>Password: " + model.Password.ToString() + " &lt;br/> change it on first loggin";
+                                  ViewBag.Feed = email.reg();
+
+
+                                  await SignInAsync(user, isPersistent: false);
+
+
+                                   return RedirectToAction("Index", "Home");
+
+                              }
+                              else
+                              {
+                                  AddErrors(result);
+                              }
+                          }
+
+                          // If we got this far, something failed, redisplay form
+                          return View(model);
+                      }
+
+
+
+
+              //Business Logic(this Is you Email Class)
+
+
+
+
+              Using Systems.Net.Mail;
+
+
+               public class Mail
+
+                  {
+                      public MailAddress to { get; set; }
+                      public MailAddress from { get; set; }
+                      public string sub { get; set; }
+                      public string body { get; set; }
+
+
+
+
+                      public string reg()
+                      {
+                          string feed = "Registration Successful";
+                          var m = new System.Net.Mail.MailMessage()
+                          {
+                              Subject = "",
+                              Body = body,
+                              IsBodyHtml = true
+                          };
+                          m.From = new MailAddress("Mxolisi@gmail.com  ", "Administrator");
+                          m.To.Add(to);
+                          SmtpClient smtp = new SmtpClient
+                          {
+                              Host = "pod51014.outlook.com",
+                              //Host = "smtp-mail.outlook.com",
+                              Port = 587,
+                              Credentials = new System.Net.NetworkCredential("Mxolisi@gmail.com ", " Dut324232"),
+                              EnableSsl = true
+                          };
+
+                          try
+                          {
+                              smtp.Send(m);
+                              // feed = "";
+                          }
+                          catch (Exception e)
+                          {
+
+                          }
+
+                          return feed;
+
+                      }
+                      public string fogot()
+                      {
+                          string feedback = "";
+
+                          var m = new System.Net.Mail.MailMessage()
+                          {
+                              Subject = "Reset Password PIN",
+                              Body = body,
+                              IsBodyHtml = true
+                          };
+                          m.From = new MailAddress("Mxolisi@gmail.com ", "Administrator");
+                          m.To.Add(to);
+                          SmtpClient smtp = new SmtpClient
+                          {
+                              Host = "pod51014.outlook.com",
+                              Port = 587,
+                              Credentials = new System.Net.NetworkCredential("Mxolisi@gmail.com ", "Dut324232"),
+                              EnableSsl = true
+                          };
+
+                          try
+                          {
+                              smtp.Send(m);
+                              feedback = "Check your email for PIN";
+                          }
+                          catch (Exception e)
+                          {
+                              feedback = "Message not sent" + e.Message;
+                          }
+                          return feedback;
+
+                      }
+
+                  }
+              }</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="ankit rajput" when="2012-03-09 06:44:31Z" upVote="0">
+          <p>Use code from following Link to Send Email in mvc3: http://weblogs.asp.net/gunnarpeipman/archive/2010/10/20/asp-net-mvc-3-beta-using-webmail-helper-to-send-e-mail.aspx</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Peter Monks" when="2012-03-09 10:52:28Z" upVote="0">
+          <p>It look like you are trying to send emails through GMail's SMTP service, which this SO question already covers:  Sending email in .NET through Gmail The only thing that looks missing in your code is that you've set  client.UseDefaultCredentials = true , I think you want to set this to  false  and provide your own credentials. I've never tried using GMail to send through emails, but I'm guessing you'll need to use a GMail account as your credentials in order to authenticate properly.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Arslan Sunny" revisedBy="Yannick Blondeau" when="2012-07-21 23:29:43Z" upVote="0">
+          <p>You should turn on the SMTP service in Window 7 :
+          go to Control Panel > Programs
+        click "Turn window features ON or OFF"
+        click Internet Information Service and click OK</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="ppumkin" when="2014-10-21 09:59:03Z" indentLevel="1">
+          <p>This turns on SMTP server and has nothring to do with .NET. Besides, it is most likely that not allot of emails will be dleivered if you sendt emails from home or an uncofigured server (ie SPF, rDNS..etc etc) This answer is not correct.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Pham" when="2012-12-18 07:16:13Z" upVote="0">
+          <p>when use smtp for gmail, remember put
+
+smtpClient.UseDefaultCredentials = false;
+
+before
+
+smtpClient.Credentials = loginInfo;</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

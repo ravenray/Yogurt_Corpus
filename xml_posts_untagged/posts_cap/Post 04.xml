@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<TEI>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>XSS vulnerability</title>
+				<author>user 1234</author>
+			</titleStmt>
+			<publicationStmt>
+				<p>Open Source</p>
+			</publicationStmt>
+			<sourceDesc>
+				<p> Pulled from StackOverflow: http://stackoverflow.com/questions/11559053/xss-vulnerability
+					On: Date Unknown 2015
+				Created by: 
+					Rachael Duke
+					Department of Linguistics
+					University of California, Davis
+					Please email me with any questions, comments, or errors.
+					Email: rebrim @ ucdavis . edu</p>
+				<listPerson>
+				<person xml:id="user 1234">
+				<signatureContent>
+					<p>Reputation: <num>54</num></p>
+					<p>Page: http://stackoverflow.com/users/1488174/user-1234 </p>
+					<p>Number of Gold Badges: <num></num></p>
+					<p>Number of Silver Badges:<num></num></p>
+					<p>Number of Bronze Badges:<num>11</num></p>	
+				</signatureContent>
+				</person>
+				<person xml:id="Quentin">
+				<signatureContent>
+					<p>Reputation: <num>355k</num></p>
+					<p> Number of Gold Badges: <num>36</num></p>
+					<p>Number of Silver Badges:<num>422</num></p>
+					<p>Number of Bronze Badges:<num>586</num></p>
+				</signatureContent>
+				</person>
+				</listPerson>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+		<front>
+			<div type="up vote">
+				<p>up vote  <num>0</num></p>
+			</div>
+			<div type="down vote">
+			<p>down vote
+			favorite
+         </p>
+			</div>
+		</front>
+		<div type="forum">
+			<posting synch="Jul 19 '12 at 10:40" who="user 1234" revisedWhen="Jul 19 '12 at 10:42" revisedBy="legoscia">
+			<p> I got the below error when I testing my mobile application. How can i resolve this XSS error?
+
+				The value of the q request parameter is copied into the HTML document as plain text between tags. The payload 2906f<script>alert(1)</script>b08ffac3085 was submitted in the q parameter. This input was echoed unmodified in the application's response.
+
+				This proof-of-concept attack demonstrates that it is possible to inject arbitrary JavaScript into the application's response.
+
+        		<tag>javascript</tag> <tag>android</tag> <tag>jquery-mobile</tag> <tag>xss</tag>
+			</p>
+			</posting>	
+		</div>
+		<front>
+			<head>1 Answer</head>
+				<div type="up vote">
+				<p>up vote  <num>0</num></p>
+				</div>
+				<div type="down vote">
+				<p>down vote
+          accepted</p>
+				</div>
+		</front>
+			<div type="answer">
+				<posting synch="Jul 19 '12 at 10:41" who="Quentin">
+			 	<p>You encode it for HTML before you put it in the HTML document.
+
+				With JavaScript (since that is the only language you've mentioned), that generally means using createTextNode instead of innerHTML
+				</p>			 	
+			 	</posting>
+			</div>
+		</body>
+	</text>
+</TEI>

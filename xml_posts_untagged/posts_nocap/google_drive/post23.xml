@@ -1,0 +1,169 @@
+<TEI >
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Understanding the Wordpress vulnerability</title>
+        <author>PaulG</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/1267998/understanding-the-wordpress-vulnerability</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="PaulG" url="http://stackoverflow.com/users/141661/paulg">
+        <signatureContent>
+          <p>Reputation: <num>9,315</num>Number of Gold Badges: <num>6</num>Number of Silver Badges: <num>26</num>Number of Bronze Badges: <num>57</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="bdonlan" url="http://stackoverflow.com/users/36723/bdonlan">
+        <signatureContent>
+          <p>Reputation: <num>125k</num>Number of Gold Badges: <num>17</num>Number of Silver Badges: <num>179</num>Number of Bronze Badges: <num>267</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Tom Ritter" url="http://stackoverflow.com/users/8435/tom-ritter">
+        <signatureContent>
+          <p>Reputation: <num>63.2k</num>Number of Gold Badges: <num>23</num>Number of Silver Badges: <num>115</num>Number of Bronze Badges: <num>153</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="pageman" url="http://stackoverflow.com/users/64253/pageman">
+        <signatureContent>
+          <p>Reputation: <num>1,821</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>15</num>Number of Bronze Badges: <num>27</num></p>
+        </signatureContent>
+      </person>
+       <person xml:id="Greg" url="http://stackoverflow.com/users/1916/greg">
+        <signatureContent>
+          <p>Reputation: <num>9,042</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>17</num>Number of Bronze Badges: <num>33</num></p>
+        </signatureContent>
+      </person>
+       <person xml:id="searlea" url="http://stackoverflow.com/users/98493/searlea">
+        <signatureContent>
+          <p>Reputation: <num>4,007</num>Number of Gold Badges: <num>2</num>Number of Silver Badges: <num>16</num>Number of Bronze Badges: <num>25</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Frank V" url="http://stackoverflow.com/users/18196/frank-v">
+        <signatureContent>
+          <p>Reputation: <num>12,655</num>Number of Gold Badges: <num>27</num>Number of Silver Badges: <num>81</num>Number of Bronze Badges: <num>129</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2009-08-12 18:47:15Z" who="PaulG" revisedWhen="2009-08-12 19:41:21Z" revisedBy="Bill the Lizard" upVote="14" accepted="favorite">
+          <p>A vulnerability has recently been disclosed that affects WordPress 2.8.3 and allows the admin user to be locked out of their account by changing the password.This post on Full Disclosure details the flaw, and includes relevant code snippets. The post mentions that 'You can abuse the password reset function, and bypass the first step and then reset the admin password by submiting an array to the $key variable.'I'd be interested in someone familiar with PHP explaining the bug in more detail. Those affected should update to a new 2.8.4 release which apparently fixes the flaw.
+          wp-login.php:
+          ...[snip]....
+          line 186:
+          function reset_password($key) {
+              global $wpdb;
+
+              $key = preg_replace('/[^a-z0-9]/i', '', $key);
+
+              if ( empty( $key ) )
+                  return new WP_Error('invalid_key', __('Invalid key'));
+
+              $user = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->users WHERE
+          user_activation_key = %s", $key));
+              if ( empty( $user ) )
+                  return new WP_Error('invalid_key', __('Invalid key'));
+          ...[snip]....
+          line 276:
+          $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'login';
+          $errors = new WP_Error();
+
+          if ( isset($_GET['key']) )
+              $action = 'resetpass';
+
+          // validate action so as to default to the login screen
+          if ( !in_array($action, array('logout', 'lostpassword', 'retrievepassword',
+          'resetpass', 'rp', 'register', 'login')) &amp;&amp; false ===
+          has_filter('login_form_' . $action) )
+              $action = 'login';
+          ...[snip]....
+
+          line 370:
+
+          break;
+
+          case 'resetpass' :
+          case 'rp' :
+              $errors = reset_password($_GET['key']);
+           if ( ! is_wp_error($errors) ) {
+                  wp_redirect('wp-login.php?checkemail=newpass');
+                  exit();
+              }
+
+              wp_redirect('wp-login.php?action=lostpassword&amp;error=invalidkey');
+              exit();
+
+          break;
+          ...[snip ]...
+            <tag>php</tag><tag>wordpress</tag><tag>security</tag></p></post>
+      </div>
+      <div type="response">
+        <post who="Frank V" when="2009-08-12 19:17:31Z" indentLevel="1" upVote="1"> 
+          <p>Thank you for accidentally alerting me to update my word press installs. :-)</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Tom Ritter" when="2009-08-12 18:57:14Z" upVote="17" accepted="accepted" revisedBy="bdonlan">
+          <p>So $key is an array in the querystring with a single empty string [''] 
+              
+http://DOMAIN_NAME.TLD/wp-login.php?action=rp&amp;key[]=
+              
+reset_password gets called with an array, and then preg_replace gets called: 
+              
+ //$key = ['']
+ $key = preg_replace('/[^a-z0-9]/i', '', $key);
+ //$key = [''] still      
+              
+because  preg_replace  accepts either a string or an array of strings.  It regex replaces nothing and returns the same array.  $key is not empty (it's an array of an empty string) so this happens: 
+              
+ $user = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->users 
+      WHERE user_activation_key = %s", $key)); 
+              
+Now from here, I need to go read the wordpress source for how prepare behaves... 
+              
+More: So prepare calls  vsprintf  which produces an empty string 
+
+$a = array('');
+$b = array($a);
+vsprintf("%s", $b);
+//Does not produce anything             
+              
+ So the SQL is:  
+              
+ SELECT * FROM $wpdb->users WHERE user_activation_key = ''    
+              
+ Which will  apparently  match the admin user (and all users without activation_keys I suppose). And that's how.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Greg" when="2009-08-12 19:15:31Z" indentLevel="1">
+          <p>an empty array will return true for an empty() check, but by passing key[]= you get an array with an empty string as its only element. vpsprintf() returns a value, rather than outputting one so your sample code isn't really telling anything. In both cases, your reasoning is sound and the end result is the same.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Tom Ritter" when="2009-08-12 19:20:09Z" indentLevel="1">
+          <p>Added your corrections</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="PaulG" when="2009-08-12 19:56:27Z" indentLevel="1">
+          <p>Thanks for your analysis!</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="searlea" when="2009-08-13 17:16:11Z" indentLevel="1">
+          <p>It's worth noting this exploit doesn't affect older Wordpress installs, and only became viable with a recent  change  to  prepare</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="pageman" when="2009-09-03 12:22:13Z" upVote="0">
+          <p>I have a related question on  how to patch this vulnerability  - line 190 on the wp-login.php should now look like this; if ( empty( $key ) || is_array( $key ) ) </p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

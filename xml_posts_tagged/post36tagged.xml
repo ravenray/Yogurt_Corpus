@@ -1,0 +1,116 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Is it safe to use $.support.cors = true; in jQuery?</title>
+        <author>Abe Miessler</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/7852225/is-it-safe-to-use-support-cors-true-in-jquery</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Abe Miessler" url="http://stackoverflow.com/users/226897/abe-miessler">
+        <signatureContent>
+          <p>Reputation: <num>41.9k</num>Number of Gold Badges: <num>38</num>Number of Silver Badges: <num>176</num>Number of Bronze Badges: <num>315</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="rook" url="http://stackoverflow.com/users/183528/rook">
+        <signatureContent>
+          <p>Reputation: <num>40.7k</num>Number of Gold Badges: <num>24</num>Number of Silver Badges: <num>120</num>Number of Bronze Badges: <num>198</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="bjornd" url="http://stackoverflow.com/users/367960/bjornd">
+        <signatureContent>
+          <p>Reputation: <num>14.3k</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>34</num>Number of Bronze Badges: <num>57</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Tim" url="http://stackoverflow.com/users/1061654/tim">
+        <signatureContent>
+          <p>Reputation: <num>310</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>1</num>Number of Bronze Badges: <num>7</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-10-21 16:10:59Z" who="Abe Miessler" revisedWhen="2011-10-21 16:19:04Z" upVote="51" accepted="favorite"><p>I/PRP was/VBD trying/VBG to/TO hit/VB a/DT web/NN service/NN on/IN a/DT different/JJ domain/NN using/VBG jQuery/NNP 's/POS ajax/NN method/NN ./. After/IN doing/VBG some/DT research/NN it/PRP looks/VBZ like/IN it/PRP does/VBZ not/RB allow/VBP this/DT is/VBZ by/IN design/NN to/TO prevent/VB cross/JJ site/NN scripting/NN ./.
+
+            I/PRP came/VBD across/IN a/DT work/NN around/IN which/WDT was/VBD to/TO include/VB this/DT line/NN :/:
+
+            $/COB ./COB support/COB ./COB cors/COB =/COB true/COB ;/COB
+
+            at/IN the/DT top/NN of/IN my/PRP$ javascript/COS code/NN ./. From/IN what/WP I/PRP understand/VBP this/DT enables/VBZ cross/JJ site/NN scripting/NN in/IN jQuery/COS ./.
+
+            Does/VBZ having/VBG this/DT line/NN of/IN code/NN make/VBP my/PRP$ site/NN more/JJR vulnerable/JJ to/TO attack/NN ?/. I/PRP 've/VBP always/RB heard/VBN XSS/ACR discussed/VBD as/IN a/DT security/NN issue/NN ,/, are/VBP there/EX legitimate/JJ uses/NNS for/IN XSS/ACR ?/.
+<tag>jquery</tag><tag>security</tag><tag>xss</tag></p></post>
+      </div> 
+        <div type="response">
+        <post who= "Pekka" when="2011-10-21 16:15:43Z" indentLevel="1">
+            <p>Background/NN :/: api.jquery.com/jQuery.support/URL I/PRP do/VBP n't/RB think/VBP that/WDT setting/NN enables/VBZ anything/NN though/IN ./. It/PRP just/RB tells/VBZ jQuery/COS what/WP is/VBZ supported/VBN </p>
+        </post>
+      </div>
+        <div type="response">
+        <post who="Álvaro González" when="2011-10-21 16:19:50Z" indentLevel="1">
+            <p>@Pekka/ATS -/: The/DT very/DT document/NN you/PRP link/VBP says/VBZ exactly/RB the/DT opposite/NN ./.</p>
+        </post>
+      </div>
+        <div type="response">
+        <post who="Pekka" when="2011-10-21 16:21:14Z" indentLevel="1">
+            <p>@Alvaro/ATS you/PRP do/VB n't/RB enable/VB CORS/ACR by/IN setting/VBG that/DT variable/NN ./. You/PRP just/RB tell/VBP jQuery/COS that/WDT you/PRP 're/VBP in/IN an/DT environment/NN where/WRB Cross-Domain/JJ XHR/ACR requests/NNS are/VBP possible/JJ ./. (/( So/IN ,/, granted/VBN ,/, you/PRP enable/VBP their/PRP$ use/NN in/IN jQuery/COS ,/, fair/JJ enough/RB ./. )/)</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="rook" when="2011-10-23 19:58:12Z" upVote="33" accepted="accepted">
+            <p>XSS/ACR is/VBZ not/RB a/DT feature/NN that/WDT can/MD be/VB enabled/VBD in/IN jQuery/COS ./.  It/PRP would/MD be/VB very/RB  very/RB  unusual/JJ if/IN the/DT jQuery/COS core/NN had/VBD an/DT XSS/ACR vulnerability/NN ,/, but/CC it/PRP is/VBZ possible/JJ and/CC it/PRP s/VBZ called/VBN  DOM-based/JJ XSS/ACR ./.   "/" Cross-Origin/JJ Resource/NN Sharing/NN "/" or/CC CORS/ACR is/VBZ n't/RB the/DT same/JJ as/IN XSS/ACR ,/,  BUT/CC ,/,  but/CC if/IN a/DT web/NN application/NN had/VBD an/DT XSS/ABR vulnerability/NN ,/, then/RB an/DT attacker/NN would/MD have/VB CORS-like/JJ access/NN to/TO all/DT resources/NNS on/IN that/DT domain/NN ./.   In/IN short/JJ ,/, CORS/ACR gives/VBZ you/PRP control/NN over/RP how/WRB you/PRP break/VBP the/DT  same/JJ origin/NN policy/NN  such/JJ that/WDT you/PRP do/VBP n't/RB need/VB to/TO introduce/VB a/DT full/JJ on/IN XSS/ACR vulnerability/NN ./.   The/DT  $/COS ./COS support/COS ./COS cors/COS  query/NN feature/NN relies/VBZ upon/IN the/DT  Access-Control-Allow-Origin/NN  HTTP/ACR response/NN header/NN ./.  This/DT  could/MD be/VB  a/DT vulnerability/NN ./. For/IN example/NN ,/, if/IN a/DT web/NN application/NN had/VBD  Access-Control-Allow-Origin/NN :/: */SYM  on/IN every/DT page/NN ,/, then/RB an/DT attacker/NN would/MD have/VB the/DT same/JJ level/NN of/IN access/NN as/IN an/DT XSS/ACR vulenrablity/NN ./.   Be/VBP careful/JJ what/WP pages/NNS you/PRP introduce/VBP CORS/ACR headers/NNS ,/,  and/CC try/VBP and/CC avoid/VBP  */SYM  as/IN much/RB as/IN possible/JJ ./.  So/IN to/TO answer/VB your/PRP$ question/NN :/:   NO/UH  a/DT web/NN application/NN never/RB needs/VBZ to/TO introduce/VB an/DT XSS/ACR vulnerability/NN because/IN there/EX are/VBP way/NN around/IN the/DT SOP/ACR such/JJ as/IN CORS/ACR //: jsonp/NNP //: cross/JJ domain/NN proxies/NNS /: access-control-origin/NN ./.  </p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jason Sebring" when="2012-11-15 23:32:11Z" indentLevel="1">
+            <p>If/IN you/PRP have/VBP a/DT simple/JJ GET/COS that/WDT you/PRP want/VBP to/TO enable/VB only/RB and/CC you/PRP have/VBP subdomains/NNS across/IN a/DT website/NN ,/, then/RB how/WRB do/VBP you/PRP have/VBP the/DT default/NN :/: visited/JJ style/NN behavior/NN work/NN in/IN a/DT link/NN ./. You/PRP do/VBP n't/RB given/VBN your/PRP$ philosophy/NN ./. </p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2012-11-16 01:51:35Z" indentLevel="1">
+            <p>@kitgui.com/ATS  i/PRP have/VBP no/DT idea/NN what/WP you/PRP are/VBP asking/VBG or/CC what/WP it/PRP has/VBZ to/TO do/VB with/IN security/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Jason Sebring" when="2012-11-17 16:18:01Z" indentLevel="1">
+            <p>there/EX is/VBZ no/DT ?/. at/IN the/DT end/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="netalex" when="2014-02-23 16:27:54Z" indentLevel="1">
+            <p>in/IN phonegap/NNP for/IN android/NNP ,/, access/NN control/NN origin/NN is/VBZ normally/RB set/VB to/TO "/" */SYM "/" ,/, but/CC on/IN a/DT mobile/NN that/WDT 's/VBZ expected/VBN ./. you/PRP mean/VBP that/WDT this/DT is/VBZ a/DT issue/NN ?/.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="rook" when="2015-03-10 16:43:15Z" indentLevel="1">
+            <p>CORS/ACR is/VBZ always/RB server-side/JJ ./. Android/NNP has/VBZ it/PRP s/POS own/JJ ways/NNS of/IN violating/VBG the/DT SOP/ACR for/IN it/PRP 's/POS browser/NN apps/NNS ./. This/DT is/VBZ really/RB a/DT different/JJ question/NN ,/,  but/CC the/DT rational/NN here/RB is/VBZ that/WDT by/IN installing/VBG the/DT app/NN ,/, the/DT user/NN has/VBZ granted/JJ permission/NN to/TO a/DT browser/NN app/NN to/TO run/VB independently/RB from/IN the/DT SOP/ACR ,/,  which/WDT would/MD be/VB true/JJ for/IN an/DT app/NN written/VBN in/IN Java/NNP ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="bjornd" when="2011-10-21 16:23:40Z" upVote="11">
+            <p>It/PRP can/MD help/VB only/RB if/IN you/PRP have/VBP CORS/ACR enabled/VBN in/IN your/PRP$ browser/NN but/CC it/PRP is/VBZ n't/RB supported/VBN by/IN jQuery/COS yet/RB :/:
+
+                To/TO enable/VB cross-domain/JJ requests/NNS in/IN environments/NNS that/WDT do/VBP not/RB support/VBP cors/ACR yet/RB but/CC do/VB allow/VBP cross-domain/JJ XHR/ACR requests/NNS (/( windows/NNS gadget/NN ,/, etc/FW )/) ,/, set/VBP $/COB ./COB support/COB ./COB cors/COB =/COB true/COB ;/COB ./COB CORS/COB WD/COB
+
+                Just/RB setting/VBG this/DT property/NN to/TO true/JJ can/MD 't/RB cause/VB security/NN vulnerability/NN ./.
+</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Tim" when="2013-09-30 13:29:00Z" upVote="2">
+            <p>When/WRB a/DT hacker/NN is/VBZ able/JJ to/TO inject/VB script/NN code/NN to/TO change/VB the/DT requests/NNS to/TO another/JJ domain/NN ,/, he/PRP is/VBZ also/RB able/JJ to/TO set/VB this/DT javascript/NNP flag/NN in/IN the/DT script/NN ./. So/IN wether/IN this/DT flag/NN is/VBZ set/VB does/VBZ n't/RB change/VB much/RB at/IN this/DT point/NN of/IN the/DT intrusion/NN ./.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="jpaugh" when="2015-12-02 15:29:07Z" indentLevel="1">
+            <p>This/DT really/RB does/VBZ n't/RB answer/VB the/DT question/NN ./. At/IN the/DT point/NN of/IN intrusion/NN ,/, all/DT bets/NNS are/VBP off/IN ;/: but/CC the/DT idea/NN is/VBZ to/TO prevent/VB that/WDT from/IN happening/VBG ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

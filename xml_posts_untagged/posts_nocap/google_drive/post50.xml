@@ -1,0 +1,174 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>SQL injection vulnerability thru preparedStatement</title>
+        <author>deejay</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/25024894/sql-injection-vulnerability-thru-preparedstatement</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="deejay" url="http://stackoverflow.com/users/355288/deejay">
+        <signatureContent>
+          <p>Reputation: <num>190</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>2</num>Number of Bronze Badges: <num>16</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Jon Skeet" url="http://stackoverflow.com/users/22656/jon-skeet">
+        <signatureContent>
+          <p>Reputation: <num>866k</num>Number of Gold Badges: <num>460</num>Number of Silver Badges: <num>6195</num>Number of Bronze Badges: <num>7229</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="spujap" url="http://stackoverflow.com/users/1028173/spujap">
+        <signatureContent>
+          <p>Reputation: <num>36</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>3</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Elliott Frisch" url="http://stackoverflow.com/users/2970947/elliott-frisch">
+        <signatureContent>
+          <p>Reputation: <num>104k</num>Number of Gold Badges: <num>10</num>Number of Silver Badges: <num>44</num>Number of Bronze Badges: <num>91</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Vikdor" url="http://stackoverflow.com/users/240078/vikdor">
+        <signatureContent>
+          <p>Reputation: <num>17k</num>Number of Gold Badges: <num>7</num>Number of Silver Badges: <num>30</num>Number of Bronze Badges: <num>53</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Thom-x" url="http://stackoverflow.com/users/3641207/thom-x">
+        <signatureContent>
+          <p>Reputation: <num>731</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>4</num>Number of Bronze Badges: <num>18</num>
+        </p>
+        </signatureContent>
+      </person>
+       <person xml:id="Jigar Joshi" url="http://stackoverflow.com/users/260990/jigar-joshi">
+        <signatureContent>
+          <p>Reputation: <num>152,912</num>Number of Gold Badges: <num>22</num>Number of Silver Badges: <num>250</num>Number of Bronze Badges: <num>323</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Marc B" url="http://stackoverflow.com/users/118068/marc-b">
+        <signatureContent>
+          <p>Reputation: <num>258,075</num>Number of Gold Badges: <num>22</num>Number of Silver Badges: <num>208</num>Number of Bronze Badges: <num>329</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="immibis" url="http://stackoverflow.com/users/106104/immibis">
+        <signatureContent>
+          <p>Reputation: <num>24,054</num>Number of Gold Badges: <num>3</num>Number of Silver Badges: <num>22</num>Number of Bronze Badges: <num>50</num>
+        </p>
+        </signatureContent>
+      </person>
+      <person xml:id="Mark Rotteveel" url="http://stackoverflow.com/users/466862/mark-rotteveel">
+        <signatureContent>
+          <p>Reputation: <num>33,527</num>Number of Gold Badges: <num>10</num>Number of Silver Badges: <num>40</num>Number of Bronze Badges: <num>65</num>
+        </p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2014-07-29 20:59:11Z" who="deejay" revisedWhen="2014-07-29 22:22:09Z" upVote="1" accepted="favorite">
+          <p>An Statement like this
+
+          String query = "SELECT * FROM users WHERE userid ='"+ userid + "'" + " AND password='" + password + "'";
+          Statement stmt = connection.createStatement();
+          ResultSet rs = stmt.executeQuery(query);
+          is eligible for SQL injection. But how does PreparedStatement helps in preventing SQL injection? Consider the following scenario:
+
+          PreparedStatement stmt = connection.prepareStatement("SELECT * FROM users WHERE userid=? AND password=?");
+          stmt.setString(1, userid);
+          stmt.setString(2, password);
+          ResultSet rs = stmt.executeQuery();
+          what if someone enters the userId = "abc" and password = "1=1", as this will also be considered as valid String...<tag>java</tag><tag>jdbc</tag><tag>sql</tag>
+        </p>
+        </post>
+        </div>
+        <div type="response">
+        <post who="Jigar Joshi" when="2014-07-29 20:59:01Z" indentLevel="1" upVote="5">
+          <p>try it &lt;!-------&gt;</p>
+        </post>
+       </div>
+      <div type="response">
+        <post who="Marc B" when="2014-07-29 21:01:01Z" indentLevel="1">
+          <p>what? did you think that the DB library/server would be stupid enough to just do str_replace('?', $userid, $attack_string)? The whole point of placeholders is to tell the DB where outside information is going to go, and allow it to keep that outside information separate from the actual query so that the attack "code" in the outside data never gets a chance to be executed.</p>
+        </post>
+       </div>
+      <div type="response">
+        <post who="immibis" when="2014-07-29 21:10:01Z" indentLevel="1">
+          <p>It doesn't just replace the ?'s with the strings you passed in.
+          </p>
+        </post>
+       </div>
+      <div type="answer">
+        <post who="Jon Skeet" when="2014-07-29 21:04:31Z" upVote="5" accepted="accepted">
+          <p>The exact way in which this protects you is up to the database, but there are two obvious options:
+
+          The database driver could perform string interpolation and generate a SQL statement which ensures that all parameters are properly escaped.
+          The database driver could pass the SQL exactly as you've specified it to the database, and pass the values for the parameters through an entirely separate channel, which doesn't need any escaping, because it just contains the values.
+          The latter is a more sensible solution in my view, as it allows the database to cache query plans really simply, recognizing that two queries are exactly the same other than the parameter values. I'd expect any modern database to support this in its native communication protocol.</p>
+        </post>
+       </div>
+      <div type="answer">
+        <post who="spujap" when="2014-07-29 22:22:09Z" upVote="2">
+          <p>   String query = "SELECT * FROM users WHERE userid ='"+ userid + "'" + " AND password='" + password + "'";
+          Here if you are trying to demonstrate sql injection, the value for password could be like: ' OR 1=1 OR ''='
+
+          Then resulting SQL that is being sent to DB server for execution is -
+
+          SELECT * FROM users WHERE userid ='abc' AND password='' OR 1=1 OR ''=''
+          So it selects all entries from table regardless of userid and password since userid ='abc' AND password='' OR 1=1 OR ''='' is always true. Any unauthorized person would get all access to all user's data.
+
+          In case of 2nd statement which uses parametrized prepared statement -
+
+          It would search for entries in the table with userid = "abc" and password = " ' OR 1=1 OR ''=' "
+
+          Since prepared statements are pre compiled in DB server i.e. first the blank query SELECT * FROM users WHERE userid=? AND password=? is sent to the server which would then compile it and after that the data(parameters) are sent to the db separately (when executing it). The data i.e. password = ' OR 1=1 OR ''=' is sent as a string literal by JDBC Driver. Then DB server forces it to be used as a valid parameter and not a sql query.</p>
+        </post>
+       </div>
+      <div type="response">
+        <post who="Mark Rotteveel" when="2014-07-30 07:11:01Z" indentLevel="1">
+          <p>The MySQL JDBC driver - contrary to most other JDBC drivers - by default does replace the parameters with (escaped) values instead of using server side prepared statements.</p>
+        </post>
+       </div>
+      <div type="answer">
+        <post who="Elliott Frisch" when="2014-07-29 21:02:23Z" upVote="0">
+          <p>With your second example,
+
+          PreparedStatement stmt = connection.prepareStatement("SELECT * FROM users"
+              + " WHERE userid=? AND password=?");
+          stmt.setString(1, userid);
+          stmt.setString(2, password);
+          ResultSet rs = stmt.executeQuery();
+          what if someone enters the userId = "abc" and password = "1=1", as this will also be considered as valid String...
+          The answer is yes, but a properly escaped String literal. So, the password would have to literally be 1=1 for that to work. To be clear, it is not subject to SQL injection because those variables are properly bound.
+
+          Per the PreparedStatement.setString(int, String) Javadoc bold added,
+
+          Sets the designated parameter to the given Java String value. The driver converts this to an SQL VARCHAR or LONGVARCHAR value (depending on the argument's size relative to the driver's limits on VARCHAR values) when it sends it to the database.</p>
+        </post>
+       </div>
+      <div type="answer">
+        <post who="Thom-x" revisedBy="Vikdor" when="2014-07-29 21:03:56Z" upVote="0">
+          <p>With a prepared statment your request will be:
+
+            SELECT * FROM users WHERE userId = \&quot;abc\&quot; AND password = \&quot;1=1\&quot;
+          </p>
+        </post>
+       </div>
+      <div type="response">
+        <post who="Mark Rotteveel" when="2014-07-30 07:11:54Z" indentLevel="1">
+          <p>For most JDBC drivers it won't work like this, they send the parameters separately from the query. Also note that in SQL strings are enclosed in single quotes, not double quotes.
+          </p>
+        </post>
+       </div>
+      </body>
+    </text>
+</TEI>

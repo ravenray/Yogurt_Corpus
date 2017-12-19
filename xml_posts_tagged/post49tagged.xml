@@ -1,0 +1,168 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Is strip_tags() vulnerable to scripting attacks?</title>
+        <author>Pekka</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/5788527/is-strip-tags-vulnerable-to-scripting-attacks</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Pekka" url="http://stackoverflow.com/users/187606/pekka-%ec%9b%83">
+        <signatureContent>
+          <p>Reputation: <num>292k</num>Number of Gold Badges: <num>91</num>Number of Silver Badges: <num>667</num>Number of Bronze Badges: <num>881</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Lekensteyn" url="http://stackoverflow.com/users/427545/lekensteyn">
+        <signatureContent>
+          <p>Reputation: <num>31.3k</num>Number of Gold Badges: <num>7</num>Number of Silver Badges: <num>82</num>Number of Bronze Badges: <num>119</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Matthew" url="http://stackoverflow.com/users/259778/matthew">
+        <signatureContent>
+          <p>Reputation: <num>31.9k</num>Number of Gold Badges: <num>6</num>Number of Silver Badges: <num>57</num>Number of Bronze Badges: <num>73</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="kemus" url="http://stackoverflow.com/users/725152/kemus">
+        <signatureContent>
+          <p>Reputation: <num>29</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>0</num>Number of Bronze Badges: <num>1</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Damon" url="http://stackoverflow.com/users/572743/damon">
+        <signatureContent>
+          <p>Reputation: <num>37,679</num>Number of Gold Badges: <num>10</num>Number of Silver Badges: <num>70</num>Number of Bronze Badges: <num>115</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Lekensteyn" url="http://stackoverflow.com/users/427545/lekensteyn">
+        <signatureContent>
+          <p>Reputation: <num>31,584</num>Number of Gold Badges: <num>7</num>Number of Silver Badges: <num>82</num>Number of Bronze Badges: <num>119</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="mario" url="http://stackoverflow.com/users/345031/mario">
+        <signatureContent>
+          <p>Reputation: <num>101,066</num>Number of Gold Badges: <num>12</num>Number of Silver Badges: <num>131</num>Number of Bronze Badges: <num>214</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Gordon" url="http://stackoverflow.com/users/208809/gordon">
+        <signatureContent>
+          <p>Reputation: <num>204,655</num>Number of Gold Badges: <num>49</num>Number of Silver Badges: <num>380</num>Number of Bronze Badges: <num>442</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Gordon" url="http://stackoverflow.com/users/208809/gordon">
+        <signatureContent>
+          <p>Reputation: <num>204,655</num>Number of Gold Badges: <num>49</num>Number of Silver Badges: <num>380</num>Number of Bronze Badges: <num>442</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2011-04-26 09:40:14Z" who="Pekka" revisedWhen="2011-04-26 10:11:19Z" upVote="30" accepted="favorite"><p>Is/VBZ there/EX a/DT known/JJ XSS/ACR or/CC other/JJ attack/NN that/WDT makes/VBZ it/PRP past/JJ a/DT
+
+            $/COB =/COB "/COB some/COB HTML/COB code/COB "/COB ;/COB
+        $/COB content/COB =/COB strip_tags/COB (/COB $/COB content/COB )/COB ;/COB
+
+        echo/COB $/COB content/COB ;/COB
+        ?/COB
+
+            The/DT manual/NN has/VBZ a/DT warning/NN :/:
+
+            This/DT function/NN does/VBZ not/RB modify/VB any/DT attributes/NNS on/IN the/DT tags/NNS that/WDT you/PRP allow/VBP using/VBG allowable_tags/COS ,/, including/VBG the/DT style/NN and/CC onmouseover/NN attributes/NNS that/WDT a/DT mischievous/JJ user/NN may/MD abuse/VB when/WRB posting/VBG text/NN that/WDT will/MD be/VB shown/VBN to/TO other/JJ users/NNS ./.
+            but/CC that/WDT is/VBZ related/JJ to/TO using/VBG the/DT allowable_tags/COS parameter/NN only/RB ./.
+
+            With/IN no/DT allowed/JJ tags/NNS set/VB ,/, is/VBZ strip_tags/COS (/COS )/COS vulnerable/JJ to/TO any/DT attack/NN ?/.
+
+            Chris/NNP Shiflett/NNP seems/VBZ to/TO say/VB it/PRP 's/VBZ safe/JJ :/:
+
+            Use/VBP Mature/JJ Solutions/NNS
+
+            When/WRB possible/JJ ,/, use/VBP mature/JJ ,/, existing/JJ solutions/NNS instead/RB of/IN trying/VBG to/TO create/VB your/PRP$ own/JJ ./. Functions/NNS like/IN strip_tags/COS (/COS )/COS and/CC htmlentities/COS (/COS )/COS are/VBP good/JJ choices/NNS ./.
+            is/VBZ this/DT correct/JJ ?/. Please/VB if/IN possible/JJ ,/, quote/VBP sources/NNS ./.
+
+            I/PRP know/VBP about/IN HTML/NNP purifier/NN ,/, htmlspecialchars/COS (/COS )/COS etc./FW m/FW -/: I/PRP am/VBP not/RB looking/VBG for/IN the/DT best/JJ method/NN to/TO sanitize/VB HTML/NNP ./. I/PRP just/RB want/VB to/TO know/VB about/IN this/DT specific/JJ issue/NN ./. This/DT is/VBZ a/DT theoretical/JJ question/NN that/WDT came/VBD up/RP here/RB ./.
+
+            Reference/NN :/: strip_tags/COS (/COS )/COS implementation/NN in/IN the/DT PHP/ACR source/NN code/NN<tag>php</tag><tag>strip-tags</tag><tag>xss</tag><tag>security</tag><tag>html</tag></p></post>
+      </div>
+       <div type="response">
+        <post who="Damon" when="2011-04-26 09:46:01Z" indentLevel="1" upVote="1">
+            <p>Well/UH ,/, no/DT arguments/NNS given/VBN ,/, it/PRP strips/VBZ out/RP all/DT tags/NNS ,/, so/IN I/PRP do/VBP n't/RB see/VB how/WRB there/EX could/MD be/VB any/DT exploit/NN ./. The/DT worst/JJ thing/NN to/TO happen/VB would/MD be/VB someone/NN feeding/VBG you/PRP invalid/JJ markup/NN (/( no/DT closing/JJ tags/NNS )/) ,/, but/CC this/DT worst/JJS case/NN will/MD simply/RB mean/VB that/WDT strip_tags/COS strips/NNS out/RP a/DT lot/NN more/JJR text/NN ./.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Pekka" when="2011-04-26 09:46:01Z" indentLevel="1">
+            <p>@Gordon/ATS thanks/VBZ ,/, but/CC I/PRP mean/VBP a/DT whole/JJ chunk/NN of/IN HTML/ACR data/NN only/RB ,/, so/IN no/DT injected/JJ file/NN names/NNS etc./FW (/( which/WDT if/IN I/PRP understand/VBP it/PRP right/JJ ,/, is/VBZ what/WDT the/DT forum/NN entry/NN is/VBZ discussing/VBG ./. )/) as/IN far/RB as/IN I/PRP can/MD see/VB ,/, the/DT thread/NN does/VBZ n't/RB prove/VB a/DT vulnerability/NN in/IN strip_tags/COS (/COS )/COS ,/, but/CC goes/VBZ on/IN to/TO recommend/VB htmlspecialchars/COS (/COS )/COS -/: which/WDT is/VBZ what/WP I/PRP usually/RB do/VB as/IN well/RB ,/, but/CC I/PRP want/VBP to/TO know/VB whether/IN it/PRP 's/VBZ really/RB necessary/JJ</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Lekensteyn" when="2011-04-26 09:47:01Z" indentLevel="1">
+            <p>You/PRP can/MD check/VB the/DT way/NN strip_tags/COS works/VBZ by/IN looking/VBG at/DT the/DT implementation/NN ./.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Pekka" when="2011-04-26 09:47:01Z" indentLevel="1">
+            <p>@Lekensteyn/ATS thanks/VBZ ,/, I/PRP 'll/MD add/VB that/DT to/TO the/DT question/NN</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="mario" when="2011-04-26 09:50:01Z" indentLevel="1" upVote="2">
+            <p>htmlpurifier.org/comparison#striptags/URL is/VBZ a/DT bit/NN more/JJR dismissive/JJ ./. It/PRP probably/RB goes/VBZ without/IN saying/VBG ,/, but/CC needs/VBZ repeating/VBG for/IN the/DT newcomers/NNS :/: If/IN striptags/COS is/VBZ safe/JJ depends/VBZ on/IN the/DT context/NN ./. If/IN the/DT output/NN ends/VBZ up/RP in/IN attributes/NNS ,/, then/RB no/RB ./. Only/RB if/IN the/DT stripped/JJ content/NN goes/VBZ into/IN a/DT page/NN body/NN ,/, then/RB it/PRP 's/VBZ okay/JJ ./, (/( And/CC for/IN that/WDT it/PRP 's/VBZ indeed/RB sufficient/JJ ./. )/)</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Gordon" when="2011-04-26 09:59:01Z" indentLevel="1">
+            <p>possible/JJ duplicate/NN of/IN PHP/ACR :/: Prevent/VBP XSS/ACR with/IN strip_tags/COS (/COS )/COS ?/.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Pekka" when="2011-04-26 10:10:01Z" indentLevel="1">
+            <p>@Gordon/ATS thanks/VBZ for/IN the/DT dupe/NN ,/, but/CC the/DT question/NN is/VBZ n't/RB answered/VBN in/IN that/DT one/CD ,/, either/RB :)/EMO</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Gordon" when="2011-04-26 10:16:01Z" indentLevel="1">
+            <p>@Pekka/ATS well/UH ,/, what/WDT do/VB you/PRP expect/VBP in/IN an/DT answer/NN ?/. You/PRP basically/RB asked/VBN a/DT Yes/UH //: No/UH question/NN ,/, to/TO which/WDT at/IN least/JJ I/PRP would/MD only/RB be/VB able/JJ to/TO reply/VB :/: "/" To/TO my/PRP$ knowledge/NN strip_tags/COS is/VBZ secure/JJ ./. "/" but/CC who/WP am/VBP I/PRP to/TO claim/VB that/WDT I/PRP know/VBP each/DT and/CC every/DT XSS/ACR attack/NN out/RB there/EX ./. @Lekensteyn/ATS probably/RB answered/VBD it/PRP best/JJS by/IN telling/VBG you/PRP to/TO look/VB at/IN the/DT implementation/NN and/CC draw/VBP conclusions/NNS from/IN that/DT ./.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Pekka" when="2011-04-26 10:16:01Z" indentLevel="1">
+            <p>@Gordon/ATS fair/JJ enough/JJ ./. I/PRP guess/VBP if/IN there/EX were/VBD known/JJ vulnerabilities/NNS ,/, they/PRP would/MD be/VB fixed/VBN -/: at/IN least/JJ there/EX was/VBD one/CD in/IN 2004/CD that/WDT seems/VBZ to/TO have/VB been/VBN fixed/VBN right/JJ away/RB ./.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Gordon" when="2011-04-26 10:16:01Z" indentLevel="1">
+            <p>@Pekka/ATS packetstormsecurity.org/search/?q=strip_tags/URL</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Lekensteyn" when="2011-04-26 16:35:12Z" upVote="27" accepted="accepted">
+            <p>As/IN it/PRP s/POS name/NN may/MD suggest/VB ,/,  strip_tags/COS  should/MD remove/VB all/DT HTML/ACR tags/NNS ./. The/DT only/RB way/NN we/PRP can/MD proof/VB it/PRP is/VBZ by/IN analyzing/VBG the/DT source/NN code/NN ./. The/DT next/JJ analysis/NN applies/VBZ to/TO a/DT  strip_tags/COS (/( '/" .../. '/" )/)  call/NN ,/, without/IN a/DT second/JJ argument/NN for/IN whitelisted/JJ tags/NNS ./. First/RB at/IN all/DT, some/DT theory/NN about/IN HTML/ACR tags/NNS :/: a/DT tag/NN starts/VBZ with/IN a/DT  &lt;/COS  followed/VBN by/IN non-whitespace/JJ characters/NNS ./. If/IN this/DT string/NN starts/VBZ with/IN a/DT  ?/. ,/, it/PRP should/MD not/RB be/VB parsed/VBN ./. If/IN this/DT string/NN starts/VBZ with/IN a/DT  !/. -/: -/: ,/, it/PRP 's/VBZ considered/VBN a/DT comment/NN and/CC the/DT following/JJ text/NN should/MD neither/RB be/VB parsed/VBN ./. A/DT comment/NN is/VBZ terminated/VBD with/IN a/DT  -/: -/: &gt;/COS ,/, inside/IN such/JJ a/DT comment/NN ,/, characters/NNS like/IN  &lt;/COS  and/CC  &gt;/COS  are/VBP allowed/JJ ./. Attributes/NNS can/MD occur/VB in/IN tags/NNS ,/, their/PRP$ values/NNS may/MD optionally/RB be/VB surrounded/VBN by/IN a/DT quote/NN character/NN (/( '/"  or/CC  "/" )/) ./. If/IN such/JJ a/DT quote/NN exist/VB ,/, it/PRP must/MD be/VB closed/VBN ,/, otherwise/RB if/IN a/DT  &gt;/COS  is/VBZ encountered/VBN ,/, the/DT tag/NN is/VBZ not/RB closed/VBN ./. The/DT code/NN  &lt;/COS a/DT href/COB =/COB "/COB example/COB &gt;/COB xxx/COB &lt;/COB //COB a/COB &gt;/COB &lt;/COB a/COB href/COB =/COB "/COB second/COB "/COB &gt;/COB text/COB &lt;/COB //COB a/COB &gt;/COB is/VBZ interpreted/VBN in/IN Firefox/NN as/IN :/: The/DT PHP/ACR function/NN  strip_tags/COS  is/VBZ referenced/VBN in/IN  line/NN 4036/CD of/IN ext/NN //: standard/NN //: string/NN ./. c/FW ./. That/DT function/NN calls/VBZ the/DT  internal/JJ function/NN php_strip_tags_ex/COS ./. Two/CD buffers/NNS exist/VBP ,/, one/CD for/IN the/DT output/NN ,/, the/DT other/NNP for/IN "/" inside/IN HTML/ACR tags/NNS "/" ./. A/DT counter/NN named/VBN  depth/NNP  holds/VBZ the/DT number/NN of/IN open/JJ angle/NN brackets/NNS (/( &lt;/COS )/) ./. 
+                The/DT variable/NN  in_q/COS  contains/VBZ the/DT quote/NN character/NN (/( '/"  or/CC  "/" )/) if/IN any/DT ,/, and/CC  0/CD  otherwise/RB ./. The/DT last/JJ character/NN is/VBZ stored/VBN in/IN the/DT variable/NN  lc/NNP ./. The/DT functions/NNS holds/VBZ five/CD states/NNS ,/, three/CD are/VBP mentioned/VBN in/IN the/DT description/NN above/IN the/DT function/NN ./. Based/VBN on/IN this/DT information/NN and/CC the/DT function/NN body/NN ,/, the/DT following/JJ states/NNS can/MD be/VB derived/VBN :/: We/PRP need/VBP just/RB to/TO be/VB careful/JJ that/WDT no/DT tag/NN can/MD be/VB inserted/VBN ./. That/WDT is/VBZ ,/,  &lt;/COS  followed/VBN by/IN a/DT non-whitespace/JJ character/NN ./.  Line/NN 4326/CD  checks/VBZ an/DT case/NN with/IN the/DT  &lt;/COS  character/NNS which/WDT is/VBZ described/VBN below/IN :/: If/IN  &gt;/COS  is/VBZ met/VBN while/IN the/DT tag/NN is/VBZ open/JJ (/( state/COS =/COS =/COS 1/COS )/) ,/,  in_q/COS  becomes/VBZ  0/CD  (/( "/" not/RB in/IN a/DT quote/NN "/" )/) and/CC  state/NN  becomes/VBZ  0/CD  (/( "/" not/RB in/IN a/DT tag/NN "/" )/) ./.  The/DT tag/NN buffer/NN is/VBZ discarded/VBN ./. Attribute/NN checks/NNS (/( for/IN characters/NNS like/IN  '/"  and/CC  "/" )/) are/VBP done/VBN on/IN the/DT tag/NN buffer/NN which/WDT is/VBZ discarded/VBN ./. So/IN the/DT conclusion/NN is/VBZ :/:   By/IN "/"
+                outside/JJ tags/NNS "/" ,/, I/PRP mean/VBP not/RB in/IN tags/NNS as/IN in/IN  &lt;/COS a/DT href/COB =/COB "/COB in/COB tag/COB "/COB &gt;/COB outside/COB  tag/COB &lt;/COB //COB a/COB &gt;/COB ./. Text/NN may/MD contain/VB  &lt;/COS  and/CC  &gt;/COS  though/IN ,/, as/IN in/IN  &gt;/COS &lt;/COS a/DT &gt;/COS &gt;/COS ./. The/DT result/NN is/VBZ not/RB valid/JJ HTML/ACR though/IN ,/,  &lt;/COS ,/,  &gt;/COS  and/CC  &amp;/COS  need/VB still/RB to/TO be/VB escaped/VBN ,/, especially/RB the/DT  &amp;/COS ./. That/WDT can/MD be/VB done/VBN with/IN  htmlspecialchars/COS (/COS )/COS ./. The/DT description/NN for/IN  strip_tags/COS  without/IN an/DT whitelist/JJ argument/NN would/MD be/VB :/:</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Matthew" when="2011-04-26 16:54:11Z" upVote="5">
+            <p>I/PRP cannot/RB predict/VB future/JJ exploits/NNS ,/, especially/RB since/IN I/PRP have/VBP n't/RB looked/VBN at/IN the/DT PHP/ACR source/NN code/NN for/IN this/DT ./. However/RB ,/, there/EX have/VBP been/VBN exploits/NNS in/IN the/DT past/NN due/JJ to/TO browsers/NNS accepting/VBG seemingly/RB invalid/JJ tags/NNS (/( like/IN &lt;/COS s/COS \/COS 0/COS cript/COS >COS )/) ./. So/IN it/PRP 's/VBZ possible/JJ that/WDT in/IN the/DT future/NN someone/NNP might/MD be/VB able/JJ to/TO exploit/VB odd/JJ browser/NN behavior/NN ./.
+
+                That/DT aside/RB ,/, sending/VBG the/DT output/NN directly/RB to/TO the/DT browser/NN as/IN a/DT full/JJ block/NN of/IN HTML/ACR should/MD never/RB be/VB insecure/JJ :/: 
+
+                echo//COB '/COB &lt;/COB div/COB >/COB '/COB ./COB strip_tags/COB (/COB $/COB foo/COB )/COB ./COB '/COB &lt;/COB //COB div/COB >/COB '/COB
+                However/RB ,/, this/DT is/VBZ not/RB safe/JJ :/:
+
+          echo/COB '/COB &lt;/COB input/COB value/COB =/COB "/COB '/COB ./COB strip_tags/COB (/COB $/COB foo/COB )/COB ./COB '/COB "/COB //COB >/COB '/COB ;/COB
+                because/IN one/CD could/MD easily/RB end/VB the/DT quote/NN via/IN "/" and/CC insert/VBP a/DT script/NN handler/NN ./.
+
+                I/PRP think/VBP it/PRP 's/VBZ much/RB safer/JJR to/TO always/RB convert/VB stray/JJ &lt;/COS into/IN &lt;/COS (/( and/CC the/DT same/JJ with/IN quotes/NNS )/) ./.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="kemus" when="2011-04-26 10:08:48Z" upVote="2">
+            <p>Strip/NN tags/NNS is/VBZ perfectly/RB safe/JJ -/: if/IN all/DT that/WDT you/PRP are/VBP doing/VBG is/VBZ outputting/VBG the/DT text/NN to/TO the/DT html/ACR body/NN ./. It/PRP is/VBZ not/RB necessarily/RB safe/JJ to/TO put/VB it/PRP into/IN mysql/COS or/CC url/NN attributes/NNS ./.</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>

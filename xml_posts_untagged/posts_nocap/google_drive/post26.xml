@@ -1,0 +1,180 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>SQL injection single quote Vulnerability</title>
+        <author>Nimrodx</author>
+      </titleStmt>
+      <sourceDesc>
+        <p> Pulled from StackOverflow: http://stackoverflow.com/questions/32142414/sql-injection-single-quote-vulnerability</p>
+      </sourceDesc>
+    </fileDesc>
+    <listPerson>
+      <person xml:id="Nimrodx" url="http://stackoverflow.com/users/3419216/nimrodx">
+        <signatureContent>
+          <p>Reputation: <num>404</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>3</num>Number of Bronze Badges: <num>13</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Xiaoy312" url="http://stackoverflow.com/users/561113/xiaoy312">
+        <signatureContent>
+          <p>Reputation: <num>5,186</num>Number of Gold Badges: <num>1</num>Number of Silver Badges: <num>9</num>Number of Bronze Badges: <num>28</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="Guffa" url="http://stackoverflow.com/users/69083/guffa">
+        <signatureContent>
+          <p>Reputation: <num>424k</num>Number of Gold Badges: <num>53</num>Number of Silver Badges: <num>384</num>Number of Bronze Badges: <num>697</num></p>
+        </signatureContent>
+      </person>
+      <person xml:id="programmer117" url="http://stackoverflow.com/users/4800891/programmer117">
+        <signatureContent>
+          <p>Reputation: <num>100</num>Number of Gold Badges: <num>0</num>Number of Silver Badges: <num>2</num>Number of Bronze Badges: <num>12</num></p>
+        </signatureContent>
+      </person>
+    </listPerson>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="forum">
+        <post when="2015-08-21 14:06:24Z" who="Nimrodx" revisedBy="sstan" revisedWhen="2015-08-21 14:36:11Z" upVote="3" accepted="favorite"><p>Hello I'm security testing a website I'm working on. Some developer tried to avoid SQL injection by replacing every single quote with double quotes. This is the C# code:
+
+string sql = 
+  @"SELECT *
+      FROM users
+     WHERE us_username = '$us'
+       AND us_password = '$pw'";    
+
+sql.Replace("$pw", txtPassword.Text.Replace("'","''"));
+
+Is there any way that I can perform a SQL injection attack? I've tried the Unicode trick but it didn't work. The database runs on SQL Server 2008R2.
+<tag>c#</tag><tag>code-injection</tag><tag>sql-injection</tag><tag>sql-server</tag><tag>sql</tag></p></post>
+      </div>
+       <div type="response">
+        <post who="Marc B" when="2015-08-21 14:10:18Z" indentLevel="1" upVote="9">
+          <p>probably yes, but instead of trying to figure out how, you should just execute the developer with a wet noodle, and redo their code to use to proper methods which are already injection-proof. go with the 100% solution instead of 99.9% "maybe".</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Nimrodx" when="2015-08-21 14:17:18Z" indentLevel="1">
+          <p>Yeah you are probably right but I wont get the time to fix it, except when I can hack it and proof its weakness.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="sstan" when="2015-08-21 14:18:18Z" indentLevel="1" upVote="1">
+          <p>No single quotes is allowed, Is this SQL Injection point still exploitable?</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="sstan" when="2015-08-21 14:20:18Z" indentLevel="1">
+          <p>As already stated, the answer is probably yes. If you're looking for someone to provide proof, you may want to specify which database you are using, as the exploits will differ depending on the database.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="Nimrodx" when="2015-08-21 14:29:18Z" indentLevel="1">
+          <p>@sstan I added the database specifications, SQL Server 2008 R2. And the value of the txtPassword textbox comes from a classic ASP.net webforms textbox.</p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="sstan" when="2015-08-21 15:19:18Z" indentLevel="1">
+          <p>I think this is the closest to an answer as you will find in this case: stackoverflow.com/questions/12235262/… </p>
+        </post>
+      </div>
+       <div type="response">
+        <post who="KM." when="2015-08-21 16:16:18Z" indentLevel="1">
+          <p>the entire "unless you can hack it, then it is good" reasoning is flawed. Parametrized queries exist for a reason, use them or assume the risk of a vulnerability being exposed.</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Xiaoy312" when="2015-08-21 14:17:36Z" upVote="6" accepted="accepted">
+          <p>You should use parameterized command instead. Using string.Replace is just a bad idea.
+
+var command = conn.CreateCommand();
+command.CommandText = @"SELECT *
+        FROM users
+        WHERE us_username = @user
+        AND us_password = @password";
+cmd.Parameters.Add("@user", txtUser.Text);
+cmd.Parameters.Add("@password", txtPassword.Text);
+
+This might be a potential candidate for your setup :
+
+    As an example, note the following trivial Stored Procedure:
+    create procedure GetData ( @param varchar(20) ) as
+    begin
+    declare @s varchar(200)
+    select @s = 'select * from dataTable where name = ''' + @param + ''''
+    exec (@s)
+    end
+
+    This SP may be called from a Web page, which executes validation code before passing the input to the SP. At a minimum, this validation code either verifies that the input does not contain a quote, or sanitizes it to double any existing quote. For instance, the validation code may be using string.Contains(), string.Replace(), Regular expressions, etc. It is also possible that this Web page is behind a finely-tuned Web Application Firewall that validates all input and verifies that no quotes are included. A malicious user or attacker can submit malicious code containing a modifier letter apostrophe (U+02BC, URL encoded to %CA%BC). This will easily pass applicative validation code and WAF filters, since these search for an actual quote (U+0027) which does not exist in the input at this time. Obviously, IDS/IPS systems would also not detect anything amiss. The validation mechanisms may even search for various encodings of a quote, such as URL Encoding, UTF-8 encoding, Hex encoding, double encoding, and more – however, U+02BC is none of these, and is in fact a completely different character value.
+    And this is where the interesting (or scary) part starts – the Unicode homoglyph translation is not limited to base alphabet characters... Specifically, the Unicode character U+02BC (modifier letter apostrophe) can be translated by the database server to a simple quote – ' (U+0027). There are, of course, many other similar examples.
+
+    Source : http://web.archive.org/web/20130401091931/http://www.comsecglobal.com/FrameWork/Upload/SQL_Smuggling.pdf
+    </p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Marc B" when="2015-08-21 14:19:18Z" indentLevel="1" upVote="1">
+          <p>that's not what OP is ask. good suggestion, but not what the question's about.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Nimrodx" when="2015-08-21 14:30:05Z" indentLevel="1" upvote="1">
+          <p>Indeed I need the exploit, not the fix. Thanks anyway.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Xiaoy312" when="2015-08-21 14:40:58Z" indentLevel="1">
+          <p>I've updated my answer.</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Nimrodx" when="2015-08-21 15:06:49Z" indentLevel="1">
+          <p>Thanks for the update, i tried the entering the following in the textbox but it didn't work: \u0027 or \u00271\u0027=\u00271 The string in C# looks like this: password = '\"\\u0027 or \\u00271\\u0027=\\u00271\"'</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="Guffa" when="2015-08-21 15:39:43Z" upVote="2">
+          <p>The code for that partical query is safe from SQL injection, but only when used with a certain databases. Each system has its own set of characters that needs escaping, so if you use that with for example MySQL then it's not safe. Other queries might not be safe.
+
+The code should be replaced nevertheless as it is broken. As you need to fix the code you should also change it to using parameterised queries, which is a more robust and portable solution.
+
+So, let's see what's broken. As the code is replacing one parameter at a time, they may interfer with each other. If I for example enter the user name has$$$pwnd and the password 1234 (yeah, weak password), you end up with a query that looks like:
+
+SELECT *
+  FROM users
+WHERE us_username = 'has$$1234nd'
+  AND us_password = '1234'
+
+If some values contain the codes that is used for parameters replaced after it, the values become broken.
+
+This could even be used to make an SQL injection in other queries in the code, if there are parameters of different types and the values are not properly verified. As values from one parameter can end up in another parameter, a string value could end up in a numeric parameter which doesn't have apostrophes around it, thus there is no need to sneak in an apostrophe to break out of a string literal to put harmful code in the query.
+</p>
+        </post>
+      </div>
+      <div type="response">
+        <post who="Nimrodx" when="2015-08-23 18:48:25Z" indentLevel="1">
+          <p>Thanks for pointing out the replacement bug and the numeric parameters. Great effort!</p>
+        </post>
+      </div>
+      <div type="answer">
+        <post who="programmer117" when="2015-08-21 16:05:06Z" upVote="-1">
+          <p>The best way to counter SQL Injection is to add parameters.
+
+   SqlCommand sql = new SqlCommand (@"SELECT *
+            FROM users
+            WHERE us_username = @user
+            AND us_password = @password")
+
+sql.Parameters.Add("@users", SqlDbType.Varchar2, 5).Value = "users"; 
+sql.Parameters.Add("@user", SqlDbType.Varchar2, 6).Value = "your_value";
+sql.Parameters.Add("@password", SqlDbType.Varchar2, 8).Value = "your_value";
+
+As you can see, you can do quite a bit to ensure what is being executed are the values that you want to only get executed.
+
+What the developer has coded will only alter the sql statement after the fact, which is good if they are logging this sql statement. What you have now however will not protect against Sql Injection.
+</p>
+        </post>
+      </div>
+    </body>
+  </text>
+</TEI>
